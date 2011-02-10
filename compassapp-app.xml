@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<application xmlns="http://ns.adobe.com/air/application/2.5"> 
+<application xmlns="http://ns.adobe.com/air/application/2.5">
     <id>example.html.compassapp</id> 
     <versionNumber>0.0.1</versionNumber> 
     <filename>compassapp</filename>
     <initialWindow> 
         <content>compassapp.html</content> 
         <visible>true</visible> 
-        <width>400</width> 
-        <height>400</height> 
+        <width>400</width>
+        <height>400</height>
     </initialWindow> 
     <supportedProfiles>extendedDesktop</supportedProfiles>
 </application>
