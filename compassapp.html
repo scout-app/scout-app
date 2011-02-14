@@ -13,8 +13,7 @@
 </head>
 
 <body>
-
-  <div id="list" data-role="page">
+  <div id="list" class="view" data-role="page">
 
     <div data-role="header">
       <h1>CompassApp</h1>
@@ -22,25 +21,39 @@
 
     <div data-role="content">
 
-      <ul data-role="listview">
-        <li>
-          <a href="#edit">Mayo Clinic</a>
+      <ul class="projects" data-icon="false">
+
+        <li class="ui-grid-a project">
+          <h2 class="ui-block-a"><a href="#edit">Mayo Clinic</a></h2>
+
+          <div class="ui-block-b options" data-role="controlgroup" data-type="horizontal">
+            <a href="" data-role="button" data-icon="arrow-r" data-iconpos="notext">Start Watching</a>
+            <a href="#log" data-role="button" data-icon="plus" data-iconpos="notext">Stop Watching</a>
+          </div>
+        </li>
+
+        <li class="ui-grid-a project">
+          <h2 class="ui-block-a"><a href="#edit">Eh2-Shell</a></h2>
+
+          <div class="ui-block-b options" data-role="controlgroup" data-type="horizontal">
+            <a href="" data-role="button" data-icon="arrow-r" data-iconpos="notext">Start Watching</a>
+            <a href="#log" data-role="button" data-icon="plus" data-iconpos="notext">Stop Watching</a>
+          </div>
         </li>
       </ul>
 
-      <div class="add_project">
-        <a href="#new" data-icon="plus" data-role="button" id="new-project">New Project</a>
+      <div class="new_project">
+        <a href="#new" id="new-project" data-icon="plus" data-role="button">New Project</a>
       </div>
     </div>
 
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
-
   </div> <!-- /#list -->
 
 
-  <div id="new" data-role="page">
+  <div id="new" class="view" data-role="page">
 
     <div data-role="header">
       <a href="#list" data-icon="back">Back</a>
@@ -49,24 +62,28 @@
 
     <div data-role="content">
       <form action="#" method="post">
+
         <label for="name">Project Name:</label>
-        <input type="text" name="name" id="name" value=""  />
+        <input type="text" name="name" id="name" value="" />
+
         <label for="input">SASS Directory:</label>
         <textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
+
         <label for="output">CSS Directory:</label>
         <textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
+
         <button>Save</button>
+        message to say it was saved and 
       </form>
     </div>
 
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
-
   </div> <!-- /#new-->
 
 
-  <div id="edit" data-role="page">
+  <div id="edit" class="view" data-role="page">
 
     <div data-role="header">
       <a href="#list" data-icon="back">Back</a>
@@ -76,16 +93,31 @@
     <div data-role="content">
       <form action="#" method="post">
         <label for="name">Project Name:</label>
-        <input type="text" name="name" id="name" value=""  />
+        <input type="text" name="name" id="name" value="Project Application" />
         <label for="input">SASS Directory:</label>
-        <textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
+        <textarea cols="40" rows="8" name="input" id="input">app/src/styles/..</textarea>
+        <ul>
+          <li>screen.scss</li>
+          <li>ie.scss</li>
+          <li>print.scss</li>
+          <li>partials</li>
+        </ul>
         <label for="output">CSS Directory:</label>
-        <textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
-        <button>Watch</button>
-        <button>Stop Watch</button>
+        <textarea cols="40" rows="8" name="output" id="output">app/public/styles/..</textarea>
+        <ul>
+          <li>screen.css</li>
+          <li>ie.css</li>
+          <li>print.css</li>
+        </ul>
+
+        <!-- <button>Watch</button>
+        <button>Stop Watch</button> -->
         <button>Clear CSS Directory</button>
-        <button>Save</button>
-        <button>Delete</button>
+
+        <div data-role="controlgroup" data-type="horizontal">
+          <button>Save</button>
+          <button>Delete</button>
+        </div>
       </form>
     </div>
 
@@ -95,5 +127,38 @@
   </div> <!-- /#edit -->
 
 
+  <div id="log" class="view" data-role="page">
+
+    <div data-role="header">
+      <a href="#list" data-icon="back">Back</a>
+      <h1>Console</h1>
+    </div>
+
+    <div data-role="content">
+      <ul>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+      </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h4>[m]</h4>
+    </div>
+  </div><!-- /#log -->
+  
 </body>
 </html>
