@@ -5,11 +5,14 @@
 
 @import "compass";
 
+/*jquery mobile styles - default*/
 @import "../partials/jquery.mobile-1.0a3.min";
 
+/*shell styles*/
 @import "../partials/shell/dark";
 @import "../partials/shell/light";
 
-@import "../partials/views/list";
+/*views styles*/
 @import "../partials/views/edit";
+@import "../partials/views/list";
 @import "../partials/views/new";
