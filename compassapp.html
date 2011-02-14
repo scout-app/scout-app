@@ -2,7 +2,12 @@
 <head> 
     <title>CompassApp</title>
 
-    <link rel="stylesheet" href="stylesheets/screen.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
+    <!-- <link rel="stylesheet" href="stylesheets/screen.css" /> -->
+    
+    <style>
+    #new-project {margin-top: 2em;}
+    </style>
 
     <script type="text/javascript" src="js/AIRAliases.js"></script>
     <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
@@ -14,30 +19,80 @@
 </head> 
 
 <body>
-  <div data-role="page">
+  <div id="list" data-role="page">
 
     <div data-role="header">
       <h1>CompassApp</h1>
     </div>
 
     <div data-role="content">
-      <h1>Compass</h1>
-
-      <div id="sass-target">
-        <p>Drag the sass executable here.</p>
-      </div>
-
-      <h2>Watch</h2>
-
-      <div id="watchtarget">
-        <p>Drag folder here.</p>
-      </div>
+      <ul data-role="listview">
+      	<li>
+      	  <a href="#edit">Mayo Clinic</a>
+      	</li>
+      </ul>
+      <a href="#new" data-icon="plus" data-role="button" id="new-project">New Project</a>
     </div>
 
-    <div data-role="footer">
+    <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
 
   </div>
+  
+  <div id="new" data-role="page">
+
+    <div data-role="header">
+      <a href="#list" data-icon="back">Back</a>
+      <h1>CompassApp</h1>
+    </div>
+
+    <div data-role="content">
+      <form action="#" method="post">
+        <label for="name">Project Name:</label>
+        <input type="text" name="name" id="name" value=""  />
+      	<label for="input">SASS Directory:</label>
+      	<textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
+      	<label for="output">CSS Directory:</label>
+      	<textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
+        <button>Save</button>
+      </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h4>[m]</h4>
+    </div>
+
+  </div>
+  
+  <div id="edit" data-role="page">
+
+    <div data-role="header">
+      <a href="#list" data-icon="back">Back</a>
+      <h1>CompassApp</h1>
+    </div>
+
+    <div data-role="content">
+      <form action="#" method="post">
+        <label for="name">Project Name:</label>
+        <input type="text" name="name" id="name" value=""  />
+      	<label for="input">SASS Directory:</label>
+      	<textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
+      	<label for="output">CSS Directory:</label>
+      	<textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
+      	<button>Watch</button>
+      	<button>Stop Watch</button>
+      	<button>Clear CSS Directory</button>
+        <button>Save</button>
+        <button>Delete</button>
+      </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h4>[m]</h4>
+    </div>
+
+  </div>
+  
 </body>
 </html>
