@@ -2,12 +2,7 @@
 <head> 
     <title>CompassApp</title>
 
-    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a3/jquery.mobile-1.0a3.min.css" />
-    <!-- <link rel="stylesheet" href="stylesheets/screen.css" /> -->
-    
-    <style>
-    #new-project {margin-top: 2em;}
-    </style>
+    <link rel="stylesheet" href="stylesheets/screen.css" />
 
     <script type="text/javascript" src="js/AIRAliases.js"></script>
     <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
@@ -19,6 +14,7 @@
 </head> 
 
 <body>
+
   <div id="list" data-role="page">
 
     <div data-role="header">
@@ -26,20 +22,24 @@
     </div>
 
     <div data-role="content">
+
       <ul data-role="listview">
-      	<li>
-      	  <a href="#edit">Mayo Clinic</a>
-      	</li>
+        <li>
+          <a href="#edit">Mayo Clinic</a>
+        </li>
       </ul>
-      <a href="#new" data-icon="plus" data-role="button" id="new-project">New Project</a>
+
+      <div class="add_project">
+        <a href="#new" data-icon="plus" data-role="button" id="new-project">New Project</a>
+      </div>
     </div>
 
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
+  </div> <!-- /#list -->
 
-  </div>
-  
+
   <div id="new" data-role="page">
 
     <div data-role="header">
@@ -51,10 +51,10 @@
       <form action="#" method="post">
         <label for="name">Project Name:</label>
         <input type="text" name="name" id="name" value=""  />
-      	<label for="input">SASS Directory:</label>
-      	<textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
-      	<label for="output">CSS Directory:</label>
-      	<textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
+        <label for="input">SASS Directory:</label>
+        <textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
+        <label for="output">CSS Directory:</label>
+        <textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
         <button>Save</button>
       </form>
     </div>
@@ -63,8 +63,9 @@
       <h4>[m]</h4>
     </div>
 
-  </div>
-  
+  </div> <!-- /#new-->
+
+
   <div id="edit" data-role="page">
 
     <div data-role="header">
@@ -76,13 +77,13 @@
       <form action="#" method="post">
         <label for="name">Project Name:</label>
         <input type="text" name="name" id="name" value=""  />
-      	<label for="input">SASS Directory:</label>
-      	<textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
-      	<label for="output">CSS Directory:</label>
-      	<textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
-      	<button>Watch</button>
-      	<button>Stop Watch</button>
-      	<button>Clear CSS Directory</button>
+        <label for="input">SASS Directory:</label>
+        <textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
+        <label for="output">CSS Directory:</label>
+        <textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
+        <button>Watch</button>
+        <button>Stop Watch</button>
+        <button>Clear CSS Directory</button>
         <button>Save</button>
         <button>Delete</button>
       </form>
@@ -91,8 +92,8 @@
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
+  </div> <!-- /#edit -->
 
-  </div>
-  
+
 </body>
 </html>
