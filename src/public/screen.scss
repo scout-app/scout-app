@@ -6,7 +6,10 @@
 @import "compass";
 
 @import "../partials/jquery.mobile-1.0a3.min";
-@import "../partials/style";
 
-@import "../partials/shell_dark";
-@import "../partials/shell_light";
+@import "../partials/shell/dark";
+@import "../partials/shell/light";
+
+@import "../partials/views/list";
+@import "../partials/views/edit";
+@import "../partials/views/new";
