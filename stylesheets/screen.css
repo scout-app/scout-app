@@ -2909,7 +2909,6 @@ span.ui-slider-label-b {
   margin-left: -1px;
 }
 
-/*shell styles*/
 /*views styles*/
 /* line 1, ../src/partials/views/edit.scss */
 #target {
@@ -2920,4 +2919,66 @@ span.ui-slider-label-b {
   width: 100%;
 }
 
-@import url(../partials/views/list.css);
+/* line 2, ../src/partials/views/list.scss */
+#list .projects {
+  margin: 1em;
+  padding: 0;
+  border: 1px solid #CCCCCC;
+  -moz-border-radius: 1em 1em 1em 1em;
+  overflow: hidden;
+}
+/* line 9, ../src/partials/views/list.scss */
+#list .projects .ui-grid-a {
+  padding: 10px;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: 0 1px 1px #F6F6F6;
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #CCCCCC;
+  background: -moz-linear-gradient(center top, #fefefe, #eeeeee) repeat scroll 0 0 #eeeeee;
+  color: #444444;
+  cursor: pointer;
+  list-style: none;
+  overflow: hidden;
+}
+/* line 22, ../src/partials/views/list.scss */
+#list .projects .ui-grid-a .options {
+  float: right;
+  width: 80px;
+}
+/* line 29, ../src/partials/views/list.scss */
+#list #new-project {
+  margin-top: 2em;
+}
+
+/*shell styles*/
+/*
+colors
+    • bg gray                - 2F2F2F
+    • border gray         - 171717
+    • a blue                  - 307EB6
+
+    • p gray                  - C6C6C6
+    • strong red           - FB292D
+    • em gold               - DADBB1
+    • h4 white              - FFFFFF
+*/
+/*Colors:
+    • strong red           - FB292D
+    • em gold               - DADBB1
+    • h4 white              - FFFFFF
+
+
+    • darkest shadow - 171717
+    • a blue                  - 84BCDE
+
+    • bg gray                - ECECEC
+    • bg box                 - E2E2E2
+    • border gray         - BBBBBB
+    • h4 dark                 - 222222
+    • p dark                   - 111111 (with white text shadow)
+*/
+/* line 16, ../src/partials/shell/light.scss */
+.ui-mobile-viewport {
+  background-color: #ECECEC;
+}
