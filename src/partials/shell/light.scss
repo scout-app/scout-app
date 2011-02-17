@@ -13,6 +13,25 @@
     • h4 dark                 - 222222
     • p dark                   - 111111 (with white text shadow)
 */
-.ui-mobile-viewport {
+body {
+  margin: 0;
+  padding: 0;
   background-color: #ECECEC;
+
+  .head {
+    padding: 18px 10px;
+    border-top: 1px solid #393737;
+    @include linear-gradient(color-stops(#696767, #453F3F 55%, #4a4242));
+    
+    h1 {
+      margin: 0;
+      padding: 0;
+      @include replace-text("/images/logo.png");
+      background-position: left center;
+    }
+  }
+  
+  .content {
+    border-top: 1px solid #FFFFFF;
+  }
 }
