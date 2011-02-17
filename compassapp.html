@@ -25,34 +25,81 @@
 
     <div class="content">
 
-      <ul class="projects">
+      <div class="projects_container">
 
-        <li class="project">
-          <h2><a href="/">Mayo Clinic</a></h2>
+        <div class="projects_wrapper">
+          <p class="drop_area_note">Drop Projects Here</p>
+          <ul class="projects">
+            <li class="project">
 
-          <div class="options">
-            <a href="/" class="button">Start Watching</a>
-            <a href="/" class="button">Stop Watching</a>
-          </div>
-        </li>
+              <div class="source">
 
-        <li class="project">
-          <h2><a href="/">Eh2-Shell</a></h2>
+                <h2><a href="/">Mayo Clinic</a></h2>
 
-          <div class="options">
-            <a href="/" class="button">Start Watching</a>
-            <a href="/" class="button">Stop Watching</a>
-          </div>
-        </li>
-      </ul>
+                <div class="compass_output_view">
+                  <h3>Output:</h3>
+                  <a href="" class="css_output_folder" title="Open CSS Folder"> - </a>
+                </div>
+              </div>
+
+              <div class="compass_commands">
+                <a href="/" class="command initialize" title="Initialize Compass in Current Project">Initialize</a>
+              </div>
+            </li>
+
+            <li class="project">
+
+              <div class="source">
+
+                <h2><a href="/">Hello World</a></h2>
+
+                <div class="compass_output_view">
+                  <h3>Output:</h3>
+                  <a href="" class="css_output_folder" title="Open CSS Folder">../public/css/</a>
+                </div>
+              </div>
+
+              <div class="compass_commands">
+                <a href="/" class="command start" title="Start Compass Watch">Start</a>
+                <a href="/" class="command console" title="Open Console Log">Console</a>
+                <a href="/" class="command scss_style disabled" title="Open SCSS Folder">SCSS Folder</a>
+              </div>
+            </li>
+
+            <li class="project">
+              
+              <div class="source">
+
+                <h2><a href="/">Eh2-Shell</a></h2>
+
+                <div class="compass_output_view">
+                  <h3>Output:</h3>
+                <a href="" class="css_output_folder" title="Open CSS Folder">../styles/css/</a>
+                </div>
+              </div>
+
+              <div class="compass_commands">
+                <a href="/" class="command stop" title="Stop Compass Watch">Stop</a>
+                <a href="/" class="command console" title="Open Console Log">Console</a>
+                <a href="/" class="command scss_style" title="Open SCSS Folder">SCSS Folder</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="project_options">
+          <a href="" class="option add" title="Add a project">+</a>
+          <a href="" class="option remove" title="Remove a project">-</a>
+        </div>
+
+      </div>
+
 
     </div>
-
-    <div class="footer">
-
-    </div>
-
   </div> <!-- /#list -->
+  <div class="footer">
+  </div>
+
 
 <!--
   <div id="list" class="view" data-role="page">
@@ -92,8 +139,8 @@
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
-  </div> <!-- /#list -->
--->
+  </div>--> <!-- /#list -->
+
 
 
 <!--
@@ -124,8 +171,8 @@
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
-  </div> <!-- /#new-->
--->
+  </div>--> <!-- /#new-->
+
 <!--
   <div id="edit" class="view" data-role="page">
 
@@ -168,8 +215,8 @@
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
-  </div> <!-- /#edit -->
--->
+  </div>--> <!-- /#edit -->
+
 <!--
   <div id="log" class="view" data-role="page">
 
@@ -202,7 +249,7 @@
     <div data-role="footer" data-position="fixed">
       <h4>[m]</h4>
     </div>
-  </div><!-- /#log -->
--->
+  </div>--> <!-- /#log -->
+
 </body>
 </html>

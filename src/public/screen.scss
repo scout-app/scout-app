@@ -7,14 +7,14 @@
  /*@import "../partials/jquery.mobile-1.0a3.min";*/
 
 @import "compass";
+@import "compass/reset";
+@import "compass/layout";
+
+/*shell styles*/
+/*#todo @import "../partials/shell/dark"; */
+@import "../partials/shell/light";
 
 /*views styles*/
 @import "../partials/views/list";
-/*@import "../partials/views/edit";*/
-/*@import "../partials/views/new";*/
-
-
-
-/*shell styles*/
-@import "../partials/shell/dark";
-@import "../partials/shell/light";
+/*#todo @import "../partials/views/edit"; */
+/*#todo @import "../partials/views/new";  */

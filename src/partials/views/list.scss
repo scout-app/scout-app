@@ -1,29 +1,144 @@
 #list {
-  .projects {
-    position: relative;
-    margin: 1em;
-    padding: 0;
-    border: 1px solid #9E9E9E;
-    -moz-border-radius: 1em 1em 1em 1em;
-    overflow: hidden;
+  .projects_container {
 
-    .project {
-      padding: 10px;
-      font-weight: bold;
-      text-decoration: none;
-      text-shadow: 0 1px 1px #F6F6F6;
-      -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-      border-bottom: 1px solid #FFFFFF;
-      border-bottom: 1px solid #CCCCCC;
-      background: -moz-linear-gradient(center top , #FEFEFE, #EEEEEE) repeat scroll 0 0 #EEEEEE;
-      color: #444444;
-      cursor: pointer;
-      list-style: none;
-      overflow: hidden;
+    .projects_wrapper {
+      position: relative;
+      @include linear-gradient( color-stops(#999999 .2%, #A5A5A5 3%, #dadada 100%), bottom);
 
-      .options {
-        float: right;
-        width: 80px;
+      .drop_area_note {
+        position: absolute;
+        left: 10px;
+        bottom: 10px;
+        padding: 3px 40px;
+        @include replace-text('../images/drop_area_note.png');
+      }
+
+      .projects {
+        height: 456px;
+        margin: 0;
+        padding: 0;
+        border: 1px solid #9E9E9E;
+        overflow-y: scroll;
+
+        .project {
+          margin: 0;
+          padding-right: 50px;
+          padding: 10px 9px;
+
+          text-decoration: none;
+          color: #444444;
+
+          background-color: #EFEFEF;
+          border-top: 1px solid #FFFFFF;
+          border-bottom: 1px solid #BCBCBC;
+          list-style: none;
+          overflow: hidden;
+          @include pie-clearfix;
+
+          .source {
+            @include float-left;
+            width: 60%;
+
+            h2 {
+              margin-bottom: .3em;
+
+              a {
+                font-size: 16px;
+                font-weight: 400;
+              }
+            }
+
+            .compass_output_view {
+              font-size: .6em;
+
+              h3 {
+                display: inline;
+                width: 100%;
+              }
+
+              .css_output_folder {
+                color: blue;
+                font-style: italic;
+                letter-spacing: .12em;
+              }
+            }
+          }
+
+          .compass_commands {
+            @include float-right;
+            width: 40%;
+            @include pie-clearfix;
+
+            .command {
+              @include float-right;
+              width: 20px;
+              margin-left: 5px;
+              background-position: center center;
+              background-repeat: no-repeat;
+
+              &.initialize {
+                width: 60px;
+                padding: 3px;
+                font-size: .9em;
+                text-decoration: none;
+                text-align: center;
+                text-shadow: 0 1px 1px #F6F6F6;
+                border: 1px solid #BEBEBE;
+                @include border-radius(6px, 6px);
+                @include linear-gradient( color-stops(#C5C5C5 1%, #D1D1D1 3%, #EDEDED 100%), bottom);
+              }
+
+              &.scss_style.disabled {
+                @include replace-text('/images/disabled_scss_folder.png');
+              }
+
+              &.scss_style {
+                @include replace-text('/images/scss_folder.png');
+              }
+
+              &.console {
+                @include replace-text('/images/log.png');
+              }
+
+              &.start {
+                @include replace-text('/images/watch.png');
+              }
+
+              &.stop {
+                @include replace-text('/images/stop.png');
+              }
+            }
+          }
+        }
+      }
+    }
+    
+    .project_options {
+      border-top: 1px solid #FFFFFF;
+      @include pie-clearfix;
+
+      .option {
+        @include float-left;
+        width: 15px;
+        padding: 6px;
+        font-size: .9em;
+        text-decoration: none;
+        text-align: center;
+        text-shadow: 0 1px 1px #F6F6F6;
+        background-color: #FFFFFF;
+        border: 1px solid #bebebe;
+        border-top: none;
+
+        &.add {
+          @include replace-text('/images/add.png');
+          @include border-bottom-left-radius( 3px);
+        }
+
+        &.remove {
+          @include replace-text('/images/remove.png');
+          @include border-bottom-right-radius( 3px);
+          border-left: none;
+        }
       }
     }
   }
