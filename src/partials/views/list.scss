@@ -37,6 +37,7 @@
           @include pie-clearfix;
 
           &:hover {
+            border-top: 1px solid #EDEDED;
             background-color: #DFDFDF;
           }
 
@@ -93,10 +94,10 @@
                 background-color: #F3F3F3;
                 border: 1px solid #C0C0C0;
                 @include border-radius(3px, 3px);
-                @include box-shadow(#FFFFFF, 0px, 1px, 0px, 0px, false);
+                @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
 
                 span {
-                  border-top: 1px solid #FFFFFF;
+                  border-top: 1px solid #EDEDED;
                   @include border-radius(3px, 3px);
                 }
               }
@@ -105,7 +106,7 @@
                 background-color: #C0C0C0;
                 border: 1px solid #B0B0B0;
                 @include border-radius(3px, 3px);
-                @include box-shadow(#FFFFFF, 0px, 1px, 0px, 0px, false);
+                @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
 
                 span {
                   border-top: 1px solid transparent;
