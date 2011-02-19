@@ -66,7 +66,6 @@ a img {
 }
 
 /*shell styles*/
-/*#todo @import "../partials/shell/dark"; */
 /*Colors:
     • strong red           - FB292D
     • em gold               - DADBB1
@@ -107,19 +106,19 @@ html, body {
   height: 36px;
 }
 
-/* line 18, ../src/partials/shell/light.scss */
+/* line 18, ../src/partials/shells/light.scss */
 body {
   margin: 0;
   padding: 0;
   background-color: #ECECEC;
 }
-/* line 24, ../src/partials/shell/light.scss */
+/* line 24, ../src/partials/shells/light.scss */
 body p,
 body a {
   font-family: Arial, sans-serif;
   font-weight: 400;
 }
-/* line 29, ../src/partials/shell/light.scss */
+/* line 29, ../src/partials/shells/light.scss */
 body a {
   color: #5a5a5a;
   text-decoration: none;
@@ -140,21 +139,21 @@ body a:active {
 body a:hover {
   text-decoration: underline;
 }
-/* line 36, ../src/partials/shell/light.scss */
+/* line 36, ../src/partials/shells/light.scss */
 body h1,
 body h2,
 body h3 {
   font-family: Helvetica, Arial, sans-serif;
 }
-/* line 40, ../src/partials/shell/light.scss */
+/* line 40, ../src/partials/shells/light.scss */
 body h1 {
   font-size: 24px;
 }
-/* line 43, ../src/partials/shell/light.scss */
+/* line 43, ../src/partials/shells/light.scss */
 body h2 {
   font-size: 18px;
 }
-/* line 48, ../src/partials/shell/light.scss */
+/* line 48, ../src/partials/shells/light.scss */
 body .view .head {
   padding: 9px 10px;
   border-top: 1px solid #393737;
@@ -162,7 +161,7 @@ body .view .head {
   background-image: -moz-linear-gradient(top, #696767 0%, #453f3f 55%, #4a4242 100%);
   background-image: linear-gradient(top, #696767 0%, #453f3f 55%, #4a4242 100%);
 }
-/* line 53, ../src/partials/shell/light.scss */
+/* line 53, ../src/partials/shells/light.scss */
 body .view .head h1 {
   margin: 0;
   padding: 9px 0;
@@ -174,16 +173,17 @@ body .view .head h1 {
   background-position: 50% 50%;
   background-position: left center;
 }
-/* line 61, ../src/partials/shell/light.scss */
+/* line 61, ../src/partials/shells/light.scss */
 body .view .content {
   padding: 12px 10px;
   border-top: 1px solid #FFFFFF;
 }
-/* line 66, ../src/partials/shell/light.scss */
+/* line 66, ../src/partials/shells/light.scss */
 body .view .content h2 a {
   text-decoration: none;
 }
 
+/*#todo @import "../partials/shells/dark"; */
 /*views styles*/
 /* line 4, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper {
@@ -203,7 +203,7 @@ body .view .content h2 a {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/../images/drop_area_note.png?1298041618');
+  background-image: url('../images/../images/drop_area_note.png?1298060186');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -242,38 +242,54 @@ body .view .content h2 a {
 #list .projects_container .projects_wrapper .projects .project:hover {
   border-top: 1px solid #EDEDED;
   background-color: #DFDFDF;
+  -moz-transition-property: background-color;
+  -webkit-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -moz-transition-duration: 0.25s;
+  -webkit-transition-duration: 0.25s;
+  -o-transition-duration: 0.25s;
+  transition-duration: 0.25s;
+  -moz-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -moz-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
 }
-/* line 44, ../src/partials/views/list.scss */
+/* line 45, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .source {
   display: inline;
   float: left;
   width: 60%;
 }
-/* line 48, ../src/partials/views/list.scss */
+/* line 49, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .source h2 {
   margin-bottom: .3em;
 }
-/* line 51, ../src/partials/views/list.scss */
+/* line 52, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .source h2 a {
   font-size: 16px;
   font-weight: 400;
 }
-/* line 57, ../src/partials/views/list.scss */
+/* line 58, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .source .compass_output_view {
   font-size: .6em;
 }
-/* line 60, ../src/partials/views/list.scss */
+/* line 61, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .source .compass_output_view h3 {
   display: inline;
   width: 100%;
 }
-/* line 65, ../src/partials/views/list.scss */
+/* line 66, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .source .compass_output_view .css_output_folder {
   color: #008BDF;
   font-style: italic;
   letter-spacing: .12em;
 }
-/* line 73, ../src/partials/views/list.scss */
+/* line 74, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands {
   display: inline;
   float: right;
@@ -289,7 +305,7 @@ body .view .content h2 a {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 78, ../src/partials/views/list.scss */
+/* line 79, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command {
   display: inline;
   float: right;
@@ -299,7 +315,7 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   border: 1px solid transparent;
 }
-/* line 86, ../src/partials/views/list.scss */
+/* line 87, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command span {
   display: block;
   padding: 4px 5px;
@@ -311,7 +327,7 @@ body .view .content h2 a {
   -khtml-border-radius: 3px / 3px;
   border-radius: 3px / 3px;
 }
-/* line 93, ../src/partials/views/list.scss */
+/* line 94, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command:hover {
   background-color: #F3F3F3;
   border: 1px solid #C0C0C0;
@@ -326,7 +342,7 @@ body .view .content h2 a {
   -o-box-shadow: #ededed 0px 1px 0px 0px;
   box-shadow: #ededed 0px 1px 0px 0px;
 }
-/* line 99, ../src/partials/views/list.scss */
+/* line 100, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command:hover span {
   border-top: 1px solid #EDEDED;
   -webkit-border-radius: 3px 3px;
@@ -336,7 +352,7 @@ body .view .content h2 a {
   -khtml-border-radius: 3px / 3px;
   border-radius: 3px / 3px;
 }
-/* line 105, ../src/partials/views/list.scss */
+/* line 106, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command:active {
   background-color: #C0C0C0;
   border: 1px solid #B0B0B0;
@@ -351,7 +367,7 @@ body .view .content h2 a {
   -o-box-shadow: #ededed 0px 1px 0px 0px;
   box-shadow: #ededed 0px 1px 0px 0px;
 }
-/* line 111, ../src/partials/views/list.scss */
+/* line 112, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command:active span {
   border-top: 1px solid transparent;
   -webkit-border-radius: 3px 3px;
@@ -361,7 +377,7 @@ body .view .content h2 a {
   -khtml-border-radius: 3px / 3px;
   border-radius: 3px / 3px;
 }
-/* line 117, ../src/partials/views/list.scss */
+/* line 118, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.disabled {
   border: 1px solid transparent;
   background-color: transparent;
@@ -371,11 +387,11 @@ body .view .content h2 a {
   -o-box-shadow: white 0px 0px 0px 0px;
   box-shadow: white 0px 0px 0px 0px;
 }
-/* line 123, ../src/partials/views/list.scss */
+/* line 124, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.disabled span {
   border-top: 1px solid transparent;
 }
-/* line 128, ../src/partials/views/list.scss */
+/* line 129, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.initialize {
   width: 60px;
   font-size: .9em;
@@ -399,7 +415,7 @@ body .view .content h2 a {
   -o-box-shadow: white 0px 1px 0px 0px;
   box-shadow: white 0px 1px 0px 0px;
 }
-/* line 143, ../src/partials/views/list.scss */
+/* line 144, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.initialize span {
   padding: 3px;
   -webkit-border-radius: 6px 6px;
@@ -410,21 +426,21 @@ body .view .content h2 a {
   border-radius: 6px / 6px;
   border-top: 1px solid #FFFFFF;
 }
-/* line 149, ../src/partials/views/list.scss */
+/* line 150, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.initialize:hover {
   background-color: #F3F3F3;
   border: 1px solid #C0C0C0;
 }
-/* line 154, ../src/partials/views/list.scss */
+/* line 155, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.initialize:active {
   background-color: #C0C0C0;
   border: 1px solid #B0B0B0;
 }
-/* line 158, ../src/partials/views/list.scss */
+/* line 159, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.initialize:active span {
   border-top: 1px solid transparent;
 }
-/* line 164, ../src/partials/views/list.scss */
+/* line 165, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.scss_style {
   text-indent: -119988px;
   overflow: hidden;
@@ -433,7 +449,7 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 167, ../src/partials/views/list.scss */
+/* line 168, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.scss_style.disabled {
   text-indent: -119988px;
   overflow: hidden;
@@ -442,7 +458,7 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 172, ../src/partials/views/list.scss */
+/* line 173, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.console {
   text-indent: -119988px;
   overflow: hidden;
@@ -451,7 +467,7 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 176, ../src/partials/views/list.scss */
+/* line 177, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.start {
   text-indent: -119988px;
   overflow: hidden;
@@ -460,7 +476,7 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 180, ../src/partials/views/list.scss */
+/* line 181, ../src/partials/views/list.scss */
 #list .projects_container .projects_wrapper .projects .project .compass_commands .command.stop {
   text-indent: -119988px;
   overflow: hidden;
@@ -469,7 +485,7 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 189, ../src/partials/views/list.scss */
+/* line 190, ../src/partials/views/list.scss */
 #list .projects_container .project_options {
   border-top: 1px solid #FFFFFF;
   *zoom: 1;
@@ -483,7 +499,7 @@ body .view .content h2 a {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 193, ../src/partials/views/list.scss */
+/* line 194, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option {
   display: inline;
   float: left;
@@ -502,26 +518,26 @@ body .view .content h2 a {
   -o-box-shadow: white 0px 1px 1px 0px;
   box-shadow: white 0px 1px 1px 0px;
 }
-/* line 207, ../src/partials/views/list.scss */
+/* line 208, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option span {
   display: block;
   padding: 6px;
   border-top: 1px solid #FFFFFF;
 }
-/* line 213, ../src/partials/views/list.scss */
+/* line 214, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option:hover {
   background-color: #F3F3F3;
 }
-/* line 217, ../src/partials/views/list.scss */
+/* line 218, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option:active {
   background-color: #C0C0C0;
   border: 1px solid #B0B0B0;
 }
-/* line 221, ../src/partials/views/list.scss */
+/* line 222, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option:active span {
   border-top: 1px solid transparent;
 }
-/* line 226, ../src/partials/views/list.scss */
+/* line 227, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option.add {
   -moz-border-radius-bottomleft: 6px;
   -webkit-border-bottom-left-radius: 6px;
@@ -530,7 +546,7 @@ body .view .content h2 a {
   -khtml-border-bottom-left-radius: 6px;
   border-bottom-left-radius: 6px;
 }
-/* line 229, ../src/partials/views/list.scss */
+/* line 230, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option.add span {
   text-indent: -119988px;
   overflow: hidden;
@@ -539,7 +555,7 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 234, ../src/partials/views/list.scss */
+/* line 235, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option.remove {
   -moz-border-radius-bottomright: 6px;
   -webkit-border-bottom-right-radius: 6px;
@@ -549,7 +565,7 @@ body .view .content h2 a {
   border-bottom-right-radius: 6px;
   border-left: none;
 }
-/* line 238, ../src/partials/views/list.scss */
+/* line 239, ../src/partials/views/list.scss */
 #list .projects_container .project_options .option.remove span {
   text-indent: -119988px;
   overflow: hidden;
@@ -558,10 +574,27 @@ body .view .content h2 a {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 246, ../src/partials/views/list.scss */
+/* line 247, ../src/partials/views/list.scss */
 #list #new-project {
   margin-top: 2em;
 }
 
 /*#todo @import "../partials/views/edit"; */
 /*#todo @import "../partials/views/new";  */
+/*events styles*/
+/* line 4, ../src/partials/events/dragDrop_addFiles.scss */
+#list .projects_container.hover .addhere {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  height: 100%;
+  width: 100%;
+  background-image: url("../images/drop_area_plate.png");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: #8A8A8A;
+  opacity: 0.8;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
+}
