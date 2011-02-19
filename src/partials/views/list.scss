@@ -39,6 +39,7 @@
           &:hover {
             border-top: 1px solid #EDEDED;
             background-color: #DFDFDF;
+            @include transition(background-color, .25s, ease-in, 0s);
           }
 
           .source {

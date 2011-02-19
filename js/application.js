@@ -1,7 +1,7 @@
 $(document).ready(function() {
   var target = document.getElementById('watchtarget');
   target.addEventListener("dragenter", dragEnterOverHandler);
-  target.addEventListener("dragover", dragEnterOverHandler);
+  target.addEventListener("dragover", dragOverHandler);
   target.addEventListener("drop", watchDropHandler);
   
   // var target = document.getElementById('sass-target');
@@ -18,8 +18,13 @@ $(document).ready(function() {
 //   //air.trace(event.type + ": " + event.dataTransfer.dropEffect); 
 // } 
 // 
-function dragEnterOverHandler(event){ 
-  event.preventDefault(); 
+function dragOverHandler(event) {
+  event.preventDefault();
+}
+
+function dragEnterOverHandler(event) { 
+  event.preventDefault();
+  $('.projects_container').addClass('hover');
 }
 
 // function sassDropHandler(event) { 
@@ -28,14 +33,15 @@ function dragEnterOverHandler(event){
 //   config.save(settings);
 // }
 
-function watchDropHandler(event) { 
+function watchDropHandler(event) {
+    $('.projects_container').removeClass('hover');
 // for(var prop in event){ 
-//   air.trace(prop + " = " + event[prop]); 
+//   air.trace(prop + " = " + event[prop]);
 // }
 
 // air.trace(event.dataTransfer); 
 
-  $('#watchtarget').append('<p>Folder found!'+event.dataTransfer.getData("text/uri-list")+'</p>');
+  // $('#watchtarget').append('<p>Folder found!'+event.dataTransfer.getData("text/uri-list")+'</p>');
 
 // file://localhost/Users/rmontgomery429/Projects/compassapp/sass/
 // need to remove file:://localhost and the trailing slash/
