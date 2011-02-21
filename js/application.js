@@ -4,6 +4,30 @@ $(document).ready(function() {
   target.addEventListener("dragover", dragOverHandler);
   target.addEventListener("drop", dropHandler);
   
+  var browse = $('.browse').click(function(){
+    var directory = air.File.documentsDirectory;
+
+    try
+    {
+        directory.browseForDirectory("Select Directory");
+        directory.addEventListener(air.Event.SELECT, directorySelected);
+    }
+    catch (error)
+    {
+        air.trace("Failed:", error.message)
+    }
+
+    function directorySelected(event) 
+    {
+        directory = event.target;
+        var files = directory.getDirectoryListing();
+        for(var i = 0; i < files.length; i++)
+        {
+            air.trace(files[i].name);
+        }
+    }
+  });
+  
   // var target = document.getElementById('sass-target');
   // target.addEventListener("dragenter", dragEnterOverHandler);
   // target.addEventListener("dragover", dragEnterOverHandler);
@@ -18,6 +42,8 @@ $(document).ready(function() {
 //   //air.trace(event.type + ": " + event.dataTransfer.dropEffect); 
 // } 
 // 
+
+
 
 function dragEnterHandler(event) {
   event.preventDefault();
