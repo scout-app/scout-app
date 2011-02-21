@@ -8,6 +8,8 @@
         <visible>true</visible> 
         <width>400</width>
         <height>606</height>
+        <minsize>310 606</minsize>
+        <maxsize>400 1000</minsize>
     </initialWindow> 
     <supportedProfiles>extendedDesktop</supportedProfiles>
 </application>
