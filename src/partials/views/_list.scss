@@ -16,15 +16,16 @@ body {
   right: 0;
   left: 0;
   overflow-y: auto;
+  background-color: #DFE4EA;
+  @include box-shadow(#B0B0B0, 0px, 0px, 12px, 0px, inset);
 
   .content {
     background-color: #C9C9C9;
-    @include box-shadow(#B0B0B0, 3px, -6px, 12px, 0px, inset);
 
     .drop_area_note {
       position: absolute;
       height: 30px;
-      z-index: -1;
+/*      z-index: 1;*/
       right: 0;
       left: 15px;
       bottom: 0;
@@ -32,16 +33,17 @@ body {
     }
 
     .projects {
+      position: relative;
       z-index: 100;
       margin: 0;
       padding: 0;
-      border: 1px solid #9E9E9E;
       overflow-y: auto;
 
       .project {
+        height: 40px;
         margin: 0;
         padding-right: 50px;
-        padding: 10px 9px;
+        padding: 10px 15px;
 
         text-decoration: none;
         color: #444444;
@@ -64,26 +66,12 @@ body {
           width: 60%;
 
           h2 {
-            margin-bottom: .3em;
+            margin-bottom: 0;
+            line-height: 40px;
 
             a {
-              font-size: 16px;
-              font-weight: 400;
-            }
-          }
-
-          .compass_output_view {
-            font-size: .6em;
-
-            h3 {
-              display: inline;
-              width: 100%;
-            }
-
-            .css_output_folder {
-              color: #008BDF;
-              font-style: italic;
-              letter-spacing: .12em;
+              font-size: 20px;
+              font-weight: 800;
             }
           }
         }
@@ -91,6 +79,7 @@ body {
         .compass_commands {
           @include float-right;
           width: 40%;
+          padding-top: 5px;
           @include pie-clearfix;
 
           .command {
@@ -144,19 +133,18 @@ body {
             }
 
             &.initialize {
-              width: 60px;
-              font-size: .9em;
+              width: auto;
+              padding: 0px 8px;
               text-decoration: none;
               text-align: center;
               text-shadow: 0 1px 1px #F6F6F6;
               color: #2C2C2C;
               border: 1px solid #BEBEBE;
               @include border-radius(6px, 6px);
-              background-image: url('../images/button.png');
               background-color: #E9E9E9;
               background-repeat: repeat-x;
               background-position: center bottom;
-              @include box-shadow(#FFFFFF, 0px, 1px, 0px, 0px, false);
+/*              @include box-shadow(#FFFFFF, 0px, 1px, 0px, 0px, false);*/
 
               span {
                 padding: 3px;
@@ -210,7 +198,6 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-/*  height: 25px;*/
   border-top: 1px solid #cacaca;
   @include pie-clearfix;
   @include linear-gradient(color-stops(#f7f7f7 0, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%));
