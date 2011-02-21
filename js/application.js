@@ -1,8 +1,8 @@
 $(document).ready(function() {
   var target = document.getElementById('watchtarget');
-  target.addEventListener("dragenter", dragEnterOverHandler);
-  target.addEventListener("dragover", dragEnterOverHandler);
-  target.addEventListener("drop", watchDropHandler);
+  target.addEventListener("dragenter", dragEnterHandler);
+  target.addEventListener("dragover", dragOverHandler);
+  target.addEventListener("drop", dropHandler);
   
   // var target = document.getElementById('sass-target');
   // target.addEventListener("dragenter", dragEnterOverHandler);
@@ -18,8 +18,18 @@ $(document).ready(function() {
 //   //air.trace(event.type + ": " + event.dataTransfer.dropEffect); 
 // } 
 // 
-function dragEnterOverHandler(event){ 
-  event.preventDefault(); 
+
+function dragEnterHandler(event) {
+  event.preventDefault();
+}
+
+function dragOverHandler(event){ 
+  event.preventDefault();
+}
+
+function dropHandler(event){ 
+  event.preventDefault();
+  $('#watchtarget').append('<p>'+event.dataTransfer.getData("text/uri-list")+'</p>');
 }
 
 // function sassDropHandler(event) { 
