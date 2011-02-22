@@ -6,12 +6,20 @@
 
     <script type="text/javascript" src="js/AIRAliases.js"></script>
     <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
+<<<<<<< HEAD
     <script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
     
     <script type="text/javascript" src="js/adaptors/LawnchairAdaptorHelpers.js"></script>    
     <script type="text/javascript" src="js/adaptors/AIRSqliteAdaptor.js"></script>
     <script type="text/javascript" src="js/Lawnchair.js"></script>
 
+=======
+    <script type="text/javascript" src="js/jquery.mobile-1.0a3.min.js"></script>
+<!--
+    <script type="text/javascript" src="js/Lawnchair.js"></script>
+    <script type="text/javascript" src="adaptors/AIRSqliteAdaptor.js"></script>
+-->
+>>>>>>> b1f19316bb86e0ed712ce79aef5dd357042d4c51
     <script type="text/javascript" src="js/application.js"></script>
     <script id="project-template" type="text/x-jquery-tmpl">
     <li class="project" data-key="${key}">
@@ -32,20 +40,167 @@
 </head>
 
 <body>
-  <div class="header">
-    <h1>CompassApp</h1>
-  </div>
-  <div id="list" class="view">
-    <div id="watchtarget" class="content">
-      <ul class="projects"></ul>
-      <div class="addhere"></div>
-      <p class="drop_area_note">Drop Projects Here</p>
+  <div id="test" class="view" data-role="page">
+    <div data-role="header">
+      <h1>CompassApp</h1>
     </div>
-    <button id="nuke">Nuke</button>
+    <div data-role="content">
+      <button class="browse">Open</button>
+      <div id="watchtarget">
+        Drag folders here.
+      </div>
+    </div>
+    <div data-role="footer" data-position="fixed">
+      <h4><a id="m" href="#">[m]</a></h4>
+    </div>
   </div>
-  <div class="footer">
-    <a href="#" class="option add" title="Add a project"><span>+</span></a>
-    <a href="#" class="option remove" title="Remove a project"><span>-</span></a>
-  </div>
+  
+  <div id="list" class="view" data-role="page">
+
+    <div data-role="header">
+      <h1>CompassApp</h1>
+    </div>
+
+    <div data-role="content">
+
+      <ul class="projects" data-icon="false">
+
+        <li class="ui-grid-a project">
+          <h2 class="ui-block-a"><a href="#edit">Mayo Clinic</a></h2>
+
+          <div class="ui-block-b options" data-role="controlgroup" data-type="horizontal">
+            <a href="" data-role="button" data-icon="arrow-r" data-iconpos="notext">Start Watching</a>
+            <a href="#log" data-role="button" data-icon="plus" data-iconpos="notext">Stop Watching</a>
+          </div>
+        </li>
+
+        <li class="ui-grid-a project">
+          <h2 class="ui-block-a"><a href="#edit">Eh2-Shell</a></h2>
+
+          <div class="ui-block-b options" data-role="controlgroup" data-type="horizontal">
+            <a href="" data-role="button" data-icon="arrow-r" data-iconpos="notext">Start Watching</a>
+            <a href="#log" data-role="button" data-icon="plus" data-iconpos="notext">Stop Watching</a>
+          </div>
+        </li>
+      </ul>
+
+      <div class="new_project">
+        <a href="#new" id="new-project" data-icon="plus" data-role="button">New Project</a>
+      </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h4>[m]</h4>
+    </div>
+  </div> <!-- /#list -->
+
+
+  <div id="new" class="view" data-role="page">
+
+    <div data-role="header">
+      <a href="#list" data-icon="back">Back</a>
+      <h1>CompassApp</h1>
+    </div>
+
+    <div data-role="content">
+      <form action="#" method="post">
+
+        <label for="name">Project Name:</label>
+        <input type="text" name="name" id="name" value="" />
+
+        <label for="input">SASS Directory:</label>
+        <textarea cols="40" rows="8" name="input" id="input">Drag your folder here...</textarea>
+
+        <label for="output">CSS Directory:</label>
+        <textarea cols="40" rows="8" name="output" id="output">Drag your folder here...</textarea>
+
+        <button>Save</button>
+        message to say it was saved and 
+      </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h4>[m]</h4>
+    </div>
+  </div> <!-- /#new-->
+
+
+  <div id="edit" class="view" data-role="page">
+
+    <div data-role="header">
+      <a href="#list" data-icon="back">Back</a>
+      <h1>CompassApp</h1>
+    </div>
+
+    <div data-role="content">
+      <form action="#" method="post">
+        <label for="name">Project Name:</label>
+        <input type="text" name="name" id="name" value="Project Application" />
+        <label for="input">SASS Directory:</label>
+        <textarea cols="40" rows="8" name="input" id="input">app/src/styles/..</textarea>
+        <ul>
+          <li>screen.scss</li>
+          <li>ie.scss</li>
+          <li>print.scss</li>
+          <li>partials</li>
+        </ul>
+        <label for="output">CSS Directory:</label>
+        <textarea cols="40" rows="8" name="output" id="output">app/public/styles/..</textarea>
+        <ul>
+          <li>screen.css</li>
+          <li>ie.css</li>
+          <li>print.css</li>
+        </ul>
+
+        <!-- <button>Watch</button>
+        <button>Stop Watch</button> -->
+        <button>Clear CSS Directory</button>
+
+        <div data-role="controlgroup" data-type="horizontal">
+          <button>Save</button>
+          <button>Delete</button>
+        </div>
+      </form>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h4>[m]</h4>
+    </div>
+  </div> <!-- /#edit -->
+
+
+  <div id="log" class="view" data-role="page">
+
+    <div data-role="header">
+      <a href="#list" data-icon="back">Back</a>
+      <h1>Console</h1>
+    </div>
+
+    <div data-role="content">
+      <ul>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+        <li>>>> Change detected to: /Users/Sung/Projects/compassapp/src/public/screen.scss</li>
+        <li>overwrite stylesheets/screen.css</li>
+      </ul>
+    </div>
+
+    <div data-role="footer" data-position="fixed">
+      <h4>[m]</h4>
+    </div>
+  </div><!-- /#log -->
+  
 </body>
 </html>
