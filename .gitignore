@@ -1,3 +1,5 @@
 .DS_Store
 .sass-cache
 stylesheets/.DS_Store
+cert.pfx
+vendor
