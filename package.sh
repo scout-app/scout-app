@@ -45,4 +45,4 @@ popd > /dev/null
 
 # STEP 3 - PACKAGE APP
 echo "Preparing to package app"
-adt -package -storetype pkcs12 -keystore cert.pfx -target native compassapp.dmg compassapp-app.xml .
+time adt -package -storetype pkcs12 -keystore cert.pfx -target native compassapp.dmg compassapp-app.xml .
