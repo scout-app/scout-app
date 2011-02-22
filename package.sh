@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/sh
 
 JRUBY=jruby-1.6.0.RC2
 JRUBY_TGZ=jruby-bin-1.6.0.RC2.tar.gz
@@ -9,12 +9,12 @@ MY_CERT="cert.pfx"
 
 # STEP 0 - ENSURE ADT 
 echo "Checking for ADT tools... \c"
-if [ -x `which adt` ] ; then 
-  echo "found" ; 
-else
-  echo "not found."
-  echo "YOU NEED TO INSTALL ADOBEs AIR SDK"
+which adt
+if [ $? -ne 0 ] ; then
+  echo "YOU NEED TO INSTALL ADOBE AIR SDK"
   exit 1
+else
+  echo "found"
 fi
 
 # STEP 1 - INSTALL CERTIFICATE
