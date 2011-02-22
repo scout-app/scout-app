@@ -44,7 +44,6 @@ body {
         margin: 0;
         padding-right: 50px;
         padding: 10px 15px;
-
         text-decoration: none;
         color: #444444;
 
@@ -151,7 +150,6 @@ body {
               background-repeat: repeat-x;
               background-position: center bottom;
 /*              @include box-shadow(#FFFFFF, 0px, 1px, 0px, 0px, false);*/
-
               span {
                 padding: 3px;
                 @include border-radius(6px, 6px);

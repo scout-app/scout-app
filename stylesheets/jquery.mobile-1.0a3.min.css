@@ -738,6 +738,7 @@ a.ui-link-inherit {
     background-image: url(images/icons-36-black.png);
   }
 }
+
 /* plus minus */
 /* line 590, ../src/jquery.mobile-1.0a3.min.scss */
 .ui-icon-plus {
@@ -2764,6 +2765,7 @@ ol.ui-listview .ui-li-jsnumbering:before {
     overflow: visible;
   }
 }
+
 /* * jQuery Mobile Framework
  * * Copyright (c) jQuery Project
  * * Dual licensed under the MIT (MIT-LICENSE.txt) or GPL (GPL-LICENSE.txt) licenses. */

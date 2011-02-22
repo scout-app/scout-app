@@ -145,7 +145,7 @@ body .header h1 {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/logo-compass-small-dark.png?1298402047');
+  background-image: url('../images/logo-compass-small-dark.png?1298417200');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-position: left center;
@@ -229,7 +229,7 @@ body {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/../images/drop_area_note.png?1298402047');
+  background-image: url('../images/../images/drop_area_note.png?1298417830');
   background-repeat: no-repeat;
   background-position: 0 0;
 }
@@ -265,11 +265,11 @@ body {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 58, ../src/partials/views/_list.scss */
+/* line 57, ../src/partials/views/_list.scss */
 #list .content .projects .project .config {
   display: none;
 }
-/* line 62, ../src/partials/views/_list.scss */
+/* line 61, ../src/partials/views/_list.scss */
 #list .content .projects .project:hover {
   border-top: 1px solid #EDEDED;
   background-color: #DFDFDF;
@@ -291,24 +291,24 @@ body {
   transition-delay: 0s;
   cursor: pointer;
 }
-/* line 69, ../src/partials/views/_list.scss */
+/* line 68, ../src/partials/views/_list.scss */
 #list .content .projects .project .source {
   display: inline;
   float: left;
   width: 60%;
 }
-/* line 73, ../src/partials/views/_list.scss */
+/* line 72, ../src/partials/views/_list.scss */
 #list .content .projects .project .source h2 {
   margin-bottom: 0;
   line-height: 40px;
 }
-/* line 77, ../src/partials/views/_list.scss */
+/* line 76, ../src/partials/views/_list.scss */
 #list .content .projects .project .source h2 a {
   color: #222;
   font-size: 20px;
   font-weight: 800;
 }
-/* line 85, ../src/partials/views/_list.scss */
+/* line 84, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands {
   display: inline;
   float: right;
@@ -325,7 +325,7 @@ body {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 91, ../src/partials/views/_list.scss */
+/* line 90, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command {
   display: inline;
   float: right;
@@ -335,7 +335,7 @@ body {
   background-repeat: no-repeat;
   border: 1px solid transparent;
 }
-/* line 99, ../src/partials/views/_list.scss */
+/* line 98, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command span {
   display: block;
   padding: 4px 5px;
@@ -347,7 +347,7 @@ body {
   -khtml-border-radius: 3px / 3px;
   border-radius: 3px / 3px;
 }
-/* line 106, ../src/partials/views/_list.scss */
+/* line 105, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command:hover {
   background-color: #F3F3F3;
   border: 1px solid #C0C0C0;
@@ -362,7 +362,7 @@ body {
   -o-box-shadow: #ededed 0px 1px 0px 0px;
   box-shadow: #ededed 0px 1px 0px 0px;
 }
-/* line 112, ../src/partials/views/_list.scss */
+/* line 111, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command:hover span {
   border-top: 1px solid #EDEDED;
   -webkit-border-radius: 3px 3px;
@@ -372,7 +372,7 @@ body {
   -khtml-border-radius: 3px / 3px;
   border-radius: 3px / 3px;
 }
-/* line 118, ../src/partials/views/_list.scss */
+/* line 117, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command:active {
   background-color: #C0C0C0;
   border: 1px solid #B0B0B0;
@@ -387,7 +387,7 @@ body {
   -o-box-shadow: #ededed 0px 1px 0px 0px;
   box-shadow: #ededed 0px 1px 0px 0px;
 }
-/* line 124, ../src/partials/views/_list.scss */
+/* line 123, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command:active span {
   border-top: 1px solid transparent;
   -webkit-border-radius: 3px 3px;
@@ -397,7 +397,7 @@ body {
   -khtml-border-radius: 3px / 3px;
   border-radius: 3px / 3px;
 }
-/* line 130, ../src/partials/views/_list.scss */
+/* line 129, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.disabled {
   border: 1px solid transparent;
   background-color: transparent;
@@ -407,11 +407,11 @@ body {
   -o-box-shadow: white 0px 0px 0px 0px;
   box-shadow: white 0px 0px 0px 0px;
 }
-/* line 136, ../src/partials/views/_list.scss */
+/* line 135, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.disabled span {
   border-top: 1px solid transparent;
 }
-/* line 141, ../src/partials/views/_list.scss */
+/* line 140, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.initialize {
   width: auto;
   padding: 0px 8px;
@@ -431,7 +431,7 @@ body {
   background-position: center bottom;
   /*              @include box-shadow(#FFFFFF, 0px, 1px, 0px, 0px, false);*/
 }
-/* line 155, ../src/partials/views/_list.scss */
+/* line 153, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.initialize span {
   padding: 3px;
   -webkit-border-radius: 6px 6px;
@@ -442,67 +442,67 @@ body {
   border-radius: 6px / 6px;
   border-top: 1px solid #FFFFFF;
 }
-/* line 161, ../src/partials/views/_list.scss */
+/* line 159, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.initialize:hover {
   background-color: #F3F3F3;
   border: 1px solid #C0C0C0;
 }
-/* line 166, ../src/partials/views/_list.scss */
+/* line 164, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.initialize:active {
   background-color: #C0C0C0;
   border: 1px solid #B0B0B0;
 }
-/* line 170, ../src/partials/views/_list.scss */
+/* line 168, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.initialize:active span {
   border-top: 1px solid transparent;
 }
-/* line 176, ../src/partials/views/_list.scss */
+/* line 174, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.scss_style {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/scss_folder.png?1298402047');
+  background-image: url('../images/scss_folder.png?1298417200');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 179, ../src/partials/views/_list.scss */
+/* line 177, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.scss_style.disabled {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/disabled_scss_folder.png?1298402047');
+  background-image: url('../images/disabled_scss_folder.png?1298417188');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 184, ../src/partials/views/_list.scss */
+/* line 182, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.console {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/log.png?1298402047');
+  background-image: url('../images/log.png?1298417188');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 188, ../src/partials/views/_list.scss */
+/* line 186, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.start {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/watch.png?1298402047');
+  background-image: url('../images/watch.png?1298417188');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 192, ../src/partials/views/_list.scss */
+/* line 190, ../src/partials/views/_list.scss */
 #list .content .projects .project .compass_commands .command.stop {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/stop.png?1298402047');
+  background-image: url('../images/stop.png?1298417188');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
 
-/* line 202, ../src/partials/views/_list.scss */
+/* line 200, ../src/partials/views/_list.scss */
 .footer {
   position: absolute;
   bottom: 0;
@@ -523,7 +523,7 @@ body {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 211, ../src/partials/views/_list.scss */
+/* line 209, ../src/partials/views/_list.scss */
 .footer .option {
   display: inline;
   float: left;
@@ -535,42 +535,42 @@ body {
   background-position: center bottom;
   border-right: 1px solid #cacaca;
 }
-/* line 221, ../src/partials/views/_list.scss */
+/* line 219, ../src/partials/views/_list.scss */
 .footer .option span {
   display: block;
   height: 24px;
 }
-/* line 226, ../src/partials/views/_list.scss */
+/* line 224, ../src/partials/views/_list.scss */
 .footer .option:hover {
   background-color: #F3F3F3;
 }
-/* line 230, ../src/partials/views/_list.scss */
+/* line 228, ../src/partials/views/_list.scss */
 .footer .option:active {
   background-color: #C0C0C0;
 }
-/* line 235, ../src/partials/views/_list.scss */
+/* line 233, ../src/partials/views/_list.scss */
 .footer .option.add span {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/add.png?1298402047');
+  background-image: url('../images/add.png?1298417830');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 240, ../src/partials/views/_list.scss */
+/* line 238, ../src/partials/views/_list.scss */
 .footer .option.remove {
   /*          border-left: none;*/
 }
-/* line 243, ../src/partials/views/_list.scss */
+/* line 241, ../src/partials/views/_list.scss */
 .footer .option.remove span {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/remove.png?1298402047');
+  background-image: url('../images/remove.png?1298417830');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 249, ../src/partials/views/_list.scss */
+/* line 247, ../src/partials/views/_list.scss */
 .footer #new-project {
   margin-top: 2em;
 }
