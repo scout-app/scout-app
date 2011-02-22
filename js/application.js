@@ -133,3 +133,29 @@ function onIOError(event)
 {
   air.trace(event.toString());
 }
+
+$(document).ready(function(){
+  air.trace($("#m").length);
+  $("#m").click(function(){
+     var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
+     var file = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
+     nativeProcessStartupInfo.executable = file;
+
+     var processArgs = new air.Vector["<String>"]();
+     processArgs.push("--version");
+     nativeProcessStartupInfo.arguments = processArgs;
+       
+     process = new air.NativeProcess();
+     process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
+    process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, dataHandler);
+     process.start(nativeProcessStartupInfo);
+    
+      var bytes = new air.ByteArray();
+     function dataHandler(event) {
+       process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
+       alert(bytes.toString());
+       air.trace(bytes.toString());
+      // $("body").append(bytes.toString());
+     }    
+  });
+});
