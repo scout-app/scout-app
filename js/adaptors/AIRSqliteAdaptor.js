@@ -183,7 +183,6 @@ AIRSQLiteAdaptor.prototype = {
 	},
 
 	all:function(callback) {
-	
 		if (typeof callback === 'string') {
 			throw new Error("Callback was a string; strings are not supported for callback shorthand under AIR");
 		}
