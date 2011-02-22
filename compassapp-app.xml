@@ -9,5 +9,5 @@
         <width>320</width>
         <height>480</height>
     </initialWindow> 
-    <supportedProfiles>extendedDesktop</supportedProfiles>
+    <supportedProfiles>extendedDesktop desktop</supportedProfiles>
 </application>
