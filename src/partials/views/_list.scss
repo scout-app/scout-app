@@ -40,7 +40,7 @@ body {
       overflow-y: auto;
 
       .project {
-        height: 40px;
+        /*height: 40px;*/
         margin: 0;
         padding-right: 50px;
         padding: 10px 15px;
@@ -54,11 +54,16 @@ body {
         list-style: none;
         overflow: hidden;
         @include pie-clearfix;
+        
+        .config {
+          display: none;
+        }
 
         &:hover {
           border-top: 1px solid #EDEDED;
           background-color: #DFDFDF;
-          @include transition(background-color, .25s, ease-in, 0s);
+          @include transition(background-color, .15s, ease-in, 0s);
+          cursor: pointer;
         }
 
         .source {
