@@ -25,11 +25,21 @@ function listProjects(){
       appendProjectToProjectsList(project);
     }
   });
-  $('.select.input').click(selectInputBySelectingDirectory);
-  $('.select.output').click(selectOutputBySelectingDirectory);
+  $('.project .select.input').click(selectInputBySelectingDirectory);
+  $('.project .select.output').click(selectOutputBySelectingDirectory);
+  $('.project .delete').click(deleteProject);
   $('.project').click(function(){
     $(this).children('.config').toggle();
   });
+}
+
+function deleteProject() {
+  key = $(this).parents('.project:first').attr('data-key');
+  projects.get(key, function(project) {
+    projects.remove(project);
+  });
+  listProjects();
+  return false;
 }
 
 function selectOutputBySelectingDirectory() {
