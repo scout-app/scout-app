@@ -1,0 +1,15 @@
+#! /bin/sh
+
+MY_CERT="../cert.pfx"
+CERT_PASSWORD=password
+CERT_ORGANIZATION="Mutually Human"
+
+echo "Checking for certificate... \c"
+if [ -f $MY_CERT ] ; then
+  echo "exists"
+else
+  echo "doesn't exist, creating"
+  adt -certificate -cn SelfSign -ou Dev -o "$CERT_ORGANIZATION" -c US 2048-RSA $MY_CERT $CERT_PASSWORD
+fi
+
+
