@@ -86,6 +86,7 @@ function createProject(name, inputPath, outputPath) {
     outputPath: outputPath
   });
   listProjects();
+  $('.projects .project').last().children('.config').toggle();
 }
 
 function appendProjectToProjectsList(project) {
