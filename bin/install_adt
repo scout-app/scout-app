@@ -1,0 +1,10 @@
+#!/bin/sh
+
+echo "Checking for ADT tools... \c"
+which adt
+if [ $? -ne 0 ] ; then
+  echo "YOU NEED TO INSTALL ADOBE AIR SDK"
+  exit 1
+else
+  echo "found"
+fi
