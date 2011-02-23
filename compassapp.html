@@ -9,24 +9,29 @@
 
     <script type="text/javascript" src="js/jquery.tmpl.min.js"></script>
     
-    <script type="text/javascript" src="js/adaptors/LawnchairAdaptorHelpers.js"></script>    
+    <script type="text/javascript" src="js/adaptors/LawnchairAdaptorHelpers.js"></script>
     <script type="text/javascript" src="js/adaptors/AIRSqliteAdaptor.js"></script>
     <script type="text/javascript" src="js/Lawnchair.js"></script>
 
     <script type="text/javascript" src="js/application.js"></script>
     <script id="project-template" type="text/x-jquery-tmpl">
-    <li class="project" data-key="${key}">
-      <div class="item">
-        <div class="source">
-          <h2><a href="#">${name}</a></h2>
-        </div>
-        <div class="commands">
-          <button class="play">Play</button>
+
+      <li class="project" data-key="${key}">
+
+        <div class="item">
+          <div class="source">
+            <h2><a href="#">${name}</a></h2>
+          </div>
+
+          <div class="commands">
+            <button class="play">Play</button>
+          </div>
         </div>
       </div>
+
       <div class="config">
-        <p><span class="input-path">${inputPath}</span><button class="select input">Select input folder</button></p>
-        <p><span class="output-path">${outputPath}</span><button class="select output">Select output folder</button></p>
+        <p><span class="input-path">${sassDir}</span><button class="select input">Select input folder</button></p>
+        <p><span class="output-path">${cssDir}</span><button class="select output">Select output folder</button></p>
         <p><button class="delete">Delete this project</button></p>
       </div>
     </li>
@@ -37,8 +42,10 @@
   <div class="header">
     <h1>CompassApp</h1>
   </div>
+
   <div id="list" class="view">
     <div id="watchtarget" class="content">
+
       <ul class="projects">
         <li class="project" data-key="${key}">
           <div class="item">
@@ -56,13 +63,18 @@
           </div>
         </li>
       </ul>
+
       <div class="addhere"></div>
       <div class="drop_area_note">
         <p><span>Drop Projects Here</span></p>
       </div>
+
     </div>
+
     <button id="nuke">Nuke</button>
+
   </div>
+
   <div class="footer">
     <a href="#" class="option add" title="Add a project"><span>+</span></a>
     <a href="#" class="option remove" title="Remove a project"><span>-</span></a>

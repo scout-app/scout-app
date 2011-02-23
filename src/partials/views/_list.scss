@@ -1,4 +1,5 @@
 @include sticky-footer(26px, 'body', '.footer');
+
 body {
   position: relative;
 }
@@ -94,117 +95,121 @@ body {
           }
         }
 
-       /* .compass_commands {
-                 @include float-right;
-                 width: 40%;
-                 padding-top: 5px;
-                 @include pie-clearfix;
 
-                 .command {
-                   @include float-right;
-                   width: 27px;
-                   margin-left: 5px;
-                   background-position: center center;
-                   background-repeat: no-repeat;
-                   border: 1px solid transparent;
 
-                   span {
-                     display: block;
-                     padding: 4px 5px;
-                     border-top: 1px solid transparent;
-                     @include border-radius(3px, 3px);
-                   }
+/*
+        .compass_commands {
+           @include float-right;
+           width: 40%;
+           padding-top: 5px;
+           @include pie-clearfix;
 
-                   &:hover {
-                     background-color: #F3F3F3;
-                     border: 1px solid #C0C0C0;
-                     @include border-radius(3px, 3px);
-                     @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
+           .command {
+             @include float-right;
+             width: 27px;
+             margin-left: 5px;
+             background-position: center center;
+             background-repeat: no-repeat;
+             border: 1px solid transparent;
 
-                     span {
-                       border-top: 1px solid #EDEDED;
-                       @include border-radius(3px, 3px);
-                     }
-                   }
+             span {
+               display: block;
+               padding: 4px 5px;
+               border-top: 1px solid transparent;
+               @include border-radius(3px, 3px);
+             }
 
-                   &:active {
-                     background-color: #C0C0C0;
-                     border: 1px solid #B0B0B0;
-                     @include border-radius(3px, 3px);
-                     @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
+             &:hover {
+               background-color: #F3F3F3;
+               border: 1px solid #C0C0C0;
+               @include border-radius(3px, 3px);
+               @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
 
-                     span {
-                       border-top: 1px solid transparent;
-                       @include border-radius(3px, 3px);
-                     }
-                   }
+               span {
+                 border-top: 1px solid #EDEDED;
+                 @include border-radius(3px, 3px);
+               }
+             }
 
-                   &.disabled {
-                     border: 1px solid transparent;
-                     background-color: transparent;
-                     cursor: default;
-                     @include box-shadow(#FFFFFF, 0px, 0px, 0px, 0px, false);
+             &:active {
+               background-color: #C0C0C0;
+               border: 1px solid #B0B0B0;
+               @include border-radius(3px, 3px);
+               @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
 
-                     span {
-                       border-top: 1px solid transparent;
-                     }
-                   }
+               span {
+                 border-top: 1px solid transparent;
+                 @include border-radius(3px, 3px);
+               }
+             }
 
-                   &.initialize {
-                     width: auto;
-                     padding: 0px 8px;
-                     text-decoration: none;
-                     text-align: center;
-                     text-shadow: 0 1px 1px #F6F6F6;
-                     color: #2C2C2C;
-                     border: 1px solid #BEBEBE;
-                     @include border-radius(6px, 6px);
-                     background-color: #E9E9E9;
-                     background-repeat: repeat-x;
-                     background-position: center bottom;
-                     
-                     span {
-                       padding: 3px;
-                       @include border-radius(6px, 6px);
-                       border-top: 1px solid #FFFFFF;
-                     }
+             &.disabled {
+               border: 1px solid transparent;
+               background-color: transparent;
+               cursor: default;
+               @include box-shadow(#FFFFFF, 0px, 0px, 0px, 0px, false);
 
-                     &:hover {
-                       background-color: #F3F3F3;
-                       border: 1px solid #C0C0C0;
-                     }
+               span {
+                 border-top: 1px solid transparent;
+               }
+             }
 
-                     &:active {
-                       background-color: #C0C0C0;
-                       border: 1px solid #B0B0B0;
+             &.initialize {
+               width: auto;
+               padding: 0px 8px;
+               text-decoration: none;
+               text-align: center;
+               text-shadow: 0 1px 1px #F6F6F6;
+               color: #2C2C2C;
+               border: 1px solid #BEBEBE;
+               @include border-radius(6px, 6px);
+               background-color: #E9E9E9;
+               background-repeat: repeat-x;
+               background-position: center bottom;
+         
+               span {
+                 padding: 3px;
+                 @include border-radius(6px, 6px);
+                 border-top: 1px solid #FFFFFF;
+               }
 
-                       span {
-                         border-top: 1px solid transparent;
-                       }
-                     }
-                   }
+               &:hover {
+                 background-color: #F3F3F3;
+                 border: 1px solid #C0C0C0;
+               }
 
-                   &.scss_style {
-                     @include replace-text('/images/scss_folder.png');
+               &:active {
+                 background-color: #C0C0C0;
+                 border: 1px solid #B0B0B0;
 
-                     &.disabled {
-                       @include replace-text('/images/disabled_scss_folder.png');
-                     }
-                   }
-
-                   &.console {
-                     @include replace-text('/images/log.png');
-                   }
-
-                   &.start {
-                     @include replace-text('/images/watch.png');
-                   }
-
-                   &.stop {
-                     @include replace-text('/images/stop.png');
-                   }
+                 span {
+                   border-top: 1px solid transparent;
                  }
-               }*/
+               }
+             }
+
+             &.scss_style {
+               @include replace-text('/images/scss_folder.png');
+
+               &.disabled {
+                 @include replace-text('/images/disabled_scss_folder.png');
+               }
+             }
+
+             &.console {
+               @include replace-text('/images/log.png');
+             }
+
+             &.start {
+               @include replace-text('/images/watch.png');
+             }
+
+             &.stop {
+               @include replace-text('/images/stop.png');
+             }
+           }
+         }
+*/
       }
     }
   }

@@ -7,6 +7,7 @@ GEM
 
 PLATFORMS
   java
+  ruby
 
 DEPENDENCIES
   compass (= 0.10.6)
