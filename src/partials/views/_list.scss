@@ -95,7 +95,15 @@ body {
           }
         }
 
+        .commands {
+          .play {
+            background-image: url('images/play.png');
+          }
 
+          .stop {
+            background-image: url('images/stop.png');
+          }
+        }
 
 /*
         .compass_commands {
