@@ -11,6 +11,15 @@ $(document).ready(function() {
   target.addEventListener("drop", dropHandler);
   
   $('.option.add').click(createProjectBySelectingDirectory);
+  $('.project .play').live('click', toggleWatch);
+  $('.project .stop').live('click', toggleWatch);
+  $('.project .select.input').live('click', selectInputBySelectingDirectory);
+  $('.project .select.output').live('click', selectOutputBySelectingDirectory);
+  $('.project .delete').live('click', deleteProject);
+  
+  $('.project .source').live('click', function() {
+    $(this).parents('.project').children('.config').toggle();
+  });
   
   $('#nuke').click(function(){
     projects.nuke();
@@ -24,16 +33,6 @@ function listProjects(){
     if(project){
       appendProjectToProjectsList(project);
     }
-  });
-  $('.project .select.input').click(selectInputBySelectingDirectory);
-  $('.project .select.output').click(selectOutputBySelectingDirectory);
-  $('.project .delete').click(deleteProject);
-  
-  $('.project .play').live('click', toggleWatch);
-  $('.project .stop').live('click', toggleWatch);
-  
-  $('.project .source').click(function() {
-    $(this).parents('.project').children('.config').toggle();
   });
 }
 
@@ -61,29 +60,6 @@ function toggleWatch(evnt) {
   });
   return false;
 }
-
-// function playProject() {
-//   projects.get(key, function(project) {
-//     startWatch(project.inputPath, project.outputPath);
-//   });
-//   $(this).removeClass("play");
-//   $(this).addClass("stop");
-//   $('.project .stop').click(stopProject);
-//   $(this).html("stop");
-//   return false;
-// }
-// 
-// function stopProject() {
-//   key = $(this).parents('.project:first').attr('data-key');
-//   projects.get(key, function(project) {
-//     stopWatch();
-//   });
-//   $(this).removeClass("stop");
-//   $(this).addClass("play");
-//   $('.project .play').click(playProject);
-//   $(this).html("play");
-//   return false;
-// }
 
 function deleteProject() {
   key = $(this).parents('.project:first').attr('data-key');
