@@ -36,12 +36,46 @@ function listProjects(){
   });
 }
 
-function startWatch(inputPath, outputPath) {
-  air.trace("started watching..." + inputPath);
+function startWatch(project) {
+  
+  air.trace("started watching..." + project.sassDir);
+  
+  var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
+  var file = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
+  nativeProcessStartupInfo.executable = file;
+
+  var processArgs = new air.Vector["<String>"]();
+  processArgs.push("-S");
+  processArgs.push("compass");
+  processArgs.push("--watch");
+  processArgs.push("--sass-dir")
+  processArgs.push(project.sassDir);
+  processArgs.push("--css-dir");
+  processArgs.push(project.cssDir);
+  // processArgs.push("--environment " + project.environment);
+  // processArgs.push("--output-style " + project.outputStyle);
+  // processArgs.push("--poll");
+  
+  air.trace(processArgs);
+
+  nativeProcessStartupInfo.arguments = processArgs;
+  
+  process = new air.NativeProcess();
+  process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
+  process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, dataHandler);
+  process.start(nativeProcessStartupInfo);
+  
+  var bytes = new air.ByteArray();
+  function dataHandler(evnt) {
+    process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
+    //alert(bytes.toString());
+    air.trace(bytes.toString());
+  }
 }
 
 function stopWatch() {
   air.trace("stopped watching.");
+  
 }
 
 function toggleWatch(evnt) {
@@ -49,10 +83,10 @@ function toggleWatch(evnt) {
   thing = $(this);
   projects.get(key, function(project) {
     if(thing.hasClass("play")) {
-      startWatch(project.inputPath, project.outputPath);
+      startWatch(project);
       thing.html("Stop");
     } else {
-      stopWatch();
+      stopWatch(project);
       thing.html("Play");
     }
     thing.toggleClass("play");
@@ -75,7 +109,7 @@ function selectOutputBySelectingDirectory() {
   config = $(this).siblings('span');
   browseDirectories(function(evnt){
     projects.get(key, function(project) {
-      project.outputPath = evnt.target.nativePath;
+      project.cssDir = evnt.target.nativePath;
       projects.save(project);
     });
     config.html(evnt.target.nativePath);
@@ -88,7 +122,7 @@ function selectInputBySelectingDirectory() {
   config = $(this).siblings('span');
   browseDirectories(function(evnt){
     projects.get(key, function(project) {
-      project.inputPath = evnt.target.nativePath;
+      project.sassDir = evnt.target.nativePath;
       projects.save(project);
     });
     config.html(evnt.target.nativePath);
@@ -117,11 +151,13 @@ function createProjectFromFolder(evnt) {
   createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "");
 }
 
-function createProject(name, inputPath, outputPath) {
+function createProject(name, sassDir, cssDir) {
   projects.save({
     name: name,
-    inputPath: inputPath,
-    outputPath: outputPath
+    sassDir: sassDir,
+    cssDir: cssDir,
+    environment: "development",
+    outputStyle: "expanded"
   });
   listProjects();
   $('.projects .project').last().children('.config').toggle();
