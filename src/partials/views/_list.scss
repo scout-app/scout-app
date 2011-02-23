@@ -24,12 +24,25 @@ body {
 
     .drop_area_note {
       position: absolute;
-      height: 30px;
-/*      z-index: 1;*/
-      right: 0;
-      left: 15px;
-      bottom: 0;
-      @include replace-text('../images/drop_area_note.png', 0, 0);
+      width: 100%;
+      bottom: 60px;
+      padding: 6px 0;
+      background-color: #99BBDF;
+      @include opacity(.6);
+
+      p {
+        width: 140px;
+        margin: 0 auto;
+        padding: 7px;
+        border: 3px dashed #7F7F7F;
+
+        span {
+          display: block;
+          padding: 9px 3px;
+          @include replace-text('../images/drop_area_note.png', center, center);
+          background-color: #CCCCCC;
+        }
+      }
     }
 
     .projects {
