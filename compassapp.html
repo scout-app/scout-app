@@ -20,8 +20,8 @@
         <div class="source">
           <h2><a href="#">${name}</a></h2>
         </div>
-        <div class="compass_commands">
-          <a href="/" class="command initialize" title="Initialize Compass in Current Project"><span>Configure</span></a>
+        <div class="commands">
+          <button class="play">Play</button>
         </div>
       </div>
       <div class="config">
@@ -39,7 +39,23 @@
   </div>
   <div id="list" class="view">
     <div id="watchtarget" class="content">
-      <ul class="projects"></ul>
+      <ul class="projects">
+        <li class="project" data-key="${key}">
+          <div class="item">
+            <div class="source">
+              <h2><a href="#">${name}</a></h2>
+            </div>
+            <div class="commands">
+              <button class="play">Play</button>
+            </div>
+          </div>
+          <div class="config">
+            <p><span class="input-path">${inputPath}</span><button class="select input">Select input folder</button></p>
+            <p><span class="output-path">${outputPath}</span><button class="select output">Select output folder</button></p>
+            <p><button class="delete">Delete this project</button></p>
+          </div>
+        </li>
+      </ul>
       <div class="addhere"></div>
       <p class="drop_area_note">Drop Projects Here</p>
     </div>

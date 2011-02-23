@@ -28,10 +28,62 @@ function listProjects(){
   $('.project .select.input').click(selectInputBySelectingDirectory);
   $('.project .select.output').click(selectOutputBySelectingDirectory);
   $('.project .delete').click(deleteProject);
-  $('.project').click(function(){
-    $(this).children('.config').toggle();
+  
+  $('.project .play').live('click', toggleWatch);
+  $('.project .stop').live('click', toggleWatch);
+  
+  $('.project .source').click(function() {
+    $(this).parents('.project').children('.config').toggle();
   });
 }
+
+function startWatch(inputPath, outputPath) {
+  air.trace("started watching..." + inputPath);
+}
+
+function stopWatch() {
+  air.trace("stopped watching.");
+}
+
+function toggleWatch(evnt) {
+  key = $(this).parents('.project:first').attr('data-key');
+  thing = $(this);
+  projects.get(key, function(project) {
+    if(thing.hasClass("play")) {
+      startWatch(project.inputPath, project.outputPath);
+      thing.html("Stop");
+    } else {
+      stopWatch();
+      thing.html("Play");
+    }
+    thing.toggleClass("play");
+    thing.toggleClass("stop");
+  });
+  return false;
+}
+
+// function playProject() {
+//   projects.get(key, function(project) {
+//     startWatch(project.inputPath, project.outputPath);
+//   });
+//   $(this).removeClass("play");
+//   $(this).addClass("stop");
+//   $('.project .stop').click(stopProject);
+//   $(this).html("stop");
+//   return false;
+// }
+// 
+// function stopProject() {
+//   key = $(this).parents('.project:first').attr('data-key');
+//   projects.get(key, function(project) {
+//     stopWatch();
+//   });
+//   $(this).removeClass("stop");
+//   $(this).addClass("play");
+//   $('.project .play').click(playProject);
+//   $(this).html("play");
+//   return false;
+// }
 
 function deleteProject() {
   key = $(this).parents('.project:first').attr('data-key');
@@ -45,12 +97,12 @@ function deleteProject() {
 function selectOutputBySelectingDirectory() {
   key = $(this).parents('.project:first').attr('data-key');
   config = $(this).siblings('span');
-  browseDirectories(function(event){
+  browseDirectories(function(evnt){
     projects.get(key, function(project) {
-      project.outputPath = event.target.nativePath;
+      project.outputPath = evnt.target.nativePath;
       projects.save(project);
     });
-    config.html(event.target.nativePath);
+    config.html(evnt.target.nativePath);
   });
   return false;
 }
@@ -58,12 +110,12 @@ function selectOutputBySelectingDirectory() {
 function selectInputBySelectingDirectory() {
   key = $(this).parents('.project:first').attr('data-key');
   config = $(this).siblings('span');
-  browseDirectories(function(event){
+  browseDirectories(function(evnt){
     projects.get(key, function(project) {
-      project.inputPath = event.target.nativePath;
+      project.inputPath = evnt.target.nativePath;
       projects.save(project);
     });
-    config.html(event.target.nativePath);
+    config.html(evnt.target.nativePath);
   });
   return false;
 }
@@ -85,8 +137,8 @@ function browseDirectories(callback) {
   }
 }
 
-function createProjectFromFolder(event) {
-  createProject(event.target.nativePath.replace(/\/$/, '').split('/').last(), event.target.nativePath, "");
+function createProjectFromFolder(evnt) {
+  createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "");
 }
 
 function createProject(name, inputPath, outputPath) {
@@ -103,17 +155,17 @@ function appendProjectToProjectsList(project) {
   $.tmpl($("#project-template"), project).appendTo(".projects");
 }
 
-function dragEnterHandler(event) {
-  event.preventDefault();
+function dragEnterHandler(evnt) {
+  evnt.preventDefault();
 }
 
-function dragOverHandler(event){ 
-  event.preventDefault();
+function dragOverHandler(evnt){ 
+  evnt.preventDefault();
 }
 
-function dropHandler(event){ 
-  event.preventDefault();
-  createProject(event.dataTransfer.getData("text/uri-list").replace(/\/$/, '').split('/').last(), "", "");
+function dropHandler(evnt){ 
+  evnt.preventDefault();
+  createProject(evnt.dataTransfer.getData("text/uri-list").replace(/\/$/, '').split('/').last(), "", "");
 }
 
 function onOutputData()
@@ -121,19 +173,19 @@ function onOutputData()
   //air.trace("Got: ", process.standardOutput.readUTFBytes(process.standardOutput.bytesAvailable)); 
 }
 
-function onErrorData(event)
+function onErrorData(evnt)
 {
   //air.trace("ERROR -", process.standardError.readUTFBytes(process.standardError.bytesAvailable)); 
 }
 
-function onExit(event)
+function onExit(evnt)
 {
-  //air.trace("Process exited with ", event.exitCode);
+  //air.trace("Process exited with ", evnt.exitCode);
 }
 
-function onIOError(event)
+function onIOError(evnt)
 {
-  //air.trace(event.toString());
+  //air.trace(evnt.toString());
 }
 
 // $(document).ready(function(){
@@ -153,7 +205,7 @@ function onIOError(event)
 //      process.start(nativeProcessStartupInfo);
 //     
 //       var bytes = new air.ByteArray();
-//      function dataHandler(event) {
+//      function dataHandler(evnt) {
 //        process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
 //        alert(bytes.toString());
 //        air.trace(bytes.toString());
