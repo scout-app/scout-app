@@ -1,0 +1,57 @@
+.details {
+  .configure {
+    left: 1px;
+    border-top: 1px solid #FFFFFF;
+    @include linear-gradient(color-stops(#FBFBFB 80%, #E6E6E6));
+
+    .project_options {
+      padding-right: 10px;
+      @include pie-clearfix;
+      background-color: #EEEEEE;
+
+      .option {
+        @include float-right;
+        padding: 3px 5px;
+        background-color: #DEDEDE;
+      }
+    }
+
+    .options {
+      margin: 0;
+      padding: 36px 10px 0 50px;
+
+      .option {
+        @include pie-clearfix;
+        margin-bottom: 12px;
+
+        label {
+          @include float-left;
+          width: 100px;
+          margin-right: 5px;
+          text-align: right;
+          font-size: 13px;
+          font-weight: bold;
+        }
+
+        .button_container {
+          @include float-left;
+          width: 70px;
+          margin: -6px 5px 0 0;
+          
+          button {
+            text-align: center;
+          }
+        }
+
+        .setting {
+          @include float-left;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  
+  .footer {
+    left: 1px;
+  }
+}
