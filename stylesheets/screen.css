@@ -523,7 +523,11 @@ body h2 {
   background-position: 50% 50%;
 }
 
-/* line 2, ../scss/partials/views/_details.scss */
+/* line 1, ../scss/partials/views/_details.scss */
+.project_details {
+  display: none;
+}
+/* line 4, ../scss/partials/views/_details.scss */
 .project_details .view {
   left: 1px;
   border-top: 1px solid #FFFFFF;
@@ -531,7 +535,7 @@ body h2 {
   background-image: -moz-linear-gradient(top, #fbfbfb 80%, #e6e6e6 100%);
   background-image: linear-gradient(top, #fbfbfb 80%, #e6e6e6 100%);
 }
-/* line 7, ../scss/partials/views/_details.scss */
+/* line 9, ../scss/partials/views/_details.scss */
 .project_details .view .modes {
   padding-right: 10px;
   *zoom: 1;
@@ -546,19 +550,19 @@ body h2 {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 12, ../scss/partials/views/_details.scss */
+/* line 14, ../scss/partials/views/_details.scss */
 .project_details .view .modes .mode {
   display: inline;
   float: right;
   padding: 3px 5px;
   background-color: #DEDEDE;
 }
-/* line 19, ../scss/partials/views/_details.scss */
+/* line 21, ../scss/partials/views/_details.scss */
 .project_details .view .options {
   margin: 0;
   padding: 36px 10px 0 50px;
 }
-/* line 23, ../scss/partials/views/_details.scss */
+/* line 25, ../scss/partials/views/_details.scss */
 .project_details .view .options .option {
   *zoom: 1;
   margin-bottom: 12px;
@@ -572,7 +576,7 @@ body h2 {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 27, ../scss/partials/views/_details.scss */
+/* line 29, ../scss/partials/views/_details.scss */
 .project_details .view .options .option label {
   display: inline;
   float: left;
@@ -582,26 +586,44 @@ body h2 {
   font-size: 13px;
   font-weight: bold;
 }
-/* line 36, ../scss/partials/views/_details.scss */
+/* line 38, ../scss/partials/views/_details.scss */
 .project_details .view .options .option .button_container {
   display: inline;
   float: left;
   width: 70px;
   margin: -6px 5px 0 0;
 }
-/* line 41, ../scss/partials/views/_details.scss */
+/* line 43, ../scss/partials/views/_details.scss */
 .project_details .view .options .option .button_container button {
   text-align: center;
 }
-/* line 46, ../scss/partials/views/_details.scss */
+/* line 48, ../scss/partials/views/_details.scss */
 .project_details .view .options .option .setting {
   display: inline;
   float: left;
   font-size: 13px;
 }
-/* line 54, ../scss/partials/views/_details.scss */
+/* line 56, ../scss/partials/views/_details.scss */
 .project_details .footer {
   left: 1px;
+}
+
+/* line 61, ../scss/partials/views/_details.scss */
+.non_selected {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 40%;
+}
+/* line 68, ../scss/partials/views/_details.scss */
+.non_selected .view {
+  left: 1px;
+  border-top: 1px solid #FFFFFF;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, color-stop(80%, #fbfbfb), color-stop(100%, #e6e6e6));
+  background-image: -moz-linear-gradient(top, #fbfbfb 80%, #e6e6e6 100%);
+  background-image: linear-gradient(top, #fbfbfb 80%, #e6e6e6 100%);
+  background-color: #EFF4F9;
 }
 
 /*events styles*/

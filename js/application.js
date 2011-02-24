@@ -4,6 +4,7 @@ var Projects = new Lawnchair({adaptor: 'air', table: "projects"});
 
 // UI stuff
 $(document).ready(function() {  
+  
   // create new project
   $('.option.add').live('click', createProjectBySelectingDirectory);
   $('.content').live('drop', createProjectByDroppingADirectory)
@@ -21,6 +22,7 @@ $(document).ready(function() {
     key = $(this).parents('.project:first').attr('data-key');
     Projects.get(key, function(project) {
      if(project) {
+       $('.project_details').show();
        $('.project_details').attr('data-key', key);
        $('#setting_sass_dir').html(project.sassDir);
        $('#setting_css_dir').html(project.cssDir);
@@ -67,7 +69,9 @@ $(document).ready(function() {
       }
     });
   }
+  
   projectListChanged();
+  
 });
 
 
@@ -76,7 +80,12 @@ function deleteProject() {
   Projects.get(key, function(project) {
     Projects.remove(project);
   });
+  $('.project[data-key='+key+']:first').trigger('watch:stop');
   $('.projects').trigger(':changed');
+  
+  $('.project_details').hide();
+  $('.non_selected').show();
+  
   return false;
 }
 
