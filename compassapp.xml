@@ -6,14 +6,8 @@
     <initialWindow>
         <content>compassapp.html</content>
         <visible>true</visible>
-        <width>400</width>
-        <height>606</height>
-
-        <!-- current set false
-        <minSize>320 240</minSize>
-        <maxSize>1280 960</maxSize>
-        -->
-
+        <width>800</width>
+        <height>600</height>
     </initialWindow>
     <supportedProfiles>extendedDesktop</supportedProfiles>
 </application>

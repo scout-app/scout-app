@@ -16,25 +16,22 @@
     <script type="text/javascript" src="js/application.js"></script>
 
 
-    <script id="project-template" type="text/x-jquery-tmpl">
-      <li class="project" data-key="${key}">
-
+    <script id="project_template" type="text/x-jquery-tmpl">
+      <li class="project stopped" data-key="${key}">
         <div class="item">
           <div class="source">
             <h2><a href="#">${name}</a></h2>
           </div>
-
           <div class="commands">
             <button class="play">Play</button>
+            <button class="stop">Stop</button>
           </div>
         </div>
-
-        <div class="config">
-          <p><span class="input-path">${sassDir}</span><button class="select input">Select input folder</button></p>
-          <p><span class="output-path">${cssDir}</span><button class="select output">Select output folder</button></p>
-          <p><button class="delete">Delete this project</button></p>
-        </div>
       </li>
+    </script>
+    
+    <script id="project_configuration_template" type="text/x-jquery-tmpl">
+      
     </script>
 
 </head>
@@ -44,81 +41,48 @@
     <h1>CompassApp</h1>
   </div>
 
-  <div class="project_container">
-    <div id="list" class="view">
-      <div id="watchtarget" class="content">
-
-        <ul class="projects">
-  <!-- styling purposes-->
-          <li class="project" data-key="${key}">
-            <div class="item">
-              <div class="source">
-                <h2><a href="#">Microsoft User Data</a></h2>
-              </div>
-
-              <div class="commands">
-                <button class="command play">
-                  <span class="button container">
-                    <span class="button">Play<!-- <img src="images/play.png" alt="play" /> --></span>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </li>
-  <!-- /styling purposes-->
-        </ul>
-
-        <!-- <div class="addhere"></div>
-        <div class="drop_area_note">
-          <p><span>Drop Projects Here</span></p>
-        </div> -->
-      </div>
-
+  <div class="pane project_list">
+    <div class="view">
+      <ul class="projects">
+        <!-- project-template -->
+      </ul>
       <button id="nuke">Nuke</button>
     </div>
-
     <div class="footer">
       <a href="#" class="option add" title="Add a project"><span>+</span></a>
       <a href="#" class="option remove" title="Remove a project"><span>-</span></a>
     </div>
   </div>
 
-  <div class="details">
-    <div class="configure view">
-
-      <div class="project_options content">
-        <a href="" class="option">
+  <div class="pane project_details">
+    <div class="view">
+      <div class="modes">
+        <a href="" class="mode">
           <span>Configure</span>
         </a>
 
-        <a href="" class="option">
+        <a href="" class="mode">
           <span>Log</span>
         </a>
       </div>
-
       <div class="options">
         <div class="option input">
           <label>Input Folder:</label>
-          <div class="button_container"><button class="input"><span>Select</span></button></div>
-          <span class="setting input-path">/Users/Sung/Documents/input</span>
+          <div class="button_container"><button id="select_sass_dir"><span>Select</span></button></div>
+          <span id="setting_sass_dir"></span>
         </div>
-
         <div class="option output">
           <label>Output Folder:</label>
-          <div class="button_container"><button class="output"><span>Select</span></button></div>
-          <span class="setting output-path">/Users/Sung/Documents/output</span>
+          <div class="button_container"><button id="select_css_dir"><span>Select</span></button></div>
+          <span id="setting_css_dir"></span>
         </div>
-
         <div class="option remove">
           <label>Remove Project:</label>
           <div class="button_container"><button class="delete"><span>Remove</span></button></div>
         </div>
       </div>
-
     </div>
-
-    <div class="footer">
-    </div>
+    <div class="footer"></div>
   </div>
 </body>
 </html>

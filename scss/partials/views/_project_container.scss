@@ -1,37 +1,8 @@
-.project_container {
+.project_list {
 
-  #list {
+  .view {
     background-color: #EFF4F9;
-/*    background-color: #DFE4EA;*/
-/*    @include box-shadow(#B0B0B0, 0px, 18px, 3px, 0px, inset);*/
-/*    @include box-shadow(red, 0px, -6px, 33px, 0px, inset);*/
-
-    .content {
-/*      background-color: #C9C9C9;*/
-
-      .drop_area_note {
-        position: absolute;
-        width: 100%;
-        bottom: 60px;
-        padding: 6px 0;
-        background-color: #99BBDF;
-        @include opacity(.6);
-
-        p {
-          width: 140px;
-          margin: 0 auto;
-          padding: 7px;
-          border: 3px dashed #7F7F7F;
-
-          span {
-            display: block;
-            padding: 9px 3px;
-            @include replace-text('../images/drop_area_note.png', center, center);
-            background-color: #CCCCCC;
-          }
-        }
-      }
-
+    
       .projects {
         position: relative;
         z-index: 100;
@@ -56,19 +27,6 @@
             background-color: #DFDFDF;
             @include transition(background-color, .15s, ease-in, 0s);
             cursor: pointer;
-
-/* moved into details
-            .options {
-              display: block;
-              padding: 0 0 20px;
-              border: 1px solid blue;
-              border-top: 1px solid #EDEDED;
-
-              .option {
-                display: none;
-              }
-            }
-*/
           }
 
           .item {
@@ -218,6 +176,6 @@
 
         }
       }
-    }
+    
   }
 }
