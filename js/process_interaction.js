@@ -22,7 +22,7 @@ $(function(){
     var bytes = new air.ByteArray();
     function dataHandler(evnt) {
       process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
-      air.trace(bytes.toString());
+      $('.project_details[data-key='+data.project.key+']').trigger(':newLogOutput', bytes.toString());
     }
 
     process_map[data.project.key] = process;
@@ -32,7 +32,6 @@ $(function(){
     var project_key = $(this).attr('data-key');
     var process = process_map[project_key];
     if(process){
-      air.trace("Killing " + project_key);
       process.exit();
       delete process_map[project_key];
     }

@@ -9,25 +9,27 @@ $(document).ready(function() {
   $('.option.add').live('click', createProjectBySelectingDirectory);
   $('.content').live('drop', createProjectByDroppingADirectory)
   $('.projects').live(':changed', projectListChanged);
-    
+  $('.project_details').live(':newLogOutput', updateProjectLog);
+  
+  $('.modes .mode').live('click', toggleMode);
+  
   // start/stop project
   $('.project .play').live('click', toggleWatch);
   $('.project .stop').live('click', toggleWatch);
   
-  $('#select_sass_dir').live('click', selectInputBySelectingDirectory);
-  $('#select_css_dir').live('click', selectOutputBySelectingDirectory);
+  $('.select_sass_dir').live('click', selectInputBySelectingDirectory);
+  $('.select_css_dir').live('click', selectOutputBySelectingDirectory);
   $('.project_details .delete').live('click', deleteProject);
   
   $('.project .source').live('click', function() {
     key = $(this).parents('.project:first').attr('data-key');
-    Projects.get(key, function(project) {
-     if(project) {
-       $('.project_details').show();
-       $('.project_details').attr('data-key', key);
-       $('#setting_sass_dir').html(project.sassDir);
-       $('#setting_css_dir').html(project.cssDir);
-     }
-   });
+    $('.project_details').hide();
+    $('.project_details[data-key='+key+']').show();
+   //  Projects.get(key, function(project) {
+   //   if(project) {
+   //     
+   //   }
+   // });
   });
   
   $('#nuke').live('click', function(){
@@ -37,6 +39,16 @@ $(document).ready(function() {
     $('.project_details').hide();
     $('.non_selected').show();
   });
+  
+  function updateProjectLog(evnt, data) {
+    var key = $(this).attr('data-key');
+    $('.project_details[data-key='+key+'] .log_output').append(data);
+  }
+  
+  function toggleMode() {
+    $('.pane.project_details').toggleClass('configure');
+    $('.pane.project_details').toggleClass('log');
+  }
   
   function createProjectBySelectingDirectory() {
     browseDirectories(function(evnt) {
@@ -69,6 +81,9 @@ $(document).ready(function() {
     Projects.all(function(project) {
       if(project) {
         $.tmpl($("#project_template"), project).appendTo(".projects");
+        if($('.project_details[data-key='+project.key+']').length == 0){
+          $.tmpl($("#project_details_template"), project).appendTo("body");
+        }
       }
     });
   }
@@ -99,7 +114,7 @@ function selectOutputBySelectingDirectory() {
       project.cssDir = evnt.target.nativePath;
       Projects.save(project);
     });
-    $('#setting_css_dir').html(evnt.target.nativePath);
+    $('.project_details[data-key='+key+'] .setting_css_dir').html(evnt.target.nativePath);
   });
   return false;
 }
@@ -111,7 +126,7 @@ function selectInputBySelectingDirectory() {
       project.sassDir = evnt.target.nativePath;
       Projects.save(project);
     });
-    $('#setting_sass_dir').html(evnt.target.nativePath);
+    $('.project_details[data-key='+key+'] .setting_sass_dir').html(evnt.target.nativePath);
   });
   return false;
 }
@@ -139,5 +154,4 @@ function createProject(name, sassDir, cssDir) {
     outputStyle: "expanded"
   });
   $('.projects').trigger(':changed');
-  $('.projects .project').last().children('.config').toggle();
 }

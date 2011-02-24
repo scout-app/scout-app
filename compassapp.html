@@ -3,7 +3,6 @@
     <title>CompassApp</title>
 
     <link rel="stylesheet" href="stylesheets/screen.css" />
-
     <script type="text/javascript" src="js/AIRAliases.js"></script>
     <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
 
@@ -29,6 +28,39 @@
         </div>
       </li>
     </script>
+    
+    <script id="project_details_template" type="text/x-jquery-tmpl">
+      <div class="pane project_details configure" data-key="${key}">
+        <div class="view">
+          <div class="modes">
+            <a href="#" class="mode configure">
+              <span>Configure</span>
+            </a>
+            <a href="#" class="mode log">
+              <span>Log</span>
+            </a>
+          </div>
+          <div class="log_output"></div>
+          <div class="options">
+            <div class="option input">
+              <label>Input Folder:</label>
+              <div class="button_container"><button class="select_sass_dir"><span>Select</span></button></div>
+              <span class="setting_sass_dir">${sassDir}</span>
+            </div>
+            <div class="option output">
+              <label>Output Folder:</label>
+              <div class="button_container"><button class="select_css_dir"><span>Select</span></button></div>
+              <span class="setting_css_dir">${cssDir}</span>
+            </div>
+            <div class="option remove">
+              <label>Remove Project:</label>
+              <div class="button_container"><button class="delete"><span>Remove</span></button></div>
+            </div>
+          </div>
+        </div>
+        <div class="footer"></div>
+      </div>
+    </script>
 </head>
 
 <body>
@@ -45,7 +77,6 @@
     </div>
     <div class="footer">
       <a href="#" class="option add" title="Add a project"><span>+</span></a>
-      <a href="#" class="option remove" title="Remove a project"><span>-</span></a>
     </div>
   </div>
   
@@ -54,35 +85,5 @@
     <div class="footer"></div>
   </div>
 
-  <div class="pane project_details">
-    <div class="view">
-      <div class="modes">
-        <a href="#" class="mode">
-          <span>Configure</span>
-        </a>
-
-        <a href="#" class="mode">
-          <span>Log</span>
-        </a>
-      </div>
-      <div class="options">
-        <div class="option input">
-          <label>Input Folder:</label>
-          <div class="button_container"><button id="select_sass_dir"><span>Select</span></button></div>
-          <span id="setting_sass_dir"></span>
-        </div>
-        <div class="option output">
-          <label>Output Folder:</label>
-          <div class="button_container"><button id="select_css_dir"><span>Select</span></button></div>
-          <span id="setting_css_dir"></span>
-        </div>
-        <div class="option remove">
-          <label>Remove Project:</label>
-          <div class="button_container"><button class="delete"><span>Remove</span></button></div>
-        </div>
-      </div>
-    </div>
-    <div class="footer"></div>
-  </div>
 </body>
 </html>
