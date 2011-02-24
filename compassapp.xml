@@ -8,10 +8,11 @@
         <visible>true</visible>
         <width>400</width>
         <height>606</height>
-        <!-- <minSize>310 606</minSize>
-        <maxSize>400 1000</maxSize> -->
+
+        <!-- current set false
         <minSize>320 240</minSize>
         <maxSize>1280 960</maxSize>
+        -->
 
     </initialWindow>
     <supportedProfiles>extendedDesktop</supportedProfiles>
