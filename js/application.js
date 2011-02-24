@@ -3,13 +3,12 @@ Array.prototype.last = function() {return this[this.length-1];}
 var Projects = new Lawnchair({adaptor: 'air', table: "projects"});
 
 // UI stuff
-$(document).ready(function() {
-  listProjects();
-  
+$(document).ready(function() {  
   // create new project
   $('.option.add').live('click', createProjectBySelectingDirectory);
   $('.content').live('drop', createProjectByDroppingADirectory)
-  
+  $('.projects').live(':changed', projectListChanged);
+    
   // start/stop project
   $('.project .play').live('click', toggleWatch);
   $('.project .stop').live('click', toggleWatch);
@@ -29,9 +28,9 @@ $(document).ready(function() {
    });
   });
   
-  $('#nuke').click(function(){
+  $('#nuke').live('click', function(){
     Projects.nuke();
-    listProjects();
+    $('.projects').trigger(':changed');
   });
   
   function createProjectBySelectingDirectory() {
@@ -60,63 +59,15 @@ $(document).ready(function() {
     return false;
   }
   
-});
-
-function listProjects(){
-  $('.projects').empty();
-  Projects.all(function(project) {
-    if(project) {
-      appendProjectToProjectsList(project);
-    }
-  });
-}
-
-// Process stuff
-$(function(){
-  var process_map = {};
-  
-  $(".project").live("watch:start", startWatchingProject);
-  $(".project").live("watch:stop", stopWatchingProject);
-  air.NativeApplication.nativeApplication.addEventListener(air.Event.EXITING, killWatchingProcesses);
-  
-  function startWatchingProject(evnt, data) {
-    var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
-    nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
-
-    var processArgs = new air.Vector["<String>"]();
-    processArgs.push("-S", "compass", "--watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle);
-    nativeProcessStartupInfo.arguments = processArgs;
-
-    process = new air.NativeProcess();
-    process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
-    process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, dataHandler);
-    process.start(nativeProcessStartupInfo);
-
-    var bytes = new air.ByteArray();
-    function dataHandler(evnt) {
-      process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
-      air.trace(bytes.toString());
-    }
-
-    process_map[data.project.key] = process;
+  function projectListChanged() {
+    $('.projects').empty();
+    Projects.all(function(project) {
+      if(project) {
+        $.tmpl($("#project-template"), project).appendTo(".projects");
+      }
+    });
   }
-
-  function stopWatchingProject(){
-    var project_key = $(this).attr('data-key');
-    var process = process_map[project_key];
-    if(process){
-      air.trace("Killing " + project_key);
-      process.exit();
-      delete process_map[project_key];
-    }
-  }
-  
-  function killWatchingProcesses(){
-    for (var i in process_map) {
-      process_map[i].exit();
-    }
-  }
-  
+  projectListChanged();
 });
 
 
@@ -125,7 +76,7 @@ function deleteProject() {
   Projects.get(key, function(project) {
     Projects.remove(project);
   });
-  listProjects();
+  $('.projects').trigger(':changed');
   return false;
 }
 
@@ -167,7 +118,6 @@ function browseDirectories(callback) {
   }
 }
 
-
 function createProject(name, sassDir, cssDir) {
   Projects.save({
     name: name,
@@ -176,10 +126,6 @@ function createProject(name, sassDir, cssDir) {
     environment: "development",
     outputStyle: "expanded"
   });
-  listProjects();
+  $('.projects').trigger(':changed');
   $('.projects .project').last().children('.config').toggle();
-}
-
-function appendProjectToProjectsList(project) {
-  $.tmpl($("#project_template"), project).appendTo(".projects");
 }
