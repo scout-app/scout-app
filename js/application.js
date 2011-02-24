@@ -33,6 +33,9 @@ $(document).ready(function() {
   $('#nuke').live('click', function(){
     Projects.nuke();
     $('.projects').trigger(':changed');
+    $('.projects').trigger('processes:killAll');
+    $('.project_details').hide();
+    $('.non_selected').show();
   });
   
   function createProjectBySelectingDirectory() {

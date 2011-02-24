@@ -3,6 +3,7 @@ $(function(){
   
   $(".project").live("watch:start", startWatchingProject);
   $(".project").live("watch:stop", stopWatchingProject);
+  $(".projects").live("processes:killAll", killWatchingProcesses);  
   air.NativeApplication.nativeApplication.addEventListener(air.Event.EXITING, killWatchingProcesses);
   
   function startWatchingProject(evnt, data) {
