@@ -85,19 +85,19 @@ a img {
   height: 100%;
 }
 */
-/* line 21, ../src/partials/shells/_light.scss */
+/* line 21, ../scss/partials/shells/_light.scss */
 body {
   margin: 0;
   padding: 0;
   background-color: #ECECEC;
 }
-/* line 28, ../src/partials/shells/_light.scss */
+/* line 28, ../scss/partials/shells/_light.scss */
 body p,
 body a {
   font-family: Arial, sans-serif;
   font-weight: 400;
 }
-/* line 33, ../src/partials/shells/_light.scss */
+/* line 33, ../scss/partials/shells/_light.scss */
 body a {
   color: #5a5a5a;
   text-decoration: none;
@@ -118,27 +118,27 @@ body a:active {
 body a:hover {
   text-decoration: underline;
 }
-/* line 40, ../src/partials/shells/_light.scss */
+/* line 40, ../scss/partials/shells/_light.scss */
 body h1,
 body h2,
 body h3 {
   font-family: Helvetica, Arial, sans-serif;
 }
-/* line 44, ../src/partials/shells/_light.scss */
+/* line 44, ../scss/partials/shells/_light.scss */
 body h1 {
   font-size: 24px;
 }
-/* line 47, ../src/partials/shells/_light.scss */
+/* line 47, ../scss/partials/shells/_light.scss */
 body h2 {
   font-size: 18px;
 }
-/* line 51, ../src/partials/shells/_light.scss */
+/* line 51, ../scss/partials/shells/_light.scss */
 body .header {
   /*      padding: 9px 10px;*/
   border-top: 1px solid #393737;
   /*      @include linear-gradient(color-stops(#696767, #453F3F, #4a4242));*/
 }
-/* line 56, ../src/partials/shells/_light.scss */
+/* line 56, ../scss/partials/shells/_light.scss */
 body .header h1 {
   margin: 0;
   padding: 9px 0;
@@ -150,11 +150,11 @@ body .header h1 {
   background-position: 50% 50%;
   background-position: left center;
 }
-/* line 66, ../src/partials/shells/_light.scss */
+/* line 66, ../scss/partials/shells/_light.scss */
 body .view .content {
   border-top: 1px solid #FFFFFF;
 }
-/* line 70, ../src/partials/shells/_light.scss */
+/* line 70, ../scss/partials/shells/_light.scss */
 body .view .content h2 a {
   text-decoration: none;
 }
@@ -186,12 +186,12 @@ body .footer {
   height: 26px;
 }
 
-/* line 2, ../src/partials/views/_list.scss */
+/* line 2, ../scss/partials/views/_list.scss */
 body {
   position: relative;
 }
 
-/* line 6, ../src/partials/views/_list.scss */
+/* line 6, ../scss/partials/views/_list.scss */
 .header {
   height: 60px;
   padding: 15px 0 0 15px;
@@ -200,7 +200,7 @@ body {
   background-image: linear-gradient(top, #4f4f4f 0%, #2f2f2f 100%);
 }
 
-/* line 12, ../src/partials/views/_list.scss */
+/* line 12, ../scss/partials/views/_list.scss */
 #list {
   position: absolute;
   top: 70px;
@@ -214,11 +214,11 @@ body {
   -o-box-shadow: #b0b0b0 0px 0px 12px 0px inset;
   box-shadow: #b0b0b0 0px 0px 12px 0px inset;
 }
-/* line 22, ../src/partials/views/_list.scss */
+/* line 22, ../scss/partials/views/_list.scss */
 #list .content {
   background-color: #C9C9C9;
 }
-/* line 25, ../src/partials/views/_list.scss */
+/* line 25, ../scss/partials/views/_list.scss */
 #list .content .drop_area_note {
   position: absolute;
   height: 30px;
@@ -233,7 +233,7 @@ body {
   background-repeat: no-repeat;
   background-position: 0 0;
 }
-/* line 35, ../src/partials/views/_list.scss */
+/* line 35, ../scss/partials/views/_list.scss */
 #list .content .projects {
   position: relative;
   z-index: 100;
@@ -241,7 +241,7 @@ body {
   padding: 0;
   overflow-y: auto;
 }
-/* line 42, ../src/partials/views/_list.scss */
+/* line 42, ../scss/partials/views/_list.scss */
 #list .content .projects .project {
   /*height: 40px;*/
   margin: 0;
@@ -376,11 +376,11 @@ body {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 57, ../src/partials/views/_list.scss */
+/* line 57, ../scss/partials/views/_list.scss */
 #list .content .projects .project .config {
   display: none;
 }
-/* line 61, ../src/partials/views/_list.scss */
+/* line 61, ../scss/partials/views/_list.scss */
 #list .content .projects .project:hover {
   border-top: 1px solid #EDEDED;
   background-color: #DFDFDF;
@@ -402,41 +402,41 @@ body {
   transition-delay: 0s;
   cursor: pointer;
 }
-/* line 69, ../src/partials/views/_list.scss */
+/* line 69, ../scss/partials/views/_list.scss */
 #list .content .projects .project.playing .play {
   display: none;
 }
-/* line 72, ../src/partials/views/_list.scss */
+/* line 72, ../scss/partials/views/_list.scss */
 #list .content .projects .project.playing .stop {
   display: block;
 }
-/* line 78, ../src/partials/views/_list.scss */
+/* line 78, ../scss/partials/views/_list.scss */
 #list .content .projects .project.stopped .play {
   display: block;
 }
-/* line 81, ../src/partials/views/_list.scss */
+/* line 81, ../scss/partials/views/_list.scss */
 #list .content .projects .project.stopped .stop {
   display: none;
 }
-/* line 86, ../src/partials/views/_list.scss */
+/* line 86, ../scss/partials/views/_list.scss */
 #list .content .projects .project .source {
   display: inline;
   float: left;
   width: 60%;
 }
-/* line 90, ../src/partials/views/_list.scss */
+/* line 90, ../scss/partials/views/_list.scss */
 #list .content .projects .project .source h2 {
   margin-bottom: 0;
   line-height: 40px;
 }
-/* line 94, ../src/partials/views/_list.scss */
+/* line 94, ../scss/partials/views/_list.scss */
 #list .content .projects .project .source h2 a {
   color: #222;
   font-size: 20px;
   font-weight: 800;
 }
 
-/* line 218, ../src/partials/views/_list.scss */
+/* line 218, ../scss/partials/views/_list.scss */
 .footer {
   position: absolute;
   bottom: 0;
@@ -457,7 +457,7 @@ body {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 227, ../src/partials/views/_list.scss */
+/* line 227, ../scss/partials/views/_list.scss */
 .footer .option {
   display: inline;
   float: left;
@@ -469,20 +469,20 @@ body {
   background-position: center bottom;
   border-right: 1px solid #cacaca;
 }
-/* line 237, ../src/partials/views/_list.scss */
+/* line 237, ../scss/partials/views/_list.scss */
 .footer .option span {
   display: block;
   height: 24px;
 }
-/* line 242, ../src/partials/views/_list.scss */
+/* line 242, ../scss/partials/views/_list.scss */
 .footer .option:hover {
   background-color: #F3F3F3;
 }
-/* line 246, ../src/partials/views/_list.scss */
+/* line 246, ../scss/partials/views/_list.scss */
 .footer .option:active {
   background-color: #C0C0C0;
 }
-/* line 251, ../src/partials/views/_list.scss */
+/* line 251, ../scss/partials/views/_list.scss */
 .footer .option.add span {
   text-indent: -119988px;
   overflow: hidden;
@@ -491,11 +491,11 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 256, ../src/partials/views/_list.scss */
+/* line 256, ../scss/partials/views/_list.scss */
 .footer .option.remove {
   /*          border-left: none;*/
 }
-/* line 259, ../src/partials/views/_list.scss */
+/* line 259, ../scss/partials/views/_list.scss */
 .footer .option.remove span {
   text-indent: -119988px;
   overflow: hidden;
@@ -504,7 +504,7 @@ body {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 265, ../src/partials/views/_list.scss */
+/* line 265, ../scss/partials/views/_list.scss */
 .footer #new-project {
   margin-top: 2em;
 }
@@ -512,7 +512,7 @@ body {
 /*#todo @import "../partials/views/edit"; */
 /*#todo @import "../partials/views/new";  */
 /*events styles*/
-/* line 4, ../src/partials/events/_dragDrop_addFiles.scss */
+/* line 4, ../scss/partials/events/_dragDrop_addFiles.scss */
 #list .projects_container.hover .addhere {
   position: absolute;
   top: 0;
