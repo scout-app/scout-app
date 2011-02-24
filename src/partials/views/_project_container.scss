@@ -1,0 +1,223 @@
+.project_container {
+
+  #list {
+    background-color: #EFF4F9;
+/*    background-color: #DFE4EA;*/
+/*    @include box-shadow(#B0B0B0, 0px, 18px, 3px, 0px, inset);*/
+/*    @include box-shadow(red, 0px, -6px, 33px, 0px, inset);*/
+
+    .content {
+/*      background-color: #C9C9C9;*/
+
+      .drop_area_note {
+        position: absolute;
+        width: 100%;
+        bottom: 60px;
+        padding: 6px 0;
+        background-color: #99BBDF;
+        @include opacity(.6);
+
+        p {
+          width: 140px;
+          margin: 0 auto;
+          padding: 7px;
+          border: 3px dashed #7F7F7F;
+
+          span {
+            display: block;
+            padding: 9px 3px;
+            @include replace-text('../images/drop_area_note.png', center, center);
+            background-color: #CCCCCC;
+          }
+        }
+      }
+
+      .projects {
+        position: relative;
+        z-index: 100;
+        margin: 0;
+        overflow-y: auto;
+
+        .project {
+          margin: 0;
+          padding: 0 0 15px;
+          text-decoration: none;
+          color: #444444;
+
+          background-color: #E9E9E9;
+          border-top: 1px solid #FFFFFF;
+          border-bottom: 1px solid #BCBCBC;
+          list-style: none;
+          overflow: hidden;
+          @include pie-clearfix;
+
+          &:hover {
+            border-top: 1px solid #EDEDED;
+            background-color: #DFDFDF;
+            @include transition(background-color, .15s, ease-in, 0s);
+            cursor: pointer;
+
+/* moved into details
+            .options {
+              display: block;
+              padding: 0 0 20px;
+              border: 1px solid blue;
+              border-top: 1px solid #EDEDED;
+
+              .option {
+                display: none;
+              }
+            }
+*/
+          }
+
+          .item {
+            padding: 10px 15px 0;
+            @include pie-clearfix;
+
+            .source {
+              @include float-left;
+              width: 60%;
+
+
+              h2 {
+                margin-bottom: 0;
+                line-height: 40px;
+
+                a {
+                  color: #222;
+                  font-size: 13px;
+/*                  font-weight: 800;*/
+                  
+                  &:hover {
+                    text-decoration: none;
+                  }
+                }
+              }
+            }
+
+            .commands {
+             @include float-right;
+             width: 40%;
+             padding-top: 5px;
+             @include pie-clearfix;
+
+
+              .command {
+                @include float-right;
+                width: 38px;
+                margin-left: 5px;
+/*                background-color: #D6FFCF;*/
+                border: 1px solid #787878;
+                @include border-radius(21px, 21px);
+                @include linear-gradient(color-stops(red, blue));
+/*                @include box-shadow(red, 0px, 0px, 9px, 1px, inset);*/
+
+                span {
+                  display: block;
+                  padding: 8px;
+                  border-top: 1px solid transparent;
+                }
+
+                &:hover {
+                  background-color: #C0C0C0;
+                  @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
+/*                  @include border-radius(21px, 21px);*/
+/*                  border: 1px solid #787878;*/
+/*                  border: 1px solid #C0C0C0;*/
+
+                  span {
+/*                    border-top: 1px solid #EDEDED;*/
+
+                  }
+                }
+
+                &:active {
+                  background-color: #C0C0C0;
+                  @include box-shadow(#555555, 0px, 0px, 6px, 3px, inset);
+/*                  background-color: #F3F3F3;*/
+/*                  @include border-radius(21px, 21px);*/
+/*                  border: 1px solid #787878;*/
+/*                  border: 1px solid #B0B0B0;*/
+/*                  @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);*/
+
+                  span {
+/*                    border-top: 1px solid transparent;*/
+/*                    @include border-radius(21px, 21px);*/
+                  }
+                }
+
+                &.disabled {
+                  border: 1px solid transparent;
+                  background-color: transparent;
+                  cursor: default;
+                  @include box-shadow(#FFFFFF, 0px, 0px, 0px, 0px, false);
+
+                  span {
+/*                    border-top: 1px solid transparent;*/
+                  }
+                }
+
+                &.play {
+/*                  @include replace-text('../images/play.png');*/
+                  background-position: 13px center;
+                  background-repeat: no-repeat;
+                }
+
+                &.stop {
+                  @include replace-text('../images/stop.png');
+                }
+/*
+                &.initialize {
+                  width: auto;
+                  padding: 0px 8px;
+                  text-decoration: none;
+                  text-align: center;
+                  text-shadow: 0 1px 1px #F6F6F6;
+                  color: #2C2C2C;
+                  border: 1px solid #BEBEBE;
+                  @include border-radius(6px, 6px);
+                  background-color: #E9E9E9;
+                  background-repeat: repeat-x;
+                  background-position: center bottom;
+
+                  span {
+                    padding: 3px;
+                    @include border-radius(6px, 6px);
+                    border-top: 1px solid #FFFFFF;
+                  }
+
+                  &:hover {
+                    background-color: #F3F3F3;
+                    border: 1px solid #C0C0C0;
+                  }
+
+                  &:active {
+                    background-color: #C0C0C0;
+                    border: 1px solid #B0B0B0;
+
+                    span {
+                      border-top: 1px solid transparent;
+                    }
+                  }
+                }
+                &.scss_style {
+                  @include replace-text('/images/scss_folder.png');
+
+                  &.disabled {
+                    @include replace-text('/images/disabled_scss_folder.png');
+                  }
+                }
+                &.console {
+                  @include replace-text('/images/log.png');
+                }
+*/
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}
