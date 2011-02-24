@@ -63,7 +63,7 @@ $(document).ready(function() {
     $('.projects').empty();
     Projects.all(function(project) {
       if(project) {
-        $.tmpl($("#project-template"), project).appendTo(".projects");
+        $.tmpl($("#project_template"), project).appendTo(".projects");
       }
     });
   }
