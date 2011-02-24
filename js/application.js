@@ -25,11 +25,6 @@ $(document).ready(function() {
     key = $(this).parents('.project:first').attr('data-key');
     $('.project_details').hide();
     $('.project_details[data-key='+key+']').show();
-   //  Projects.get(key, function(project) {
-   //   if(project) {
-   //     
-   //   }
-   // });
   });
   
   $('#nuke').live('click', function(){
