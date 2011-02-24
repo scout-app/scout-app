@@ -15,13 +15,14 @@
 
     <script type="text/javascript" src="js/application.js"></script>
     <script id="project-template" type="text/x-jquery-tmpl">
-    <li class="project" data-key="${key}">
+    <li class="project stopped" data-key="${key}">
       <div class="item">
         <div class="source">
           <h2><a href="#">${name}</a></h2>
         </div>
         <div class="commands">
           <button class="play">Play</button>
+          <button class="stop">Stop</button>
         </div>
       </div>
       <div class="config">
@@ -38,24 +39,8 @@
     <h1>CompassApp</h1>
   </div>
   <div id="list" class="view">
-    <div id="watchtarget" class="content">
-      <ul class="projects">
-        <li class="project" data-key="${key}">
-          <div class="item">
-            <div class="source">
-              <h2><a href="#">${name}</a></h2>
-            </div>
-            <div class="commands">
-              <button class="play">Play</button>
-            </div>
-          </div>
-          <div class="config">
-            <p><span class="input-path">${inputPath}</span><button class="select input">Select input folder</button></p>
-            <p><span class="output-path">${outputPath}</span><button class="select output">Select output folder</button></p>
-            <p><button class="delete">Delete this project</button></p>
-          </div>
-        </li>
-      </ul>
+    <div class="content">
+      <ul class="projects"></ul>
       <div class="addhere"></div>
       <p class="drop_area_note">Drop Projects Here</p>
     </div>

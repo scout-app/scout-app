@@ -64,6 +64,24 @@ body {
           @include transition(background-color, .15s, ease-in, 0s);
           cursor: pointer;
         }
+        
+        &.playing {
+          .play {
+            display: none;
+          }
+          .stop {
+            display: block;
+          }
+        }
+        
+        &.stopped {
+          .play {
+            display: block;
+          }
+          .stop {
+            display: none;
+          }
+        }
 
         .source {
           @include float-left;

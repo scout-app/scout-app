@@ -1,18 +1,19 @@
 Array.prototype.last = function() {return this[this.length-1];}
 
-var projects = new Lawnchair({adaptor: 'air', table: "projects"});
+var Projects = new Lawnchair({adaptor: 'air', table: "projects"});
 
+// UI stuff
 $(document).ready(function() {
   listProjects();
   
-  var target = document.getElementById('watchtarget');
-  target.addEventListener("dragenter", dragEnterHandler);
-  target.addEventListener("dragover", dragOverHandler);
-  target.addEventListener("drop", dropHandler);
+  // create new project
+  $('.option.add').live('click', createProjectBySelectingDirectory);
+  $('.content').live('drop', createProjectByDroppingADirectory)
   
-  $('.option.add').click(createProjectBySelectingDirectory);
+  // start/stop project
   $('.project .play').live('click', toggleWatch);
   $('.project .stop').live('click', toggleWatch);
+  
   $('.project .select.input').live('click', selectInputBySelectingDirectory);
   $('.project .select.output').live('click', selectOutputBySelectingDirectory);
   $('.project .delete').live('click', deleteProject);
@@ -22,83 +23,100 @@ $(document).ready(function() {
   });
   
   $('#nuke').click(function(){
-    projects.nuke();
+    Projects.nuke();
     listProjects();
   });
+  
+  function createProjectBySelectingDirectory() {
+    browseDirectories(function(evnt) {
+      createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "");  
+    });
+  }
+
+  function createProjectByDroppingADirectory(evnt){ 
+    evnt.preventDefault();
+    createProject(evnt.dataTransfer.getData("text/uri-list").replace(/\/$/, '').split('/').last(), "", "");
+  }
+  
+  function toggleWatch() {
+    var project_container = $(this).parents('.project:first');
+    key = project_container.attr('data-key');
+    Projects.get(key, function(project) {
+      if(project_container.hasClass("stopped")) {
+        project_container.trigger("watch:start", { project: project });
+      } else {
+        project_container.trigger("watch:stop");
+      }
+      project_container.toggleClass("playing");
+      project_container.toggleClass("stopped");
+    });
+    return false;
+  }
+  
 });
 
 function listProjects(){
   $('.projects').empty();
-  projects.all(function(project){
-    if(project){
+  Projects.all(function(project) {
+    if(project) {
       appendProjectToProjectsList(project);
     }
   });
 }
 
-function startWatch(project) {
+// Process stuff
+$(function(){
+  var process_map = {};
   
-  air.trace("started watching..." + project.sassDir);
+  $(".project").live("watch:start", startWatchingProject);
+  $(".project").live("watch:stop", stopWatchingProject);
+  air.NativeApplication.nativeApplication.addEventListener(air.Event.EXITING, killWatchingProcesses);
   
-  var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
-  var file = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
-  nativeProcessStartupInfo.executable = file;
+  function startWatchingProject(evnt, data) {
+    var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
+    nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
 
-  var processArgs = new air.Vector["<String>"]();
-  processArgs.push("-S");
-  processArgs.push("compass");
-  processArgs.push("--watch");
-  processArgs.push("--sass-dir")
-  processArgs.push(project.sassDir);
-  processArgs.push("--css-dir");
-  processArgs.push(project.cssDir);
-  // processArgs.push("--environment " + project.environment);
-  // processArgs.push("--output-style " + project.outputStyle);
-  // processArgs.push("--poll");
-  
-  air.trace(processArgs);
+    var processArgs = new air.Vector["<String>"]();
+    processArgs.push("-S", "compass", "--watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle);
+    nativeProcessStartupInfo.arguments = processArgs;
 
-  nativeProcessStartupInfo.arguments = processArgs;
-  
-  process = new air.NativeProcess();
-  process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
-  process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, dataHandler);
-  process.start(nativeProcessStartupInfo);
-  
-  var bytes = new air.ByteArray();
-  function dataHandler(evnt) {
-    process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
-    //alert(bytes.toString());
-    air.trace(bytes.toString());
-  }
-}
+    process = new air.NativeProcess();
+    process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
+    process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, dataHandler);
+    process.start(nativeProcessStartupInfo);
 
-function stopWatch() {
-  air.trace("stopped watching.");
-  
-}
-
-function toggleWatch(evnt) {
-  key = $(this).parents('.project:first').attr('data-key');
-  thing = $(this);
-  projects.get(key, function(project) {
-    if(thing.hasClass("play")) {
-      startWatch(project);
-      thing.html("Stop");
-    } else {
-      stopWatch(project);
-      thing.html("Play");
+    var bytes = new air.ByteArray();
+    function dataHandler(evnt) {
+      process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
+      air.trace(bytes.toString());
     }
-    thing.toggleClass("play");
-    thing.toggleClass("stop");
-  });
-  return false;
-}
+
+    process_map[data.project.key] = process;
+  }
+
+  function stopWatchingProject(){
+    var project_key = $(this).attr('data-key');
+    var process = process_map[project_key];
+    if(process){
+      air.trace("Killing " + project_key);
+      process.exit();
+      delete process_map[project_key];
+    }
+  }
+  
+  function killWatchingProcesses(){
+    for (var i in process_map) {
+      process_map[i].exit();
+    }
+  }
+  
+});
+
 
 function deleteProject() {
   key = $(this).parents('.project:first').attr('data-key');
-  projects.get(key, function(project) {
-    projects.remove(project);
+  Projects.get(key, function(project) {
+    Projects.remove(project);
   });
   listProjects();
   return false;
@@ -108,9 +126,9 @@ function selectOutputBySelectingDirectory() {
   key = $(this).parents('.project:first').attr('data-key');
   config = $(this).siblings('span');
   browseDirectories(function(evnt){
-    projects.get(key, function(project) {
+    Projects.get(key, function(project) {
       project.cssDir = evnt.target.nativePath;
-      projects.save(project);
+      Projects.save(project);
     });
     config.html(evnt.target.nativePath);
   });
@@ -121,18 +139,15 @@ function selectInputBySelectingDirectory() {
   key = $(this).parents('.project:first').attr('data-key');
   config = $(this).siblings('span');
   browseDirectories(function(evnt){
-    projects.get(key, function(project) {
+    Projects.get(key, function(project) {
       project.sassDir = evnt.target.nativePath;
-      projects.save(project);
+      Projects.save(project);
     });
     config.html(evnt.target.nativePath);
   });
   return false;
 }
 
-function createProjectBySelectingDirectory() {
-  browseDirectories(createProjectFromFolder);
-}
 
 function browseDirectories(callback) {
   var directory = air.File.documentsDirectory;
@@ -147,12 +162,9 @@ function browseDirectories(callback) {
   }
 }
 
-function createProjectFromFolder(evnt) {
-  createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "");
-}
 
 function createProject(name, sassDir, cssDir) {
-  projects.save({
+  Projects.save({
     name: name,
     sassDir: sassDir,
     cssDir: cssDir,
@@ -166,62 +178,3 @@ function createProject(name, sassDir, cssDir) {
 function appendProjectToProjectsList(project) {
   $.tmpl($("#project-template"), project).appendTo(".projects");
 }
-
-function dragEnterHandler(evnt) {
-  evnt.preventDefault();
-}
-
-function dragOverHandler(evnt){ 
-  evnt.preventDefault();
-}
-
-function dropHandler(evnt){ 
-  evnt.preventDefault();
-  createProject(evnt.dataTransfer.getData("text/uri-list").replace(/\/$/, '').split('/').last(), "", "");
-}
-
-function onOutputData()
-{
-  //air.trace("Got: ", process.standardOutput.readUTFBytes(process.standardOutput.bytesAvailable)); 
-}
-
-function onErrorData(evnt)
-{
-  //air.trace("ERROR -", process.standardError.readUTFBytes(process.standardError.bytesAvailable)); 
-}
-
-function onExit(evnt)
-{
-  //air.trace("Process exited with ", evnt.exitCode);
-}
-
-function onIOError(evnt)
-{
-  //air.trace(evnt.toString());
-}
-
-// $(document).ready(function(){
-//   air.trace($("#m").length);
-//   $("#m").click(function(){
-//      var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
-//      var file = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
-//      nativeProcessStartupInfo.executable = file;
-// 
-//      var processArgs = new air.Vector["<String>"]();
-//      processArgs.push("--version");
-//      nativeProcessStartupInfo.arguments = processArgs;
-//        
-//      process = new air.NativeProcess();
-//      process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
-//     process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, dataHandler);
-//      process.start(nativeProcessStartupInfo);
-//     
-//       var bytes = new air.ByteArray();
-//      function dataHandler(evnt) {
-//        process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
-//        alert(bytes.toString());
-//        air.trace(bytes.toString());
-//       // $("body").append(bytes.toString());
-//      }    
-//   });
-// });
