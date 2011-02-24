@@ -11,12 +11,13 @@
 @import "compass/layout";
 
 /*shell styles*/
+@import "partials/shells/shell";
 @import "partials/shells/light";
 /*#todo @import "../partials/shells/dark"; */
 
 /*views styles*/
-@import "partials/views/list";
-/*#todo @import "../partials/views/edit"; */
+@import "partials/views/project_container";
+@import "partials/views/details";
 
 /*events styles*/
 @import "partials/events/dragDrop_addFiles";
