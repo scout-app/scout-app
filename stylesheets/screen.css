@@ -621,3 +621,20 @@ body h2 {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 }
+
+/* line 3, ../scss/partials/events/_project_state.scss */
+.project.stopped .play {
+  display: block;
+}
+/* line 6, ../scss/partials/events/_project_state.scss */
+.project.stopped .stop {
+  display: none;
+}
+/* line 11, ../scss/partials/events/_project_state.scss */
+.project.playing .play {
+  display: none;
+}
+/* line 14, ../scss/partials/events/_project_state.scss */
+.project.playing .stop {
+  display: block;
+}

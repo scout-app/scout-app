@@ -1,0 +1,18 @@
+.project {
+  &.stopped {
+    .play {
+      display: block;
+    }
+    .stop {
+      display: none;
+    }
+  }
+  &.playing {
+    .play {
+      display: none;
+    }
+    .stop {
+      display: block;
+    }
+  }
+}
