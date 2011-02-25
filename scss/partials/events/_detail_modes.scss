@@ -1,5 +1,16 @@
 .project_details {
   &.configure {
+    .modes {
+      .mode.configure {
+        color: #FFFFFF;
+        @include single-text-shadow(#595959, 0, 1px, 0);
+        @include linear-gradient(color-stops(#959595, #8E8E8E));
+        border-bottom: 1px solid #E5E5E5;
+        @include border-radius(10px);
+        @include box-shadow(#616161, 0px, 1px, 1px, 1px, inset);
+      }
+    }
+
     .options{
       display: block;
     }
@@ -10,6 +21,17 @@
   }
 
   &.log {
+    .modes {
+      .mode.log {
+        color: #fff;
+        @include single-text-shadow(#595959, 0, 1px, 0);
+        @include linear-gradient(color-stops(#959595, #8E8E8E));
+        border-bottom: 1px solid #E5E5E5;
+        @include border-radius(10px);
+        @include box-shadow(#616161, 0px, 1px, 1px, 1px, inset);
+      }
+    }
+
     .options {
       display: none;
     }
@@ -18,14 +40,4 @@
       display: block;
     }
   }
-  
-  .modes {
-    .mode {
-      span {
-        background: red;
-      }
-    }
-  }
-  
-
 }

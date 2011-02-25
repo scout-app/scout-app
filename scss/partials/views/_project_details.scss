@@ -1,0 +1,97 @@
+.project_details {
+/*uncomment  display: none;*/
+
+  .view {
+    left: 1px;
+    border-top: 1px solid #FFFFFF;
+    @include linear-gradient(color-stops(#FBFBFB 80%, #E6E6E6));
+
+    .modes {
+      padding: 5px 10px 5px 0;
+      @include linear-gradient(color-stops(#E9E9E9, #CFCFCF));
+      border-bottom: 1px solid #8E8E8E;
+      @include pie-clearfix;
+
+      .mode {
+        @include float-right;
+        margin-left: 2px;
+        padding: 4px 10px 5px;
+        line-height: .8;
+        font-family: 'lucida sans unicode';
+        font-size: 12px;
+        color: #000000;
+        @include single-text-shadow(#EFEFEF, 0, 1px, 0);
+
+
+        &:hover {
+          color: #FFFFFF;
+          @include single-text-shadow(#595959, 0, 1px, 0);
+          @include linear-gradient(color-stops(#959595, #8E8E8E));
+          @include border-radius(10px);
+          text-decoration: none;
+          @include box-shadow(#8f8f8f, 0px, 1px, 0px, 0px, inset);
+        }
+
+        &:active {
+          @include linear-gradient(color-stops(#747474, #6E6E6E));
+          border-bottom: 1px solid #E4E4E4;
+          @include box-shadow(#484848, 0px, 1px, 1px, 1px, inset);
+        }
+      }
+    }
+
+    .options {
+      margin: 0;
+      padding: 36px 10px 0 50px;
+
+      .option {
+        @include pie-clearfix;
+        margin-bottom: 12px;
+
+        label {
+          @include float-left;
+          width: 100px;
+          margin-right: 5px;
+          text-align: right;
+          font-size: 13px;
+          font-weight: bold;
+        }
+
+        .button_container {
+          @include float-left;
+          width: 70px;
+          margin: -6px 5px 0 0;
+          
+          button {
+            text-align: center;
+          }
+        }
+
+        .setting {
+          @include float-left;
+          font-size: 13px;
+        }
+      }
+    }
+  }
+  
+  .footer {
+    left: 1px;
+  }
+}
+
+.non_selected {
+  position: absolute;
+  top: 70px;
+  right: 0;
+  bottom: 0;
+  left: 40%;
+
+  .view {
+    left: 1px;
+    border-top: 1px solid #FFFFFF;
+    @include linear-gradient(color-stops(#FBFBFB 80%, #E6E6E6));
+    background-color: #EFF4F9;
+  }
+}
+
