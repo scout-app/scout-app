@@ -233,19 +233,22 @@ body {
   margin-top: 2em;
 }
 
-/* line 1, ../scss/partials/shells/_light.scss */
+/*
+  Light Color Theme
+*/
+/* line 5, ../scss/partials/shells/_light.scss */
 body {
   margin: 0;
   padding: 0;
   background-color: #ECECEC;
 }
-/* line 7, ../scss/partials/shells/_light.scss */
+/* line 11, ../scss/partials/shells/_light.scss */
 body p,
 body a {
   font-family: Arial, sans-serif;
   font-weight: 400;
 }
-/* line 12, ../scss/partials/shells/_light.scss */
+/* line 16, ../scss/partials/shells/_light.scss */
 body a {
   color: #5a5a5a;
   text-decoration: none;
@@ -266,17 +269,17 @@ body a:active {
 body a:hover {
   text-decoration: underline;
 }
-/* line 19, ../scss/partials/shells/_light.scss */
+/* line 23, ../scss/partials/shells/_light.scss */
 body h1,
 body h2,
 body h3 {
   font-family: Helvetica, Arial, sans-serif;
 }
-/* line 23, ../scss/partials/shells/_light.scss */
+/* line 27, ../scss/partials/shells/_light.scss */
 body h1 {
   font-size: 24px;
 }
-/* line 26, ../scss/partials/shells/_light.scss */
+/* line 30, ../scss/partials/shells/_light.scss */
 body h2 {
   font-size: 18px;
 }
@@ -525,33 +528,9 @@ body h2 {
 
 /* line 1, ../scss/partials/views/_details.scss */
 .project_details {
-  display: none;
+  /*  display: none;*/
 }
-/* line 5, ../scss/partials/views/_details.scss */
-.project_details.configure .modes .mode.configure span {
-  background: red;
-}
-/* line 8, ../scss/partials/views/_details.scss */
-.project_details.configure .options {
-  display: block;
-}
-/* line 11, ../scss/partials/views/_details.scss */
-.project_details.configure .log_output {
-  display: none;
-}
-/* line 17, ../scss/partials/views/_details.scss */
-.project_details.log .modes .mode.log span {
-  background: red;
-}
-/* line 20, ../scss/partials/views/_details.scss */
-.project_details.log .options {
-  display: none;
-}
-/* line 23, ../scss/partials/views/_details.scss */
-.project_details.log .log_output {
-  display: block;
-}
-/* line 28, ../scss/partials/views/_details.scss */
+/* line 4, ../scss/partials/views/_details.scss */
 .project_details .view {
   left: 1px;
   border-top: 1px solid #FFFFFF;
@@ -559,7 +538,7 @@ body h2 {
   background-image: -moz-linear-gradient(top, #fbfbfb 80%, #e6e6e6 100%);
   background-image: linear-gradient(top, #fbfbfb 80%, #e6e6e6 100%);
 }
-/* line 33, ../scss/partials/views/_details.scss */
+/* line 9, ../scss/partials/views/_details.scss */
 .project_details .view .modes {
   padding-right: 10px;
   *zoom: 1;
@@ -574,19 +553,19 @@ body h2 {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 38, ../scss/partials/views/_details.scss */
+/* line 14, ../scss/partials/views/_details.scss */
 .project_details .view .modes .mode {
   display: inline;
   float: right;
   padding: 3px 5px;
   background-color: #DEDEDE;
 }
-/* line 45, ../scss/partials/views/_details.scss */
+/* line 21, ../scss/partials/views/_details.scss */
 .project_details .view .options {
   margin: 0;
   padding: 36px 10px 0 50px;
 }
-/* line 49, ../scss/partials/views/_details.scss */
+/* line 25, ../scss/partials/views/_details.scss */
 .project_details .view .options .option {
   *zoom: 1;
   margin-bottom: 12px;
@@ -600,7 +579,7 @@ body h2 {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 53, ../scss/partials/views/_details.scss */
+/* line 29, ../scss/partials/views/_details.scss */
 .project_details .view .options .option label {
   display: inline;
   float: left;
@@ -610,29 +589,29 @@ body h2 {
   font-size: 13px;
   font-weight: bold;
 }
-/* line 62, ../scss/partials/views/_details.scss */
+/* line 38, ../scss/partials/views/_details.scss */
 .project_details .view .options .option .button_container {
   display: inline;
   float: left;
   width: 70px;
   margin: -6px 5px 0 0;
 }
-/* line 67, ../scss/partials/views/_details.scss */
+/* line 43, ../scss/partials/views/_details.scss */
 .project_details .view .options .option .button_container button {
   text-align: center;
 }
-/* line 72, ../scss/partials/views/_details.scss */
+/* line 48, ../scss/partials/views/_details.scss */
 .project_details .view .options .option .setting {
   display: inline;
   float: left;
   font-size: 13px;
 }
-/* line 80, ../scss/partials/views/_details.scss */
+/* line 56, ../scss/partials/views/_details.scss */
 .project_details .footer {
   left: 1px;
 }
 
-/* line 85, ../scss/partials/views/_details.scss */
+/* line 61, ../scss/partials/views/_details.scss */
 .non_selected {
   position: absolute;
   top: 70px;
@@ -640,7 +619,7 @@ body h2 {
   bottom: 0;
   left: 40%;
 }
-/* line 92, ../scss/partials/views/_details.scss */
+/* line 68, ../scss/partials/views/_details.scss */
 .non_selected .view {
   left: 1px;
   border-top: 1px solid #FFFFFF;
@@ -668,19 +647,40 @@ body h2 {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
 }
 
-/* line 3, ../scss/partials/events/_project_state.scss */
+/* line 3, ../scss/partials/events/_project_states.scss */
 .project.stopped .play {
   display: block;
 }
-/* line 6, ../scss/partials/events/_project_state.scss */
+/* line 6, ../scss/partials/events/_project_states.scss */
 .project.stopped .stop {
   display: none;
 }
-/* line 11, ../scss/partials/events/_project_state.scss */
+/* line 12, ../scss/partials/events/_project_states.scss */
 .project.playing .play {
   display: none;
 }
-/* line 14, ../scss/partials/events/_project_state.scss */
+/* line 15, ../scss/partials/events/_project_states.scss */
 .project.playing .stop {
+  display: block;
+}
+
+/* line 4, ../scss/partials/events/_detail_modes.scss */
+.project_details .modes .mode.log span {
+  background: red;
+}
+/* line 11, ../scss/partials/events/_detail_modes.scss */
+.project_details .modes .configure_view .options {
+  display: block;
+}
+/* line 14, ../scss/partials/events/_detail_modes.scss */
+.project_details .modes .configure_view .log_output {
+  display: none;
+}
+/* line 21, ../scss/partials/events/_detail_modes.scss */
+.project_details .modes .log_view .options {
+  display: none;
+}
+/* line 24, ../scss/partials/events/_detail_modes.scss */
+.project_details .modes .log_view .log_output {
   display: block;
 }
