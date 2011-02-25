@@ -1,19 +1,11 @@
 body {
-  p,
-  a {
-    font-family: Arial, sans-serif;
-    font-weight: 400;
-  }
+  font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, "Verdana Ref", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
 
   a {
     @include link-colors(#5A5A5A, #171717, #BBBBBB, #5A5A5A);
     @include hover-link;
-  }
-
-  h1,
-  h2,
-  h3 {
-    font-family: Helvetica, Arial, sans-serif;
   }
 
   h1 {
