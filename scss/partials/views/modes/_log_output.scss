@@ -1,0 +1,31 @@
+.project_details {
+  .view {
+
+    .log_output {
+      position: absolute;
+      top: 30px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 100;
+      font-family: monospace;
+      color: #F8F8F8;
+      background-color: #141414;
+
+       span {
+
+        &.red {
+          color: red;
+        }
+
+        &.green {
+          color: green;
+        }
+
+        &.yellow {
+          color: orange;
+        }
+      }
+    }
+  }
+}
