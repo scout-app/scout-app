@@ -75,7 +75,11 @@
     <div class="view">
       <ul class="projects">
 
-<!-- Remove -->
+<!-- Remove
+1. selected project removes from ul.projects -> previous="project_name"
+2. selected project passes to ul.projects -> append="project_name" with the name that has a corresponding project name
+3. The project with the same name gets highlighted
+-->
         <li class="project stopped" data-key="${key}">
           <div class="item">
             <div class="source">
@@ -87,6 +91,7 @@
             </div>
           </div>
         </li>
+
         <li class="project stopped" data-key="${key}">
           <div class="item">
             <div class="source">
@@ -98,6 +103,7 @@
             </div>
           </div>
         </li>
+
         <li class="project stopped" data-key="${key}">
           <div class="item">
             <div class="source">
