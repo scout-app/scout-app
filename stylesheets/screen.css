@@ -233,7 +233,7 @@ body .footer .option {
   text-shadow: 0 1px 1px #F6F6F6;
   background-repeat: repeat-x;
   background-position: center bottom;
-  border-right: 1px solid #cacaca;
+  border-right: 1px solid #B3B3B3;
 }
 /* line 48, ../scss/partials/shells/_shell.scss */
 body .footer .option span {
