@@ -19,7 +19,11 @@
     <script>
       air.Introspector.toggleWindow();
     </script>
-
+    
+    <script id="colorize_template" type="text/x-jquery-tmpl">
+      <div><span class="${color}">${string}</span></div>
+    </script>
+    
     <script id="project_template" type="text/x-jquery-tmpl">
       <li class="project stopped" data-key="${key}">
         <div class="item">

@@ -4,7 +4,10 @@ var Projects = new Lawnchair({adaptor: 'air', table: "projects"});
 
 // UI stuff
 $(document).ready(function() {  
-  
+  $.tmpl($('#colorize_template'));
+  $.tmpl($('#project_template'));
+  $.tmpl($('#project_details_template'));
+    
   // create new project
   $('.option.add').live('click', createProjectBySelectingDirectory);
   $('.content').live('drop', createProjectByDroppingADirectory)
@@ -37,7 +40,22 @@ $(document).ready(function() {
   
   function updateProjectLog(evnt, data) {
     var key = $(this).attr('data-key');
-    $('.project_details[data-key='+key+'] .log_output').append(data);
+    $('.project_details[data-key='+key+'] .log_output').append(colorize(data.replace("\n", "<br />")));
+  }
+  
+  var colors = {
+    "33": "yellow",
+    "32": "green",
+    "31": "red",
+    "0": ""
+  }
+  
+  function colorize(string) {
+    new_string = string.replace(/\033\[(\d+)m([^\033]+)\033\[0m/g, function(match, color, string, offset, original) {
+      thing = $.tmpl($('#colorize_template'),  { color: colors[color], string: string }).html();
+      return thing;
+    });    
+    return new_string.replace(/\033\[(\d+)m/g, '');
   }
   
   function toggleMode() {
