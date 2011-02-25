@@ -11,17 +11,22 @@ $(function(){
     nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
 
     var processArgs = new air.Vector["<String>"]();
-    processArgs.push("-S", "compass", "--watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle);
+    processArgs.push("-S", "compass", "watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle, "--trace");
     nativeProcessStartupInfo.arguments = processArgs;
 
     process = new air.NativeProcess();
-    process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, dataHandler);
-    process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, dataHandler);
+    process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, outputDataHandler);
+    process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, errorDataHandler);
     process.start(nativeProcessStartupInfo);
 
-    var bytes = new air.ByteArray();
-    function dataHandler(evnt) {
-      process.standardOutput.readBytes(bytes, 0, process.standardOutput.bytesAvailable);
+    //var bytes = new air.ByteArray();
+    function outputDataHandler(evnt) {
+      var bytes = process.standardOutput.readUTFBytes(process.standardOutput.bytesAvailable);
+      $('.project_details[data-key='+data.project.key+']').trigger(':newLogOutput', bytes.toString());
+    }
+    
+    function errorDataHandler(evnt) {
+      var bytes = process.standardError.readUTFBytes(process.standardError.bytesAvailable);
       $('.project_details[data-key='+data.project.key+']').trigger(':newLogOutput', bytes.toString());
     }
 
