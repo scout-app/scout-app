@@ -1,0 +1,24 @@
+@include sticky-footer(26px, 'body', '.footer');
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  background-color: #ECECEC;
+}
+
+#header {
+  height: 54px;
+  padding: 15px 0 0 15px;
+  @include linear-gradient(color-stops(#4f4f4f, #2F2F2F));
+  border-top: 1px solid #393737;
+
+  h1 {
+    @include float-left;
+    width: 300px;
+    margin: 0;
+    padding: 9px 0;
+    @include replace-text("/images/logo-compass-small-dark.png");
+    background-position: left center;
+  }
+}
