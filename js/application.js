@@ -2,16 +2,84 @@ Array.prototype.last = function() {return this[this.length-1];}
 
 var Projects = new Lawnchair({adaptor: 'air', table: "projects"});
 
+var app = {
+  delegateTo: function(targetMethod){
+    return function(evnt){
+      app[targetMethod](evnt);
+    };
+  },
+  
+  initialize: function() {
+    app.listProjects();
+  },
+  
+  createProjectBySelectingDirectory: function() {
+    browseDirectories(function(evnt) {
+      app.createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "");  
+    });
+  },
+  
+  createProjectByDroppingADirectory: function(evnt){ 
+    evnt.preventDefault();
+    app.createProject(evnt.dataTransfer.getData("text/uri-list").replace(/\/$/, '').split('/').last(), "", "");
+  },
+  
+  createProject: function(name, sassDir, cssDir) {
+    Projects.save({
+      name: name,
+      sassDir: sassDir,
+      cssDir: cssDir,
+      environment: "development",
+      outputStyle: "expanded"
+    });
+    $('.projects').trigger(':changed');
+  },
+  
+  listProjects: function() {
+    $('.projects').empty();
+    Projects.all(function(projects) {
+      $.each(projects, function(i, project){
+        if(project) {
+          // add project to project_list
+          $.tmpl($("#project_template"), project).appendTo(".projects");
+          // add project details pane
+          if($('.project_details[data-key='+project.key+']').length == 0){
+            $.tmpl($("#project_details_template"), project).appendTo("body");
+          }
+        }
+      });
+    });
+  },
+  
+  nukeAllProjects: function(){
+    Projects.all(function(projects) {
+      $.each(projects, function(i, project){
+        if(project){
+          $('.project[data-key=' + project.key + ']').remove();
+          $('.project_details[data-key=' + project.key + ']').remove();
+        }
+      });
+    });
+    Projects.nuke();
+    $('.projects').trigger(':changed');
+    $('.projects').trigger('processes:killAll');
+    $('.project_details').hide();
+    $('.non_selected').show();
+  }
+};
+
 // UI stuff
-$(document).ready(function() {  
+$(document).ready(function() {
   $.tmpl($('#colorize_template'));
   $.tmpl($('#project_template'));
   $.tmpl($('#project_details_template'));
     
   // create new project
-  $('.option.add').live('click', createProjectBySelectingDirectory);
-  $('.content').live('drop', createProjectByDroppingADirectory)
-  $('.projects').live(':changed', projectListChanged);
+  $('.option.add').live('click', app.delegateTo('createProjectBySelectingDirectory'));
+  
+  $('.content').live('drop', app.createProjectByDroppingADirectory);
+  $('.projects').live(':changed', app.listProjects);
+  
   $('.project_details').live(':newLogOutput', updateProjectLog);
   
   $('.modes .mode').live('click', toggleMode);
@@ -30,13 +98,7 @@ $(document).ready(function() {
     $('.project_details[data-key='+key+']').show();
   });
   
-  $('#nuke').live('click', function(){
-    Projects.nuke();
-    $('.projects').trigger(':changed');
-    $('.projects').trigger('processes:killAll');
-    $('.project_details').hide();
-    $('.non_selected').show();
-  });
+  $('#nuke').live('click', app.delegateTo('nukeAllProjects'));
   
   function updateProjectLog(evnt, data) {
     var key = $(this).attr('data-key');
@@ -63,17 +125,6 @@ $(document).ready(function() {
     $('.pane.project_details').toggleClass('log');
   }
   
-  function createProjectBySelectingDirectory() {
-    browseDirectories(function(evnt) {
-      createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "");  
-    });
-  }
-
-  function createProjectByDroppingADirectory(evnt){ 
-    evnt.preventDefault();
-    createProject(evnt.dataTransfer.getData("text/uri-list").replace(/\/$/, '').split('/').last(), "", "");
-  }
-  
   function toggleWatch() {
     var project_container = $(this).parents('.project:first');
     key = project_container.attr('data-key');
@@ -89,20 +140,7 @@ $(document).ready(function() {
     return false;
   }
   
-  function projectListChanged() {
-    $('.projects').empty();
-    Projects.all(function(project) {
-      if(project) {
-        $.tmpl($("#project_template"), project).appendTo(".projects");
-        if($('.project_details[data-key='+project.key+']').length == 0){
-          $.tmpl($("#project_details_template"), project).appendTo("body");
-        }
-      }
-    });
-  }
-  
-  projectListChanged();
-  
+  app.initialize();
 });
 
 
@@ -156,15 +194,4 @@ function browseDirectories(callback) {
   {
     air.trace("Failed:", error.message)
   }
-}
-
-function createProject(name, sassDir, cssDir) {
-  Projects.save({
-    name: name,
-    sassDir: sassDir,
-    cssDir: cssDir,
-    environment: "development",
-    outputStyle: "expanded"
-  });
-  $('.projects').trigger(':changed');
 }
