@@ -1,29 +1,31 @@
 .project_details {
+  &.configure {
+    .options{
+      display: block;
+    }
+    
+    .log_output {
+      display: none;
+    }
+  }
+
+  &.log {
+    .options {
+      display: none;
+    }
+    
+    .log_output {
+      display: block;
+    }
+  }
+  
   .modes {
-    .mode.log {
+    .mode {
       span {
         background: red;
       }
     }
-
-    .configure_view {
-
-      .options{
-        display: block;
-      }
-      .log_output {
-        display: none;
-      }
-    }
-
-    .log_view {
-
-      .options{
-        display: none;
-      }
-      .log_output {
-        display: block;
-      }
-    }
   }
+  
+
 }

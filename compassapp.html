@@ -40,7 +40,9 @@
               <span>Log</span>
             </a>
           </div>
+          
           <div class="log_output"></div>
+
           <div class="options">
             <div class="option input">
               <label>Input Folder:</label>
@@ -71,19 +73,90 @@
   <div class="pane project_list">
     <div class="view">
       <ul class="projects">
-        <!-- project-template -->
+
+<!-- Remove -->
+        <li class="project stopped" data-key="${key}">
+          <div class="item">
+            <div class="source">
+              <h2><a href="#">${name}</a></h2>
+            </div>
+            <div class="commands">
+              <button class="play">Play</button>
+              <button class="stop">Stop</button>
+            </div>
+          </div>
+        </li>
+        <li class="project stopped" data-key="${key}">
+          <div class="item">
+            <div class="source">
+              <h2><a href="#">${name}</a></h2>
+            </div>
+            <div class="commands">
+              <button class="play">Play</button>
+              <button class="stop">Stop</button>
+            </div>
+          </div>
+        </li>
+        <li class="project stopped" data-key="${key}">
+          <div class="item">
+            <div class="source">
+              <h2><a href="#">${name}</a></h2>
+            </div>
+            <div class="commands">
+              <button class="play">Play</button>
+              <button class="stop">Stop</button>
+            </div>
+          </div>
+        </li>
+<!-- /Remove -->
+
       </ul>
-      <button id="nuke">Nuke</button>
+
+      <button id="nuke">Remove All Projects</button>
     </div>
     <div class="footer">
       <a href="#" class="option add" title="Add a project"><span>+</span></a>
     </div>
   </div>
-  
-  <div class="pane non_selected">
-    <div class="view"></div>
+
+
+<!-- remove -->
+  <div class="pane project_details configure" data-key="${key}">
+    <div class="view">
+
+      <div class="modes">
+        <a href="#" class="mode configure">Configure</a>
+        <a href="#" class="mode log">Log</a>
+      </div>
+
+      <div class="log_output"></div>
+
+      <div class="options">
+        <div class="option input">
+          <label>Input Folder:</label>
+          <div class="button_container"><button class="select_sass_dir"><span>Select</span></button></div>
+          <span class="setting_sass_dir">${sassDir}</span>
+        </div>
+        <div class="option output">
+          <label>Output Folder:</label>
+          <div class="button_container"><button class="select_css_dir"><span>Select</span></button></div>
+          <span class="setting_css_dir">${cssDir}</span>
+        </div>
+        <div class="option remove">
+          <label>Remove Project:</label>
+          <div class="button_container"><button class="delete"><span>Remove</span></button></div>
+        </div>
+      </div>
+    </div>
+
     <div class="footer"></div>
   </div>
+<!-- /remove -->
+
+  <!--uncomment <div class="pane non_selected">
+    <div class="view"></div>
+    <div class="footer"></div>
+  </div> -->
 
 </body>
 </html>
