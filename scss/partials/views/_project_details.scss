@@ -27,7 +27,7 @@
           @include linear-gradient(color-stops(#959595, #8E8E8E));
           @include border-radius(10px);
           text-decoration: none;
-          @include box-shadow(#8f8f8f, 0px, 1px, 0px, 0px, inset);
+          @include box-shadow(#8f8f8f, 0px, 0px, 0px, 0px, inset);
         }
 
         &:active {
