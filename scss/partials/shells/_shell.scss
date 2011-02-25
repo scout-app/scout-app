@@ -19,7 +19,7 @@ body {
   .view {
     position: absolute;
     top: 0;
-    bottom: 27px;
+    bottom: 19px;
     right: 0;
     left: 0;
     overflow-y: auto;
@@ -47,7 +47,7 @@ body {
 
       span {
         display: block;
-        height: 24px;
+        height: 18px;
       }
 
       &:hover {
@@ -61,14 +61,8 @@ body {
       &.add {
         span {
           @include replace-text('/images/add.png');
-        }
-      }
-
-      &.remove {
-  /*          border-left: none;*/
-
-        span {
-          @include replace-text('/images/remove.png');
+          border-right: 1px solid #F0F0F0;
+          border-left: 1px solid #F0F0F0;
         }
       }
     }
