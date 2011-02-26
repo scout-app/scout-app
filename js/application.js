@@ -65,7 +65,18 @@ var app = {
     $('.projects').trigger('processes:killAll');
     $('.project_details').hide();
     $('.non_selected').show();
+  },
+  
+  viewProjectConfiguration: function() {
+    $('.pane.project_details').addClass('configure');
+    $('.pane.project_details').removeClass('log');
+  },
+
+  viewProjectLog: function() {
+    $('.pane.project_details').removeClass('configure');
+    $('.pane.project_details').addClass('log');
   }
+  
 };
 
 // UI stuff
@@ -82,7 +93,8 @@ $(document).ready(function() {
   
   $('.project_details').live(':newLogOutput', updateProjectLog);
   
-  $('.modes .mode').live('click', toggleMode);
+  $('.modes .mode.configure').live('click', app.viewProjectConfiguration);
+  $('.modes .mode.log').live('click', app.viewProjectLog);
   
   // start/stop project
   $('.project .play').live('click', toggleWatch);
@@ -118,11 +130,6 @@ $(document).ready(function() {
       return thing;
     });    
     return new_string.replace(/\033\[(\d+)m/g, '');
-  }
-  
-  function toggleMode() {
-    $('.pane.project_details').toggleClass('configure');
-    $('.pane.project_details').toggleClass('log');
   }
   
   function toggleWatch() {

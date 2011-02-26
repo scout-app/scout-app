@@ -966,9 +966,12 @@ jasmine.Block = function(env, func, spec) {
 jasmine.Block.prototype.execute = function(onComplete) {  
   try {
     this.func.apply(this.spec);
+    air.Introspector.Console.log('jasmine.Block.prototype.execute: spec');
   } catch (e) {
+    air.Introspector.Console.log('jasmine.Block.prototype.execute: error');
     this.spec.fail(e);
   }
+  air.Introspector.Console.log('jasmine.Block.prototype.execute: end');
   onComplete();
 };
 /** JavaScript API reporter.
@@ -1965,6 +1968,7 @@ jasmine.Spec.prototype.fail = function (e) {
     message: e ? jasmine.util.formatException(e) : 'Exception'
   });
   this.results_.addResult(expectationResult);
+  air.Introspector.Console.log('jasmine.Spec.prototype.fail: error');
 };
 
 jasmine.Spec.prototype.getMatchersClass_ = function() {
@@ -1982,6 +1986,7 @@ jasmine.Spec.prototype.addMatchers = function(matchersPrototype) {
 };
 
 jasmine.Spec.prototype.finishCallback = function() {
+  air.Introspector.Console.log('jasmine.Spec.prototype.finishCallback');
   this.env.reporter.reportSpecResults(this);
 };
 
