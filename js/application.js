@@ -127,7 +127,7 @@ function selectOutputBySelectingDirectory() {
       project.cssDir = evnt.target.nativePath;
       Projects.save(project);
     });
-    $('.project_details[data-key='+key+'] .setting_css_dir').html(evnt.target.nativePath);
+    $('.project_details[data-key='+key+'] .css_dir').val(evnt.target.nativePath);
   });
   return false;
 }
@@ -139,7 +139,7 @@ function selectInputBySelectingDirectory() {
       project.sassDir = evnt.target.nativePath;
       Projects.save(project);
     });
-    $('.project_details[data-key='+key+'] .setting_sass_dir').html(evnt.target.nativePath);
+    $('.project_details[data-key='+key+'] .sass_dir').val(evnt.target.nativePath);
   });
   return false;
 }

@@ -48,22 +48,29 @@
 
           <div class="log_output"></div>
 
-          <div class="options">
-            <div class="option input">
-              <label>Input Folder:</label>
-              <div class="button_container"><button class="select_sass_dir"><span>Select</span></button></div>
-              <span class="setting_sass_dir">${sassDir}</span>
-            </div>
-            <div class="option output">
-              <label>Output Folder:</label>
-              <div class="button_container"><button class="select_css_dir"><span>Select</span></button></div>
-              <span class="setting_css_dir">${cssDir}</span>
-            </div>
-            <div class="option remove">
-              <label>Remove Project:</label>
-              <div class="button_container"><button class="delete"><span>Remove</span></button></div>
+          <div class="option_container">
+            <h2>Configuration</h2>
+
+            <div class="options">
+              <div class="option input">
+                <label for="sass_input">Input Folder:</label>
+                <button class="dir_find select_sass_dir"><span>Select</span></button>
+                <input id="sass_input" class="setting sass_dir" value="${sassDir}" />
+              </div>
+
+              <div class="option output">
+                <label for="css_input">Output Folder:</label>
+                <button class="dir_find select_css_dir"><span>Select</span></button>
+                <input id="css_input" class="setting css_dir" value="${cssDir}" />
+              </div>
+
+              <div class="option remove">
+                <label>Remove Project:</label>
+                <button class="delete"><span>Remove</span></button>
+              </div>
             </div>
           </div>
+
         </div>
         <div class="footer"></div>
       </div>
@@ -142,22 +149,29 @@
 
       <div class="log_output"></div>
 
-      <div class="options">
-        <div class="option input">
-          <label>Input Folder:</label>
-          <div class="button_container"><button class="select_sass_dir"><span>Select</span></button></div>
-          <span class="setting_sass_dir">${sassDir}</span>
-        </div>
-        <div class="option output">
-          <label>Output Folder:</label>
-          <div class="button_container"><button class="select_css_dir"><span>Select</span></button></div>
-          <span class="setting_css_dir">${cssDir}</span>
-        </div>
-        <div class="option remove">
-          <label>Remove Project:</label>
-          <div class="button_container"><button class="delete"><span>Remove</span></button></div>
+      <div class="option_container">
+        <h2>Configuration</h2>
+        
+        <div class="options">
+          <div class="option input">
+            <label for="sass_input">Input Folder:</label>
+            <button class="dir_find select_sass_dir"><span>Select</span></button>
+            <input id="sass_input" class="setting sass_dir" value="${sassDir}" />
+          </div>
+
+          <div class="option output">
+            <label for="css_input">Output Folder:</label>
+            <button class="dir_find select_css_dir"><span>Select</span></button>
+            <input id="css_input" class="setting css_dir" value="${cssDir}" />
+          </div>
+
+          <div class="option remove">
+            <label>Remove Project:</label>
+            <button class="delete"><span>Remove</span></button>
+          </div>
         </div>
       </div>
+
     </div>
 
     <div class="footer"></div>
