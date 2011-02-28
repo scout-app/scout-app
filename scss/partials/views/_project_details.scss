@@ -104,19 +104,3 @@
     left: 1px;
   }
 }
-
-.non_selected {
-  position: absolute;
-  top: 70px;
-  right: 0;
-  bottom: 0;
-  left: 40%;
-
-  .view {
-    left: 1px;
-    border-top: 1px solid #FFFFFF;
-    @include linear-gradient(color-stops(#FBFBFB 80%, #E6E6E6));
-    background-color: #EFF4F9;
-  }
-}
-
