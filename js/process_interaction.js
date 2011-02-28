@@ -17,14 +17,20 @@ $(function(){
     process = new air.NativeProcess();
     process.addEventListener(air.ProgressEvent.STANDARD_OUTPUT_DATA, outputDataHandler);
     process.addEventListener(air.ProgressEvent.STANDARD_ERROR_DATA, errorDataHandler);
+    process.addEventListener(air.NativeProcessExitEvent.EXIT, onExit);
     process.start(nativeProcessStartupInfo);
+    
+    $('.project[data-key='+data.project.key+']').trigger(':started');
+    
+    function onExit(evnt) {
+      $('.project[data-key='+data.project.key+']').trigger('watch:stop');
+    }
 
-    //var bytes = new air.ByteArray();
     function outputDataHandler(evnt) {
       var bytes = process.standardOutput.readUTFBytes(process.standardOutput.bytesAvailable);
       $('.project_details[data-key='+data.project.key+']').trigger(':newLogOutput', bytes.toString());
     }
-    
+  
     function errorDataHandler(evnt) {
       var bytes = process.standardError.readUTFBytes(process.standardError.bytesAvailable);
       $('.project_details[data-key='+data.project.key+']').trigger(':newLogOutput', bytes.toString());
@@ -33,12 +39,13 @@ $(function(){
     process_map[data.project.key] = process;
   }
 
-  function stopWatchingProject(){
+  function stopWatchingProject(evnt, data) {
     var project_key = $(this).attr('data-key');
     var process = process_map[project_key];
     if(process){
       process.exit();
       delete process_map[project_key];
+      $('.project[data-key='+project_key+']').trigger(':stopped');
     }
   }
   
