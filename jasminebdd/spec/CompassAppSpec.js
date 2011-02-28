@@ -103,7 +103,7 @@ describe("Compass App", function(){
         project_path = project_dir.nativePath,
         sass_dir = project_dir.resolvePath("sass"),
         css_dir = project_dir.resolvePath("css");
-      app.createProject("project-a", css_dir.nativePath, sass_dir.nativePath);
+      app.createProject("project-a", sass_dir.nativePath, css_dir.nativePath);
       app.listProjects();
     });
     
@@ -112,7 +112,7 @@ describe("Compass App", function(){
         var project = $(".project:contains('project-a')");
         $(".project_details:visible .mode.log").click();
         project.find(".source").click();
-
+    
         var output = $(".project_details .log_output:visible");
         expect(output.html().length).toBe(0);
       });
@@ -122,7 +122,7 @@ describe("Compass App", function(){
         project.find(".source").click();
         project.find(".play").click();
         $(".project_details:visible .mode.log").click();
-
+    
         var output = $(".project_details .log_output:visible");
         waitsFor(function(){
           return output.html().length > 0; // should no longer be empty
@@ -130,6 +130,61 @@ describe("Compass App", function(){
       });
     });
     
+    context("given I have a valid project with scss files", function(){
+      beforeEach(function() {
+        
+        // make the scss files to watch
+        Projects.find(function (project) {
+          return project.name == "project-a";
+        }, function(project) {
+          sassDir = new air.File(project.sassDir);
+          sassDir.createDirectory();
+          sassFile = sassDir.resolvePath("file.scss");
+          stream = new air.FileStream();
+          stream.open(sassFile, air.FileMode.WRITE);
+          stream.writeUTFBytes("body { color: red; }");
+          stream.close();
+        });
+        
+        // start watching the project
+        var project = $(".project:contains('project-a')");
+        project.find(".source").click();
+        project.find(".play").click();
+        $(".project_details:visible .mode.log").click();
+      });
+      
+      describe("when I make changes to the input files", function() {
+        beforeEach(function() {
+          var output = $(".project_details .log_output:visible");
+          waitsFor(function(){
+            if(output.html().length > 0) {
+              setTimeout(function(){
+                Projects.find(function (project) {
+                  return project.name == "project-a";
+                }, function(project) {
+                  sassDir = new air.File(project.sassDir);
+                  sassFile = sassDir.resolvePath("file.scss");
+                  stream = new air.FileStream();
+                  stream.open(sassFile, air.FileMode.WRITE);
+                  stream.writeUTFBytes("body { color: blue; }");
+                  stream.close();
+                });
+              }, 1000);
+              return true;
+            }
+            return false;
+          }, "Never started logging output", 30000);
+        });
+        
+        it("then I expect the output the show", function() {
+          //assert that the log output has some text
+          var output = $(".project_details .log_output:visible");
+          waitsFor(function(){
+            return output.html().match(/overwrite/);
+          }, "Overwrite never found.", 30000);
+        });
+      });
+    });
   });
   
   
