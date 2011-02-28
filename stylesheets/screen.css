@@ -349,28 +349,6 @@ body .footer #new-project {
   visibility: hidden;
 }
 /* line 26, ../scss/partials/views/_project_container.scss */
-.project_list .view .projects .project:hover {
-  border-top: 1px solid #EDEDED;
-  background-color: #DFDFDF;
-  -moz-transition-property: background-color;
-  -webkit-transition-property: background-color;
-  -o-transition-property: background-color;
-  transition-property: background-color;
-  -moz-transition-duration: 0.15s;
-  -webkit-transition-duration: 0.15s;
-  -o-transition-duration: 0.15s;
-  transition-duration: 0.15s;
-  -moz-transition-timing-function: ease-in;
-  -webkit-transition-timing-function: ease-in;
-  -o-transition-timing-function: ease-in;
-  transition-timing-function: ease-in;
-  -moz-transition-delay: 0s;
-  -webkit-transition-delay: 0s;
-  -o-transition-delay: 0s;
-  transition-delay: 0s;
-  cursor: pointer;
-}
-/* line 33, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item {
   padding: 10px 15px 0;
   *zoom: 1;
@@ -384,28 +362,31 @@ body .footer #new-project {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 37, ../scss/partials/views/_project_container.scss */
+/* line 30, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .source {
   display: inline;
   float: left;
   width: 60%;
 }
-/* line 42, ../scss/partials/views/_project_container.scss */
+/* line 35, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .source h2 {
   margin-bottom: 0;
+  padding-left: 40px;
   line-height: 40px;
+  background-image: url("../images/folder32.png");
+  background-repeat: no-repeat;
+  background-position: left center;
 }
-/* line 46, ../scss/partials/views/_project_container.scss */
+/* line 43, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .source h2 a {
-  color: #222;
+  color: #222222;
   font-size: 13px;
-  /*                  font-weight: 800;*/
 }
-/* line 51, ../scss/partials/views/_project_container.scss */
+/* line 47, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .source h2 a:hover {
   text-decoration: none;
 }
-/* line 58, ../scss/partials/views/_project_container.scss */
+/* line 54, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands {
   display: inline;
   float: right;
@@ -422,7 +403,7 @@ body .footer #new-project {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 65, ../scss/partials/views/_project_container.scss */
+/* line 61, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command {
   display: inline;
   float: right;
@@ -441,58 +422,58 @@ body .footer #new-project {
   background-image: linear-gradient(top, #ff0000, #0000ff);
   /*                @include box-shadow(red, 0px, 0px, 9px, 1px, inset);*/
   /*
-                  &.initialize {
-                    width: auto;
-                    padding: 0px 8px;
-                    text-decoration: none;
-                    text-align: center;
-                    text-shadow: 0 1px 1px #F6F6F6;
-                    color: #2C2C2C;
-                    border: 1px solid #BEBEBE;
+                &.initialize {
+                  width: auto;
+                  padding: 0px 8px;
+                  text-decoration: none;
+                  text-align: center;
+                  text-shadow: 0 1px 1px #F6F6F6;
+                  color: #2C2C2C;
+                  border: 1px solid #BEBEBE;
+                  @include border-radius(6px, 6px);
+                  background-color: #E9E9E9;
+                  background-repeat: repeat-x;
+                  background-position: center bottom;
+
+                  span {
+                    padding: 3px;
                     @include border-radius(6px, 6px);
-                    background-color: #E9E9E9;
-                    background-repeat: repeat-x;
-                    background-position: center bottom;
-  
+                    border-top: 1px solid #FFFFFF;
+                  }
+
+                  &:hover {
+                    background-color: #F3F3F3;
+                    border: 1px solid #C0C0C0;
+                  }
+
+                  &:active {
+                    background-color: #C0C0C0;
+                    border: 1px solid #B0B0B0;
+
                     span {
-                      padding: 3px;
-                      @include border-radius(6px, 6px);
-                      border-top: 1px solid #FFFFFF;
-                    }
-  
-                    &:hover {
-                      background-color: #F3F3F3;
-                      border: 1px solid #C0C0C0;
-                    }
-  
-                    &:active {
-                      background-color: #C0C0C0;
-                      border: 1px solid #B0B0B0;
-  
-                      span {
-                        border-top: 1px solid transparent;
-                      }
+                      border-top: 1px solid transparent;
                     }
                   }
-                  &.scss_style {
-                    @include replace-text('/images/scss_folder.png');
-  
-                    &.disabled {
-                      @include replace-text('/images/disabled_scss_folder.png');
-                    }
+                }
+                &.scss_style {
+                  @include replace-text('/images/scss_folder.png');
+
+                  &.disabled {
+                    @include replace-text('/images/disabled_scss_folder.png');
                   }
-                  &.console {
-                    @include replace-text('/images/log.png');
-                  }
+                }
+                &.console {
+                  @include replace-text('/images/log.png');
+                }
   */
 }
-/* line 75, ../scss/partials/views/_project_container.scss */
+/* line 71, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command span {
   display: block;
   padding: 8px;
   border-top: 1px solid transparent;
 }
-/* line 81, ../scss/partials/views/_project_container.scss */
+/* line 77, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command:hover {
   background-color: #C0C0C0;
   -moz-box-shadow: 0px 1px 0px 0px #ededed;
@@ -503,11 +484,11 @@ body .footer #new-project {
   /*                  border: 1px solid #787878;*/
   /*                  border: 1px solid #C0C0C0;*/
 }
-/* line 88, ../scss/partials/views/_project_container.scss */
+/* line 84, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command:hover span {
   /*                    border-top: 1px solid #EDEDED;*/
 }
-/* line 94, ../scss/partials/views/_project_container.scss */
+/* line 90, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command:active {
   background-color: #C0C0C0;
   -moz-box-shadow: inset 0px 0px 6px 3px #555555;
@@ -520,12 +501,12 @@ body .footer #new-project {
   /*                  border: 1px solid #B0B0B0;*/
   /*                  @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);*/
 }
-/* line 103, ../scss/partials/views/_project_container.scss */
+/* line 99, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command:active span {
   /*                    border-top: 1px solid transparent;*/
   /*                    @include border-radius(21px, 21px);*/
 }
-/* line 109, ../scss/partials/views/_project_container.scss */
+/* line 105, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command.disabled {
   border: 1px solid transparent;
   background-color: transparent;
@@ -535,17 +516,17 @@ body .footer #new-project {
   -o-box-shadow: 0px 0px 0px 0px white;
   box-shadow: 0px 0px 0px 0px white;
 }
-/* line 115, ../scss/partials/views/_project_container.scss */
+/* line 111, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command.disabled span {
   /*                    border-top: 1px solid transparent;*/
 }
-/* line 120, ../scss/partials/views/_project_container.scss */
+/* line 116, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command.play {
   /*                  @include replace-text('../images/play.png');*/
   background-position: 13px center;
   background-repeat: no-repeat;
 }
-/* line 126, ../scss/partials/views/_project_container.scss */
+/* line 122, ../scss/partials/views/_project_container.scss */
 .project_list .view .projects .project .item .commands .command.stop {
   text-indent: -119988px;
   overflow: hidden;
@@ -553,6 +534,41 @@ body .footer #new-project {
   background-image: url('../images/../images/stop.png?1298482402');
   background-repeat: no-repeat;
   background-position: 50% 50%;
+}
+/* line 175, ../scss/partials/views/_project_container.scss */
+.project_list .view .projects .project.selected, .project_list .view .projects .project.selected:hover {
+  background-color: #3875D7;
+  border-top: 1px solid #3F89FF;
+}
+/* line 183, ../scss/partials/views/_project_container.scss */
+.project_list .view .projects .project.selected .item .source h2 a, .project_list .view .projects .project.selected:hover .item .source h2 a {
+  color: #FFFFFF;
+}
+/* line 192, ../scss/partials/views/_project_container.scss */
+.project_list .view .projects .project.focused, .project_list .view .projects .project:hover {
+  border-top: 1px solid #EEEEEE;
+  background-color: #D4D4D4;
+  -moz-transition-property: background-color;
+  -webkit-transition-property: background-color;
+  -o-transition-property: background-color;
+  transition-property: background-color;
+  -moz-transition-duration: 0.15s;
+  -webkit-transition-duration: 0.15s;
+  -o-transition-duration: 0.15s;
+  transition-duration: 0.15s;
+  -moz-transition-timing-function: ease-in;
+  -webkit-transition-timing-function: ease-in;
+  -o-transition-timing-function: ease-in;
+  transition-timing-function: ease-in;
+  -moz-transition-delay: 0s;
+  -webkit-transition-delay: 0s;
+  -o-transition-delay: 0s;
+  transition-delay: 0s;
+  cursor: pointer;
+}
+/* line 202, ../scss/partials/views/_project_container.scss */
+.project_list .view .projects .project.focused .item .source h2 a, .project_list .view .projects .project:hover .item .source h2 a {
+  color: #222222;
 }
 
 /* line 1, ../scss/partials/views/_project_details.scss */
