@@ -107,51 +107,32 @@ describe("Compass App", function(){
       app.listProjects();
     });
     
-    it("outputs that compass started to the log", function(){
-      var project = $(".project:contains('project-a')");
-      project.find(".source").click();
-      
-      var verified_logged_output = false; 
-      
-      
-      project.find("a.play").click();
-      $(".project_details:visible .mode.log").click();
+    describe("logged output", function(){
+      it("is empty before a project is watched", function(){
+        var project = $(".project:contains('project-a')");
+        $(".project_details:visible .mode.log").click();
+        project.find(".source").click();
 
-      // after("receiving a notification from jquery that compass has output", function(){
-      //   // this will be called every 1000 until it returns true
-      // }, function() {
-      //   it("verifies that the log has a message", function() {
-      //     // then continue wth this
-      //   });
-      // }, 1000);
+        var output = $(".project_details .log_output:visible");
+        expect(output.html().length).toBe(0);
+      });
+      
+      it("is updated with text that compass sends to STDOUT", function(){
+        var project = $(".project:contains('project-a')");
+        project.find(".source").click();
+        project.find(".play").click();
+        $(".project_details:visible .mode.log").click();
 
-      // var verified_logged_output = false; 
-      // for (var i=0; i < 5; i++) {
-      //   wait(1000);
-      //   expected_output = $(".project_details:visible .log_output:contains('compass')");
-      //   if(expected_output.length > 0) {
-      //     verified_logged_output = true;
-      //     break;
-      //   }
-      // };
-      //     
-      // expect(verified_logged_output).toBe(true);          
-      
-      var spec = this;
-      setTimeout(function(){
-        try {
-          throw "failure";
-        } catch(e) {
-          spec.fail(e);
-          
-        }
-        expect(verified_logged_output).toBe(true);
-        air.Introspector.Console.log('end of setTimeout');
-      }, 5000);
-      
-      //wait(5000); // give compass time to spin up
+        var output = $(".project_details .log_output:visible");
+        waitsFor(function(){
+          return output.html().length > 0; // should no longer be empty
+        }, "Did not find expected log output", 30000);
+      });
     });
+    
   });
+  
+  
   
 
 
