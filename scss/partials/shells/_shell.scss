@@ -67,6 +67,15 @@ body {
       }
     }
 
+    .splitter {
+      @include float-right;
+      width: 15px;
+      height: 18px;
+      @include replace-text('/images/handle_splitter.png');
+      background-position: center center;
+      cursor: ew-resize;
+    }
+    
     #new-project {
       margin-top: 2em;
     }
