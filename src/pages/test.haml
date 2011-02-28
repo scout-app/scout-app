@@ -1,0 +1,10 @@
+%script{:src => "jasminebdd/lib/jasmine-1.0.1/jasmine.js", :type => "text/javascript"}
+%script{:src => "jasminebdd/lib/jasmine-1.0.1/jasmine-html.js", :type => "text/javascript"}
+%script{:src => "jasminebdd/spec/SpecHelper.js", :type => "text/javascript"}
+%script{:src => "jasminebdd/spec/Support.js", :type => "text/javascript"}
+%script{:src => "jasminebdd/spec/CompassAppSpec.js", :type => "text/javascript"}
+:javascript
+  $(function(){
+    jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+    jasmine.getEnv().execute();
+  });

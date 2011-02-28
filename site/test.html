@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<head>
+  <title>CompassApp</title>
+  <link href="/stylesheets/screen.css" media="all" rel="stylesheet" type="text/css"/>
+  <link href='stylesheets/screen.css' rel='stylesheet' />
+  <script src='js/AIRAliases.js' type='text/javascript'></script>
+  <script src='js/AIRIntrospector.js' type='text/javascript'></script>
+  <script src='js/jquery-1.5.min.js' type='text/javascript'></script>
+  <script src='js/jquery.tmpl.min.js' type='text/javascript'></script>
+  <script src='js/adaptors/LawnchairAdaptorHelpers.js' type='text/javascript'></script>
+  <script src='js/adaptors/AIRSqliteAdaptor.js' type='text/javascript'></script>
+  <script src='js/Lawnchair.js' type='text/javascript'></script>
+  <script src='js/application.js' type='text/javascript'></script>
+  <script src='js/process_interaction.js' type='text/javascript'></script>
+  <link href='jasminebdd/lib/jasmine-1.0.1/jasmine.css' rel='stylesheet' type='text/css' />
+  <style type='text/css'>
+    /*<![CDATA[*/
+      .jasmine_reporter {
+        position: absolute;
+        bottom: 0;
+        width: 400px;
+        z-index: 999999;
+        left: 100px;
+      }
+    /*]]>*/
+  </style>
+  <script src='jasminebdd/lib/jasmine-1.0.1/jasmine.js' type='text/javascript'></script>
+  <script src='jasminebdd/lib/jasmine-1.0.1/jasmine-html.js' type='text/javascript'></script>
+  <script src='jasminebdd/spec/SpecHelper.js' type='text/javascript'></script>
+  <script src='jasminebdd/spec/Support.js' type='text/javascript'></script>
+  <script src='jasminebdd/spec/CompassAppSpec.js' type='text/javascript'></script>
+  <script type='text/javascript'>
+    //<![CDATA[
+      $(function(){
+        jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+        jasmine.getEnv().execute();
+      });
+    //]]>
+  </script>
+  <script id='colorize_template' type='text/x-jquery-tmpl'>
+    <div>
+      <span class='${color}'>${string}</span>
+    </div>
+  </script>
+  <script id='project_template' type='text/x-jquery-tmpl'>
+    <li class='project stopped' data-key='${key}'>
+      <div class='item'>
+        <div class='source'>
+          <h2>
+            <a href='#'>${name}</a>
+          </h2>
+        </div>
+        <div class='commands'>
+          <button class='start'>Start</button>
+          <button class='stop'>Stop</button>
+        </div>
+      </div>
+    </li>
+  </script>
+  <script id='project_details_template' type='text/x-jquery-tmpl'>
+    <div class='pane project_details configure' data-key='${key}'>
+      <div class='view'>
+        <div class='modes'>
+          <a class='mode log' href='#'>Log</a>
+          <a class='mode configure' href='#'>Configure</a>
+        </div>
+        <div class='log_output'></div>
+        <div class='option_container'>
+          <h2>Configuration</h2>
+          <div class='options'>
+            <div class='option input'>
+              <label for='sass_input'>Input Folder:</label>
+              <button class='dir_find select_sass_dir'>
+                <span>Choose</span>
+              </button>
+              <input class='setting sass_dir' id='sass_input' value='${sassDir}' />
+            </div>
+            <div class='option output'>
+              <label for='css_input'>Output Folder:</label>
+              <button class='dir_find select_css_dir'>
+                <span>Choose</span>
+              </button>
+              <input class='setting css_dir' id='css_input' value='${cssDir}' />
+            </div>
+            <div class='option remove'>
+              <label>Remove Project:</label>
+              <button class='delete'>
+                <span>Remove</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class='footer'></div>
+    </div>
+  </script>
+</head>
+<body>
+  <div id='header'>
+    <h1>CompassApp</h1>
+  </div>
+  <div class='pane project_list'>
+    <div class='view'>
+      <ul class='projects'>
+        <!--
+          Remove
+          1. selected project removes from ul.projects -> previous="project_name"
+          2. selected project passes to ul.projects -> append="project_name" with the name that has a corresponding project name
+          3. The project with the same name gets highlighted
+        -->
+        <li class='project stopped selected' data-key='${key}'>
+          <div class='item'>
+            <div class='source'>
+              <h2>
+                <a href='#'>${name}</a>
+              </h2>
+            </div>
+            <div class='commands'>
+              <button class='play'>Play</button>
+              <button class='stop'>Stop</button>
+            </div>
+          </div>
+        </li>
+        <li class='project stopped' data-key='${key}'>
+          <div class='item'>
+            <div class='source'>
+              <h2>
+                <a href='#'>${name}</a>
+              </h2>
+            </div>
+            <div class='commands'>
+              <button class='play'>Play</button>
+              <button class='stop'>Stop</button>
+            </div>
+          </div>
+        </li>
+        <li class='project stopped' data-key='${key}'>
+          <div class='item'>
+            <div class='source'>
+              <h2>
+                <a href='#'>${name}</a>
+              </h2>
+            </div>
+            <div class='commands'>
+              <button class='play'>Play</button>
+              <button class='stop'>Stop</button>
+            </div>
+          </div>
+        </li>
+        <!-- /Remove -->
+      </ul>
+      <button id='nuke'>Remove All Projects</button>
+    </div>
+    <div class='footer'>
+      <a class='option add' href='#' title='Add a project'>
+        <span>+</span>
+      </a>
+      <div class='splitter'>|||</div>
+    </div>
+  </div>
+  <!-- remove -->
+  <div class='pane project_details configure' data-key='${key}'>
+    <div class='view'>
+      <div class='modes'>
+        <a class='mode log' href='#'>Log</a>
+        <a class='mode configure' href='#'>Configure</a>
+      </div>
+      <div class='log_output'></div>
+      <div class='option_container'>
+        <h2>Configuration</h2>
+        <div class='options'>
+          <div class='option input'>
+            <label for='sass_input'>Input Folder:</label>
+            <button class='dir_find select_sass_dir'>
+              <span>Select</span>
+            </button>
+            <input class='setting sass_dir' id='sass_input' value='${sassDir}' />
+          </div>
+          <div class='option output'>
+            <label for='css_input'>Output Folder:</label>
+            <button class='dir_find select_css_dir'>
+              <span>Select</span>
+            </button>
+            <input class='setting css_dir' id='css_input' value='${cssDir}' />
+          </div>
+          <div class='option remove'>
+            <label>Remove Project:</label>
+            <button class='delete'>
+              <span>Remove</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='footer'></div>
+  </div>
+  <!-- /remove -->
+  <!--
+    uncomment <div class="pane non_selected">
+    <div class="view"></div>
+    <div class="footer"></div>
+    </div>
+  -->
+</body>

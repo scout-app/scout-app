@@ -3,6 +3,6 @@
 dir=`dirname $0`
 find $dir/../site/vendor/ -name bundle | grep bundle > /dev/null
 if [ $? -eq 1 ] ; then 
-  ./$dir/install_jruby
+  ./$dir/jruby -S gem install compass
 fi
-./$dir/../site/vendor/jruby*/bin/jruby $@
+./$dir/jruby -S compass $@

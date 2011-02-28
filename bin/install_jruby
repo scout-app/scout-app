@@ -1,7 +1,7 @@
 #!/bin/sh
 
 dir=`dirname $0`
-VENDOR="$dir/../vendor"
+VENDOR="$dir/../site/vendor"
 JRUBY=jruby-1.6.0.RC2
 JRUBY_TGZ=jruby-bin-1.6.0.RC2.tar.gz
 JRUBY_URL=http://jruby.org.s3.amazonaws.com/downloads/1.6.0.RC2/$JRUBY_TGZ
