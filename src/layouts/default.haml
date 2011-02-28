@@ -32,8 +32,10 @@
           %h2
             %a{:href => "#"} ${name}
         .commands
-          %button.start Start
-          %button.stop Stop
+          %button.command.start 
+            %span Start
+          %button.command.stop 
+            %span Stop
   %script#project_details_template{:type => "text/x-jquery-tmpl"}
     .pane.project_details.configure{"data-key" => "${key}"}
       .view

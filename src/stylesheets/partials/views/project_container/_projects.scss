@@ -1,0 +1,89 @@
+.project_list {
+  .view {
+
+    .projects {
+      position: relative;
+      z-index: 100;
+      margin: 0;
+      overflow-y: auto;
+
+      .project {
+        margin: 0;
+        text-decoration: none;
+        color: #444444;
+
+        background-color: #E9E9E9;
+        border-top: 1px solid #FFFFFF;
+        border-bottom: 1px solid #BCBCBC;
+        list-style: none;
+        overflow: hidden;
+        @include pie-clearfix;
+
+        .item {
+          padding: 15px;
+          @include pie-clearfix;
+
+          .source {
+            @include float-left;
+            width: 60%;
+
+
+            h2 {
+              margin: 0;
+              padding: 0 0 0 40px;
+              line-height: 39px;
+              background-image: url('../images/folder32.png');
+              background-repeat: no-repeat;
+              background-position: left center;
+
+              a {
+                color: #222222;
+                font-size: 14px;
+
+                &:hover {
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+
+        &.selected,
+        &.selected:hover {
+          background-color: #3875D7;
+          border-top: 1px solid #3F89FF;
+
+          .item {
+            .source {
+              h2 {
+                a {
+                  color: #FFFFFF;
+                }
+              }
+            }
+          }
+        }
+
+        &.focused,
+        &:hover {
+          border-top: 1px solid #EEEEEE;
+          background-color: #D4D4D4;
+          @include transition(background-color, .15s, ease-in, 0s);
+          cursor: pointer;
+          
+          .item {
+
+            .source {
+              h2 {
+                a {
+                  color: #222222;
+                }
+              }
+            }
+          }
+        }
+
+      }
+    }
+  }
+}

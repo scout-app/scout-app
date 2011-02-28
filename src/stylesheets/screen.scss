@@ -17,14 +17,14 @@
 @import "partials/shells/shell";
 
 /*views styles*/
-@import "partials/views/project_container";
 @import "partials/views/project_details";
 @import "partials/views/project_non_selected";
+@import "partials/views/project_container/project_container";
 
 /*mode styles*/
 @import "partials/views/modes/log_output";
 
 /*events styles*/
 @import "partials/events/drag_drop_add_files";
-@import "partials/events/project_states";
+@import "partials/events/command_states";
 @import "partials/events/detail_modes";

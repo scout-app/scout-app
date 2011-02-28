@@ -8,10 +8,11 @@ body {
 }
 
 #header {
-  height: 54px;
+  height: 53px;
   padding: 15px 0 0 15px;
   @include linear-gradient(color-stops(#4f4f4f, #2F2F2F));
   border-top: 1px solid #393737;
+  border-bottom: 1px solid #878787;
 
   h1 {
     @include float-left;

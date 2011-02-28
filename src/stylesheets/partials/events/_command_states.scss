@@ -1,0 +1,49 @@
+.project_list {
+  .view {
+    .projects {
+      .project {
+        
+        &.stopped {
+          .item {
+            .commands {
+              .command {
+                &.start {
+                  display: block;
+                }
+
+                &.stop {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        &.started {
+          .item {
+            .commands {
+              .command {
+                &.start {
+                  display: none;
+                }
+
+                &.stop {
+                  display: block;
+                }
+              }
+            }
+          }
+        }
+        
+        &.starting, &.stopping {
+          .item .commands .command{
+            &.start, &.stop {
+              display: none;
+            }
+          }
+        }
+        
+      }
+    }
+  }
+}
