@@ -91,14 +91,17 @@ $(document).ready(function() {
   $('.content').live('drop', app.createProjectByDroppingADirectory);
   $('.projects').live(':changed', app.listProjects);
   
+  $('.project').live(':started', projectStarted);
+  $('.project').live(':stopped', projectStopped);
+  
   $('.project_details').live(':newLogOutput', updateProjectLog);
   
   $('.modes .mode.configure').live('click', app.viewProjectConfiguration);
   $('.modes .mode.log').live('click', app.viewProjectLog);
   
   // start/stop project
-  $('.project .play').live('click', toggleWatch);
-  $('.project .stop').live('click', toggleWatch);
+  $('.project .play').live('click', startWatchingProject);
+  $('.project .stop').live('click', stopWatchingProject);
   
   $('.select_sass_dir').live('click', selectInputBySelectingDirectory);
   $('.select_css_dir').live('click', selectOutputBySelectingDirectory);
@@ -132,19 +135,40 @@ $(document).ready(function() {
     return new_string.replace(/\033\[(\d+)m/g, '');
   }
   
-  function toggleWatch() {
+  function startWatchingProject() {
     var project_container = $(this).parents('.project:first');
     key = project_container.attr('data-key');
     Projects.get(key, function(project) {
-      if(project_container.hasClass("stopped")) {
-        project_container.trigger("watch:start", { project: project });
-      } else {
-        project_container.trigger("watch:stop");
-      }
-      project_container.toggleClass("playing");
-      project_container.toggleClass("stopped");
+      setProjectState(project_container, "starting");
+      project_container.trigger("watch:start", { project: project });
     });
     return false;
+  }
+  
+  function stopWatchingProject(){
+    var project_container = $(this).parents('.project:first');
+    key = project_container.attr('data-key');
+    Projects.get(key, function(project) {
+      setProjectState(project_container, "stopping");
+      project_container.trigger("watch:stop", { project: project });
+    });
+    return false;
+  }
+  
+  function setProjectState(project, state){
+    $(project).removeClass("starting")
+      .removeClass("stopping")
+      .removeClass("started")
+      .removeClass("stopped")
+      .addClass(state);
+  };
+  
+  function projectStopped() {
+    setProjectState(this, "stopped");
+  }
+  
+  function projectStarted() {
+    setProjectState(this, "started");
   }
   
   app.initialize();
