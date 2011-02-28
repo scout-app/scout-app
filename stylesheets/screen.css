@@ -294,6 +294,21 @@ body .footer .option.add span {
   border-left: 1px solid #F0F0F0;
 }
 /* line 70, ../scss/partials/shells/_shell.scss */
+body .footer .splitter {
+  display: inline;
+  float: right;
+  width: 15px;
+  height: 18px;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+  background-image: url('../images/handle_splitter.png?1298907092');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-position: center center;
+  cursor: ew-resize;
+}
+/* line 79, ../scss/partials/shells/_shell.scss */
 body .footer #new-project {
   margin-top: 2em;
 }
@@ -705,7 +720,7 @@ body .footer #new-project {
   left: 1px;
 }
 
-/* line 108, ../scss/partials/views/_project_details.scss */
+/* line 1, ../scss/partials/views/_project_non_selected.scss */
 .non_selected {
   position: absolute;
   top: 70px;
@@ -713,7 +728,7 @@ body .footer #new-project {
   bottom: 0;
   left: 40%;
 }
-/* line 115, ../scss/partials/views/_project_details.scss */
+/* line 8, ../scss/partials/views/_project_non_selected.scss */
 .non_selected .view {
   left: 1px;
   border-top: 1px solid #FFFFFF;
