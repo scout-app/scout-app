@@ -23,13 +23,6 @@
           overflow: hidden;
           @include pie-clearfix;
 
-          &:hover {
-            border-top: 1px solid #EDEDED;
-            background-color: #DFDFDF;
-            @include transition(background-color, .15s, ease-in, 0s);
-            cursor: pointer;
-          }
-
           .item {
             padding: 10px 15px 0;
             @include pie-clearfix;
@@ -41,13 +34,16 @@
 
               h2 {
                 margin-bottom: 0;
+                padding-left: 40px;
                 line-height: 40px;
+                background-image: url('../images/folder32.png');
+                background-repeat: no-repeat;
+                background-position: left center;
 
                 a {
-                  color: #222;
+                  color: #222222;
                   font-size: 13px;
-/*                  font-weight: 800;*/
-                  
+
                   &:hover {
                     text-decoration: none;
                   }
@@ -66,11 +62,11 @@
                 @include float-right;
                 width: 38px;
                 margin-left: 5px;
-/*                background-color: #D6FFCF;*/
+  /*                background-color: #D6FFCF;*/
                 border: 1px solid #787878;
                 @include border-radius(21px, 21px);
                 @include linear-gradient(color-stops(red, blue));
-/*                @include box-shadow(red, 0px, 0px, 9px, 1px, inset);*/
+  /*                @include box-shadow(red, 0px, 0px, 9px, 1px, inset);*/
 
                 span {
                   display: block;
@@ -81,12 +77,12 @@
                 &:hover {
                   background-color: #C0C0C0;
                   @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);
-/*                  @include border-radius(21px, 21px);*/
-/*                  border: 1px solid #787878;*/
-/*                  border: 1px solid #C0C0C0;*/
+  /*                  @include border-radius(21px, 21px);*/
+  /*                  border: 1px solid #787878;*/
+  /*                  border: 1px solid #C0C0C0;*/
 
                   span {
-/*                    border-top: 1px solid #EDEDED;*/
+  /*                    border-top: 1px solid #EDEDED;*/
 
                   }
                 }
@@ -94,15 +90,15 @@
                 &:active {
                   background-color: #C0C0C0;
                   @include box-shadow(#555555, 0px, 0px, 6px, 3px, inset);
-/*                  background-color: #F3F3F3;*/
-/*                  @include border-radius(21px, 21px);*/
-/*                  border: 1px solid #787878;*/
-/*                  border: 1px solid #B0B0B0;*/
-/*                  @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);*/
+  /*                  background-color: #F3F3F3;*/
+  /*                  @include border-radius(21px, 21px);*/
+  /*                  border: 1px solid #787878;*/
+  /*                  border: 1px solid #B0B0B0;*/
+  /*                  @include box-shadow(#EDEDED, 0px, 1px, 0px, 0px, false);*/
 
                   span {
-/*                    border-top: 1px solid transparent;*/
-/*                    @include border-radius(21px, 21px);*/
+  /*                    border-top: 1px solid transparent;*/
+  /*                    @include border-radius(21px, 21px);*/
                   }
                 }
 
@@ -113,12 +109,12 @@
                   @include box-shadow(#FFFFFF, 0px, 0px, 0px, 0px, false);
 
                   span {
-/*                    border-top: 1px solid transparent;*/
+  /*                    border-top: 1px solid transparent;*/
                   }
                 }
 
                 &.play {
-/*                  @include replace-text('../images/play.png');*/
+  /*                  @include replace-text('../images/play.png');*/
                   background-position: 13px center;
                   background-repeat: no-repeat;
                 }
@@ -126,7 +122,7 @@
                 &.stop {
                   @include replace-text('../images/stop.png');
                 }
-/*
+  /*
                 &.initialize {
                   width: auto;
                   padding: 0px 8px;
@@ -170,11 +166,46 @@
                 &.console {
                   @include replace-text('/images/log.png');
                 }
-*/
+  */
               }
             }
           }
 
+          &.selected,
+          &.selected:hover {
+            background-color: #3875D7;
+            border-top: 1px solid #3F89FF;
+
+            .item {
+              .source {
+
+                h2 {
+                  a {
+                    color: #FFFFFF;
+                  }
+                }
+              }
+            }
+          }
+
+          &.focused,
+          &:hover {
+            border-top: 1px solid #EEEEEE;
+            background-color: #D4D4D4;
+            @include transition(background-color, .15s, ease-in, 0s);
+            cursor: pointer;
+            
+            .item {
+              .source {
+
+                h2 {
+                  a {
+                    color: #222222;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     
