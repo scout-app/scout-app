@@ -120,7 +120,7 @@ describe("Compass App", function(){
       it("is updated with text that compass sends to STDOUT", function(){
         var project = $(".project:contains('project-a')");
         project.find(".source").click();
-        project.find(".play").click();
+        project.find(".start").click();
         $(".project_details:visible .mode.log").click();
     
         var output = $(".project_details .log_output:visible");
@@ -149,7 +149,7 @@ describe("Compass App", function(){
         // start watching the project
         var project = $(".project:contains('project-a')");
         project.find(".source").click();
-        project.find(".play").click();
+        project.find(".start").click();
         $(".project_details:visible .mode.log").click();
       });
       

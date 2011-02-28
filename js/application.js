@@ -100,7 +100,7 @@ $(document).ready(function() {
   $('.modes .mode.log').live('click', app.viewProjectLog);
   
   // start/stop project
-  $('.project .play').live('click', startWatchingProject);
+  $('.project .start').live('click', startWatchingProject);
   $('.project .stop').live('click', stopWatchingProject);
   
   $('.select_sass_dir').live('click', selectInputBySelectingDirectory);

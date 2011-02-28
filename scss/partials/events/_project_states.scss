@@ -1,6 +1,6 @@
 .project {
   &.stopped {
-    .play {
+    .start {
       display: block;
     }
     .stop {
@@ -8,12 +8,18 @@
     }
   }
 
-  &.playing {
-    .play {
+  &.started {
+    .start {
       display: none;
     }
     .stop {
       display: block;
+    }
+  }
+  
+  &.starting, &.stopping {
+    .start, .stop {
+      display: none;
     }
   }
 }
