@@ -1,17 +1,18 @@
 jasmine.TrivialReporter = function(doc) {
+  air.Introspector.Console.log(doc);
   this.document = doc || document;
   this.suiteDivs = {};
   this.logRunningSpecs = false;
 };
 
 jasmine.TrivialReporter.prototype.createDom = function(type, attrs, childrenVarArgs) {
-  var el = document.createElement(type);
+  var el = this.document.createElement(type);
 
   for (var i = 2; i < arguments.length; i++) {
     var child = arguments[i];
 
     if (typeof child === 'string') {
-      el.appendChild(document.createTextNode(child));
+      el.appendChild(this.document.createTextNode(child));
     } else {
       if (child) { el.appendChild(child); }
     }
@@ -104,7 +105,7 @@ jasmine.TrivialReporter.prototype.reportRunnerResults = function(runner) {
   message += " in " + ((new Date().getTime() - this.startedAt.getTime()) / 1000) + "s";
   this.runnerMessageSpan.replaceChild(this.createDom('a', { className: 'description', href: '?'}, message), this.runnerMessageSpan.firstChild);
 
-  this.finishedAtSpan.appendChild(document.createTextNode("Finished at " + new Date().toString()));
+  this.finishedAtSpan.appendChild(this.document.createTextNode("Finished at " + new Date().toString()));
 };
 
 jasmine.TrivialReporter.prototype.reportSuiteResults = function(suite) {

@@ -5,6 +5,9 @@
 %script{:src => "jasminebdd/spec/CompassAppSpec.js", :type => "text/javascript"}
 :javascript
   $(function(){
-    jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
-    jasmine.getEnv().execute();
+    var test_runner_window = window.open("/test_runner.html", "logWindow", "height=600, width=400, top=10, left=10, scrollbars=1");
+    setTimeout(function(){
+      jasmine.getEnv().addReporter(new jasmine.TrivialReporter(test_runner_window.document));
+      jasmine.getEnv().execute();
+    }, 1000);
   });

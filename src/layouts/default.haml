@@ -12,15 +12,6 @@
   %script{:src => "js/Lawnchair.js", :type => "text/javascript"}
   %script{:src => "js/application.js", :type => "text/javascript"}
   %script{:src => "js/process_interaction.js", :type => "text/javascript"}
-  %link{:href => "jasminebdd/lib/jasmine-1.0.1/jasmine.css", :rel => "stylesheet", :type => "text/css"}
-  :css
-    .jasmine_reporter {
-      position: absolute;
-      bottom: 0;
-      width: 400px;
-      z-index: 999999;
-      left: 100px;
-    }
   = yield
   %script#colorize_template{:type => "text/x-jquery-tmpl"}
     %div

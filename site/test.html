@@ -12,18 +12,6 @@
   <script src='js/Lawnchair.js' type='text/javascript'></script>
   <script src='js/application.js' type='text/javascript'></script>
   <script src='js/process_interaction.js' type='text/javascript'></script>
-  <link href='jasminebdd/lib/jasmine-1.0.1/jasmine.css' rel='stylesheet' type='text/css' />
-  <style type='text/css'>
-    /*<![CDATA[*/
-      .jasmine_reporter {
-        position: absolute;
-        bottom: 0;
-        width: 400px;
-        z-index: 999999;
-        left: 100px;
-      }
-    /*]]>*/
-  </style>
   <script src='jasminebdd/lib/jasmine-1.0.1/jasmine.js' type='text/javascript'></script>
   <script src='jasminebdd/lib/jasmine-1.0.1/jasmine-html.js' type='text/javascript'></script>
   <script src='jasminebdd/spec/SpecHelper.js' type='text/javascript'></script>
@@ -32,8 +20,11 @@
   <script type='text/javascript'>
     //<![CDATA[
       $(function(){
-        jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
-        jasmine.getEnv().execute();
+        var test_runner_window = window.open("/test_runner.html", "logWindow", "height=600, width=400, top=10, left=10, scrollbars=1");
+        setTimeout(function(){
+          jasmine.getEnv().addReporter(new jasmine.TrivialReporter(test_runner_window.document));
+          jasmine.getEnv().execute();
+        }, 1000);
       });
     //]]>
   </script>
