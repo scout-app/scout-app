@@ -16,9 +16,10 @@ echo "Preparing to package app"
 output_file='CompassAppInstaller'
 if [ $1 = 'dmg' ] ; then 
   output_file=$output_file.dmg
-else
-  echo "Please pass in the package type you would like to build, ie: package_app [dmg|exe|deb]"
-  exit 1
+fi
+
+if [ $1 = 'exe' ] ; then
+  output_file=$output_file.exe
 fi
 
 echo "Moving into $SITE_DIR"

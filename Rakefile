@@ -15,6 +15,9 @@ namespace 'package' do
   task 'dmg' do
     system "bin/package_app dmg"
   end
+  task 'exe' do
+    system "bin/package_app exe"
+  end
 end
 
 %w(development test production).each do |env|
