@@ -18,11 +18,11 @@
 
 /*views styles*/
 @import "partials/views/project_details";
-@import "partials/views/project_non_selected";
 @import "partials/views/project_container/project_container";
 
 /*mode styles*/
 @import "partials/views/modes/log_output";
+@import "partials/views/modes/non_selected";
 
 /*events styles*/
 @import "partials/events/drag_drop_add_files";
