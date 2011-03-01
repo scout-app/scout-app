@@ -14,19 +14,21 @@ var app = {
   },
   
   createProjectBySelectingDirectory: function() {
-    browseDirectories(function(evnt) {
-      app.createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "");  
+    browseDirectories(air.File.userDirectory.nativePath, function(evnt) {
+      app.createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "", "");  
     });
   },
   
   createProjectByDroppingADirectory: function(evnt){ 
     evnt.preventDefault();
-    app.createProject(evnt.dataTransfer.getData("text/uri-list").replace(/\/$/, '').split('/').last(), "", "");
+    directoryPath = evnt.dataTransfer.getData("text/uri-list");
+    app.createProject(directoryPath.replace(/\/$/, '').split('/').last(), directoryPath, "", "");
   },
   
-  createProject: function(name, sassDir, cssDir) {
+  createProject: function(name, projectDir, sassDir, cssDir) {
     Projects.save({
       name: name,
+      projectDir: projectDir,
       sassDir: sassDir,
       cssDir: cssDir,
       environment: "development",
@@ -200,31 +202,31 @@ function deleteProject() {
 
 function selectOutputBySelectingDirectory() {
   key = $(this).parents('.project_details:first').attr('data-key');
-  browseDirectories(function(evnt){
-    Projects.get(key, function(project) {
+  Projects.get(key, function(project) {
+    browseDirectories(project.projectDir, function(evnt){
       project.cssDir = evnt.target.nativePath;
       Projects.save(project);
+      $('.project_details[data-key='+key+'] .css_dir').val(evnt.target.nativePath);
     });
-    $('.project_details[data-key='+key+'] .css_dir').val(evnt.target.nativePath);
   });
   return false;
 }
 
 function selectInputBySelectingDirectory() {
   key = $(this).parents('.project_details:first').attr('data-key');
-  browseDirectories(function(evnt){
-    Projects.get(key, function(project) {
+  Projects.get(key, function(project) {
+    browseDirectories(project.projectDir, function(evnt){
       project.sassDir = evnt.target.nativePath;
       Projects.save(project);
+      $('.project_details[data-key='+key+'] .sass_dir').val(evnt.target.nativePath);
     });
-    $('.project_details[data-key='+key+'] .sass_dir').val(evnt.target.nativePath);
   });
   return false;
 }
 
 
-function browseDirectories(callback) {
-  var directory = air.File.documentsDirectory;
+function browseDirectories(initialPath, callback) {
+  var directory = new air.File(initialPath);
   try
   {
     directory.browseForDirectory("Select Directory");

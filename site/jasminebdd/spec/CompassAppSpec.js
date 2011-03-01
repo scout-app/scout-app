@@ -14,7 +14,7 @@ describe("Compass App", function(){
   beforeEach(function() {
     // stubs
     app.createProjectBySelectingDirectory = function(callback){
-      app.createProject("project-a", "/some/path/project-a", "");
+      app.createProject("project-a", "/some/path/project-a", "", "");
     };
     app.nukeAllProjects();
   });
@@ -54,7 +54,7 @@ describe("Compass App", function(){
     
     it("lists both projects", function(){
       app.createProjectBySelectingDirectory = function(callback){
-        app.createProject("project-b", "/some/path/project-b", "");
+        app.createProject("project-b", "/some/path/project-b", "", "");
       };
       $(".option.add").click();
       expect($(".project:visible").length).toBe(2);
@@ -63,8 +63,8 @@ describe("Compass App", function(){
   
   describe("switching between projects", function(){
     beforeEach(function(){
-      app.createProject("project-a", "/project-a/sass", "project-a/css");
-      app.createProject("project-b", "/project-b/sass", "project-b/css");
+      app.createProject("project-a",  "/project-a/", "/project-a/sass", "project-a/css");
+      app.createProject("project-b", "/project-b/", "/project-b/sass", "project-b/css");
       app.listProjects();
     });
     
@@ -100,10 +100,9 @@ describe("Compass App", function(){
   describe("watching a project", function(){
     beforeEach(function(){
       var project_dir = air.File.createTempDirectory(),
-        project_path = project_dir.nativePath,
         sass_dir = project_dir.resolvePath("sass"),
         css_dir = project_dir.resolvePath("css");
-      app.createProject("project-a", sass_dir.nativePath, css_dir.nativePath);
+      app.createProject("project-a", project_dir.nativePath, sass_dir.nativePath, css_dir.nativePath);
       app.listProjects();
     });
     
