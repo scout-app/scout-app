@@ -1,8 +1,8 @@
 #!/bin/sh
 
 dir=`dirname $0`
-find $dir/../site/vendor/ -name bundle | grep bundle > /dev/null
+find $dir/../site/vendor/ -name compass | grep compass > /dev/null
 if [ $? -eq 1 ] ; then 
-  ./$dir/jruby -S gem install compass
+  ./$dir/bundle
 fi
 ./$dir/jruby -S compass $@

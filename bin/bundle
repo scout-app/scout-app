@@ -2,7 +2,7 @@
 
 dir=`dirname $0`
 find $dir/../site/vendor/ -name bundle | grep bundle > /dev/null
-if [ $? -eq 1 ] ; then 
+if [ $? -eq 1 ] ; then
   ./$dir/jruby -S gem install bundler
 fi
-./$dir/jruby -S bundle
+./$dir/jruby -S bundle $@
