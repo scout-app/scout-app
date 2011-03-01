@@ -317,7 +317,7 @@ body .footer #new-project {
 /*views styles*/
 /* line 1, ../../src/stylesheets/partials/views/_project_details.scss */
 .project_details {
-  /*uncomment  display: none;*/
+  display: none;
 }
 /* line 4, ../../src/stylesheets/partials/views/_project_details.scss */
 .project_details .view {
@@ -434,9 +434,8 @@ body .footer #new-project {
 }
 /* line 68, ../../src/stylesheets/partials/views/_project_details.scss */
 .project_details .view .option_container .options .option {
-  width: 370px;
-  *zoom: 1;
   margin-bottom: 12px;
+  *zoom: 1;
 }
 /* line 22, ../../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_details .view .option_container .options .option:after {
@@ -447,7 +446,7 @@ body .footer #new-project {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 73, ../../src/stylesheets/partials/views/_project_details.scss */
+/* line 72, ../../src/stylesheets/partials/views/_project_details.scss */
 .project_details .view .option_container .options .option label {
   display: inline;
   float: left;
@@ -457,15 +456,7 @@ body .footer #new-project {
   text-align: right;
   font-weight: bold;
 }
-/* line 82, ../../src/stylesheets/partials/views/_project_details.scss */
-.project_details .view .option_container .options .option .setting {
-  display: inline;
-  float: left;
-  width: 160px;
-  margin-right: 5px;
-  font-size: 13px;
-}
-/* line 89, ../../src/stylesheets/partials/views/_project_details.scss */
+/* line 81, ../../src/stylesheets/partials/views/_project_details.scss */
 .project_details .view .option_container .options .option .dir_find {
   margin-top: 2px;
   color: #0A0A0A;
@@ -475,7 +466,15 @@ body .footer #new-project {
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 6px;
 }
-/* line 103, ../../src/stylesheets/partials/views/_project_details.scss */
+/* line 91, ../../src/stylesheets/partials/views/_project_details.scss */
+.project_details .view .option_container .options .option .setting {
+  display: inline;
+  float: left;
+  width: 50%;
+  margin-right: 5px;
+  font-size: 13px;
+}
+/* line 102, ../../src/stylesheets/partials/views/_project_details.scss */
 .project_details .footer {
   left: 1px;
 }

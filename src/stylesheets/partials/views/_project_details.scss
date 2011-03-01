@@ -1,5 +1,5 @@
 .project_details {
-/*uncomment  display: none;*/
+  display: none;
 
   .view {
     left: 1px;
@@ -66,9 +66,8 @@
         @include box-shadow(#BABABA, 0px, 1px, 2px, 1px, inset);
 
         .option {
-          width: 370px;
-          @include pie-clearfix;
           margin-bottom: 12px;
+          @include pie-clearfix;
 
           label {
             @include float-left;
@@ -79,13 +78,6 @@
             font-weight: bold;
           }
 
-          .setting {
-            @include float-left;
-            width: 160px;
-            margin-right: 5px;
-            font-size: 13px;
-          }
-
           .dir_find {
             margin-top: 2px;
             color: #0A0A0A;
@@ -94,6 +86,13 @@
             -webkit-border-top-right-radius: 0;
             -webkit-border-bottom-right-radius: 0;
             -webkit-border-bottom-left-radius: 6px;
+          }
+
+          .setting {
+            @include float-left;
+            width: 50%;
+            margin-right: 5px;
+            font-size: 13px;
           }
         }
       }
