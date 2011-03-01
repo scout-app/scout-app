@@ -65,7 +65,7 @@ $(function(){
 
   function jrubyExecutable(){
     if(air.Capabilities.os.match(/Windows/)) {
-      return jrubyDir().resolvePath("/bin/jruby.exe");
+      return jrubyDir().resolvePath("bin/jruby.exe");
     } else {
       return jrubyDir().resolvePath("bin/jruby");
     }
