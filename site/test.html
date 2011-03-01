@@ -96,54 +96,7 @@
   </div>
   <div class='pane project_list'>
     <div class='view'>
-      <ul class='projects'>
-        <!--
-          Remove
-          1. selected project removes from ul.projects -> previous="project_name"
-          2. selected project passes to ul.projects -> append="project_name" with the name that has a corresponding project name
-          3. The project with the same name gets highlighted
-        -->
-        <li class='project stopped selected' data-key='${key}'>
-          <div class='item'>
-            <div class='source'>
-              <h2>
-                <a href='#'>${name}</a>
-              </h2>
-            </div>
-            <div class='commands'>
-              <button class='play'>Play</button>
-              <button class='stop'>Stop</button>
-            </div>
-          </div>
-        </li>
-        <li class='project stopped' data-key='${key}'>
-          <div class='item'>
-            <div class='source'>
-              <h2>
-                <a href='#'>${name}</a>
-              </h2>
-            </div>
-            <div class='commands'>
-              <button class='play'>Play</button>
-              <button class='stop'>Stop</button>
-            </div>
-          </div>
-        </li>
-        <li class='project stopped' data-key='${key}'>
-          <div class='item'>
-            <div class='source'>
-              <h2>
-                <a href='#'>${name}</a>
-              </h2>
-            </div>
-            <div class='commands'>
-              <button class='play'>Play</button>
-              <button class='stop'>Stop</button>
-            </div>
-          </div>
-        </li>
-        <!-- /Remove -->
-      </ul>
+      <ul class='projects'></ul>
       <button id='nuke'>Remove All Projects</button>
     </div>
     <div class='footer'>
@@ -152,48 +105,10 @@
       </a>
       <div class='splitter'>|||</div>
     </div>
-  </div>
-  <!-- remove -->
-  <div class='pane project_details configure' data-key='${key}'>
-    <div class='view'>
-      <div class='modes'>
-        <a class='mode log' href='#'>Log</a>
-        <a class='mode configure' href='#'>Configure</a>
-      </div>
-      <div class='log_output'></div>
-      <div class='option_container'>
-        <h2>Configuration</h2>
-        <div class='options'>
-          <div class='option input'>
-            <label for='sass_input'>Input Folder:</label>
-            <button class='dir_find select_sass_dir'>
-              <span>Select</span>
-            </button>
-            <input class='setting sass_dir' id='sass_input' value='${sassDir}' />
-          </div>
-          <div class='option output'>
-            <label for='css_input'>Output Folder:</label>
-            <button class='dir_find select_css_dir'>
-              <span>Select</span>
-            </button>
-            <input class='setting css_dir' id='css_input' value='${cssDir}' />
-          </div>
-          <div class='option remove'>
-            <label>Remove Project:</label>
-            <button class='delete'>
-              <span>Remove</span>
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class='footer'></div>
   </div>
-  <!-- /remove -->
-  <!--
-    uncomment <div class="pane non_selected">
-    <div class="view"></div>
-    <div class="footer"></div>
-    </div>
-  -->
+  <div class='pane non_selected'>
+    <div class='view'></div>
+    <div class='footer'></div>
+  </div>
 </body>

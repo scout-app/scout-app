@@ -58,69 +58,12 @@
   .pane.project_list
     .view
       %ul.projects
-        /
-          Remove
-          1. selected project removes from ul.projects -> previous="project_name"
-          2. selected project passes to ul.projects -> append="project_name" with the name that has a corresponding project name
-          3. The project with the same name gets highlighted
-        %li.project.stopped.selected{"data-key" => "${key}"}
-          .item
-            .source
-              %h2
-                %a{:href => "#"} ${name}
-            .commands
-              %button.play Play
-              %button.stop Stop
-        %li.project.stopped{"data-key" => "${key}"}
-          .item
-            .source
-              %h2
-                %a{:href => "#"} ${name}
-            .commands
-              %button.play Play
-              %button.stop Stop
-        %li.project.stopped{"data-key" => "${key}"}
-          .item
-            .source
-              %h2
-                %a{:href => "#"} ${name}
-            .commands
-              %button.play Play
-              %button.stop Stop
-        / /Remove
       %button#nuke Remove All Projects
     .footer
       %a.option.add{:href => "#", :title => "Add a project"}
         %span +
       .splitter |||
-  / remove
-  .pane.project_details.configure{"data-key" => "${key}"}
-    .view
-      .modes
-        %a.mode.log{:href => "#"} Log
-        %a.mode.configure{:href => "#"} Configure
-      .log_output
-      .option_container
-        %h2 Configuration
-        .options
-          .option.input
-            %label{:for => "sass_input"} Input Folder:
-            %button.dir_find.select_sass_dir
-              %span Select
-            %input#sass_input.setting.sass_dir{:value => "${sassDir}"}/
-          .option.output
-            %label{:for => "css_input"} Output Folder:
-            %button.dir_find.select_css_dir
-              %span Select
-            %input#css_input.setting.css_dir{:value => "${cssDir}"}/
-          .option.remove
-            %label Remove Project:
-            %button.delete
-              %span Remove
     .footer
-  / /remove
-  /
-    uncomment <div class="pane non_selected">
-    <div class="view"></div>
-    <div class="footer"></div>
-    </div>
+  .pane.non_selected
+    .view
+    .footer
