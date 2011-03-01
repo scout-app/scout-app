@@ -8,8 +8,13 @@ $(function(){
   
   function startWatchingProject(evnt, data) {
     var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
-    nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
-
+    
+    if(air.Capabilities.os.match(/Windows/)) {
+      nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby.exe");
+    } else {
+      nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
+    }
+    
     var processArgs = new air.Vector["<String>"]();
     processArgs.push("-S", "compass", "watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle, "--trace");
     nativeProcessStartupInfo.arguments = processArgs;
