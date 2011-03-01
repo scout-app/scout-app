@@ -10,7 +10,7 @@
     </description>
 
     <!-- for windows/linux program menus only, ignored on OSX -->
-    <programMenuFolder>CompassApp/CompassApp</programMenuFolder>
+    <programMenuFolder>CompassApp</programMenuFolder>
     <initialWindow>
         <content>test.html</content>
         <visible>true</visible>
