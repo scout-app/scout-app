@@ -21,6 +21,7 @@ else
   exit 1
 fi
 
+echo "Moving into $SITE_DIR"
 pushd $SITE_DIR > /dev/null
 cmd="adt -package -storetype pkcs12 -keystore ../cert.pfx -target native ../$output_file production.xml ." 
 echo "Running command: $cmd"
