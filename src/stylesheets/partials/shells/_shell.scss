@@ -2,8 +2,8 @@ body {
   .project_list {
     position: absolute;
     top: 70px;
-    right: 60%;
     bottom: 0;
+    right: 60%;
     left: 0;
     border-right: 1px solid #939393;
   }
@@ -11,26 +11,26 @@ body {
   .project_details {
     position: absolute;
     top: 70px;
-    right: 0;
     bottom: 0;
-    left: 40%;
-  }
-
-  .view {
-    position: absolute;
-    top: 0;
-    bottom: 19px;
     right: 0;
-    left: 0;
-    overflow-y: auto;
-    @include pie-clearfix;
+    left: 40%;
+
+    .view {
+      position: absolute;
+      top: 0;
+      bottom: 19px;
+      right: 0;
+      left: 0;
+      overflow-y: auto;
+      @include pie-clearfix;
+    }
   }
 
   .footer {
     position: absolute;
     bottom: 0;
-    left: 0;
     right: 0;
+    left: 0;
     border-top: 1px solid #939393;
     @include pie-clearfix;
     @include linear-gradient(color-stops(#f7f7f7 0, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%));
