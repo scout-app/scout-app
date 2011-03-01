@@ -172,7 +172,7 @@ describe("Compass App", function(){
               return true;
             }
             return false;
-          }, "Never started logging output", 5000);
+          }, "Never started logging output", 10000);
         });
         
         it("then I expect the output the show", function() {
@@ -180,7 +180,7 @@ describe("Compass App", function(){
           var output = $(".project_details .log_output:visible");
           waitsFor(function(){
             return output.html().match(/overwrite/);
-          }, "Overwrite never found.", 5000);
+          }, "Overwrite never found.", 10000);
         });
       });
     });
