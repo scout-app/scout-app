@@ -1,6 +1,7 @@
 #! /bin/sh
 
-MY_CERT="../cert.pfx"
+dir=`dirname $0`
+MY_CERT="$dir/../cert.pfx"
 CERT_PASSWORD=password
 CERT_ORGANIZATION="Mutually Human"
 

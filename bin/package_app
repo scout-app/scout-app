@@ -2,9 +2,27 @@
 
 dir=`dirname $0`
 
+SITE_DIR=$dir/../site
+
 $dir/install_adt
 $dir/make_selfsigned_cert
 $dir/install_jruby
 
+# install jruby dependencies
+$dir/bundle
+
 echo "Preparing to package app"
-time adt -package -storetype pkcs12 -keystore cert.pfx -target native compassapp.dmg compassapp-app.xml .
+
+output_file='CompassAppInstaller'
+if [ $1 = 'dmg' ] ; then 
+  output_file=$output_file.dmg
+else
+  echo "Please pass in the package type you would like to build, ie: package_app [dmg|exe|deb]"
+  exit 1
+fi
+
+pushd $SITE_DIR > /dev/null
+cmd="adt -package -storetype pkcs12 -keystore ../cert.pfx -target native ../$output_file production.xml ." 
+echo "Running command: $cmd"
+time $cmd
+popd > /dev/null

@@ -1,19 +1,22 @@
 #!/bin/sh
 
 dir=`dirname $0`
+DOWNLOADS="$dir/../tmp"
 VENDOR="$dir/../site/vendor"
 JRUBY=jruby-1.6.0.RC2
 JRUBY_TGZ=jruby-bin-1.6.0.RC2.tar.gz
 JRUBY_URL=http://jruby.org.s3.amazonaws.com/downloads/1.6.0.RC2/$JRUBY_TGZ
 
 mkdir -p $VENDOR
-pushd $VENDOR > /dev/null
 echo "Checking for jruby... \c"
-if [ -d $JRUBY ] ; then
+if [ -d $VENDOR/$JRUBY ] ; then
   echo "exists"
 else
   echo "downloading"
+  mkdir -p $DOWNLOADS
+  pushd $DOWNLOADS > /dev/null
   wget $JRUBY_URL
   tar -xzf $JRUBY_TGZ
+  popd > /dev/null
+  mv $DOWNLOADS/jruby-1.6.0.RC2 $VENDOR/
 fi
-popd > /dev/null

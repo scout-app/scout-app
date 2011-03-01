@@ -2,7 +2,7 @@
 <application xmlns="http://ns.adobe.com/air/application/2.5">
     <id>example.html.compassapp</id>
     <versionNumber>0.0.1</versionNumber>
-    <filename>development.html</filename>
+    <filename>CompassApp-Development</filename>
     <initialWindow>
         <content>development.html</content>
         <visible>true</visible>

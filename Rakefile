@@ -10,6 +10,13 @@ namespace 'staticmatic' do
   end
 end
 
+namespace 'package' do
+  desc 'packages the application as an OSX installer'
+  task 'dmg' do
+    system "bin/package_app dmg"
+  end
+end
+
 %w(development test production).each do |env|
   desc "Runs the application in the #{env} environment"
   task "run:#{env}" => "staticmatic:build" do
