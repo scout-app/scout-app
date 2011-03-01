@@ -11,6 +11,14 @@
 
     <!-- for windows/linux program menus only, ignored on OSX -->
     <programMenuFolder>CompassApp</programMenuFolder>
+
+    <icon>
+      <image16x16>images/logo_16.png</image16x16>
+      <image32x32>images/logo_32.png</image32x32>
+      <image48x48>images/logo_48.png</image48x48>
+      <image128x128>images/logo_512.png</image128x128>
+    </icon>
+    
     <initialWindow>
         <content>production.html</content>
         <visible>true</visible>
