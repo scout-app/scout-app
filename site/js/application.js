@@ -31,6 +31,8 @@ var app = {
       cssDir: cssDir,
       environment: "development",
       outputStyle: "expanded"
+    }, function(project){
+      $('.project[data-key='+project.key+']').trigger(':select');
     });
     $('.projects').trigger(':changed');
   },
@@ -93,6 +95,7 @@ $(document).ready(function() {
   
   $('.project').live(':started', projectStarted);
   $('.project').live(':stopped', projectStopped);
+  $('.project').live(':select', selectProject);
   
   $('.project_details').live(':newLogOutput', updateProjectLog);
   
@@ -111,6 +114,7 @@ $(document).ready(function() {
     key = $(this).parents('.project:first').attr('data-key');
     $('.project_details').hide();
     $('.project_details[data-key='+key+']').show();
+    $(this).parents('.project:first').trigger(':select');
   });
   
   $('#nuke').live('click', app.delegateTo('nukeAllProjects'));
@@ -118,6 +122,11 @@ $(document).ready(function() {
   function updateProjectLog(evnt, data) {
     var key = $(this).attr('data-key');
     $('.project_details[data-key='+key+'] .log_output').append(colorize(data.replace("\n", "<br />")));
+  }
+  
+  function selectProject() {
+    $('.project').removeClass('selected');
+    $(this).addClass('selected');
   }
   
   var colors = {
