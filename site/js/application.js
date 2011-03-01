@@ -38,9 +38,9 @@ var app = {
       environment: "development",
       outputStyle: "expanded"
     }, function(project){
-      $('.project[data-key='+project.key+']').trigger(':select');
+      $('.projects').trigger(':changed');
+      $('.project[data-key='+project.key+']').trigger(':select_and_configure');
     });
-    $('.projects').trigger(':changed');
   },
   
   listProjects: function() {
@@ -76,11 +76,13 @@ var app = {
   },
   
   viewProjectConfiguration: function() {
+    $('.pane.project_details').show();
     $('.pane.project_details').addClass('configure');
     $('.pane.project_details').removeClass('log');
   },
 
   viewProjectLog: function() {
+    $('.pane.project_details').show();
     $('.pane.project_details').removeClass('configure');
     $('.pane.project_details').addClass('log');
   }
@@ -102,6 +104,7 @@ $(document).ready(function() {
   $('.project').live(':started', projectStarted);
   $('.project').live(':stopped', projectStopped);
   $('.project').live(':select', selectProject);
+  $('.project').live(':select_and_configure', selectProjectConfiguration);
   
   $('.project_details').live(':newLogOutput', updateProjectLog);
   
@@ -133,6 +136,11 @@ $(document).ready(function() {
   function selectProject() {
     $('.project').removeClass('selected');
     $(this).addClass('selected');
+  }
+
+  function selectProjectConfiguration(){ 
+    $(this).trigger(":select");
+    app.viewProjectConfiguration();
   }
   
   var colors = {
