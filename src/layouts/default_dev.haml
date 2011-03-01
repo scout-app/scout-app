@@ -75,6 +75,28 @@
       %ul.projects
 
         / remove
+        %li.project.selected{"data-key" => "${key}"}
+          .item
+            .source
+              %h2
+                %a{:href => "#"} ${name}
+            .commands
+              %button.command.start 
+                %span Start
+              %button.command.stop 
+                %span Stop
+
+        %li.project.playing{"data-key" => "${key}"}
+          .item
+            .source
+              %h2
+                %a{:href => "#"} ${name}
+            .commands
+              %button.command.start 
+                %span Start
+              %button.command.stop 
+                %span Stop
+
         %li.project.stopped{"data-key" => "${key}"}
           .item
             .source
@@ -120,7 +142,6 @@
               %span Remove
     .footer
 
-
-/  .pane.non_selected
-/    .view
-/    .footer
+ .pane.non_selected
+   .view
+   .footer
