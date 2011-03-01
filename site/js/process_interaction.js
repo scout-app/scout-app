@@ -8,15 +8,10 @@ $(function(){
   
   function startWatchingProject(evnt, data) {
     var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
-    
-    if(air.Capabilities.os.match(/Windows/)) {
-      nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby.exe");
-    } else {
-      nativeProcessStartupInfo.executable = air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2/bin/jruby");
-    }
+    nativeProcessStartupInfo.executable = jrubyExecutable();
     
     var processArgs = new air.Vector["<String>"]();
-    processArgs.push("-S", "compass", "watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle, "--trace");
+    processArgs.push(compassExecutable().nativePath, "watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle, "--trace");
     nativeProcessStartupInfo.arguments = processArgs;
 
     process = new air.NativeProcess();
@@ -57,6 +52,22 @@ $(function(){
   function killWatchingProcesses(){
     for (var i in process_map) {
       process_map[i].exit();
+    }
+  }
+
+  function compassExecutable(){
+    return jrubyDir().resolvePath("lib/ruby/gems/1.8/bin/compass");
+  }
+  
+  function jrubyDir(){
+    return air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2");
+  }
+
+  function jrubyExecutable(){
+    if(air.Capabilities.os.match(/Windows/)) {
+      return jrubyDir().resolvePath("/bin/jruby.exe");
+    } else {
+      return jrubyDir().resolvePath("bin/jruby");
     }
   }
   
