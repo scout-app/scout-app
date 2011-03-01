@@ -15,7 +15,11 @@ var app = {
   
   createProjectBySelectingDirectory: function() {
     browseDirectories(air.File.userDirectory.nativePath, function(evnt) {
-      app.createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "", "");  
+      if(air.Capabilities.os.match(/Windows/)) {
+        app.createProject(evnt.target.nativePath.replace(/\\$/, '').split('\\').last(), evnt.target.nativePath, "", "");  
+      } else {
+        app.createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "", "");  
+      }
     });
   },
   
