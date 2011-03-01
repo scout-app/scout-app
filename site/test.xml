@@ -5,8 +5,7 @@
     <filename>CompassApp-Test</filename>
     <name>CompassApp</name>
     <description>
-      CompassApp is a cross platform, standalone Compass application for 
-      designers to get started with using SASS.
+      CompassApp is a cross platform, standalone Compass application for designers to get started with using SASS.
     </description>
 
     <!-- for windows/linux program menus only, ignored on OSX -->
