@@ -1,5 +1,4 @@
 jasmine.TrivialReporter = function(doc) {
-  air.Introspector.Console.log(doc);
   this.document = doc || document;
   this.suiteDivs = {};
   this.logRunningSpecs = false;
