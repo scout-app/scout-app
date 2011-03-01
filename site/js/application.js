@@ -112,7 +112,7 @@ $(document).ready(function() {
   $('.select_css_dir').live('click', selectOutputBySelectingDirectory);
   $('.project_details .delete').live('click', deleteProject);
   
-  $('.project .source').live('click', function() {
+  $('.project .item').live('click', function() {
     key = $(this).parents('.project:first').attr('data-key');
     $('.project_details').hide();
     $('.project_details[data-key='+key+']').show();
