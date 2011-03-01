@@ -5,4 +5,4 @@ find $dir/../site/vendor/ -name compass | grep compass > /dev/null
 if [ $? -eq 1 ] ; then 
   ./$dir/bundle
 fi
-./$dir/jruby -S compass $@
+./$dir/jruby $dir/../site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/bin/compass $@
