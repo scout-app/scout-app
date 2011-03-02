@@ -21,7 +21,7 @@ body {
       bottom: 19px;
       right: 0;
       left: 0;
-      overflow-y: auto;
+/*      overflow-y: auto;*/
       @include pie-clearfix;
     }
   }
@@ -75,7 +75,7 @@ body {
       background-position: center center;
       cursor: ew-resize;
     }
-    
+
     #new-project {
       margin-top: 2em;
     }
