@@ -16,9 +16,15 @@ var app = {
   createProjectBySelectingDirectory: function() {
     browseDirectories(air.File.userDirectory.nativePath, function(evnt) {
       if(air.Capabilities.os.match(/Windows/)) {
-        app.createProject(evnt.target.nativePath.replace(/\\$/, '').split('\\').last(), evnt.target.nativePath, "", "");  
+        app.createProject({
+          name: evnt.target.nativePath.replace(/\\$/, '').split('\\').last(), 
+          projectDir: evnt.target.nativePath
+        });
       } else {
-        app.createProject(evnt.target.nativePath.replace(/\/$/, '').split('/').last(), evnt.target.nativePath, "", "");  
+        app.createProject({
+          name: evnt.target.nativePath.replace(/\/$/, '').split('/').last(), 
+          projectDir: evnt.target.nativePath
+        });
       }
     });
   },
@@ -26,17 +32,35 @@ var app = {
   createProjectByDroppingADirectory: function(evnt){ 
     evnt.preventDefault();
     directoryPath = evnt.dataTransfer.getData("text/uri-list");
-    app.createProject(directoryPath.replace(/\/$/, '').split('/').last(), directoryPath, "", "");
+    app.createProject({
+      name: directoryPath.replace(/\/$/, '').split('/').last(), 
+      projectDir: directoryPath
+    });
   },
   
-  createProject: function(name, projectDir, sassDir, cssDir) {
+  createProject: function(options) {
+    var defaults = { 
+      name:"", 
+      projectDir:"", 
+      sassDir:"", 
+      cssDir:"", 
+      javascriptsDir:"",
+      imagesDir:"", 
+      environment:"development", 
+      outputStyle: "expanded" 
+    };
+    
+    options = $.extend(defaults, options);
+    
     Projects.save({
-      name: name,
-      projectDir: projectDir,
-      sassDir: sassDir,
-      cssDir: cssDir,
-      environment: "development",
-      outputStyle: "expanded"
+      name: options.name,
+      projectDir: options.projectDir,
+      sassDir: options.sassDir,
+      cssDir: options.cssDir,
+      javascriptDir: options.javascriptsDir,
+      imageDir: options.imagesDir,
+      environment: options.environment,
+      outputStyle: options.outputStyle
     }, function(project){
       $('.projects').trigger(':changed');
       $('.project[data-key='+project.key+']').trigger(':select_and_configure');
@@ -117,8 +141,10 @@ $(document).ready(function() {
   $('.project .start').live('click', startWatchingProject);
   $('.project .stop').live('click', stopWatchingProject);
   
-  $('.select_sass_dir').live('click', selectInputBySelectingDirectory);
-  $('.select_css_dir').live('click', selectOutputBySelectingDirectory);
+  $('.select_sass_dir').live('click', selectSassDirBySelectingDirectory);
+  $('.select_css_dir').live('click', selectCssDirBySelectingDirectory);
+  $('.select_javascripts_dir').live('click', selectJavascriptsDirBySelectingDirectory);
+  $('.select_images_dir').live('click', selectImagesDirBySelectingDirectory);
   $('.project_details .delete').live('click', deleteProject);
   
   $('.project .item').live('click', function() {
@@ -214,7 +240,7 @@ function deleteProject() {
   return false;
 }
 
-function selectOutputBySelectingDirectory() {
+function selectCssDirBySelectingDirectory() {
   key = $(this).parents('.project_details:first').attr('data-key');
   Projects.get(key, function(project) {
     browseDirectories(project.projectDir, function(evnt){
@@ -226,13 +252,37 @@ function selectOutputBySelectingDirectory() {
   return false;
 }
 
-function selectInputBySelectingDirectory() {
+function selectSassDirBySelectingDirectory() {
   key = $(this).parents('.project_details:first').attr('data-key');
   Projects.get(key, function(project) {
     browseDirectories(project.projectDir, function(evnt){
       project.sassDir = evnt.target.nativePath;
       Projects.save(project);
       $('.project_details[data-key='+key+'] .sass_dir').val(evnt.target.nativePath);
+    });
+  });
+  return false;
+}
+
+function selectJavascriptsDirBySelectingDirectory() {
+  key = $(this).parents('.project_details:first').attr('data-key');
+  Projects.get(key, function(project) {
+    browseDirectories(project.projectDir, function(evnt){
+      project.javascriptsDir = evnt.target.nativePath;
+      Projects.save(project);
+      $('.project_details[data-key='+key+'] .javascripts_dir').val(evnt.target.nativePath);
+    });
+  });
+  return false;
+}
+
+function selectImagesDirBySelectingDirectory() {
+  key = $(this).parents('.project_details:first').attr('data-key');
+  Projects.get(key, function(project) {
+    browseDirectories(project.projectDir, function(evnt){
+      project.imagesDir = evnt.target.nativePath;
+      Projects.save(project);
+      $('.project_details[data-key='+key+'] .images_dir').val(evnt.target.nativePath);
     });
   });
   return false;

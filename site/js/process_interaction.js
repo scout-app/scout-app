@@ -11,7 +11,17 @@ $(function(){
     nativeProcessStartupInfo.executable = jrubyExecutable();
     
     var processArgs = new air.Vector["<String>"]();
-    processArgs.push(compassExecutable().nativePath, "watch", "--sass-dir", data.project.sassDir, "--css-dir", data.project.cssDir, "--environment", data.project.environment, "--output-style", data.project.outputStyle, "--trace");
+    processArgs.push(
+      compassExecutable().nativePath, 
+      "watch", 
+      "--sass-dir", data.project.sassDir, 
+      "--css-dir", data.project.cssDir, 
+      "--images-dir", data.project.imagesDir,
+      "--javascripts-dir", data.project.javascriptsDir,
+      "--environment", data.project.environment, 
+      "--output-style", data.project.outputStyle, 
+      "--trace"
+    );
     nativeProcessStartupInfo.arguments = processArgs;
 
     process = new air.NativeProcess();

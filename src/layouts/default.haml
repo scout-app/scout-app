@@ -38,6 +38,19 @@
               %button.dir_find.select_css_dir
                 %span Choose
               %input#css_input.setting.css_dir{:value => "${cssDir}"}/
+              
+            .option.javascripts_dir
+              %label{:for => "css_input"} JavaScripts Folder:
+              %button.dir_find.select_javascripts_dir
+                %span Choose
+              %input#css_input.setting.javascripts_dir{:value => "${javascriptsDir}"}/
+              
+            .option.images_dir
+              %label{:for => "css_input"} Images Folder:
+              %button.dir_find.select_images_dir
+                %span Choose
+              %input#css_input.setting.images_dir{:value => "${imagesDir}"}/
+              
             .option.remove
               %label Remove Project:
               %button.delete
