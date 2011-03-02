@@ -1,6 +1,6 @@
 Array.prototype.last = function() {return this[this.length-1];}
 
-var Projects = new Lawnchair({adaptor: 'air', table: "projects"});
+var Projects = new Lawnchair({adaptor: 'air', table: "projects"+ENV});
 
 var app = {
   delegateTo: function(targetMethod){
@@ -91,6 +91,8 @@ var app = {
 
 // UI stuff
 $(document).ready(function() {
+
+  
   $.tmpl($('#colorize_template'));
   $.tmpl($('#project_template'));
   $.tmpl($('#project_details_template'));

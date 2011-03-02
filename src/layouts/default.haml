@@ -2,16 +2,7 @@
 %head
   %title CompassApp
   = stylesheets
-  %link{:href => "stylesheets/screen.css", :rel => "stylesheet"}/
-  %script{:src => "js/AIRAliases.js", :type => "text/javascript"}
-  %script{:src => "js/AIRIntrospector.js", :type => "text/javascript"}
-  %script{:src => "js/jquery-1.5.min.js", :type => "text/javascript"}
-  %script{:src => "js/jquery.tmpl.min.js", :type => "text/javascript"}
-  %script{:src => "js/adaptors/LawnchairAdaptorHelpers.js", :type => "text/javascript"}
-  %script{:src => "js/adaptors/AIRSqliteAdaptor.js", :type => "text/javascript"}
-  %script{:src => "js/Lawnchair.js", :type => "text/javascript"}
-  %script{:src => "js/application.js", :type => "text/javascript"}
-  %script{:src => "js/process_interaction.js", :type => "text/javascript"}
+  %link{:href => "stylesheets/screen.css", :rel => "stylesheet"}
   = yield
   %script#colorize_template{:type => "text/x-jquery-tmpl"}
     %div
