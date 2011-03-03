@@ -16,6 +16,7 @@ $(function(){
       "watch", 
       "--sass-dir", data.project.sassDir, 
       "--css-dir", data.project.cssDir, 
+      '--require', 'ninesixty',
       "--images-dir", data.project.imagesDir,
       "--javascripts-dir", data.project.javascriptsDir,
       "--environment", data.project.environment, 
