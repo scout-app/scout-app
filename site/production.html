@@ -80,6 +80,24 @@
               </button>
               <input class='setting images_dir' id='images_dir' value='${imagesDir}' />
             </div>
+            <div class='option environment'>
+              <label for='environment'>Environment:</label>
+              <select id="environment" class="select_environment" name="environment">
+                <option data-environment="development">Development</option>
+                <option data-environment="production">Production</option>
+              </select>
+              ${environment}
+            </div>
+            <div class='option output_style'>
+              <label for='output_style'>Output Style:</label>
+              <select id="output_style" class="select_output_style" name="output_style">
+                <option data-output_style="nested">Nested</option>
+                <option data-output_style="expanded">Expanded</option>
+                <option data-output_style="compact">Compact</option>
+                <option data-output_style="compressed">Compressed</option>
+              </select>
+              ${outputStyle}
+            </div>
             <div class='option remove'>
               <label>Remove Project:</label>
               <button class='delete'>
