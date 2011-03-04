@@ -74,7 +74,6 @@
                 background-color: #5F9DFF;
                 border: 1px solid #234D8F;
                 @include linear-gradient(color-stops(#5F9DFF, #4581DF, #205BAF));
-/*                @include linear-gradient(color-stops(#5F9DFF, #5993EF, #3875D7));*/
                 @include box-shadow(none);
                 
                 &:active {
