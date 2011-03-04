@@ -22,7 +22,7 @@
         <content>test.html</content>
         <visible>true</visible>
         <width>800</width>
-        <height>600</height>
+        <height>650</height>
         <minSize>320 240</minSize>
     </initialWindow>
     <supportedProfiles>extendedDesktop</supportedProfiles>

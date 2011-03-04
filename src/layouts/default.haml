@@ -28,34 +28,46 @@
         .option_container
           %h2 Configuration
           .options
-            .option.input
-              %label{:for => "sass_input"} Input Folder:
-              %button.dir_find.select_sass_dir
-                %span Choose
-              %input#sass_input.setting.sass_dir{:value => "${sassDir}"}/
-            .option.output
-              %label{:for => "css_input"} Output Folder:
-              %button.dir_find.select_css_dir
-                %span Choose
-              %input#css_input.setting.css_dir{:value => "${cssDir}"}/
-              
-            .option.javascripts_dir
-              %label{:for => "css_input"} JavaScripts Folder:
-              %button.dir_find.select_javascripts_dir
-                %span Choose
-              %input#css_input.setting.javascripts_dir{:value => "${javascriptsDir}"}/
-              
-            .option.images_dir
-              %label{:for => "css_input"} Images Folder:
-              %button.dir_find.select_images_dir
-                %span Choose
-              %input#css_input.setting.images_dir{:value => "${imagesDir}"}/
-              
-            .option.remove
-              %label Remove Project:
-              %button.delete
-                %span Remove
+
+            .option_group.stylesheet_directories
+              %h3 Stylesheet Directories
+              .notice
+                %em*Required field
+              .option.input
+                %label{:for => "sass_input"} Input Folder:
+                %button.dir_find.select_sass_dir
+                  %span Choose
+                %input#sass_input.setting.sass_dir{:value => "${sassDir}"}/
+                %em *
+              .option.output
+                %label{:for => "css_input"} Output Folder:
+                %button.dir_find.select_css_dir
+                  %span Choose
+                %input#css_input.setting.css_dir{:value => "${cssDir}"}/
+                %em *
+
+            .option_group
+              %h3 Other Directories
+              .option.javascripts_dir
+                %label{:for => "js_input"} JavaScripts Folder:
+                %button.dir_find.select_javascripts_dir
+                  %span Choose
+                %input#js_input.setting.javascripts_dir{:value => "${javascriptsDir}"}/
+              .option.images_dir
+                %label{:for => "images"} Images Folder:
+                %button.dir_find.select_images_dir
+                  %span Choose
+                %input#images.setting.images_dir{:value => "${imagesDir}"}/
+
+            .option_group
+              %h3 Manage Project
+              .option.remove
+                %label Remove Project:
+                %button.delete
+                  %span Remove
       .footer
+
+
 %body
   #header
     %h1 CompassApp
