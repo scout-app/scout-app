@@ -68,39 +68,53 @@
         <div class='option_container'>
           <h2>Configuration</h2>
           <div class='options'>
-            <div class='option input'>
-              <label for='sass_input'>Input Folder:</label>
-              <button class='dir_find select_sass_dir'>
-                <span>Choose</span>
-              </button>
-              <input class='setting sass_dir' id='sass_input' value='${sassDir}' />
+            <div class='option_group stylesheet_directories'>
+              <h3>Stylesheet Directories</h3>
+              <div class='notice'>
+                <em>*Required field</em>
+              </div>
+              <div class='option input'>
+                <label for='sass_input'>Input Folder:</label>
+                <button class='dir_find select_sass_dir'>
+                  <span>Choose</span>
+                </button>
+                <input class='setting sass_dir' id='sass_input' value='${sassDir}' />
+                <em>*</em>
+              </div>
+              <div class='option output'>
+                <label for='css_input'>Output Folder:</label>
+                <button class='dir_find select_css_dir'>
+                  <span>Choose</span>
+                </button>
+                <input class='setting css_dir' id='css_input' value='${cssDir}' />
+                <em>*</em>
+              </div>
             </div>
-            <div class='option output'>
-              <label for='css_input'>Output Folder:</label>
-              <button class='dir_find select_css_dir'>
-                <span>Choose</span>
-              </button>
-              <input class='setting css_dir' id='css_input' value='${cssDir}' />
+            <div class='option_group'>
+              <h3>Other Directories</h3>
+              <div class='option javascripts_dir'>
+                <label for='js_input'>JavaScripts Folder:</label>
+                <button class='dir_find select_javascripts_dir'>
+                  <span>Choose</span>
+                </button>
+                <input class='setting javascripts_dir' id='js_input' value='${javascriptsDir}' />
+              </div>
+              <div class='option images_dir'>
+                <label for='images'>Images Folder:</label>
+                <button class='dir_find select_images_dir'>
+                  <span>Choose</span>
+                </button>
+                <input class='setting images_dir' id='images' value='${imagesDir}' />
+              </div>
             </div>
-            <div class='option javascripts_dir'>
-              <label for='css_input'>JavaScripts Folder:</label>
-              <button class='dir_find select_javascripts_dir'>
-                <span>Choose</span>
-              </button>
-              <input class='setting javascripts_dir' id='css_input' value='${javascriptsDir}' />
-            </div>
-            <div class='option images_dir'>
-              <label for='css_input'>Images Folder:</label>
-              <button class='dir_find select_images_dir'>
-                <span>Choose</span>
-              </button>
-              <input class='setting images_dir' id='css_input' value='${imagesDir}' />
-            </div>
-            <div class='option remove'>
-              <label>Remove Project:</label>
-              <button class='delete'>
-                <span>Remove</span>
-              </button>
+            <div class='option_group'>
+              <h3>Manage Project</h3>
+              <div class='option remove'>
+                <label>Remove Project:</label>
+                <button class='delete'>
+                  <span>Remove</span>
+                </button>
+              </div>
             </div>
           </div>
         </div>

@@ -5,7 +5,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /*jquery mobile styles - default*/
 /*@import "../partials/jquery.mobile-1.0a3.min";*/
-/* line 14, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 14, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -25,42 +25,42 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 
-/* line 17, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
   color: black;
   background: white;
 }
 
-/* line 19, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 19, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 21, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 21, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: separate;
   border-spacing: 0;
   vertical-align: middle;
 }
 
-/* line 23, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 23, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 25, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 25, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: "" "";
 }
-/* line 96, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 96, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
 }
 
-/* line 27, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 27, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
@@ -76,19 +76,19 @@ body a {
   color: #5a5a5a;
   text-decoration: none;
 }
-/* line 18, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
+/* line 18, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 body a:visited {
   color: #5a5a5a;
 }
-/* line 24, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
+/* line 24, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 body a:hover {
   color: #171717;
 }
-/* line 27, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
+/* line 27, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_link-colors.scss */
 body a:active {
   color: #bbbbbb;
 }
-/* line 4, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_hover-link.scss */
+/* line 4, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/links/_hover-link.scss */
 body a:hover {
   text-decoration: underline;
 }
@@ -141,12 +141,12 @@ body button:active {
   box-shadow: 0px 1px 1px 0px #9c9c9c;
 }
 
-/* line 10, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 10, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 html, body {
   height: 100%;
 }
 
-/* line 12, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 12, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 body {
   clear: both;
   min-height: 100%;
@@ -154,12 +154,12 @@ body {
   height: 100%;
   margin-bottom: -18px;
 }
-/* line 18, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 18, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 body .footer {
   height: 18px;
 }
 
-/* line 20, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 20, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 #footer {
   clear: both;
   position: relative;
@@ -228,7 +228,7 @@ body .project_details .view {
   /*      overflow-y: auto;*/
   *zoom: 1;
 }
-/* line 22, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 body .project_details .view:after {
   content: "\0020";
   display: block;
@@ -249,7 +249,7 @@ body .footer {
   background-image: -moz-linear-gradient(top, #f7f7f7 0%, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%);
   background-image: linear-gradient(top, #f7f7f7 0%, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%);
 }
-/* line 22, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 body .footer:after {
   content: "\0020";
   display: block;
@@ -335,7 +335,7 @@ body .footer #new-project {
   border-bottom: 1px solid #8E8E8E;
   *zoom: 1;
 }
-/* line 22, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_details .view .modes:after {
   content: "\0020";
   display: block;
@@ -413,7 +413,7 @@ body .footer #new-project {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 22, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_list .view .projects .project:after {
   content: "\0020";
   display: block;
@@ -427,7 +427,7 @@ body .footer #new-project {
   padding: 15px;
   *zoom: 1;
 }
-/* line 22, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_list .view .projects .project .item:after {
   content: "\0020";
   display: block;
@@ -503,7 +503,7 @@ body .footer #new-project {
   width: 40%;
   *zoom: 1;
 }
-/* line 22, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 22, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_list .view .projects .project .item .commands:after {
   content: "\0020";
   display: block;
@@ -652,6 +652,7 @@ body .footer #new-project {
 }
 /* line 24, ./src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options {
+  min-width: 390px;
   margin-top: -12px;
   padding: 52px 25px 48px;
   background-color: #F8F8F8;
@@ -666,13 +667,24 @@ body .footer #new-project {
   -o-box-shadow: inset 0px 1px 2px 1px #bababa;
   box-shadow: inset 0px 1px 2px 1px #bababa;
 }
-/* line 31, ./src/stylesheets/partials/views/modes/_configuration.scss */
-.project_details .view .option_container .options .option {
-  margin-bottom: 12px;
+/* line 32, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group {
+  margin-bottom: 36px;
+}
+/* line 35, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group h3 {
+  margin-bottom: 15px;
+  padding: 3px 0;
+  font-size: 14px;
+  border-bottom: 1px solid #B2B2B2;
+}
+/* line 42, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group .option {
+  margin: 0 0 12px 15px;
   *zoom: 1;
 }
-/* line 22, /Users/zdennis/source/opensource_projects/compass-app/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-.project_details .view .option_container .options .option:after {
+/* line 22, /Users/Sung/Projects/compassapp/site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.project_details .view .option_container .options .option_group .option:after {
   content: "\0020";
   display: block;
   height: 0;
@@ -680,18 +692,17 @@ body .footer #new-project {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 35, ./src/stylesheets/partials/views/modes/_configuration.scss */
-.project_details .view .option_container .options .option label {
+/* line 46, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group .option label {
   display: inline;
   float: left;
   width: 110px;
   padding-top: 6px;
   margin-right: 5px;
   text-align: right;
-  font-weight: bold;
 }
-/* line 44, ./src/stylesheets/partials/views/modes/_configuration.scss */
-.project_details .view .option_container .options .option .dir_find {
+/* line 54, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group .option .dir_find {
   margin-top: 2px;
   color: #0A0A0A;
   font-size: 11px;
@@ -700,13 +711,28 @@ body .footer #new-project {
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 6px;
 }
-/* line 54, ./src/stylesheets/partials/views/modes/_configuration.scss */
-.project_details .view .option_container .options .option .setting {
+/* line 64, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group .option .setting {
   display: inline;
   float: left;
   width: 50%;
   margin-right: 5px;
   font-size: 13px;
+}
+/* line 74, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group.stylesheet_directories h3 {
+  margin-bottom: 3px;
+}
+/* line 78, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group.stylesheet_directories .notice {
+  margin-bottom: 15px;
+  text-align: right;
+  font-size: 11px;
+  color: #777777;
+}
+/* line 86, ./src/stylesheets/partials/views/modes/_configuration.scss */
+.project_details .view .option_container .options .option_group.stylesheet_directories .option em {
+  color: #777777;
 }
 
 /* line 4, ./src/stylesheets/partials/views/modes/_log_output.scss */
