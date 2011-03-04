@@ -50,7 +50,7 @@
 
         &.selected,
         &.selected:hover {
-          background-color: #3875D7;
+          @include linear-gradient(color-stops(#3875D7, #2057AF));
           border-top: 1px solid #3F89FF;
 
           .item {

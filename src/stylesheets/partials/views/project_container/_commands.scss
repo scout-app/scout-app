@@ -18,7 +18,7 @@
               background-color: #DDDDDD;
               border: 1px solid #757575;
               @include border-radius(18px);
-              @include linear-gradient(color-stops(#FAFAFA 1%, #FDFDFD 20%, #D0D0D0 60%, #AAAAAA));
+              @include radial-gradient(color-stops(#FAFAFA, #EAEAEA, #AAAAAA), 18px -40px);
               @include box-shadow(none);
               cursor: pointer;
 
@@ -73,7 +73,7 @@
               .command {
                 background-color: #5F9DFF;
                 border: 1px solid #234D8F;
-                @include linear-gradient(color-stops(#AFCEFF 1%, #AFCEFF 20%, #7DA3DF 60%, #5779AF));
+                @include radial-gradient(color-stops(#5F9DFF, #5993EF, #3875D7), 18px -40px);
                 @include box-shadow(none);
                 
                 &:active {
