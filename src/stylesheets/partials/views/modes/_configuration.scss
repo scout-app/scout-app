@@ -22,40 +22,71 @@
       }
       
       .options {
+        min-width: 390px;
         margin-top: -12px;
         padding: 52px 25px 48px;
         background-color: #F8F8F8;
         @include border-radius(3px);
         @include box-shadow(#BABABA, 0px, 1px, 2px, 1px, inset);
 
-        .option {
-          margin-bottom: 12px;
-          @include pie-clearfix;
+        .option_group {
+          margin-bottom: 36px;
 
-          label {
-            @include float-left;
-            width: 110px;
-            padding-top: 6px;
-            margin-right: 5px;
-            text-align: right;
-            font-weight: bold;
+          h3 {
+            margin-bottom: 15px;
+            padding: 3px 0;
+            font-size: 14px;
+            border-bottom: 1px solid #B2B2B2;
           }
 
-          .dir_find {
-            margin-top: 2px;
-            color: #0A0A0A;
-            font-size: 11px;
-            -webkit-border-top-left-radius: 6px;
-            -webkit-border-top-right-radius: 0;
-            -webkit-border-bottom-right-radius: 0;
-            -webkit-border-bottom-left-radius: 6px;
+          .option {
+            margin: 0 0 12px 15px;
+            @include pie-clearfix;
+
+            label {
+              @include float-left;
+              width: 110px;
+              padding-top: 6px;
+              margin-right: 5px;
+              text-align: right;
+            }
+
+            .dir_find {
+              margin-top: 2px;
+              color: #0A0A0A;
+              font-size: 11px;
+              -webkit-border-top-left-radius: 6px;
+              -webkit-border-top-right-radius: 0;
+              -webkit-border-bottom-right-radius: 0;
+              -webkit-border-bottom-left-radius: 6px;
+            }
+
+            .setting {
+              @include float-left;
+              width: 50%;
+              margin-right: 5px;
+              font-size: 13px;
+            }
           }
 
-          .setting {
-            @include float-left;
-            width: 50%;
-            margin-right: 5px;
-            font-size: 13px;
+          &.stylesheet_directories {
+
+            h3 {
+              margin-bottom: 3px;
+            }
+
+            .notice {
+              margin-bottom: 15px;
+              text-align: right;
+              font-size: 11px;
+              color: #777777;
+            }
+
+            .option {
+              em {
+                color: #777777;
+              }
+            }
           }
         }
       }
