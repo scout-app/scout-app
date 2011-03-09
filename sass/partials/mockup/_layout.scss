@@ -1,0 +1,195 @@
+body {
+
+  .header {
+    padding: 42px 0 24px;
+
+    .container {
+      @include pie-clearfix;
+
+      h1 {
+        @include column(5);
+        @include append(.5);
+        margin: 0;
+        padding-bottom: 30px;
+      }
+
+      p {
+        padding-top: 15px;
+      }
+    }
+  }
+
+  .headline {
+    .headline_left {
+      width: 1058px;
+      margin: 0 auto;
+
+      .headline_right {
+        .container {
+
+          .container_right {
+              padding-bottom: 18px;
+
+            .content {
+              padding: 12px 0 18px;
+
+              h2 {
+                margin-bottom: 9px;
+                text-align: center;
+              }
+
+              p {
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mainbody {
+    .description {
+      .herographic {
+        @include column(14);
+        @include append(.5);
+        padding-left: 20px;
+      }
+
+      .overview {
+        @include column(8);
+        @include last;
+        padding: 9px 0 36px;
+        
+        .how {
+          margin-bottom: 27px;
+
+          h3 {
+            margin-bottom: 12px;
+            line-height: 1.6;
+          }
+          
+          p {
+            line-height: 1.6;
+          }
+        }
+
+        .download {
+          h3 {
+            margin-bottom: 9px;
+          }
+
+          .versions {
+            margin-bottom: 9px;
+            @include pie-clearfix;
+
+            a {
+              padding: 9px 6px;
+
+              &.mac {
+                @include column(3.6);
+                margin-right: 4px;
+              }
+
+              &.pc {
+                @include column(3.4);
+                @include last;
+              }
+            }
+          }
+
+          .version_notice {
+            
+            padding-left: 70px;
+          }
+        }
+      }
+    }
+  }
+
+  .benefits {
+    position: relative;
+    height: 210px;
+    margin: -78px 0 30px;
+    overflow: visible;
+    
+    .benefits_wrapper {
+      position: absolute;
+      top: -27px;
+      padding: 30px 0 9px;
+
+      .benefit {
+        @include column(7);
+        padding: 0 24px 9px 15px;
+
+        &.clean {
+          @include last;
+        }
+
+        h3 {
+          margin-bottom: 21px;
+        }
+
+        ul {
+          padding-left: 15px;
+
+          li {
+            margin-bottom: 18px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    padding-bottom: 18px;
+    p {
+      @include column(12);
+      
+      &.act {
+        @include column(16);
+        margin-bottom: 18px;
+        padding-top: 12px;
+      }
+
+      &.community {
+        @include column(8);
+        @include last;
+        
+        span {
+          display: block;
+          padding: 9px 10px;
+
+          strong {
+            @include inline-block;
+            margin-right: 15px;
+          }
+
+          .compass {
+            @include inline-block;
+            width: 89px;
+            height: 27px;
+            margin-right: 15px;
+          }
+
+          .sass {
+            @include inline-block;
+            width: 61px;
+            height: 24px;
+          }
+        }
+      }
+
+      &.about {
+        @include last;
+        text-align: right;
+
+        .author {
+          @include inline-block;
+          width: 146px;
+          height: 13px;
+        }
+      }
+    }
+  }
+}

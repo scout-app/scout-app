@@ -1,0 +1,32 @@
+//typekit.com - login: humans@mutuallyhuman.com password: mhshumans
+
+@mixin headline {
+  font-family: "p22-underground-petite-caps","gotham htf ultra",arial,sans-serif;;
+}
+
+@mixin subhead {
+  font-family: "p22-underground","gotham htf book",arial,sans-serif;;
+}
+
+@mixin body_font {
+  font-family: "helvetica neue",arial,sans-serif;;
+}
+
+//headlines and nav:
+h1,
+h2,
+h3 {
+  text-transform: uppercase;
+  @include headline;
+}
+
+h4,
+h5 {
+  @include subhead;
+}
+
+li,
+p,
+a {
+  @include body_font;
+}

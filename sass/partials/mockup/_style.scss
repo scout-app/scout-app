@@ -1,0 +1,239 @@
+body {
+
+  .header {
+    background-image: url('../images/bg.png');
+
+    h1 {
+      @include replace-text("logo.png");
+      background-position: left center;
+    }
+
+    p {
+      @include subhead;
+      font-size: 22px;
+      color: #666666;
+      text-transform: uppercase;
+    }
+  }
+
+  .headline {
+    background-image: url('../images/bg.png');
+
+    .headline_left {
+      background-image: url('../images/ribbon_left.png');
+      background-position: left bottom;
+      background-repeat: no-repeat;
+      
+      .headline_right {
+        background-image: url('../images/ribbon_right.png');
+        background-position: right bottom;
+        background-repeat: no-repeat;
+
+        .container {
+          background-image: url('../images/ribbon_left_fold.png');
+          background-position: left bottom;
+          background-repeat: no-repeat;
+
+          .container_right {
+            background-image: url('../images/ribbon_right_fold.png');
+            background-position: right bottom;
+            background-repeat: no-repeat;
+
+            .content {
+              @include background(linear-gradient(#910000, #5B0008));
+
+              h2 {
+                font-size: 26px;
+                font-weight: bold;
+                color: #FFFFFF;
+                @include text-shadow(#000000,0px,1px,0px);
+              }
+
+              p {
+                @include subhead;
+                font-size: 18px;
+                color: #FFFFFF;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mainbody {
+    background-image: url('../images/bg.png');
+
+    .description {
+      .overview {
+        .how {
+          h3 {
+            font-size: 14px;
+            color: $red;
+            font-weight: 600;
+          }
+          p {
+            font-size: 14px;
+          }
+        }
+
+        .download {
+          h3 {
+            font-size: 26px;
+            font-weight: 600;
+            color: $regular;
+            @include text-shadow(#000000, 0px, 1px, 0px);
+          }
+
+          .versions {
+            a {
+              @include box-shadow(#4B7C89, 0px, 1px, 2px, 0px, inset);
+              font-size: 12px;
+              font-weight: 600;
+              text-transform: uppercase;
+              text-decoration: none;
+
+              color: #FFFFFF;
+              border: 1px solid #333333;
+              @include border-radius(3px);
+              background-color: #003C50;
+
+              &:hover {
+                border: 1px solid #19A4CF;
+              }
+
+              &:active {
+                @include transition(background-color, .15s, ease-in, 0s);
+                @include box-shadow(#04191F, 0px, 1px, 2px, 0px, inset);
+                color: #DEDEDE;
+                background-color: #04313F;
+                outline: none;
+              }
+            }
+          }
+          
+          .version_notice {
+            font-size: 12px;
+            font-weight: 600;
+            color: $red;
+          }
+        }
+      }
+    }
+  }
+
+
+  .benefits {
+    background-color: $midtone;
+    
+    .benefits_wrapper {
+      @include background(linear-gradient(#343434,#262626));
+      @include box-shadow(#565656, 0px, 0px, 60px, 0px, false);
+
+      .benefit {
+        border-right: 1px solid #575757;
+
+        h3 {
+          font-size: 18px;
+          font-weight: 600;
+          color: #FFFFFF;
+        }
+
+        ul {
+          li {
+            font-size: 13px;
+            color: #FFFFFF;
+          }
+        }
+
+        &.clean {
+          border-right: none;
+        }
+      }
+    }
+  }
+  .footer {
+    p {
+      color: $quiet;
+
+      &.act {
+        font-size: 14px;
+
+        em {
+          font-style: italic;
+        }
+
+        .twitter {
+          @include inline-block;
+          width: 91px;
+          height: 23px;
+          @include replace-text("badge_twitter.png");
+          
+          &:hover {
+            @include box-shadow($active, 0px, 0px, 3px, 0px, false);
+          }
+        }
+      }
+
+      &.community {
+        background-color: #C0C0C0;
+        
+        span {
+
+          strong {
+            font-size: 18px;
+            font-weight: 400;
+          }
+
+          .compass {
+            @include replace-text("badge_compass.png");
+            background-position: center 5px;
+            overflow: visible;
+
+            &:hover {
+              @include box-shadow($active, 0px, 0px, 3px, 0px, inset);
+            }
+          }
+
+          .sass {
+            @include replace-text("badge_sass.png");
+
+            &:hover {
+              @include box-shadow($active, 0px, 0px, 3px, 0px, false);
+            }
+          }
+          
+        }
+      }
+
+      &.copyright {
+        font-size: 12px;
+      }
+
+      &.about {
+        font-size: 12px;
+
+        em {
+          font-style: italic;
+        }
+
+        .author {
+          @include replace-text("logo_mhs.png");
+
+          &:hover {
+            @include box-shadow($active, 0px, 0px, 3px, 0px, inset);
+          }
+        }
+        
+        a {
+          color: $quiet;
+          text-decoration: none;
+
+          &:hover {
+            color: $active;
+          }
+        }
+      }
+    }
+  }
+}
