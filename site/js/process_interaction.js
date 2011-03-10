@@ -15,6 +15,7 @@ $(function(){
       compassExecutable().nativePath,
       "watch",
       '--require', 'ninesixty',
+      '--require', 'yui',
       "--sass-dir", data.project.sassDir,
       "--css-dir", data.project.cssDir,
       "--images-dir", data.project.imagesDir,
