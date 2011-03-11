@@ -168,10 +168,6 @@ body {
           width: 91px;
           height: 23px;
           @include replace-text("badge_twitter.png");
-          
-          &:hover {
-            @include box-shadow($active, 0px, 0px, 3px, 0px, false);
-          }
         }
       }
 
@@ -189,18 +185,10 @@ body {
             @include replace-text("badge_compass.png");
             background-position: center 5px;
             overflow: visible;
-
-            &:hover {
-              @include box-shadow($active, 0px, 0px, 3px, 0px, inset);
-            }
           }
 
           .sass {
             @include replace-text("badge_sass.png");
-
-            &:hover {
-              @include box-shadow($active, 0px, 0px, 3px, 0px, false);
-            }
           }
           
         }
@@ -219,10 +207,6 @@ body {
 
         .author {
           @include replace-text("logo_mhs.png");
-
-          &:hover {
-            @include box-shadow($active, 0px, 0px, 3px, 0px, inset);
-          }
         }
         
         a {

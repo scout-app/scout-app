@@ -303,7 +303,7 @@ body.bp .bottom {
 }
 /* line 8, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
 body.bp .showgrid {
-  background: url('../images/grid.png?1299604071');
+  background: url('../images/grid.png?1299873585');
 }
 /* line 4, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .feedback, body.bp .error, body.bp .alert, body.bp .notice, body.bp .success, body.bp .info {
@@ -547,7 +547,7 @@ body .container:after {
 /*bg*/
 /*fonts*/
 /*link*/
-/* line 18, ../sass/partials/mockup/_fonts.scss */
+/* line 15, ../sass/partials/mockup/_fonts.scss */
 h1,
 h2,
 h3 {
@@ -555,13 +555,13 @@ h3 {
   font-family: "p22-underground-petite-caps","gotham htf ultra",arial,sans-serif;
 }
 
-/* line 24, ../sass/partials/mockup/_fonts.scss */
+/* line 21, ../sass/partials/mockup/_fonts.scss */
 h4,
 h5 {
   font-family: "p22-underground","gotham htf book",arial,sans-serif;
 }
 
-/* line 30, ../sass/partials/mockup/_fonts.scss */
+/* line 27, ../sass/partials/mockup/_fonts.scss */
 li,
 p,
 a {
@@ -871,7 +871,7 @@ body .header h1 {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/logo.png?1299623020');
+  background-image: url('../images/logo.png?1299873585');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-position: left center;
@@ -1064,7 +1064,7 @@ body .footer p.act .twitter {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/badge_twitter.png?1299701496');
+  background-image: url('../images/badge_twitter.png?1299873585');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -1072,90 +1072,62 @@ body .footer p.act .twitter {
 body .footer p.act .twitter {
   *display: inline;
 }
-/* line 172, ../sass/partials/mockup/_style.scss */
-body .footer p.act .twitter:hover {
-  -moz-box-shadow: 0px 0px 3px 0px #19a4cf;
-  -webkit-box-shadow: 0px 0px 3px 0px #19a4cf;
-  -o-box-shadow: 0px 0px 3px 0px #19a4cf;
-  box-shadow: 0px 0px 3px 0px #19a4cf;
-}
-/* line 178, ../sass/partials/mockup/_style.scss */
+/* line 174, ../sass/partials/mockup/_style.scss */
 body .footer p.community {
   background-color: #C0C0C0;
 }
-/* line 183, ../sass/partials/mockup/_style.scss */
+/* line 179, ../sass/partials/mockup/_style.scss */
 body .footer p.community span strong {
   font-size: 18px;
   font-weight: 400;
 }
-/* line 188, ../sass/partials/mockup/_style.scss */
+/* line 184, ../sass/partials/mockup/_style.scss */
 body .footer p.community span .compass {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/badge_compass.png?1299706777');
+  background-image: url('../images/badge_compass.png?1299873585');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-position: center 5px;
   overflow: visible;
 }
-/* line 193, ../sass/partials/mockup/_style.scss */
-body .footer p.community span .compass:hover {
-  -moz-box-shadow: inset 0px 0px 3px 0px #19a4cf;
-  -webkit-box-shadow: inset 0px 0px 3px 0px #19a4cf;
-  -o-box-shadow: inset 0px 0px 3px 0px #19a4cf;
-  box-shadow: inset 0px 0px 3px 0px #19a4cf;
-}
-/* line 198, ../sass/partials/mockup/_style.scss */
+/* line 190, ../sass/partials/mockup/_style.scss */
 body .footer p.community span .sass {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/badge_sass.png?1299701647');
+  background-image: url('../images/badge_sass.png?1299873585');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 201, ../sass/partials/mockup/_style.scss */
-body .footer p.community span .sass:hover {
-  -moz-box-shadow: 0px 0px 3px 0px #19a4cf;
-  -webkit-box-shadow: 0px 0px 3px 0px #19a4cf;
-  -o-box-shadow: 0px 0px 3px 0px #19a4cf;
-  box-shadow: 0px 0px 3px 0px #19a4cf;
-}
-/* line 209, ../sass/partials/mockup/_style.scss */
+/* line 197, ../sass/partials/mockup/_style.scss */
 body .footer p.copyright {
   font-size: 12px;
 }
-/* line 213, ../sass/partials/mockup/_style.scss */
+/* line 201, ../sass/partials/mockup/_style.scss */
 body .footer p.about {
   font-size: 12px;
 }
-/* line 216, ../sass/partials/mockup/_style.scss */
+/* line 204, ../sass/partials/mockup/_style.scss */
 body .footer p.about em {
   font-style: italic;
 }
-/* line 220, ../sass/partials/mockup/_style.scss */
+/* line 208, ../sass/partials/mockup/_style.scss */
 body .footer p.about .author {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/logo_mhs.png?1299701666');
+  background-image: url('../images/logo_mhs.png?1299873585');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 223, ../sass/partials/mockup/_style.scss */
-body .footer p.about .author:hover {
-  -moz-box-shadow: inset 0px 0px 3px 0px #19a4cf;
-  -webkit-box-shadow: inset 0px 0px 3px 0px #19a4cf;
-  -o-box-shadow: inset 0px 0px 3px 0px #19a4cf;
-  box-shadow: inset 0px 0px 3px 0px #19a4cf;
-}
-/* line 228, ../sass/partials/mockup/_style.scss */
+/* line 212, ../sass/partials/mockup/_style.scss */
 body .footer p.about a {
   color: #666666;
   text-decoration: none;
 }
-/* line 232, ../sass/partials/mockup/_style.scss */
+/* line 216, ../sass/partials/mockup/_style.scss */
 body .footer p.about a:hover {
   color: #19a4cf;
 }
