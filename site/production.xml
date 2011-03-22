@@ -17,13 +17,13 @@
       <image48x48>images/logo_48.png</image48x48>
       <image128x128>images/logo_128.png</image128x128>
     </icon>
-    
+
     <initialWindow>
         <content>production.html</content>
         <visible>true</visible>
         <width>800</width>
         <height>650</height>
-        <minSize>320 240</minSize>
+        <minSize>640 480</minSize>
     </initialWindow>
     <supportedProfiles>extendedDesktop</supportedProfiles>
 </application>
