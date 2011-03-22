@@ -6,6 +6,15 @@ body {
     right: 60%;
     left: 0;
     border-right: 1px solid #939393;
+
+    .view {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 19px;
+      left: 0;
+      overflow-y: auto;
+    }
   }
 
   .project_details {
@@ -21,7 +30,6 @@ body {
       bottom: 19px;
       right: 0;
       left: 0;
-/*      overflow-y: auto;*/
       @include pie-clearfix;
     }
   }

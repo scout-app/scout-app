@@ -1,0 +1,32 @@
+.project_details {
+  .modes {
+    padding: 5px 10px 5px 0;
+    @include linear-gradient(color-stops(#e9e9e9, #cfcfcf));
+    border-bottom: 1px solid #8E8E8E;
+    @include pie-clearfix;
+
+    .mode {
+      @include float-right;
+      margin-left: 2px;
+      padding: 4px 10px 5px;
+      line-height: .8;
+      color: #000000;
+      @include single-text-shadow(#EFEFEF, 0, 1px, 0);
+
+
+      &:hover {
+        color: #FFFFFF;
+        @include single-text-shadow(#595959, 0, 1px, 0);
+        @include linear-gradient(color-stops(#959595, #8E8E8E));
+        @include border-radius(10px);
+        text-decoration: none;
+        @include box-shadow(#8f8f8f, 0px, 0px, 0px, 0px, inset);
+      }
+
+      &:active {
+        @include linear-gradient(color-stops(#747474, #6E6E6E));
+        @include box-shadow(#484848, 0px, 1px, 1px, 1px, inset);
+      }
+    }
+  }
+}

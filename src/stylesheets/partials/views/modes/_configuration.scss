@@ -2,9 +2,16 @@
   .view {
 
     .option_container {
+      position: absolute;
+      top: 29px;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
       min-width: 370px;
       margin: 0;
       padding: 25px 20px 0;
+      overflow-y: auto;
 
       h2 {
         position: relative;
