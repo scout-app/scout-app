@@ -77,6 +77,9 @@ var app = {
           // add project details pane
           if($('.project_details[data-key='+project.key+']').length == 0){
             $.tmpl($("#project_details_template"), project).appendTo("body");
+
+            $('.project_details[data-key='+project.key+']').find("option[data-environment=" + project.environment + "]").attr("selected", "selected");
+            $('.project_details[data-key='+project.key+']').find("option[data-output_style=" + project.outputStyle + "]").attr("selected", "selected");
           }
         }
       });
