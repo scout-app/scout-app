@@ -1,27 +1,38 @@
 body {
 
   .header {
-    padding: 42px 0 24px;
+    padding: 21px 0 6px;
 
-    .container {
-      @include pie-clearfix;
+    .header_content {
+      @include span(26);
+      margin: 0 auto;
 
-      h1 {
-        @include column(5);
-        @include append(.5);
-        margin: 0;
-        padding-bottom: 30px;
-      }
+      .container {
+        @include pie-clearfix;
 
-      p {
-        padding-top: 15px;
+        .logo {
+          padding-top: 3px;
+          @include column(1);
+        }
+
+        .hgroup {
+          padding-top: 3px;
+
+          h1 {
+            padding-bottom: 21px;
+          }
+
+          p {
+            line-height: 1.55;
+          }
+        }
       }
     }
   }
 
   .headline {
     .headline_left {
-      width: 1058px;
+      @include span(26);
       margin: 0 auto;
 
       .headline_right {
@@ -31,10 +42,9 @@ body {
               padding-bottom: 18px;
 
             .content {
-              padding: 12px 0 18px;
+              padding: 15px 0 21px;
 
               h2 {
-                margin-bottom: 9px;
                 text-align: center;
               }
 
@@ -49,147 +59,205 @@ body {
   }
 
   .mainbody {
-    .description {
-      .herographic {
-        @include column(14);
-        @include append(.5);
-        padding-left: 20px;
-      }
+    .mainbody_content {
+      @include span(26);
+      margin: 0 auto;
 
-      .overview {
-        @include column(8);
-        @include last;
-        padding: 9px 0 36px;
-        
-        .how {
-          margin-bottom: 27px;
-
-          h3 {
-            margin-bottom: 12px;
-            line-height: 1.6;
-          }
-          
-          p {
-            line-height: 1.6;
-          }
+      .description {
+        .herographic {
+          @include column(14);
+          @include append(.5);
+          padding-left: 20px;
         }
 
-        .download {
-          h3 {
-            margin-bottom: 9px;
-          }
+        .overview {
+          @include column(8);
+          @include last;
+          padding: 21px 10px;
 
-          .versions {
-            margin-bottom: 9px;
-            @include pie-clearfix;
+          .download {
+            margin-bottom: 30px;
 
-            a {
-              padding: 9px 6px;
+            h3 {
+              margin-bottom: 6px;
+            }
 
-              &.mac {
-                @include column(3.6);
-                margin-right: 4px;
+            .versions {
+              margin-bottom: 6px;
+              @include pie-clearfix;
+
+              a {
+                padding: 9px 6px;
+
+                &.mac {
+                  @include column(3.6);
+                  margin-right: 4px;
+                }
+
+                &.pc {
+                  @include column(3.4);
+                  @include last;
+                }
               }
+            }
 
-              &.pc {
-                @include column(3.4);
-                @include last;
-              }
+            .version_notice {
+              padding-left: 70px;
             }
           }
 
-          .version_notice {
-            
-            padding-left: 70px;
+          .how {
+            p {
+              margin-bottom: 6px;
+              line-height: 1.55;
+            }
           }
         }
       }
+
     }
   }
 
   .benefits {
     position: relative;
-    height: 210px;
-    margin: -78px 0 30px;
+    height: 172px;
+    margin: -81px 0 54px;
     overflow: visible;
-    
-    .benefits_wrapper {
-      position: absolute;
-      top: -27px;
-      padding: 30px 0 9px;
 
-      .benefit {
-        @include column(7);
-        padding: 0 24px 9px 15px;
+    .benefits_content {
+      @include span(26);
+      margin: 0 auto;
 
-        &.clean {
-          @include last;
-        }
+      .benefits_wrapper {
+        position: absolute;
+        @include column(24);
+        margin: 0;
+        top: -27px;
+        padding: 15px 0;
 
-        h3 {
-          margin-bottom: 21px;
-        }
+        .benefits_container {
+          overflow: hidden;
+          @include pie-clearfix;
 
-        ul {
-          padding-left: 15px;
+          .benefit {
+            @include column(8);
 
-          li {
-            margin-bottom: 18px;
+            &.manage {
+              .benefit_content {
+                padding-right: 10px;
+                padding-left: 30px;
+              }
+            }
+
+            &.clean {
+              @include last;
+            }
+
+            .benefit_content {
+              margin-bottom: -5000px;
+              padding: 6px 20px 5000px;
+
+              h3 {
+                margin-bottom: 6px;
+                line-height: 1.55;
+              }
+
+              ul {
+                padding-left: 15px;
+
+                li {
+                  margin-bottom: 6px;
+                  line-height: 1.55;
+                }
+              }
+            }
           }
+
         }
       }
+
     }
   }
 
   .footer {
     padding-bottom: 18px;
-    p {
-      @include column(12);
-      
-      &.act {
-        @include column(16);
-        margin-bottom: 18px;
-        padding-top: 12px;
-      }
 
-      &.community {
-        @include column(8);
-        @include last;
-        
-        span {
-          display: block;
-          padding: 9px 10px;
+    .footer_content {
+      @include span(26);
+      margin: 0 auto;
 
-          strong {
+      p {
+        @include column(12);
+
+        &.act {
+          @include column(16);
+          margin-bottom: 18px;
+
+          span {
             @include inline-block;
-            margin-right: 15px;
+            margin-right: 6px;
+            padding-top: 6px;
           }
 
-          .compass {
+          .twitter {
             @include inline-block;
-            width: 89px;
-            height: 27px;
-            margin-right: 15px;
-          }
-
-          .sass {
-            @include inline-block;
-            width: 61px;
-            height: 24px;
+            width: 90px;
+            height: 23px;
           }
         }
-      }
 
-      &.about {
-        @include last;
-        text-align: right;
+        &.community {
+          @include column(8);
+          @include last;
 
-        .author {
-          @include inline-block;
-          width: 146px;
-          height: 13px;
+          span {
+            display: block;
+            padding: 0 0 0 5px;
+            text-align: right;
+
+            strong {
+              @include inline-block;
+              margin-right: 5px;
+            }
+
+            .compass {
+              @include inline-block;
+              width: 89px;
+              height: 27px;
+              margin-right: 5px;
+            }
+
+            .sass {
+              @include inline-block;
+              width: 61px;
+              height: 24px;
+            }
+          }
         }
+
+        &.copyright {
+          padding-top: 3px;
+        }
+
+        &.about {
+          @include last;
+          text-align: right;
+
+          em {
+            @include inline-block;
+            margin-right: 3px;
+            padding-top: 3px;
+          }
+
+          .author {
+            @include inline-block;
+            width: 146px;
+            height: 13px;
+          }
+        }
+
       }
     }
   }
+
 }
