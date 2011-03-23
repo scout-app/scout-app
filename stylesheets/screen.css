@@ -570,14 +570,19 @@ a {
 
 /* line 3, ../sass/partials/mockup/_layout.scss */
 body .header {
-  padding: 42px 0 24px;
+  padding: 21px 0 6px;
 }
 /* line 6, ../sass/partials/mockup/_layout.scss */
-body .header .container {
+body .header .header_content {
+  width: 1030px;
+  margin: 0 auto;
+}
+/* line 10, ../sass/partials/mockup/_layout.scss */
+body .header .header_content .container {
   *zoom: 1;
 }
 /* line 22, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-body .header .container:after {
+body .header .header_content .container:after {
   content: "\0020";
   display: block;
   height: 0;
@@ -585,48 +590,58 @@ body .header .container:after {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 9, ../sass/partials/mockup/_layout.scss */
-body .header .container h1 {
+/* line 13, ../sass/partials/mockup/_layout.scss */
+body .header .header_content .container .logo {
+  padding-top: 3px;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 190px;
-  padding-right: 20px;
-  margin: 0;
-  padding-bottom: 30px;
+  width: 30px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .header .container h1 {
+* html body .header .header_content .container .logo {
   overflow-x: hidden;
 }
-/* line 16, ../sass/partials/mockup/_layout.scss */
-body .header .container p {
-  padding-top: 15px;
+/* line 18, ../sass/partials/mockup/_layout.scss */
+body .header .header_content .container .hgroup {
+  padding-top: 3px;
 }
-/* line 23, ../sass/partials/mockup/_layout.scss */
+/* line 21, ../sass/partials/mockup/_layout.scss */
+body .header .header_content .container .hgroup h1 {
+  padding-bottom: 21px;
+}
+/* line 25, ../sass/partials/mockup/_layout.scss */
+body .header .header_content .container .hgroup p {
+  line-height: 1.55;
+}
+/* line 34, ../sass/partials/mockup/_layout.scss */
 body .headline .headline_left {
-  width: 1058px;
+  width: 1030px;
   margin: 0 auto;
 }
-/* line 30, ../sass/partials/mockup/_layout.scss */
+/* line 41, ../sass/partials/mockup/_layout.scss */
 body .headline .headline_left .headline_right .container .container_right {
   padding-bottom: 18px;
 }
-/* line 33, ../sass/partials/mockup/_layout.scss */
+/* line 44, ../sass/partials/mockup/_layout.scss */
 body .headline .headline_left .headline_right .container .container_right .content {
-  padding: 12px 0 18px;
+  padding: 15px 0 21px;
 }
-/* line 36, ../sass/partials/mockup/_layout.scss */
+/* line 47, ../sass/partials/mockup/_layout.scss */
 body .headline .headline_left .headline_right .container .container_right .content h2 {
-  margin-bottom: 9px;
   text-align: center;
 }
-/* line 41, ../sass/partials/mockup/_layout.scss */
+/* line 51, ../sass/partials/mockup/_layout.scss */
 body .headline .headline_left .headline_right .container .container_right .content p {
   text-align: center;
 }
-/* line 53, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .herographic {
+/* line 62, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content {
+  width: 1030px;
+  margin: 0 auto;
+}
+/* line 67, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .herographic {
   display: inline;
   float: left;
   margin-right: 10px;
@@ -635,46 +650,37 @@ body .mainbody .description .herographic {
   padding-left: 20px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .mainbody .description .herographic {
+* html body .mainbody .mainbody_content .description .herographic {
   overflow-x: hidden;
 }
-/* line 59, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview {
+/* line 73, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .overview {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 310px;
   margin-right: 0;
-  padding: 9px 0 36px;
+  padding: 21px 10px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .mainbody .description .overview {
+* html body .mainbody .mainbody_content .description .overview {
   overflow-x: hidden;
 }
-/* line 64, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .how {
-  margin-bottom: 27px;
-}
-/* line 67, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .how h3 {
-  margin-bottom: 12px;
-  line-height: 1.6;
-}
-/* line 72, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .how p {
-  line-height: 1.6;
-}
 /* line 78, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .download h3 {
-  margin-bottom: 9px;
+body .mainbody .mainbody_content .description .overview .download {
+  margin-bottom: 30px;
 }
-/* line 82, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .download .versions {
-  margin-bottom: 9px;
+/* line 81, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .overview .download h3 {
+  margin-bottom: 6px;
+}
+/* line 85, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .overview .download .versions {
+  margin-bottom: 6px;
   *zoom: 1;
 }
 /* line 22, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-body .mainbody .description .overview .download .versions:after {
+body .mainbody .mainbody_content .description .overview .download .versions:after {
   content: "\0020";
   display: block;
   height: 0;
@@ -682,12 +688,12 @@ body .mainbody .description .overview .download .versions:after {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 86, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .download .versions a {
+/* line 89, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .overview .download .versions a {
   padding: 9px 6px;
 }
-/* line 89, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .download .versions a.mac {
+/* line 92, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .overview .download .versions a.mac {
   display: inline;
   float: left;
   margin-right: 10px;
@@ -695,11 +701,11 @@ body .mainbody .description .overview .download .versions a.mac {
   margin-right: 4px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .mainbody .description .overview .download .versions a.mac {
+* html body .mainbody .mainbody_content .description .overview .download .versions a.mac {
   overflow-x: hidden;
 }
-/* line 94, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .download .versions a.pc {
+/* line 97, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .overview .download .versions a.pc {
   display: inline;
   float: left;
   margin-right: 10px;
@@ -707,84 +713,160 @@ body .mainbody .description .overview .download .versions a.pc {
   margin-right: 0;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .mainbody .description .overview .download .versions a.pc {
+* html body .mainbody .mainbody_content .description .overview .download .versions a.pc {
   overflow-x: hidden;
 }
-/* line 101, ../sass/partials/mockup/_layout.scss */
-body .mainbody .description .overview .download .version_notice {
+/* line 104, ../sass/partials/mockup/_layout.scss */
+body .mainbody .mainbody_content .description .overview .download .version_notice {
   padding-left: 70px;
 }
 /* line 110, ../sass/partials/mockup/_layout.scss */
-body .benefits {
-  position: relative;
-  height: 210px;
-  margin: -78px 0 30px;
-  overflow: visible;
-}
-/* line 116, ../sass/partials/mockup/_layout.scss */
-body .benefits .benefits_wrapper {
-  position: absolute;
-  top: -27px;
-  padding: 30px 0 9px;
+body .mainbody .mainbody_content .description .overview .how p {
+  margin-bottom: 6px;
+  line-height: 1.55;
 }
 /* line 121, ../sass/partials/mockup/_layout.scss */
-body .benefits .benefits_wrapper .benefit {
+body .benefits {
+  position: relative;
+  height: 172px;
+  margin: -81px 0 54px;
+  overflow: visible;
+}
+/* line 127, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content {
+  width: 1030px;
+  margin: 0 auto;
+}
+/* line 131, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper {
+  position: absolute;
   display: inline;
   float: left;
   margin-right: 10px;
-  width: 270px;
-  padding: 0 24px 9px 15px;
+  width: 950px;
+  margin: 0;
+  top: -27px;
+  padding: 15px 0;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .benefits .benefits_wrapper .benefit {
+* html body .benefits .benefits_content .benefits_wrapper {
   overflow-x: hidden;
 }
-/* line 125, ../sass/partials/mockup/_layout.scss */
-body .benefits .benefits_wrapper .benefit.clean {
+/* line 138, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container {
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 22, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 142, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit {
+  display: inline;
+  float: left;
+  margin-right: 10px;
+  width: 310px;
+}
+/* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
+* html body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit {
+  overflow-x: hidden;
+}
+/* line 146, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit.manage .benefit_content {
+  padding-right: 10px;
+  padding-left: 30px;
+}
+/* line 152, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit.clean {
   margin-right: 0;
 }
-/* line 129, ../sass/partials/mockup/_layout.scss */
-body .benefits .benefits_wrapper .benefit h3 {
-  margin-bottom: 21px;
+/* line 156, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit .benefit_content {
+  margin-bottom: -5000px;
+  padding: 6px 20px 5000px;
 }
-/* line 133, ../sass/partials/mockup/_layout.scss */
-body .benefits .benefits_wrapper .benefit ul {
+/* line 160, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit .benefit_content h3 {
+  margin-bottom: 6px;
+  line-height: 1.55;
+}
+/* line 165, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit .benefit_content ul {
   padding-left: 15px;
 }
-/* line 136, ../sass/partials/mockup/_layout.scss */
-body .benefits .benefits_wrapper .benefit ul li {
-  margin-bottom: 18px;
+/* line 168, ../sass/partials/mockup/_layout.scss */
+body .benefits .benefits_content .benefits_wrapper .benefits_container .benefit .benefit_content ul li {
+  margin-bottom: 6px;
+  line-height: 1.55;
 }
-/* line 144, ../sass/partials/mockup/_layout.scss */
+/* line 182, ../sass/partials/mockup/_layout.scss */
 body .footer {
   padding-bottom: 18px;
 }
-/* line 146, ../sass/partials/mockup/_layout.scss */
-body .footer p {
+/* line 185, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content {
+  width: 1030px;
+  margin: 0 auto;
+}
+/* line 189, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 470px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .footer p {
+* html body .footer .footer_content p {
   overflow-x: hidden;
 }
-/* line 149, ../sass/partials/mockup/_layout.scss */
-body .footer p.act {
+/* line 192, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.act {
   display: inline;
   float: left;
   margin-right: 10px;
   width: 630px;
   margin-bottom: 18px;
-  padding-top: 12px;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .footer p.act {
+* html body .footer .footer_content p.act {
   overflow-x: hidden;
 }
-/* line 155, ../sass/partials/mockup/_layout.scss */
-body .footer p.community {
+/* line 196, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.act span {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  margin-right: 6px;
+  padding-top: 6px;
+}
+/* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+body .footer .footer_content p.act span {
+  *display: inline;
+}
+/* line 202, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.act .twitter {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  width: 90px;
+  height: 23px;
+}
+/* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+body .footer .footer_content p.act .twitter {
+  *display: inline;
+}
+/* line 209, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.community {
   display: inline;
   float: left;
   margin-right: 10px;
@@ -792,29 +874,30 @@ body .footer p.community {
   margin-right: 0;
 }
 /* line 147, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_grid.scss */
-* html body .footer p.community {
+* html body .footer .footer_content p.community {
   overflow-x: hidden;
 }
-/* line 159, ../sass/partials/mockup/_layout.scss */
-body .footer p.community span {
+/* line 213, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.community span {
   display: block;
-  padding: 9px 10px;
+  padding: 0 0 0 5px;
+  text-align: right;
 }
-/* line 163, ../sass/partials/mockup/_layout.scss */
-body .footer p.community span strong {
+/* line 218, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.community span strong {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
   vertical-align: middle;
   *vertical-align: auto;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 /* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
-body .footer p.community span strong {
+body .footer .footer_content p.community span strong {
   *display: inline;
 }
-/* line 168, ../sass/partials/mockup/_layout.scss */
-body .footer p.community span .compass {
+/* line 223, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.community span .compass {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
@@ -822,14 +905,14 @@ body .footer p.community span .compass {
   *vertical-align: auto;
   width: 89px;
   height: 27px;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 /* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
-body .footer p.community span .compass {
+body .footer .footer_content p.community span .compass {
   *display: inline;
 }
-/* line 175, ../sass/partials/mockup/_layout.scss */
-body .footer p.community span .sass {
+/* line 230, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.community span .sass {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
@@ -839,16 +922,34 @@ body .footer p.community span .sass {
   height: 24px;
 }
 /* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
-body .footer p.community span .sass {
+body .footer .footer_content p.community span .sass {
   *display: inline;
 }
-/* line 183, ../sass/partials/mockup/_layout.scss */
-body .footer p.about {
+/* line 238, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.copyright {
+  padding-top: 3px;
+}
+/* line 242, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.about {
   margin-right: 0;
   text-align: right;
 }
-/* line 187, ../sass/partials/mockup/_layout.scss */
-body .footer p.about .author {
+/* line 246, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.about em {
+  display: -moz-inline-box;
+  -moz-box-orient: vertical;
+  display: inline-block;
+  vertical-align: middle;
+  *vertical-align: auto;
+  margin-right: 3px;
+  padding-top: 3px;
+}
+/* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
+body .footer .footer_content p.about em {
+  *display: inline;
+}
+/* line 252, ../sass/partials/mockup/_layout.scss */
+body .footer .footer_content p.about .author {
   display: -moz-inline-box;
   -moz-box-orient: vertical;
   display: inline-block;
@@ -858,7 +959,7 @@ body .footer p.about .author {
   height: 13px;
 }
 /* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
-body .footer p.about .author {
+body .footer .footer_content p.about .author {
   *display: inline;
 }
 
@@ -866,92 +967,82 @@ body .footer p.about .author {
 body .header {
   background-image: url("../images/bg.png");
 }
-/* line 6, ../sass/partials/mockup/_style.scss */
-body .header h1 {
+/* line 7, ../sass/partials/mockup/_style.scss */
+body .header .hgroup h1 {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/logo.png?1299873585');
+  background-image: url('../images/logo.png?1300903885');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-position: left center;
 }
-/* line 11, ../sass/partials/mockup/_style.scss */
-body .header p {
+/* line 12, ../sass/partials/mockup/_style.scss */
+body .header .hgroup p {
   font-family: "p22-underground","gotham htf book",arial,sans-serif;
-  font-size: 22px;
+  font-size: 15px;
   color: #666666;
   text-transform: uppercase;
 }
-/* line 19, ../sass/partials/mockup/_style.scss */
+/* line 21, ../sass/partials/mockup/_style.scss */
 body .headline {
   background-image: url("../images/bg.png");
 }
-/* line 22, ../sass/partials/mockup/_style.scss */
+/* line 24, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left {
   background-image: url("../images/ribbon_left.png");
   background-position: left bottom;
   background-repeat: no-repeat;
 }
-/* line 27, ../sass/partials/mockup/_style.scss */
+/* line 29, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left .headline_right {
   background-image: url("../images/ribbon_right.png");
   background-position: right bottom;
   background-repeat: no-repeat;
 }
-/* line 32, ../sass/partials/mockup/_style.scss */
+/* line 34, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left .headline_right .container {
   background-image: url("../images/ribbon_left_fold.png");
   background-position: left bottom;
   background-repeat: no-repeat;
 }
-/* line 37, ../sass/partials/mockup/_style.scss */
+/* line 39, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left .headline_right .container .container_right {
   background-image: url("../images/ribbon_right_fold.png");
   background-position: right bottom;
   background-repeat: no-repeat;
 }
-/* line 42, ../sass/partials/mockup/_style.scss */
+/* line 44, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left .headline_right .container .container_right .content {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #910000), color-stop(100%, #5b0008));
   background: -moz-linear-gradient(#910000, #5b0008);
   background: linear-gradient(#910000, #5b0008);
 }
-/* line 45, ../sass/partials/mockup/_style.scss */
+/* line 47, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left .headline_right .container .container_right .content h2 {
-  font-size: 26px;
+  font-size: 33px;
   font-weight: bold;
   color: #FFFFFF;
   text-shadow: black 0px 1px 0px;
 }
-/* line 52, ../sass/partials/mockup/_style.scss */
+/* line 54, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left .headline_right .container .container_right .content p {
   font-family: "p22-underground","gotham htf book",arial,sans-serif;
   font-size: 18px;
   color: #FFFFFF;
 }
-/* line 64, ../sass/partials/mockup/_style.scss */
+/* line 66, ../sass/partials/mockup/_style.scss */
 body .mainbody {
   background-image: url("../images/bg.png");
 }
-/* line 70, ../sass/partials/mockup/_style.scss */
-body .mainbody .description .overview .how h3 {
-  font-size: 14px;
-  color: #830c0c;
-  font-weight: 600;
-}
-/* line 75, ../sass/partials/mockup/_style.scss */
-body .mainbody .description .overview .how p {
-  font-size: 14px;
-}
-/* line 81, ../sass/partials/mockup/_style.scss */
+/* line 72, ../sass/partials/mockup/_style.scss */
 body .mainbody .description .overview .download h3 {
   font-size: 26px;
   font-weight: 600;
   color: #333333;
   text-shadow: black 0px 1px 0px;
 }
-/* line 89, ../sass/partials/mockup/_style.scss */
+/* line 80, ../sass/partials/mockup/_style.scss */
 body .mainbody .description .overview .download .versions a {
   -moz-box-shadow: inset 0px 1px 2px 0px #4b7c89;
   -webkit-box-shadow: inset 0px 1px 2px 0px #4b7c89;
@@ -971,11 +1062,11 @@ body .mainbody .description .overview .download .versions a {
   border-radius: 3px;
   background-color: #003C50;
 }
-/* line 101, ../sass/partials/mockup/_style.scss */
+/* line 92, ../sass/partials/mockup/_style.scss */
 body .mainbody .description .overview .download .versions a:hover {
   border: 1px solid #19A4CF;
 }
-/* line 105, ../sass/partials/mockup/_style.scss */
+/* line 96, ../sass/partials/mockup/_style.scss */
 body .mainbody .description .overview .download .versions a:active {
   -moz-transition-property: background-color;
   -webkit-transition-property: background-color;
@@ -1001,87 +1092,76 @@ body .mainbody .description .overview .download .versions a:active {
   background-color: #04313F;
   outline: none;
 }
-/* line 115, ../sass/partials/mockup/_style.scss */
+/* line 106, ../sass/partials/mockup/_style.scss */
 body .mainbody .description .overview .download .version_notice {
   font-size: 12px;
   font-weight: 600;
   color: #830c0c;
 }
-/* line 126, ../sass/partials/mockup/_style.scss */
+/* line 114, ../sass/partials/mockup/_style.scss */
+body .mainbody .description .overview .how p {
+  font-size: 14px;
+}
+/* line 122, ../sass/partials/mockup/_style.scss */
 body .benefits {
   background-color: #b6b6b6;
 }
-/* line 129, ../sass/partials/mockup/_style.scss */
+/* line 125, ../sass/partials/mockup/_style.scss */
 body .benefits .benefits_wrapper {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #343434), color-stop(100%, #262626));
   background: -moz-linear-gradient(#343434, #262626);
   background: linear-gradient(#343434, #262626);
-  -moz-box-shadow: 0px 0px 60px 0px #565656;
-  -webkit-box-shadow: 0px 0px 60px 0px #565656;
-  -o-box-shadow: 0px 0px 60px 0px #565656;
-  box-shadow: 0px 0px 60px 0px #565656;
+  -moz-box-shadow: 0px 0px 40px 0px #565656;
+  -webkit-box-shadow: 0px 0px 40px 0px #565656;
+  -o-box-shadow: 0px 0px 40px 0px #565656;
+  box-shadow: 0px 0px 40px 0px #565656;
 }
-/* line 133, ../sass/partials/mockup/_style.scss */
-body .benefits .benefits_wrapper .benefit {
-  border-right: 1px solid #575757;
+/* line 131, ../sass/partials/mockup/_style.scss */
+body .benefits .benefits_wrapper .benefit.clean .benefit_content {
+  border-right: none;
 }
 /* line 136, ../sass/partials/mockup/_style.scss */
-body .benefits .benefits_wrapper .benefit h3 {
-  font-size: 18px;
+body .benefits .benefits_wrapper .benefit .benefit_content {
+  border-right: 1px solid #575757;
+}
+/* line 139, ../sass/partials/mockup/_style.scss */
+body .benefits .benefits_wrapper .benefit .benefit_content h3 {
+  font-size: 16px;
   font-weight: 600;
   color: #FFFFFF;
 }
-/* line 143, ../sass/partials/mockup/_style.scss */
-body .benefits .benefits_wrapper .benefit ul li {
-  font-size: 13px;
-  color: #FFFFFF;
+/* line 146, ../sass/partials/mockup/_style.scss */
+body .benefits .benefits_wrapper .benefit .benefit_content ul li {
+  font-size: 14px;
+  color: #AAAAAA;
 }
-/* line 149, ../sass/partials/mockup/_style.scss */
-body .benefits .benefits_wrapper .benefit.clean {
-  border-right: none;
-}
-/* line 156, ../sass/partials/mockup/_style.scss */
+/* line 157, ../sass/partials/mockup/_style.scss */
 body .footer p {
   color: #666666;
 }
-/* line 159, ../sass/partials/mockup/_style.scss */
+/* line 160, ../sass/partials/mockup/_style.scss */
 body .footer p.act {
   font-size: 14px;
 }
-/* line 162, ../sass/partials/mockup/_style.scss */
+/* line 163, ../sass/partials/mockup/_style.scss */
 body .footer p.act em {
   font-style: italic;
 }
-/* line 166, ../sass/partials/mockup/_style.scss */
+/* line 167, ../sass/partials/mockup/_style.scss */
 body .footer p.act .twitter {
-  display: -moz-inline-box;
-  -moz-box-orient: vertical;
-  display: inline-block;
-  vertical-align: middle;
-  *vertical-align: auto;
-  width: 91px;
-  height: 23px;
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/badge_twitter.png?1299873585');
+  background-image: url('../images/badge_twitter.png?1300914959');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 7, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/compass/stylesheets/compass/css3/_inline-block.scss */
-body .footer p.act .twitter {
-  *display: inline;
-}
-/* line 174, ../sass/partials/mockup/_style.scss */
-body .footer p.community {
-  background-color: #C0C0C0;
-}
-/* line 179, ../sass/partials/mockup/_style.scss */
+/* line 175, ../sass/partials/mockup/_style.scss */
 body .footer p.community span strong {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
 }
-/* line 184, ../sass/partials/mockup/_style.scss */
+/* line 180, ../sass/partials/mockup/_style.scss */
 body .footer p.community span .compass {
   text-indent: -119988px;
   overflow: hidden;
@@ -1092,7 +1172,7 @@ body .footer p.community span .compass {
   background-position: center 5px;
   overflow: visible;
 }
-/* line 190, ../sass/partials/mockup/_style.scss */
+/* line 186, ../sass/partials/mockup/_style.scss */
 body .footer p.community span .sass {
   text-indent: -119988px;
   overflow: hidden;
@@ -1101,19 +1181,19 @@ body .footer p.community span .sass {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 197, ../sass/partials/mockup/_style.scss */
+/* line 193, ../sass/partials/mockup/_style.scss */
 body .footer p.copyright {
   font-size: 12px;
 }
-/* line 201, ../sass/partials/mockup/_style.scss */
+/* line 197, ../sass/partials/mockup/_style.scss */
 body .footer p.about {
   font-size: 12px;
 }
-/* line 204, ../sass/partials/mockup/_style.scss */
+/* line 200, ../sass/partials/mockup/_style.scss */
 body .footer p.about em {
   font-style: italic;
 }
-/* line 208, ../sass/partials/mockup/_style.scss */
+/* line 204, ../sass/partials/mockup/_style.scss */
 body .footer p.about .author {
   text-indent: -119988px;
   overflow: hidden;
@@ -1122,12 +1202,12 @@ body .footer p.about .author {
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
-/* line 212, ../sass/partials/mockup/_style.scss */
+/* line 208, ../sass/partials/mockup/_style.scss */
 body .footer p.about a {
-  color: #666666;
+  color: #333333;
   text-decoration: none;
 }
-/* line 216, ../sass/partials/mockup/_style.scss */
+/* line 212, ../sass/partials/mockup/_style.scss */
 body .footer p.about a:hover {
   color: #19a4cf;
 }
