@@ -303,7 +303,7 @@ body.bp .bottom {
 }
 /* line 8, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_debug.scss */
 body.bp .showgrid {
-  background: url('../images/grid.png?1299873585');
+  background: url('../images/grid.png?1300918297');
 }
 /* line 4, ../../../.rvm/gems/ruby-1.8.7-p330/gems/compass-0.11.beta.2/frameworks/blueprint/stylesheets/blueprint/_interaction.scss */
 body.bp .feedback, body.bp .error, body.bp .alert, body.bp .notice, body.bp .success, body.bp .info {
@@ -625,7 +625,7 @@ body .headline .headline_left .headline_right .container .container_right {
 }
 /* line 44, ../sass/partials/mockup/_layout.scss */
 body .headline .headline_left .headline_right .container .container_right .content {
-  padding: 15px 0 21px;
+  padding: 18px 0 21px;
 }
 /* line 47, ../sass/partials/mockup/_layout.scss */
 body .headline .headline_left .headline_right .container .container_right .content h2 {
@@ -972,7 +972,7 @@ body .header .hgroup h1 {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/logo.png?1300903885');
+  background-image: url('../images/logo.png?1300918297');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-position: left center;
@@ -1020,7 +1020,7 @@ body .headline .headline_left .headline_right .container .container_right .conte
 }
 /* line 47, ../sass/partials/mockup/_style.scss */
 body .headline .headline_left .headline_right .container .container_right .content h2 {
-  font-size: 33px;
+  font-size: 35px;
   font-weight: bold;
   color: #FFFFFF;
   text-shadow: black 0px 1px 0px;
@@ -1152,7 +1152,7 @@ body .footer p.act .twitter {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/badge_twitter.png?1300914959');
+  background-image: url('../images/badge_twitter.png?1300918297');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -1166,7 +1166,7 @@ body .footer p.community span .compass {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/badge_compass.png?1299873585');
+  background-image: url('../images/badge_compass.png?1300918297');
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-position: center 5px;
@@ -1177,7 +1177,7 @@ body .footer p.community span .sass {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/badge_sass.png?1299873585');
+  background-image: url('../images/badge_sass.png?1300918297');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
@@ -1198,7 +1198,7 @@ body .footer p.about .author {
   text-indent: -119988px;
   overflow: hidden;
   text-align: left;
-  background-image: url('../images/logo_mhs.png?1299873585');
+  background-image: url('../images/logo_mhs.png?1300918297');
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
