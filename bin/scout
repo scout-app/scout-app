@@ -1,0 +1,5 @@
+require 'rubygems'
+require 'compass'
+require 'compass/exec'
+
+Compass::Exec::SubCommandUI.new(ARGV).run!
