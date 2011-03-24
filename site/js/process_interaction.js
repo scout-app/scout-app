@@ -8,11 +8,14 @@ $(function(){
 
   function startWatchingProject(evnt, data) {
     var nativeProcessStartupInfo = new air.NativeProcessStartupInfo();
-    nativeProcessStartupInfo.executable = jrubyExecutable();
+    nativeProcessStartupInfo.executable = javaDir();
 
     var processArgs = new air.Vector["<String>"]();
     processArgs.push(
-      compassExecutable().nativePath,
+      '-jar', 'jruby-complete-1.6.0.jar',
+      '-rscout.jar',
+      '-S',
+      compassExecutable(),
       "watch",
       '--require', 'ninesixty',
       '--require', 'yui',
@@ -24,6 +27,7 @@ $(function(){
       "--output-style", data.project.outputStyle,
       "--trace"
     );
+    air.trace(processArgs);
     nativeProcessStartupInfo.arguments = processArgs;
 
     process = new air.NativeProcess();
@@ -68,19 +72,25 @@ $(function(){
   }
 
   function compassExecutable(){
-    return jrubyDir().resolvePath("lib/ruby/gems/1.8/bin/compass");
+    var app_path = air.File.applicationDirectory.resolvePath('.');
+    var scout_path =  air.File.applicationDirectory.resolvePath('bin/scout');
+    return app_path.getRelativePath(scout_path, false);
   }
 
   function jrubyDir(){
     return air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2");
   }
 
-  function jrubyExecutable(){
-    if(air.Capabilities.os.match(/Windows/)) {
-      return jrubyDir().resolvePath("bin/jruby.exe");
-    } else {
-      return jrubyDir().resolvePath("bin/jruby");
-    }
+  function javaDir() {
+    return air.File.applicationDirectory.resolvePath("/usr/bin/java");
   }
+
+  // function jrubyExecutable(){
+  //   if(air.Capabilities.os.match(/Windows/)) {
+  //     return jrubyDir().resolvePath("bin/jruby.exe");
+  //   } else {
+  //     return jrubyDir().resolvePath("bin/jruby");
+  //   }
+  // }
 
 });

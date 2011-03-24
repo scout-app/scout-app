@@ -57,8 +57,8 @@ var app = {
       projectDir: options.projectDir,
       sassDir: options.sassDir,
       cssDir: options.cssDir,
-      javascriptDir: options.javascriptsDir,
-      imageDir: options.imagesDir,
+      javascriptsDir: options.javascriptsDir,
+      imagesDir: options.imagesDir,
       environment: options.environment,
       outputStyle: options.outputStyle
     }, function(project){
