@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <application xmlns="http://ns.adobe.com/air/application/2.5">
-    <id>compassapp.mutuallyhuman.com</id>
+    <id>com.mutuallyhuman.scout</id>
     <versionNumber>0.1.0</versionNumber>
-    <filename>CompassApp</filename>
-    <name>CompassApp</name>
+    <filename>Scout</filename>
+    <name>Scout</name>
     <description>
-      CompassApp is a cross platform, standalone Compass application for designers to get started with using SASS.
+      Scout is a cross platform, standalone Compass application for designers to get started with using SASS.
     </description>
 
     <!-- for windows/linux program menus only, ignored on OSX -->
-    <programMenuFolder>CompassApp</programMenuFolder>
+    <programMenuFolder>Scout</programMenuFolder>
 
     <icon>
       <image16x16>images/logo_16.png</image16x16>
