@@ -72,15 +72,11 @@ $(function(){
   }
 
   function compassExecutable() {
-    var app_path = air.File.applicationDirectory.resolvePath('.');
-    var scout_path = air.File.applicationDirectory.resolvePath('bin/compass');
-    return app_path.getRelativePath(scout_path, false);
+    return air.File.applicationDirectory.resolvePath('bin/compass').nativePath;
   }
 
   function jar(path) {
-    var app_path = air.File.applicationDirectory.resolvePath('.');
-    var jar_path = air.File.applicationDirectory.resolvePath(path);
-    return app_path.getRelativePath(jar_path, false);
+    return air.File.applicationDirectory.resolvePath(path).nativePath;
   }
 
   function jrubyDir() {
