@@ -12,8 +12,8 @@ $(function(){
 
     var processArgs = new air.Vector["<String>"]();
     processArgs.push(
-      '-jar', 'vendor/jruby-complete-1.6.0.jar',
-      '-rvendor/scout.jar',
+      '-jar', jar('vendor/jruby-complete-1.6.0.jar'),
+      '-r' + jar('vendor/scout.jar'),
       '-S',
       compassExecutable(),
       "watch",
@@ -65,19 +65,25 @@ $(function(){
     }
   }
 
-  function killWatchingProcesses(){
+  function killWatchingProcesses() {
     for (var i in process_map) {
       process_map[i].exit();
     }
   }
 
-  function compassExecutable(){
+  function compassExecutable() {
     var app_path = air.File.applicationDirectory.resolvePath('.');
-    var scout_path =  air.File.applicationDirectory.resolvePath('bin/compass');
+    var scout_path = air.File.applicationDirectory.resolvePath('bin/compass');
     return app_path.getRelativePath(scout_path, false);
   }
 
-  function jrubyDir(){
+  function jar(path) {
+    var app_path = air.File.applicationDirectory.resolvePath('.');
+    var jar_path = air.File.applicationDirectory.resolvePath(path);
+    return app_path.getRelativePath(jar_path, false);
+  }
+
+  function jrubyDir() {
     return air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2");
   }
 
