@@ -12,7 +12,7 @@ $(function(){
 
     var processArgs = new air.Vector["<String>"]();
     processArgs.push(
-      '-jar', jar('vendor/jruby-complete-1.6.0.jar'),
+      '-jar', jruby_complete_jar(),
       '-r' + jar('vendor/scout.jar'),
       '-S',
       compassExecutable(),
@@ -75,7 +75,18 @@ $(function(){
     return air.File.applicationDirectory.resolvePath('bin/compass').nativePath;
   }
 
+  function jruby_complete_jar() {
+    return air.File.applicationDirectory.resolvePath('vendor/jruby-complete-1.6.0.jar').nativePath;
+  }
+
   function jar(path) {
+    // air.trace(path);
+    // var app_path = air.File.applicationDirectory.resolvePath('.');
+    // air.trace(app_path);
+    // var jar_path = air.File.applicationDirectory.resolvePath(path);
+    // air.trace(jar_path);
+    // air.trace(app_path.getRelativePath(jar_path));
+    // return app_path.getRelativePath(jar_path);
     return air.File.applicationDirectory.resolvePath(path).nativePath;
   }
 
