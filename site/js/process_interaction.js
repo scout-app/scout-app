@@ -81,13 +81,13 @@ $(function(){
 
   function jar(path) {
     // air.trace(path);
-    var app_path = air.File.applicationDirectory.resolvePath('.');
+    // var app_path = air.File.applicationDirectory.resolvePath('.');
     // air.trace(app_path);
-    var jar_path = air.File.applicationDirectory.resolvePath(path);
+    // var jar_path = air.File.applicationDirectory.resolvePath(path);
     // air.trace(jar_path);
     // air.trace(app_path.getRelativePath(jar_path));
-    return app_path.getRelativePath(jar_path);
-
+    // return app_path.getRelativePath(jar_path);
+    return air.File.applicationDirectory.resolvePath(path).nativePath;
   }
 
   function jrubyDir() {
