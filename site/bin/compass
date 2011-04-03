@@ -1,5 +1,13 @@
-require 'rubygems'
+$: << File.expand_path(File.dirname(__FILE__) + '/../vendor/gems/sass-3.1.0.alpha.252/lib')
+$: << File.expand_path(File.dirname(__FILE__) + '/../vendor/gems/compass-0.11.beta.2/lib')
+$: << File.expand_path(File.dirname(__FILE__) + '/../vendor/gems/chunky_png-0.12.0/lib')
+$: << File.expand_path(File.dirname(__FILE__) + '/../vendor/gems/compass-960-plugin-0.10.0/lib')
+$: << File.expand_path(File.dirname(__FILE__) + '/../vendor/gems/yui-compass-plugin-0.3/lib')
+
 require 'compass'
 require 'compass/exec'
+require 'ninesixty'
+# require 'staticmatic'
+# require 'json'
 
 Compass::Exec::SubCommandUI.new(ARGV).run!

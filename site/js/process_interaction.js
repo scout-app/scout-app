@@ -13,7 +13,7 @@ $(function(){
     var processArgs = new air.Vector["<String>"]();
     processArgs.push(
       '-jar', jruby_complete_jar(),
-      '-r' + jar('vendor/scout.jar'),
+      // '-r' + jar('vendor/scout.jar'),
       '-S',
       compassExecutable(),
       "watch",
