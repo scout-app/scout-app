@@ -7,7 +7,6 @@ $: << File.expand_path(File.dirname(__FILE__) + '/../vendor/gems/yui-compass-plu
 require 'compass'
 require 'compass/exec'
 require 'ninesixty'
-# require 'staticmatic'
-# require 'json'
+require 'yui'
 
 Compass::Exec::SubCommandUI.new(ARGV).run!
