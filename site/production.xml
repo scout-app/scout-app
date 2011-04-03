@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <application xmlns="http://ns.adobe.com/air/application/2.5">
     <id>com.mutuallyhuman.scout</id>
-    <versionNumber>0.1.0</versionNumber>
+    <versionNumber>0.4.0</versionNumber>
     <filename>Scout</filename>
     <name>Scout</name>
     <description>
