@@ -2,7 +2,8 @@
 .sass-cache
 stylesheets/.DS_Store
 cert.pfx
-#vendor
+cache
+/vendor
 compassapp.dmg
 .rvmrc
 /tmp
