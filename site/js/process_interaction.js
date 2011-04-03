@@ -96,7 +96,7 @@ $(function(){
 
   function javaDir() {
     if(air.Capabilities.os.match(/Windows/)) {
-      return air.File.resolvePath("C:\\Program Files\\Java\\jre6\\bin\\java");
+      return air.File.applicationDirectory.resolvePath("C:\\Program Files\\Java\\jre6\\bin\\java");
     } else {
       return air.File.applicationDirectory.resolvePath("/usr/bin/java");
     }
