@@ -1,0 +1,42 @@
+$yui-default-base-font-size: 13px !default
+$yui-default-base-line-height: 1.231 !default
+$yui-default-font-family: unquote("arial,helvetica,clean,sans-serif") !default
+
+// Sets the font size specified in pixels using percents so that the base
+// font size changes and 1em has the correct value. When nesting font size
+// declarations, within the DOM tree, the base_font_size must be the parent's
+// effective font-size in pixels.
+// Usage Examples:
+//   .big
+//     +font-size(16px)
+//   .bigger
+//     +font-size(18px)
+//   .big .bigger
+//     +font-size(18px, 16px)
+//
+// For more information see the table found at http://developer.yahoo.com/yui/fonts/#fontsize
+=font-size($size, $base-font-size: $yui-default-base-font-size)
+  font-size: percentage($size / $base-font-size)
+
+// Sets the base fonts for a page, this should be mixed into the top level of a stylesheet.
+=yui-base-fonts($family: $yui-default-font-family, $size: $yui-default-base-font-size, $line-height: $yui-default-base-line-height)
+  body
+    font:
+      size: $size
+      family: $family
+    line-height: $line-height
+    *font-size: small
+    *font: x-small
+  select,
+  input,
+  button,
+  textarea,
+  button
+    font: 99% arial, helvetica, clean, sans-serif
+  table
+    font-size: inherit
+    font: 100%
+  pre, code, kbd, samp, tt
+    font-family: monospace
+    *font-size: 108%
+    line-height: 100%
