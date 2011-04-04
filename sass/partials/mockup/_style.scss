@@ -25,7 +25,7 @@ body {
       background-image: url('../images/ribbon_left.png');
       background-position: left bottom;
       background-repeat: no-repeat;
-      
+
       .headline_right {
         background-image: url('../images/ribbon_right.png');
         background-position: right bottom;
@@ -102,7 +102,7 @@ body {
               }
             }
           }
-          
+
           .version_notice {
             font-size: 12px;
             font-weight: 600;
@@ -124,7 +124,7 @@ body {
 
     .benefits_wrapper {
       @include background(linear-gradient(#343434,#262626));
-      @include box-shadow(#565656, 0px, 0px, 40px, 0px, false);
+      @include box-shadow(#565656, 0px, 0px, 10px, 0px, false);
 
       .benefit {
         &.clean {
@@ -186,7 +186,7 @@ body {
           .sass {
             @include replace-text("badge_sass.png");
           }
-          
+
         }
       }
 
@@ -204,7 +204,7 @@ body {
         .author {
           @include replace-text("logo_mhs.png");
         }
-        
+
         a {
           color: $regular;
           text-decoration: none;
