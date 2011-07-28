@@ -1,5 +1,8 @@
-desc "Runs the application in development mode"
+require 'bundler'
 
+require File.join File.dirname(__FILE__), 'lib/adobe/air'
+
+desc "Runs the application in development mode"
 task :default => ['run:development']
 task :test => 'run:test'
 
@@ -12,6 +15,25 @@ task :setup_dev do
        run CompassApp. See rake -T for more things you can do.
     **************************************************************
   EOT
+end
+
+namespace 'air' do
+  desc 'Launch the Adobe AIR download page'
+  task 'download' do
+    Adobe::Air.go_to_download_page
+  end
+
+  desc 'Prints out the current version of the Adobe AIR SDK installed'
+  task 'version' do
+    Adobe::Air.print_version
+  end
+
+  namespace 'version' do
+    desc "Checks to see if you're running a compatible Adobe AIR SDK"
+    task 'check' do
+      Adobe::Air.print_version_check
+    end
+  end
 end
 
 namespace 'staticmatic' do

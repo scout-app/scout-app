@@ -1,19 +1,29 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    addressable (2.2.6)
     chunky_png (0.12.0)
     compass (0.11.beta.2)
       chunky_png (~> 0.12.0)
       sass (>= 3.1.0.alpha.218)
     compass-960-plugin (0.10.0)
       compass (>= 0.10.0)
+    ffi (1.0.9-java)
     haml (3.0.25)
+    launchy (2.0.4)
+      addressable (~> 2.2.6)
+    launchy (2.0.4-java)
+      addressable (~> 2.2.6)
+      ffi (~> 1.0.9)
+      spoon (~> 0.0.1)
     rack (1.2.1)
     sass (3.1.0.alpha.221)
+    spoon (0.0.1)
     staticmatic (0.11.1)
       compass (>= 0.10.0)
       haml (>= 2.0.0)
       rack (>= 1.0)
+    term-ansicolor (1.0.6)
     yui-compass-plugin (0.3)
       compass (>= 0.10.0)
 
@@ -24,5 +34,7 @@ PLATFORMS
 DEPENDENCIES
   compass (= 0.11.beta.2)
   compass-960-plugin (= 0.10)
+  launchy (~> 2.0)
   staticmatic (= 0.11.1)
+  term-ansicolor (~> 1.0)
   yui-compass-plugin
