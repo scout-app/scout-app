@@ -11,8 +11,9 @@ task :setup_dev => ["air:version:check", "air:sdk:check"] do
   system 'bin/install_jruby && bin/bundle'
   puts <<-EOT
     **************************************************************
-       If you received no errors you can run "rake" to
-       run CompassApp. See rake -T for more things you can do.
+       If you received no errors you can run "bin/rake" to
+       run ScoutApp in development mode. See bin/rake -T 
+       for more things you can do.
     **************************************************************
   EOT
 end
