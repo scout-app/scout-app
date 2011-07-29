@@ -1,8 +1,9 @@
 #!/bin/sh
 
 dir=`dirname $0`
+. $dir/constants.sh
 
-find $dir/../site/vendor/ -name bundle | grep bundle > /dev/null
+find $VENDOR -name bundle | grep bundle > /dev/null
 if [ $? -eq 1 ] ; then
   ./$dir/jruby -S gem install bundler
 fi

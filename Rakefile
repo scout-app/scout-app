@@ -7,8 +7,8 @@ task :default => ['run:development']
 task :test => 'run:test'
 
 desc "sets up the development environment in a *nix environment"
-task :setup_dev do
-  system 'bin/install_adt && bin/install_jruby && bin/bundle'
+task :setup_dev => ["air:version:check", "air:sdk:check"] do
+  system 'bin/install_jruby && bin/bundle'
   puts <<-EOT
     **************************************************************
        If you received no errors you can run "rake" to
@@ -23,15 +23,27 @@ namespace 'air' do
     Adobe::Air.go_to_download_page
   end
 
-  desc 'Prints out the current version of the Adobe AIR SDK installed'
+  desc 'Prints out the current version of the Adobe AIR Runtime'
   task 'version' do
     Adobe::Air.print_version
   end
-
-  namespace 'version' do
+  
+  namespace 'sdk' do
     desc "Checks to see if you're running a compatible Adobe AIR SDK"
     task 'check' do
-      Adobe::Air.print_version_check
+      fail unless Adobe::Air.print_sdk_check
+    end
+    
+    desc 'Launch the Adobe AIR SDK download page'
+    task 'download' do
+      Adobe::Air.go_to_sdk_download_page
+    end
+  end
+
+  namespace 'version' do
+    desc "Checks to see if you're running a compatible Adobe AIR Runtime"
+    task 'check' do
+      fail unless Adobe::Air.print_version_check
     end
   end
 end

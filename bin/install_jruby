@@ -1,15 +1,14 @@
 #!/bin/sh
 
 dir=`dirname $0`
-DOWNLOADS="$dir/../tmp"
-VENDOR="$dir/../site/vendor"
-JRUBY=jruby-1.6.0.RC2
-JRUBY_TGZ=jruby-bin-1.6.0.RC2.tar.gz
-JRUBY_URL=http://jruby.org.s3.amazonaws.com/downloads/1.6.0.RC2/$JRUBY_TGZ
+. $dir/constants.sh
+
+# # delete old JRuby installation directories
+# find $VENDOR -name "$JRUBY*" -depth 1 -type d | grep -v $JRUBY_DIR | xargs -I{} rm -fr {}
 
 mkdir -p $VENDOR
 echo "Checking for jruby... \c"
-if [ -d $VENDOR/$JRUBY ] ; then
+if [ -d $JRUBY_DIR ] ; then
   echo "exists"
 else
   echo "downloading"
@@ -18,5 +17,6 @@ else
   wget $JRUBY_URL
   tar -xzf $JRUBY_TGZ
   popd > /dev/null
-  mv $DOWNLOADS/jruby-1.6.0.RC2 $VENDOR/
+  mv $DOWNLOADS/jruby-$JRUBY_VERSION $VENDOR/
+  $dir/jruby -S gem install rake  
 fi

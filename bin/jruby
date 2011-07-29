@@ -1,8 +1,10 @@
 #!/bin/sh
 
 dir=`dirname $0`
-find $dir/../site/vendor/jruby*/bin/ -name jruby | grep jruby > /dev/null
+. $dir/constants.sh
+
+find $JRUBY_DIR*/bin/ -name jruby | grep jruby > /dev/null
 if [ $? -eq 1 ] ; then 
   ./$dir/install_jruby
 fi
-./$dir/../site/vendor/jruby*/bin/jruby $@
+$JRUBY_DIR/bin/jruby $@

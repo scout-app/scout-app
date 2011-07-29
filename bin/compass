@@ -1,8 +1,10 @@
 #!/bin/sh
 
 dir=`dirname $0`
-find $dir/../site/vendor/ -name compass | grep compass > /dev/null
+. $dir/constants.sh
+
+find $VENDOR -name compass | grep compass > /dev/null
 if [ $? -eq 1 ] ; then 
   ./$dir/bundle
 fi
-./$dir/jruby $dir/../site/vendor/jruby-1.6.0.RC2/lib/ruby/gems/1.8/bin/compass $@
+./$dir/jruby $JRUBY_DIR/lib/ruby/gems/1.8/bin/compass $@
