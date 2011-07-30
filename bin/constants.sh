@@ -1,5 +1,5 @@
 dir=`dirname $0`
-VENDOR="$dir/../site/vendor"
+VENDOR="$dir/../build/vendor"
 
 mkdir -p $VENDOR
 

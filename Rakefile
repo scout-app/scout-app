@@ -19,9 +19,9 @@ namespace :dev do
     EOT
   end
   
-  desc "Clears dev environment by removing site/vendor. See dev:redo" 
+  desc "Clears dev environment by removing build/vendor. See dev:redo" 
   task :clean do
-    FileUtils.rm_rf File.join(File.dirname(__FILE__), "site/vendor")
+    FileUtils.rm_rf File.join(File.dirname(__FILE__), "build/vendor")
   end
   
   desc "Runs dev:clean, then dev:setup"
@@ -80,6 +80,6 @@ end
 %w(development test production).each do |env|
   desc "Runs the application in the #{env} environment"
   task "run:#{env}" => "staticmatic:build" do
-    exec "cd site ; adl #{env}.xml"
+    exec "cd build ; adl #{env}.xml"
   end
 end
