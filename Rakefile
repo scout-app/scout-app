@@ -6,17 +6,28 @@ desc "Runs the application in development mode"
 task :default => ['run:development']
 task :test => 'run:test'
 
-desc "sets up the development environment in a *nix environment"
-task :setup_dev => ["air:version:check", "air:sdk:check"] do
-  system 'bin/install_jruby && bin/bundle'
-  puts <<-EOT
-    **************************************************************
-       If you received no errors you can run "bin/rake" to
-       run ScoutApp in development mode. See bin/rake -T 
-       for more things you can do.
-    **************************************************************
-  EOT
+namespace :dev do
+  desc "Sets up the development environment in a *nix environment"
+  task :setup => ["air:version:check", "air:sdk:check"] do
+    system 'bin/install_jruby && bin/bundle'
+    puts <<-EOT
+      **************************************************************
+         If you received no errors you can run "bin/rake" to
+         run ScoutApp in development mode. See bin/rake -T 
+         for more things you can do.
+      **************************************************************
+    EOT
+  end
+  
+  desc "Clears dev environment by removing site/vendor. See dev:redo" 
+  task :clean do
+    FileUtils.rm_rf File.join(File.dirname(__FILE__), "site/vendor")
+  end
+  
+  desc "Runs dev:clean, then dev:setup"
+  task :redo => ["dev:clean", "dev:setup"]
 end
+
 
 namespace 'air' do
   desc 'Launch the Adobe AIR download page'

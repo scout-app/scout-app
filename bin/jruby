@@ -3,8 +3,8 @@
 dir=`dirname $0`
 . $dir/constants.sh
 
-find $JRUBY_DIR*/bin/ -name jruby | grep jruby > /dev/null
-if [ $? -eq 1 ] ; then 
+if [ -f $JRUBY_INSTALLATION ] ; then
+  java -jar $JRUBY_INSTALLATION $@
+else
   ./$dir/install_jruby
 fi
-$JRUBY_DIR/bin/jruby $@

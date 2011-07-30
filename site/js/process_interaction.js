@@ -76,7 +76,7 @@ $(function(){
   }
 
   function jruby_complete_jar() {
-    return air.File.applicationDirectory.resolvePath('vendor/jruby-complete-1.6.0.jar').nativePath;
+    return air.File.applicationDirectory.resolvePath('vendor/jruby-complete.jar').nativePath;
   }
 
   function jar(path) {

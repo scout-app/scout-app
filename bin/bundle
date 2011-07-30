@@ -3,11 +3,10 @@
 dir=`dirname $0`
 . $dir/constants.sh
 
-find $VENDOR -name bundle | grep bundle > /dev/null
-if [ $? -eq 1 ] ; then
-  ./$dir/jruby -S gem install bundler
+BUNDLER=$GEM_HOME/bin/bundle
+if [ -f $BUNDLER ] ; then
+  ./$dir/jruby $BUNDLER $@
+else
+  echo "Cannot find bundler"
+  exit 1
 fi
-
-pushd $dir/../ > /dev/null
-./bin/jruby -S bundle $@
-popd > /dev/null

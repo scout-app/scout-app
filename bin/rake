@@ -3,8 +3,10 @@
 dir=`dirname $0`
 . $dir/constants.sh
 
-find $VENDOR -name rake | grep rake > /dev/null
-if [ $? -eq 1 ] ; then 
-  echo "You do not have rake installed in your JRuby installation. Please re-run: rake setup_dev"
+RAKE=$GEM_HOME/bin/rake
+if [ -f $RAKE ] ; then
+  ./$dir/jruby $RAKE $@
+else
+  echo "Cannot find rake"
+  exit 1
 fi
-$dir/jruby -S $GEM_HOME/bin/rake $@

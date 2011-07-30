@@ -3,20 +3,15 @@
 dir=`dirname $0`
 . $dir/constants.sh
 
-# # delete old JRuby installation directories
-# find $VENDOR -name "$JRUBY*" -depth 1 -type d | grep -v $JRUBY_DIR | xargs -I{} rm -fr {}
-
 mkdir -p $VENDOR
-echo "Checking for jruby... \c"
-if [ -d $JRUBY_DIR ] ; then
-  echo "exists"
+if [ -f $JRUBY_INSTALLATION ] ; then
+  echo "jruby exists"
 else
-  echo "downloading"
-  mkdir -p $DOWNLOADS
-  pushd $DOWNLOADS > /dev/null
-  wget $JRUBY_URL
-  tar -xzf $JRUBY_TGZ
+  echo "downloading jruby"
+  pushd $VENDOR > /dev/null
+  wget $JRUBY_COMPLETE_URL
+  mv $JRUBY_COMPLETE_JAR $JRUBY_JAR
   popd > /dev/null
-  mv $DOWNLOADS/jruby-$JRUBY_VERSION $VENDOR/
-  $dir/jruby -S gem install rake  
+
+  ./$dir/jruby -S gem install -r bundler
 fi

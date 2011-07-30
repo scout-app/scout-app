@@ -3,8 +3,10 @@
 dir=`dirname $0`
 . $dir/constants.sh
 
-find $VENDOR -name compass | grep compass > /dev/null
-if [ $? -eq 1 ] ; then 
-  ./$dir/bundle
+COMPASS=$GEM_HOME/bin/compass
+if [ -f $COMPASS ] ; then
+  ./$dir/jruby $COMPASS $@
+else
+  echo "Cannot find compass"
+  exit 1
 fi
-./$dir/jruby $JRUBY_DIR/lib/ruby/gems/1.8/bin/compass $@
