@@ -90,10 +90,6 @@ $(function(){
     return air.File.applicationDirectory.resolvePath(path).nativePath;
   }
 
-  function jrubyDir() {
-    return air.File.applicationDirectory.resolvePath("vendor/jruby-1.6.0.RC2");
-  }
-
   function javaDir() {
     if(air.Capabilities.os.match(/Windows/)) {
       return air.File.applicationDirectory.resolvePath("C:\\Program Files\\Java\\jre6\\bin\\java.exe");
@@ -101,13 +97,5 @@ $(function(){
       return air.File.applicationDirectory.resolvePath("/usr/bin/java");
     }
   }
-
-  // function jrubyExecutable(){
-  //   if(air.Capabilities.os.match(/Windows/)) {
-  //     return jrubyDir().resolvePath("bin/jruby.exe");
-  //   } else {
-  //     return jrubyDir().resolvePath("bin/jruby");
-  //   }
-  // }
 
 });
