@@ -1,3 +1,9 @@
+# STATICMATIC CONFIGURATION FILE
+# -- also see compass.rb
+
+require 'pathname'
+dir = Pathname.new(File.dirname(__FILE__))
+
 # Default is 3000
 # configuration.preview_server_port = 3000
  
@@ -9,7 +15,7 @@
 # configuration.use_extensions_for_page_links = true
  
 # Default is an empty hash
-# configuration.sass_options = {}
+#configuration.sass_options = {}
  
 # Default is an empty hash
 # http://haml-lang.com/docs/yardoc/file.HAML_REFERENCE.html#options

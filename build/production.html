@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <head>
-  <title>Scout : the Sass/Compass GUI</title>
+  <title>ScoutApp : the Sass/Compass GUI</title>
   <link href="/stylesheets/screen.css" media="all" rel="stylesheet" type="text/css"/>
   <link href='stylesheets/screen.css' rel='stylesheet' />
   <script src='js/vendor/AIRAliases.js' type='text/javascript'></script>
@@ -51,15 +51,12 @@
         <div class='log_output'></div>
         <div class='option_container'>
           <h2>Configuration</h2>
-
           <div class='options'>
             <div class='option_group stylesheet_directories'>
               <h3>Stylesheet Directories</h3>
-
               <div class='notice'>
                 <em>*Required field</em>
               </div>
-
               <div class='option input'>
                 <label for='sass_input'>Input Folder:</label>
                 <button class='dir_find select_sass_dir'>
@@ -68,7 +65,6 @@
                 <input class='setting sass_dir' id='sass_input' value='${sassDir}' />
                 <em>*</em>
               </div>
-
               <div class='option output'>
                 <label for='css_input'>Output Folder:</label>
                 <button class='dir_find select_css_dir'>
@@ -78,10 +74,8 @@
                 <em>*</em>
               </div>
             </div>
-
             <div class='option_group'>
               <h3>Other Directories</h3>
-
               <div class='option javascripts_dir'>
                 <label for='js_input'>JavaScripts Folder:</label>
                 <button class='dir_find select_javascripts_dir'>
@@ -89,7 +83,6 @@
                 </button>
                 <input class='setting javascripts_dir' id='js_input' value='${javascriptsDir}' />
               </div>
-
               <div class='option images_dir'>
                 <label for='images'>Images Folder:</label>
                 <button class='dir_find select_images_dir'>
@@ -98,32 +91,8 @@
                 <input class='setting images_dir' id='images' value='${imagesDir}' />
               </div>
             </div>
-
-            <div class='option_group'>
-              <h3>Output Modes</h3>
-
-              <div class='option environment'>
-                <label for='environment'>Environment:</label>
-                <select id="environment" class="select_environment" name="environment">
-                  <option data-environment="development" selected="selected">Development</option>
-                  <option data-environment="production">Production</option>
-                </select>
-              </div>
-
-              <div class='option output_style'>
-                <label for='output_style'>Output Style:</label>
-                <select id="output_style" class="select_output_style" name="output_style">
-                  <option data-output_style="nested">Nested</option>
-                  <option data-output_style="expanded">Expanded</option>
-                  <option data-output_style="compact">Compact</option>
-                  <option data-output_style="compressed">Compressed</option>
-                </select>
-              </div>
-            </div>
-
             <div class='option_group'>
               <h3>Manage Project</h3>
-
               <div class='option remove'>
                 <label>Remove Project:</label>
                 <button class='delete'>
@@ -131,7 +100,6 @@
                 </button>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -141,7 +109,7 @@
 </head>
 <body>
   <div id='header'>
-    <h1>CompassApp</h1>
+    <h1>ScoutApp</h1>
   </div>
   <div class='pane project_list'>
     <div class='view'>

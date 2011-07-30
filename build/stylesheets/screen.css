@@ -4,7 +4,7 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 /*jquery mobile styles - default*/
 /*@import "../partials/jquery.mobile-1.0a3.min";*/
-/* line 17, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 17, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -26,85 +26,85 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 22, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 ol, ul {
   list-style: none;
 }
 
-/* line 24, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 1, ../../src/stylesheets/partials/_base.scss */
+/* line 1, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_base.scss */
 body {
   font-family: "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, "Verdana Ref", sans-serif;
   font-weight: 400;
   font-size: 12px;
 }
-/* line 6, ../../src/stylesheets/partials/_base.scss */
+/* line 6, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_base.scss */
 body a {
   color: #5a5a5a;
   text-decoration: none;
 }
-/* line 18, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 18, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 body a:visited {
   color: #5a5a5a;
 }
-/* line 24, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 24, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 body a:hover {
   color: #171717;
 }
-/* line 27, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
+/* line 27, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_link-colors.scss */
 body a:active {
   color: #bbbbbb;
 }
-/* line 4, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
+/* line 4, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/typography/links/_hover-link.scss */
 body a:hover {
   text-decoration: underline;
 }
-/* line 11, ../../src/stylesheets/partials/_base.scss */
+/* line 11, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_base.scss */
 body h1 {
   font-size: 24px;
 }
-/* line 15, ../../src/stylesheets/partials/_base.scss */
+/* line 15, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_base.scss */
 body h2 {
   font-size: 18px;
 }
-/* line 19, ../../src/stylesheets/partials/_base.scss */
+/* line 19, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_base.scss */
 body button {
   display: inline;
   float: left;
@@ -133,7 +133,7 @@ body button {
   -o-box-shadow: 0px 1px 2px 0px #a9a9a9;
   box-shadow: 0px 1px 2px 0px #a9a9a9;
 }
-/* line 34, ../../src/stylesheets/partials/_base.scss */
+/* line 34, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_base.scss */
 body button:active {
   border-top: 1px solid #15167B;
   border-right: 1px solid #689FD6;
@@ -151,12 +151,12 @@ body button:active {
   box-shadow: 0px 1px 1px 0px #9c9c9c;
 }
 
-/* line 10, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 10, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 html, body {
   height: 100%;
 }
 
-/* line 12, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 12, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 body {
   clear: both;
   min-height: 100%;
@@ -164,19 +164,19 @@ body {
   height: 100%;
   margin-bottom: -18px;
 }
-/* line 18, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 18, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 body .footer {
   height: 18px;
 }
 
-/* line 20, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 20, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 #footer {
   clear: both;
   position: relative;
   height: 18px;
 }
 
-/* line 3, ../../src/stylesheets/partials/_layout.scss */
+/* line 3, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_layout.scss */
 body {
   position: relative;
   margin: 0;
@@ -184,7 +184,7 @@ body {
   background-color: #ECECEC;
 }
 
-/* line 10, ../../src/stylesheets/partials/_layout.scss */
+/* line 10, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_layout.scss */
 #header {
   height: 53px;
   padding: 15px 0 0 15px;
@@ -197,7 +197,7 @@ body {
   border-top: 1px solid #393737;
   border-bottom: 1px solid #878787;
 }
-/* line 17, ../../src/stylesheets/partials/_layout.scss */
+/* line 17, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/_layout.scss */
 #header h1 {
   display: inline;
   float: left;
@@ -215,7 +215,7 @@ body {
 }
 
 /*shell styles*/
-/* line 2, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 2, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .project_list {
   position: absolute;
   top: 70px;
@@ -224,7 +224,7 @@ body .project_list {
   left: 0;
   border-right: 1px solid #939393;
 }
-/* line 10, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 10, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .project_list .view {
   position: absolute;
   top: 0;
@@ -233,7 +233,7 @@ body .project_list .view {
   left: 0;
   overflow-y: auto;
 }
-/* line 20, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 20, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .project_details {
   position: absolute;
   top: 70px;
@@ -241,7 +241,7 @@ body .project_details {
   right: 0;
   left: 40%;
 }
-/* line 27, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 27, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .project_details .view {
   position: absolute;
   top: 0;
@@ -250,13 +250,13 @@ body .project_details .view {
   left: 0;
   *zoom: 1;
 }
-/* line 38, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 body .project_details .view:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 37, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 37, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer {
   position: absolute;
   bottom: 0;
@@ -271,13 +271,13 @@ body .footer {
   background-image: -ms-linear-gradient(top, #f7f7f7 0%, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%);
   background-image: linear-gradient(top, #f7f7f7 0%, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%);
 }
-/* line 38, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 body .footer:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 46, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 46, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer .option {
   display: inline;
   float: left;
@@ -289,20 +289,20 @@ body .footer .option {
   background-position: center bottom;
   border-right: 1px solid #B3B3B3;
 }
-/* line 56, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 56, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer .option span {
   display: block;
   height: 18px;
 }
-/* line 61, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 61, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer .option:hover {
   background-color: #F3F3F3;
 }
-/* line 65, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 65, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer .option:active {
   background-color: #C0C0C0;
 }
-/* line 70, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 70, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer .option.add span {
   text-indent: -119988px;
   overflow: hidden;
@@ -313,7 +313,7 @@ body .footer .option.add span {
   border-right: 1px solid #F0F0F0;
   border-left: 1px solid #F0F0F0;
 }
-/* line 78, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 78, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer .splitter {
   display: inline;
   float: right;
@@ -328,13 +328,13 @@ body .footer .splitter {
   background-position: center center;
   cursor: ew-resize;
 }
-/* line 87, ../../src/stylesheets/partials/shells/_shell.scss */
+/* line 87, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/shells/_shell.scss */
 body .footer #new-project {
   margin-top: 2em;
 }
 
 /*views styles*/
-/* line 2, ../../src/stylesheets/partials/views/modes/_modes.scss */
+/* line 2, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_modes.scss */
 .project_details .modes {
   padding: 5px 10px 5px 0;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e9e9e9), color-stop(100%, #cfcfcf));
@@ -346,13 +346,13 @@ body .footer #new-project {
   border-bottom: 1px solid #8E8E8E;
   *zoom: 1;
 }
-/* line 38, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_details .modes:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 8, ../../src/stylesheets/partials/views/modes/_modes.scss */
+/* line 8, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_modes.scss */
 .project_details .modes .mode {
   display: inline;
   float: right;
@@ -362,7 +362,7 @@ body .footer #new-project {
   color: #000000;
   text-shadow: #efefef 0 1px 0;
 }
-/* line 17, ../../src/stylesheets/partials/views/modes/_modes.scss */
+/* line 17, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_modes.scss */
 .project_details .modes .mode:hover {
   color: #FFFFFF;
   text-shadow: #595959 0 1px 0;
@@ -384,7 +384,7 @@ body .footer #new-project {
   -o-box-shadow: inset 0px 0px 0px 0px #8f8f8f;
   box-shadow: inset 0px 0px 0px 0px #8f8f8f;
 }
-/* line 26, ../../src/stylesheets/partials/views/modes/_modes.scss */
+/* line 26, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_modes.scss */
 .project_details .modes .mode:active {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #747474), color-stop(100%, #6e6e6e));
   background-image: -webkit-linear-gradient(top, #747474, #6e6e6e);
@@ -398,11 +398,11 @@ body .footer #new-project {
   box-shadow: inset 0px 1px 1px 1px #484848;
 }
 
-/* line 3, ../../src/stylesheets/partials/views/_project_details.scss */
+/* line 3, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/_project_details.scss */
 .project_details {
   display: none;
 }
-/* line 6, ../../src/stylesheets/partials/views/_project_details.scss */
+/* line 6, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/_project_details.scss */
 .project_details .view {
   border-top: 1px solid #FFFFFF;
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(80%, #fafafa), color-stop(100%, #e6e6e6));
@@ -412,12 +412,12 @@ body .footer #new-project {
   background-image: -ms-linear-gradient(top, #fafafa 80%, #e6e6e6);
   background-image: linear-gradient(top, #fafafa 80%, #e6e6e6);
 }
-/* line 11, ../../src/stylesheets/partials/views/_project_details.scss */
+/* line 11, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/_project_details.scss */
 .project_details .footer {
   left: 1px;
 }
 
-/* line 1, ../../src/stylesheets/partials/views/_non_selected.scss */
+/* line 1, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/_non_selected.scss */
 .non_selected {
   position: absolute;
   top: 70px;
@@ -425,7 +425,7 @@ body .footer #new-project {
   bottom: 0;
   left: 40%;
 }
-/* line 8, ../../src/stylesheets/partials/views/_non_selected.scss */
+/* line 8, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/_non_selected.scss */
 .non_selected .view {
   left: 1px;
   border-top: 1px solid #FFFFFF;
@@ -438,13 +438,13 @@ body .footer #new-project {
   background-color: #EFF4F9;
 }
 
-/* line 4, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 4, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects {
   position: relative;
   z-index: 100;
   margin: 0;
 }
-/* line 9, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 9, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project {
   margin: 0;
   text-decoration: none;
@@ -456,30 +456,30 @@ body .footer #new-project {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 38, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_list .view .projects .project:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 21, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 21, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project .item {
   padding: 15px;
   *zoom: 1;
 }
-/* line 38, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_list .view .projects .project .item:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 25, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 25, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project .item .source {
   display: inline;
   float: left;
   width: 60%;
 }
-/* line 30, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 30, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project .item .source h2 {
   margin: 0;
   padding: 0 0 0 40px;
@@ -488,16 +488,16 @@ body .footer #new-project {
   background-repeat: no-repeat;
   background-position: left center;
 }
-/* line 38, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project .item .source h2 a {
   color: #222222;
   font-size: 14px;
 }
-/* line 42, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 42, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project .item .source h2 a:hover {
   text-decoration: none;
 }
-/* line 51, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 51, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project.selected, .project_list .view .projects .project.selected:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #5389df), color-stop(100%, #2363bf));
   background-image: -webkit-linear-gradient(top, #5389df, #2363bf);
@@ -507,11 +507,11 @@ body .footer #new-project {
   background-image: linear-gradient(top, #5389df, #2363bf);
   border-top: 1px solid #3F89FF;
 }
-/* line 58, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 58, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project.selected .item .source h2 a, .project_list .view .projects .project.selected:hover .item .source h2 a {
   color: #FFFFFF;
 }
-/* line 67, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 67, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project.focused, .project_list .view .projects .project:hover {
   border-top: 1px solid #EEEEEE;
   background-color: #D4D4D4;
@@ -533,25 +533,25 @@ body .footer #new-project {
   transition-delay: 0s;
   cursor: pointer;
 }
-/* line 77, ../../src/stylesheets/partials/views/project_list/_projects.scss */
+/* line 77, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_projects.scss */
 .project_list .view .projects .project.focused .item .source h2 a, .project_list .view .projects .project:hover .item .source h2 a {
   color: #222222;
 }
 
-/* line 9, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 9, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands {
   display: inline;
   float: right;
   width: 40%;
   *zoom: 1;
 }
-/* line 38, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_list .view .projects .project .item .commands:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 14, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 14, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command {
   display: inline;
   float: right;
@@ -577,7 +577,7 @@ body .footer #new-project {
   box-shadow: none;
   cursor: pointer;
 }
-/* line 25, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 25, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command span {
   display: block;
   width: 30px;
@@ -589,11 +589,11 @@ body .footer #new-project {
   -khtml-border-radius: 21px;
   border-radius: 21px;
 }
-/* line 32, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 32, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command:focus {
   outline: none;
 }
-/* line 36, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 36, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command:active {
   background-color: #A6A6A6;
   -moz-box-shadow: inset 0px 2px 2px 0px #5f5f5f;
@@ -601,7 +601,7 @@ body .footer #new-project {
   -o-box-shadow: inset 0px 2px 2px 0px #5f5f5f;
   box-shadow: inset 0px 2px 2px 0px #5f5f5f;
 }
-/* line 42, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 42, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command.start span {
   text-indent: -119988px;
   overflow: hidden;
@@ -612,7 +612,7 @@ body .footer #new-project {
   background-position: 10px center;
   background-repeat: no-repeat;
 }
-/* line 50, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 50, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command.stop span {
   text-indent: -119988px;
   overflow: hidden;
@@ -622,16 +622,16 @@ body .footer #new-project {
   background-position: 50% 50%;
   background-position: 10px center;
 }
-/* line 57, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 57, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command.disabled.start {
   cursor: default;
 }
-/* line 60, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 60, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project .item .commands .command.disabled.start span {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
   opacity: 0.6;
 }
-/* line 73, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 73, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project.selected .item .commands .command, .project_list .view .projects .project.selected:hover .item .commands .command {
   background-color: #5F9DFF;
   border: 1px solid #234D8F;
@@ -646,14 +646,14 @@ body .footer #new-project {
   -o-box-shadow: none;
   box-shadow: none;
 }
-/* line 79, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 79, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project.selected .item .commands .command:active, .project_list .view .projects .project.selected:hover .item .commands .command:active {
   -moz-box-shadow: inset 0px 2px 2px 0px #1d375f;
   -webkit-box-shadow: inset 0px 2px 2px 0px #1d375f;
   -o-box-shadow: inset 0px 2px 2px 0px #1d375f;
   box-shadow: inset 0px 2px 2px 0px #1d375f;
 }
-/* line 83, ../../src/stylesheets/partials/views/project_list/_commands.scss */
+/* line 83, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/project_list/_commands.scss */
 .project_list .view .projects .project.selected .item .commands .command.disabled, .project_list .view .projects .project.selected:hover .item .commands .command.disabled {
   cursor: default;
   -moz-box-shadow: none;
@@ -663,7 +663,7 @@ body .footer #new-project {
 }
 
 /*mode styles*/
-/* line 4, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 4, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container {
   position: absolute;
   top: 29px;
@@ -675,7 +675,7 @@ body .footer #new-project {
   padding: 25px 20px 0;
   overflow-y: auto;
 }
-/* line 16, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 16, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container h2 {
   position: relative;
   z-index: 1;
@@ -703,7 +703,7 @@ body .footer #new-project {
   box-shadow: 0px 1px 1px 0px #9c9c9c;
   text-align: center;
 }
-/* line 31, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 31, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options {
   min-width: 390px;
   margin-top: -12px;
@@ -720,29 +720,29 @@ body .footer #new-project {
   -o-box-shadow: inset 0px 1px 2px 1px #bababa;
   box-shadow: inset 0px 1px 2px 1px #bababa;
 }
-/* line 39, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 39, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group {
   margin-bottom: 36px;
 }
-/* line 42, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 42, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group h3 {
   margin-bottom: 15px;
   padding: 3px 0;
   font-size: 14px;
   border-bottom: 1px solid #B2B2B2;
 }
-/* line 49, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 49, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group .option {
   margin: 0 0 12px 15px;
   *zoom: 1;
 }
-/* line 38, ../vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+/* line 38, /Users/zdennis/source/opensource_projects/compass-app/build/vendor/gems/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 .project_details .view .option_container .options .option_group .option:after {
   content: "";
   display: table;
   clear: both;
 }
-/* line 53, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 53, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group .option label {
   display: inline;
   float: left;
@@ -751,7 +751,7 @@ body .footer #new-project {
   margin-right: 5px;
   text-align: right;
 }
-/* line 61, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 61, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group .option .dir_find {
   margin-top: 2px;
   color: #0A0A0A;
@@ -761,7 +761,7 @@ body .footer #new-project {
   -webkit-border-bottom-right-radius: 0;
   -webkit-border-bottom-left-radius: 6px;
 }
-/* line 71, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 71, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group .option .setting {
   display: inline;
   float: left;
@@ -769,23 +769,23 @@ body .footer #new-project {
   margin-right: 5px;
   font-size: 13px;
 }
-/* line 81, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 81, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group.stylesheet_directories h3 {
   margin-bottom: 3px;
 }
-/* line 85, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 85, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group.stylesheet_directories .notice {
   margin-bottom: 15px;
   text-align: right;
   font-size: 11px;
   color: #777777;
 }
-/* line 93, ../../src/stylesheets/partials/views/modes/_configuration.scss */
+/* line 93, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_configuration.scss */
 .project_details .view .option_container .options .option_group.stylesheet_directories .option em {
   color: #777777;
 }
 
-/* line 4, ../../src/stylesheets/partials/views/modes/_log_output.scss */
+/* line 4, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_log_output.scss */
 .project_details .view .log_output {
   position: absolute;
   top: 29px;
@@ -801,21 +801,21 @@ body .footer #new-project {
   color: #F8F8F8;
   background-color: #141414;
 }
-/* line 23, ../../src/stylesheets/partials/views/modes/_log_output.scss */
+/* line 23, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_log_output.scss */
 .project_details .view .log_output span.red {
   color: red;
 }
-/* line 27, ../../src/stylesheets/partials/views/modes/_log_output.scss */
+/* line 27, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_log_output.scss */
 .project_details .view .log_output span.green {
   color: green;
 }
-/* line 31, ../../src/stylesheets/partials/views/modes/_log_output.scss */
+/* line 31, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/views/modes/_log_output.scss */
 .project_details .view .log_output span.yellow {
   color: orange;
 }
 
 /*events styles*/
-/* line 4, ../../src/stylesheets/partials/events/_drag_drop_add_files.scss */
+/* line 4, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_drag_drop_add_files.scss */
 #list .projects_container.hover .addhere {
   position: absolute;
   top: 0;
@@ -831,28 +831,28 @@ body .footer #new-project {
   opacity: 0.8;
 }
 
-/* line 10, ../../src/stylesheets/partials/events/_command_states.scss */
+/* line 10, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_command_states.scss */
 .project_list .view .projects .project.stopped .item .commands .command.start {
   display: block;
 }
-/* line 14, ../../src/stylesheets/partials/events/_command_states.scss */
+/* line 14, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_command_states.scss */
 .project_list .view .projects .project.stopped .item .commands .command.stop {
   display: none;
 }
-/* line 26, ../../src/stylesheets/partials/events/_command_states.scss */
+/* line 26, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_command_states.scss */
 .project_list .view .projects .project.started .item .commands .command.start {
   display: none;
 }
-/* line 30, ../../src/stylesheets/partials/events/_command_states.scss */
+/* line 30, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_command_states.scss */
 .project_list .view .projects .project.started .item .commands .command.stop {
   display: block;
 }
-/* line 40, ../../src/stylesheets/partials/events/_command_states.scss */
+/* line 40, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_command_states.scss */
 .project_list .view .projects .project.starting .item .commands .command.start, .project_list .view .projects .project.starting .item .commands .command.stop, .project_list .view .projects .project.stopping .item .commands .command.start, .project_list .view .projects .project.stopping .item .commands .command.stop {
   display: none;
 }
 
-/* line 4, ../../src/stylesheets/partials/events/_detail_modes.scss */
+/* line 4, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_detail_modes.scss */
 .project_details.configure .modes .mode.configure {
   color: #FFFFFF;
   text-shadow: #595959 0 1px 0;
@@ -873,15 +873,15 @@ body .footer #new-project {
   -o-box-shadow: inset 0px 1px 1px 1px #616161;
   box-shadow: inset 0px 1px 1px 1px #616161;
 }
-/* line 13, ../../src/stylesheets/partials/events/_detail_modes.scss */
+/* line 13, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_detail_modes.scss */
 .project_details.configure .options {
   display: block;
 }
-/* line 17, ../../src/stylesheets/partials/events/_detail_modes.scss */
+/* line 17, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_detail_modes.scss */
 .project_details.configure .log_output {
   display: none;
 }
-/* line 24, ../../src/stylesheets/partials/events/_detail_modes.scss */
+/* line 24, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_detail_modes.scss */
 .project_details.log .modes .mode.log {
   color: #fff;
   text-shadow: #595959 0 1px 0;
@@ -902,11 +902,11 @@ body .footer #new-project {
   -o-box-shadow: inset 0px 1px 1px 1px #616161;
   box-shadow: inset 0px 1px 1px 1px #616161;
 }
-/* line 33, ../../src/stylesheets/partials/events/_detail_modes.scss */
+/* line 33, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_detail_modes.scss */
 .project_details.log .options {
   display: none;
 }
-/* line 37, ../../src/stylesheets/partials/events/_detail_modes.scss */
+/* line 37, /Users/zdennis/source/opensource_projects/compass-app/src/stylesheets/partials/events/_detail_modes.scss */
 .project_details.log .log_output {
   display: block;
 }
