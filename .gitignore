@@ -2,9 +2,5 @@
 .bundle
 .sass-cache
 cert.pfx
-cache
-/vendor
-compassapp.dmg
 /tmp
-/scout
-build/
+/build
