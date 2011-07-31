@@ -4,6 +4,8 @@ dir=`dirname $0`
 . $dir/constants.sh
 
 if [ -f $JRUBY_INSTALLATION ] ; then
+  export GEM_HOME
+  export GEM_PATH
   java -jar $JRUBY_INSTALLATION $@
 else
   ./$dir/install_jruby
