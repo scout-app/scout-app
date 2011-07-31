@@ -1,30 +1,21 @@
 desc "Build Scout"
-task :build => ['environment', "air:runtime:check", "air:sdk:check", "build:jruby", "build:bundle", "build:bin", "build:staticmatic", "build:config"]
+task :build => ["environment", "air:runtime:check", "air:sdk:check", "build:jruby", "build:bundle", "build:bin", "build:staticmatic", "build:config"]
 
 namespace :build do
-  task :jruby do
+  task :jruby => 'environment' do
     FileUtils.mkdir_p(Scout.build_vendor_directory)
     unless File.exists?(Scout.jruby_complete_jar)
       puts "Downloading JRuby Complete #{Scout.jruby_version}..."
-      # TODO: Downlaod this file via Ruby
-      # open "http://jruby.org.s3.amazonaws.com/downloads/#{jruby_version}/jruby-complete-#{jruby_version}.jar"
+      Scout.install_jruby_with_bundler
     end
-    # GEM_HOME=$VENDOR/gems
-    # GEM_PATH=$VENDOR/gems
-    # ./$dir/jruby -S gem install -r bundler
-    # export GEM_HOME
-    # export GEM_PATH
-    # java -jar $JRUBY_INSTALLATION $@
   end
   
-  task :bundle do
-    # GEM_HOME=$VENDOR/gems
-    # GEM_PATH=$VENDOR/gems
-    # BUNDLER=$GEM_HOME/bin/bundle
-    # ./$dir/jruby $BUNDLER --without "build" $@ 
-    # export GEM_HOME
-    # export GEM_PATH
-    # java -jar $JRUBY_INSTALLATION $@
+  task :bundle => 'build:jruby' do
+    # Do not pass in --without bundle as that sets .bundle/config
+    with_env("BUNDLE_WITHOUT" => "build") do
+      jruby "gem install -r bundler" unless Scout.jruby_gem_exists?("bundler")
+      jruby "bundle"
+    end
   end
   
   task :bin do
@@ -32,17 +23,17 @@ namespace :build do
   end
 
   desc "Runs bin/staticmatic build on the current directory"
-  task :staticmatic do
+  task :staticmatic => 'environment' do
     system "staticmatic build #{Scout.root}"
   end
 
-  task :config do
+  task :config => 'environment' do
     FileUtils.cp_r(Scout.config_files, Scout.build_directory)
     # TODO: Gemfile?
   end
 
-  desc "Clears dev environment by removing build/vendor. See dev:redo" 
-  task :clean do
+  desc "Clears dev environment by removing the build/ directory"
+  task :clean => 'environment' do
     FileUtils.rm_rf(Scout.build_directory)
   end
   
