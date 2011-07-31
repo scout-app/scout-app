@@ -1,12 +1,9 @@
-require 'launchy'
-
-require 'term/ansicolor'
-include Term::ANSIColor
-
-require File.join File.dirname(__FILE__), '../homebrew'
+require 'homebrew'
 
 module Adobe
   module Air
+    extend Term::ANSIColor
+
     class Error < ::StandardError ; end
     class RuntimeNotFound < Error ; end
     class SdkNotFound < Error ; end
@@ -54,7 +51,7 @@ module Adobe
         raise RuntimeNotFound, <<-EOT.gsub(/ +\|/, '').chomp
           |Could not find Adobe AIR installation. To download/install run:
           |
-          |  rake air:download
+          |  rake air:runtime:download
           |
           |File not found: #{InfoPlistFilePath}
         EOT
@@ -123,7 +120,7 @@ module Adobe
           |  Minimum required: #{MinimumRuntimeVersion}
           |  Your version :    #{_version}
           |
-          |You can run "rake air:download" to get started installing a new version of AIR.
+          |You can run "rake air:runtime:download" to get started installing a new version of AIR.
         EOT
         puts red(error)
         return false

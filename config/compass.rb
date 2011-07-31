@@ -1,10 +1,3 @@
-# STATICMATIC's CONFIGURATION FILE
-# -- also see compass.rb
+require File.expand_path(File.join(File.dirname(__FILE__), 'environment'))
 
-
-require "staticmatic/compass"
-
-project_type = :staticmatic
-
-project_path = File.join File.dirname(__FILE__), "../"
-additional_import_paths = [File.join('src', 'stylesheets')]
+additional_import_paths = [Scout.src_stylesheets_directory]
