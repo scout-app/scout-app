@@ -109,7 +109,6 @@ var app = {
   },
 
   viewProjectLog: function() {
-    $('.pane.project_details').show();
     $('.pane.project_details').removeClass('configure');
     $('.pane.project_details').addClass('log');
   }
@@ -152,17 +151,15 @@ $(document).ready(function() {
 
   //TODO: make sure this goes to configure
   $('.project .item').live('click', function() {
-    key = $(this).parents('.project:first').attr('data-key');
-    $('.project_details').hide();
-    $('.project_details[data-key='+key+']').show();
-    $(this).parents('.project:first').trigger(':select');
+    var key = $(this).parents('.project:first').attr('data-key');
+    $('.project[data-key='+key+']').trigger(':select');
   });
   
   // clicking play should go to log screen
   
 
   $('#nuke').live('click', app.delegateTo('nukeAllProjects'));
-
+  
   function updateProjectLog(evnt, data) {
     var key = $(this).attr('data-key');
     $('.project_details[data-key='+key+'] .log_output').append(colorize(data.replace("\n", "<br />")));
@@ -171,6 +168,8 @@ $(document).ready(function() {
   function selectProject() {
     $('.project').removeClass('selected');
     $(this).addClass('selected');
+    $('.project_details').hide();
+    $('.project_details[data-key='+$(this).data('key')+']').show();
   }
 
   function selectProjectConfiguration(){
@@ -200,6 +199,8 @@ $(document).ready(function() {
       setProjectState(project_container, "starting");
       project_container.trigger("watch:start", { project: project });
     });
+    $('.project[data-key='+key+']').trigger(':select');
+    app.viewProjectLog();
     return false;
   }
 
