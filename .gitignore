@@ -7,6 +7,4 @@ cache
 compassapp.dmg
 /tmp
 /scout
-build/vendor/
-build/stylesheets/
-build/*.html
+build/
