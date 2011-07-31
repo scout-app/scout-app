@@ -49,7 +49,7 @@
 
         &.selected,
         &.selected:hover {
-          @include linear-gradient(color-stops(#5389DF, #2363BF));
+          @include background-image(linear-gradient(#5389DF, #2363BF));
           border-top: 1px solid #3F89FF;
 
           .item {
@@ -67,7 +67,7 @@
         &:hover {
           border-top: 1px solid #EEEEEE;
           background-color: #D4D4D4;
-          @include transition(background-color, .15s, ease-in, 0s);
+          @include single-transition(background-color, .15s, ease-in, 0s);
           cursor: pointer;
 
           .item {

@@ -5,7 +5,7 @@
 
   .view {
     border-top: 1px solid #FFFFFF;
-    @include linear-gradient(color-stops(#FAFAFA 80%, #E6E6E6));
+    @include background-image(linear-gradient(#FAFAFA 80%, #E6E6E6));
   }
 
   .footer {

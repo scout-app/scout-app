@@ -18,8 +18,8 @@
               background-color: #DDDDDD;
               border: 1px solid #757575;
               @include border-radius(18px);
-              @include linear-gradient(color-stops(#FAFAFA, #EAEAEA, #AAAAAA));
-              @include box-shadow(none);
+              @include background-image(linear-gradient(#FAFAFA, #EAEAEA, #AAAAAA));
+              @include single-box-shadow(none);
               cursor: pointer;
 
               span {
@@ -35,7 +35,7 @@
 
               &:active {
                 background-color: #A6A6A6;
-                @include box-shadow(#5F5F5F, 0px, 2px, 2px, 0px, inset);
+                @include single-box-shadow(#5F5F5F, 0px, 2px, 2px, 0px, inset);
               }
 
               &.start {
@@ -73,16 +73,16 @@
               .command {
                 background-color: #5F9DFF;
                 border: 1px solid #234D8F;
-                @include linear-gradient(color-stops(#5F9DFF, #4581DF, #205BAF));
-                @include box-shadow(none);
+                @include background-image(linear-gradient(#5F9DFF, #4581DF, #205BAF));
+                @include single-box-shadow(none);
                 
                 &:active {
-                  @include box-shadow(#1D375F, 0px, 2px, 2px, 0px, inset);
+                  @include single-box-shadow(#1D375F, 0px, 2px, 2px, 0px, inset);
                 }
 
                 &.disabled {
                   cursor: default;
-                  @include box-shadow(none);
+                  @include single-box-shadow(none);
                 }
               }
             }

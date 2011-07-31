@@ -23,8 +23,8 @@
         background-color: #FFFFFF;
         border: 1px solid #737373;
         @include border-radius(6px,6px);
-        @include linear-gradient(color-stops(#CFDFF0, #96BFEA 33%, #4A91E3 46%, #579BE7, #84B4E6, #C3FBFF));
-        @include box-shadow(#9C9C9C, 0px, 1px, 1px, 0px, false);
+        @include background-image(linear-gradient(#CFDFF0, #96BFEA 33%, #4A91E3 46%, #579BE7, #84B4E6, #C3FBFF));
+        @include single-box-shadow(#9C9C9C, 0px, 1px, 1px, 0px, false);
         text-align: center;
       }
 
@@ -34,7 +34,7 @@
         padding: 52px 25px 16px;
         background-color: #F8F8F8;
         @include border-radius(3px);
-        @include box-shadow(#BABABA, 0px, 1px, 2px, 1px, inset);
+        @include single-box-shadow(#BABABA, 0px, 1px, 2px, 1px, inset);
 
         .option_group {
           margin-bottom: 36px;
