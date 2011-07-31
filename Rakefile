@@ -53,6 +53,11 @@ namespace 'air' do
     task 'download' do
       Adobe::Air.go_to_sdk_download_page
     end
+    
+    desc 'Install the Adobe AIR SDK via Homebrew if available, otherwise launch the download page'
+    task 'install' do
+      Adobe::Air.install_sdk
+    end
   end
 
   namespace 'version' do

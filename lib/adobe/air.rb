@@ -3,6 +3,8 @@ require 'launchy'
 require 'term/ansicolor'
 include Term::ANSIColor
 
+require File.join File.dirname(__FILE__), '../homebrew'
+
 module Adobe
   module Air
     class Error < ::StandardError ; end
@@ -22,6 +24,8 @@ module Adobe
     SdkCommand = "adt"
     CheckForSdkCommand = "which #{SdkCommand}"
     
+    SdkHomebrewPackage = "adobe-air-sdk"
+    
     def self.go_to_download_page
       puts "Opening #{RuntimeDownloadUrl} in your browser"
       Launchy.open RuntimeDownloadUrl
@@ -32,6 +36,15 @@ module Adobe
       puts "Opening #{SdkDownloadUrl} in your browser"
       Launchy.open SdkDownloadUrl
       return true
+    end
+    
+    def self.install_sdk
+      if Homebrew.exists?
+        puts "Installing the Adobe AIR SDK via Homebrew"
+        Homebrew.install(SdkHomebrewPackage)
+      else
+        go_to_sdk_download_page
+      end
     end
     
     def self.version
@@ -66,7 +79,7 @@ module Adobe
         raise SdkNotFound, <<-EOT.gsub(/ +\|/, '').chomp
           |Cannot locate Adobe AIR SDK. Make sure it is installed and is in your PATH.
           |
-          |You can run "rake air:sdk:download" to get started installing a new version of AIR SDK.
+          |You can run "rake air:sdk:install" to get started installing a new version of AIR SDK.
         EOT
       end
       
@@ -81,7 +94,7 @@ module Adobe
           |  Minimum required: #{MinimumSdkVersion}
           |  Your version :    #{_sdk_version}
           |
-          |You can run "rake air:sdk:download" to get started installing a new version of AIR SDK.
+          |You can run "rake air:sdk:install" to get started installing a new version of AIR SDK.
         EOT
         puts red(error)
         return false
