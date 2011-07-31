@@ -1,11 +1,10 @@
 .DS_Store
+.bundle
 .sass-cache
-stylesheets/.DS_Store
 cert.pfx
 cache
 /vendor
 compassapp.dmg
-.rvmrc
 /tmp
 /scout
 build/vendor/
