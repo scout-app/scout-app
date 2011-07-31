@@ -110,7 +110,7 @@ module Adobe
           |  Minimum required: #{MinimumRuntimeVersion}
           |  Your version :    #{_version}
           |
-          |You can run "rake download:air" to get started installing a new version of AIR.
+          |You can run "rake air:download" to get started installing a new version of AIR.
         EOT
         puts red(error)
         return false
