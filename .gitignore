@@ -10,3 +10,4 @@ compassapp.dmg
 /scout
 build/vendor/
 build/stylesheets/
+build/*.html
