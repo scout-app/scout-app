@@ -118,8 +118,6 @@ var app = {
 
 // UI stuff
 $(document).ready(function() {
-
-
   $.tmpl($('#colorize_template'));
   $.tmpl($('#project_template'));
   $.tmpl($('#project_details_template'));
@@ -143,7 +141,7 @@ $(document).ready(function() {
   // start/stop project
   $('.project .start').live('click', startWatchingProject);
   $('.project .stop').live('click', stopWatchingProject);
-
+  
   $('.select_sass_dir').live('click', selectSassDirBySelectingDirectory);
   $('.select_css_dir').live('click', selectCssDirBySelectingDirectory);
   $('.select_javascripts_dir').live('click', selectJavascriptsDirBySelectingDirectory);
@@ -152,12 +150,16 @@ $(document).ready(function() {
   $('.select_output_style').live('change', selectOutputStyle);
   $('.project_details .delete').live('click', deleteProject);
 
+  //TODO: make sure this goes to configure
   $('.project .item').live('click', function() {
     key = $(this).parents('.project:first').attr('data-key');
     $('.project_details').hide();
     $('.project_details[data-key='+key+']').show();
     $(this).parents('.project:first').trigger(':select');
   });
+  
+  // clicking play should go to log screen
+  
 
   $('#nuke').live('click', app.delegateTo('nukeAllProjects'));
 

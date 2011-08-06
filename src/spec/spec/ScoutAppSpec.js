@@ -177,16 +177,22 @@ describe("Compass App", function(){
         });
 
         // start watching the project
-        var project = $(".project:contains('project-a')");
-        project.find(".source").click();
-        project.find(".start").click();
-        $(".project_details:visible .mode.log").click();
+        this.project = $(".project:contains('project-a')");
+        this.project.find(".source").click();
+        this.project.find(".start").click();
+      });
+      
+      it("displays the project's log screen by default", function(){
+        var key = this.project.attr('data-key');
+        expect($(".project_details[data-key=" + key + "] .mode.log:visible").length).toBe(1);        
       });
 
       describe("when I make changes to the input files", function() {
         beforeEach(function() {
-          var output = $(".project_details .log_output:visible");
           waitsFor(function(){
+            var output = $(".project_details:visible .log_output");
+            if(output.length === 0) return false;
+            
             if(output.html().length > 0) {
               setTimeout(function(){
                 Projects.find(function (project) {
@@ -208,17 +214,14 @@ describe("Compass App", function(){
 
         it("then I expect the output the show", function() {
           //assert that the log output has some text
-          var output = $(".project_details .log_output:visible");
+          var output = $(".project_details:visible .log_output");
           waitsFor(function(){
+            if(output.length === 0) return false;
             return output.html().match(/overwrite/);
           }, "Overwrite never found.", 10000);
         });
       });
     });
   });
-
-
-
-
 
 });
