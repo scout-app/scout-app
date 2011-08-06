@@ -4,7 +4,7 @@ source "http://rubygems.org"
 gem "compass", "= 0.11.5"
 gem "compass-960-plugin", "= 0.10.4", :require => "ninesixty"
 gem "yui-compass-plugin", :require => "yui"
-gem "rb-fsevent"
+# gem "rb-fsevent"
 
 group :build do
   gem "rake", "~> 0.9"
