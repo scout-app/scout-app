@@ -141,6 +141,56 @@ $(document).ready(function() {
   $('.project .start').live('click', startWatchingProject);
   $('.project .stop').live('click', stopWatchingProject);
   
+  $('.project .name').live('dblclick', editProjectName);
+  $('.project input').live('keyup', updateProjectNameByKeyUp);
+  $('.project input').live('blur', updateProjectNameByLosingFocus);
+  
+  function editProjectName(e){
+    $(this).data('old-name', $(this).text());
+    $(this).hide();
+    $(this).parents(":first").find("input:text").show().focus();
+  }
+  
+  function saveProjectName(project_key, name){
+    Projects.get(project_key, function(project) {
+      project.name = name;
+      Projects.save(project);
+    });    
+  }
+  
+  function updateProjectNameByKeyUp(e){
+    var name,
+      project_container = $(this).parents(".project:first"),
+      name_container = project_container.find("a.name"),
+      key = project_container.attr("data-key");
+    
+    if(e.keyCode==13){ // enter key, update project name
+      name = $(this).val();
+      saveProjectName(key, name);
+    } else if(e.keyCode==27){ // escape key, cancel
+      name = $(this).data("old-name");
+    } else {
+      // do nothing if it was another key code
+      return;
+    }
+
+    $(this).hide();
+    name_container.text(name)
+    name_container.show();
+  }
+  
+  function updateProjectNameByLosingFocus(e){
+    var name = $(this).val(),
+      project_container = $(this).parents(".project:first"),
+      name_container = project_container.find("a.name"),
+      key = project_container.attr("data-key");
+
+    saveProjectName(key, name);
+    $(this).hide();
+    name_container.text(name);
+    name_container.show();
+  }
+  
   $('.select_sass_dir').live('click', selectSassDirBySelectingDirectory);
   $('.select_css_dir').live('click', selectCssDirBySelectingDirectory);
   $('.select_javascripts_dir').live('click', selectJavascriptsDirBySelectingDirectory);
