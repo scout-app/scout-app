@@ -132,25 +132,29 @@ describe("Compass App", function(){
         javascriptsDir: javascripts_dir.nativePath,
         imagesDir: images_dir.nativePath
       });
-      air.trace(javascripts_dir.nativePath);
-      air.trace(images_dir.nativePath);
       app.listProjects();
+      this.project = $(".project:contains('project-a')");
+    });
+    
+    it("displays the project's log screen by default", function(){
+      var key = this.project.attr('data-key');
+      // start watching the project
+      this.project.find(".start").click();
+      expect($(".project_details[data-key=" + key + "] .mode.log").is(":visible")).toBe(true);
     });
 
     describe("logged output", function(){
       it("is empty before a project is watched", function(){
-        var project = $(".project:contains('project-a')");
         $(".project_details:visible .mode.log").click();
-        project.find(".source").click();
+        this.project.find(".source").click();
 
         var output = $(".project_details .log_output:visible");
         expect(output.html().length).toBe(0);
       });
 
       it("is updated with text that compass sends to STDOUT", function(){
-        var project = $(".project:contains('project-a')");
-        project.find(".source").click();
-        project.find(".start").click();
+        this.project.find(".source").click();
+        this.project.find(".start").click();
         $(".project_details:visible .mode.log").click();
 
         var output = $(".project_details .log_output:visible");
@@ -178,15 +182,9 @@ describe("Compass App", function(){
 
         // start watching the project
         this.project = $(".project:contains('project-a')");
-        this.project.find(".source").click();
         this.project.find(".start").click();
       });
       
-      it("displays the project's log screen by default", function(){
-        var key = this.project.attr('data-key');
-        expect($(".project_details[data-key=" + key + "] .mode.log:visible").length).toBe(1);        
-      });
-
       describe("when I make changes to the input files", function() {
         beforeEach(function() {
           waitsFor(function(){
