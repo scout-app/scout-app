@@ -1,1 +1,0 @@
-Bundler.require(:default, :build)
