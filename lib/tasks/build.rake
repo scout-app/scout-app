@@ -2,6 +2,14 @@ desc "Build Scout"
 task :build => ["environment", "air:runtime:check", "air:sdk:check", "build:jruby", "build:bundle", "build:bin", "build:staticmatic", "build:config"]
 
 namespace :build do
+  %w(development test production).each do |env|
+    desc "Build the application for the #{env} environment"
+    task "#{env}" do
+      ENV["SCOUT_ENV"] = env
+      Rake::Task["build"].invoke
+    end
+  end
+
   task :jruby => 'environment' do
     FileUtils.mkdir_p(Scout.build_vendor_directory)
     unless File.exists?(Scout.jruby_complete_jar)
@@ -14,7 +22,7 @@ namespace :build do
     # Do not pass in --without bundle as that sets .bundle/config
     with_env("BUNDLE_WITHOUT" => "build") do
       jruby "gem install -r bundler" unless Scout.jruby_gem_exists?("bundler")
-      jruby "bundle"
+      jruby "bundle install --gemfile src/config/Gemfile"
     end
   end
   
@@ -28,8 +36,8 @@ namespace :build do
   end
 
   task :config => 'environment' do
-    FileUtils.cp_r(Scout.config_files, Scout.build_directory)
-    # TODO: Gemfile?
+    FileUtils.cp_r Scout.runtime_config_directory, Scout.build_directory
+    FileUtils.cp File.join(Scout.config_directory, "#{ENV['SCOUT_ENV']}.xml"), Scout.build_directory
   end
 
   desc "Clears dev environment by removing the build/ directory"

@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler'
 
-require File.join(File.dirname(__FILE__), 'environments', ENV["SCOUT_ENV"] || "build")
+require File.join(File.dirname(__FILE__), 'environments', ENV["SCOUT_ENV"])
 
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
 
@@ -13,9 +13,13 @@ class Scout
   def self.config_directory
     File.join(root, "config")
   end
-  
+    
   def self.config_files
     Dir[File.join(config_directory, "*.xml")]
+  end
+  
+  def self.runtime_config_directory
+    File.join(root, "src/config")
   end
   
   def self.download(url, destination)
