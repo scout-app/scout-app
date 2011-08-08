@@ -164,10 +164,10 @@ $(document).ready(function() {
       name_container = project_container.find("a.name"),
       key = project_container.attr("data-key");
     
-    if(e.keyCode==13){ // enter key, update project name
+    if(e.which==13){ // enter key, update project name
       name = $(this).val();
       saveProjectName(key, name);
-    } else if(e.keyCode==27){ // escape key, cancel
+    } else if(e.which==27){ // escape key, cancel
       name = $(this).data("old-name");
     } else {
       // do nothing if it was another key code

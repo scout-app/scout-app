@@ -67,6 +67,87 @@ describe("Compass App", function(){
     });
   });
 
+  describe("editing a project in the project list", function(){
+    beforeEach(function(){
+      app.createProject({
+        name: "project-a",
+        projectDir: "/project-a/",
+        sassDir: "/project-a/sass",
+        cssDir: "/project-a/css",
+        javascriptsDir: "/project-a/js",
+        imagesDir: "/project-a/images"
+      });
+      app.listProjects();
+      this.project = $(".project:contains('project-a')");
+    });
+    
+    describe("double clicking a project's name", function(){
+      beforeEach(function(){
+        expect(this.project.find("a.name").is(":visible")).toBe(true);
+        expect(this.project.find("input").is(":visible")).toBe(false);        
+        this.project.find("a.name").dblclick();
+      });
+      
+      it("puts you in inline-edit mode for the project name", function(){
+        expect(this.project.find("a.name").is(":visible")).toBe(false);
+        expect(this.project.find("input").is(":visible")).toBe(true);
+      });
+    });
+    
+    describe("pressing the <esc> key while editing a project's name", function(){
+      beforeEach(function(){
+        this.project_name = this.project.find("a.name").text();
+        this.project.find("a.name").dblclick();
+        this.project.find("input").val("foobarbaz");
+
+        var e = jQuery.Event("keyup");
+        e.which = 27; // # escape key code value
+        this.project.find("input").trigger(e);
+      });
+
+      it("cancels editing the name", function(){        
+        expect(this.project.find("a.name").is(":visible")).toBe(true);
+        expect(this.project.find("input").is(":visible")).toBe(false);
+        expect(this.project.find("a.name").text()).toBe(this.project_name);
+      });
+    });
+    
+    describe("pressing the <enter> key while editing a project's name", function(){
+      beforeEach(function(){
+        this.project_name = "foobarbaz";
+        this.project.find("a.name").dblclick();
+        this.project.find("input").val(this.project_name);
+
+        var e = jQuery.Event("keyup");
+        e.which = 13; // # escape key code value
+        this.project.find("input").trigger(e);
+      });
+      
+      it("saves the project name", function(){
+        expect(this.project.find("a.name").is(":visible")).toBe(true);
+        expect(this.project.find("input").is(":visible")).toBe(false);
+        expect(this.project.find("a.name").text()).toBe(this.project_name);
+      });
+    });
+    
+    describe("moving focus to another part of the app while editing a project's name", function(){
+      beforeEach(function(){
+        this.project_name = "foobarbaz";
+        this.project.find("a.name").dblclick();
+        this.project.find("input").val(this.project_name);
+
+        var e = jQuery.Event("blur");
+        this.project.find("input").trigger(e);
+      });
+
+      it("saves the project name", function(){
+        expect(this.project.find("a.name").is(":visible")).toBe(true);
+        expect(this.project.find("input").is(":visible")).toBe(false);
+        expect(this.project.find("a.name").text()).toBe(this.project_name);
+      });
+    });
+  });
+
   describe("switching between projects", function(){
     beforeEach(function(){
       app.createProject({
