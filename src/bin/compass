@@ -1,0 +1,12 @@
+ENV["GEM_HOME"] = File.join File.dirname(__FILE__), "../vendor/gems"
+ENV["GEM_PATH"] = ENV["GEM_HOME"]
+ENV["BUNDLE_GEMFILE"] = File.join File.dirname(__FILE__), "../config/Gemfile"
+
+require "rubygems"
+require "bundler/setup"
+
+Bundler.require(:default)
+
+require 'compass/exec'
+
+Compass::Exec::SubCommandUI.new(ARGV).run!
