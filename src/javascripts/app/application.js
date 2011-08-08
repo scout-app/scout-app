@@ -199,15 +199,11 @@ $(document).ready(function() {
   $('.select_output_style').live('change', selectOutputStyle);
   $('.project_details .delete').live('click', deleteProject);
 
-  //TODO: make sure this goes to configure
   $('.project .item').live('click', function() {
     var key = $(this).parents('.project:first').attr('data-key');
     $('.project[data-key='+key+']').trigger(':select');
   });
   
-  // clicking play should go to log screen
-  
-
   $('#nuke').live('click', app.delegateTo('nukeAllProjects'));
   
   function updateProjectLog(evnt, data) {
