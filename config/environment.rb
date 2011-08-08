@@ -1,6 +1,8 @@
 require 'rubygems'
 require 'bundler'
 
+require File.join(File.dirname(__FILE__), "version")
+
 env_specific_file = File.join(File.dirname(__FILE__), "environments", "#{ENV["SCOUT_ENV"]}.rb")
 require env_specific_file if File.exists?(env_specific_file)
 

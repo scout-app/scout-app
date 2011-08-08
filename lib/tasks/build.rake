@@ -37,7 +37,13 @@ namespace :build do
 
   task :config => 'environment' do
     FileUtils.cp_r Scout.runtime_config_directory, Scout.build_directory
-    FileUtils.cp File.join(Scout.config_directory, "#{ENV['SCOUT_ENV']}.xml"), Scout.build_directory
+    
+    input_config = File.join(Scout.config_directory, "#{ENV['SCOUT_ENV']}.xml")
+    output_config = File.join(Scout.build_directory, "#{ENV['SCOUT_ENV']}.xml")
+    File.open output_config, "w" do |f|
+      str = Regexp.escape("${SCOUT_VERSION}")
+      f.puts IO.read(input_config).gsub(/#{str}/m, SCOUT_VERSION)
+    end
   end
 
   desc "Clears dev environment by removing the build/ directory"
