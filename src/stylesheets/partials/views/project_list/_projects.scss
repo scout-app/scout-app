@@ -39,6 +39,11 @@ $item-font-size: 14px;
               a {
                 color: #222222;
                 font-size: $item-font-size;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: block;
+                white-space: nowrap;
+                width: 200px;
 
                 &:hover {
                   text-decoration: none;
