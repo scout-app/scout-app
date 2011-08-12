@@ -68,6 +68,30 @@
                 %button.dir_find.select_images_dir
                   %span Choose
                 %input#images.setting.images_dir{:value => "${imagesDir}"}/
+                
+            .option_group
+              %h3 Output Modes
+              .option.environment
+                %label{:for => "environment"}
+                  Environment:
+                %select#environment.select_environment{:name => "environment" }
+                  %option{'data-environment' => "development", 'selected' => "selected"}
+                    Development
+                  %option{'data-environment' => "production"}
+                    Production
+
+              .option.output_style
+                %label{:for => "output_style"}
+                  Output Style:
+                %select#output_style.select_output_style{:name => "output_style" }
+                  %option{'data-output_style' => "nested"}
+                    Nested
+                  %option{'data-output_style' => "expanded"}
+                    Expanded
+                  %option{'data-output_style' => "compact"}
+                    Compact
+                  %option{'data-output_style' => "compressed"}
+                    Compressed
 
             .option_group
               %h3 Manage Project

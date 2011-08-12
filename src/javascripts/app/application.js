@@ -103,14 +103,16 @@ var app = {
   },
 
   viewProjectConfiguration: function() {
-    $('.pane.project_details').show();
-    $('.pane.project_details').addClass('configure');
-    $('.pane.project_details').removeClass('log');
+    var key = $(".project.selected").data("key");
+    $('.pane.project_details[data-key=' + key + ']').show();
+    $('.pane.project_details[data-key=' + key + ']').addClass('configure');
+    $('.pane.project_details[data-key=' + key + ']').removeClass('log');
   },
 
   viewProjectLog: function() {
-    $('.pane.project_details').removeClass('configure');
-    $('.pane.project_details').addClass('log');
+    var key = $(".project.selected").data("key");
+    $('.pane.project_details[data-key=' + key + ']').removeClass('configure');
+    $('.pane.project_details[data-key=' + key + ']').addClass('log');
   }
 
 };
