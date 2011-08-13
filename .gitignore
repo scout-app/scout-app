@@ -1,6 +1,6 @@
 .DS_Store
 .bundle
 .sass-cache
-cert.pfx
 /tmp
 /build
+*.pfx
