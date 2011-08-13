@@ -175,11 +175,11 @@ describe("Compass App", function(){
         $(".project_details:visible .mode.log").click();
       });
 
-      it("keeps the log selected when switching to project b", function() {
+      it("switches to the configuration screen when switching to project b", function() {
         var project = $(".project:contains('project-b')");
         project.find(".source").click();
-        var visible_project_details = $(".project_details.log[data-key=" + project.attr('data-key') + "]:visible");
-        expect(visible_project_details.length).toBe(1);
+        var selected_project_details = $(".project_details.configure.selected[data-key=" + project.attr('data-key') + "]");
+        expect(selected_project_details.length).toBe(1);
       });
     });
 
@@ -226,10 +226,10 @@ describe("Compass App", function(){
 
     describe("logged output", function(){
       it("is empty before a project is watched", function(){
-        $(".project_details:visible .mode.log").click();
+        $(".project_details.selected:visible .mode.log").click();
         this.project.find(".source").click();
 
-        var output = $(".project_details .log_output:visible");
+        var output = $(".project_details.selected:visible .log_output");
         expect(output.html().length).toBe(0);
       });
 

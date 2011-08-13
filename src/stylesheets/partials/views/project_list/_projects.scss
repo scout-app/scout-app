@@ -1,6 +1,9 @@
 $item-font-size: 14px;
 
 .project_list {
+  max-width: 400px;
+  min-width: 60px;
+
   .view {
 
     .projects {
@@ -26,7 +29,8 @@ $item-font-size: 14px;
 
           .source {
             @include float-left;
-            width: 60%;
+            overflow: hidden;
+            width: 70%;
 
             h2 {
               margin: 0;
@@ -43,7 +47,6 @@ $item-font-size: 14px;
                 overflow: hidden;
                 display: block;
                 white-space: nowrap;
-                width: 200px;
 
                 &:hover {
                   text-decoration: none;

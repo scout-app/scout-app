@@ -11,6 +11,50 @@ var app = {
 
   initialize: function() {
     app.listProjects();
+    app.resizeApp();
+        
+    var project_list = $(".pane.project_list");
+    project_list.resizable({
+      handles: {e: $('.pane.project_list .footer .splitter') },
+      minWidth: parseInt($(".project").css("min-width")),
+      maxWidth: parseInt($(".project").css("max-width"))
+    });
+
+    project_list.bind("resize", app.resizeApp);
+    $(window).resize(function(){
+      project_list.trigger('resize');
+    });
+  },
+  
+  resizeApp: function(e, ui){
+    var project_list = $(".pane.project_list"),
+      list_height = $(window).height() - project_list.position().top;
+      list_min_width = parseInt(project_list.css("min-width")),
+      list_max_width = parseInt(project_list.css("max-width")),
+      list_width = project_list.outerWidth(),
+      wnd_width = $(window).width();
+      
+    if(list_width > list_max_width){
+      list_width = list_max_width;
+    } else if(list_width < list_min_width){
+      list_width = list_min_width;
+    }
+
+    project_list.height(list_height);
+    project_list.width(list_width);
+  
+    $("#main").css({
+      width: wnd_width - list_width,
+      left: list_width 
+    });
+  
+    var project_item_width = $(".project .item").width(),
+      project_commands_width = $(".project .commands").outerWidth(),
+      project_source_width = project_item_width - project_commands_width;
+
+    if(project_source_width < 0) project_source_width = 0;
+    $(".project .source").width(project_source_width);
+    return false;
   },
 
   createProjectBySelectingDirectory: function() {
@@ -76,7 +120,7 @@ var app = {
           $.tmpl($("#project_template"), project).appendTo(".projects");
           // add project details pane
           if($('.project_details[data-key='+project.key+']').length == 0){
-            $.tmpl($("#project_details_template"), project).appendTo("body");
+            $.tmpl($("#project_details_template"), project).appendTo("#main");
 
             $('.project_details[data-key='+project.key+']').find("option[data-environment=" + project.environment + "]").attr("selected", "selected");
             $('.project_details[data-key='+project.key+']').find("option[data-output_style=" + project.outputStyle + "]").attr("selected", "selected");
@@ -216,8 +260,9 @@ $(document).ready(function() {
   function selectProject() {
     $('.project').removeClass('selected');
     $(this).addClass('selected');
-    $('.project_details').hide();
-    $('.project_details[data-key='+$(this).data('key')+']').show();
+
+    $('.project_details').removeClass('selected');
+    $('.project_details[data-key='+$(this).data('key')+']').addClass('selected');
   }
 
   function selectProjectConfiguration(){

@@ -1,4 +1,14 @@
 body {
+  overflow: hidden;
+  
+  #main {
+    position: absolute;
+    top: 70px;
+    bottom: 0;
+    right: 0;
+    left: 40%;
+  }
+
   .project_list {
     position: absolute;
     top: 70px;
@@ -17,13 +27,7 @@ body {
     }
   }
 
-  .project_details {
-    position: absolute;
-    top: 70px;
-    bottom: 0;
-    right: 0;
-    left: 40%;
-
+  .project_details {    
     .view {
       position: absolute;
       top: 0;
