@@ -41,6 +41,8 @@ $item-font-size: 14px;
               background-position: left center;
 
               a {
+                min-width: 30px;
+                min-height: 39px;
                 color: #222222;
                 font-size: $item-font-size;
                 text-overflow: ellipsis;
