@@ -11,6 +11,11 @@ Bundler.require(:default)
 $: << File.join(File.dirname(__FILE__), '..', 'lib')
 
 class Scout
+  def self.version
+    require File.join File.dirname(__FILE__), 'version'
+    SCOUT_VERSION
+  end
+  
   def self.root
     File.expand_path(File.join(File.dirname(__FILE__), ".."))
   end
