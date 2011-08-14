@@ -257,7 +257,13 @@ $(document).ready(function() {
   
   function updateProjectLog(evnt, data) {
     var key = $(this).attr('data-key');
-    $('.project_details[data-key='+key+'] .log_output').append(colorize(data.replace("\n", "<br />")));
+    
+    // Temporary filter to strip out FSSM recommendations to install an optimized
+    // version of fsevents. It is OSX compatible but not JRuby compatible. At this point
+    // it's just noise.
+    data = data.replace(/^FSSM\s.*\n/mg, '');
+    
+    $('.project_details.selected .log_output').append(colorize(data.replace("\n", "<br />")));
   }
 
   function selectProject() {
