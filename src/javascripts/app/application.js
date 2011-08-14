@@ -147,16 +147,13 @@ var app = {
   },
 
   viewProjectConfiguration: function() {
-    var key = $(".project.selected").data("key");
-    $('.pane.project_details[data-key=' + key + ']').show();
-    $('.pane.project_details[data-key=' + key + ']').addClass('configure');
-    $('.pane.project_details[data-key=' + key + ']').removeClass('log');
+    $("body").removeClass("log").addClass("configuration");
+    $(".project_details.selected").removeClass("log").addClass("configure").show();
   },
 
   viewProjectLog: function() {
-    var key = $(".project.selected").data("key");
-    $('.pane.project_details[data-key=' + key + ']').removeClass('configure');
-    $('.pane.project_details[data-key=' + key + ']').addClass('log');
+    $("body").removeClass("configuration").addClass("log");
+    $(".project_details.selected").removeClass("configure").addClass("log").show();
   }
 
 };
@@ -190,6 +187,12 @@ $(document).ready(function() {
   $('.project .name').live('dblclick', editProjectName);
   $('.project input').live('keyup', updateProjectNameByKeyUp);
   $('.project input').live('blur', updateProjectNameByLosingFocus);
+  
+  $('.footer .clear_log.command').live('click', clearCurrentProjectLog);
+  
+  function clearCurrentProjectLog(e){
+    $(".project_details.selected .log_output").html("");
+  }
   
   function editProjectName(e){
     $(this).data('old-name', $(this).text());

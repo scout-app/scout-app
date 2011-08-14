@@ -1,0 +1,27 @@
+body.log .footer .command.clear_log {
+  display: block;
+}  
+
+body {
+  .footer {
+    .command.clear_log {
+      display: none;
+      
+      @include background(image-url("/images/clear.png") no-repeat 3px 2px);
+      width: 20px;
+      height: 100%;
+      border-right: 1px solid $border_color;
+
+      &:hover {
+        text-decoration: none;
+        background-color: scale-lightness($border_color, 35);
+      }
+
+      &:active {
+        text-decoration: none;
+        background-color: scale-lightness($border_color, 10);
+      }
+    }  
+  }
+}
+

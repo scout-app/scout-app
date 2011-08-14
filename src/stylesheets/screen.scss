@@ -15,6 +15,7 @@
 
 /*shell styles*/
 @import "partials/shells/shell";
+@import "partials/shells/footer";
 
 /*views styles*/
 @import "partials/views/project_details";
@@ -24,7 +25,6 @@
 /*mode styles*/
 @import "partials/views/modes/configuration";
 @import "partials/views/modes/log_output";
-
 
 /*events styles*/
 @import "partials/events/drag_drop_add_files";

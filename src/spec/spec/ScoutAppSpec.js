@@ -243,6 +243,16 @@ describe("Compass App", function(){
           return output.html().length > 0; // should no longer be empty
         }, "Did not find expected log output", 5000);
       });
+      
+      it("can be cleared", function(){
+        this.project.find(".source").click();
+        $(".project_details.selected .mode.log").click();
+        var output = $(".project_details.selected .log_output");
+        output.html("foo");
+        expect(output.html().length).toBeGreaterThan(0);
+        $(".footer .clear_log.command").click();
+        expect(output.html().length).toBe(0);
+      });
     });
 
     context("given I have a valid project with scss files", function(){

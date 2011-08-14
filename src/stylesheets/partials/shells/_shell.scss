@@ -1,3 +1,6 @@
+$footer_height: 18px;
+$border_color: #939393;
+
 body {
   overflow: hidden;
   
@@ -16,7 +19,7 @@ body {
     bottom: 0;
     right: 60%;
     left: 0;
-    border-right: 1px solid #939393;
+    border-right: 1px solid $border_color;
 
     .view {
       position: absolute;
@@ -45,6 +48,7 @@ body {
     right: 0;
     left: 0;
     border-top: 1px solid #939393;
+    height: $footer_height;
     @include pie-clearfix;
     @include background-image(linear-gradient(#f7f7f7 0, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%));
 
@@ -60,7 +64,7 @@ body {
 
       span {
         display: block;
-        height: 18px;
+        height: $footer_height;
       }
 
       &:hover {
