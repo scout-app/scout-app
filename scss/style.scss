@@ -1,0 +1,19 @@
+/* Colors */
+$background: #f5f5f5;
+$text: #333;
+$text-inverse: #ccc;
+$link: #a00;
+$border: #ddd;
+$button: #59b200;
+$white: #fff;
+$black: #000;
+
+@import "compass";
+@import "compass/css3";
+@import "compass/utilities";
+
+@import "boilerplate";
+@import "elements";
+@import "structure";
+@import "components";
+@import "queries";

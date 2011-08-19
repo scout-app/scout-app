@@ -1,0 +1,141 @@
+/* ==|== media queries ======================================================
+   PLACEHOLDER Media Queries for Responsive Design.
+   These override the primary ('mobile first') styles
+   Modify as content requires.
+   ========================================================================== */
+
+/* Style adjustments for viewports 480px and over go here */
+@media only screen and (max-width: 580px) {
+
+	.visuals {
+		ul {
+			list-style: none;
+			margin: 0 0 1em;
+			padding: 0;
+			@include pie-clearfix;
+			li {
+				float: left;
+				margin: 0 4% 0 0;
+				&:last-child { margin-right: 0; }
+				width: 48%;
+			}
+			a {
+				background: $white;
+				@include box-shadow($white 0 1px);
+				display: block;
+				border: 1px solid $border;
+				padding: 0.5em;
+			}
+			img {
+				border: 1px solid $border;
+				height: auto;
+				max-width: 100%;
+			}
+		}
+	}
+
+}
+
+/* Style adjustments for viewports 480px and over go here */
+@media only screen and (min-width: 581px) {
+
+	h2 { font-size: 1.2em; }
+
+	.container {
+		max-width: 768px;
+		padding: 20px 30px;
+	}
+
+	.intro {
+		@include pie-clearfix;
+		img {
+			display: block;
+			float: left;
+			margin: 0 40px 80px 0;
+			width: 200px;
+		}
+		h3 {
+			font-size: 1.5em;
+			margin-top: 0;
+		}
+		p { font-size: 1.1em; }
+	}
+
+	.download {
+		float: left;
+		margin-right: 40px;
+		width: 300px;
+	}
+
+	.visuals {
+		clear: left;
+		float: left;
+		margin-right: 40px;
+		width: 300px;
+	}
+
+}
+
+
+/* Style adjustments for viewports 768px and over go here */
+@media only screen and (min-width: 768px) {
+
+	body {}
+
+	h2 { font-size: 1.5em; }
+
+	.container {
+		margin: 0 auto;
+		padding: 20px 40px;
+		max-width: 960px;
+	}
+
+	.intro {
+		@include pie-clearfix;
+		img {
+			float: left;
+			margin: 0 40px 40px 0;
+			width: 300px;
+		}
+		h3 {
+			font-size: 1.5em;
+			margin-top: 0;
+		}
+		p { font-size: 1.1em; }
+	}
+
+}
+
+
+/* Style adjustments for viewports 1024px and over go here */
+@media only screen and (min-width: 1024px) {
+
+	.webelo { height: 200px; }
+
+	.intro {
+		h3 { font-size: 2em; }
+		p { font-size: 1.3em; }
+	}
+
+}
+
+
+/* ==|== print styles =======================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important; -ms-filter: none !important; } /* Black prints faster: h5bp.com/s */
+  a, a:visited { text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  /* Don't show links for images, or javascript/internal links */
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; } /* h5bp.com/t */
+  tr, img { page-break-inside: avoid; }
+  img { max-width: 100% !important; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3 { page-break-after: avoid; }
+}

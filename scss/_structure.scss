@@ -1,0 +1,156 @@
+.container {
+	margin: 0;
+	padding: 20px;
+	width: auto;
+}
+
+[role=banner] {
+	background-color: $text;
+	@include background-image(image-url("/img/grain-light.png"),linear-gradient(transparentize($black,0.25), transparentize($black,1) 100px));
+	position: relative;
+	h1 {
+		margin: 0 0 0.25em;
+		position: relative;
+		width: 150px;
+		img {
+			height: auto;
+			width: 100%;
+		}
+		span {
+			left: -9999px;
+			position: absolute;
+		}
+	}
+	h2 {
+		color: $text-inverse;
+		margin: 0;
+		text-shadow: 0 1px 2px $black;
+	}
+}
+	.webelo {
+		float: right;
+		height: 140px;
+		margin-bottom: 1em;
+		width: auto;
+	}
+
+.intro {
+	background-color: $link;
+	@include background-image(image-url("/img/grain.png"),linear-gradient(transparentize($black,0.75), transparentize($black,1) 35%, transparentize($black,1) 50%, transparentize($black,0.65)));
+	border-top: 1px solid #c00;
+	padding-top: 10px;
+	img {
+		@include box-shadow(transparentize($black,0.5) 0 4px 10px, transparentize($black,0.5) 0 2px 5px);
+		display: none;
+		height: auto;
+		max-width: 100%;
+	}
+	h3 { 
+		color: $white;
+		font-size: 1.2em;
+		text-shadow: 0 1px 0 transparentize($black,0.5), 0 1px 2px transparentize($black,0.5);
+		a {
+			border-bottom: 1px dotted transparentize($white,0.5);
+			color: $white;
+			text-decoration: none;
+			&:hover {
+				border-bottom: 1px dotted $white;
+			}
+		}
+	}
+	p {
+		color: $text-inverse;
+		font-size: 1em;
+		text-shadow: 0 1px 2px transparentize($black,0.5);
+	}
+}
+
+[role=main] {
+	border-top: 1px solid $white;
+	@include background(linear-gradient($white, transparentize($white,1) 100px));
+}
+	.download {
+		p {
+			background: $background;
+			@include background-image(linear-gradient(transparentize($white,1) 60%, transparentize($white,0.5) 100%));
+			@include box-shadow($text-inverse 0 2px 5px inset, $white 0 1px);
+			border: 1px solid $border;
+			padding: 1em;
+			text-align: center;
+		}
+		a {
+			display: block;
+			&.primary { margin-bottom: 0.5em; }
+			&.secondary {
+				color: $border - #333;
+				font-size: 0.8em;
+				font-style: italic;
+			}
+		}
+		.version {
+			color: $text-inverse;
+			display: block;
+			font-size: 0.8em;
+			font-style: italic;
+		}
+	}
+	
+	.visuals {
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			@include pie-clearfix;
+			li {
+				margin: 0 0 1em;
+			}
+			a {
+				background: $white;
+				@include box-shadow($white 0 1px);
+				display: block;
+				border: 1px solid $border;
+				padding: 0.5em;
+			}
+			img {
+				border: 1px solid $border;
+				height: auto;
+				max-width: 100%;
+			}
+		}
+	}
+
+[role=complementary] {
+	.container { padding-top: 0; }
+}
+
+[role=contentinfo] {
+	@extend [role=banner];
+	border-top: 1px solid $border;
+	clear: both;
+	font-size: 0.7em;
+	padding-bottom: 2em;
+	@include pie-clearfix;
+	p {
+		color: $text-inverse - #333;
+	}
+	a {
+		color: $text-inverse - #111;
+		&:hover { color: $text-inverse + #111; }
+		
+	}
+	.hashtag {
+		border-bottom: 1px solid $text;
+		font-size: 1.2em;
+		margin-bottom: 0.25em;
+		padding-bottom: 0.5em;
+	}
+	.attribution {
+		float: left;
+		width: 45%;
+	}
+	.copyright {
+		float: right;
+		text-align: right;
+		width: 45%;
+	}
+}
