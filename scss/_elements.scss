@@ -1,0 +1,40 @@
+body {
+	background: $background url(/img/grain-light.png);
+	color: $text;
+	font-size: 100%; /* 16px */
+}
+
+h2 { font-size: 1em; }
+
+h3, h4, h5 {
+	text-shadow: 0 1px 0 $white, 0 1px 1px transparentize($black,0.5);
+}
+
+h3 {
+	color: $text;
+}
+
+h4 {
+	color: $text + #333;
+	text-transform: uppercase;
+}
+
+h5 {
+	color: $text + #666;
+	font-weight: 400;
+	letter-spacing: 0.05em;
+	margin-bottom: 0;
+	text-transform: uppercase;
+}
+
+p {
+	line-height: 1.4;
+}
+
+a {
+	color: $link;
+	&:link { color: $link; }
+	&:visited { color: $link; }
+	&:hover { color: $link + #222; }
+	&:active { color: $link + #444; }
+}
