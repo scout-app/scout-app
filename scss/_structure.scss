@@ -6,7 +6,7 @@
 
 [role=banner] {
 	background-color: $text;
-	@include background-image(image-url("/img/grain-light.png"),linear-gradient(transparentize($black,0.25), transparentize($black,1) 100px));
+	@include background-image(image-url("grain-light.png"),linear-gradient(transparentize($black,0.25), transparentize($black,1) 100px));
 	position: relative;
 	h1 {
 		margin: 0 0 0.25em;
@@ -36,7 +36,7 @@
 
 .intro {
 	background-color: $link;
-	@include background-image(image-url("/img/grain.png"),linear-gradient(transparentize($black,0.75), transparentize($black,1) 35%, transparentize($black,1) 50%, transparentize($black,0.65)));
+	@include background-image(image-url("grain.png"),linear-gradient(transparentize($black,0.75), transparentize($black,1) 35%, transparentize($black,1) 50%, transparentize($black,0.65)));
 	border-top: 1px solid #c00;
 	padding-top: 10px;
 	img {
