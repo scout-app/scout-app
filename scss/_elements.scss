@@ -1,5 +1,6 @@
 body {
-	background: $background url(/img/grain-light.png);
+	background-color: $background;
+	@include background-image(image-url("grain-light.png"));
 	color: $text;
 	font-size: 100%; /* 16px */
 }
