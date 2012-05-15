@@ -6,7 +6,7 @@ body {
 .header {
   height: 60px;
   padding: 15px 0 0 15px;
-  @include linear-gradient(color-stops(#4f4f4f, #2F2F2F));
+  @include background-image(linear-gradient(color-stops(#4f4f4f, #2F2F2F)));
 }
 
 #list {
@@ -201,7 +201,7 @@ body {
   right: 0;
   border-top: 1px solid #cacaca;
   @include pie-clearfix;
-  @include linear-gradient(color-stops(#f7f7f7 0, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%));
+  @include background-image(color-stops(#f7f7f7 0, #f3f3f3 50%, #e6e6e6 50%, #e6e6e6 100%));
 
   .option {
     @include float-left;
