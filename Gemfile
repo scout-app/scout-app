@@ -7,6 +7,6 @@ gem "yui-compass-plugin", :require => "yui"
 #gem "rb-fsevent"
 
 gem "rake", "~> 0.9"
-gem "staticmatic2", "~> 2.0"
+gem "staticmatic2", "~> 2.1"
 gem "launchy", "~> 2.0"
 gem "term-ansicolor", "~> 1.0", :require => "term/ansicolor"
