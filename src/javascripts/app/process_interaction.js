@@ -27,7 +27,12 @@ $(function(){
       "--output-style", data.project.outputStyle,
       "--trace"
     );
-    // air.trace(processArgs);
+    
+    if(data.project.configFile){
+      processArgs.push("--config", data.project.configFile);
+    }
+    
+    //air.trace(processArgs);
     nativeProcessStartupInfo.arguments = processArgs;
 
     process = new air.NativeProcess();

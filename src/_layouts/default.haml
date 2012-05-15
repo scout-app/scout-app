@@ -69,6 +69,12 @@
                 %button.dir_find.select_images_dir
                   %span Choose
                 %input#images.setting.images_dir{:value => "${imagesDir}"}/
+              .option.config_file
+                %label{:for => "images"} Config File:
+                %button.dir_find.select_config_file
+                  %span Choose
+                %input#images.setting.config_file{:value => "${configFile}"}/
+
                 
             .option_group
               %h3 Output Modes

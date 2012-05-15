@@ -91,7 +91,8 @@ var app = {
       javascriptsDir:"",
       imagesDir:"",
       environment:"development",
-      outputStyle: "expanded"
+      outputStyle: "expanded",
+      configFile: null
     };
 
     options = $.extend(defaults, options);
@@ -244,6 +245,7 @@ $(document).ready(function() {
   $('.select_css_dir').live('click', selectCssDirBySelectingDirectory);
   $('.select_javascripts_dir').live('click', selectJavascriptsDirBySelectingDirectory);
   $('.select_images_dir').live('click', selectImagesDirBySelectingDirectory);
+  $('.select_config_file').live('click', selectConfigFileBySelectingFile);
   $('.select_environment').live('change', selectEnvironment);
   $('.select_output_style').live('change', selectOutputStyle);
   $('.project_details .delete').live('click', deleteProject);
@@ -398,6 +400,18 @@ function selectImagesDirBySelectingDirectory() {
   return false;
 }
 
+function selectConfigFileBySelectingFile() {
+  key = $(this).parents('.project_details:first').attr('data-key');
+  Projects.get(key, function(project) {
+    browseFiles(project.projectDir, function(evnt){
+      project.configFile = evnt.target.nativePath;
+      Projects.save(project);
+      $('.project_details[data-key='+key+'] .config_file').val(evnt.target.nativePath);
+    });
+  });
+  return false;  
+}
+
 function selectEnvironment() {
   var project_details = $(this).parents('.project_details:first');
   var key = project_details.attr('data-key');
@@ -427,6 +441,19 @@ function browseDirectories(initialPath, callback) {
   try
   {
     directory.browseForDirectory("Select Directory");
+    directory.addEventListener(air.Event.SELECT, callback);
+  }
+  catch (error)
+  {
+    air.trace("Failed:", error.message)
+  }
+}
+
+function browseFiles(initialPath, callback) {
+  var directory = new air.File(initialPath);
+  try
+  {
+    directory.browseForOpen("Select File");
     directory.addEventListener(air.Event.SELECT, callback);
   }
   catch (error)
