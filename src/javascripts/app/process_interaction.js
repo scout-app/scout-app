@@ -20,6 +20,7 @@ $(function(){
       data.project.projectDir,
       "--require", "ninesixty",
       "--require", "yui",
+      "--require", "compass-h5bp",
       "--sass-dir", data.project.sassDir,
       "--css-dir", data.project.cssDir,
       "--images-dir", data.project.imagesDir,
