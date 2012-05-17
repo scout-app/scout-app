@@ -22,7 +22,12 @@ namespace :build do
     # Do not pass in --without bundle as that sets .bundle/config
     with_env("BUNDLE_WITHOUT" => "build") do
       jruby "gem install -r bundler" unless Scout.jruby_gem_exists?("bundler")
-      jruby "bundle install --gemfile src/config/Gemfile"
+      bundler_path = if RUBY_PLATFORM =~ /i386|mingw/
+        "build/gems/bin/bundle"
+      else
+        "bundle"
+      end
+      jruby "#{bundler_path} install --gemfile src/config/Gemfile"
     end
   end
   

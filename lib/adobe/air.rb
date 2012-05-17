@@ -46,7 +46,6 @@ module Adobe
 
       paths = []
 
-puts "RUBY PLAT: #{RUBY_PLATFORM}"
       if RUBY_PLATFORM =~ /mingw32/
         paths = [
           "C:\\Program Files\\Common Files\\Adobe AIR\\Versions\\1.0\\Adobe AIR.dll",
