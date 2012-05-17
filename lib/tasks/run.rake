@@ -9,7 +9,9 @@
       "RUBYOPT" => nil,
       "SCOUT_ENV" => env
     ) do
-      exec "cd build ; adl #{env}.xml"
+      Dir.chdir "build" do
+        exec "adl #{env}.xml"
+      end
     end
   end
 end

@@ -9,16 +9,13 @@ module Adobe
     class SdkNotFound < Error ; end
     class MissingVersion < Error ; end
 
-    # http://kb2.adobe.com/cps/407/kb407625.html
-    InfoPlistFilePath = "/Library/Frameworks/Adobe AIR.framework/Versions/1.0/Resources/Info.plist"
-    
     RuntimeDownloadUrl = "http://get.adobe.com/air/"
     SdkDownloadUrl = "http://www.adobe.com/products/air/sdk/"
 
     MinimumRuntimeVersion = "2.7"
     MinimumSdkVersion = "2.5"
     
-    SdkCommand = "adt"
+    SdkCommand = RUBY_PLATFORM =~ /ming/ ? "adt.bat" : "adt"
     CheckForSdkCommand = "which #{SdkCommand}"
     
     SdkHomebrewPackage = "adobe-air-sdk"
@@ -45,34 +42,65 @@ module Adobe
     end
     
     def self.version
-      begin
-        body = IO.read InfoPlistFilePath
-      rescue
-        raise RuntimeNotFound, <<-EOT.gsub(/ +\|/, '').chomp
-          |Could not find Adobe AIR installation. To download/install run:
-          |
-          |  rake air:runtime:download
-          |
-          |File not found: #{InfoPlistFilePath}
-        EOT
-      end
+      # http://kb2.adobe.com/cps/407/kb407625.html      
 
-      _version = body.scan(/<key>CFBundleVersion<\/key>\s*<string>(.*?)<\/string>/m).flatten.first
-      if _version.nil? || _version.length == 0
-        raise MissingVersion, <<-EOT.gsub(/ +\|/, '').chomp
-          |Found Adobe AIR Runtime, but could not find version information in:
-          |
-          |  #{InfoPlistFilePath}
-          |
-          |You may need to re-install Adobe AIR. Or if Adobe AIR is installed to
-          |a non-standard location you may need to not use this rake task.
-        EOT
+      paths = []
+
+puts "RUBY PLAT: #{RUBY_PLATFORM}"
+      if RUBY_PLATFORM =~ /mingw32/
+        paths = [
+          "C:\\Program Files\\Common Files\\Adobe AIR\\Versions\\1.0\\Adobe AIR.dll",
+          "C:\\Program Files (x86)\\Common Files\\Adobe AIR\\Versions\\1.0\\Adobe AIR.dll"
+        ]
+        dll = paths.detect{ |f| File.exists?(f) }
+        unless dll
+          raise RuntimeNotFound, <<-EOT.gsub(/ +\|/, '').chomp
+            |Could not find Adobe AIR installation. To download/install run:
+            |
+            |  rake air:runtime:download
+            |
+            |Looked for AIR in: #{paths.join(",")}
+          EOT
+        end
+        
+        cmd = "sigcheck \"#{dll}\""
+        str = `#{cmd}`
+        _version = str.scan(/Version:\s+(\d+\.\d+)/).flatten.first
+      elsif RUBY_PLATFORM =~ /darwin/
+        paths = ["/Library/Frameworks/Adobe AIR.framework/Versions/1.0/Resources/Info.plist"]        
+        
+        begin
+          body = IO.read paths.first
+        rescue
+          raise RuntimeNotFound, <<-EOT.gsub(/ +\|/, '').chomp
+            |Could not find Adobe AIR installation. To download/install run:
+            |
+            |  rake air:runtime:download
+            |
+            |Looked for AIR in: #{paths.join(",")}
+          EOT
+        end
+
+        _version = body.scan(/<key>CFBundleVersion<\/key>\s*<string>(.*?)<\/string>/m).flatten.first
+        if _version.nil? || _version.length == 0
+          raise MissingVersion, <<-EOT.gsub(/ +\|/, '').chomp
+            |Found Adobe AIR Runtime, but could not find version information in:
+            |
+            |  #{InfoPlistFilePath}
+            |
+            |You may need to re-install Adobe AIR. Or if Adobe AIR is installed to
+            |a non-standard location you may need to not use this rake task.
+          EOT
+        end
+      else
+        raise "Platform not known for Adobe AIR: #{RUBY_PLATFORM}"
       end
       _version
     end
     
     def self.sdk_version
-      if `#{CheckForSdkCommand}`.length == 0
+      command = `#{CheckForSdkCommand}`.chomp
+      if command.length == 0
         raise SdkNotFound, <<-EOT.gsub(/ +\|/, '').chomp
           |Cannot locate Adobe AIR SDK. Make sure it is installed and is in your PATH.
           |
@@ -80,7 +108,7 @@ module Adobe
         EOT
       end
       
-      _sdk_version = `#{SdkCommand} -version`.chomp.scan(/[\d\.]+/).first
+      _sdk_version = `#{command} -version`.chomp.scan(/[\d\.]+/).first
     end
   
     def self.print_sdk_check
