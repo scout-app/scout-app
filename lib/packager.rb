@@ -88,7 +88,7 @@ class Packager
     Dir.chdir Scout.build_directory do
       puts Dir.pwd
       now = Time.now                       
-      build_command = "adt.bat -package -storetype pkcs12 -keystore #{CertificateFile} -target native ../#{output_file} #{AirDescriptorFile} ."
+      build_command = "adt.bat -package -tsa none -storetype pkcs12 -keystore #{CertificateFile} -target native ../#{output_file} #{AirDescriptorFile} ."
       puts build_command
       system build_command
       if $?.exitstatus == 0
