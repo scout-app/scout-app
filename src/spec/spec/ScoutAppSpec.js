@@ -253,6 +253,22 @@ describe("Scout App", function(){
         $(".footer .clear_log.command").click();
         expect(output.html().length).toBe(0);
       });
+      
+      it("scrolls with the log output", function(){
+        var log_output = [];
+        _.times(500, function(){ log_output += "hello\n"; });
+        
+        this.project.find(".source").click();
+        this.project.find(".start").click();
+        
+        $(".project_details:visible .mode.log").click();
+
+        $('.project_details').trigger(':newLogOutput', log_output);
+        var output = $(".project_details .log_output:visible");
+        waitsFor(function(){
+          return output.scrollTop() > 0;
+        }, "Expected log output to scroll with content", 3000);
+      });
     });
 
     context("given I have a valid project with scss files", function(){

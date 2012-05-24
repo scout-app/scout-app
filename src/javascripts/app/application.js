@@ -267,8 +267,8 @@ $(document).ready(function() {
     
     var log_output = $('.project_details.selected .log_output');
     log_output.append(colorize(data.replace("\n", "<br />")));
+    
     log_output.scrollTop(log_output[0].scrollHeight);
-
   }
 
   function selectProject() {
