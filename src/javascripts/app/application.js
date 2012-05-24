@@ -349,7 +349,7 @@ function deleteProject() {
   $('.project[data-key='+key+']:first').trigger('watch:stop');
   $('.projects').trigger(':changed');
 
-  $('.project_details').hide();
+  $('.project_details[data-key='+key+']:first').remove();
   $('.non_selected').show();
 
   return false;
