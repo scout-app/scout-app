@@ -10,7 +10,7 @@ function wait(millis) {
   while(curDate-date < millis);
 }
 
-describe("Compass App", function(){
+describe("Scout App", function(){
   beforeEach(function() {
     // stubs
     app.createProjectBySelectingDirectory = function(callback){
