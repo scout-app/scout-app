@@ -147,6 +147,44 @@ describe("Scout App", function(){
       });
     });
   });
+  
+  describe("removing a project from the project list", function(){
+    beforeEach(function(){
+      app.createProject({
+        name: "project-a",
+        projectDir: "/project-a/",
+        sassDir: "/project-a/sass",
+        cssDir: "/project-a/css",
+        javascriptsDir: "/project-a/js",
+        imagesDir: "/project-a/images"
+      });
+      app.createProject({
+        name: "project-b",
+        projectDir: "/project-b/",
+        sassDir: "/project-b/sass",
+        cssDir: "/project-b/css",
+        javascriptsDir: "/project-b/js",
+        imagesDir: "/project-b/images"
+      });
+      
+      app.listProjects();
+      this.project = $(".project:contains('project-a')");
+      this.project.find("a.name").click();
+      this.project_details = $(".project_details[data-key=" + this.project.attr('data-key') + "]:visible");
+    });
+    
+    it("successfully is removed", function(){
+      this.project_details.find("button.delete:visible").click();
+      expect($(".project:contains('project-a')").length).toBe(0);
+      expect($(".project_details[data-key=" + this.project.attr('data-key') + "]").length).toBe(0);
+    });
+    
+    it("doesn't affect other project's", function(){
+      var project_b = $(".project:contains('project-b')");
+      expect(project_b.length).toBe(1);
+      expect($(".project_details[data-key=" + this.project.attr('data-key') + "]").length).toBe(1);      
+    });
+  });  
 
   describe("switching between projects", function(){
     beforeEach(function(){
@@ -328,5 +366,7 @@ describe("Scout App", function(){
       });
     });
   });
+  
+  
 
 });
