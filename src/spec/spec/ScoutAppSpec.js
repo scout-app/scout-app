@@ -10,7 +10,7 @@ function wait(millis) {
   while(curDate-date < millis);
 }
 
-describe("Compass App", function(){
+describe("Scout App", function(){
   beforeEach(function() {
     // stubs
     app.createProjectBySelectingDirectory = function(callback){
@@ -252,6 +252,22 @@ describe("Compass App", function(){
         expect(output.html().length).toBeGreaterThan(0);
         $(".footer .clear_log.command").click();
         expect(output.html().length).toBe(0);
+      });
+      
+      it("scrolls with the log output", function(){
+        var log_output = [];
+        _.times(500, function(){ log_output += "hello\n"; });
+        
+        this.project.find(".source").click();
+        this.project.find(".start").click();
+        
+        $(".project_details:visible .mode.log").click();
+
+        $('.project_details').trigger(':newLogOutput', log_output);
+        var output = $(".project_details .log_output:visible");
+        waitsFor(function(){
+          return output.scrollTop() > 0;
+        }, "Expected log output to scroll with content", 3000);
       });
     });
 
