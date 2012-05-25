@@ -65,8 +65,9 @@ $(function(){
   function stopWatchingProject(evnt, data) {
     var project_key = $(this).attr('data-key');
     var process = process_map[project_key];
+    
     if(process){
-      process.exit();
+      stopProcess(process);
       delete process_map[project_key];
       $('.project[data-key='+project_key+']').trigger(':stopped');
     }
@@ -74,8 +75,13 @@ $(function(){
 
   function killWatchingProcesses() {
     for (var i in process_map) {
-      process_map[i].exit();
+      stopProcess(process_map[i]);
     }
+  }
+  
+  function stopProcess(process){
+    var forcibly_exit = true;
+    process.exit(forcibly_exit);
   }
 
   function compassExecutable() {
