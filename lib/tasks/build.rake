@@ -24,7 +24,7 @@ namespace :build do
     with_env("BUNDLE_WITHOUT" => "build") do
       jruby "gem install -r bundler" unless Scout.jruby_gem_exists?("bundler")
       bundler_path = if RUBY_PLATFORM =~ /i386|mingw/
-        "build/gems/bin/bundle"
+        "build/vendor/gems/bin/bundle"
       else
         "bundle"
       end
@@ -39,7 +39,7 @@ namespace :build do
       with_env("BUNDLE_WITHOUT" => "build") do
         jruby "gem install -r bundler" unless Scout.jruby_gem_exists?("bundler")
         bundler_path = if RUBY_PLATFORM =~ /i386|mingw/
-          "build/gems/bin/bundle"
+          "build/vendor/gems/bin/bundle"
         else
           "bundle"
         end
