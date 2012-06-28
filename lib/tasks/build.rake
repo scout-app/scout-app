@@ -18,6 +18,7 @@ namespace :build do
     end
   end
   
+  desc 'run bundle within the scout app'
   task :bundle => 'build:jruby' do
     # Do not pass in --without bundle as that sets .bundle/config
     with_env("BUNDLE_WITHOUT" => "build") do
@@ -28,6 +29,22 @@ namespace :build do
         "bundle"
       end
       jruby "#{bundler_path} install --gemfile src/config/Gemfile"
+    end
+  end
+
+  namespace :bundle do
+    desc 'run bundle update within the scout app'
+    task :update => 'build:jruby' do
+      # Do not pass in --without bundle as that sets .bundle/config
+      with_env("BUNDLE_WITHOUT" => "build") do
+        jruby "gem install -r bundler" unless Scout.jruby_gem_exists?("bundler")
+        bundler_path = if RUBY_PLATFORM =~ /i386|mingw/
+          "build/gems/bin/bundle"
+        else
+          "bundle"
+        end
+        jruby "#{bundler_path} update --source src/config/Gemfile"
+      end
     end
   end
   
