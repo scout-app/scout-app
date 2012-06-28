@@ -14,6 +14,8 @@ GEM
     sass (3.1.19)
     yui-compass-plugin (0.3)
       compass (>= 0.10.0)
+    zen-grids (1.2)
+      sass (>= 3.1)
 
 PLATFORMS
   java
@@ -25,3 +27,4 @@ DEPENDENCIES
   compass-h5bp
   sass (= 3.1.19)
   yui-compass-plugin
+  zen-grids
