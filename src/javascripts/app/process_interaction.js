@@ -105,11 +105,14 @@ $(function(){
 
   function javaDir() {
     if(air.Capabilities.os.match(/Windows/)) {
-      path = air.File.applicationDirectory.resolvePath("C:\\Program Files\\Java\\jre7\\bin\\java.exe");
+      path = air.File.applicationDirectory.resolvePath("C:\\Program Files\\Java\\jre8\\bin\\java.exe");
       if(!path.exists){
-        path = air.File.applicationDirectory.resolvePath("C:\\Program Files (x86)\\Java\\jre7\\bin\\java.exe");
+        path = air.File.applicationDirectory.resolvePath("C:\\Program Files\\Java\\jre7\\bin\\java.exe");
         if(!path.exists){
-          path = air.File.applicationDirectory.resolvePath("C:\\Program Files\\Java\\jre6\\bin\\java.exe");
+          path = air.File.applicationDirectory.resolvePath("C:\\Program Files (x86)\\Java\\jre7\\bin\\java.exe");
+          if(!path.exists){
+            path = air.File.applicationDirectory.resolvePath("C:\\Program Files\\Java\\jre6\\bin\\java.exe");
+          }
         }
       }
       return path;
