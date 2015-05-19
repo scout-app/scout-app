@@ -1,9 +1,0 @@
-# A sample Gemfile
-source "http://rubygems.org"
-
-gem "compass", "= 0.12.2"
-gem "sass", "= 3.2.1"
-gem "compass-960-plugin", "= 0.10.4", :require => "ninesixty"
-gem "yui-compass-plugin", :require => "yui"
-gem "compass-h5bp"
-gem "zen-grids"
