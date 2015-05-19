@@ -1,0 +1,51 @@
+{
+    "name": "Scout-App",
+    "executable": "scout",
+    "main": "index.html",
+    "version": "2.0.0",
+    "author": "The Jared Wilcurt, ZD, JM",
+    "license": "ISC",
+    "description": "Compass and Sass without all the hassle.",
+    "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Ruby Sass" ],
+    "homepage": "https://mhs.github.io/scout-app",
+    "window": {
+        "title": "ScoutApp: The Sass/Compass GUI",
+        "icon": "_img/logo_512.png",
+        "toolbar": true,
+        "resizable": true,
+        "visible": true,
+        "transparent": false,
+        "width": 784,
+        "height": 611,
+        "min_width": 400,
+        "min_height": 200,
+        "max_width": 8000,
+        "max_height": 8000,
+        "position": "center",
+        "always-on-top": false,
+        "show_in_taskbar": true,
+        "fullscreen": false,
+        "frame": true,
+        "as_desktop": false
+    },
+    "nodejs": true,
+    "single-instance": true,
+    "node-main": "_scripts/node.js",
+    "webkit": {
+        "page-cache": false,
+        "java": false,
+        "plugin": true
+    },
+    "dependencies": {
+        "node-sass": "^3.1.1"
+    },
+    "devDependencies": {
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/mhs/scout-app.git"
+    },
+    "bugs": {
+        "url": "https://github.com/mhs/scout-app/issues"
+    }
+}

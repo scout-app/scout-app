@@ -1,0 +1,20 @@
+@charset "utf-8";                     // Character type for the stylesheet
+
+//Stuff that goes at the start
+@import "_var.sass";                  // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
+//@import "_meyer.sass";              // Resets browser defaults so browsers render pages the same
+//@import "_normalize.sass";          // Removes inconsistencies in the way different browsers render items by default. Bootstrap comes with Normalize.
+
+//Stuff that effects every page
+@import "_main.sass";                 // Main CSS for the app
+@import "_header.sass";               // CSS for the header and navigation at the top of the app.
+@import "_footer.sass";               // CSS for the footer at the bottom of the app.
+
+//Stuff that effects specific pages
+
+//Stuff that goes at the end
+@import "_ugui.sass";                 // UGUI specific styles for UGUI dev tools and such
+@import "_ven.dropdown-enhance.sass"; // Makes dropdown form elements prettier, goes with .js file
+@import "_ven.bootstrap-slider.scss"; // Styles the range slider
+@import "_ven.dropzone.sass";         // CSS for the drag and drop file browse box js plugin, DropZone.
+@import "_mediaqueries.sass";         // Adjusts the CSS of elements depending on window resolution/size.

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title class="applicationTitle">ScoutApp: The Sass/Compass GUI</title>
+    <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
+    <link rel="stylesheet" href="_style/ven.bootstrap.css">
+    <!-- Change this next line from simplex to whatever swatch you pick. -->
+    <link rel="stylesheet" href="_style/ven.bootswatch/simplex.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_style/style.css">
+    <!-- UGUI requires jQuery 1.9.1 or above. -->
+    <script type="text/javascript" src="_scripts/ven.jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="_scripts/ven.bootstrap-3.2.0.min.js"></script>
+    <script type="text/javascript" src="_scripts/ven.dropdowns-enhancement.js"></script>
+    <script type="text/javascript" src="_scripts/ven.bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="_scripts/ugui.js"></script>
+    <script type="text/javascript" src="_scripts/scout.js"></script>
+    <script>
+      $(document).ready(function(){
+        //resize folder browse buttons to be same size as [...] buttons that are covering them
+        var bttnWidth = $(".inputDirectoryBttn").outerWidth(true);
+        var bttnHeight = $(".inputDirectoryBttn").outerHeight(true);
+        $("input[nwdirectory]").outerWidth(bttnWidth);
+        $("input[nwdirectory]").outerHeight(bttnHeight);
+
+        //If a Folder Browse input changes, update the disabled input box to show the folder path
+        $("#inputFolderBrowse").change(function(){
+            $("#inputFilePath").val( $(this).val() );
+        });
+        $("#outputFolderBrowse").change(function(){
+            $("#outputFilePath").val( $(this).val() );
+        });
+        $("#jsFolderBrowse").change(function(){
+            $("#jsFilePath").val( $(this).val() );
+        });
+        $("#imgFolderBrowse").change(function(){
+            $("#imgFilePath").val( $(this).val() );
+        });
+
+      });
+    </script>
+  </head>
+  <!-- Change the class form dev to prod when you're ready to distribute your application. -->
+  <body role="document" class="dev">
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top drag-enable" role="navigation">
+      <div class="container drag-enable">
+        <div class="navbar-header drag-enable">
+          <button type="button" class="navbar-toggle collapsed drag-disable" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">
+            <img src="_img/scout-wordmark-tiny.png" alt="ScoutApp Logo" />
+          </a>
+        </div>
+        <div class="navbar-collapse collapse drag-enable">
+          <ul class="nav navbar-nav drag-disable">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#exit">Exit</a></li>
+              </ul>
+            </li>
+            <li class="dropdown devNav">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#fullscreen">Fullscreen</a></li>
+                <!-- devNav items are hidden when in Production mode -->
+                <li class="devNav"><a href="#console">Console</a></li>
+                <li class="divider"></li>
+                <li class="devNav"><a href="#cmdoutput">Command Line Output</a></li>
+              </ul>
+            </li>
+            <li class="dropdown navHelp">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <!-- <a href="#about"> must exist in your app as it contains the credits for UGUI -->
+                <li><a href="#about">About</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+    <div class="container" role="main">
+
+      <header>
+        <h3>
+          <span class="applicationName">Scout-App</span>
+          <small class="applicationDescription">Compass and Sass without all the hassle.</small>
+        </h3>
+      </header>
+
+      <section>
+        <form role="form-inline">
+
+          <div class="row">
+            <h3>Stylesheet Directories</h3>
+          </div>
+          <div class="row">
+            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+              <label>Input Folder:</label>
+              <input type="text" disabled id="inputFilePath" />
+              <div class="inputDirectoryContainer">
+                <button class="inputDirectoryBttn">...</button>
+                <input type="file" id="inputFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+              </div>
+            </div>
+            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+              <label>Output Folder:</label>
+              <input type="text" disabled id="outputFilePath" />
+              <div class="inputDirectoryContainer">
+                <button class="inputDirectoryBttn">...</button>
+                <input type="file" id="outputFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <h3>Other Directories</h3>
+          </div>
+          <div class="row form-group">
+            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+              <label>JavaScripts Folder:</label>
+              <input type="text" disabled id="jsFilePath" />
+              <div class="inputDirectoryContainer">
+                <button class="inputDirectoryBttn">...</button>
+                <input type="file" id="jsFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+              </div>
+            </div>
+            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+              <label>Images Folder:</label>
+              <input type="text" disabled id="imgFilePath" />
+              <div class="inputDirectoryContainer">
+                <button class="inputDirectoryBttn">...</button>
+                <input type="file" id="imgFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+              </div>
+            </div>
+            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+              <label>Config File:</label>
+              <input type="file" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div>
+              <h3>Environment</h3>
+            </div>
+            <div class="col-xs-6 col-s-4 col-md-4 col-l-4 radio">
+              <label><input type="radio" name="radioDials" value="development"         /> Development</label>
+              <label><input type="radio" name="radioDials" value="production"  checked /> Production</label>
+            </div>
+<!--
+            <div class="col-xs-6 col-s-4 col-md-4 col-l-4 checkbox">
+              <label><input type="checkbox" value="-plum" />Several checkboxes</label><br />
+              <label><input type="checkbox" value="-kiwi" />that each add a</label><br />
+              <label><input type="checkbox" value="-pear" />different argument</label>
+            </div>
+-->
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6" title="Output Style">
+              <div class="btn-group">
+                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Output Style <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                  <li><input type="radio" name="dropdown" id="outputStyleNested"     value="nested"     ><label for="outputStyleNested"     >Nested</label></li>
+                  <li><input type="radio" name="dropdown" id="outputStyleExpanded"   value="expanded"   ><label for="outputStyleExpanded"   >Expanded</label></li>
+                  <li><input type="radio" name="dropdown" id="outputStyleCompact"    value="compact"    ><label for="outputStyleCompact"    >Compact</label></li>
+                  <li><input type="radio" name="dropdown" id="outputStyleCompressed" value="Compressed" ><label for="outputStyleCompressed" >Compressed</label></li>
+                </ul>
+              </div>
+            </div>
+<!--
+            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
+              <label for="speed">Speed vs Quality:</label><br />
+              <table>
+                <tr>
+                  <td class="text-center"><span>High Quality (Slower)</span></td>
+                  <td><input class="slider" type="text" id="speed" data-slider-id="speedSlider" data-slider-min="1" data-slider-max="11" data-slider-step="1" data-slider-value="6" /></td>
+                  <td class="text-center"><span>Low Quality (Faster)</span></td>
+                </tr>
+              </table>
+            </div>
+            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
+              <label for="message">Message:</label>
+              <textarea id="message" class="form-control" required="required"></textarea>
+            </div>
+-->
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6 text-right">
+              <button id="sendCmdArgs" type="submit" class="btn btn-default">Start!</button>
+            </div>
+          </div>
+<!--
+          <div id="DropZone" class="form-group jumbotron text-center well h3" title="Click to browse for your file.">
+            <span class="imageContainer"></span>
+            <label class="text-info h3 truncate" data-content="Dropped">Drag and Drop your file here.</label>
+            <input required="required" type="file" accept="image/png" />
+          </div>
+-->
+        </form>
+
+      </section>
+
+      <div id="aboutModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+              <h4>About</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <span class="pull-right versionApp" title="Version">V2.0.0</span>
+                  <h3 class="panel-title">About <span class="applicationName">Scout-App</span></h3>
+                </div>
+                <div class="panel-body">
+                  <p class="well well-sm">Scout App allows you to process your .sass and .scss files into CSS without needing any knowledge of the command line.</p>
+                  <p>
+                    <span class="applicationName">Scout-App</span> is created by <a class="external-link" href="https://github.com/TheJaredWilcurt">The Jared Wilcurt</a>, <a class="external-link" href="https://github.com/zdennis">Zach Dennis</a>, and <a class="external-link" href="https://github.com/mejiaj">James Mejia</a>.<br />
+                    <span class="applicationName">Scout-App</span> uses <a class="external-link" href="https://github.com/sass/node-sass">node-sass</a> (Version <span class="nodeSassVersion"></span>).
+
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
