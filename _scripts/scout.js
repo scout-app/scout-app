@@ -16,7 +16,11 @@ var sass = require('node-sass');
 
 //When the user clicks "Start!"
 $("#runScout").click(function(){
+    //Prevent the form from sending like a normal website.
+    event.preventDefault();
+    //Get the input folder path
     var inputPath = $("#inputFolderBrowse").val();
+    //Send the folder path to be processed
     processInputFolder(inputPath);
 });
 

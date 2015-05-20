@@ -77,12 +77,6 @@ function runcmd( executable, args, callback ) {
 // Listing of Variables used throughout this library.          //
 /////////////////////////////////////////////////////////////////
 
-//Create an object for all the command line switches
-var cmdSwitches = [];
-
-//Create an object containing all elements with an argOrder.
-var cmdArgs = $("#argsForm *[data-argOrder]");
-
 //Access the contents of the package.json file
 var packageJSON = require('nw.gui').App.manifest;
 
@@ -159,173 +153,29 @@ removeTypedQuotes();
 // filled out.                                                 //
 /////////////////////////////////////////////////////////////////
 
+var allRequired = $("form *[required]");
+
 //When you click out of a form element
-$("#argsForm *[data-argOrder]").keyup  ( unlockSubmit );
-$("#argsForm *[data-argOrder]").mouseup( unlockSubmit );
-$("#argsForm *[data-argOrder]").change ( unlockSubmit );
+$(allRequired).keyup  ( unlockSubmit );
+$(allRequired).mouseup( unlockSubmit );
+$(allRequired).change ( unlockSubmit );
 
 function unlockSubmit() {
     //check if any of the required elements aren't filled out
-    for (var index = 0; index < cmdArgs.length; index++) {
-        var cmdArg = $(cmdArgs[index]);
+    for (var i = 0; i < allRequired.length; i++) {
+        var currentRequired = $(allRequired[i]);
         //If a required element wasn't filled out, make the submit button gray
-        if ( cmdArg.is(":invalid") ) {
-            $("#sendCmdArgs").prop("disabled",true);
+        if ( currentRequired.is(":invalid") ) {
+            $("#runScout").prop("disabled",true);
             return;
         }
     }
     //If all the required elements are filled out, enable the submit button
-    $("#sendCmdArgs").prop("disabled",false);
+    $("#runScout").prop("disabled",false);
 }
 
 //on page load have this run once
 unlockSubmit();
-
-
-
-
-
-
-
-/////////////////////////////////////////////////////////////////
-//                                                             //
-//                       CLICKING SUBMIT                       //
-//                                                             //
-/////////////////////////////////////////////////////////////////
-// What happens when you click the submit button.              //
-/////////////////////////////////////////////////////////////////
-// When the button is pressed, prevent it from submitting the  //
-// form like it normally would in a browser. Then grab all     //
-// elements with an argOrder except for unchecked checkboxes.  //
-// Combine the prefix, value and suffix into one variable per  //
-// element. Put them in the correct order. Send out all of the //
-// prefix/value/suffix combos in the correct order to the CLI  //
-// executable.                                                 //
-/////////////////////////////////////////////////////////////////
-
-//When you click the Compress button.
-$("#sendCmdArgs").click( function( event ){
-
-    //Prevent the form from sending like a normal website.
-    event.preventDefault();
-    //clear out the commandLine box every time sendCmdArgs is clicked.
-    $("#commandLine").html(" ");
-
-    var unsortedDevCmds = new Object();
-    var unsortedCmds = new Object();
-
-    //If an element is an unchecked checkbox, it gets skipped, otherwise it gets processed.
-    for (var index = 0; index < cmdArgs.length; index++) {
-        var cmdArg = $(cmdArgs[index]);
-
-        //skips extraction if checkbox not checked.
-        if ( cmdArg.is(":checkbox") && !cmdArg.prop("checked") ) continue;
-
-        //skips extraction if radio dial is not checked
-        if ( cmdArg.is(":radio") && !cmdArg.prop("checked") ) continue;
-
-        //All elements other than unchecked checkboxes get ran through this function.
-        extractSwitchString(cmdArg);
-    }
-
-    //Intentionally generic code used to sort objects
-    function sortObject(obj) {
-        var theSwitchArray = [];
-        for (var prop in obj) {
-            if (obj.hasOwnProperty(prop)) {
-                theSwitchArray.push({
-                    "key": prop,
-                    "value": obj[prop]
-                });
-            }
-        }
-        theSwitchArray.sort(function(a, b) { return a.key - b.key; });
-        //theSwitchArray.sort(function(a, b) { a.value.toLowerCase().localeCompare(b.value.toLowerCase()); }); //use this to sort as strings
-        return theSwitchArray; // returns array
-    }
-
-    function extractSwitchString(argumentElement) {
-
-        //1. Create a variable based on the elements argPrefix data.
-        var prefix = htmlEscape(argumentElement.data("argprefix"));
-        var prefixCmd = argumentElement.data("argprefix");
-
-        //2. Create a variable based on the value of the element, if no value present log error.
-        var value = htmlEscape(argumentElement.val());
-        var valueCmd = argumentElement.val();
-        if (!value) { console.warn("Something not good happend! The value for argumentElement is null.") }
-
-        //3. Create a variable based on the elements argSuffix data.
-        var suffix = htmlEscape(argumentElement.data("argsuffix"));
-        var suffixCmd = argumentElement.data("argsuffix");
-
-        //4. Combine the above 3 variables into one new variable in the proper order and skipping Pre/Suf if not supplied.
-        var theSwitchString = (prefix || "") + value + (suffix || "");
-        var theSwitchStringCmd = (prefixCmd || "") + valueCmd + (suffixCmd || "");
-
-        //5. Create a variable with the numeral value of the order the arguments should be outputted in.
-        var argOrder = argumentElement.data("argorder");
-
-        //6. Create a variable named using the argOrder and setting it to the combined Pre/Val/Suf. Like so: cmdSwitch6 = "--speed 9mph";
-        window["devSwitch" + argOrder] = theSwitchString;
-        window["cmdSwitch" + argOrder] = theSwitchStringCmd;
-
-        //7. Plug above variables in to the unsortedCmds object to be sorted later
-        unsortedDevCmds[argOrder] = theSwitchString;
-        unsortedCmds[argOrder] = theSwitchStringCmd;
-    }
-
-    function htmlEscape(str) {
-        if (!str) return;
-        return String(str)
-            .replace(/&/g, "&amp;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#39;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;");
-    }
-
-    /* The user can just use the prefix and suffix if something needs to be in quotes
-    String.prototype.hasWhiteSpace = function() {
-        return /\s/g.test(this);
-    }
-
-    //Wrap text with spaces in quotes
-    function handleWhiteSpaces(text) {
-        if (!text) return;
-        if (text.hasWhiteSpace()) {
-            return "\"" + text + "\"";
-        }
-        return text;
-    }
-    */
-
-    //Create an array with the sorted content
-    var theSwitchArray = sortObject(unsortedDevCmds);
-    var theSwitchArrayCmd = sortObject(unsortedCmds);
-    var cmdSwitchArray = [];
-
-    //Get the value of each element and send it to be outputted.
-    for (var index = 0; index < theSwitchArray.length; index++) {
-
-        //add the arguments for #commandLine dev tool
-        outputCmd(theSwitchArray[index].value);
-
-        //push arguments to the command line
-        cmdSwitchArray.push(theSwitchArrayCmd[index].value);
-
-    }
-
-    //Output the commands arguments in the correct order in the #commandLine dev tool
-    function outputCmd(cmdSwitch) {
-        $("#commandLine").append(cmdSwitch + " ");
-    }
-
-    $("#commandLine").prepend(executable);
-
-    runcmd(executable, cmdSwitchArray);
-
-});
 
 
 
@@ -372,7 +222,7 @@ function getAboutModal() {
         $(".applicationName").html(appName);
         $(".versionApp").html(appVersion).prepend("V");
         $(".authorName").html(authorName);
-        $(".nodeSassVersion").html( nodeSassVersion.split("^").pop() );
+        $("#aboutModal .nodeSassVersion").append(" (Version " +  nodeSassVersion.split("^").pop() + ")");
         $("#aboutModal .nwjsVersion").append(" (Version " + process.versions['node-webkit'] + ")");
         $("#aboutModal .chromiumVersion").append(" (Version " + process.versions['chromium'] + ")");
         $("#aboutModal .iojsVersion").append(" (Version " + process.versions['node'] + ")");
