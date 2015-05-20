@@ -2,6 +2,9 @@
 logs
 *.log
 
+# OSX
+.DS_Store
+
 # Sass cache
 .sass-cache/*
 .sass-cache
