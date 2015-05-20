@@ -355,12 +355,9 @@ if ( $("body").hasClass("prod") ) {
     $.get("_markup/ugui-devtools.htm", function( uguiDevToolsMarkup ){
         //Put Dev Tool Markup on the page
         $("body.dev").append( uguiDevToolsMarkup );
-        putExeHelpInDevTools();
         $("#uguiDevTools section").addClass("shrink");
         $("#uguiDevTools section *").addClass("shrink");
         $("#uguiDevTools").show();
-
-        $("#commandLine").html("<span class='commandLineHint'>Click the <em>" + $("#sendCmdArgs").html() + "</em> button to see output.</span>");
 
         //Hide/Show based on UGUI Dev Tools navigation
         $("#uguiDevTools nav span").click( function(){
@@ -393,43 +390,6 @@ if ( $("body").hasClass("prod") ) {
 
 }
 
-
-
-
-
-
-/////////////////////////////////////////////////////////////////
-//                                                             //
-//             PUT CLI HELP INFO IN UGUI DEV TOOLS             //
-//                                                             //
-/////////////////////////////////////////////////////////////////
-// This funciton is only ran when in dev mode. It adds another //
-// tab in the UGUI Developer Tools that returns information    //
-// from the user's executable with arguments like --help.      //
-/////////////////////////////////////////////////////////////////
-
-function putExeHelpInDevTools() {
-    //Add a new nav item in the Dev Tools based on the name of the user's Executable
-    $("#uguiDevTools span[data-nav=uguiExecutable]").html(executable);
-    $("#uguiDevTools .executableName").html(executable);
-
-    //Declare a variable
-    var executableHelpChoice;
-
-    //Everytime the dropdown changes update the <pre>
-    $("#uguiDevTools .helpDropdown").change( function(){
-
-        //Update the variable to match the user's choice
-        executableHelpChoice = $(this).val();
-
-        //Run the executable using the user's chosen argument to get it's help info
-        runcmd(executable, [ executableHelpChoice ], function( returnedHelpInfo ){
-            //Put the help info in a <pre>
-            $("#uguiDevTools pre.executableHelp").text( returnedHelpInfo );
-        });
-
-    });
-}
 
 
 
@@ -693,7 +653,9 @@ $(function() {
 //                          DROPZONE                           //
 //                                                             //
 /////////////////////////////////////////////////////////////////
-// Code for drag/drop/browse box.                              //
+// Code for drag/drop/browse box. This was originally based on //
+// EZDZ, but has been heavily modified for Bootstrap and NW.js //
+// for cross-platform and Bootswatch compatibility.            //
 /////////////////////////////////////////////////////////////////
 // https://github.com/jaysalvat/ezdz                           //
 /////////////////////////////////////////////////////////////////
