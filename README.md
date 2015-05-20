@@ -6,16 +6,7 @@ Scout-App 2.0 is built using the cross-platform runtime environment NW.js. You'l
 
 * [NWjs.io](http://nwjs.io)
 
-Once you've cloned this repo, you'll need to navigate to it in the command line/terminal and run `npm install`. If you don't have npm on your machine, you'll need to download [Node.JS](http://nodejs.org). Installing Node will also install NPM.
-
-**NOTE:** If you are getting an error in the console log when running the app stating:
-
-    `libsass` bindings not found
-
-Then that means the version of Node.JS you have has a different version of the V8 JavaScript engine than what is built in to NW.js. This is actually expected for NW.js development as the node-sass module we're using wasn't designed with it in mind. You'll need to go into the folder `/node_modules/node-sass/vendor` to see what binding folder you have. It will start with one of the following `darwin`, `freebsd`, `linux`, or `win` followed by either `ia32` or `x64`. You'll need to copy over all matching folders from the `/_assets` folder into the `/node_modules/node-sass/vendor` folder.
-
-So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-x64-42`, `win32-x64-43`, and `win32-x64-44` so all 5 are in the vendor folder. Though we shouldn't have to do this for distribution, doing so may fix fringe cases where users can't run our app. So when it comes time to create production versions to distribute the app, it may not be a bad idea to include all relevent vendor bindings for each version of our app just to be on the safe side.
-
+Once you've cloned this scout-app repo, switch to the Scout-App-2-Dev branch. You'll need to navigate to the repo's folder and in the command line/terminal run `npm install`. If you don't have npm on your machine, you'll need to download [Node.JS](http://nodejs.org). Installing Node will also install NPM.
 
 ##Running Scout-App Locally for Development
 
@@ -36,6 +27,18 @@ Click OK. From now on when you double-click that shortcut it will automatically 
 This is the probably the easiest way:
 
 * [nwjr on GitHub](https://github.com/Antrikshy/nwjr)
+
+* * *
+
+Once you have Scout-App running in NW.js click the menu/options button next to the address bar to open Chromium Developer Tools. In the console you might see this error:
+
+    `libsass` bindings not found
+
+Follow these instructions to fix it.
+
+Then that means the version of Node.JS you have has a different version of the V8 JavaScript engine than what is built in to NW.js. This is actually expected for NW.js development as the node-sass module we're using wasn't designed with it in mind. You'll need to go into the folder `/node_modules/node-sass/vendor` to see what binding folder you have. It will start with one of the following `darwin`, `freebsd`, `linux`, or `win` followed by either `ia32` or `x64`. You'll need to copy over all matching folders from the `/_assets` folder into the `/node_modules/node-sass/vendor` folder.
+
+So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-x64-42`, `win32-x64-43`, and `win32-x64-44` so all 5 are in the vendor folder. Though we shouldn't have to do this for distribution, doing so may fix fringe cases where users can't run our app. So when it comes time to create production versions to distribute the app, it may not be a bad idea to include all relevent vendor bindings for each version of our app just to be on the safe side.
 
 * * *
 
