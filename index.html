@@ -16,25 +16,7 @@
     <script type="text/javascript" src="_scripts/scout.js"></script>
     <script>
       $(document).ready(function(){
-        //resize folder browse buttons to be same size as [...] buttons that are covering them
-        var bttnWidth = $(".inputDirectoryBttn").outerWidth(true);
-        var bttnHeight = $(".inputDirectoryBttn").outerHeight(true);
-        $("input[nwdirectory]").outerWidth(bttnWidth);
-        $("input[nwdirectory]").outerHeight(bttnHeight);
 
-        //If a Folder Browse input changes, update the disabled input box to show the folder path
-        $("#inputFolderBrowse").change(function(){
-            $("#inputFilePath").val( $(this).val() );
-        });
-        $("#outputFolderBrowse").change(function(){
-            $("#outputFilePath").val( $(this).val() );
-        });
-        $("#jsFolderBrowse").change(function(){
-            $("#jsFilePath").val( $(this).val() );
-        });
-        $("#imgFolderBrowse").change(function(){
-            $("#imgFilePath").val( $(this).val() );
-        });
 
       });
     </script>
@@ -89,22 +71,24 @@
     <div class="container" role="main">
 
       <header>
-        <h3>
-          <span class="applicationName">Scout-App</span>
-          <small class="applicationDescription">Compass and Sass without all the hassle.</small>
-        </h3>
+        <h3>Project Name</h3>
       </header>
 
       <section>
         <form role="form-inline">
 
           <div class="row">
+            <label>Project Folder:</label>
+            <!-- Just putting this in here manually for now -->
+            <input type="text" id="projectFolder" class="form-control" value="D:\GitHub\scout-app" disabled />
+          </div>
+          <div class="row">
             <h3>Stylesheet Directories</h3>
           </div>
           <div class="row">
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
               <label>Input Folder:</label>
-              <input type="text" disabled id="inputFilePath" />
+              <input type="text" id="inputFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
                 <input type="file" id="inputFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
@@ -112,7 +96,7 @@
             </div>
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
               <label>Output Folder:</label>
-              <input type="text" disabled id="outputFilePath" />
+              <input type="text" id="outputFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
                 <input type="file" id="outputFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
@@ -126,7 +110,7 @@
           <div class="row form-group">
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
               <label>JavaScripts Folder:</label>
-              <input type="text" disabled id="jsFilePath" />
+              <input type="text" id="jsFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
                 <input type="file" id="jsFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
@@ -134,7 +118,7 @@
             </div>
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
               <label>Images Folder:</label>
-              <input type="text" disabled id="imgFilePath" />
+              <input type="text" id="imgFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
                 <input type="file" id="imgFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
@@ -165,10 +149,10 @@
               <div class="btn-group">
                 <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Output Style <span class="caret"></span></button>
                 <ul class="dropdown-menu">
-                  <li><input type="radio" name="dropdown" id="outputStyleNested"     value="nested"     ><label for="outputStyleNested"     >Nested</label></li>
-                  <li><input type="radio" name="dropdown" id="outputStyleExpanded"   value="expanded"   ><label for="outputStyleExpanded"   >Expanded</label></li>
-                  <li><input type="radio" name="dropdown" id="outputStyleCompact"    value="compact"    ><label for="outputStyleCompact"    >Compact</label></li>
-                  <li><input type="radio" name="dropdown" id="outputStyleCompressed" value="Compressed" ><label for="outputStyleCompressed" >Compressed</label></li>
+                  <li><input type="radio" name="outputStyle" id="outputStyleNested"     value="nested"     ><label for="outputStyleNested"     >Nested</label></li>
+                  <li><input type="radio" name="outputStyle" id="outputStyleExpanded"   value="expanded"   ><label for="outputStyleExpanded"   >Expanded</label></li>
+                  <li><input type="radio" name="outputStyle" id="outputStyleCompact"    value="compact"    ><label for="outputStyleCompact"    >Compact</label></li>
+                  <li><input type="radio" name="outputStyle" id="outputStyleCompressed" value="Compressed" ><label for="outputStyleCompressed" >Compressed</label></li>
                 </ul>
               </div>
             </div>
@@ -189,7 +173,7 @@
             </div>
 -->
             <div class="col-xs-6 col-s-6 col-md-6 col-l-6 text-right">
-              <button id="sendCmdArgs" type="submit" class="btn btn-default">Start!</button>
+              <button id="runScout" type="submit" class="btn btn-default">Start!</button>
             </div>
           </div>
 <!--
