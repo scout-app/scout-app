@@ -63,14 +63,14 @@ function processInputFolder(inputPath) {
                         //Slice off the ".sass" from "file.sass" to just make "file"
                         inputFileName = currentFile.slice(0,-5);
                         //send to be converted to css and spit out into the output folder
-                        convertToCSS(inputPath, inputFileName, ".sass");
+                        //convertToCSS(inputPath, inputFileName, ".sass");
 
                     //Process all .scss files
                     } else if (currentFile.endsWith(".scss")) {
                         //Slice off the ".scss" from "file.scss" to just make "file"
                         inputFileName = currentFile.slice(0,-5);
                         //send to be converted to css and spit out into the output folder
-                        convertToCSS(inputPath, inputFileName, ".scss");
+                        //convertToCSS(inputPath, inputFileName, ".scss");
                     }
 
                 }
@@ -91,14 +91,17 @@ function convertToCSS(inputPath, inputFileName, inputFileExt) {
     var outputFilePath = $("#outputFolderBrowse").val();
     var outputStyle = $('input[name="outputStyle"]').val();
     //var file = '"' + inputPath + '\\' + inputFileName + inputFileExt + '"';
+    //'"' + outputFilePath + '\\' + inputFileName + '.css"'
     var file = inputFileName + inputFileExt;
     //Use node-sass to convert sass or scss to css
     sass.render({
-        file: file,
-        outputStyle: outputStyle
+        file: 'D:/test/style.scss',
+        outputStyle: outputStyle,
+        indentedSyntax: true
     }, function (error, result) {
+        console.log(error);
         if (error) throw error;
-        fs.writeFile('"' + outputFilePath + inputFileName + '.css"', result.css, function (err) {
+        fs.writeFile('D:/test output/style.css', result.css, function (err) {
             if (err) throw err;
         });
     });

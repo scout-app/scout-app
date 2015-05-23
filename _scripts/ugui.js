@@ -39,28 +39,74 @@ function readAFile(filePathAndName) {
 // easier. Cow & Taco examples below to make life simpler.     //
 //                                                             //
 // $("#taco").click( function(){                               //
-//   runcmd("pngquant", ["--force", "file.png"]);              //
+//   runcmd('pngquant --force "file.png"');                    //
 // });                                                         //
 //                                                             //
-// runcmd("node", ["--version"], function(data){               //
+// runcmd('node --version', function(data) {                   //
 //   $("#cow").html("<pre>Node Version: " + data + "</pre>");  //
 // });                                                         //
 //                                                             //
 /////////////////////////////////////////////////////////////////
 
-function runcmd( executable, args, callback ) {
-    var spawn = require("child_process").spawn;
-    console.log( executable, args );
-    var child = spawn( executable, args );
+function runcmd ( executableAndArgs, callback ) {
+    var exec = require("child_process").exec;
+    var child = exec( executableAndArgs,
+        //Throw errors and information into console
+        function (error, stdout, stderr) {
+            console.log(executableAndArgs);
+            console.log('stdout: ' + stdout);
+            console.log('stderr: ' + stderr);
+            if (error !== null) {
+                console.log('Executable Error: ' + error);
+            }
+            console.log("---------------------");
+        }
+    );
+    //Return data from command line
     child.stdout.on("data", function(chunk) {
         if (typeof callback === "function"){
             callback(chunk);
         }
     });
+}
 
-    child.stderr.on("data", function (data) {
-      console.log("stderr: " + data);
-    });
+
+
+
+
+
+
+/////////////////////////////////////////////////////////////////
+//                                                             //
+//                       RUN CMD CLASSIC                       //
+//                                                             //
+/////////////////////////////////////////////////////////////////
+// This is the older way of running commands using "spawn".    //
+// Cow & Taco examples below to make life simpler.             //
+//                                                             //
+// $("#taco").click( function(){                               //
+//   runcmdClassic("pngquant", ["--force", "file.png"]);       //
+// });                                                         //
+//                                                             //
+// runcmdClassic("node", ["--version"], function(data){        //
+//   $("#cow").html("<pre>Node Version: " + data + "</pre>");  //
+// });                                                         //
+//                                                             //
+/////////////////////////////////////////////////////////////////
+
+function runcmdClassic( executable, args, callback ) {
+   var spawn = require("child_process").spawn;
+   console.log( executable, args );
+   var child = spawn( executable, args );
+   child.stdout.on("data", function(chunk) {
+       if (typeof callback === "function"){
+           callback(chunk);
+       }
+   });
+
+   child.stderr.on("data", function (data) {
+     console.log("stderr: " + data);
+   });
 }
 
 
@@ -100,6 +146,11 @@ var authorName = packageJSON.author;
 
 //Node-Sass Version
 var nodeSassVersion = packageJSON.dependencies["node-sass"];
+
+//Testing
+runcmd('node node_modules/node-sass/bin/node-sass --version', function(data) {
+    $("#printConsole").html(data);
+});
 
 
 

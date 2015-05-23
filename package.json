@@ -1,6 +1,6 @@
 {
     "name": "Scout-App",
-    "executable": "scout",
+    "executable": "node node_modules/node-sass/bin/node-sass",
     "main": "index.html",
     "version": "2.0.0",
     "author": "The Jared Wilcurt, ZD, JM",
