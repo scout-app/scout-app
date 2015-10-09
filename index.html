@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <!-- Automatically updated by your package.json file. -->
     <title class="applicationTitle">ScoutApp: The Sass/Compass GUI</title>
+
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
     <!-- Change this next line from simplex to whatever swatch you pick. -->
     <link rel="stylesheet" href="_style/ven.bootswatch/simplex.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
+
     <!-- UGUI requires jQuery 1.9.1 or above. -->
     <script type="text/javascript" src="_scripts/ven.jquery-2.1.1.min.js"></script>
     <script type="text/javascript" src="_scripts/ven.bootstrap-3.2.0.min.js"></script>
     <script type="text/javascript" src="_scripts/ven.dropdowns-enhancement.js"></script>
     <script type="text/javascript" src="_scripts/ven.bootstrap-slider.min.js"></script>
     <script type="text/javascript" src="_scripts/ugui.js"></script>
-    <script type="text/javascript" src="_scripts/scout.js"></script>
-    <script>
-      $(document).ready(function(){
+    <script type="text/javascript" src="_scripts/app.js"></script>
 
-
-      });
-    </script>
   </head>
   <!-- Change the class form dev to prod when you're ready to distribute your application. -->
   <body role="document" class="dev">
-
 
     <div class="navbar navbar-inverse navbar-fixed-top drag-enable" role="navigation">
       <div class="container drag-enable">
@@ -188,6 +187,19 @@
 
       </section>
 
+      <!--
+        /////////////////////////////////////////////////////////////////
+        //                                                             //
+        //                         ABOUT MODAL                         //
+        //                                                             //
+        /////////////////////////////////////////////////////////////////
+        // This content is displayed when the user clicks Help in the  //
+        // top navigation, then About. Some parts of the about modal   //
+        // are automatically replaced by the content defined in your   //
+        // package.json file, such as Application Name and Version.    //
+        /////////////////////////////////////////////////////////////////
+      -->
+
       <div id="aboutModal" class="modal">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -196,11 +208,56 @@
               <h4>About</h4>
             </div>
             <div class="modal-body">
-              <!-- About content comes from _markup/ugui-about.htm and is placed her by _scripts/ugui.js -->
+
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <span class="pull-right versionApp" title="Version">V2.0.0</span>
+                  <h3 class="panel-title">About <span class="applicationTitle">Scout-App</span></h3>
+                </div>
+                <div class="panel-body">
+                  <p class="well well-sm">
+                    <strong>Scout-App</strong> allows you to process your <code>.sass</code> and <code>.scss</code> files into CSS without needing any knowledge of the command line.
+                  </p>
+                  <p>
+                    <strong>Scout-App</strong> uses <a class="external-link" href="https://github.com/sass/node-sass">node-sass</a> <span class="nodeSassVersion"></span>.
+                  </p>
+                  <p>
+                    Contributors to the <a href="http://github.com/mhs/scout-app" class="external-link"><span class="applicationName">Scout-App</span> Project</a>:<br />
+                    <!-- If the following script isn't ran on the page, it doesn't hit soon enough to check if the images loaded. -->
+                    <!-- If the images load, keep text hidden, if the app is ran while a user is offline, show text instead of images. -->
+                    <script>
+                      function offline() {
+                        $(".gitHubContributors").addClass("notOnline");
+                      }
+                    </script>
+                    <span class="gitHubContributors">
+                      <a class="external-link" href="http://github.com/TheJaredWilcurt">
+                        <img onerror="offline()" src="https://avatars.githubusercontent.com/u/4629794?v=3" alt="TheJaredWilcurt" title="TheJaredWilcurt" />
+                        TheJaredWilcurt</a>,
+                      <a class="external-link" href="http://github.com/zdennis">
+                        <img onerror="offline()" src="https://avatars.githubusercontent.com/u/967?v=3" alt="zdennis" title="zdennis" />
+                        zdennis</a>,
+                      <a class="external-link" href="http://github.com/mejiaj">
+                        <img onerror="offline()" src="https://avatars.githubusercontent.com/u/3385219?v=3" alt="mejiaj" title="mejiaj" />
+                        mejiaj</a>
+                    </span>
+                  </p>
+                  <p>
+                    Visit the <span class="applicationName">Scout-App</span> website to check for updates:<br />
+                    <div class="text-center"><a href="http://mhs.github.io/scout-app" class="external-link">mhs.github.io/Scout-App</a></div>
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
+
+
+
 
     </div> <!-- end container -->
   </body>

@@ -1,183 +1,29 @@
 
 // Styles only used by UGUI
 
-$quick: 0.5s ease all
-$uguiTextColor: #333
-
-body #argsForm
-    margin-bottom: 50px
-
-body.dev #argsForm
-    margin-bottom: 280px
-
-#uguiDevTools
+cmd,
+cmd def,
+cmd arg
     display: none
-    background-color: #E0E0E0
-    color: $uguiTextColor
-    padding: 0px 10px 0px 10px
-    border-width: 3px 3px 0px 3px
-    border-style: solid
-    border-color: #777
-    border-radius: 25px 25px 0px 0px
-    width: 80%
-    position: fixed
-    bottom: 0px
-    left: 10%
-    letter-spacing: 0px
-    text-rendering: optimizeSpeed !important
-    -webkit-font-smoothing: antialiased
-    font-family: sans-serif
-    font-size: 14px
-    line-height: 20px
-    transition: $quick
-    z-index: 9999
-    a
-        color: #428BCA
-        &:hover,
-        &:focus
-            color: #2a6496
-    nav
-        margin: 0px 0px 9px 9px
-        span
-            font-size: 10px
-            color: #666
-            font-variant: italic
-            cursor: pointer
-            &.selected
-                font-weight: bold
-                color: #555
-                text-shadow: 1px 1px 0px #FAFAFA, -1px -1px 0px #FAFAFA, -1px 1px 0px #FAFAFA, 1px -1px 0px #FAFAFA
-            &:after
-                content: " | "
-                color: #666
-                font-weight: normal
-                text-shadow: 0px 0px 0px rgba(0,0,0,0.0)
-            &:last-of-type:after
-                content: ""
-    select
-        background-color: #F5F5F5
-        border: 1px solid #CCC
-        padding: 2px
-        font-size: 13px
-        font-family: sans-serif
-        margin: 0px 0px 3px 0px
-    section
-        padding: 1px
-        margin: 0px 0px 10px 0px
-        display: block
-        height: auto
-    object,
-    embed,
-    iframe
-        display: block
-        width: 320px
-        height: 180px
-        float: left
-        border: 0px
-        margin: 0px 7px 10px 0px
-        padding: 0px
-    h3
-        +bmp0
-        font-family: sans-serif
-        font-size: 18px
-        font-weight: bold
-        color: $uguiTextColor
-        text-shadow: inherit
-    p
-        border: 0px
-        padding: 0px
-        margin: 8px 0px
-        font-size: 14px
-        line-height: 1.4
-        color: $uguiTextColor
-    code
-        +bmp0
-        color: $uguiTextColor
-        font-size: 11px
-        font-family: monospace
-    ul,
-    li strong
-        +bmp0
-        color: $uguiTextColor
-        font-size: 14px
-        line-height: 1.4
-    li
-        line-height: 1.4
-        color: $uguiTextColor
-        font-size: 14px
-        border: 0px
-        padding: 0px
-        margin: 0px 0px 0px 23px
-    &.slideHide
-        bottom: -7px !important
-        transition: $quick
-    *
-        transition: $quick
+    font-size: 0px
+    opacity: 0
+    color: transparent
 
-.shrink
-    height: 0px !important
-    border: 0px !important
-    margin: 0px !important
-    padding: 0px !important
-    font-size: 0px !important
-    line-height: 0px !important
-    opacity: 0 !important
-
-#commandLine
-    background-color: #F5F5F5
-    border: 1px solid #CCC
-    margin: 0px
-    padding: 10px
-    color: $uguiTextColor
-    font-size: 11px
-    font-family: monospace
-    line-height: 1.4
-    &:before
-        content: "Command Line Output: "
-        font-weight: bold
-
-.commandLineHint
-    font-family: sans-serif
-    font-size: 12px
-    em
-        background-color: #F1F1F1
-        border: 1px solid #CCC
-        border-radius: 3px
-        padding: 2px
-        font-weight: bold
-        font-size: 11px
-        font-style: normal
-
-#swatchSwapper,
-span[data-nav="uguiExecutable"],
-.executableName
-    text-transform: capitalize
-
-.executableName
-    color: #555
-    font-weight: bold
-
-.executableHelp
-    max-height: 156px
-
-.helpIntro
-    position: absolute
-    top: 4px
-    right: 12px
-    font-size: 12px
-    color: #444
-
-.versionApp,
-.versionUGUI
-    position: relative
-    top: -0.2em
-    background-color: rgba(0,0,0,0.2)
-    border-radius: 100px
-    margin: 0px
-    padding: 3px 8px
-    color: #FFF
-    line-height: normal
-    box-shadow: inset 1px 1px 2px rgba(0,0,0,0.25)
+.modal
+    background-color: rgba(0,0,0,0.6)
+    .glyphicon-remove
+        cursor: pointer
+    .versionApp,
+    .versionUGUI
+        position: relative
+        top: -0.2em
+        background-color: rgba(0,0,0,0.2)
+        border-radius: 100px
+        margin: 0px
+        padding: 3px 8px
+        color: #FFF
+        line-height: normal
+        box-shadow: inset 1px 1px 2px rgba(0,0,0,0.25)
 
 body .devNav,
 body.prod .devNav
@@ -187,13 +33,12 @@ body.dev .devNav
     display: block !important
 
 #aboutModal
-    background-color: rgba(0,0,0,0.6)
     z-index: 1080
     .modal-body
         overflow: auto
         min-height: 115px
-    .glyphicon-remove
-        cursor: pointer
+    .versionUGUI:before
+        content: "V"
 
 .modal-header.shortScreen
     padding: 0px 9px !important
@@ -210,3 +55,9 @@ body.dev .devNav
     font-size: 1em
     img
         display: none
+
+.returnedCmdText
+    max-height: 225px
+
+.no-overflow
+    overflow: hidden

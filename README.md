@@ -50,7 +50,7 @@ The four main files Scout-App are:
 
 * **package.json** - This is the first thing NW.js looks at when you have it run the app. This gives it instructions on how to open and display a window for the user, the size of it, if it has a native UI framed border, etc. This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have frame and toolbar set to false.
 * **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will give you a better idea of what the app will look like in production. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
-* **_scripts/scout.js** - This is the main JavaScript file for the app which will define all of the functionality for it.
+* **_scripts/app.js** - This is the main JavaScript file for the app which will define all of the functionality for it.
 * **_scripts/ugui.js** - This gives us basic functionality out of the box. I'll be removing some of the more specific aspects that deal with command line applications (UGUI's primary focus) and moving over some of the very general purpose functions into the scout.js file for use there. In the end this will mostly be a file for development tools.
 
 * * *

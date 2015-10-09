@@ -16,6 +16,12 @@ body
     width: 100%
     padding-top: 57px
 
+input[type="color"]
+    +bmp0
+    width: 3em
+    height: 1.5em
+    background: transparent
+
 .truncate
     white-space: nowrap
     overflow: hidden
@@ -23,6 +29,23 @@ body
 
 .row
     margin-top: 8px
+
+.vtop,
+.vmiddle,
+.vcenter,
+.vbottom
+    display: inline-block
+    float: none
+
+.vtop
+    vertical-align: top
+
+.vmiddle,
+.vcenter
+    vertical-align: middle
+
+.vbottom
+    vertical-align: bottom
 
 .inputDirectoryContainer
     display: inline

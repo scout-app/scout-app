@@ -1,0 +1,189 @@
+
+@import "_var.sass"
+
+// Styles only used by UGUI Developer Toolbar
+
+body.dev
+    margin-bottom: 280px
+
+#uguiDevTools
+    display: none
+    background-color: #E0E0E0
+    color: $uguiTextColor
+    padding: 0px 10px 0px 10px
+    border-width: 3px 3px 0px 3px
+    border-style: solid
+    border-color: #777
+    border-radius: 25px 25px 0px 0px
+    width: 80%
+    position: fixed
+    bottom: 0px
+    left: 10%
+    letter-spacing: 0px
+    text-rendering: optimizeSpeed !important
+    -webkit-font-smoothing: antialiased
+    font-family: sans-serif
+    font-size: 14px
+    line-height: 20px
+    transition: $quick
+    z-index: 9999
+    a
+        color: #428BCA
+        &:hover,
+        &:focus
+            color: #2A6496
+    nav
+        margin: 0px 0px 9px 9px
+        span
+            +user-select-none
+            font-size: 10px
+            color: #666
+            cursor: pointer
+            &.selected
+                font-weight: bold
+                color: #555
+                text-shadow: 1px 1px 0px #FAFAFA, -1px -1px 0px #FAFAFA, -1px 1px 0px #FAFAFA, 1px -1px 0px #FAFAFA
+            &:after
+                content: " | "
+                color: #666
+                font-weight: normal
+                text-shadow: 0px 0px 0px rgba(0,0,0,0.0)
+            &:last-of-type:after
+                content: ""
+    select
+        background-color: #F5F5F5
+        border: 1px solid #CCC
+        padding: 2px
+        font-size: 13px
+        font-family: sans-serif
+        margin: 0px 0px 3px 0px
+    section
+        padding: 1px
+        margin: 0px 0px 10px 0px
+        display: block
+        height: auto
+    video,
+    object,
+    embed,
+    iframe
+        display: block
+        width: 320px
+        height: 180px
+        float: left
+        border: 0px
+        margin: 0px 7px 10px 0px
+        padding: 0px
+    h3
+        +bmp0
+        border: 0px
+        margin: 18px 0px 0px 0px
+        padding: 0px
+        font-family: sans-serif
+        font-size: 18px
+        font-weight: bold
+        color: $uguiTextColor
+        text-shadow: inherit
+    p
+        border: 0px
+        padding: 0px
+        margin: 8px 0px
+        font-size: 14px
+        line-height: 1.4
+        color: $uguiTextColor
+    code
+        +bmp0
+        color: $uguiTextColor
+        font-size: 11px
+        font-family: monospace
+    ul,
+    li strong
+        +bmp0
+        color: $uguiTextColor
+        font-size: 14px
+        line-height: 1.4
+    li
+        line-height: 1.4
+        color: $uguiTextColor
+        font-size: 14px
+        border: 0px
+        padding: 0px
+        margin: 0px 0px 0px 23px
+    &.slideHide
+        bottom: -7px !important
+        transition: $quick
+    *
+        transition: $quick
+    .uguiSwapper p,
+    .uguiCommand span,
+    .helpIntro
+        font-size: 12px
+        color: #444
+
+.shrink
+    height: 0px !important
+    border: 0px !important
+    margin: 0px !important
+    padding: 0px !important
+    font-size: 0px !important
+    line-height: 0px !important
+    opacity: 0 !important
+    video
+        width: 0px !important
+        height: 0px !important
+        display: none !important
+
+#commandLine
+    background-color: #F5F5F5
+    border: 1px solid #CCC
+    margin: 0px
+    padding: 10px
+    color: $uguiTextColor
+    font-size: 11px
+    font-family: monospace
+    line-height: 1.4
+    max-height: 92px
+    overflow: auto
+    &:before
+        content: "Command Line Output Preview:"
+        font-weight: bold
+
+.commandLineHint
+    font-family: sans-serif
+    font-size: 12px
+    em
+        background-color: #F1F1F1
+        border: 1px solid #CCC
+        border-radius: 3px
+        padding: 2px
+        font-weight: bold
+        font-size: 11px
+        font-style: normal
+
+#swatchSwapper,
+span[data-nav="uguiExecutable"],
+.executableName
+    text-transform: capitalize
+
+#setNewSwatch
+    height: 24px
+    background: #F5F5F5
+    border: 1px solid #CCC
+    padding: 0px 10px
+    font-size: 11px
+    line-height: 0px
+    box-shadow: 0px 0px 2px #CCC
+    vertical-align: top
+
+.newSwatchSaved
+    font-style: italic
+    opacity: 0
+    -webkit-transition: 0.5s ease-in-out
+    transition: 0.5s ease-in-out
+    &.showSaved
+        opacity: 1
+
+.executableName
+    color: #555
+
+.executableHelp
+    max-height: 156px
