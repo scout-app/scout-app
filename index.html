@@ -24,7 +24,7 @@
   <!-- Change the class form dev to prod when you're ready to distribute your application. -->
   <body role="document" class="dev">
 
-    <div class="navbar navbar-inverse navbar-fixed-top drag-enable" role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top drag-enable" role="navigation">
       <div class="container drag-enable">
         <div class="navbar-header drag-enable">
           <button type="button" class="navbar-toggle collapsed drag-disable" data-toggle="collapse" data-target=".navbar-collapse">
@@ -42,6 +42,8 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                <li><a href="#save" class="save-ugui-settings">Save Settings</a></li>
+                <li><a href="#load" class="load-ugui-settings">Load Settings</a></li>
                 <li><a href="#exit">Exit</a></li>
               </ul>
             </li>
@@ -65,7 +67,7 @@
           </ul>
         </div><!--/.nav-collapse -->
       </div>
-    </div>
+    </nav>
 
     <div class="container" role="main">
 

@@ -1,12 +1,25 @@
 {
     "name": "Scout-App",
-    "main": "index.html",
+    "homepage": "https://mhs.github.io/scout-app",
     "version": "2.0.0",
     "author": "The Jared Wilcurt, ZD, JM",
-    "license": "MIT",
     "description": "Compass and Sass without all the hassle.",
     "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Ruby Sass" ],
-    "homepage": "https://mhs.github.io/scout-app",
+    "maintainers":[{
+        "name": "The Jared Wilcurt",
+        "email": "TheJaredWilcurt@users.noreply.github.com",
+        "web": "https://ugui.io"
+    },{
+        "name": "Zach Dennis",
+        "email": "zdennis@users.noreply.github.com",
+        "web": "https://github.com/zdennis"
+    }],
+    "repository": [{
+        "type": "git",
+        "url": "git://github.com/mhs/scout-app.git"
+    }],
+    "bugs": "https://github.com/mhs/scout-app/issues",
+    "main": "index.html",
     "window": {
         "title": "ScoutApp: The Sass/Compass GUI",
         "icon": "_img/logo_512.png",
@@ -39,12 +52,13 @@
         "node-sass": "~3.1.1"
     },
     "devDependencies": {
+        "nw": "^0.12.3"
     },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/mhs/scout-app.git"
+    "scripts": {
+        "start": "nw ."
     },
-    "bugs": {
-        "url": "https://github.com/mhs/scout-app/issues"
-    }
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/mhs/scout-app/blob/master/LICENSE"
+    }]
 }
