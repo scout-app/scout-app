@@ -41,12 +41,28 @@ The four main files Scout-App are:
 
 * * *
 
-To Do List:
+##Project management:
 
-* Clean up project folder.
-* Handle a single project with input and output of files in specified folders.
-* Have a watch function that will watch the specified files instead of just a one time run
-* Create a save feature that produces a .json file for the saved project with all relavent information
-* Upon creating a project, auto-guess the 4 input-files.
-* Create an export button that will export out the saved project .json file for the user.
-* Create a way of having multiple projects and switching between them
+* [ ] **Phase 1**: Ugly, but functional (TJW)
+  * [ ] **Status:** In progress, only semi-functional
+  * [ ] **To do:**
+    * [x] ~~Clean up project folder.~~
+    * [x] ~~Handle a single project with input and output of files in specified folders.~~
+    * [ ] Fix Output Style options (nested, expanded, compact, compressed)
+    * [ ] Implement Environment options (production/development)
+    * [ ] Create a way of having multiple projects and switching between them
+    * [ ] Upon creating a project, auto-guess the 4 input-files.
+    * [ ] Save/Load settings automatically
+    * [ ] Create an export button that will export out the saved project .json file for the user.
+    * [ ] Have a watch function that will watch the specified files instead of just a one time run
+* [ ] **Phase 2:** Beautiful with ease of use (ZD/JM, some TJW)
+  * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
+  * [ ] **To do:**
+    * [ ] Finalize UX layout
+    * [ ] Pretty up the app!
+* [ ] **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX) & General QA
+  * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
+* [ ] **Phase 4:** New website
+  * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
+* [ ] **Phase 5:** Bug fixes/Additional features/Maintenance 
+  * [ ] **Status:** Waiting for Phase 1, 2, and 3 to be completed.
