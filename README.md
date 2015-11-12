@@ -2,31 +2,17 @@
 
 ##Contributing
 
-Scout-App 2.0 is built using the cross-platform runtime environment NW.js. You'll need to download the current stable version to work on the development version of Scout-App.
+Scout-App 2.0 is built using the cross-platform runtime environment NW.js.
 
-* [NWjs.io](http://nwjs.io)
-
-Once you've cloned this scout-app repo, switch to the Scout-App-2-Dev branch. You'll need to navigate to the repo's folder and in the command line/terminal run `npm install`. If you don't have npm on your machine, you'll need to download [Node.JS](http://nodejs.org). Installing Node will also install NPM.
 
 ##Running Scout-App Locally for Development
 
-Here is the NW.js documentation for how to run an app locally and below are the two easiest ways I've found for doing so for development:
-
-* [NW.js Wiki - How to run apps](https://github.com/nwjs/nw.js/wiki/How-to-run-apps)
-
-###Windows
-
-Create a shortcut to where nw.exe is located on your computer. Right-click the shortcut and go to Properties. Change the target to:
-
-    C:\path\to\nw.exe 'C:\path\to\Scout-App'
-
-Click OK. From now on when you double-click that shortcut it will automatically launch the app appropriately.
-
-###Mac/Linux
-
-This is the probably the easiest way:
-
-* [nwjr on GitHub](https://github.com/Antrikshy/nwjr)
+1. Clone down this `scout-app` repo
+2. Switch to the `Scout-App-2-Dev branch`
+3. Install [Node.JS](http://nodejs.org) if you don't have it
+4. Run `npm install`
+5. Run `npm start`
+6. Read below if you get libsass bindings errors.
 
 * * *
 
@@ -51,7 +37,7 @@ The four main files Scout-App are:
 * **package.json** - This is the first thing NW.js looks at when you have it run the app. This gives it instructions on how to open and display a window for the user, the size of it, if it has a native UI framed border, etc. This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have frame and toolbar set to false.
 * **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will give you a better idea of what the app will look like in production. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
 * **_scripts/app.js** - This is the main JavaScript file for the app which will define all of the functionality for it.
-* **_scripts/ugui.js** - This gives us basic functionality out of the box. I'll be removing some of the more specific aspects that deal with command line applications (UGUI's primary focus) and moving over some of the very general purpose functions into the scout.js file for use there. In the end this will mostly be a file for development tools.
+* **_scripts/ugui.js** - This library has a ton of useful tools, view [UGUI API](http://ugui.io/api) for more information.
 
 * * *
 
