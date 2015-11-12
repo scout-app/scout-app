@@ -7,8 +7,6 @@ function runApp() {
 
 
 
-
-
     //Allow access to the filesystem
     var fs = require('fs');
     //Pull in Node-Sass
@@ -16,22 +14,15 @@ function runApp() {
 
 
 
-
     //When the user clicks "Start!"
-    $("#runScout").click(function(){
+    $("#runScout").click( function (event) {
         //Prevent the form from sending like a normal website.
         event.preventDefault();
-        //Get the input folder path
-        var inputPath = $("#inputFolderBrowse").val();
+        //Build the UGUI Args Object
+        ugui.helpers.buildUGUIArgObject()
         //Send the folder path to be processed
-        processInputFolder(inputPath);
+        processInputFolder(ugui.args.inputFolder.value);
     });
-
-
-
-
-
-
 
 
 
@@ -51,62 +42,42 @@ function runApp() {
 
     function processInputFolder(inputPath) {
         //Grab all the files in the input folder and put them in an array
-        var allSassFiles = fs.readdir(inputPath, function(err, files) {
-            //if that works
-            if (!err) {
-                //check each file and process it if it is sass or scss and doesn't start with an underscore
-                for (var i = 0; i < files.length; i++) {
-                    var currentFile = files[i];
-
-                    //Skip all files that begin with an _
-                    if (!currentFile.startsWith("_")){
-
-                        //Process all sass files
-                        if (currentFile.endsWith(".sass")) {
-                            //Slice off the ".sass" from "file.sass" to just make "file"
-                            inputFileName = currentFile.slice(0,-5);
-                            //send to be converted to css and spit out into the output folder
-                            //convertToCSS(inputPath, inputFileName, ".sass");
-
-                        //Process all .scss files
-                        } else if (currentFile.endsWith(".scss")) {
-                            //Slice off the ".scss" from "file.scss" to just make "file"
-                            inputFileName = currentFile.slice(0,-5);
-                            //send to be converted to css and spit out into the output folder
-                            //convertToCSS(inputPath, inputFileName, ".scss");
-                        }
-
-                    }
+        ugui.helpers.readAFolder(inputPath, function(contents, contentsList) {
+            //check each file and process it if it is sass or scss and doesn't start with an underscore
+            for (var i = 0; i < contentsList.length; i++) {
+                var currentFile = contentsList[i];
+                //Skip all files that begin with an _ and Process all sass/scss files
+                if ( !currentFile.startsWith("_") && (currentFile.endsWith(".sass") || currentFile.endsWith(".scss")) ) {
+                    var fileName = currentFile.slice(0,-5);
+                    var extension = currentFile.substring(currentFile.length - 5, currentFile.length);
+                    //send to be converted to css and spit out into the output folder
+                    convertToCSS(inputPath, fileName, extension);
                 }
-            } else {
-                console.warn("Could not return list of files from input folder.");
             }
         });
     }
 
-
-
-
-
-
-
     function convertToCSS(inputPath, inputFileName, inputFileExt) {
-        var outputFilePath = $("#outputFolderBrowse").val();
-        var outputStyle = $('input[name="outputStyle"]').val();
-        //var file = '"' + inputPath + '\\' + inputFileName + inputFileExt + '"';
-        //'"' + outputFilePath + '\\' + inputFileName + '.css"'
-        var file = inputFileName + inputFileExt;
+        var outputFilePath = ugui.args.outputFolder.value;
+        var outputStyle = ugui.args.outputStyle.value;
+        var slash = "/";
+        if (ugui.platform == "win32") {
+            slash = "\\";
+        }
+        var fullFilePath = inputPath + slash + inputFileName + inputFileExt;
+        var outputFullFilePath = inputPath + slash + inputFileName + '.css';
         //Use node-sass to convert sass or scss to css
         sass.render({
-            file: 'D:/test/style.scss',
+            file: fullFilePath,
             outputStyle: outputStyle,
             indentedSyntax: true
         }, function (error, result) {
-            console.log(error);
-            if (error) throw error;
-            fs.writeFile('D:/test output/style.css', result.css, function (err) {
-                if (err) throw err;
-            });
+            if (error) {
+                console.log(error);
+                $("#printConsole").html(error);
+            } else {
+                ugui.helpers.writeToFile(outputFullFilePath, result.css.toString());
+            };
         });
     }
 

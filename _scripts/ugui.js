@@ -489,50 +489,47 @@ function readAFolder(filePath, callback) {
         return;
     }
 
-    //Create an object with an array in it
-    var contents = {};
-    var contentsList = [];
-
     //fs.readdir only accepts unix style folder paths
     if (platform == "win32") {
         filePath = filePath.replace("\\","/");
     }
 
-    //Read the directory passed in
-    fs.readdir(filePath, function(err, files) {
+    //Output an error if we can't access the file
+    fs.readdir(filePath, function(err) {
         //If there were problems reading the contents of a folder, stop and report them
         if (err)  {
             console.info(º+"Unable to read contents of the folder:", consoleNormal);
             console.warn(º+err.message, consoleError);
             return;
         }
+    });
 
-        files.forEach( function(file) {
-            fs.lstat(filePath + correctSlash + file, function(err, stats) {
-                //Retain an array of all files and folders
-                contentsList.push(file);
+    //Create an object with an array in it
+    var contents = {};
+    //Store the contents of the passed in directory as an array
+    var contentsList = fs.readdirSync(filePath);
 
-                //Check if it's a folder
-                if (!err && stats.isDirectory()) {
-                    contents[file] = {
-                        "isFolder": true,
-                        "size": 0
-                    }
-                //Check if it has a file size
-                } else if (!err && file !== "undefined") {
-                    contents[file] = {
-                        "isFolder": false,
-                        "size": stats.size
-                    }
-                //Catch-all
-                } else {
-                    contents[file] = {
-                        "isFolder": false
-                    }
-                }
+    contentsList.forEach( function(file) {
+        stats = fs.lstatSync(filePath + correctSlash + file);
 
-            });
-        });
+        //Check if it's a folder
+        if (stats.isDirectory()) {
+            contents[file] = {
+                "isFolder": true,
+                "size": 0
+            }
+        //Check if it has a file size
+        } else if (file !== "undefined") {
+            contents[file] = {
+                "isFolder": false,
+                "size": stats.size
+            }
+        //Catch-all
+        } else {
+            contents[file] = {
+                "isFolder": false
+            }
+        }
     });
 
     //If a callback was passed in, run it
@@ -2133,18 +2130,21 @@ function updateUGUIDevCommandLine() {
     //Get the executable from the dropdown lists
     var pickedExecutable = $(".uguiCommand .executableName").val();
 
-    //Get an array of all the commands being sent out
-    var devCommandOutput = buildCommandArray(pickedExecutable);
-    var devCommandOutputSpaces = [];
+    //For apps that don't use `<cmd>` blocks, skip this section
+    if (pickedExecutable != null) {
+        //Get an array of all the commands being sent out
+        var devCommandOutput = buildCommandArray(pickedExecutable);
+        var devCommandOutputSpaces = [];
 
-    for (var index = 0; index < devCommandOutput.length; index++) {
-        if (devCommandOutput[index] !== "") {
-            devCommandOutputSpaces.push(" " + devCommandOutput[index]);
+        for (var index = 0; index < devCommandOutput.length; index++) {
+            if (devCommandOutput[index] !== "") {
+                devCommandOutputSpaces.push(" " + devCommandOutput[index]);
+            }
         }
-    }
 
-    //Replace the text in the "CMD Output" section of the UGUI Developer Toolbar
-    $("#commandLine").html( devCommandOutputSpaces );
+        //Replace the text in the "CMD Output" section of the UGUI Developer Toolbar
+        $("#commandLine").html( devCommandOutputSpaces );
+    }
 }
 
 

@@ -92,7 +92,7 @@
               <input type="text" id="inputFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="inputFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." required="required" />
+                <input type="file" id="inputFolderBrowse" data-argName="inputFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." required="required" />
               </div>
             </div>
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
@@ -100,7 +100,7 @@
               <input type="text" id="outputFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="outputFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." required="required" />
+                <input type="file" id="outputFolderBrowse" data-argName="outputFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." required="required" />
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@
               <input type="text" id="jsFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="jsFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+                <input type="file" id="jsFolderBrowse" data-argName="jsFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
               </div>
             </div>
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
@@ -122,7 +122,7 @@
               <input type="text" id="imgFilePath" disabled />
               <div class="inputDirectoryContainer">
                 <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="imgFolderBrowse" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+                <input type="file" id="imgFolderBrowse" data-argName="imgFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
               </div>
             </div>
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
@@ -136,8 +136,8 @@
               <h3>Environment</h3>
             </div>
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4 radio">
-              <label><input type="radio" name="radioDials" value="development"         /> Development</label>
-              <label><input type="radio" name="radioDials" value="production"  checked /> Production</label>
+              <label><input type="radio" name="radioDials" data-argName="development" value="development"         /> Development</label>
+              <label><input type="radio" name="radioDials" data-argName="production"  value="production"  checked /> Production</label>
             </div>
 <!--
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4 checkbox">
@@ -147,15 +147,15 @@
             </div>
 -->
             <div class="col-xs-6 col-s-6 col-md-6 col-l-6" title="Output Style">
-              <div class="btn-group">
-                <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Output Style <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><input type="radio" name="outputStyle" id="outputStyleNested"     value="nested"     ><label for="outputStyleNested"     >Nested</label></li>
-                  <li><input type="radio" name="outputStyle" id="outputStyleExpanded"   value="expanded"   ><label for="outputStyleExpanded"   >Expanded</label></li>
-                  <li><input type="radio" name="outputStyle" id="outputStyleCompact"    value="compact"    ><label for="outputStyleCompact"    >Compact</label></li>
-                  <li><input type="radio" name="outputStyle" id="outputStyleCompressed" value="Compressed" ><label for="outputStyleCompressed" >Compressed</label></li>
-                </ul>
-              </div>
+
+              <select data-argName="outputStyle" class="form-control" required="required">
+                <option value=""           >Output Style</option>
+                <option value="nested"     >Nested</option>
+                <option value="expanded"   >Expanded</option>
+                <option value="compact"    >Compact</option>
+                <option value="Compressed" >Compressed</option>
+              </select>
+
             </div>
 <!--
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
@@ -173,10 +173,10 @@
               <textarea id="message" class="form-control" required="required"></textarea>
             </div>
 -->
-<div id="printConsole">Error, check console</div>
             <div class="col-xs-6 col-s-6 col-md-6 col-l-6 text-right">
               <button id="runScout" type="submit" class="btn btn-default">Start!</button>
             </div>
+            <div id="printConsole"><!-- Error, check console --></div>
           </div>
 <!--
           <div id="DropZone" class="form-group jumbotron text-center well h3" title="Click to browse for your file.">
