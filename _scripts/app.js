@@ -40,7 +40,7 @@ function runApp() {
         };
     }
 
-    function processInputFolder(inputPath) {
+    function processInputFolder (inputPath) {
         //Grab all the files in the input folder and put them in an array
         ugui.helpers.readAFolder(inputPath, function(contents, contentsList) {
             //check each file and process it if it is sass or scss and doesn't start with an underscore
@@ -48,7 +48,9 @@ function runApp() {
                 var currentFile = contentsList[i];
                 //Skip all files that begin with an _ and Process all sass/scss files
                 if ( !currentFile.startsWith("_") && (currentFile.endsWith(".sass") || currentFile.endsWith(".scss")) ) {
+                    //Change from 'some-file.scss' to 'some-file'
                     var fileName = currentFile.slice(0,-5);
+                    //Change from 'some-file.scss' to '.scss'
                     var extension = currentFile.substring(currentFile.length - 5, currentFile.length);
                     //send to be converted to css and spit out into the output folder
                     convertToCSS(inputPath, fileName, extension);
@@ -57,7 +59,7 @@ function runApp() {
         });
     }
 
-    function convertToCSS(inputPath, inputFileName, inputFileExt) {
+    function convertToCSS (inputPath, inputFileName, inputFileExt) {
         var outputFilePath = ugui.args.outputFolder.value;
         var outputStyle = ugui.args.outputStyle.value;
         var slash = "/";
