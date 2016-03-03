@@ -68,9 +68,10 @@ function runApp() {
         var outputFullFilePath = inputPath + slash + inputFileName + '.css';
         //Use node-sass to convert sass or scss to css
         sass.render({
-            file: fullFilePath,
-            outputStyle: outputStyle,
-            indentedSyntax: true
+            'file': fullFilePath,
+            'outputStyle': outputStyle,
+            'indentedSyntax': true,
+            'includePaths': ['mixins']
         }, function (error, result) {
             if (error) {
                 console.log(error);
