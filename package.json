@@ -49,7 +49,8 @@
         "plugin": true
     },
     "dependencies": {
-        "node-sass": "~3.4.2"
+        "node-sass": "~3.4.2",
+        "chokidar": "^1.4.3"
     },
     "devDependencies": {
         "nw": "^0.12.3"
@@ -57,6 +58,7 @@
     "scripts": {
         "start": "nw ."
     },
+    "license": "MIT",
     "licenses": [{
         "type": "MIT",
         "url": "https://github.com/mhs/scout-app/blob/master/LICENSE"

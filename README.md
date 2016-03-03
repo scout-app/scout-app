@@ -48,7 +48,7 @@ The four main files Scout-App are:
   * [ ] **To do:**
     * [x] ~~Clean up project folder.~~
     * [x] ~~Handle a single project with input and output of files in specified folders.~~
-    * [ ] Fix Output Style options (nested, expanded, compact, compressed)
+    * [x] ~~Fix Output Style options (nested, expanded, compact, compressed)~~
     * [ ] Implement Environment options (production/development)
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Upon creating a project, auto-guess the 4 input-files.
@@ -60,6 +60,7 @@ The four main files Scout-App are:
   * [ ] **To do:**
     * [ ] Finalize UX layout
     * [ ] Pretty up the app!
+    * [ ] Pretty up the error output message and allow for it to be closed
 * [ ] **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX) & General QA
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
 * [ ] **Phase 4:** New website

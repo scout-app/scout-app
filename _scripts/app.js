@@ -11,7 +11,7 @@ function runApp() {
     var fs = require('fs');
     //Pull in Node-Sass
     var sass = require('node-sass');
-
+    var watch = require('chokidar');
 
 
     //When the user clicks "Start!"
