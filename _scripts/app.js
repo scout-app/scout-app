@@ -67,7 +67,7 @@ function runApp() {
             slash = "\\";
         }
         var fullFilePath = inputPath + slash + inputFileName + inputFileExt;
-        var outputFullFilePath = inputPath + slash + inputFileName + '.css';
+        var outputFullFilePath = outputFilePath + slash + inputFileName + '.css';
         //Use node-sass to convert sass or scss to css
         sass.render({
             'file': fullFilePath,
@@ -77,7 +77,7 @@ function runApp() {
         }, function (error, result) {
             if (error) {
                 console.log(error);
-                $("#printConsole").html(error);
+                $("#printConsole").html(error.message.replace('\n', '<br />'));
             } else {
                 ugui.helpers.writeToFile(outputFullFilePath, result.css.toString());
             };
