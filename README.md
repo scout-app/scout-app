@@ -65,5 +65,22 @@ The four main files Scout-App are:
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
 * [ ] **Phase 4:** New website
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
-* [ ] **Phase 5:** Bug fixes/Additional features/Maintenance 
+* [ ] **Phase 5:** Bug fixes/Additional features/Maintenance
   * [ ] **Status:** Waiting for Phase 1, 2, and 3 to be completed.
+
+* * *
+
+Supported built-in mixin libraries:
+
+```
+@import "easings";                    // github.com/dmnsgn/sass-
+@import "sassy-buttons";              // github.com/jhardy/Sassy-Buttons
+@import "bluebird";                   // github.com/kalebheitzman/bluebird
+@import "css3-mixins";                // github.com/matthieua/sass-css3-mixins
+@import "spysass";                    // github.com/thecodebureau/spysass
+@import "bourbon-deprecated-upcoming" // github.com/thoughtbot/bourbon
+@import "bourbon";                    // github.com/thoughtbot/bourbon
+@import "neat";                       // github.com/thoughtbot/neat
+```
+
+If we've missed a popular mixin library, request it on the issues page.

@@ -50,7 +50,14 @@
     },
     "dependencies": {
         "node-sass": "~3.4.2",
-        "chokidar": "^1.4.3"
+        "chokidar": "^1.4.3",
+
+        "bluebird-sass": "~1.x.x",
+        "bourbon": "~4.x.x",
+        "bourbon-neat": "~1.x.x",
+        "sass-easing": "~1.x.x",
+        "sassier-buttons": "~1.x.x",
+        "spysass": "0.x.x"
     },
     "devDependencies": {
         "nw": "^0.12.3"

@@ -73,7 +73,15 @@ function runApp() {
             'file': fullFilePath,
             'outputStyle': outputStyle,
             'indentedSyntax': true,
-            'includePaths': ['mixins']
+            'includePaths': [
+                'mixins',
+                'node_modules/bluebird-sass/sass',
+                'node_modules/bourbon/app/assets/stylesheets',
+                'node_modules/bourbon-neat/app/assets/stylesheets',
+                'node_modules/sass-easing',
+                'node_modules/sassier-buttons/scss',
+                'node_modules/spysass/sass'
+            ]
         }, function (error, result) {
             if (error) {
                 console.log(error);
