@@ -11,7 +11,7 @@ function runApp() {
     var fs = require('fs');
     //Pull in Node-Sass
     var sass = require('node-sass');
-    var watch = require('chokidar');
+    var chokidar = require('chokidar');
 
 
     //When the user clicks "Start!"
@@ -20,8 +20,10 @@ function runApp() {
         event.preventDefault();
         //Build the UGUI Args Object
         ugui.helpers.buildUGUIArgObject()
-        //Send the folder path to be processed
-        processInputFolder(ugui.args.inputFolder.value);
+        //Send the folder path to be processed and monitor it for changes
+        var inputFolder = ugui.args.inputFolder.value;
+        processInputFolder(inputFolder);
+        startWatching(inputFolder);
     });
 
 
@@ -68,6 +70,7 @@ function runApp() {
         }
         var fullFilePath = inputPath + slash + inputFileName + inputFileExt;
         var outputFullFilePath = outputFilePath + slash + inputFileName + '.css';
+
         //Use node-sass to convert sass or scss to css
         sass.render({
             'file': fullFilePath,
@@ -78,7 +81,7 @@ function runApp() {
                 'bower_components/bluebird-sass/src',
                 'bower_components/bourbon/app/assets/stylesheets',
                 'bower_components/compass-mixins/lib',
-                "bower_components/cssowl/lib/sass",
+                'bower_components/cssowl/lib/sass',
                 'bower_components/neat/app/assets/stylesheets',
                 'bower_components/sass-easing',
                 'bower_components/sassier-buttons/scss',
@@ -95,7 +98,15 @@ function runApp() {
     }
 
 
-
+    function startWatching (inputFolder) {
+        var watcher = chokidar.watch(inputFolder, {
+            ignored: /[\/\\]\./,
+            persistent: true
+        });
+        watcher.on('change', function () {
+            processInputFolder(inputFolder);
+        });
+    }
 
 
 

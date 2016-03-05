@@ -49,12 +49,13 @@ The four main files Scout-App are:
     * [x] ~~Clean up project folder.~~
     * [x] ~~Handle a single project with input and output of files in specified folders.~~
     * [x] ~~Fix Output Style options (nested, expanded, compact, compressed)~~
+    * [x] ~~Allow for common mixin libraries to be shipped with it~~
     * [ ] Implement Environment options (production/development)
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Upon creating a project, auto-guess the 4 input-files.
     * [ ] Save/Load settings automatically
     * [ ] Create an export button that will export out the saved project .json file for the user.
-    * [ ] Have a watch function that will watch the specified files instead of just a one time run
+    * [x] ~~Have a watch function that will watch the specified files instead of just a one time run~~
 * [ ] **Phase 2:** Beautiful with ease of use (ZD/JM, some TJW)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
   * [ ] **To do:**
