@@ -70,17 +70,24 @@ The four main files Scout-App are:
 
 * * *
 
-Supported built-in mixin libraries:
+### Supported built-in mixin libraries:
+
+*Sorted by URL*
 
 ```
-@import "easings";                    // github.com/dmnsgn/sass-
+@import "sassmatic";                  // github.com/DarbyBrown/sassmatic
+@import "animate";                    // github.com/Igosuki/compass-mixins
+@import "compass";                    // github.com/Igosuki/compass-mixins
+@import "lemonade";                   // github.com/Igosuki/compass-mixins
 @import "sassy-buttons";              // github.com/jhardy/Sassy-Buttons
 @import "bluebird";                   // github.com/kalebheitzman/bluebird
+@import "sass-easing";                // github.com/kingscooty/sass-easing
 @import "css3-mixins";                // github.com/matthieua/sass-css3-mixins
-@import "spysass";                    // github.com/thecodebureau/spysass
+@import "cssowl";                     // github.com/owl-stars/cssowl
+@import "spice";                      // github.com/spice-sass/spice
 @import "bourbon-deprecated-upcoming" // github.com/thoughtbot/bourbon
 @import "bourbon";                    // github.com/thoughtbot/bourbon
 @import "neat";                       // github.com/thoughtbot/neat
 ```
 
-If we've missed a popular mixin library, request it on the issues page.
+If we've missed a popular mixin library, request it on the [issues](https://github.com/mhs/scout-app/issues) page.

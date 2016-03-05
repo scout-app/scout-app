@@ -75,12 +75,14 @@ function runApp() {
             'indentedSyntax': true,
             'includePaths': [
                 'mixins',
-                'node_modules/bluebird-sass/sass',
-                'node_modules/bourbon/app/assets/stylesheets',
-                'node_modules/bourbon-neat/app/assets/stylesheets',
-                'node_modules/sass-easing',
-                'node_modules/sassier-buttons/scss',
-                'node_modules/spysass/sass'
+                'bower_components/bluebird-sass/src',
+                'bower_components/bourbon/app/assets/stylesheets',
+                'bower_components/compass-mixins/lib',
+                "bower_components/cssowl/lib/sass",
+                'bower_components/neat/app/assets/stylesheets',
+                'bower_components/sass-easing',
+                'bower_components/sassier-buttons/scss',
+                'bower_components/spice-sass/src'
             ]
         }, function (error, result) {
             if (error) {

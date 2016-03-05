@@ -1,0 +1,41 @@
+{
+  "name": "Scout-App",
+  "description": "Compass and Sass without all the hassle.",
+  "homepage": "http://mhs.github.uo/scout-app",
+  "version": "2.0.0-alpha",
+  "main": "index.html",
+  "authors": [
+    "The Jared Wilcurt",
+    "ZD",
+    "JM"
+  ],
+  "keywords": [
+    "Sass",
+    "Compass",
+    "CSS",
+    "Preprocessor",
+    "GUI",
+    "SassC",
+    "Sass"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bluebird-sass": "latest",
+    "bourbon": "latest",
+    "compass-mixins": "latest",
+    "cssowl": "latest",
+    "neat": "latest",
+    "sass-easing": "latest",
+    "sassier-buttons": "latest",
+    "spice-sass": "latest"
+  },
+  "devDependencies": {}
+}
