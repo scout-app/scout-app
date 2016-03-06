@@ -20,10 +20,9 @@ function runApp() {
         event.preventDefault();
         //Build the UGUI Args Object
         ugui.helpers.buildUGUIArgObject()
-        //Send the folder path to be processed and monitor it for changes
+        //Send the folder path to be processed
         var inputFolder = ugui.args.inputFolder.value;
         processInputFolder(inputFolder);
-        startWatching(inputFolder);
     });
 
 
@@ -43,6 +42,8 @@ function runApp() {
     }
 
     function processInputFolder (inputPath) {
+        //monitor inputFolder for changes
+        startWatching(inputFolder);
         //Grab all the files in the input folder and put them in an array
         ugui.helpers.readAFolder(inputPath, function(contents, contentsList) {
             //check each file and process it if it is sass or scss and doesn't start with an underscore
@@ -62,18 +63,36 @@ function runApp() {
     }
 
     function convertToCSS (inputPath, inputFileName, inputFileExt) {
-        var outputFilePath = ugui.args.outputFolder.value;
-        var outputStyle = ugui.args.outputStyle.value;
         var slash = "/";
         if (ugui.platform == "win32") {
             slash = "\\";
         }
+        var outputFilePath = ugui.args.outputFolder.value;
+        var outputStyle = ugui.args.outputStyle.value;
+        var sourceMap = false;
+
+        //devMode will return true or false
+        var devMode = ugui.args.development.htmlticked;
+        //If we are in Development (not production)
+        if (devMode) {
+            //Convert compact setting to nested so source maps will work
+            if (outputStyle == 'compact') {
+                outputStyle = 'nested';
+            //and compressed to expanded so source maps will work
+            } else if (outputStyle == 'compressed') {
+                outputStyle = 'expanded';
+            }
+            //set the location for the sourceMap
+            sourceMap = outputFilePath + slash + inputFileName + '.map'
+        }
+
         var fullFilePath = inputPath + slash + inputFileName + inputFileExt;
         var outputFullFilePath = outputFilePath + slash + inputFileName + '.css';
 
         //Use node-sass to convert sass or scss to css
         sass.render({
             'file': fullFilePath,
+            'outfile': sourceMap,
             'outputStyle': outputStyle,
             'indentedSyntax': true,
             'includePaths': [
@@ -86,13 +105,19 @@ function runApp() {
                 'bower_components/sass-easing',
                 'bower_components/sassier-buttons/scss',
                 'bower_components/spice-sass/src'
-            ]
+            ],
+            'sourceComments': devMode,
+            'sourceMap': sourceMap,
+            'sourceMapContents': devMode
         }, function (error, result) {
             if (error) {
                 console.log(error);
                 $("#printConsole").html(error.message.replace('\n', '<br />'));
             } else {
                 ugui.helpers.writeToFile(outputFullFilePath, result.css.toString());
+                if (devMode) {
+                    ugui.helpers.writeToFile(sourceMap, result.map.toString());
+                }
             };
         });
     }
@@ -105,6 +130,11 @@ function runApp() {
         });
         watcher.on('change', function () {
             processInputFolder(inputFolder);
+        });
+        $("#runScout").click( function (event) {
+            event.preventDefault();
+            //Stop watching files
+            watcher.close();
         });
     }
 
