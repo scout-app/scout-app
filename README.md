@@ -50,7 +50,7 @@ The four main files Scout-App are:
     * [x] ~~Handle a single project with input and output of files in specified folders.~~
     * [x] ~~Fix Output Style options (nested, expanded, compact, compressed)~~
     * [x] ~~Allow for common mixin libraries to be shipped with it~~
-    * [ ] Implement Environment options (production/development)
+    * [x] ~~Implement Environment options (production/development)~~
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Upon creating a project, auto-guess the 4 input-files.
     * [ ] Save/Load settings automatically
