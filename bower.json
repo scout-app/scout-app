@@ -28,14 +28,21 @@
     "tests"
   ],
   "dependencies": {
+    "andy": "latest",
     "bluebird-sass": "latest",
     "bourbon": "latest",
+    "breakpoint": "latest",
+    "buttons": "latest",
     "compass-mixins": "latest",
     "cssowl": "latest",
     "neat": "latest",
+    "saffron": "latest",
     "sass-easing": "latest",
     "sassier-buttons": "latest",
-    "spice-sass": "latest"
+    "scut": "latest",
+    "spice-sass": "latest",
+    "susy": "latest",
+    "typesettings": "latest"
   },
   "devDependencies": {}
 }

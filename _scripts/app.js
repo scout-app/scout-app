@@ -97,14 +97,21 @@ function runApp() {
             'indentedSyntax': true,
             'includePaths': [
                 'mixins',
+                'bower_components/andy',
                 'bower_components/bluebird-sass/src',
                 'bower_components/bourbon/app/assets/stylesheets',
+                'bower_components/breakpoint/breakpoint',
+                'bower_components/buttons',
                 'bower_components/compass-mixins/lib',
                 'bower_components/cssowl/lib/sass',
                 'bower_components/neat/app/assets/stylesheets',
+                'bower_components/saffron/saffron',
                 'bower_components/sass-easing',
                 'bower_components/sassier-buttons/scss',
-                'bower_components/spice-sass/src'
+                'bower_components/scut/dist',
+                'bower_components/spice-sass/src',
+                'bower_components/susy/sass'
+                'bower_components/typesettings'
             ],
             'sourceComments': devMode,
             'sourceMap': sourceMap,

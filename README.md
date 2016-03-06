@@ -75,20 +75,29 @@ The four main files Scout-App are:
 
 *Sorted by URL*
 
-```
-@import "sassmatic";                  // github.com/DarbyBrown/sassmatic
-@import "animate";                    // github.com/Igosuki/compass-mixins
-@import "compass";                    // github.com/Igosuki/compass-mixins
-@import "lemonade";                   // github.com/Igosuki/compass-mixins
-@import "sassy-buttons";              // github.com/jhardy/Sassy-Buttons
-@import "bluebird";                   // github.com/kalebheitzman/bluebird
-@import "sass-easing";                // github.com/kingscooty/sass-easing
-@import "css3-mixins";                // github.com/matthieua/sass-css3-mixins
-@import "cssowl";                     // github.com/owl-stars/cssowl
-@import "spice";                      // github.com/spice-sass/spice
-@import "bourbon-deprecated-upcoming" // github.com/thoughtbot/bourbon
-@import "bourbon";                    // github.com/thoughtbot/bourbon
-@import "neat";                       // github.com/thoughtbot/neat
-```
+Code                                     | Source
+:--                                      | :--
+`@import "buttons";`                     | [github.com/alexwolfe/Buttons](https://github.com/alexwolfe/Buttons)
+`@import "saffron";`                     | [github.com/corporadobob/saffron](https://github.com/corporadobob/saffron)
+`@import "sassmatic";`                   | [github.com/DarbyBrown/sassmatic](https://github.com/DarbyBrown/sassmatic)
+`@import "scut";`                        | [github.com/davidtheclark/scut](https://github.com/davidtheclark/scut)
+`@import "su";`                          | [github.com/ericam/susy](https://github.com/ericam/susy)
+`@import "susy";`                        | [github.com/ericam/susy](https://github.com/ericam/susy)
+`@import "susyone";`                     | [github.com/ericam/susy](https://github.com/ericam/susy)
+`@import "andy";`                        | [github.com/gillesbertaux/andy](https://github.com/gillesbertaux/andy)
+`@import "typesettings";`                | [github.com/ianrose/typesettings](https://github.com/ianrose/typesettings)
+`@import "animate";`                     | [github.com/Igosuki/compass-mixins](https://github.com/Igosuki/compass-mixins)
+`@import "compass";`                     | [github.com/Igosuki/compass-mixins](https://github.com/Igosuki/compass-mixins)
+`@import "lemonade";`                    | [github.com/Igosuki/compass-mixins](https://github.com/Igosuki/compass-mixins)
+`@import "sassy-buttons";`               | [github.com/jhardy/Sassy-Buttons](https://github.com/jhardy/Sassy-Buttons)
+`@import "bluebird";`                    | [github.com/kalebheitzman/bluebird](https://github.com/kalebheitzman/bluebird)
+`@import "sass-easing";`                 | [github.com/kingscooty/sass-easing](https://github.com/kingscooty/sass-easing)
+`@import "breakpoint";`                  | [github.com/lesjames/breakpoint](https://github.com/lesjames/breakpoint)
+`@import "css3-mixins";`                 | [github.com/matthieua/sass-css3-mixins](https://github.com/matthieua/sass-css3-mixins)
+`@import "cssowl";`                      | [github.com/owl-stars/cssowl](https://github.com/owl-stars/cssowl)
+`@import "spice";`                       | [github.com/spice-sass/spice](https://github.com/spice-sass/spice)
+`@import "bourbon-deprecated-upcoming";` | [github.com/thoughtbot/bourbon](https://github.com/thoughtbot/bourbon)
+`@import "bourbon";`                     | [github.com/thoughtbot/bourbon](https://github.com/thoughtbot/bourbon)
+`@import "neat";`                        | [github.com/thoughtbot/neat](https://github.com/thoughtbot/neat)
 
 If we've missed a popular mixin library, request it on the [issues](https://github.com/mhs/scout-app/issues) page.
