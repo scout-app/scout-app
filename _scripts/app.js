@@ -23,6 +23,8 @@ function runApp() {
         //Send the folder path to be processed
         var inputFolder = ugui.args.inputFolder.value;
         processInputFolder(inputFolder);
+        //monitor inputFolder for changes
+        startWatching(inputFolder);
     });
 
 
@@ -42,8 +44,6 @@ function runApp() {
     }
 
     function processInputFolder (inputPath) {
-        //monitor inputFolder for changes
-        startWatching(inputFolder);
         //Grab all the files in the input folder and put them in an array
         ugui.helpers.readAFolder(inputPath, function(contents, contentsList) {
             //check each file and process it if it is sass or scss and doesn't start with an underscore
@@ -110,7 +110,7 @@ function runApp() {
                 'bower_components/sassier-buttons/scss',
                 'bower_components/scut/dist',
                 'bower_components/spice-sass/src',
-                'bower_components/susy/sass'
+                'bower_components/susy/sass',
                 'bower_components/typesettings'
             ],
             'sourceComments': devMode,
@@ -137,11 +137,6 @@ function runApp() {
         });
         watcher.on('change', function () {
             processInputFolder(inputFolder);
-        });
-        $("#runScout").click( function (event) {
-            event.preventDefault();
-            //Stop watching files
-            watcher.close();
         });
     }
 
