@@ -42,27 +42,25 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#save" class="save-ugui-settings">Save Settings</a></li>
-                <li><a href="#load" class="load-ugui-settings">Load Settings</a></li>
+                <li><a href="#new">New Project</a></li>
+                <li><a href="#import">Open</a></li>
+                <li class="divider"></li>
+                <li><a href="#export">Export</a></li>
+                <li class="divider"></li>
                 <li><a href="#exit">Exit</a></li>
               </ul>
             </li>
             <li class="dropdown devNav">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#fullscreen">Fullscreen</a></li>
-                <!-- devNav items are hidden when in Production mode -->
-                <li class="devNav"><a href="#console">Console</a></li>
-                <li class="divider"></li>
-                <li class="devNav"><a href="#cmdoutput">Command Line Output</a></li>
+                <li><a href="#">Status</a></li>
+                <!-- items with a class of "devNav" are only visible when <body> has a class of "dev" -->
+                <li><a href="#console">Dev Tools</a></li>
               </ul>
             </li>
             <li class="dropdown navHelp">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Help <span class="caret"></span></a>
-              <ul class="dropdown-menu" role="menu">
-                <!-- <a href="#about"> must exist in your app as it contains the credits for UGUI -->
-                <li><a href="#about">About</a></li>
-              </ul>
+              <!-- <a href="#about"> must exist in your app as it contains the credits for UGUI -->
+              <a href="#about">About</a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
