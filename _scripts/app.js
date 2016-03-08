@@ -159,7 +159,13 @@ function runApp() {
         $("#imgFilePath").val( $(this).val() );
     });
 
-
+    $("#browseDir").change(function(){
+        var newDir = $("#browseDir").val();
+        newDir = newDir.split('\\').join('\/');
+        $("#pathToRepo").val(newDir);
+        updateAllBranches();
+        ugui.helpers.saveSettings();
+    });
 
 
 
