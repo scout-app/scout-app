@@ -105,9 +105,11 @@
             </div>
           </div>
 
+<!--
           <div class="row">
             <h3>Other Directories</h3>
           </div>
+
           <div class="row form-group">
             <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
               <label>JavaScripts Folder:</label>
@@ -130,6 +132,7 @@
               <input type="file" />
             </div>
           </div>
+-->
 
           <div class="row">
             <div>
@@ -250,6 +253,15 @@
                     Visit the <span class="applicationName">Scout-App</span> website to check for updates:<br />
                     <div class="text-center"><a href="http://mhs.github.io/scout-app" class="external-link">mhs.github.io/Scout-App</a></div>
                   </p>
+                  <!--
+                    This is the "Check for Updates" feature. If your app is publicly avaliable on GitHub
+                    you can use it. Since this takes a few extra steps to set up, it is commented out by
+                    default. See: http://ugui.io/api for more information about this feature.
+                  -->
+                    <p id="updateResults"></p>
+                    <p class="text-center">
+                      <button id="updateChecker" class="btn btn-primary">Check for updates</button>
+                    </p>
                 </div>
               </div>
             </div>
