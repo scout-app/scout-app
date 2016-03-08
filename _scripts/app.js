@@ -132,41 +132,44 @@ function runApp() {
 
 
 
-    //resize folder browse buttons to be same size as [...] buttons that are covering them
-    var bttnWidth = $(".inputDirectoryBttn").outerWidth(true);
-    var bttnHeight = $(".inputDirectoryBttn").outerHeight(true);
-    $("input[nwdirectory]").outerWidth(bttnWidth);
-    $("input[nwdirectory]").outerHeight(bttnHeight);
-
     //Set the default starting folder for browse boxes
     var projectFolder = $("#projectFolder").val();
     $("#inputFolderBrowse").attr("nwworkingdir", projectFolder);
     $("#outputFolderBrowse").attr("nwworkingdir", projectFolder);
-    $("#jsFolderBrowse").attr("nwworkingdir", projectFolder);
-    $("#imgFolderBrowse").attr("nwworkingdir", projectFolder);
 
-    //If a Folder Browse input changes, update the disabled input box to show the folder path
+    $("#inputFolderIcon" ).click( function () { $("#inputFolderBrowse" ).click(); });
+    $("#outputFolderIcon").click( function () { $("#outputFolderBrowse").click(); });
+
     $("#inputFolderBrowse").change(function(){
-        $("#inputFilePath").val( $(this).val() );
+        var newDir = $("#inputFolderBrowse").val();
+        newDir = newDir.split('\\').join('\/');
+        $("#inputFolder").val(newDir);
+        unlockSubmit();
     });
     $("#outputFolderBrowse").change(function(){
-        $("#outputFilePath").val( $(this).val() );
-    });
-    $("#jsFolderBrowse").change(function(){
-        $("#jsFilePath").val( $(this).val() );
-    });
-    $("#imgFolderBrowse").change(function(){
-        $("#imgFilePath").val( $(this).val() );
-    });
-
-    $("#browseDir").change(function(){
-        var newDir = $("#browseDir").val();
+        var newDir = $("#outputFolderBrowse").val();
         newDir = newDir.split('\\').join('\/');
-        $("#pathToRepo").val(newDir);
-        updateAllBranches();
-        ugui.helpers.saveSettings();
+        $("#outputFolder").val(newDir);
+        unlockSubmit();
     });
 
+    $("#inputFolderBrowse, #outputFolderBrowse").keyup( unlockSubmit );
+    $("#inputFolderBrowse, #outputFolderBrowse").mouseup( unlockSubmit );
+
+    function unlockSubmit () {
+        //If a required element wasn't filled out in the form
+        if ( $("#project-settings form").is(":invalid") ) {
+            //Disable/Lock the submit button
+            $("#runScout").prop("disabled", true);
+        //If all required elements in the form have been fulfilled
+        } else {
+            //Enable/Unlock the submit button
+            $("#runScout").prop("disabled", false);
+        }
+    }
+
+    //On page load have this run once
+    unlockSubmit();
 
 
 }// end runApp();

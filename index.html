@@ -73,7 +73,7 @@
         <h3>Project Name</h3>
       </header>
 
-      <section>
+      <section id="project-settings">
         <form role="form-inline">
 
           <div class="row">
@@ -87,29 +87,16 @@
 
           <div class="row">
             <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-              <label for="pathToRepo">Path to Repo:</label>
-              <input id="pathToRepo" type="text" class="form-control" data-argName="pathToRepo" />
-              <span class="glyphicon glyphicon-folder-open pull-right browsie" title="Browse"></span>
-              <input type="file" id="browseDir" nwdirectory class="hide" />
+              <label for="inputFolder">Input Folder:</label>
+              <input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" />
+              <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" title="Browse"></span>
+              <input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" required="required" />
             </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
-              <label>Input Folder:</label>
-              <input type="text" class="form-control" id="inputFilePath" />
-              <div class="inputDirectoryContainer">
-                <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="inputFolderBrowse" data-argName="inputFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." required="required" />
-              </div>
-            </div>
-            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
-              <label>Output Folder:</label>
-              <input type="text" class="form-control" id="outputFilePath" />
-              <div class="inputDirectoryContainer">
-                <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="outputFolderBrowse" data-argName="outputFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." required="required" />
-              </div>
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+              <label for="outputFolder">Output Folder:</label>
+              <input id="outputFolder" type="text" class="form-control" data-argName="outputFolder" />
+              <span id="outputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" title="Browse"></span>
+              <input type="file" id="outputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" required="required" />
             </div>
           </div>
 
@@ -187,7 +174,7 @@
 -->
           <div class="row">
             <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-              <button id="runScout" type="submit" class="btn btn-default">Start!</button>
+              <button id="runScout" type="submit" class="btn btn-default" disabled="disabled">Start!</button>
             </div>
             <div id="printConsole"><!-- Error, check console --></div>
           </div>
