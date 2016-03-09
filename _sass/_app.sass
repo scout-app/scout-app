@@ -1,6 +1,36 @@
 
 // App specific styles
 
+$calcHeader: calc(100% - 106px)
+
+#projectIcon
+    max-width: 100px
+    max-height: 80px
+    background: #EDEDED
+    border-radius: 8px
+    margin: 8px 0px 0px 0px
+    padding: 7px
+    float: right
+    box-shadow: inset 0px 1px 7px rgba(0, 0, 0, 0.15)
+
+#projectName
+    width: $calcHeader
+
+#projectFolder
+    +bmp0
+    width: $calcHeader
+    background: transparent
+    border-radius: 0px
+    color: #AAA
+    font-size: 12px
+    font-style: italic
+    cursor: default
+    box-shadow: 0px 0px
+
+.row
+    margin-right: 0px
+    margin-left: 0px
+
 .glyphicon-folder-open
     top: -25px
     right: 15px

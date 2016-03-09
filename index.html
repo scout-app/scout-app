@@ -69,15 +69,12 @@
 
     <div class="container" role="main">
 
-      <header>
-        <h3>Project Name</h3>
-      </header>
-
       <section id="project-settings">
         <form role="form-inline">
 
           <div class="row">
-            <label>Project Folder:</label>
+            <img id="projectIcon" src="_img/logo_128.png" alt="Project Icon" />
+            <h3 id="projectName">Project Name</h3>
             <!-- Just putting this in here manually for now -->
             <input type="text" id="projectFolder" class="form-control" value="D:\GitHub\scout-app" disabled />
           </div>
@@ -106,7 +103,7 @@
           </div>
 
           <div class="row form-group">
-            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
               <label>JavaScripts Folder:</label>
               <input type="text" id="jsFilePath" disabled />
               <div class="inputDirectoryContainer">
@@ -114,7 +111,7 @@
                 <input type="file" id="jsFolderBrowse" data-argName="jsFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
               </div>
             </div>
-            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
               <label>Images Folder:</label>
               <input type="text" id="imgFilePath" disabled />
               <div class="inputDirectoryContainer">
@@ -122,7 +119,7 @@
                 <input type="file" id="imgFolderBrowse" data-argName="imgFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
               </div>
             </div>
-            <div class="col-xs-6 col-s-4 col-md-4 col-l-4">
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
               <label>Config File:</label>
               <input type="file" />
             </div>
@@ -133,12 +130,12 @@
             <div>
               <h3>Environment</h3>
             </div>
-            <div class="col-xs-6 col-s-4 col-md-4 col-l-4 radio">
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6 radio">
               <label><input type="radio" name="environment" data-argName="development" value="development"         /> Development</label>
               <label><input type="radio" name="environment" data-argName="production"  value="production"  checked /> Production</label>
             </div>
 <!--
-            <div class="col-xs-6 col-s-4 col-md-4 col-l-4 checkbox">
+            <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox">
               <label><input type="checkbox" value="-plum" />Several checkboxes</label><br />
               <label><input type="checkbox" value="-kiwi" />that each add a</label><br />
               <label><input type="checkbox" value="-pear" />different argument</label>
