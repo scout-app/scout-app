@@ -89,6 +89,7 @@ Code                                     | Source
 `@import "animate";`                     | [github.com/Igosuki/compass-mixins](https://github.com/Igosuki/compass-mixins)
 `@import "compass";`                     | [github.com/Igosuki/compass-mixins](https://github.com/Igosuki/compass-mixins)
 `@import "lemonade";`                    | [github.com/Igosuki/compass-mixins](https://github.com/Igosuki/compass-mixins)
+`@import "sassline";`                    | [github.com/jakegiltsoff/sassline](https://github.com/jakegiltsoff/sassline)
 `@import "sassy-buttons";`               | [github.com/jhardy/Sassy-Buttons](https://github.com/jhardy/Sassy-Buttons)
 `@import "bluebird";`                    | [github.com/kalebheitzman/bluebird](https://github.com/kalebheitzman/bluebird)
 `@import "sass-easing";`                 | [github.com/kingscooty/sass-easing](https://github.com/kingscooty/sass-easing)
