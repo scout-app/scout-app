@@ -12,6 +12,8 @@ function runApp() {
     //Pull in Node-Sass
     var sass = require('node-sass');
     var chokidar = require('chokidar');
+    var nodeSassVersion = sass.info.split('\r\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
+    var libSassVersion = sass.info.split('\r\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
 
 
     //When the user clicks "Start!"
@@ -170,6 +172,8 @@ function runApp() {
 
     //On page load have this run once
     unlockSubmit();
+
+    $('.nodeSassVersion').html('(Node-Sass v' + nodeSassVersion +  ' / LibSass v' + libSassVersion + ')');
 
 
 }// end runApp();
