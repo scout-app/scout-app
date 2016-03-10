@@ -13,6 +13,7 @@
 
 //Stuff that effects specific pages
 @import "_app.sass";                  // CSS specifc to the app you create using UGUI
+@import "_alerts.sass";               // Alerts, warnings and error messages
 
 //Stuff that goes at the end
 @import "_ugui.sass";                 // UGUI specific styles for UGUI dev tools and such

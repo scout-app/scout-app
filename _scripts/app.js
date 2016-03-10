@@ -110,29 +110,31 @@ function runApp() {
         }, function (error, result) {
             if (error) {
                 console.log(error);
-                var line1 = error.formatted.split('\n')[0].split(':');
-                var line2 = error.formatted.split('\n')[1].trim().split(': ');
-                var line3 = error.formatted.split('\n')[2].trim().replace('on line ','').split(' of ');
-                var title = '<strong>Error:</strong>' + line1[1] + ' <strong>' + line1[2].trim() + '</strong>';
-                var footer = line2[0];
-                var file = line2[1];
-                var bugLine = parseInt(line3[0]);
-                var bugFile = line3[1];
+                var file = error.file;
+                var bugLine = error.line;
+                var col = error.column;
+                var code = error.status;
+                var title = '<strong>Error ' + code + ':</strong> on line <strong>' + bugLine + '</strong> col: <strong>' + col + '</strong>';
+                var footer = '<em>' + file + '</em>';
+                var bugFile = file.replace('\\','/').split('/');
+                bugFile = bugFile[bugFile.length - 1];
 
                 var fileContents = ugui.helpers.readAFile(file);
                 fileContents = fileContents.split('\n');
                 var count = fileContents.length;
-                var theError = '<span class="text-primary">' + (bugLine-1) + ': ' + fileContents[(bugLine-1)] + '</span>';
+
+                var theError = '<span class="num">' + bugLine + ':</span> <span class="text-primary">' + fileContents[(bugLine-1)] + '</span>';
                 var errorPreview = theError;
                 //Make sure there are at least 3 lines in the file and the error isn't on the first or last line
                 if (count > 3 && (bugLine-1) !== 0 && (bugLine) !== count) {
                     errorPreview =
                       //line before the error
-                      (bugLine-2) + ': ' + fileContents[(bugLine-2)] +
+                      '<span class="num">' + (bugLine-1) + ':</span> ' + fileContents[(bugLine-2)] +
                       theError +
                       //line after the error
-                      bugLine + ': ' + fileContents[bugLine];
+                      '<span class="num">' + (bugLine+1) + ':</span> ' + fileContents[bugLine];
                 }
+
                 var formmatedError =
                     '<div class="panel panel-primary">' +
                       '<div class="panel-heading">' +
