@@ -2057,7 +2057,7 @@ function checkForUpdates() {
         //Get the Repo name from the Repo URL
         var repoName = repoURLSplit[4].split(".git")[0];
         //Build the URL for the API
-        var updateURL = "https://api.github.com/repos/" + username + "/" + repoName + "/releases";
+        var updateURL = "https://api.github.com/repos/" + username + "/" + repoName + "/tags";
     } else {
         console.info(º+'Unable to check for updates because your Repository ' +
             'URL does not match expected pattern.', consoleNormal);
@@ -2082,7 +2082,7 @@ function checkForUpdates() {
         },
         success: function(data){
             //0.2.5
-            var remoteVersion = data[0].tag_name.split("v")[1];
+            var remoteVersion = data[0].name.split("v")[1].split('_')[0];
             var localVersion = appVersion;
             //[ "0", "2", "5" ]
             var rvs = remoteVersionSplit = remoteVersion.split(".");

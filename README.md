@@ -73,6 +73,7 @@ The four main files Scout-App are:
   * [ ] **Status:** Lower priority features
     * [ ] **To do:**
     * [ ] Clean up custom styles to allow for theme swapping.
+    * [ ] Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations.
 
 * * *
 
