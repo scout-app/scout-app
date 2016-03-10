@@ -52,6 +52,7 @@ The four main files Scout-App are:
     * [x] ~~Allow for common mixin libraries to be shipped with it~~
     * [x] ~~Implement Environment options (production/development)~~
     * [ ] Create a way of having multiple projects and switching between them
+    * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
     * [ ] Upon creating a project, auto-guess the 4 input-files.
     * [ ] Save/Load settings automatically
     * [ ] Create an export button that will export out the saved project .json file for the user.
@@ -59,6 +60,8 @@ The four main files Scout-App are:
 * [ ] **Phase 2:** Beautiful with ease of use (ZD/JM, some TJW)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
   * [ ] **To do:**
+    * [ ] Make sidebar resizable
+    * [ ] Fix icon
     * [ ] Finalize UX layout
     * [ ] Pretty up the app!
     * [ ] Pretty up the error output message and allow for it to be closed
@@ -67,7 +70,9 @@ The four main files Scout-App are:
 * [ ] **Phase 4:** New website
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
 * [ ] **Phase 5:** Bug fixes/Additional features/Maintenance
-  * [ ] **Status:** Waiting for Phase 1, 2, and 3 to be completed.
+  * [ ] **Status:** Lower priority features
+    * [ ] **To do:**
+    * [ ] Clean up custom styles to allow for theme swapping.
 
 * * *
 
