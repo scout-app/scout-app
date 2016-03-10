@@ -1,0 +1,61 @@
+
+//Sidebar that contains all projects
+
+$sidebar-width: 300px
+
+#sidebar
+    position: fixed
+    top: 0px
+    bottom: 0px
+    left: 0px
+    display: inline-block
+    width: $sidebar-width
+    padding: 41px 0px 0px 0px
+    background: #626262
+    overflow: auto
+    div
+        display: block
+        width: 100%
+        font-size: 16px
+        text-align: left
+    .btn-default
+        &:hover
+            background: #474949
+        &.active:hover
+            background: #272929
+    .glyphicon
+        margin: 0px 10px 0px 0px
+        padding: 0px
+    .glyphicon-folder-open
+        top: 0px
+        right: 0px
+        color: #BDBDBD
+        background: transparent
+    .glyphicon-play,
+    .glyphicon-stop
+        font-size: 12px
+        line-height: 22px
+        margin: 0px
+        padding: 0px
+    .glyphicon-stop
+        margin: 0px 0px 0px -0.8px
+    .btn .btn
+        width: 27px
+        height: 27px
+        background: #767676
+        border-radius: 50%
+        border: 1px solid #888
+        margin: 0px
+        padding: 0px
+        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.59)
+        float: right
+        &:hover
+            background: #949494
+            border-color: #AAA
+        &:active
+            background: #555
+            border-color: #333
+            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
+
+.container
+    padding-left: $sidebar-width + 8px
