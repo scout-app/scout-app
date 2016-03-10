@@ -110,7 +110,41 @@ function runApp() {
         }, function (error, result) {
             if (error) {
                 console.log(error);
-                $("#printConsole").html(error.message.replace('\n', '<br />'));
+                var line1 = error.formatted.split('\n')[0].split(':');
+                var line2 = error.formatted.split('\n')[1].trim().split(': ');
+                var line3 = error.formatted.split('\n')[2].trim().replace('on line ','').split(' of ');
+                var title = '<strong>Error:</strong>' + line1[1] + ' <strong>' + line1[2].trim() + '</strong>';
+                var footer = line2[0];
+                var file = line2[1];
+                var bugLine = parseInt(line3[0]);
+                var bugFile = line3[1];
+
+                var fileContents = ugui.helpers.readAFile(file);
+                fileContents = fileContents.split('\n');
+                var formmatedError =
+                    '<div class="panel panel-primary">' +
+                      '<div class="panel-heading">' +
+                        '<span class="pull-right glyphicon glyphicon-remove"></span>' +
+                        '<h3 class="panel-title">' + title + '</h3>' +
+                      '</div>' +
+                      '<div class="panel-body">' +
+                        '<strong>' + bugFile + '</strong><br />' +
+                        '<pre>' +
+                          '<code>' +
+                            (bugLine-2) + ': ' + fileContents[(bugLine-2)] +
+                            '<span class="text-primary">' + (bugLine-1) + ': ' + fileContents[(bugLine-1)] + '</span>' +
+                             bugLine + ': ' + fileContents[bugLine] +
+                          '</code>' +
+                        '</pre>' +
+                      '</div>' +
+                      '<div class="panel-footer">' +
+                        footer + ': <em>' + file + '</em><br />' +
+                      '</div>' +
+                    '</div>';
+                $("#printConsole").append(formmatedError);
+                $("#printConsole .glyphicon-remove").click( function () {
+                    $(this).parent().parent().remove();
+                });
             } else {
                 ugui.helpers.writeToFile(outputFullFilePath, result.css.toString());
                 if (devMode) {
