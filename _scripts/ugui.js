@@ -17,7 +17,9 @@
 //**B06**. [Create a folder](#b06-create-a-folder)  
 //**B07**. [Delete a file](#b07-delete-a-file)  
 //**B08**. [Delete a folder](#b08-delete-a-folder)  
-//**B09**. [Get file size](#b09-get-file-size)  
+//**B09**. [Get file size](#b09-get-a-file-s-size)  
+//**B10**. [Set zoom percent](#b10-set-zoom-percent)  
+//**B11**. [Open Folder](#b11-open-folder)  
 //
 //**C00. [CLI Command Processing](#c00-cli-command-processing)**  
 //**C01**. [Clicking Submit](#c01-clicking-submit)  
@@ -38,6 +40,7 @@
 //**D03**. [Update about modal](#d03-update-about-modal)  
 //**D04**. [Navigation bar functionality](#d04-navigation-bar-functionality)  
 //**D05**. [Launch links in default browser](#d05-launch-links-in-default-browser)  
+//**D06**. [Check for Updates](#d06-check-for-updates)  
 //
 //**E00. [Warnings](#e00-warnings)**  
 //**E01**. [Warn if identical data-argNames](#e01-warn-if-identical-data-argnames)  
@@ -55,6 +58,7 @@
 //**G01**. [EZDZ: Drag and drop file browse box](#g01-ezdz-drag-and-drop)  
 //**G02**. [Range slider](#g02-range-slider)  
 //**G03**. [Cut/copy/paste context menu](#g03-cut-copy-paste-context-menu)  
+//**G04**. [Open New Window](#g04-open-new-window)  
 //
 //**H00. [Settings](#h00-settings)**  
 //**H01**. [Save Settings](#h01-save-settings)  
@@ -115,7 +119,7 @@ function waitUGUI() {
 function runUGUI() {
 
 //This is the one place where the UGUI version is declared
-var uguiVersion = "1.2.0";
+var uguiVersion = "1.3.0a";
 
 
 
@@ -126,14 +130,15 @@ var uguiVersion = "1.2.0";
 //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 //### A02. UGUI Variables
 //
-//>Listing of Variables used throughout this library.
+//>Listing of variables used throughout this library.
 
 //All arguments sent in the command
 var allArgElements = $("cmd arg");
 
+//This is used by for loops throughout this file
 var index = 0;
 
-//All executables
+//All executables gathered from the `<cmd>` blocks
 var executable = [];
 for (index = 0; index < $("cmd").length; index++) {
     var currentCommandBlock = $("cmd")[index];
@@ -146,7 +151,7 @@ for (index = 0; index < executable.length; index++) {
     argsForm.push( $("#" + executable[index] + " *[data-argName]" ) );
 }
 
-//Get all text fields where a quote could be entered
+//Get all text fields where a single or double quoatation mark could be entered
 var textFields = $( "textarea[data-argName], input[data-argName][type=text]" ).toArray();
 
 //Allow access to the filesystem
@@ -539,7 +544,6 @@ function readAFolder(filePath, callback) {
     } else {
         return [contents, contentsList];
     }
-
 }
 
 
@@ -759,8 +763,20 @@ function deleteAFolder(filePath, callback) {
 //     ugui.helpers.getFileSize("C:/folder/pizza.jpg").bytes;
 //     ugui.helpers.getFileSize("C:/folder/pizza.jpg").kilobytes;
 //     ugui.helpers.getFileSize("C:/folder/pizza.jpg").megabytes;
-//     ugui.helpers.getFileSize("C:/folder/pizza.jpg", function(fileSize) {
-//         console.log(fileSize);
+//     ugui.helpers.getFileSize("C:/folder/pizza.jpg", function(fileSize,err) {
+//         if (err) {
+//             $("body").prepend(
+//               '<div class="alert alert-danger alert-dismissible" role="alert">' +
+//                 '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+//                     '<span aria-hidden="true">&times;</span>' +
+//                 '</button>' +
+//                 '<h4>Error Accessing File</h4>' +
+//                 '<p>There was an error when trying to get the file size of your file.</p>' +
+//               '</div>'
+//             );
+//         } else {
+//             $("#output").html("Input file is " + fileSize.kilobytes + "KB");
+//         }
 //     });
 
 //
@@ -778,34 +794,181 @@ function getFileSize(filePath, callback) {
         console.info(º+"Your callback must be passed as a function.", consoleNormal);
         return;
     };
-    //Output an error if we can't access the file
-    fs.stat(filePath, function(err) {
-        //If there was a problem getting the file's metadata
-        if (err) {
-            console.info(º+"There was an error attempting to retrieve file size.", consoleNormal);
-            console.warn(º+err.message, consoleError);
-            return;
-        }
-    });
 
-    //Get all metadata from the file
-    var stats = fs.statSync(filePath);
+    //Set up the info message for both possibilities below
+    var infoMessage = "There was an error attempting to retrieve file size.";
+    //Declare the fileSize object (to be set later)
+    var fileSize = {};
 
-    //Create an object with common file size conversions
-    fileSize = {
-        "bytes": stats.size,
-        "kilobytes": stats.size / 1024.0,
-        "megabytes": stats.size / 1048576.0
-    };
-
-    //If a callback was passed in, run it with the fileSize object as an argument
+    //If a callback was passed in
     if (callback) {
-        callback(fileSize);
+
+        //Get the metadata for the file
+        fs.stat(filePath, function(err, stats) {
+            //If there was a problem getting the file's metadata
+            if (err) {
+                //output an error to the console, but keep running
+                console.info(º+infoMessage, consoleNormal);
+                console.warn(º+err.message, consoleError);
+            //If there wasn't an error
+            } else {
+                //Create an object with common file size conversions
+                fileSize = {
+                    "bytes": stats.size,
+                    "kilobytes": stats.size / 1024.0,
+                    "megabytes": stats.size / 1048576.0
+                };
+            }
+            //Run the callback with the filesizes if it worked, or an error if it didn't
+            callback(fileSize,err);
+            return;
+        });
+    //If a callback wasn't passed in
+    } else {
+        //Check if we can access the file
+        fs.stat(filePath, function(err) {
+            //If there was a problem getting the file's metadata
+            if (err) {
+                //console log an error and quit
+                console.info(º+infoMessage, consoleNormal);
+                console.warn(º+err.message, consoleError);
+                return;
+            }
+        });
+
+        //Get all metadata from the file
+        var stats = fs.statSync(filePath);
+
+        //Create an object with common file size conversions
+        fileSize = {
+            "bytes": stats.size,
+            "kilobytes": stats.size / 1024.0,
+            "megabytes": stats.size / 1048576.0
+        };
+
+        //Return the fileSize object
+        return fileSize;
+    }
+}
+
+
+
+
+
+
+
+//* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+//### B10. Set zoom percent
+//
+//>Since setting the zoom level is a common and expected task of
+// browsers, and it isn't very intuitive or easy in NW.js, we
+// provide a simple helper function.
+//
+//>     ugui.helpers.setZoomPercent(100); //default size
+//     ugui.helpers.setZoomPercent(200); //double default size
+//     ugui.helpers.setZoomPercent(50);  //half of default size
+//
+//>If you'd like to display the newly set zoom level percent on
+// the page, you can pass in `true` as the second argument.
+//
+//>     ugui.helpers.setZoomPercent(110, true);
+
+//
+function setZoomPercent(percent, visible) {
+    //Validate that required argument is passed and is the correct types
+    if (percent && typeof(percent) !== "number") {
+        console.info(º+"You must pass in a positive interger to represent" +
+            "the zoom level percent.", consoleNormal);
+        console.info(º+"Example:", consoleBold);
+        console.info(º+'ugui.helpers.setZoomPercent(200); //200% of default size', consoleCode);
+        console.info(º+"Or leave it blank to reset back to 100% (default size)", consoleNormal)
+        return;
+    } else if (visible && typeof(visible) !== "boolean") {
+        console.info(º+"You must pass in true or false to set the visibility" +
+            "of the zoom level percent on the page.", consoleNormal);
+        console.info(º+"Example:", consoleBold);
+        console.info(º+'ugui.helpers.setZoomPercent(110, true);', consoleCode);
         return;
     }
 
-    return fileSize;
+    //Set the zoom percent to the number that was passed in or default to 100%
+    var zoomPercent = percent || 100;
+    var displayPercentOnPage = visible || false;
+
+    //Allow access to the window settings
+    var win = require("nw.gui").Window.get();
+
+    //zoom level expects 0 for default (100%) and ~2.224 for 200%
+    //Negative numbers reduce the size. This isn't very intuitive
+    //though so we do some math to allow easier numbers.
+    win.zoomLevel = Math.log(zoomPercent/100) / Math.log(1.2);
+
+    //If `true` was passed in
+    if (displayPercentOnPage) {
+        //Define a function to hide the Zoom Level percent that appears on screen
+        function hideZoomLevel() {
+            $('.ugui-zoom-level').remove();
+        }
+        //Create a div on the page to display the current zoom percent
+        $("body").append('<div class="ugui-zoom-level">' + zoomPercent + '%</div>');
+        //After one second remove it from the page
+        setTimeout(hideZoomLevel, 1000);
+    }
 }
+
+
+
+
+
+
+
+//* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+//### B11. Open Folder
+//
+//>This will oepn the passed in folder in Explorer, Nautilus, or
+// Finder depending on your OS.
+//
+//>     ugui.helpers.openFolder('C:\path\to\folder');
+//     ugui.helpers.openFolder('..\folder');
+//     ugui.helpers.openFolder('/path/to/folder');
+
+//
+function openFolder(folderPath) {
+    //Validate that required argument is passed and is the correct types
+    if (!folderPath || typeof(folderPath) !== "string") {
+        console.info(º+"Supply a path to the folder you want to open as " +
+            "the first argument to this function.", consoleNormal);
+        console.info(º+"Folder path must be passed as a string.", consoleNormal);
+        console.info(º+"Example:", consoleBold);
+        console.info(º+'ugui.helpers.open("C:\\folder");', consoleCode);
+        return;
+    }
+
+    var os = process.platform;
+    var winPath = folderPath.replace('/','\\');
+    var nonWinPath = folderPath.replace('\\','/');
+
+    //If you're on Windows
+    if (os == "win32") {
+        //Open Explorer
+        runcmd('explorer ' + winPath);
+    //If on OSX
+    } else if (os == "darwin") {
+        //Open Finder
+        runcmd('open ' + nonWinPath);
+    //If on Ubuntu
+    } else {
+        //Open Nautilus
+        runcmd('xdg-open ' + nonWinPath);
+    }
+}
+
+
+
+
+
+
+
 
 
 
@@ -955,7 +1118,7 @@ function buildUGUIArgObject() {
     //Make an array containing every element on the page with an attribute of `data-argName`
     var cmdArgs = $("*[data-argName]");
 
-    //Cycle through all elements with a `data-argName` in `<form id="currentexecutable">`
+    //Cycle through all elements with a `data-argName`
     for (index = 0; index < cmdArgs.length; index++) {
 
         //Get `bob` from `<input data-argName="bob" value="--kitten" />`
@@ -975,16 +1138,22 @@ function buildUGUIArgObject() {
             argType = "range";
         //See if the element is an item in one of Bootstrap's fake dropdowns
         } else if ( $(cmdArgs[index]).parent().parent().hasClass("dropdown-menu") ) {
-            //Manually set the type to `range` for range slider elements
+            //Manually set the type to `dropdown`
             argType = "dropdown";
+        //Check to see if input is a folder browser
         } else if ( $(cmdArgs[index]).attr("nwdirectory") ) {
-            //Manually set the type if it's a directory browser
+            //Manually set the type if it's a folder browser
             argType = "folder";
+        //If a select tag was used (traditional dropdown)
         } else if (argTag == "select") {
-            //Manually set the type if it's a traditional dropdown
+            //Manually set the type to match the tag
             argType = "select";
+        //Unlike input tags, textareas don't have a type attribute
+        } else if (argTag === "textarea") {
+            //Manually set the type to match the tag
+            argType = "textarea";
         } else {
-            //Get `checkbox` from `<input data-argName="bob" type="checkbox" />`
+            //Catch-all. Get `checkbox` from `<input data-argName="bob" type="checkbox" />`
             argType = $(cmdArgs[index]).attr("type");
         }
 
@@ -1023,14 +1192,6 @@ function buildUGUIArgObject() {
             } else {
                 window.ugui.args[argName].htmlticked = false;
             }
-        }
-
-        if (argTag === "textarea") {
-            window.ugui.args[argName] = {
-                "value": argValue,
-                "htmltag": argTag,
-                "htmltype": "textarea"
-            };
         }
 
     }
@@ -1317,7 +1478,7 @@ function convertCommandArraytoString( cmdArray ) {
     //Create and empty variable
     var cmdString = "";
 
-    //`cmdArray = ["cli_filename", "", "", "-nyan", "--speed 1mph", "", "", "-pear", "--potato", "", "", "", "-m "Text"", ""C:\Users\jwilcurt\Desktop\IICL Stuff.new.png""]`
+    //     cmdArray = ["cli_filename", "", "", "-nyan", "--speed 1mph", "", "", "-pear", "--potato", "", "", "", "-m "Text"", ""C:\kittens.new.png""]
     for (index = 0; index < cmdArray.length; index++) {
         //Make sure the executable isn't preceded with a space
         if (index === 0) {
@@ -1857,6 +2018,107 @@ function openDefaultBrowser() {
 }
 //Run once on page load
 openDefaultBrowser();
+
+
+
+
+
+
+
+//* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+//### D06. Check for updates
+//
+//>This is an advanced feature of UGUI useful to those
+// maintaining their projects on GitHub and posting releases
+// on their Repo's release page. This will check for the version
+// number of the latest release and compare it to the version
+// number in the `package.json`, then offer a link to the release
+// page if there is a newer release.
+//
+//>You must supply a "Repository URL" in your `package.json` file
+// and it must match the following pattern:
+//
+//`git://github.com/USERNAME/REPO.git`
+//
+//>And you must also publish releases on GitHub
+
+//When the user clicks the button in the help menu, contact Github and check for updates
+function checkForUpdates() {
+    //git://github.com/USERNAME/REPO.git
+    var repoURL = packageJSON.repository[0].url;
+    //[ "git:", "", "github.com", "USERNAME", "REPO.git" ]
+    var repoURLSplit = repoURL.split("/");
+    var helpMessage = 'Visit UGUI.io/api to learn how to use the "Check for updates" feature.';
+
+    //If the first or third items in the array match the pattern of a github repo
+    if (repoURLSplit[0].toLowerCase() == "git:" || repoURLSplit[2].toLowerCase() == "github.com") {
+        //Grab the Username from the Repo URL
+        var username = repoURLSplit[3];
+        //Get the Repo name from the Repo URL
+        var repoName = repoURLSplit[4].split(".git")[0];
+        //Build the URL for the API
+        var updateURL = "https://api.github.com/repos/" + username + "/" + repoName + "/releases";
+    } else {
+        console.info(º+'Unable to check for updates because your Repository ' +
+            'URL does not match expected pattern.', consoleNormal);
+        console.info(º+helpMessage, consoleNormal);
+        return;
+    }
+
+    //Hit the GitHub API to get the data for latest releases
+    $.ajax({
+        url: updateURL,
+        error: function(){
+            //Display a message in the About Modal informing the user they have the latest version
+            $("#updateResults").html(
+                '<p class="text-center">' +
+                  '<strong>Unable to reach update server. Try again later.</strong>' +
+                '</p>'
+            );
+            console.info(º+'Unable to check for updates because GitHub cannot be reached ' +
+                'or your Repository URL does not match expected pattern.', consoleError);
+            console.info(º+helpMessage, consoleNormal);
+            return;
+        },
+        success: function(data){
+            //0.2.5
+            var remoteVersion = data[0].tag_name.split("v")[1];
+            var localVersion = appVersion;
+            //[ "0", "2", "5" ]
+            var rvs = remoteVersionSplit = remoteVersion.split(".");
+            var lvs = localVersionSplit = localVersion.split(".");
+            //Check if the Major, Minor, or Patch have been updated on the remote
+            if (
+                 (rvs[0] > lvs[0]) ||
+                 (rvs[0] == lvs[0] && rvs[1] > lvs[1]) ||
+                 (rvs[0] == lvs[0] && rvs[1] == lvs[1] && rvs[2] > lvs[2])
+               ) {
+                //Display in the About Modal a link to the release notes for the newest version
+                $("#updateResults").html(
+                    '<p>' +
+                      '<strong>Update found!</strong> ' +
+                      '<a href="' + data[0].html_url + '" class="external-link">' +
+                        'View latest release' +
+                      '</a>.' +
+                    '</p>'
+                );
+                //Make sure the link opens in the user's default browser
+                ugui.helpers.openDefaultBrowser();
+            //If there is not a new version of the app available
+            } else {
+                //Display a message in the About Modal informing the user they have the latest version
+                $("#updateResults").html(
+                    '<p class="text-center">' +
+                      '<strong>You have the latest version of ' + appTitle + '.</strong>' +
+                    '</p>'
+                );
+            }
+        }
+    });
+}
+
+//When the user clicks the "Check for updates" button in the about modal run the above function
+$("#updateChecker").click(checkForUpdates);
 
 
 
@@ -2598,6 +2860,145 @@ cutCopyPasteMenu();
 
 
 
+//* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+//### G04. Open New Window
+//
+//>Simple means of opening a new Window. It defaults to the
+// settings you've placed in the package.json `window` object.
+
+//
+function openNewWindow(url, parameters) {
+    //Validate that required argument is passed
+    if (!url) {
+        console.info(º+"Supply a path to the file you want to load as " +
+            "the url for the new Window.", consoleNormal);
+        return;
+    //Validate types
+    } else if (typeof(url) !== "string") {
+        console.info(º+"URL must be passed as a string.", consoleNormal);
+        return;
+    }
+
+    //Check if the user is using custom parameters
+    if (parameters) {
+        //Validate types
+        if (Object.prototype.toString.call(parameters) !== "[object Object]") {
+            console.info(º+"Your parameters must be passed as an object.", consoleNormal);
+            return;
+        } else if (parameters.title && typeof(parameters.title) !== "string") {
+            console.info(º+"Title for your window must be passed as a string. Example:", consoleNormal);
+            console.info(º+'"My App"', consoleCode);
+            return;
+        } else if (parameters.icon && typeof(parameters.icon) !== "string") {
+            console.info(º+"Icon for your window must be passed as a string. Example:", consoleNormal);
+            console.info(º+'"_img/icon32.png"', consoleCode);
+            return;
+        } else if (parameters.toolbar && typeof(parameters.toolbar) !== "boolean") {
+            console.info(º+"Toolbar visibility for your window must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'true', consoleCode);
+            return;
+        } else if (parameters.resizable && typeof(parameters.resizable) !== "boolean") {
+            console.info(º+"Window resizability must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'true', consoleCode);
+            return;
+        } else if (parameters.visible && typeof(parameters.visible) !== "boolean") {
+            console.info(º+"Window visibility must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'true', consoleCode);
+            return;
+        } else if (parameters.transparent && typeof(parameters.transparent) !== "boolean") {
+            console.info(º+"Window transparency must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'false', consoleCode);
+            return;
+        } else if (parameters.width && typeof(parameters.width) !== "number") {
+            console.info(º+"Width for your window must be passed as a number. Example:", consoleNormal);
+            console.info(º+'900', consoleCode);
+            return;
+        } else if (parameters.height && typeof(parameters.height) !== "number") {
+            console.info(º+"Height for your window must be passed as a number. Example:", consoleNormal);
+            console.info(º+'500', consoleCode);
+            return;
+        } else if (parameters.min_width && typeof(parameters.min_width) !== "number") {
+            console.info(º+"Minimum width for your window must be passed as a number. Example:", consoleNormal);
+            console.info(º+'400', consoleCode);
+            return;
+        } else if (parameters.min_height && typeof(parameters.min_height) !== "number") {
+            console.info(º+"Minimum height for your window must be passed as a number. Example:", consoleNormal);
+            console.info(º+'200', consoleCode);
+            return;
+        } else if (parameters.max_width && typeof(parameters.max_width) !== "number") {
+            console.info(º+"Maximum width for your window must be passed as a number. Example:", consoleNormal);
+            console.info(º+'8000', consoleCode);
+            return;
+        } else if (parameters.max_height && typeof(parameters.max_height) !== "number") {
+            console.info(º+"Maximum height for your window must be passed as a number. Example:", consoleNormal);
+            console.info(º+'8000', consoleCode);
+            return;
+        } else if (parameters.position && typeof(parameters.position) !== "string") {
+            console.info(º+"Position of your window must be passed as a string. Example:", consoleNormal);
+            console.info(º+'"center"', consoleCode);
+            return;
+        } else if (parameters["always-on-top"] && typeof(parameters["always-on-top"]) !== "boolean") {
+            console.info(º+"Setting your window to Always On Top must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'false', consoleCode);
+            return;
+        } else if (parameters.show_in_taskbar && typeof(parameters.show_in_taskbar) !== "boolean") {
+            console.info(º+"Show window in taskbar must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'true', consoleCode);
+            return;
+        } else if (parameters.fullscreen && typeof(parameters.fullscreen) !== "boolean") {
+            console.info(º+"Fullscreen for your window must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'false', consoleCode);
+            return;
+        } else if (parameters.frame && typeof(parameters.frame) !== "boolean") {
+            console.info(º+"Window frame must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'true', consoleCode);
+            return;
+        } else if (parameters.as_desktop && typeof(parameters.as_desktop) !== "boolean") {
+            console.info(º+"Show window as desktop must be passed as a boolean. Example:", consoleNormal);
+            console.info(º+'false', consoleCode);
+            return;
+        }
+    //If parameters were not passed in
+    } else {
+        //create an empty object
+        var parameters = {};
+    }
+
+    var gui = require("nw.gui");
+    var defaults = gui.App.manifest.window;
+
+    //Use the parameters passed in, fallback to the options in package.json, and if those don't exist use UGUI defaults
+    var newWindowOptions = {
+        "title"           : parameters.title            || defaults.title            || "New Window",
+        "icon"            : parameters.icon             || defaults.icon             || "_img/icon32.png",
+        "toolbar"         : parameters.toolbar          || defaults.toolbar          || true,
+        "resizable"       : parameters.resizable        || defaults.resizable        || true,
+        "visible"         : parameters.visible          || defaults.visible          || true,
+        "transparent"     : parameters.transparent      || defaults.transparent      || false,
+        "width"           : parameters.width            || defaults.width            || 900,
+        "height"          : parameters.height           || defaults.height           || 550,
+        "min_width"       : parameters.min_width        || defaults.min_width        || 400,
+        "min_height"      : parameters.min_height       || defaults.min_height       || 200,
+        "max_width"       : parameters.max_width        || defaults.max_width        || 8000,
+        "max_height"      : parameters.max_height       || defaults.max_height       || 8000,
+        "position"        : parameters.position         || defaults.position         || "center",
+        "always-on-top"   : parameters["always-on-top"] || defaults["always-on-top"] || false,
+        "show_in_taskbar" : parameters.show_in_taskbar  || defaults.show_in_taskbar  || true,
+        "fullscreen"      : parameters.fullscreen       || defaults.fullscreen       || false,
+        "frame"           : parameters.frame            || defaults.frame            || true,
+        "as_desktop"      : parameters.as_desktop       || defaults.as_desktop       || false
+    };
+
+    //Launch the new window
+    gui.Window.open(url, newWindowOptions);
+}
+
+
+
+
+
+
+
 
 
 
@@ -2776,7 +3177,8 @@ function loadSettings(customLocation, callback) {
         console.info(º+'ugui.helpers.loadSettings();', consoleCode);
         console.info(º+"By passing in nothing, UGUI will use the default load location of:", consoleNormal);
         console.info(º+'"' + defaultLocation + '"', consoleCode);
-        console.info(º+"And upon completion of saving the settings, nothing will be triggered.", consoleNormal);
+        console.info(º+"And upon completion of loading the settings, UI elements on the " +
+            "page will be updated, as will the UGUI Args Object.", consoleNormal);
         return;
     //Check if `customLocation` is exists and is a string
     } else if ( customLocation && typeof(customLocation) === "string") {
@@ -2952,6 +3354,8 @@ window.ugui = {
         "getFileSize": getFileSize,
         "loadSettings": loadSettings,
         "openDefaultBrowser": openDefaultBrowser,
+        "openFolder": openFolder,
+        "openNewWindow": openNewWindow,
         "parseArgument": parseArgument,
         "patternMatchingDefinitionEngine": patternMatchingDefinitionEngine,
         "readAFile": readAFile,
@@ -2960,6 +3364,7 @@ window.ugui = {
         "runcmd": runcmd,
         "runcmdAdvanced": runcmdAdvanced,
         "saveSettings": saveSettings,
+        "setZoomPercent": setZoomPercent,
         "sliderHandleSolid": sliderHandleSolid,
         "sliderHandleGradient": sliderHandleGradient,
         "sliderHandleColor": sliderHandleColor,
