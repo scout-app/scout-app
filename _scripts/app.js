@@ -121,6 +121,18 @@ function runApp() {
 
                 var fileContents = ugui.helpers.readAFile(file);
                 fileContents = fileContents.split('\n');
+                var count = fileContents.length;
+                var theError = '<span class="text-primary">' + (bugLine-1) + ': ' + fileContents[(bugLine-1)] + '</span>';
+                var errorPreview = theError;
+                //Make sure there are at least 3 lines in the file and the error isn't on the first or last line
+                if (count > 3 && (bugLine-1) !== 0 && (bugLine) !== count) {
+                    errorPreview =
+                      //line before the error
+                      (bugLine-2) + ': ' + fileContents[(bugLine-2)] +
+                      theError +
+                      //line after the error
+                      bugLine + ': ' + fileContents[bugLine];
+                }
                 var formmatedError =
                     '<div class="panel panel-primary">' +
                       '<div class="panel-heading">' +
@@ -131,9 +143,7 @@ function runApp() {
                         '<strong>' + bugFile + '</strong><br />' +
                         '<pre>' +
                           '<code>' +
-                            (bugLine-2) + ': ' + fileContents[(bugLine-2)] +
-                            '<span class="text-primary">' + (bugLine-1) + ': ' + fileContents[(bugLine-1)] + '</span>' +
-                             bugLine + ': ' + fileContents[bugLine] +
+                            errorPreview +
                           '</code>' +
                         '</pre>' +
                       '</div>' +
