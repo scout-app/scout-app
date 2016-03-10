@@ -150,7 +150,7 @@ function runApp() {
                         '</pre>' +
                       '</div>' +
                       '<div class="panel-footer">' +
-                        footer + ': <em>' + file + '</em><br />' +
+                        footer +
                       '</div>' +
                     '</div>';
                 $("#printConsole").append(formmatedError);
