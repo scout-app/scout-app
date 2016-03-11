@@ -150,14 +150,14 @@
             <div>
               <h3>Environment</h3>
             </div>
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
+            <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
               <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> Development</label>
               <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> Production</label>
             </div>
 
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" title="Output Style">
 
-              <select data-argName="outputStyle" class="form-control" required="required">
+              <select id="outputStyle" data-argName="outputStyle" class="form-control" required="required">
                 <option value="expanded"   >Output Style</option>
                 <option value="nested"     >Nested</option>
                 <option value="expanded"   >Expanded</option>
@@ -175,9 +175,7 @@
           </div>
 
           <div id="printConsole" class="row"><!-- Error, check console --></div>
-
         </form>
-
       </section>
 
       <!--
@@ -192,75 +190,69 @@
         // package.json file, such as Application Name and Version.    //
         /////////////////////////////////////////////////////////////////
       -->
+    </div> <!-- end container -->
 
-      <div id="aboutModal" class="modal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
-              <h4>About</h4>
-            </div>
-            <div class="modal-body">
+    <div id="aboutModal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+            <h4>About</h4>
+          </div>
+          <div class="modal-body">
 
-              <div class="panel panel-primary">
-                <div class="panel-heading">
-                  <span class="pull-right versionApp" title="Version">V2.0.0</span>
-                  <h3 class="panel-title">About <span class="applicationTitle">Scout-App</span></h3>
-                </div>
-                <div class="panel-body">
-                  <p class="well well-sm">
-                    <strong>Scout-App</strong> allows you to process your <code>.sass</code> and <code>.scss</code> files into CSS without needing any knowledge of the command line.
-                  </p>
-                  <p>
-                    <strong>Scout-App</strong> uses <a class="external-link" href="https://github.com/sass/node-sass">node-sass</a> <span class="nodeSassVersion"></span>.
-                  </p>
-                  <p>
-                    Contributors to the <a href="http://github.com/mhs/scout-app" class="external-link">Scout-App</a>:<br />
-                    <!-- If the following script isn't ran on the page, it doesn't hit soon enough to check if the images loaded. -->
-                    <!-- If the images load, keep text hidden, if the app is ran while a user is offline, show text instead of images. -->
-                    <script>
-                      function offline() {
-                        $(".gitHubContributors").addClass("notOnline");
-                      }
-                    </script>
-                    <span class="gitHubContributors">
-                      <a class="external-link" href="http://github.com/TheJaredWilcurt">
-                        <img onerror="offline()" src="https://avatars.githubusercontent.com/u/4629794?v=3" alt="TheJaredWilcurt" title="TheJaredWilcurt" />
-                        TheJaredWilcurt</a>,
-                      <a class="external-link" href="http://github.com/zdennis">
-                        <img onerror="offline()" src="https://avatars.githubusercontent.com/u/967?v=3" alt="zdennis" title="zdennis" />
-                        zdennis</a>,
-                      <a class="external-link" href="http://github.com/mejiaj">
-                        <img onerror="offline()" src="https://avatars.githubusercontent.com/u/3385219?v=3" alt="mejiaj" title="mejiaj" />
-                        mejiaj</a>
-                    </span>
-                  </p>
-                  <p>
-                    Visit the <span class="applicationName">Scout-App</span> website to check for updates:<br />
-                    <div class="text-center"><a href="http://mhs.github.io/scout-app" class="external-link">mhs.github.io/Scout-App</a></div>
-                  </p>
-                  <!--
-                    This is the "Check for Updates" feature. If your app is publicly avaliable on GitHub
-                    you can use it. Since this takes a few extra steps to set up, it is commented out by
-                    default. See: http://ugui.io/api for more information about this feature.
-                  -->
-                  <p id="updateResults"></p>
-                  <p class="text-center">
-                    <button id="updateChecker" class="btn btn-primary">Check for updates</button>
-                  </p>
-                </div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <span class="pull-right versionApp" title="Version">V2.0.0</span>
+                <h3 class="panel-title">About <span class="applicationTitle">Scout-App</span></h3>
+              </div>
+              <div class="panel-body">
+                <p class="well well-sm">
+                  <strong>Scout-App</strong> allows you to process your <code>.sass</code> and <code>.scss</code> files into CSS without needing any knowledge of the command line.
+                </p>
+                <p>
+                  <strong>Scout-App</strong> uses <a class="external-link" href="https://github.com/sass/node-sass">node-sass</a> <span class="nodeSassVersion"></span>.
+                </p>
+                <p>
+                  Contributors to the <a href="http://github.com/mhs/scout-app" class="external-link">Scout-App</a>:<br />
+                  <!-- If the following script isn't ran on the page, it doesn't hit soon enough to check if the images loaded. -->
+                  <!-- If the images load, keep text hidden, if the app is ran while a user is offline, show text instead of images. -->
+                  <script>
+                    function offline() {
+                      $(".gitHubContributors").addClass("notOnline");
+                    }
+                  </script>
+                  <span class="gitHubContributors">
+                    <a class="external-link" href="http://github.com/TheJaredWilcurt">
+                      <img onerror="offline()" src="https://avatars.githubusercontent.com/u/4629794?v=3" alt="TheJaredWilcurt" title="TheJaredWilcurt" />
+                      TheJaredWilcurt</a>,
+                    <a class="external-link" href="http://github.com/zdennis">
+                      <img onerror="offline()" src="https://avatars.githubusercontent.com/u/967?v=3" alt="zdennis" title="zdennis" />
+                      zdennis</a>,
+                    <a class="external-link" href="http://github.com/mejiaj">
+                      <img onerror="offline()" src="https://avatars.githubusercontent.com/u/3385219?v=3" alt="mejiaj" title="mejiaj" />
+                      mejiaj</a>
+                  </span>
+                </p>
+                <p>
+                  Visit the <span class="applicationName">Scout-App</span> website to check for updates:<br />
+                  <div class="text-center"><a href="http://mhs.github.io/scout-app" class="external-link">mhs.github.io/Scout-App</a></div>
+                </p>
+                <!--
+                  This is the "Check for Updates" feature. If your app is publicly avaliable on GitHub
+                  you can use it. Since this takes a few extra steps to set up, it is commented out by
+                  default. See: http://ugui.io/api for more information about this feature.
+                -->
+                <p id="updateResults"></p>
+                <p class="text-center">
+                  <button id="updateChecker" class="btn btn-primary">Check for updates</button>
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
 
-
-
-
-
-
-
-    </div> <!-- end container -->
   </body>
 </html>
