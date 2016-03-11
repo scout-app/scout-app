@@ -85,13 +85,13 @@
       <section id="project-settings">
         <form role="form-inline">
 
-<!--
-          <div id="DropZone" class="form-group jumbotron text-center well h3" title="Click to browse for your file.">
-            <span class="imageContainer"></span>
-            <label class="text-info h3 truncate" data-content="Dropped">Drag and Drop your file here.</label>
-            <input required="required" type="file" accept="image/png" />
-          </div>
--->
+          <!--
+            <div id="DropZone" class="form-group jumbotron text-center well h3" title="Click to browse for your file.">
+              <span class="imageContainer"></span>
+              <label class="text-info h3 truncate" data-content="Dropped">Drag and Drop your file here.</label>
+              <input required="required" type="file" accept="image/png" />
+            </div>
+          -->
           <div class="row">
             <img id="projectIcon" src="_img/logo_128.png" alt="Project Icon" />
             <h3 id="projectName">UGUI</h3>
@@ -117,34 +117,34 @@
             </div>
           </div>
 
-<!--
-          <div class="row">
-            <h3>Other Directories</h3>
-          </div>
+          <!--
+            <div class="row">
+              <h3>Other Directories</h3>
+            </div>
 
-          <div class="row form-group">
-            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-              <label>JavaScripts Folder:</label>
-              <input type="text" id="jsFilePath" disabled />
-              <div class="inputDirectoryContainer">
-                <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="jsFolderBrowse" data-argName="jsFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+            <div class="row form-group">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <label>JavaScripts Folder:</label>
+                <input type="text" id="jsFilePath" disabled />
+                <div class="inputDirectoryContainer">
+                  <button class="inputDirectoryBttn">...</button>
+                  <input type="file" id="jsFolderBrowse" data-argName="jsFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+                </div>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <label>Images Folder:</label>
+                <input type="text" id="imgFilePath" disabled />
+                <div class="inputDirectoryContainer">
+                  <button class="inputDirectoryBttn">...</button>
+                  <input type="file" id="imgFolderBrowse" data-argName="imgFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+                </div>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <label>Config File:</label>
+                <input type="file" />
               </div>
             </div>
-            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-              <label>Images Folder:</label>
-              <input type="text" id="imgFilePath" disabled />
-              <div class="inputDirectoryContainer">
-                <button class="inputDirectoryBttn">...</button>
-                <input type="file" id="imgFolderBrowse" data-argName="imgFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
-              </div>
-            </div>
-            <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-              <label>Config File:</label>
-              <input type="file" />
-            </div>
-          </div>
--->
+          -->
 
           <div class="row">
             <div>
@@ -154,13 +154,7 @@
               <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> Development</label>
               <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> Production</label>
             </div>
-<!--
-            <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox">
-              <label><input type="checkbox" value="-plum" />Several checkboxes</label><br />
-              <label><input type="checkbox" value="-kiwi" />that each add a</label><br />
-              <label><input type="checkbox" value="-pear" />different argument</label>
-            </div>
--->
+
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" title="Output Style">
 
               <select data-argName="outputStyle" class="form-control" required="required">
@@ -173,22 +167,7 @@
 
             </div>
           </div>
-<!--
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="speed">Speed vs Quality:</label><br />
-              <table>
-                <tr>
-                  <td class="text-center"><span>High Quality (Slower)</span></td>
-                  <td><input class="slider" type="text" id="speed" data-slider-id="speedSlider" data-slider-min="1" data-slider-max="11" data-slider-step="1" data-slider-value="6" /></td>
-                  <td class="text-center"><span>Low Quality (Faster)</span></td>
-                </tr>
-              </table>
-            </div>
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="message">Message:</label>
-              <textarea id="message" class="form-control" required="required"></textarea>
-            </div>
--->
+
           <div class="row">
             <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
               <button id="runScout" type="submit" class="btn btn-default" disabled="disabled">Start!</button>
@@ -265,10 +244,10 @@
                     you can use it. Since this takes a few extra steps to set up, it is commented out by
                     default. See: http://ugui.io/api for more information about this feature.
                   -->
-                    <p id="updateResults"></p>
-                    <p class="text-center">
-                      <button id="updateChecker" class="btn btn-primary">Check for updates</button>
-                    </p>
+                  <p id="updateResults"></p>
+                  <p class="text-center">
+                    <button id="updateChecker" class="btn btn-primary">Check for updates</button>
+                  </p>
                 </div>
               </div>
             </div>
