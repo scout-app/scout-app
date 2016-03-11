@@ -51,7 +51,8 @@
     "dependencies": {
         "node-sass": "~3.4.2",
         "chokidar": "^1.4.3",
-        "image-size": "~0.x.x"
+        "image-size": "~0.x.x",
+        "fs.extra": "^1.x.x"
     },
     "devDependencies": {
         "nw": "^0.12.3",

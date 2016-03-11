@@ -5,6 +5,9 @@ logs
 # OSX
 .DS_Store
 
+# Windows
+Thumbs.db
+
 # Sass cache
 .sass-cache/*
 .sass-cache
