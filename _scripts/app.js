@@ -1,9 +1,6 @@
 
-//Wait for the document to load and for ugui.js to run before running your app's custom JS
-$(document).ready( runApp );
-
 //Container for your app's custom JS
-function runApp() {
+(function runApp() {
 
 
 
@@ -123,7 +120,7 @@ function runApp() {
                 var bugLine = error.line;
                 var col = error.column;
                 var code = error.status;
-                var title = '<strong>Error (0x0' + code + ':)</strong> Line: <strong>' + bugLine + '</strong> Col: <strong>' + col + '</strong>';
+                var title = '<strong>Error (0x0' + code + ')</strong> Line: <strong>' + bugLine + '</strong> Col: <strong>' + col + '</strong>';
                 var footer = '<em>' + file + '</em>';
                 var bugFile = file.replace('\\','/').split('/');
                 bugFile = bugFile[bugFile.length - 1];
@@ -134,10 +131,12 @@ function runApp() {
 
                 var theError = '<span class="num">' + bugLine + ':</span> <span class="text-primary">' + fileContents[(bugLine-1)] + '</span>';
                 var errorPreview = theError;
+                //Replace tabbed returns with bullet points, and regular returns with <BR>'s
                 var errorMessage = error.message
-                    .replace('\n','<br />')
-                    .replace('\r','<br />')
+                    .replace(/[\r,\n]\s\s/g, '<br /><span class="bullet"></span>')
+                    .replace(/[\n\r]/g, '<br />')
                     .replace(file,'');
+
                 //Make sure there are at least 3 lines in the file and the error isn't on the first or last line
                 if (count > 3 && (bugLine-1) !== 0 && (bugLine) !== count) {
                     errorPreview =
@@ -236,4 +235,4 @@ function runApp() {
     $('.nodeSassVersion').html('(Node-Sass v' + nodeSassVersion +  ' / LibSass v' + libSassVersion + ')');
 
 
-}// end runApp();
+})(); // end runApp();
