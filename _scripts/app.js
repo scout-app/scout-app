@@ -5,65 +5,6 @@ $(document).ready( runApp );
 //Container for your app's custom JS
 function runApp() {
 
-    //Allow access to the filesystem
-    var fs = require('fs.extra');
-
-
-    ///////////////////////////////////////////////////////////////
-    // This section is only meant for those developing the app.  //
-    // It verifies you have the correct LibSass binding for      //
-    // NW.js 0.12.3, and if not it copies it for you. If it      //
-    // can't copy it, it pops open the dev tools to display why. //
-    ///////////////////////////////////////////////////////////////
-
-    //The Node Sass Vendor folder is our Destination
-    var nsVenDestinationPath = 'node_modules/node-sass/vendor';
-    //Read the contents of the folder
-    ugui.helpers.readAFolder(nsVenDestinationPath, function (contents, contentsList) {
-        var win = require('nw.gui').Window.get();
-        //If there are no folders or the existing folder is not the right version
-        if (contentsList.length == 0 || (contentsList.length == 1 && contentsList[0].split('-')[2] !== '43') ) {
-            var os = process.platform;
-            var arch = process.arch;
-            //Verify the machine is 32 or 64-Bit
-            if (arch == "x64" || arch == "ia32") {
-                //32-Bit OSX is unsupported
-                if (os == "darwin" && arch == "ia32") {
-                    console.log('Node-Sass does not support OSX 32-Bit');
-                    win.showDevTools();
-                //If the OS and Architecture are supported
-                } else if (os == "darwin" || os == "freebsd" || os == "linux" || os == "win32") {
-                    //Set the source path
-                    var nsVenSourcePath = '_assets/node-sass_v3.4.2';
-                    var folderName = '/' + os + '-' + arch + '-43';
-                    var file = '/binding.node';
-                    var nsVenSource = nsVenSourcePath + folderName + file;
-                    var nsVenDestination = nsVenDestinationPath + folderName + file;
-                    //Creat a folder in the Dest with the correct name
-                    ugui.helpers.createAFolder(nsVenDestinationPath + folderName , function() {
-                        //copy source to dest
-                        fs.copy(nsVenSource, nsVenDestination, function (err) {
-                            if (err) {
-                                console.log('Error attempting to copy LibSass bindings');
-                                console.log(err);
-                                win.showDevTools();
-                            } else {
-                                win.reloadIgnoringCache();
-                            }
-                        });
-                    });
-                } else {
-                    console.log('Your OS is not supported by Node-Sass');
-                    win.showDevTools();
-                }
-            } else {
-                console.log('Node-Sass only supports ia32 and x64 (32-Bit and 64-Bit) computers.');
-                console.log('You have: ' + architecture);
-                win.showDevTools();
-            }
-
-        }
-    });
 
 
 
