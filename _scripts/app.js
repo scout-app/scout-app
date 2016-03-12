@@ -22,7 +22,7 @@ function runApp() {
     ugui.helpers.readAFolder(nsVenDestinationPath, function (contents, contentsList) {
         var win = require('nw.gui').Window.get();
         //If there are no folders or the existing folder is not the right version
-        if (contentsList.length == 0 || (contentsList.length == 1 && contentsList[0].split('-')[2] !== 43) ) {
+        if (contentsList.length == 0 || (contentsList.length == 1 && contentsList[0].split('-')[2] !== '43') ) {
             var os = process.platform;
             var arch = process.arch;
             //Verify the machine is 32 or 64-Bit
