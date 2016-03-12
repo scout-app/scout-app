@@ -77,6 +77,25 @@ The four main files Scout-App are:
 
 * * *
 
+### Scout-App Comparison
+
+Scout Comparison           | 0.7.1           | 2.0.0
+:--                        | :--             | :--
+**Sass Version**           | 2012 (Ruby)     | 2016 (SassC)
+**Syntax Support**         | scss and sass   | scss and sass
+**Compass Support**        | Full Support    | Only Mixins
+**Cross-Platform**         | OSX, Windows    | Windows, Linux, OSX
+**Speed**                  | Potato          | Kitten with a Jetpack
+**Technology**             | Air, Java, Ruby | NW.js, Node
+**Project Setup**          | Manual          | Automatic & Manual
+**Themes**                 | 1               | 20 planned
+**Alerts & Errors**        | Console Errors  | Human Readable in UI
+**Export Projects**        | No              | Planned
+**Run from Tray**          | No              | Planned
+**Custom Mixin Libraries** | No              | Yes
+
+* * *
+
 ### Supported built-in mixin libraries:
 
 *Sorted by URL*
