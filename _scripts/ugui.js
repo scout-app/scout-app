@@ -105,18 +105,15 @@
 //### A01. UGUI Start
 //
 
-//Wait for the document to load before running ugui.js. Use either runUGUI or waitUGUI for immediate or delayed launch.
-$(document).ready( runUGUI );
-
 //This lets you open NW.js, then immediately launch the Webkit Developer Tools, then a few seconds later run UGUI.
 //Good for hitting a debugger in time, as often the JS runs before the Webkit Developer Tools can open.
-function waitUGUI() {
-    require("nw.gui").Window.get().showDevTools();
-    setTimeout(runUGUI, 6000);
-}
+//function waitUGUI() {
+//    require("nw.gui").Window.get().showDevTools();
+//    setTimeout(runUGUI, 6000);
+//}
 
 //Container for all UGUI components
-function runUGUI() {
+(function runUGUI() {
 
 //This is the one place where the UGUI version is declared
 var uguiVersion = "1.3.0a";
@@ -3383,7 +3380,7 @@ window.ugui = {
 
 
 // End of `ugui();`
-}
+})();
 
 
 
