@@ -28,6 +28,11 @@
     "tests"
   ],
   "dependencies": {
+    "jquery": "^2.x.x",
+    "bootstrap": "3.2.0",
+    "seiyria-bootstrap-slider": "^5.x.x",
+    "ivan-chkv.bootstrap-dropdowns-enhancement-dist": "3.1.1",
+
     "andy": "latest",
     "bluebird-sass": "latest",
     "bourbon": "latest",

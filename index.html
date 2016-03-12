@@ -11,15 +11,7 @@
     <link rel="stylesheet" href="_style/ven.bootswatch/simplex.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
-
-    <!-- UGUI requires jQuery 1.9.1 or above. -->
-    <script type="text/javascript" src="_scripts/ven.jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="_scripts/ven.bootstrap-3.2.0.min.js"></script>
-    <script type="text/javascript" src="_scripts/ven.dropdowns-enhancement.js"></script>
-    <script type="text/javascript" src="_scripts/ven.bootstrap-slider.min.js"></script>
-    <script type="text/javascript" src="_scripts/ugui.js"></script>
-    <script type="text/javascript" src="_scripts/app.js"></script>
-
+    <!-- JS is a the bottom -->
   </head>
   <!-- Change the class form dev to prod when you're ready to distribute your application. -->
   <body role="document" class="dev">
@@ -253,6 +245,16 @@
         </div>
       </div>
     </div>
+
+
+    <!-- UGUI requires jQuery 1.9.1 or above. -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/ivan-chkv.bootstrap-dropdowns-enhancement-dist/js/dropdowns-enhancement.js"></script>
+    <script type="text/javascript" src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="_scripts/ugui.js"></script>
+    <script type="text/javascript" src="_scripts/app.js"></script>
+
 
   </body>
 </html>
