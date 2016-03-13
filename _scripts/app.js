@@ -168,7 +168,9 @@
                     '</div>';
                 $("#printConsole").append(formmatedError);
                 $("#printConsole .glyphicon-remove").click( function () {
-                    $(this).parent().parent().remove();
+                    $(this).parent().parent().fadeOut(400, "linear", function () {
+                        $(this).remove();
+                    });
                 });
             } else {
                 ugui.helpers.writeToFile(outputFullFilePath, result.css.toString());
