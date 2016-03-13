@@ -97,15 +97,15 @@
           <div class="row">
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
               <label for="inputFolder">Input Folder:</label>
-              <input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" />
+              <input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" required="required" />
               <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" title="Browse"></span>
-              <input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" required="required" />
+              <input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
             </div>
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
               <label for="outputFolder">Output Folder:</label>
-              <input id="outputFolder" type="text" class="form-control" data-argName="outputFolder" />
+              <input id="outputFolder" type="text" class="form-control" data-argName="outputFolder" required="required" />
               <span id="outputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" title="Browse"></span>
-              <input type="file" id="outputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" required="required" />
+              <input type="file" id="outputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
             </div>
           </div>
 
@@ -256,6 +256,7 @@
 
     <script type="text/javascript" src="_scripts/libsass-fix.js"></script>
     <script type="text/javascript" src="_scripts/app.js"></script>
+    <script type="text/javascript" src="_scripts/events.js"></script>
 
 
   </body>
