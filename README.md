@@ -62,6 +62,7 @@ The four main files Scout-App are:
   * [ ] **To do:**
     * [ ] Make sidebar resizable
     * [ ] Fix icon
+    * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Finalize UX layout
     * [ ] Pretty up the app!
     * [ ] Pretty up the error output message and allow for it to be closed
