@@ -1974,6 +1974,7 @@ function centerNavLogo() {
     $(".navbar-brand").css("line-height", navHeight + "px");
     $(".navbar-brand").css("padding-top", "0px");
     $(".navbar-brand *").css("line-height", navHeight + "px");
+    $("#sidebar").css("padding-top", navHeight + "px");
 }
 
 //Run once on page load
@@ -2484,8 +2485,8 @@ function swatchSwapper() {
         //the stylesheet was swapped instead of after the page rendered the styles. Since Webkit does not have a way of
         //indicating when a repaint finishes, unfortunately a delay had to be used. 71 was chosen because 14 FPS is the
         //slowest you can go in animation before something looks choppy.
-        window.setTimeout(centerNavLogo, 71);
-        window.setTimeout(sliderHandleColor, 71);
+        window.setTimeout(centerNavLogo, 140);
+        window.setTimeout(sliderHandleColor, 140);
     });
 }
 
