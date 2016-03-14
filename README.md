@@ -89,7 +89,7 @@ Scout Comparison           | 0.7.1           | 2.0.0
 **Speed**                  | Potato          | Kitten with a Jetpack
 **Technology**             | Air, Java, Ruby | NW.js, Node
 **Project Setup**          | Manual          | Automatic & Manual
-**Themes**                 | 1               | 20 planned
+**Themes**                 | 1               | 5 (15 planned)
 **Alerts & Errors**        | Console Errors  | Human Readable in UI
 **Export Projects**        | No              | Planned
 **Run from Tray**          | No              | Planned
