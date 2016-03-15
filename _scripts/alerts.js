@@ -5,7 +5,8 @@
         var bugLine = error.line;
         var col = error.column;
         var code = error.status;
-        var title = '<strong>Error (0x0' + code + ')</strong> Line: <strong>' + bugLine + '</strong> Col: <strong>' + col + '</strong>';
+        var time = new Date().timeNow();
+        var title = '<strong>' + time + '</strong> Error (0x0' + code + ') - Line: <strong>' + bugLine + '</strong> Col: <strong>' + col + '</strong>';
         var footer = '<em>' + file + '</em>';
         var bugFile = file.replace('\\','/').split('/');
         bugFile = bugFile[bugFile.length - 1];
