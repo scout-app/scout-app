@@ -17,16 +17,34 @@
         var newDir = $("#inputFolderBrowse").val();
         newDir = newDir.split('\\').join('\/');
         $("#inputFolder").val(newDir);
-        unlockSubmit();
+        forbidSameFolder();
     });
     $("#outputFolderBrowse").change(function(){
         var newDir = $("#outputFolderBrowse").val();
         newDir = newDir.split('\\').join('\/');
         $("#outputFolder").val(newDir);
-        unlockSubmit();
+        forbidSameFolder();
     });
 
-    $("#inputFolder, #outputFolder").keyup(unlockSubmit).mouseup(unlockSubmit);
+    function forbidSameFolder () {
+        var inputDir = $("#inputFolder").val();
+        var outputDir = $("#outputFolder").val();
+        if ( inputDir === "" || outputDir === "" ) {
+            return;
+        } else if ( (inputDir === outputDir) || (outputDir.startsWith(inputDir + '/')) ) {
+            $("#outputWarning").removeClass('hide');
+            lockSubmit();
+        } else {
+            $("#outputWarning").addClass("hide");
+            unlockSubmit();
+        }
+    }
+
+    $("#inputFolder, #outputFolder").keyup(forbidSameFolder).mouseup(forbidSameFolder);
+
+    function lockSubmit () {
+        $("#runScout").prop("disabled", true);
+    }
 
     function unlockSubmit () {
         //If a required element wasn't filled out in the form
