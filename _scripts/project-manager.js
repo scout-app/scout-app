@@ -6,7 +6,26 @@
 var path = require('path');
 var sizeOf = require('image-size');
 
-function createNewProject () {
+//This will change all UI elements for Project Settings back to an empty/default state
+function resetProjectSettingsUI () {
+    $("#projectIcon").attr('src', '_img/logo_128.png');
+    $("#projectName").html('');
+    $("#projectFolder").html('');
+    $("#inputFolder").val('');
+    $("#inputFolderBrowse").attr('nwworkingdir','...');
+    $("#inputFolderBrowse").val('');
+    $("#outputFolder").val('');
+    $("#outputFolderBrowse").attr('nwworkingdir','...');
+    $("#outputFolderBrowse").val('');
+    $("#outputWarning").addClass('hide');
+    $('#environment input[data-argname="development"]').click();
+    $($("#outputStyle option")[0]).prop("selected", true);
+    $("#printConsole .alert, #printConsole .panel").addClass('hide');
+}
+
+//'project-' + order + '-' + projectName
+
+function autoGuessProject () {
 
     var projectPath = $("#projectFolder").val();
 projectPath = 'C:/Users/Slim/Documents/GitHub/scout-app';
@@ -63,3 +82,13 @@ projectPath = 'C:/Users/Slim/Documents/GitHub/scout-app';
         "outputStyle": "nested"
     };
 }
+
+$("#addProject").click(function (event) {
+    event.preventDefault();
+    $("#addProjectBrowse").click();
+});
+
+$("#addProjectBrowse").change(function () {
+    var folder = $("#addProjectBrowse").val();
+    resetProjectSettingsUI();
+});
