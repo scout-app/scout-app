@@ -2,15 +2,12 @@
 
 //Stuff that goes at the start
 @import "_var.sass";                  // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
+@import "_main.sass";                 // Main CSS for the app
 
 //Stuff that effects every page
-@import "_main.sass";                 // Main CSS for the app
 @import "_header.sass";               // CSS for the header and navigation at the top of the app.
 @import "_sidebar.sass";              // Custom styles for sidebar
-@import "_footer.sass";               // CSS for the footer at the bottom of the app.
-
-//Stuff that effects specific pages
-@import "_app.sass";                  // CSS specifc to the app you create using UGUI
+@import "_projectsettings.sass";      // Project controls, like input/output folder, environment, and output styles
 @import "_alerts.sass";               // Alerts, warnings and error messages
 
 //Stuff that goes at the end
