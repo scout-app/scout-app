@@ -61,20 +61,22 @@
 
     <section id="sidebar">
 
-      <div class="btn-group-vertical" role="group" aria-label="...">
+      <div id="projects-list" class="btn-group-vertical" role="group" aria-label="Listing of projects">
         <div class="btn btn-default truncate       "><span class="text-warning glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>scout-app<span               class="btn"><span class="glyphicon glyphicon-play"></span></span></div>
         <div class="btn btn-default truncate active"><span class="text-success glyphicon glyphicon-ok"               aria-hidden="true"></span>UGUI<span                    class="btn"><span class="glyphicon glyphicon-stop"></span></span></div>
         <div class="btn btn-default truncate       "><span class="text-danger  glyphicon glyphicon-remove"           aria-hidden="true"></span>UniversalGUI.github.io<span  class="btn"><span class="glyphicon glyphicon-play"></span></span></div>
         <div class="btn btn-default truncate       "><span class="             glyphicon glyphicon-folder-open"      aria-hidden="true"></span>UGUI-Git-Branch-Deleter<span class="btn"><span class="glyphicon glyphicon-play"></span></span></div>
-        <div class="btn btn-primary truncate       "><span class="text-default glyphicon glyphicon-plus"             aria-hidden="true"></span><strong>Add Project</strong></div>
-        <div class="btn btn-info    truncate       "><span class="text-default glyphicon glyphicon-comment"          aria-hidden="true"></span><strong>Status of all Projects</strong></div>
       </div>
-
+      <div class="btn-group-vertical" role="group" aria-label="Project Controls">
+        <input type="file" id="addProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+        <div id="addProject" class="btn btn-primary truncate"><span class="text-default glyphicon glyphicon-plus"    aria-hidden="true"></span><strong>Add Project</strong></div>
+        <div id="viewStatus" class="btn btn-info    truncate"><span class="text-default glyphicon glyphicon-comment" aria-hidden="true"></span><strong>Status of all Projects</strong></div>
+      </div>
     </section>
 
     <div class="container" role="main">
 
-      <section id="project-settings">
+      <section id="project-settings" class="row">
         <form role="form-inline">
 
           <!--
@@ -169,8 +171,10 @@
             </div>
           </div>
 
-          <div id="printConsole" class="row"><!-- Error, check console --></div>
         </form>
+      </section>
+      <section id="printConsole" class="row">
+        <!-- UI versions of console messages are place here. -->
       </section>
 
       <!--
