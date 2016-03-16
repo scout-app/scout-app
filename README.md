@@ -125,6 +125,7 @@ Code                                     | Source
 `@import "sass-css3-mixins";`            | [github.com/matthieua/sass-css3-mixins ](https://github.com/matthieua/sass-css3-mixins)
 `@import "cssowl";`                      | [github.com/owl-stars/cssowl           ](https://github.com/owl-stars/cssowl)
 `@import "spice";`                       | [github.com/spice-sass/spice           ](https://github.com/spice-sass/spice)
+`@import "meyer";`                       | [github.com/TheJaredWilcurt/meyer-sass ](https://github.com/TheJaredWilcurt/meyer-sass)
 `@import "bourbon-deprecated-upcoming";` | [github.com/thoughtbot/bourbon         ](https://github.com/thoughtbot/bourbon)
 `@import "bourbon";`                     | [github.com/thoughtbot/bourbon         ](https://github.com/thoughtbot/bourbon)
 `@import "neat";`                        | [github.com/thoughtbot/neat            ](https://github.com/thoughtbot/neat)
