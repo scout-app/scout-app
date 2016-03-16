@@ -1,9 +1,34 @@
 {
-  "projectFolder": "C:/Users/GLR/Documents/GitHub/UGUI",
-  "projectName": "UGUI",
-  "projectIcon": "C:/Users/GLR/Documents/GitHub/UGUI/_img/icon.png",
-  "inputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_sass",
-  "outputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_style",
-  "environment": "production",
-  "outputStyle": "nested"
+    "settings": [
+        {
+            "projectFolder": "C:/Users/GLR/Documents/GitHub/UGUI",
+            "projectName": "UGUI",
+            "projectIcon": "C:/Users/GLR/Documents/GitHub/UGUI/_img/icon.png",
+            "inputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_sass",
+            "outputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_style",
+            "environment": "production",
+            "outputStyle": "compressed",
+            "order": 0
+        },
+        {
+            "projectFolder": "C:/Users/GLR/Desktop/UGUI",
+            "projectName": "UGUI",
+            "projectIcon": "C:/Users/GLR/Desktop/UGUI/_img/icon.png",
+            "inputFolder": "C:/Users/GLR/Desktop/UGUI/_sass",
+            "outputFolder": "C:/Users/GLR/Desktop/UGUI/_style",
+            "environment": "development",
+            "outputStyle": "expanded",
+            "order": 2
+        },
+        {
+            "projectFolder": "C:/Users/GLR/Documents/GitHub/kitten-shrink-ray",
+            "projectName": "kitten-shrink-ray",
+            "projectIcon": "C:/Users/GLR/Documents/GitHub/kitten-shrink-ray/_img/icon.png",
+            "inputFolder": "C:/Users/GLR/Documents/GitHub/kitten-shrink-ray/_sass",
+            "outputFolder": "C:/Users/GLR/Documents/GitHub/kitten-shrink-ray/_style",
+            "environment": "development",
+            "outputStyle": "expanded",
+            "order": 1
+        }
+    ]
 }
