@@ -73,7 +73,8 @@ The four main files Scout-App are:
 * [ ] **Phase 5:** Bug fixes/Additional features/Maintenance
   * [ ] **Status:** Lower priority features
     * [ ] **To do:**
-    * [ ] Clean up custom styles to allow for theme swapping.
+    * [ ] Clean up custom styles to allow for theme swapping. (SR)
+    * [ ] Drag and drop sidebar items to reorder (HMN)
     * [ ] Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations.
 
 * * *
