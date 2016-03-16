@@ -71,15 +71,8 @@
 
         //devMode will return true or false
         var devMode = ugui.args.development.htmlticked;
-        //If we are in Development (not production)
+        //If user selected Development (not production)
         if (devMode) {
-            //Convert compact setting to nested so source maps will work
-            if (outputStyle == 'compact') {
-                outputStyle = 'nested';
-            //and compressed to expanded so source maps will work
-            } else if (outputStyle == 'compressed') {
-                outputStyle = 'expanded';
-            }
             //set the location for the sourceMap
             sourceMap = outputFilePath + slash + inputFileName + '.map'
         }

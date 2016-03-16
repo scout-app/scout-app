@@ -58,6 +58,25 @@
         }
     }
 
+    $("#environment input").change( function (event) {
+        ugui.helpers.buildUGUIArgObject();
+        if (ugui.args.development.htmlticked) {
+            $($("#outputStyle option")[3]).hide()
+            $($("#outputStyle option")[4]).hide()
+
+            var isLabelSelected = $($("#outputStyle option")[0]).prop("selected");
+            var isNestedSelected = $($("#outputStyle option")[1]).prop("selected");
+            //If the first or second items in the dropdown are picked, that's cool, set everything else to the 3rd option
+            if (isLabelSelected == false && isNestedSelected == false) {
+                //Select "Expanded"
+                $($("#outputStyle option")[2]).prop("selected", true);
+            }
+        } else {
+            $($("#outputStyle option")[3]).show()
+            $($("#outputStyle option")[4]).show()
+        }
+    });
+
     //On page load have this run once
     unlockSubmit();
 
