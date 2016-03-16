@@ -2,7 +2,6 @@
 
 //Stuff that goes at the start
 @import "_var.sass";                  // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
-//@import "_normalize.sass";          // Removes inconsistencies in the way different browsers render items by default. Bootstrap comes with Normalize.
 
 //Stuff that effects every page
 @import "_main.sass";                 // Main CSS for the app
