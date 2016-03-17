@@ -27,8 +27,8 @@
         if (count > 3 && (bugLine-1) !== 0 && (bugLine) !== count) {
             errorPreview =
               //line before the error
-              '<span class="num">' + (bugLine-1) + ':</span> ' + fileContents[(bugLine-2)] +
-              theError +
+              '<span class="num">' + (bugLine-1) + ':</span> ' + fileContents[(bugLine-2)] + '\n' +
+              theError + '\n' +
               //line after the error
               '<span class="num">' + (bugLine+1) + ':</span> ' + fileContents[bugLine];
         }

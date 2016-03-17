@@ -49,8 +49,8 @@
         "plugin": true
     },
     "dependencies": {
-        "node-sass": "~3.4.2",
-        "chokidar": "^1.4.3",
+        "node-sass": "^3.x.x",
+        "chokidar": "^1.x.x",
         "image-size": "~0.x.x",
         "fs.extra": "^1.x.x"
     },
