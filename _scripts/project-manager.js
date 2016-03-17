@@ -55,32 +55,46 @@ projectPath = 'C:/Users/Slim/Documents/GitHub/scout-app';
                 }
             }
         }
+        var projectIcon = "";
+
+        if (imageFolder.length > 0) {
+            var imagePath = projectPath + '/' + imageFolder + '/';
+            ugui.helpers.readAFolder(imagePath, function (contents, contentsList) {
+                for (var i = 0; i < contentsList.length; i++) {
+                    var file = imagePath + contentsList[i];
+                    file = file.toLowerCase();
+                    console.log(file);
+                    if (
+                        file.endsWith('.bmp')  ||
+                        file.endsWith('.gif')  ||
+                        file.endsWith('.jpeg') ||
+                        file.endsWith('.jpg')  ||
+                        file.endsWith('.png')  ||
+                        file.endsWith('.webp') ||
+                        file.endsWith('.svg')
+                       )     {
+
+                        var dimensions = sizeOf(file);
+                        console.log(dimensions.width, dimensions.height);
+                    }
+                }
+            });
+        } else {
+            //If no image can be found, use the Scout icon
+            projectIcon = "_img/logo_128.png";
+        }
+
+        var newProject = {
+            "projectFolder": projectPath,
+            "projectName": projectName,
+            "projectIcon": projectIcon,
+            "inputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_sass",
+            "outputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_style",
+            "environment": "production",
+            "outputStyle": "nested"
+        };
+        window.newProject = newProject;
     });
-
-    var projectIcon = "";
-
-    if (imageFolder.length > 0) {
-        var imagePath = projectPath + '/' + imageFolder + '/';
-        ugui.helpers.readAFolder(imagePath, function (contents, contentsList) {
-            for (var i = 0; i < contentsList.length; i++) {
-                console.log(contentsList[i]);
-                console.log(sizeOf(imagePath + contentsList[i]));
-            }
-        });
-    } else {
-        //If no image can be found, use the Scout icon
-        projectIcon = "_img/logo_128.png";
-    }
-
-    var newProject = {
-        "projectFolder": projectPath,
-        "projectName": projectName,
-        "projectIcon": projectIcon,
-        "inputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_sass",
-        "outputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_style",
-        "environment": "production",
-        "outputStyle": "nested"
-    };
 }
 
 $("#addProject").click(function (event) {
