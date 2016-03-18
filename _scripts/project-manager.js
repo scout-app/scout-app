@@ -21,16 +21,29 @@ function resetProjectSettingsUI () {
     $('#environment input[data-argname="development"]').click();
     $($("#outputStyle option")[0]).prop("selected", true);
     $("#printConsole .alert, #printConsole .panel").addClass('hide');
+
+    var newProject = {
+        "projectFolder": "",
+        "projectName":   "",
+        "imageFolder":   "",
+        "projectIcon":   "_img/logo_128.png",
+        "inputFolder":   "",
+        "outputFolder":  "",
+        "environment":   "production",
+        "outputStyle":   "nested"
+    };
+    window.newProject = newProject;
 }
 
 //'project-' + order + '-' + projectName
 
-function autoGuessProject () {
-
-    var projectPath = $("#projectFolder").val();
-projectPath = 'C:/Users/Slim/Documents/GitHub/scout-app';
+function autoGuessProjectFolders (folder) {
+    var projectPath = folder || $("#projectFolder").val();
+    if (projectPath.length < 1) {
+        return;
+    }
     var projectName = path.basename(projectPath);
-    var autoFolders = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
+    var autoImages = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
     var autoInput = [ "scss", "sass", "_scss", "_sass" ];
     var autoOutput = [ "css", "styles", "style", "_css", "_styles", "_style" ];
     var imageFolder = "";
@@ -39,61 +52,99 @@ projectPath = 'C:/Users/Slim/Documents/GitHub/scout-app';
 
     ugui.helpers.readAFolder(projectPath, function (contents, contentsList) {
         for (var i = 0; i < contentsList.length; i++) {
-            for (var j = 0; j < autoFolders.length; j++) {
-                if (contentsList[i] == autoFolders[j]) {
-                    imageFolder = autoFolders[j];
-                }
-            }
-            for (var k = 0; k < autoInput; k++) {
-                if (contentsList[i] == autoInput[j]) {
-                    inputFolder = autoInput[j];
-                }
-            }
-            for (var l = 0; l < autoOutput.length; l++) {
-                if (contentsList[i] == autoOutput[l]) {
-                    outputFolder = autoOutput[l];
-                }
-            }
-        }
-        var projectIcon = "";
-
-        if (imageFolder.length > 0) {
-            var imagePath = projectPath + '/' + imageFolder + '/';
-            ugui.helpers.readAFolder(imagePath, function (contents, contentsList) {
-                for (var i = 0; i < contentsList.length; i++) {
-                    var file = imagePath + contentsList[i];
-                    file = file.toLowerCase();
-                    console.log(file);
-                    if (
-                        file.endsWith('.bmp')  ||
-                        file.endsWith('.gif')  ||
-                        file.endsWith('.jpeg') ||
-                        file.endsWith('.jpg')  ||
-                        file.endsWith('.png')  ||
-                        file.endsWith('.webp') ||
-                        file.endsWith('.svg')
-                       )     {
-
-                        var dimensions = sizeOf(file);
-                        console.log(dimensions.width, dimensions.height);
+            var currentItem = contentsList[i];
+            if (contents[currentItem].isFolder) {
+                var currentFolder = currentItem;
+                for (var j = 0; j < autoImages.length; j++) {
+                    if (currentFolder == autoImages[j]) {
+                        imageFolder = autoImages[j];
                     }
                 }
-            });
-        } else {
-            //If no image can be found, use the Scout icon
-            projectIcon = "_img/logo_128.png";
+                for (var k = 0; k < autoInput; k++) {
+                    if (currentFolder == autoInput[k]) {
+                        inputFolder = autoInput[k];
+                    }
+                }
+                for (var l = 0; l < autoOutput.length; l++) {
+                    if (currentFolder == autoOutput[l]) {
+                        outputFolder = autoOutput[l];
+                    }
+                }
+                if (currentFolder = 'dist') {
+                    var dist = projectPath + '/' + currentFolder;
+                    ugui.helpers.readAFolder(dist, function (distContents, distContentsList) {
+                        for (var m = 0; m < distContentsList.length; m++) {
+                            var distItem = distContentsList[m];
+                            if (distContents[distItem].isFolder) {
+                                for (var n = 0; n < autoImages.length; n++) {
+                                    if (currentFolder == autoImages[n]) {
+                                        imageFolder = autoImages[n];
+                                    }
+                                }
+                                for (var o = 0; o < autoInput; o++) {
+                                    if (currentFolder == autoInput[o]) {
+                                        inputFolder = autoInput[o];
+                                    }
+                                }
+                                for (var p = 0; p < autoOutput.length; p++) {
+                                    if (currentFolder == autoOutput[p]) {
+                                        outputFolder = autoOutput[p];
+                                    }
+                                }
+                            }
+                        }
+                    });
+                }
+                if (currentFolder = 'src') {
+                    var src = projectPath + '/' + currentFolder;
+                    ugui.helpers.readAFolder(src, function (srcContents, srcContentsList) {
+                        console.log(srcContentsList);
+                    });
+                }
+            }
         }
+    }
 
-        var newProject = {
-            "projectFolder": projectPath,
-            "projectName": projectName,
-            "projectIcon": projectIcon,
-            "inputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_sass",
-            "outputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_style",
-            "environment": "production",
-            "outputStyle": "nested"
-        };
-        window.newProject = newProject;
+    window.newProject.projectName = projectName;
+    window.newProject.imageFolder = "";
+    window.newProject.inputFolder = "";
+    window.newProject.outputFolder = "";
+}
+
+function autoGuessDistSrc () {
+    console.log("stub");
+}
+
+function autoGuessProjectIcon (imageFolder) {
+    var imgFolder = imageFolder || window.newProject.imageFolder;
+    if (imgFolder.length < 1) {
+        return;
+    }
+    ugui.helpers.readAFolder(imgFolder, function (contents, contentsList) {
+        var projectIcon = "_img/logo_128.png";
+        //Set the size for each image
+        for (var i = 0; i < contentsList.length; i++) {
+            var currentItem = contentsList[i];
+            if (contents[currentItem].isFolder == false) {
+                var file = imgFolder + '/' + currentItem;
+                var lowerFile = file.toLowerCase();
+                if (
+                    lowerFile.endsWith('.bmp')  ||
+                    lowerFile.endsWith('.gif')  ||
+                    lowerFile.endsWith('.jpeg') ||
+                    lowerFile.endsWith('.jpg')  ||
+                    lowerFile.endsWith('.png')  ||
+                    lowerFile.endsWith('.webp') ||
+                    lowerFile.endsWith('.svg')
+                   ) {
+                    var dimensions = sizeOf(file);
+                    console.log(dimensions.width + "x" + dimensions.height);
+                    contents[currentItem].width = dimensions.width;
+                    contents[currentItem].height = dimensions.height;
+                }
+            }
+        }
+        window.newProject.projectIcon = projectIcon;
     });
 }
 
@@ -105,4 +156,9 @@ $("#addProject").click(function (event) {
 $("#addProjectBrowse").change(function () {
     var folder = $("#addProjectBrowse").val();
     resetProjectSettingsUI();
+    autoGuessProjectFolders(folder);
+    if (window.imageFolder.length < 1) {
+        autoGuessDistSrc();
+    }
+    autoGuessProjectIcon()
 });
