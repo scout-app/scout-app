@@ -1,14 +1,18 @@
 #![Scout-App Logo](_img/scout-wordmark-tiny.png "Scout-App Logo") Scout-App 2.0
 
+Currently in development. Here's a recent screenshot of the new version:
+
+<p align="center"><img src="https://cloud.githubusercontent.com/assets/4629794/13718098/a4c4f1bc-e7b4-11e5-9fd2-81e7b8c17d2c.png" alt="Scout-App 2 Screenshot"></p>
+
 ##Contributing
 
-Scout-App 2.0 is built using the cross-platform runtime environment NW.js.
+Scout-App 2.0 is built using the cross-platform runtime environment [NW.js](http://nwjs.io) and the [UGUI](http://ugui.io) framework.
 
 
 ##Running Scout-App Locally for Development
 
 1. Clone down this `scout-app` repo
-2. Switch to the `Scout-App-2-Dev branch`
+2. Switch to the `Scout-App-2-Dev` branch
 3. Install [Node.JS](http://nodejs.org) if you don't have it
 4. Run `npm install`
 5. Run `npm start`
@@ -30,53 +34,62 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 
 ##Project structure:
 
-This is based on another project I've been working on for the better part of a year called UGUI. You don't need to know anything about that project other than it's meant to be a good jumping off point for other NW.js apps (which is why we're using it).
+The  main files for Scout-App 2 are:
 
-The four main files Scout-App are:
-
-* **package.json** - This is the first thing NW.js looks at when you have it run the app. This gives it instructions on how to open and display a window for the user, the size of it, if it has a native UI framed border, etc. This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have frame and toolbar set to false.
-* **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will give you a better idea of what the app will look like in production. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
-* **_scripts/app.js** - This is the main JavaScript file for the app which will define all of the functionality for it.
+* **package.json** - The first thing NW.js looks at when you run the app. This gives instructions on how to open and display a window for the user (the size of it, if it has a native UI framed border, etc). This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have the toolbar set to false.
+* **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will remove the gray developer bar at the bottom of the app. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
+* **_scripts/** - Many of our the App's custom JS is modularized into files here, like `alerts.js` or `project-manager.js`.
 * **_scripts/ugui.js** - This library has a ton of useful tools, view [UGUI API](http://ugui.io/api) for more information.
 
 * * *
 
 ##Project management:
 
-* [ ] **Phase 1**: Ugly, but functional (TJW)
-  * [ ] **Status:** In progress, only semi-functional
+* [ ] **Phase 1**: Beautiful, functional, and ease of use (TJW)
+  * [ ] **Status:** In progress, semi-functional
   * [ ] **To do:**
     * [x] ~~Clean up project folder.~~
     * [x] ~~Handle a single project with input and output of files in specified folders.~~
     * [x] ~~Fix Output Style options (nested, expanded, compact, compressed)~~
     * [x] ~~Allow for common mixin libraries to be shipped with it~~
     * [x] ~~Implement Environment options (production/development)~~
+    * [x] ~~Have a watch function that will watch input folder instead of just a doing one time run~~
+    * [X] Finalize UX layout
+    * [X] Pretty up the app!
+    * [X] Pretty up the error output message and allow for it to be closed
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
     * [ ] Upon creating a project, auto-guess the 4 input-files.
     * [ ] Save/Load settings automatically
     * [ ] Create an export button that will export out the saved project .json file for the user.
-    * [x] ~~Have a watch function that will watch the specified files instead of just a one time run~~
-* [ ] **Phase 2:** Beautiful with ease of use (ZD/JM, some TJW)
+    * [ ] Fix icon (Will not release without this, no excuse for shoddy craftsman ship)
+* [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
   * [ ] **To do:**
-    * [ ] Make sidebar resizable
-    * [ ] Fix icon
-    * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
-    * [ ] Finalize UX layout
-    * [ ] Pretty up the app!
-    * [ ] Pretty up the error output message and allow for it to be closed
-* [ ] **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX) & General QA
+    * [ ] Once the app is pretty much functional, have the crew try it out and give input.
+* [ ] **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
+  * [ ] **To do:**
+    * [ ] Create custom build tools that package our app for distribution and remove files that are not needed in the production version
+    * [ ] Test out the packaged versions on each targeted OS. Fix any issues that arise.
 * [ ] **Phase 4:** New website
-  * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
+  * [ ] **Status:** Could be started at any point.
+  * [ ] **To do:**
+    * [ ] Design single page site for the app.
+    * [ ] Capture some sexy screenshots
+    * [ ] Make downloads dynamic based on GitHub API
+    * [ ] Show a comparison table of the old scout and the new Scout
+    * [ ] "Getting Started with Scout 2" Video
+    * [ ] Listing of Mixins that are supported out of the box
 * [ ] **Phase 5:** Bug fixes/Additional features/Maintenance
-  * [ ] **Status:** Lower priority features
+  * [ ] **Status:** Lower priority features, some have been claimed
     * [ ] **To do:**
     * [ ] Clean up custom styles to allow for theme swapping. (SR)
     * [ ] Drag and drop sidebar items to reorder (HMN)
     * [ ] Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations.
-    * [ ] Import/Export projects (???)
+    * [ ] Make sidebar resizable
+    * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
+    * [ ] Import/Export projects (Would anyone even want this feature?)
 
 * * *
 
