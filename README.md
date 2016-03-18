@@ -54,9 +54,9 @@ The  main files for Scout-App 2 are:
     * [x] ~~Allow for common mixin libraries to be shipped with it~~
     * [x] ~~Implement Environment options (production/development)~~
     * [x] ~~Have a watch function that will watch input folder instead of just a doing one time run~~
-    * [X] Finalize UX layout
-    * [X] Pretty up the app!
-    * [X] Pretty up the error output message and allow for it to be closed
+    * [X] ~~Finalize UX layout~~
+    * [X] ~~Pretty up the app!~~
+    * [X] ~~Pretty up the error output message and allow for it to be closed~~
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
     * [ ] Upon creating a project, auto-guess the 4 input-files.
