@@ -38,7 +38,7 @@ function resetProjectSettingsUI () {
 //'project-' + order + '-' + projectName
 
 function autoGuessProjectFolders (folder) {
-    var projectPath = folder || $("#projectFolder").val();
+    var projectPath = folder;
     if (projectPath.length < 1) {
         return;
     }
@@ -70,49 +70,38 @@ function autoGuessProjectFolders (folder) {
                         outputFolder = autoOutput[l];
                     }
                 }
-                if (currentFolder = 'dist') {
-                    var dist = projectPath + '/' + currentFolder;
-                    ugui.helpers.readAFolder(dist, function (distContents, distContentsList) {
-                        for (var m = 0; m < distContentsList.length; m++) {
-                            var distItem = distContentsList[m];
-                            if (distContents[distItem].isFolder) {
-                                for (var n = 0; n < autoImages.length; n++) {
-                                    if (currentFolder == autoImages[n]) {
-                                        imageFolder = autoImages[n];
-                                    }
-                                }
-                                for (var o = 0; o < autoInput; o++) {
-                                    if (currentFolder == autoInput[o]) {
-                                        inputFolder = autoInput[o];
-                                    }
-                                }
-                                for (var p = 0; p < autoOutput.length; p++) {
-                                    if (currentFolder == autoOutput[p]) {
-                                        outputFolder = autoOutput[p];
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-                if (currentFolder = 'src') {
-                    var src = projectPath + '/' + currentFolder;
-                    ugui.helpers.readAFolder(src, function (srcContents, srcContentsList) {
-                        console.log(srcContentsList);
-                    });
-                }
             }
         }
     }
 
     window.newProject.projectName = projectName;
-    window.newProject.imageFolder = "";
-    window.newProject.inputFolder = "";
-    window.newProject.outputFolder = "";
+    window.newProject.imageFolder = imageFolder;
+    window.newProject.inputFolder = inputFolder;
+    window.newProject.outputFolder = outputFolder;
 }
 
-function autoGuessDistSrc () {
-    console.log("stub");
+function autoGuessSrcImage (folder) {
+    var projectPath = folder;
+    var autoImages = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
+    var imageFolder = "";
+
+    ugui.helpers.readAFolder(projectPath, function (contents, contentsList) {
+        for (var i = 0; i < contentsList.length; i++) {
+            var currentItem = contentsList[i];
+            if (contents[currentItem].isFolder && currentItem == "src") {
+                ugui.helpers.readAFolder(projectPath + "/src", function (srcContents, srcContentsList) {
+                    for (var j = 0; j < srcContentsList.length; j++) {
+                        for (var k = 0; k < autoImages.length; k++) {
+                            if (srcContents[j] == autoImages[k]) {
+                                imageFolder = autoImages[k];
+                            }
+                        }
+                    }
+                });
+            }
+        }
+    });
+    window.newProject.imageFolder = imageFolder;
 }
 
 function autoGuessProjectIcon (imageFolder) {
@@ -157,8 +146,9 @@ $("#addProjectBrowse").change(function () {
     var folder = $("#addProjectBrowse").val();
     resetProjectSettingsUI();
     autoGuessProjectFolders(folder);
-    if (window.imageFolder.length < 1) {
-        autoGuessDistSrc();
+    if (window.newProject.imageFolder.length < 1) {
+        autoGuessSrcImage(folder);
     }
     autoGuessProjectIcon()
+    $("#addProjectBrowse").val("");
 });
