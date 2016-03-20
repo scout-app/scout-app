@@ -72,6 +72,10 @@ function autoGuessProjectFolders (folder) {
                 }
             }
         }
+    });
+
+    if (!window.newProject) {
+        window.newProject = {}
     }
 
     window.newProject.projectName = projectName;
