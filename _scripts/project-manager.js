@@ -37,16 +37,13 @@ function resetProjectSettingsUI () {
 
 //'project-' + order + '-' + projectName
 
-function autoGuessProjectFolders () {
+function autoGuessProjectFolders (autoImages, autoInput, autoOutput) {
     var projectFolder = window.newProject.projectFolder;
     if (projectFolder.length < 1) {
         return;
     }
     var projectPath = projectFolder + '/';
     var projectName = path.basename(projectFolder);
-    var autoImages = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
-    var autoInput = [ "scss", "sass", "_scss", "_sass" ];
-    var autoOutput = [ "css", "styles", "style", "_css", "_styles", "_style" ];
     var imageFolder = "";
     var inputFolder = "";
     var outputFolder = "";
@@ -88,28 +85,49 @@ function autoGuessProjectFolders () {
     window.newProject.outputFolder = outputFolder;
 }
 
-function autoGuessSrcImage (folder) {
-    var projectPath = folder;
-    var autoImages = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
-    var imageFolder = "";
+function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
 
-    ugui.helpers.readAFolder(projectPath, function (contents, contentsList) {
+    if (srcDist = "src") {
+        srcDist = [ "source", "src" ];
+    } else if (srcDist = "dist") {
+        srcDist = [ "dist", "build", "prod", "production", "distribution", "built" ];
+    }
+
+    var projectPath = window.newProject.projectFolder + '/';
+
+    ugui.helpers.readAFolder(window.newProject.projectFolder, function (contents, contentsList) {
+        //loop through C:/myproj/*
         for (var i = 0; i < contentsList.length; i++) {
             var currentItem = contentsList[i];
-            if (contents[currentItem].isFolder && currentItem == "src") {
-                ugui.helpers.readAFolder(projectPath + "/src", function (srcContents, srcContentsList) {
-                    for (var j = 0; j < srcContentsList.length; j++) {
-                        for (var k = 0; k < autoImages.length; k++) {
-                            if (srcContents[j] == autoImages[k]) {
-                                imageFolder = autoImages[k];
+            //only proceed if it's a folder
+            if (contents[currentItem].isFolder) {
+                //loop through ["src","source"] or ["dist", "build"]
+                for (var j = 0; j < srcDist.length; j++) {
+                    //if thing in project folder is what we are looking for: C:/myproj/src
+                    if (currrentItem == srcDist[j]) {
+                        //subfolder = src
+                        var subfolder = srcDist[j];
+                        //read folder C:/myproj/src/ or C:/myproj/dist
+                        ugui.helpers.readAFolder(projectPath + subfolder, function (srcDistContents, srcDistContentsList) {
+                            //loop throuhg C:/myproj/src/*
+                            for (var k = 0; k < srcDistContentsList.length; k++) {
+                                var srcDistCurrentItem = srcDistContentsList[k];
+                                //only proceed if a folder
+                                if (srcDistContents[srcDistCurrentItem].isFolder) {
+                                    for (var l = 0; l < autoFolder.length; l++) {
+                                        if (srcDistCurrentItem == autoFolder[l]) {
+                                            var path = projectPath + subfolder + '/' + autoFolder[l];
+                                            window.newProject[newProjectProperty] = path;
+                                        }
+                                    }
+                                }
                             }
-                        }
+                        });
                     }
-                });
+                }
             }
         }
     });
-    window.newProject.imageFolder = imageFolder;
 }
 
 function autoGuessProjectIcon (imageFolder) {
@@ -152,12 +170,30 @@ $("#addProject").click(function (event) {
 
 $("#addProjectBrowse").change(function () {
     resetProjectSettingsUI();
+
+    var autoImages = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
+    var autoInput = [ "scss", "sass", "_scss", "_sass" ];
+    var autoOutput = [ "css", "styles", "style", "_css", "_styles", "_style" ];
+
+    //Get the path for the project folder the user selected
     var folder = $("#addProjectBrowse").val();
+    //Set it to the New Project object, converting windows slashes to unix
     window.newProject.projectFolder = folder.split('\\').join('/');
-    autoGuessProjectFolders(folder);
+    //Look for commonly named folders so the user doesn't need to manually do anything
+    autoGuessProjectFolders(autoImages, autoInput, autoOutput);
+
+    //If the autoguesser failed to find the folders in the root of the project, check in src and dist folders
     if (window.newProject.imageFolder.length < 1) {
-        autoGuessSrcImage(folder);
+        autoGuessSrcDist('src', autoImages, 'imageFolder');
     }
-    autoGuessProjectIcon()
+    if (window.newProject.inputFolder.length < 1) {
+        autoGuessSrcDist('src', autoInput, 'inputFolder');
+    }
+    if (window.newProject.outputFolder.length < 1) {
+        autoGuessSrcDist('dist', autoOutput, 'outputFolder');
+    }
+
+    autoGuessProjectIcon();
+
     $("#addProjectBrowse").val("");
 });
