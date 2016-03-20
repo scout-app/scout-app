@@ -37,12 +37,13 @@ function resetProjectSettingsUI () {
 
 //'project-' + order + '-' + projectName
 
-function autoGuessProjectFolders (folder) {
-    var projectPath = folder;
-    if (projectPath.length < 1) {
+function autoGuessProjectFolders () {
+    var projectFolder = window.newProject.projectFolder;
+    if (projectFolder.length < 1) {
         return;
     }
-    var projectName = path.basename(projectPath);
+    var projectPath = projectFolder + '/';
+    var projectName = path.basename(projectFolder);
     var autoImages = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
     var autoInput = [ "scss", "sass", "_scss", "_sass" ];
     var autoOutput = [ "css", "styles", "style", "_css", "_styles", "_style" ];
@@ -50,24 +51,27 @@ function autoGuessProjectFolders (folder) {
     var inputFolder = "";
     var outputFolder = "";
 
-    ugui.helpers.readAFolder(projectPath, function (contents, contentsList) {
+    ugui.helpers.readAFolder(projectFolder, function (contents, contentsList) {
         for (var i = 0; i < contentsList.length; i++) {
             var currentItem = contentsList[i];
             if (contents[currentItem].isFolder) {
                 var currentFolder = currentItem;
+                //Autoguess the image folder (img)
                 for (var j = 0; j < autoImages.length; j++) {
                     if (currentFolder == autoImages[j]) {
-                        imageFolder = autoImages[j];
+                        imageFolder = projectPath + autoImages[j];
                     }
                 }
-                for (var k = 0; k < autoInput; k++) {
+                //Autoguess the input folder (sass)
+                for (var k = 0; k < autoInput.length; k++) {
                     if (currentFolder == autoInput[k]) {
-                        inputFolder = autoInput[k];
+                        inputFolder = projectPath + autoInput[k];
                     }
                 }
+                //Autoguess the output folder (css)
                 for (var l = 0; l < autoOutput.length; l++) {
                     if (currentFolder == autoOutput[l]) {
-                        outputFolder = autoOutput[l];
+                        outputFolder = projectPath + autoOutput[l];
                     }
                 }
             }
@@ -147,8 +151,9 @@ $("#addProject").click(function (event) {
 });
 
 $("#addProjectBrowse").change(function () {
-    var folder = $("#addProjectBrowse").val();
     resetProjectSettingsUI();
+    var folder = $("#addProjectBrowse").val();
+    window.newProject.projectFolder = folder.split('\\').join('/');
     autoGuessProjectFolders(folder);
     if (window.newProject.imageFolder.length < 1) {
         autoGuessSrcImage(folder);
