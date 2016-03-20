@@ -8,7 +8,7 @@
             "outputFolder": "C:/Users/GLR/Documents/GitHub/UGUI/_style",
             "environment": "production",
             "outputStyle": "compressed",
-            "order": 0
+            "id": "'sa' + Date.now()"
         },
         {
             "projectFolder": "C:/Users/GLR/Desktop/UGUI",
@@ -18,7 +18,7 @@
             "outputFolder": "C:/Users/GLR/Desktop/UGUI/_style",
             "environment": "development",
             "outputStyle": "expanded",
-            "order": 2
+            "id": "'sa' + Date.now()"
         },
         {
             "projectFolder": "C:/Users/GLR/Documents/GitHub/kitten-shrink-ray",
@@ -28,7 +28,7 @@
             "outputFolder": "C:/Users/GLR/Documents/GitHub/kitten-shrink-ray/_style",
             "environment": "development",
             "outputStyle": "expanded",
-            "order": 1
+            "id": "'sa' + Date.now()"
         }
     ]
 }

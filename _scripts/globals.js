@@ -18,3 +18,8 @@ String.prototype.startsWith = function (str){
 String.prototype.endsWith = function (str){
     return this.slice(-str.length) == str;
 };
+
+//Move stuff around in Arrays
+Array.prototype.move = function (from, to) {
+  this.splice(to, 0, this.splice(from, 1)[0]);
+};
