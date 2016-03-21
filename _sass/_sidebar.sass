@@ -5,7 +5,7 @@ $sidebar-width: 300px
 
 #sidebar
     position: fixed
-    top: 100px
+    top: 0px
     bottom: 0px
     left: 0px
     display: inline-block
@@ -18,11 +18,11 @@ $sidebar-width: 300px
         width: 100%
         font-size: 16px
         text-align: left
-    .btn-default
-        &:hover
-            background: #717171
-        &.active:hover
-            background: #272929
+    //.btn-default
+    //    &:hover
+    //        background: #717171
+    //    &.active:hover
+    //        background: #272929
     .btn-group-vertical
         border-radius: 0px
     .glyphicon
@@ -31,7 +31,7 @@ $sidebar-width: 300px
     .glyphicon-folder-open
         top: 0px
         right: 0px
-        color: #BDBDBD
+        //color: #BDBDBD
         background: transparent
     .glyphicon-play,
     .glyphicon-stop
@@ -44,19 +44,26 @@ $sidebar-width: 300px
     .btn .btn
         width: 27px
         height: 27px
-        background: #a6a6a6
+        //background: #a6a6a6
+        //border: 1px solid #888
+        border: 0px
         border-radius: 50%
-        border: 1px solid #888
         margin: 0px
-        padding: 0px
-        box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2)
+        padding: 1px 0px 0px 0px
+        //box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.2)
         float: right
-        &:hover
-            background: darken(#a6a6a6, 20%)
-            border-color: #AAA
-        &:active
-            background: #555
-            border-color: #333
-            box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
+        //&:hover
+        //    background: darken(#a6a6a6, 20%)
+        //    border-color: #AAA
+        //&:active
+        //    background: #555
+        //    border-color: #333
+        //    box-shadow: 0px 0px 0px rgba(0, 0, 0, 0)
+    .btn-group-vertical
+        &>.btn:last-child:not(:first-child),
+        &>.btn:first-child:not(:last-child)
+            border-radius: 0px
+
 .container
     padding-left: $sidebar-width + 8px
+
