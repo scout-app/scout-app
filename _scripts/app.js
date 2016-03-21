@@ -15,8 +15,8 @@
     //Chokidar allows for watching files
     var chokidar = require('chokidar');
     //Get versions
-    ugui.app.nodeSass = sass.info.split('\r\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
-    ugui.app.libSass  = sass.info.split('\r\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
+    ugui.app.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
+    ugui.app.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
 
 
 
