@@ -3,8 +3,8 @@
     "homepage": "https://mhs.github.io/scout-app",
     "version": "2.0.0-alpha",
     "author": "The Jared Wilcurt, ZD, JM",
-    "description": "Compass and Sass without all the hassle.",
-    "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC" ],
+    "description": "Sass without all the hassle.",
+    "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Mixins", "Cross-Platform" ],
     "maintainers":[{
         "name": "The Jared Wilcurt",
         "email": "TheJaredWilcurt@users.noreply.github.com",
@@ -21,7 +21,7 @@
     "bugs": "https://github.com/mhs/scout-app/issues",
     "main": "index.html",
     "window": {
-        "title": "ScoutApp: The Sass/Compass GUI",
+        "title": "ScoutApp: The Sass GUI",
         "icon": "_img/logo_512.png",
         "toolbar": false,
         "resizable": true,

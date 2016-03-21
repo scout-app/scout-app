@@ -91,7 +91,7 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 
 * * *
 
-##Project structure:
+## Project structure:
 
 The  main files for Scout-App 2 are:
 
@@ -102,7 +102,7 @@ The  main files for Scout-App 2 are:
 
 * * *
 
-##Project management:
+## Project management:
 
 * [ ] **Phase 1**: Beautiful, functional, and ease of use (TJW)
   * [ ] **Status:** In progress, semi-functional
@@ -150,6 +150,16 @@ The  main files for Scout-App 2 are:
 
 * * *
 
-### Bugs
+## Bugs
 
-* In Ubuntu, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason.
+* In Ubuntu & OSX, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason.
+* In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
+
+* * *
+
+## Contributors to Scout-App 2
+
+* [TheJaredWilcurt](http://github.com/TheJaredWilcurt) - Creator, Maintainer, Project Manager
+* [Stephan Raab](http://github.com/StephanRaab) - Themes feature
+* [zdennis](http://github.com/zdennis) - UX Design and Planning
+* [mejiaj](http://github.com/mejiaj) - UX Design and Planning
