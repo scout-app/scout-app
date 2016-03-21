@@ -147,3 +147,9 @@ The  main files for Scout-App 2 are:
     * [ ] Make sidebar resizable
     * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Import/Export projects (Would anyone even want this feature?)
+
+* * *
+
+### Bugs
+
+* In Ubuntu, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason.
