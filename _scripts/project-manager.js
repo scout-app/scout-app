@@ -35,8 +35,6 @@ function resetProjectSettingsUI () {
     window.newProject = newProject;
 }
 
-//'project-' + order + '-' + projectName
-
 function autoGuessProjectFolders (autoImages, autoInput, autoOutput) {
     var projectFolder = window.newProject.projectFolder;
     if (projectFolder.length < 1) {
@@ -90,7 +88,7 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
     if (srcDist = "src") {
         srcDist = [ "source", "src" ];
     } else if (srcDist = "dist") {
-        srcDist = [ "dist", "build", "prod", "production", "distribution", "built" ];
+        srcDist = [ "built", "distribution", "production", "prod", "build", "dist" ];
     }
 
     var projectPath = window.newProject.projectFolder + '/';
@@ -130,11 +128,9 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
     });
 }
 
-function autoGuessProjectIcon (imageFolder) {
-    var imgFolder = imageFolder || window.newProject.imageFolder;
-    if (imgFolder.length < 1) {
-        return;
-    }
+function autoGuessProjectIcon () {
+    var imgFolder = window.newProject.imageFolder;
+
     ugui.helpers.readAFolder(imgFolder, function (contents, contentsList) {
         var projectIcon = "_img/logo_128.png";
         //Set the size for each image
@@ -153,17 +149,25 @@ function autoGuessProjectIcon (imageFolder) {
                     lowerFile.endsWith('.svg')
                    ) {
                     var dimensions = sizeOf(file);
-                    console.log(dimensions.width + "x" + dimensions.height);
                     contents[currentItem].width = dimensions.width;
                     contents[currentItem].height = dimensions.height;
+                    contents[currentItem].ratio = Math.round((dimensions.width/dimensions.height)*100)/100;
+                } else {
+                    //Remove the non-images from the contents object and contentsList Array
+                    delete contents[currentItem];
+                    contentsList.splice(i, 1);
+                    //Since we removed what was at i, something new will be there, we need to recheck it
+                    i--;
                 }
             }
         }
+        console.log(contents);
+        debugger;
         window.newProject.projectIcon = projectIcon;
     });
 }
 
-$("#addProject").click(function (event) {
+$("#addProject, #file-newproject").click(function (event) {
     event.preventDefault();
     $("#addProjectBrowse").click();
 });
@@ -193,7 +197,11 @@ $("#addProjectBrowse").change(function () {
         autoGuessSrcDist('dist', autoOutput, 'outputFolder');
     }
 
-    autoGuessProjectIcon();
+    //If we found an image folder, look for a good icon
+    if (window.newProject.imageFolder.length > 0) {
+        autoGuessProjectIcon();
+    }
 
+    //Reset the folder browse box
     $("#addProjectBrowse").val("");
 });
