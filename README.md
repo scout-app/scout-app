@@ -4,12 +4,71 @@ Currently in development. Here's a recent screenshot of the new version:
 
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/4629794/13718098/a4c4f1bc-e7b4-11e5-9fd2-81e7b8c17d2c.png" alt="Scout-App 2 Screenshot"></p>
 
-##Contributing
+* * *
+
+## Scout-App Comparison
+
+Scout Comparison           | 0.7.1           | 2.0.0
+:--                        | :--             | :--
+**Sass Version**           | 2012 (Ruby)     | 2016 (SassC)
+**Technology**             | Air, Java, Ruby | NW.js, Node
+**Cross-Platform**         | OSX, Windows    | Windows, Linux, OSX
+**Syntax Support**         | scss and sass   | scss and sass
+**Compass Support**        | Full Support    | Only Mixins
+**Speed**                  | Potato          | Kitten with a Jetpack
+**Project Setup**          | Manual          | Automatic & Manual
+**Themes**                 | 1               | 5 (15 planned)
+**Alerts & Errors**        | Console logs    | Human Readable in UI
+**Run from Tray**          | No              | Planned
+**Custom Mixin Libraries** | No              | Yes
+
+* * *
+
+## Supported/built-in mixin libraries:
+
+Simply add the @import into your code to have access to that library.
+
+*Sorted by URL*
+
+Code                                     | Source
+:--                                      | :--
+`@import "buttons";`                     | [github.com/alexwolfe/Buttons                ](https://github.com/alexwolfe/Buttons)
+`@import "bi-app-ltr";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
+`@import "bi-app-rtl";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
+`@import "pineapple-sass";`              | [github.com/ArunMichaelDsouza/pineapple-sass ](https://github.com/ArunMichaelDsouza/pineapple-sass))
+`@import "blueplate";`                   | [github.com/chrishumboldt/Blueplate          ](https://github.com/chrishumboldt/Blueplate)
+`@import "saffron";`                     | [github.com/corporadobob/saffron             ](https://github.com/corporadobob/saffron)
+`@import "scut";`                        | [github.com/davidtheclark/scut               ](https://github.com/davidtheclark/scut)
+`@import "sunglass";`                    | [github.com/devatrox/Sunglass                ](https://github.com/devatrox/Sunglass)
+`@import "su";`                          | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
+`@import "susy";`                        | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
+`@import "susyone";`                     | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
+`@import "andy";`                        | [github.com/gillesbertaux/andy               ](https://github.com/gillesbertaux/andy)
+`@import "typesettings";`                | [github.com/ianrose/typesettings             ](https://github.com/ianrose/typesettings)
+`@import "compass";`                     | [github.com/Igosuki/compass-mixins           ](https://github.com/Igosuki/compass-mixins)
+`@import "lemonade";`                    | [github.com/Igosuki/compass-mixins           ](https://github.com/Igosuki/compass-mixins)
+`@import "sassy-buttons";`               | [github.com/jhardy/Sassy-Buttons             ](https://github.com/jhardy/Sassy-Buttons)
+`@import "bluejay";`                     | [github.com/kalebheitzman/bluebird           ](https://github.com/kalebheitzman/bluebird)
+`@import "sass-easing";`                 | [github.com/kingscooty/sass-easing           ](https://github.com/kingscooty/sass-easing)
+`@import "breakpoint";`                  | [github.com/lesjames/breakpoint              ](https://github.com/lesjames/breakpoint)
+`@import "sass-css3-mixins";`            | [github.com/matthieua/sass-css3-mixins       ](https://github.com/matthieua/sass-css3-mixins)
+`@import "cssowl";`                      | [github.com/owl-stars/cssowl                 ](https://github.com/owl-stars/cssowl)
+`@import "spice";`                       | [github.com/spice-sass/spice                 ](https://github.com/spice-sass/spice)
+`@import "meyer";`                       | [github.com/TheJaredWilcurt/meyer-sass       ](https://github.com/TheJaredWilcurt/meyer-sass)
+`@import "bourbon-deprecated-upcoming";` | [github.com/thoughtbot/bourbon               ](https://github.com/thoughtbot/bourbon)
+`@import "bourbon";`                     | [github.com/thoughtbot/bourbon               ](https://github.com/thoughtbot/bourbon)
+`@import "neat";`                        | [github.com/thoughtbot/neat                  ](https://github.com/thoughtbot/neat)
+
+If we've missed a popular mixin library, request it on the [issues](https://github.com/mhs/scout-app/issues) page.
+
+* * *
+
+## Contributing
 
 Scout-App 2.0 is built using the cross-platform runtime environment [NW.js](http://nwjs.io) and the [UGUI](http://ugui.io) framework.
 
 
-##Running Scout-App Locally for Development
+### Running Scout-App Locally for Development
 
 1. Clone down this `scout-app` repo
 2. Switch to the `Scout-App-2-Dev` branch
@@ -54,15 +113,13 @@ The  main files for Scout-App 2 are:
     * [x] ~~Allow for common mixin libraries to be shipped with it~~
     * [x] ~~Implement Environment options (production/development)~~
     * [x] ~~Have a watch function that will watch input folder instead of just a doing one time run~~
-    * [X] ~~Finalize UX layout~~
-    * [X] ~~Pretty up the app!~~
-    * [X] ~~Pretty up the error output message and allow for it to be closed~~
+    * [x] ~~Finalize UX layout~~
+    * [x] ~~Pretty up the app!~~
+    * [x] ~~Pretty up the error output message and allow for it to be closed~~
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
-    * [ ] Upon creating a project, auto-guess the 4 input-files.
-    * [ ] Save/Load settings automatically
-    * [ ] Create an export button that will export out the saved project .json file for the user.
-    * [ ] Fix icon (Will not release without this, no excuse for shoddy craftsman ship)
+    * [ ] Upon creating a project, auto-guess input/output folders and project icon.
+    * [ ] Fix icon (Will not release without this, no excuse for [shoddy craftsmanship](http://giant.gfycat.com/VigorousPointedAnteater.gif))
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
   * [ ] **To do:**
@@ -90,59 +147,3 @@ The  main files for Scout-App 2 are:
     * [ ] Make sidebar resizable
     * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Import/Export projects (Would anyone even want this feature?)
-
-* * *
-
-### Scout-App Comparison
-
-Scout Comparison           | 0.7.1           | 2.0.0
-:--                        | :--             | :--
-**Sass Version**           | 2012 (Ruby)     | 2016 (SassC)
-**Syntax Support**         | scss and sass   | scss and sass
-**Compass Support**        | Full Support    | Only Mixins
-**Cross-Platform**         | OSX, Windows    | Windows, Linux, OSX
-**Speed**                  | Potato          | Kitten with a Jetpack
-**Technology**             | Air, Java, Ruby | NW.js, Node
-**Project Setup**          | Manual          | Automatic & Manual
-**Themes**                 | 1               | 5 (15 planned)
-**Alerts & Errors**        | Console Errors  | Human Readable in UI
-**Export Projects**        | No              | Planned
-**Run from Tray**          | No              | Planned
-**Custom Mixin Libraries** | No              | Yes
-
-* * *
-
-### Supported built-in mixin libraries:
-
-*Sorted by URL*
-
-Code                                     | Source
-:--                                      | :--
-`@import "buttons";`                     | [github.com/alexwolfe/Buttons                ](https://github.com/alexwolfe/Buttons)
-`@import "bi-app-ltr";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
-`@import "bi-app-rtl";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
-`@import "pineapple-sass";`              | [github.com/ArunMichaelDsouza/pineapple-sass ](https://github.com/ArunMichaelDsouza/pineapple-sass))
-`@import "blueplate";`                   | [github.com/chrishumboldt/Blueplate          ](https://github.com/chrishumboldt/Blueplate)
-`@import "saffron";`                     | [github.com/corporadobob/saffron             ](https://github.com/corporadobob/saffron)
-`@import "scut";`                        | [github.com/davidtheclark/scut               ](https://github.com/davidtheclark/scut)
-`@import "sunglass";`                    | [github.com/devatrox/Sunglass                ](https://github.com/devatrox/Sunglass)
-`@import "su";`                          | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
-`@import "susy";`                        | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
-`@import "susyone";`                     | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
-`@import "andy";`                        | [github.com/gillesbertaux/andy               ](https://github.com/gillesbertaux/andy)
-`@import "typesettings";`                | [github.com/ianrose/typesettings             ](https://github.com/ianrose/typesettings)
-`@import "compass";`                     | [github.com/Igosuki/compass-mixins           ](https://github.com/Igosuki/compass-mixins)
-`@import "lemonade";`                    | [github.com/Igosuki/compass-mixins           ](https://github.com/Igosuki/compass-mixins)
-`@import "sassy-buttons";`               | [github.com/jhardy/Sassy-Buttons             ](https://github.com/jhardy/Sassy-Buttons)
-`@import "bluejay";`                     | [github.com/kalebheitzman/bluebird           ](https://github.com/kalebheitzman/bluebird)
-`@import "sass-easing";`                 | [github.com/kingscooty/sass-easing           ](https://github.com/kingscooty/sass-easing)
-`@import "breakpoint";`                  | [github.com/lesjames/breakpoint              ](https://github.com/lesjames/breakpoint)
-`@import "sass-css3-mixins";`            | [github.com/matthieua/sass-css3-mixins       ](https://github.com/matthieua/sass-css3-mixins)
-`@import "cssowl";`                      | [github.com/owl-stars/cssowl                 ](https://github.com/owl-stars/cssowl)
-`@import "spice";`                       | [github.com/spice-sass/spice                 ](https://github.com/spice-sass/spice)
-`@import "meyer";`                       | [github.com/TheJaredWilcurt/meyer-sass       ](https://github.com/TheJaredWilcurt/meyer-sass)
-`@import "bourbon-deprecated-upcoming";` | [github.com/thoughtbot/bourbon               ](https://github.com/thoughtbot/bourbon)
-`@import "bourbon";`                     | [github.com/thoughtbot/bourbon               ](https://github.com/thoughtbot/bourbon)
-`@import "neat";`                        | [github.com/thoughtbot/neat                  ](https://github.com/thoughtbot/neat)
-
-If we've missed a popular mixin library, request it on the [issues](https://github.com/mhs/scout-app/issues) page.
