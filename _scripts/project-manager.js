@@ -10,7 +10,7 @@ var sizeOf = require('image-size');
 function resetProjectSettingsUI () {
     $("#projectIcon").attr('src', '_img/logo_128.png');
     $("#projectName").html('');
-    $("#projectFolder").html('');
+    $("#projectFolder").val('');
     $("#inputFolder").val('');
     $("#inputFolderBrowse").attr('nwworkingdir','...');
     $("#inputFolderBrowse").val('');
@@ -161,8 +161,8 @@ function autoGuessProjectIcon () {
                 }
             }
         }
-        console.log(contents);
-        debugger;
+//console.log(contents);
+//debugger;
         window.newProject.projectIcon = projectIcon;
     });
 }
@@ -175,9 +175,11 @@ $("#addProject, #file-newproject").click(function (event) {
 $("#addProjectBrowse").change(function () {
     resetProjectSettingsUI();
 
-    var autoImages = [ "graphics", "images", "image", "imgs", "img", "_graphics", "_images", "_image", "_imgs", "_img" ];
+    //Array items are ordered from lowest to highest priority
     var autoInput = [ "scss", "sass", "_scss", "_sass" ];
     var autoOutput = [ "css", "styles", "style", "_css", "_styles", "_style" ];
+    var autoImages = [ "graphics", "images", "image", "imgs", "img", "meta", "_graphics", "_images", "_image", "_imgs", "_img", "_meta", "graphics/meta", "images/meta", "image/meta", "imgs/meta", "img/meta", "_graphics/meta", "_images/meta", "_image/meta", "_imgs/meta", "_img/meta" ];
+    var commonImages = [ "logo.png", "mstile03wd.png", "apl-str.png", "logo_48.png", "apl-57.png", "mstile01sm.png", "apl-72.png", "logo_256.png", "logo_512.png", "fluid.png", "mstile04lg.png", "mstile02md.png", "apl-144.png", "apl-114.png", "logo_128.png" ];
 
     //Get the path for the project folder the user selected
     var folder = $("#addProjectBrowse").val();
@@ -196,7 +198,7 @@ $("#addProjectBrowse").change(function () {
     if (window.newProject.outputFolder.length < 1) {
         autoGuessSrcDist('dist', autoOutput, 'outputFolder');
     }
-
+console.log(window.newProject.imageFolder);
     //If we found an image folder, look for a good icon
     if (window.newProject.imageFolder.length > 0) {
         autoGuessProjectIcon();
@@ -204,4 +206,35 @@ $("#addProjectBrowse").change(function () {
 
     //Reset the folder browse box
     $("#addProjectBrowse").val("");
+
+    updateProjectSettingsView();
 });
+
+function updateProjectSettingsView () {
+    $("#projectIcon"       ).attr('src',          window.newProject.projectIcon);
+    $("#projectName"       ).html(                window.newProject.projectName);
+    $("#projectFolder"     ).val(                 window.newProject.projectFolder);
+    $("#inputFolder"       ).val(                 window.newProject.inputFolder);
+    $("#outputFolder"      ).val(                 window.newProject.outputFolder);
+    $("#inputFolderBrowse" ).attr('nwworkingdir', window.newProject.projectFolder);
+    $("#outputFolderBrowse").attr('nwworkingdir', window.newProject.projectFolder);
+
+    var outputStyleOption = $("#outputStyle option");
+
+    if (window.newProject.environment == "production") {
+        $('#environment input[data-argName="production"]').prop('checked', true);
+        $(outputStyleOption[3]).show();
+        $(outputStyleOption[4]).show();
+    } else if (window.newProject.environment == "development") {
+        $('#environment input[data-argName="development"]').prop('checked', true);
+    }
+
+    for (var i = 1; i < outputStyleOption.length; i++) {
+        var current = $(outputStyleOption[i]).val();
+        if (window.newProject.outputStyle == current) {
+            $(outputStyleOption[i]).prop("selected", true);
+        }
+    }
+
+    $("#printConsole .alert, #printConsole .panel").addClass('hide');
+}

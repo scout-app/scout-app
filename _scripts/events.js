@@ -61,8 +61,8 @@
     $("#environment input").change( function (event) {
         ugui.helpers.buildUGUIArgObject();
         if (ugui.args.development.htmlticked) {
-            $($("#outputStyle option")[3]).hide()
-            $($("#outputStyle option")[4]).hide()
+            $($("#outputStyle option")[3]).hide();
+            $($("#outputStyle option")[4]).hide();
 
             var isLabelSelected = $($("#outputStyle option")[0]).prop("selected");
             var isNestedSelected = $($("#outputStyle option")[1]).prop("selected");
@@ -72,8 +72,8 @@
                 $($("#outputStyle option")[2]).prop("selected", true);
             }
         } else {
-            $($("#outputStyle option")[3]).show()
-            $($("#outputStyle option")[4]).show()
+            $($("#outputStyle option")[3]).show();
+            $($("#outputStyle option")[4]).show();
         }
     });
 
