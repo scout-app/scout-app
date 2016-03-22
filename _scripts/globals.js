@@ -3,6 +3,16 @@
   Global stuff
 */
 
+//Create the global Scout object
+window.scout = {
+    "helpers": {},
+    "versions": {
+        "nodeSass": "",
+        "libSass": "",
+        "scout": ugui.app.version
+    }
+};
+
 //Format time as 03:14:15
 Date.prototype.timeNow = function(){
     return ((this.getHours() < 10)?"0":"") + ((this.getHours()>12)?(this.getHours()-12):this.getHours()) + ":" +
@@ -21,5 +31,5 @@ String.prototype.endsWith = function (str){
 
 //Move stuff around in Arrays
 Array.prototype.move = function (from, to) {
-  this.splice(to, 0, this.splice(from, 1)[0]);
+    this.splice(to, 0, this.splice(from, 1)[0]);
 };

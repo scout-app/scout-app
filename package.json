@@ -60,7 +60,7 @@
     },
     "scripts": {
         "start": "nw .",
-        "postinstall": "bower install"
+        "postinstall": "bower update"
     },
     "license": "MIT",
     "licenses": [{

@@ -32,11 +32,11 @@ function resetProjectSettingsUI () {
         "environment":   "production",
         "outputStyle":   "nested"
     };
-    window.newProject = newProject;
+    scout.newProject = newProject;
 }
 
 function autoGuessProjectFolders (autoImages, autoInput, autoOutput) {
-    var projectFolder = window.newProject.projectFolder;
+    var projectFolder = scout.newProject.projectFolder;
     if (projectFolder.length < 1) {
         return;
     }
@@ -73,14 +73,14 @@ function autoGuessProjectFolders (autoImages, autoInput, autoOutput) {
         }
     });
 
-    if (!window.newProject) {
-        window.newProject = {}
+    if (!scout.newProject) {
+        scout.newProject = {}
     }
 
-    window.newProject.projectName = projectName;
-    window.newProject.imageFolder = imageFolder;
-    window.newProject.inputFolder = inputFolder;
-    window.newProject.outputFolder = outputFolder;
+    scout.newProject.projectName = projectName;
+    scout.newProject.imageFolder = imageFolder;
+    scout.newProject.inputFolder = inputFolder;
+    scout.newProject.outputFolder = outputFolder;
 }
 
 function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
@@ -91,9 +91,9 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
         srcDist = [ "built", "distribution", "production", "prod", "build", "dist" ];
     }
 
-    var projectPath = window.newProject.projectFolder + '/';
+    var projectPath = scout.newProject.projectFolder + '/';
 
-    ugui.helpers.readAFolder(window.newProject.projectFolder, function (contents, contentsList) {
+    ugui.helpers.readAFolder(scout.newProject.projectFolder, function (contents, contentsList) {
         //loop through C:/myproj/*
         for (var i = 0; i < contentsList.length; i++) {
             var currentItem = contentsList[i];
@@ -115,7 +115,7 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
                                     for (var l = 0; l < autoFolder.length; l++) {
                                         if (srcDistCurrentItem == autoFolder[l]) {
                                             var path = projectPath + subfolder + '/' + autoFolder[l];
-                                            window.newProject[newProjectProperty] = path;
+                                            scout.newProject[newProjectProperty] = path;
                                         }
                                     }
                                 }
@@ -129,7 +129,7 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
 }
 
 function autoGuessProjectIcon () {
-    var imgFolder = window.newProject.imageFolder;
+    var imgFolder = scout.newProject.imageFolder;
 
     ugui.helpers.readAFolder(imgFolder, function (contents, contentsList) {
         var projectIcon = "_img/logo_128.png";
@@ -163,7 +163,7 @@ function autoGuessProjectIcon () {
         }
         console.log(contents);
         debugger;
-        window.newProject.projectIcon = projectIcon;
+        scout.newProject.projectIcon = projectIcon;
     });
 }
 
@@ -182,23 +182,23 @@ $("#addProjectBrowse").change(function () {
     //Get the path for the project folder the user selected
     var folder = $("#addProjectBrowse").val();
     //Set it to the New Project object, converting windows slashes to unix
-    window.newProject.projectFolder = folder.split('\\').join('/');
+    scout.newProject.projectFolder = folder.split('\\').join('/');
     //Look for commonly named folders so the user doesn't need to manually do anything
     autoGuessProjectFolders(autoImages, autoInput, autoOutput);
 
     //If the autoguesser failed to find the folders in the root of the project, check in src and dist folders
-    if (window.newProject.imageFolder.length < 1) {
+    if (scout.newProject.imageFolder.length < 1) {
         autoGuessSrcDist('src', autoImages, 'imageFolder');
     }
-    if (window.newProject.inputFolder.length < 1) {
+    if (scout.newProject.inputFolder.length < 1) {
         autoGuessSrcDist('src', autoInput, 'inputFolder');
     }
-    if (window.newProject.outputFolder.length < 1) {
+    if (scout.newProject.outputFolder.length < 1) {
         autoGuessSrcDist('dist', autoOutput, 'outputFolder');
     }
 
     //If we found an image folder, look for a good icon
-    if (window.newProject.imageFolder.length > 0) {
+    if (scout.newProject.imageFolder.length > 0) {
         autoGuessProjectIcon();
     }
 

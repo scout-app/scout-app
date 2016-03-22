@@ -80,6 +80,6 @@
     //On page load have this run once
     unlockSubmit();
 
-    $('.nodeSassVersion').html('(Node-Sass v' + ugui.app.nodeSass +  ' / LibSass v' + ugui.app.libSass + ')');
+    $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
 
 })();

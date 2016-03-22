@@ -86,7 +86,7 @@
         });
     }
 
-    ugui.helpers.alert = alert;
-    ugui.helpers.message = message;
+    scout.helpers.alert = alert;
+    scout.helpers.message = message;
 
 })();

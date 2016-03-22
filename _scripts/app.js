@@ -10,13 +10,14 @@
     // Defin some variables                                    //
     /////////////////////////////////////////////////////////////
 
+
     //Pull in Node-Sass
     var sass = require('node-sass');
     //Chokidar allows for watching files
     var chokidar = require('chokidar');
     //Get versions
-    ugui.app.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
-    ugui.app.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
+    scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
+    scout.versions.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
 
 
 
@@ -93,13 +94,13 @@
         }, function (error, result) {
             if (error) {
                 console.log(error);
-                ugui.helpers.alert(error);
+                scout.helpers.alert(error);
             } else {
                 ugui.helpers.writeToFile(outputFullFilePath, result.css.toString());
                 if (devMode) {
                     ugui.helpers.writeToFile(sourceMap, result.map.toString());
                 }
-                ugui.helpers.message(result);
+                scout.helpers.message(result);
             };
         });
     }
