@@ -80,6 +80,8 @@
     //On page load have this run once
     unlockSubmit();
 
+    scout.helpers.unlockSubmit = unlockSubmit;
+
     $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
 
 })();

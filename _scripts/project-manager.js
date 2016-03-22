@@ -3,6 +3,8 @@
   The handles creating new projects, saving them, and loading them.
 */
 
+(function(){
+
 var path = require('path');
 var sizeOf = require('image-size');
 
@@ -30,7 +32,7 @@ function resetProjectSettingsUI () {
         "inputFolder":   "",
         "outputFolder":  "",
         "environment":   "production",
-        "outputStyle":   "nested"
+        "outputStyle":   "compressed"
     };
     scout.newProject = newProject;
 }
@@ -161,8 +163,8 @@ function autoGuessProjectIcon () {
                 }
             }
         }
-//console.log(contents);
-//debugger;
+        //console.log(contents);
+        //debugger;
         scout.newProject.projectIcon = projectIcon;
     });
 }
@@ -198,7 +200,7 @@ $("#addProjectBrowse").change(function () {
     if (scout.newProject.outputFolder.length < 1) {
         autoGuessSrcDist('dist', autoOutput, 'outputFolder');
     }
-console.log(scout.newProject.imageFolder);
+    console.log(scout.newProject.imageFolder);
     //If we found an image folder, look for a good icon
     if (scout.newProject.imageFolder.length > 0) {
         autoGuessProjectIcon();
@@ -211,22 +213,26 @@ console.log(scout.newProject.imageFolder);
 });
 
 function updateProjectSettingsView () {
-    $("#projectIcon"       ).attr('src',          scout.newProject.projectIcon);
-    $("#projectName"       ).html(                scout.newProject.projectName);
-    $("#projectFolder"     ).val(                 scout.newProject.projectFolder);
-    $("#inputFolder"       ).val(                 scout.newProject.inputFolder);
-    $("#outputFolder"      ).val(                 scout.newProject.outputFolder);
-    $("#inputFolderBrowse" ).attr('nwworkingdir', scout.newProject.projectFolder);
-    $("#outputFolderBrowse").attr('nwworkingdir', scout.newProject.projectFolder);
+    $("#projectIcon"  ).attr('src', scout.newProject.projectIcon);
+    $("#projectName"  ).html(       scout.newProject.projectName);
+    $("#projectFolder").val(        scout.newProject.projectFolder);
+    $("#inputFolder"  ).val(        scout.newProject.inputFolder);
+    $("#outputFolder" ).val(        scout.newProject.outputFolder);
+
+    var workingDir = scout.newProject.projectFolder;
+    if (ugui.platform == "win32") {
+        workingDir = workingDir.split('/').join('\\');
+    }
+
+    $("#inputFolderBrowse" ).attr('nwworkingdir', workingDir);
+    $("#outputFolderBrowse").attr('nwworkingdir', workingDir);
 
     var outputStyleOption = $("#outputStyle option");
 
     if (scout.newProject.environment == "production") {
-        $('#environment input[data-argName="production"]').prop('checked', true);
-        $(outputStyleOption[3]).show();
-        $(outputStyleOption[4]).show();
+        $('#environment input[data-argName="production"]').click();
     } else if (scout.newProject.environment == "development") {
-        $('#environment input[data-argName="development"]').prop('checked', true);
+        $('#environment input[data-argName="development"]').click();
     }
 
     for (var i = 1; i < outputStyleOption.length; i++) {
@@ -236,5 +242,10 @@ function updateProjectSettingsView () {
         }
     }
 
+    scout.helpers.unlockSubmit();
     $("#printConsole .alert, #printConsole .panel").addClass('hide');
 }
+
+scout.helpers.updateProjectSettingsView = updateProjectSettingsView;
+
+})();
