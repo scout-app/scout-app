@@ -12,7 +12,7 @@
 //**B01**. [Run CMD](#b01-run-cmd)  
 //**B02**. [Run CMD (Advanced)](#b02-run-cmd-advanced-)  
 //**B03**. [Read a file](#b03-read-a-file)  
-//**B04**. [Read contents of a folder](#b04-read-contents-of-a-folder)  
+//**B04**. [Read a folder](#b04-read-contents-of-a-folder)  
 //**B05**. [Write to file](#b05-write-to-file)  
 //**B06**. [Create a folder](#b06-create-a-folder)  
 //**B07**. [Delete a file](#b07-delete-a-file)  
@@ -105,18 +105,21 @@
 //### A01. UGUI Start
 //
 
+//Wait for the document to load before running ugui.js. Use either runUGUI or waitUGUI for immediate or delayed launch.
+$(document).ready( runUGUI );
+
 //This lets you open NW.js, then immediately launch the Webkit Developer Tools, then a few seconds later run UGUI.
 //Good for hitting a debugger in time, as often the JS runs before the Webkit Developer Tools can open.
-//function waitUGUI() {
-//    require("nw.gui").Window.get().showDevTools();
-//    setTimeout(runUGUI, 6000);
-//}
+function waitUGUI() {
+    require("nw.gui").Window.get().showDevTools();
+    setTimeout(runUGUI, 6000);
+}
 
 //Container for all UGUI components
-(function runUGUI() {
+function runUGUI() {
 
 //This is the one place where the UGUI version is declared
-var uguiVersion = "1.3.0a";
+var uguiVersion = "2.0.0a";
 
 
 
@@ -456,23 +459,24 @@ function readAFile(filePathAndName) {
 //### B04. Read contents of a folder
 //
 //>Supply a path to a folder as a string and UGUI will return an
-// object with each file and folder as a sub-object. Each item
-// returned will have an "isFolder" property to tell if it's a
-// file or a folder, and with the exception of some system
-// files, they should all have a file size as well.
+// array with each file and folder as an object. Each item
+// returned will have a "name" and "isFolder" property to tell
+// if it's a file or a folder, and with the exception of some
+// system files, they should all have a file size as well.
 //
-//>To make things easier, we also return an array that lists all
-// items returned.
+//>     var markupContents = ugui.helpers.readAFolder("_markup");
 //
-//>     var mediaContents = ugui.helpers.readAFolder("_media");
+//>You can access the content like so:
 //
-//>Since you can't use spaces or dots in dot notation, folders
-// and files like "Hello World" and "file.txt" can't be
-// accessed by doing `mediaContents.Hello World.size` or
-// `mediaContents.file.txt.isFolder`. So to access those use:
+//>     markupContents[0].name;     // returns string
+//     markupContents[0].size;     // retunrs number
+//     markupContents[0].isFolder; // returns boolean
 //
-//>     mediaContents["Hello World"].size
-//     mediaContents["file.txt"].isFolder
+//>You can also use a callback:
+//
+//>     ugui.helpers.readAFolder("_markup", function (contents) {
+//         console.log(contents)
+//     })
 
 //
 function readAFolder(filePath, callback) {
@@ -507,7 +511,7 @@ function readAFolder(filePath, callback) {
     });
 
     //Create an object with an array in it
-    var contents = {};
+    var contents = [];
     //Store the contents of the passed in directory as an array
     var contentsList = fs.readdirSync(filePath);
 
@@ -516,30 +520,33 @@ function readAFolder(filePath, callback) {
 
         //Check if it's a folder
         if (stats.isDirectory()) {
-            contents[file] = {
+            contents.push({
+                "name": file,
                 "isFolder": true,
                 "size": 0
-            }
+            });
         //Check if it has a file size
         } else if (file !== "undefined") {
-            contents[file] = {
+            contents.push({
+                "name": file,
                 "isFolder": false,
                 "size": stats.size
-            }
+            });
         //Catch-all
         } else {
-            contents[file] = {
+            contents.push({
+                "name": file,
                 "isFolder": false
-            }
+            });
         }
     });
 
     //If a callback was passed in, run it
     if (callback) {
-        callback(contents, contentsList);
+        callback(contents);
     //Otherwise just return the contents of the folder
     } else {
-        return [contents, contentsList];
+        return contents;
     }
 }
 
@@ -1974,7 +1981,6 @@ function centerNavLogo() {
     $(".navbar-brand").css("line-height", navHeight + "px");
     $(".navbar-brand").css("padding-top", "0px");
     $(".navbar-brand *").css("line-height", navHeight + "px");
-    $("#sidebar").css("padding-top", navHeight + "px");
 }
 
 //Run once on page load
@@ -2055,7 +2061,7 @@ function checkForUpdates() {
         //Get the Repo name from the Repo URL
         var repoName = repoURLSplit[4].split(".git")[0];
         //Build the URL for the API
-        var updateURL = "https://api.github.com/repos/" + username + "/" + repoName + "/tags";
+        var updateURL = "https://api.github.com/repos/" + username + "/" + repoName + "/releases";
     } else {
         console.info(º+'Unable to check for updates because your Repository ' +
             'URL does not match expected pattern.', consoleNormal);
@@ -2080,7 +2086,7 @@ function checkForUpdates() {
         },
         success: function(data){
             //0.2.5
-            var remoteVersion = data[0].name.split("v")[1].split('_')[0];
+            var remoteVersion = data[0].tag_name.split("v")[1];
             var localVersion = appVersion;
             //[ "0", "2", "5" ]
             var rvs = remoteVersionSplit = remoteVersion.split(".");
@@ -2485,8 +2491,8 @@ function swatchSwapper() {
         //the stylesheet was swapped instead of after the page rendered the styles. Since Webkit does not have a way of
         //indicating when a repaint finishes, unfortunately a delay had to be used. 71 was chosen because 14 FPS is the
         //slowest you can go in animation before something looks choppy.
-        window.setTimeout(centerNavLogo, 140);
-        window.setTimeout(sliderHandleColor, 140);
+        window.setTimeout(centerNavLogo, 71);
+        window.setTimeout(sliderHandleColor, 71);
     });
 }
 
@@ -3381,7 +3387,7 @@ window.ugui = {
 
 
 // End of `ugui();`
-})();
+}
 
 
 
