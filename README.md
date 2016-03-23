@@ -107,19 +107,19 @@ The  main files for Scout-App 2 are:
 * [ ] **Phase 1**: Beautiful, functional, and ease of use (TJW)
   * [ ] **Status:** In progress, semi-functional
   * [ ] **To do:**
-    * [x] ~~Clean up project folder.~~
-    * [x] ~~Handle a single project with input and output of files in specified folders.~~
-    * [x] ~~Fix Output Style options (nested, expanded, compact, compressed)~~
-    * [x] ~~Allow for common mixin libraries to be shipped with it~~
-    * [x] ~~Implement Environment options (production/development)~~
-    * [x] ~~Have a watch function that will watch input folder instead of just a doing one time run~~
-    * [x] ~~Finalize UX layout~~
-    * [x] ~~Pretty up the app!~~
-    * [x] ~~Pretty up the error output message and allow for it to be closed~~
+    * [x] ~~Clean up project folder. (TJW)~~
+    * [x] ~~Handle a single project with input and output of files in specified folders. (TJW)~~
+    * [x] ~~Fix Output Style options (nested, expanded, compact, compressed) (TJW)~~
+    * [x] ~~Allow for common mixin libraries to be shipped with it (TJW)~~
+    * [x] ~~Implement Environment options (production/development) (TJW)~~
+    * [x] ~~Have a watch function that will watch input folder instead of just a doing one time run (TJW)~~
+    * [x] ~~Finalize UX layout (Group)~~
+    * [x] ~~Pretty up the app! (Group)~~
+    * [x] ~~Pretty up the error output message and allow for it to be closed (TJW)~~
+    * [x] ~~Fix icon (Will not release without this, no excuse for [shoddy craftsmanship](http://giant.gfycat.com/VigorousPointedAnteater.gif)) (TJW)~~
+    * [ ] Upon creating a project, auto-guess input/output folders and project icon. (TJW - In progress)
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
-    * [ ] Upon creating a project, auto-guess input/output folders and project icon.
-    * [ ] Fix icon (Will not release without this, no excuse for [shoddy craftsmanship](http://giant.gfycat.com/VigorousPointedAnteater.gif))
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
   * [ ] **To do:**
@@ -143,7 +143,7 @@ The  main files for Scout-App 2 are:
     * [ ] **To do:**
     * [ ] Clean up custom styles to allow for theme swapping. (SR)
     * [ ] Drag and drop sidebar items to reorder (HMN)
-    * [ ] Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations.
+    * [ ] Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations. (KE)
     * [ ] Make sidebar resizable
     * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Import/Export projects (Would anyone even want this feature?)

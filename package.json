@@ -22,7 +22,7 @@
     "main": "index.html",
     "window": {
         "title": "ScoutApp: The Sass GUI",
-        "icon": "_img/logo_512.png",
+        "icon": "_img/logo_32.png",
         "toolbar": false,
         "resizable": true,
         "visible": true,
