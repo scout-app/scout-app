@@ -120,6 +120,9 @@ The  main files for Scout-App 2 are:
     * [ ] Upon creating a project, auto-guess input/output folders and project icon. (TJW - In progress)
     * [ ] Create a way of having multiple projects and switching between them
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
+    * [ ] BUG 1: In Ubuntu & OSX, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason.
+    * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
+    * [ ] BUG 3: In OSX, the auto-guesser crashes on [this specific repo](https://github.com/UniversalGUI/UniversalGUI.github.io). Works on Windows. Don't know what is special about the repo. Maybe the `.`'s in the folder name?
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
   * [ ] **To do:**
@@ -148,12 +151,6 @@ The  main files for Scout-App 2 are:
     * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Import/Export projects (Would anyone even want this feature?)
 
-* * *
-
-## Bugs
-
-* In Ubuntu & OSX, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason.
-* In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
 
 * * *
 
