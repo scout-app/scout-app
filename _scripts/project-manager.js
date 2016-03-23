@@ -91,6 +91,8 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
         srcDist = [ "source", "src" ];
     } else if (srcDist = "dist") {
         srcDist = [ "built", "distribution", "production", "prod", "build", "dist" ];
+    } else {
+        srcDist = [ "built", "distribution", "production", "prod", "build", "source", "dist", "src" ]
     }
 
     var projectPath = scout.newProject.projectFolder + '/';
@@ -103,20 +105,21 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
             if (contents[currentItem].isFolder) {
                 //loop through ["src","source"] or ["dist", "build"]
                 for (var j = 0; j < srcDist.length; j++) {
+                    //subfolder = src
+                    var subfolder = srcDist[j];
                     //if thing in project folder is what we are looking for: C:/myproj/src
-                    if (currrentItem == srcDist[j]) {
-                        //subfolder = src
-                        var subfolder = srcDist[j];
+                    if (currrentItem == subfolder) {
                         //read folder C:/myproj/src/ or C:/myproj/dist
-                        ugui.helpers.readAFolder(projectPath + subfolder, function (srcDistContents, srcDistContentsList) {
+                        ugui.helpers.readAFolder(projectPath + subfolder, function (SDContents, SDContentsList) {
                             //loop throuhg C:/myproj/src/*
-                            for (var k = 0; k < srcDistContentsList.length; k++) {
-                                var srcDistCurrentItem = srcDistContentsList[k];
+                            for (var k = 0; k < SDContentsList.length; k++) {
+                                var SDCurrentItem = SDContentsList[k];
                                 //only proceed if a folder
-                                if (srcDistContents[srcDistCurrentItem].isFolder) {
+                                if (SDContents[SDCurrentItem].isFolder) {
                                     for (var l = 0; l < autoFolder.length; l++) {
-                                        if (srcDistCurrentItem == autoFolder[l]) {
-                                            var path = projectPath + subfolder + '/' + autoFolder[l];
+                                        var subsubfolder = autoFolder[l];
+                                        if (SDCurrentItem == subsubfolder) {
+                                            var path = projectPath + subfolder + '/' + subsubfolder;
                                             scout.newProject[newProjectProperty] = path;
                                         }
                                     }
@@ -180,13 +183,16 @@ $("#addProjectBrowse").change(function () {
     //Array items are ordered from lowest to highest priority
     var autoInput = [ "scss", "sass", "_scss", "_sass" ];
     var autoOutput = [ "css", "styles", "style", "_css", "_styles", "_style" ];
-    var autoImages = [ "graphics", "images", "image", "imgs", "img", "meta", "_graphics", "_images", "_image", "_imgs", "_img", "_meta", "graphics/meta", "images/meta", "image/meta", "imgs/meta", "img/meta", "_graphics/meta", "_images/meta", "_image/meta", "_imgs/meta", "_img/meta" ];
+    var autoImages = [ "graphics", "images", "image", "imgs", "img", "meta", "_graphics", "_images", "_image", "_imgs", "_img", "_meta"];
+    var meta = [ "graphics/meta", "images/meta", "image/meta", "imgs/meta", "img/meta", "_graphics/meta", "_images/meta", "_image/meta", "_imgs/meta", "_img/meta" ];
     var commonImages = [ "logo.png", "mstile03wd.png", "apl-str.png", "logo_48.png", "apl-57.png", "mstile01sm.png", "apl-72.png", "logo_256.png", "logo_512.png", "fluid.png", "mstile04lg.png", "mstile02md.png", "apl-144.png", "apl-114.png", "logo_128.png" ];
 
     //Get the path for the project folder the user selected
     var folder = $("#addProjectBrowse").val();
     //Set it to the New Project object, converting windows slashes to unix
-    scout.newProject.projectFolder = folder.split('\\').join('/');
+    if (ugui.platform == "win32") {
+        scout.newProject.projectFolder = folder.split('\\').join('/');
+    }
     //Look for commonly named folders so the user doesn't need to manually do anything
     autoGuessProjectFolders(autoImages, autoInput, autoOutput);
 
@@ -213,13 +219,14 @@ $("#addProjectBrowse").change(function () {
 });
 
 function updateProjectSettingsView () {
-    $("#projectIcon"  ).attr('src', scout.newProject.projectIcon);
-    $("#projectName"  ).html(       scout.newProject.projectName);
-    $("#projectFolder").val(        scout.newProject.projectFolder);
-    $("#inputFolder"  ).val(        scout.newProject.inputFolder);
-    $("#outputFolder" ).val(        scout.newProject.outputFolder);
+    var base = base || scout.newProject;
+    $("#projectIcon"  ).attr('src', base.projectIcon);
+    $("#projectName"  ).html(       base.projectName);
+    $("#projectFolder").val(        base.projectFolder);
+    $("#inputFolder"  ).val(        base.inputFolder);
+    $("#outputFolder" ).val(        base.outputFolder);
 
-    var workingDir = scout.newProject.projectFolder;
+    var workingDir = base.projectFolder;
     if (ugui.platform == "win32") {
         workingDir = workingDir.split('/').join('\\');
     }
@@ -229,15 +236,15 @@ function updateProjectSettingsView () {
 
     var outputStyleOption = $("#outputStyle option");
 
-    if (scout.newProject.environment == "production") {
+    if (base.environment == "production") {
         $('#environment input[data-argName="production"]').click();
-    } else if (scout.newProject.environment == "development") {
+    } else if (base.environment == "development") {
         $('#environment input[data-argName="development"]').click();
     }
 
     for (var i = 1; i < outputStyleOption.length; i++) {
         var current = $(outputStyleOption[i]).val();
-        if (scout.newProject.outputStyle == current) {
+        if (base.outputStyle == current) {
             $(outputStyleOption[i]).prop("selected", true);
         }
     }
