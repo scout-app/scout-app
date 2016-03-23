@@ -189,6 +189,7 @@ $("#addProjectBrowse").change(function () {
 
     //Get the path for the project folder the user selected
     var folder = $("#addProjectBrowse").val();
+    scout.newProject.projectFolder = folder;
     //Set it to the New Project object, converting windows slashes to unix
     if (ugui.platform == "win32") {
         scout.newProject.projectFolder = folder.split('\\').join('/');

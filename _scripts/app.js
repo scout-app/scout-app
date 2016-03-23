@@ -66,7 +66,12 @@
         //Get the mixins config file
         var mixins = ugui.helpers.readAFile('mixins' + slash + 'mixins.config');
         //put split based on returns
-        mixins = mixins.split('\r\n');
+        if (ugui.platform == "win32") {
+            mixins = mixins.split('\r\n');
+        } else {
+            mixins = mixins.split('\n');
+        }
+
         //Remove empty strings from the array
         mixins = mixins.filter(Boolean);
 
