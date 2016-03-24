@@ -104,7 +104,7 @@
 //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 //### A01. UGUI Start
 //
-
+/*
 //Wait for the document to load before running ugui.js. Use either runUGUI or waitUGUI for immediate or delayed launch.
 $(document).ready( runUGUI );
 
@@ -115,8 +115,9 @@ function waitUGUI() {
     setTimeout(runUGUI, 6000);
 }
 
+*/
 //Container for all UGUI components
-function runUGUI() {
+(function runUGUI() {
 
 //This is the one place where the UGUI version is declared
 var uguiVersion = "2.0.0a";
@@ -1981,6 +1982,7 @@ function centerNavLogo() {
     $(".navbar-brand").css("line-height", navHeight + "px");
     $(".navbar-brand").css("padding-top", "0px");
     $(".navbar-brand *").css("line-height", navHeight + "px");
+    $("#sidbar").css("padding-top", navHeight + "px");
 }
 
 //Run once on page load
@@ -2491,8 +2493,8 @@ function swatchSwapper() {
         //the stylesheet was swapped instead of after the page rendered the styles. Since Webkit does not have a way of
         //indicating when a repaint finishes, unfortunately a delay had to be used. 71 was chosen because 14 FPS is the
         //slowest you can go in animation before something looks choppy.
-        window.setTimeout(centerNavLogo, 71);
-        window.setTimeout(sliderHandleColor, 71);
+        window.setTimeout(centerNavLogo, 140);
+        window.setTimeout(sliderHandleColor, 140);
     });
 }
 
@@ -3387,7 +3389,7 @@ window.ugui = {
 
 
 // End of `ugui();`
-}
+})();
 
 
 
