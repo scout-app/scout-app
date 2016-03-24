@@ -22,10 +22,10 @@
     //The Node Sass Vendor folder is our Destination
     var nsVenDestinationPath = 'node_modules/node-sass/vendor';
     //Read the contents of the folder
-    ugui.helpers.readAFolder(nsVenDestinationPath, function (contents, contentsList) {
+    ugui.helpers.readAFolder(nsVenDestinationPath, function (contents) {
         var win = require('nw.gui').Window.get();
         //If there are no folders or the existing folder is not the right version
-        if (contentsList.length == 0 || (contentsList.length == 1 && contentsList[0].split('-')[2] !== '43') ) {
+        if (contents.length == 0 || (contents.length == 1 && contents[0].name.split('-')[2] !== '43') ) {
             var os = process.platform;
             var arch = process.arch;
             //Verify the machine is 32 or 64-Bit
