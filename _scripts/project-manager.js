@@ -52,7 +52,7 @@ function autoGuessProjectFolders (autoImages, autoInput, autoOutput) {
         for (var i = 0; i < contents.length; i++) {
             var currentItem = contents[i];
             if (currentItem.isFolder) {
-                var currentFolder = currentItem.name;
+                var currentFolder = currentItem.name.toLowerCase();
                 //Autoguess the image folder (img)
                 for (var j = 0; j < autoImages.length; j++) {
                     if (currentFolder == autoImages[j]) {
@@ -100,7 +100,7 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
     ugui.helpers.readAFolder(scout.newProject.projectFolder, function (contents) {
         //loop through C:/myproj/*
         for (var i = 0; i < contents.length; i++) {
-            var currentItem = contents[i].name;
+            var currentItem = contents[i].name.toLowerCase();
             //only proceed if it's a folder
             if (contents[i].isFolder) {
                 //loop through ["src","source"] or ["dist", "build"]
@@ -108,17 +108,17 @@ function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
                     //subfolder = src
                     var subfolder = srcDist[j];
                     //if thing in project folder is what we are looking for: C:/myproj/src
-                    if (currrentItem == subfolder) {
+                    if (currentItem == subfolder) {
                         //read folder C:/myproj/src/ or C:/myproj/dist
                         ugui.helpers.readAFolder(projectPath + subfolder, function (SDContents) {
                             //loop throuhg C:/myproj/src/*
                             for (var k = 0; k < SDContents.length; k++) {
-                                var SDCurrentItem = SDContents[k];
+                                var SDCurrentItem = SDContents[k].name.toLowerCase();
                                 //only proceed if a folder
-                                if (SDCurrentItem.isFolder) {
+                                if (SDContents[k].isFolder) {
                                     for (var l = 0; l < autoFolder.length; l++) {
                                         var subsubfolder = autoFolder[l];
-                                        if (SDCurrentItem.name == subsubfolder) {
+                                        if (SDCurrentItem == subsubfolder) {
                                             var path = projectPath + subfolder + '/' + subsubfolder;
                                             scout.newProject[newProjectProperty] = path;
                                         }
@@ -140,7 +140,7 @@ function autoGuessProjectIcon () {
         var projectIcon = "_img/logo_128.png";
         //Set the size for each image
         for (var i = 0; i < contents.length; i++) {
-            var currentItem = contents[i].name;
+            var currentItem = contents[i].name.toLowerCase();
             if (contents[i].isFolder == false) {
                 var file = imgFolder + '/' + currentItem;
                 var lowerFile = file.toLowerCase();

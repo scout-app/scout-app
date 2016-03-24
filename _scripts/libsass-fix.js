@@ -6,7 +6,7 @@
 
     We include the correct version from each OS in the _assets folder. On
     page load, if the correct version of libsass is not installed, we
-    copy it from the  _assets folder to the correct location, then refresh
+    copy it from the _assets folder to the correct location, then refresh
     the app automatically.
 
     This is for development only, as the dist version of Scout-App, will
@@ -43,7 +43,7 @@
                     var nsVenSource = nsVenSourcePath + folderName + file;
                     var nsVenDestination = nsVenDestinationPath + folderName + file;
                     //Creat a folder in the Dest with the correct name
-                    ugui.helpers.createAFolder(nsVenDestinationPath + folderName , function() {
+                    ugui.helpers.createAFolder(nsVenDestinationPath + folderName , function () {
                         //copy source to dest
                         fs.copy(nsVenSource, nsVenDestination, function (err) {
                             if (err) {

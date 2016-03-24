@@ -41,7 +41,7 @@
         ugui.helpers.readAFolder(inputPath, function (contents) {
             //check each file and process it if it is sass or scss and doesn't start with an underscore
             for (var i = 0; i < contents.length; i++) {
-                var currentFile = contents[i].name;
+                var currentFile = contents[i].name.toLowerCase();
                 //Skip all files that begin with an _ and Process all sass/scss files
                 if ( !currentFile.startsWith("_") && (currentFile.endsWith(".sass") || currentFile.endsWith(".scss")) ) {
                     //Change from 'some-file.scss' to 'some-file'
