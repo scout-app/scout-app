@@ -117,8 +117,8 @@ The  main files for Scout-App 2 are:
     * [x] ~~Pretty up the app! (Group)~~
     * [x] ~~Pretty up the error output message and allow for it to be closed (TJW)~~
     * [x] ~~Fix icon (Will not release without this, no excuse for [shoddy craftsmanship](http://giant.gfycat.com/VigorousPointedAnteater.gif)) (TJW)~~
-    * [x] ~~BUG 1: In Ubuntu & OSX, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason.~~ (TJW)
-    * [x] ~~BUG 3: In Ubuntu, the auto-guesser crashes on [this specific repo](https://github.com/UniversalGUI/UniversalGUI.github.io).~~
+    * [x] ~~BUG 1: In Ubuntu & OSX, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason. (TJW)~~
+    * [x] ~~BUG 3: In Ubuntu, the auto-guesser crashes on [this specific repo](https://github.com/UniversalGUI/UniversalGUI.github.io). (TJW)~~
     * [ ] Upon creating a project, auto-guess input/output folders and project icon. (TJW - In progress)
     * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
     * [ ] Create a way of having multiple projects and switching between them
@@ -160,3 +160,4 @@ The  main files for Scout-App 2 are:
 * [Stephan Raab](http://github.com/StephanRaab) - Themes feature
 * [zdennis](http://github.com/zdennis) - UX Design and Planning
 * [mejiaj](http://github.com/mejiaj) - UX Design and Planning
+* [Mutually Human](http://github.com/mhs) - For creating the original Scout-App!
