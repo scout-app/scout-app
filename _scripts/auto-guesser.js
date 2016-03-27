@@ -332,6 +332,8 @@ $("#addProjectBrowse").change(function () {
 
     scout.newProject.projectID = "sa" + Date.now();
 
+    scout.helpers.addProject(scout.newProject);
+
     updateProjectSettingsView();
 });
 
@@ -356,6 +358,7 @@ function updateProjectSettingsView (base) {
     var base = base || scout.newProject;
     $("#projectIcon"  ).attr('src', base.projectIcon);
     $("#projectName"  ).html(       base.projectName);
+    $("#projectID"    ).val(        base.projectID);
     $("#projectFolder").val(        base.projectFolder);
     $("#inputFolder"  ).val(        base.inputFolder);
     $("#outputFolder" ).val(        base.outputFolder);

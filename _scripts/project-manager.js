@@ -24,6 +24,8 @@ The handles creating new projects, saving them, and loading them.
                 scout.projects.remove(projectToRemove);
             }
         }
+        updateSidebar();
+        updateSettingsFile();
     }
 
     /**
@@ -43,7 +45,7 @@ The handles creating new projects, saving them, and loading them.
      * @param {object}   project
      */
     function addProject (project) {
-        if (!project || typeof(project) !== object) {
+        if (!project || typeof(project) !== "object") {
             console.log("Can't add project, you need to pass in a valid project.")
             return;
         }
@@ -71,9 +73,16 @@ The handles creating new projects, saving them, and loading them.
         //Add to the end of the projects list
         scout.projects.push(project);
 
-        //STUB: update sidebar
+        updateSidebar();
+        updateSettingsFile();
+    }
 
-        //STUB: update project settings file
+    function updateSidebar () {
+        console.log("updateSidebar");
+    }
+
+    function updateSettingsFile () {
+        console.log("updateSettingsFile");
     }
 
     //scout.helpers.removeProject('sa1459092789554');

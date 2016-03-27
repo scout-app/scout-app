@@ -6,7 +6,7 @@
 //Create the global Scout object
 window.scout = {
     "helpers": {},
-    "projects": {},
+    "projects": [],
     "versions": {
         "nodeSass": "",
         "libSass": "",
