@@ -3,7 +3,7 @@
   <head>
 
     <!-- Automatically updated by your package.json file. -->
-    <title class="applicationTitle">ScoutApp: The Sass/Compass GUI</title>
+    <title class="applicationTitle">ScoutApp: The Sass GUI</title>
 
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
@@ -35,9 +35,11 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#new" id="file-newproject">New Project</a></li>
+                <!--
                 <li><a href="#import">Open</a></li>
                 <li class="divider"></li>
                 <li><a href="#export">Export</a></li>
+                -->
                 <li class="divider"></li>
                 <li><a href="#exit">Exit</a></li>
               </ul>
@@ -45,6 +47,9 @@
             <li class="dropdown devNav">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                <!--
+                <li><a href="#theme">Change Theme</a></li>
+                -->
                 <li><a href="#">Status</a></li>
                 <!-- items with a class of "devNav" are only visible when <body> has a class of "dev" -->
                 <li><a href="#console">Dev Tools</a></li>
@@ -88,9 +93,8 @@
           -->
           <div class="row">
             <img id="projectIcon" src="_img/logo_128.png" alt="Project Icon" />
-            <h3 id="projectName">UGUI</h3>
-            <!-- Just putting this in here manually for now -->
-            <input type="text" id="projectFolder" class="form-control" value="D:\GitHub\UGUI" disabled />
+            <h3 id="projectName"></h3>
+            <input type="text" id="projectFolder" class="form-control" value="" disabled />
           </div>
           <div class="row">
             <h3>Stylesheet Directories</h3>
@@ -270,6 +274,7 @@
     <script type="text/javascript" src="_scripts/libsass-fix.js"></script>
     <script type="text/javascript" src="_scripts/app.js"></script>
     <script type="text/javascript" src="_scripts/events.js"></script>
+    <script type="text/javascript" src="_scripts/auto-guesser.js"></script>
     <script type="text/javascript" src="_scripts/project-manager.js"></script>
 
   </body>
