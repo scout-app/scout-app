@@ -1,6 +1,7 @@
 (function(){
 
-    function alert (error) {
+    function alert (error, projectID) {
+        projectID = projectID || "sa0";
         var file = error.file;
         var bugLine = error.line;
         var col = error.column;
@@ -34,7 +35,7 @@
         }
 
         var formmatedError =
-            '<div class="panel panel-primary">' +
+            '<div class="panel panel-primary ' + projectID + '">' +
               '<div class="panel-heading">' +
                 '<span class="pull-right glyphicon glyphicon-remove"></span>' +
                 '<h3 class="panel-title">' + title + '</h3>' +
@@ -62,7 +63,8 @@
         });
     }
 
-    function message (message) {
+    function message (message, projectID) {
+        projectID = projectID || "sa0";
         var folderPathSplit = message.stats.entry.split('\\').join('/').split('/');
         var folderAndFile = folderPathSplit[folderPathSplit.length - 2] + '\\' + folderPathSplit[folderPathSplit.length - 1];
         var time = new Date().timeNow();
@@ -71,7 +73,8 @@
             duration = (Math.round(x/100)/10) + 'seconds';
         }
 
-        var formattedMessage = '<div class="alert alert-success" role="alert" title="Processed in ' + duration + '">' +
+        var formattedMessage =
+        '<div class="alert alert-success ' + projectID + '" role="alert" title="Processed in ' + duration + '">' +
           '<strong>' + time + '</strong> ' +
           folderAndFile +
           '<span class="pull-right glyphicon glyphicon-remove text-success"></span>' +

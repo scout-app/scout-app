@@ -97,15 +97,16 @@
             'sourceMap': sourceMap,
             'sourceMapContents': devMode
         }, function (error, result) {
+            var projectID = scout.newProject.projectID;
             if (error) {
                 console.log(error);
-                scout.helpers.alert(error);
+                scout.helpers.alert(error, projectID);
             } else {
                 ugui.helpers.writeToFile(outputFullFilePath, result.css.toString());
                 if (devMode) {
                     ugui.helpers.writeToFile(sourceMap, result.map.toString());
                 }
-                scout.helpers.message(result);
+                scout.helpers.message(result, projectID);
             };
         });
     }

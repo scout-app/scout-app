@@ -25,6 +25,7 @@ function resetProjectSettingsUI () {
     $("#printConsole .alert, #printConsole .panel").addClass('hide');
 
     var newProject = {
+        "projectID":     "",
         "projectFolder": "",
         "projectName":   "",
         "imageFolder":   "",
@@ -329,6 +330,8 @@ $("#addProjectBrowse").change(function () {
     //Reset the folder browse box
     $("#addProjectBrowse").val("");
 
+    scout.newProject.projectID = "sa" + Date.now();
+
     updateProjectSettingsView();
 });
 
@@ -338,6 +341,7 @@ $("#addProjectBrowse").change(function () {
  * that looks like this:
  *
  *    {
+ *        "projectID":     "sa0000000000000",
  *        "projectName":   "my-project",
  *        "projectFolder": "~/GitHub/my-project",
  *        "inputFolder":   "~/GitHub/my-project/_sass",

@@ -6,6 +6,7 @@
 //Create the global Scout object
 window.scout = {
     "helpers": {},
+    "projects": {},
     "versions": {
         "nodeSass": "",
         "libSass": "",
@@ -32,4 +33,9 @@ String.prototype.endsWith = function (str){
 //Move stuff around in Arrays
 Array.prototype.move = function (from, to) {
     this.splice(to, 0, this.splice(from, 1)[0]);
+};
+
+//Remove an item from an array by passing in the index of that item
+Array.prototype.remove = function (itemToRemove) {
+    this.splice(itemToRemove, 1);
 };
