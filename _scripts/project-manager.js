@@ -78,11 +78,17 @@ The handles creating new projects, saving them, and loading them.
     }
 
     function updateSidebar () {
-        console.log("updateSidebar");
+        for (var i = 0; i < scout.projects.length; i++) {
+            console.log("Sidebar: " + scout.projects[i].projectName);
+        }
     }
 
     function updateSettingsFile () {
-        console.log("updateSettingsFile");
+        var appData = require('nw.gui').App.dataPath;
+        appData.split('\\').join('/');
+        var settingsJSON = appData + "/scout-settings.json"
+
+        ugui.helpers.writeToFile(settingsJSON, JSON.stringify(scout));
     }
 
     //scout.helpers.removeProject('sa1459092789554');
