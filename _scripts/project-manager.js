@@ -61,15 +61,8 @@ The handles creating new projects, saving them, and loading them.
         //Add to the end of the projects list
         scout.projects.push(project);
 
-        updateSidebar();
+        scout.helpers.updateSidebar();
         updateSettingsFile();
-    }
-
-    function updateSidebar () {
-        console.log('-----------------------');
-        for (var i = 0; i < scout.projects.length; i++) {
-            console.log("Sidebar: " + scout.projects[i].projectName);
-        }
     }
 
     function updateSettingsFile () {
