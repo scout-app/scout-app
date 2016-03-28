@@ -388,6 +388,10 @@ function updateProjectSettingsView (base) {
 
     scout.helpers.unlockSubmit();
     $("#printConsole .alert, #printConsole .panel").addClass('hide');
+    $("#project-settings").removeClass('hide');
+    $("#printConsole ." + base.projectID).removeClass('hide');
+    $("#sidebar .active").removeClass('active');
+    $("#sidebar ." + base.projectID).addClass('active');
 }
 
 scout.helpers.updateProjectSettingsView = updateProjectSettingsView;
