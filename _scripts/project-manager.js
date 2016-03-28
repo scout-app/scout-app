@@ -51,22 +51,10 @@ The handles creating new projects, saving them, and loading them.
         }
         if (!project.projectID ||
             !project.projectName ||
-            !project.projectFolder ||
-            !project.inputFolder ||
-            !project.outputFolder ||
-            !project.projectIcon ||
-            !project.environment ||
-            !project.outputStyle ||
-            typeof(project.projectID) !== "string" ||
-            typeof(project.projectName) !== "string" ||
-            typeof(project.projectFolder) !== "string" ||
-            typeof(project.inputFolder) !== "string" ||
-            typeof(project.outputFolder) !== "string" ||
-            typeof(project.projectIcon) !== "string" ||
-            typeof(project.environment) !== "string" ||
-            typeof(project.outputStyle) !== "string"
+            !project.projectFolder
         ) {
             console.log("Can't add project, you are missing stuff.");
+            console.log(project);
             return;
         }
 
@@ -78,6 +66,7 @@ The handles creating new projects, saving them, and loading them.
     }
 
     function updateSidebar () {
+        console.log('-----------------------');
         for (var i = 0; i < scout.projects.length; i++) {
             console.log("Sidebar: " + scout.projects[i].projectName);
         }
