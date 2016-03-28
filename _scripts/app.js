@@ -121,4 +121,7 @@
         });
     }
 
+    scout.helpers.processInputFolder = processInputFolder;
+    scout.helpers.startWatching = startWatching;
+
 })(); // end runApp();

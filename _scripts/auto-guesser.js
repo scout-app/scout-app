@@ -33,7 +33,8 @@ function resetProjectSettingsUI () {
         "inputFolder":   "",
         "outputFolder":  "",
         "environment":   "production",
-        "outputStyle":   "compressed"
+        "outputStyle":   "compressed",
+        "indicator":     "play"
     };
     scout.newProject = newProject;
 }
