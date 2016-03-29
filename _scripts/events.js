@@ -94,11 +94,26 @@
     /**
      * DELETING A PROJECT
      */
+    //Remove modal, enable scrollbar
+    function removeModal () {
+        $(".modal").slideUp("slow", function() {
+            $("body").removeClass('no-overflow');
+            //If the navigation is expanded, then close it after exiting the modal
+            if ( !$(".navbar-toggle").hasClass("collapsed") ) {
+                $(".navbar-toggle").trigger("click");
+            }
+        });
+    }
+    //Click "Delete Project"
     $("#delete-project").click(function (evt) {
         evt.preventDefault();
-        $("#delete-modal").fadeIn();
+        $("#delete-modal").fadeIn("slow");
+
+        //Remove page scrollbar when modal displays
+        $("body").addClass("no-overflow");
     });
-    $("#delete-modal #confirm-delete").click(function (evt) {
+    //Confirm delete in the modal
+    $("#confirm-delete").click(function (evt) {
         evt.preventDefault();
         var id = $("#projectID").val();
         //Remove project from the object
@@ -109,12 +124,15 @@
         scout.helpers.resetProjectUI();
         $("#project-settings").addClass('hide');
         $("#printConsole .alert, #printConsole .panel").addClass('hide');
-        $("#delete-modal").slideUp();
+        removeModal();
     });
-    $("#delete-modal #cancel-delete, #delete-modal .glyphicon-remove").click(function (evt) {
-        evt.preventDefault();
-        $("#delete-modal").slideUp();
+    //When clicking on background, cancel button, or X, remove modal
+    $(".modal, #cancel-delete, .modal .glyphicon-remove").click( removeModal );
+    //Allow you to click in the modal without triggering the `removeModal` function called when you click its parent element
+    $(".modal .modal-content").click( function( evt ) {
+        evt.stopPropagation();
     });
+
 
     //On page load have this run once
     unlockSubmit();
