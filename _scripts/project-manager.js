@@ -25,7 +25,7 @@ The handles creating new projects, saving them, and loading them.
             }
         }
         updateSidebar();
-        updateSettingsFile();
+        saveSettings();
     }
 
     /**
@@ -62,10 +62,10 @@ The handles creating new projects, saving them, and loading them.
         scout.projects.push(project);
 
         scout.helpers.updateSidebar();
-        updateSettingsFile();
+        saveSettings();
     }
 
-    function updateSettingsFile () {
+    function saveSettings () {
         var appData = require('nw.gui').App.dataPath;
         appData.split('\\').join('/');
         var settingsJSON = appData + "/scout-settings.json"
@@ -78,5 +78,8 @@ The handles creating new projects, saving them, and loading them.
 
     //scout.helpers.addProject( {projectID:'',projectName:'',projectFolder:'',inputFolder:'',outputFolder:'',projectIcon:'',environment:'',outputStyle:''} );
     scout.helpers.addProject = addProject;
+
+    //Save scout object to file in app data folder
+    scout.helpers.saveSettings = saveSettings;
 
 })();

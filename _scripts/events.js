@@ -18,12 +18,26 @@
         newDir = newDir.split('\\').join('\/');
         $("#inputFolder").val(newDir);
         forbidSameFolder();
+        var id = $("#projectID").val()
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (scout.projects[i].projectID == id) {
+                scout.projects[i].inputFolder = newDir;
+                scout.helpers.saveSettings();
+            }
+        }
     });
     $("#outputFolderBrowse").change(function(){
         var newDir = $("#outputFolderBrowse").val();
         newDir = newDir.split('\\').join('\/');
         $("#outputFolder").val(newDir);
         forbidSameFolder();
+        var id = $("#projectID").val()
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (scout.projects[i].projectID == id) {
+                scout.projects[i].inputFolder = newDir;
+                scout.helpers.saveSettings();
+            }
+        }
     });
 
     function forbidSameFolder () {
