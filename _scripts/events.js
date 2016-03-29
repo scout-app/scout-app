@@ -72,7 +72,7 @@
         }
     }
 
-    $("#environment input").change( function (event) {
+    $("#environment input").change( function (evt) {
         ugui.helpers.buildUGUIArgObject();
         if (ugui.args.development.htmlticked) {
             $($("#outputStyle option")[3]).hide();
@@ -89,6 +89,31 @@
             $($("#outputStyle option")[3]).show();
             $($("#outputStyle option")[4]).show();
         }
+    });
+
+    /**
+     * DELETING A PROJECT
+     */
+    $("#delete-project").click(function (evt) {
+        evt.preventDefault();
+        $("#delete-modal").fadeIn();
+    });
+    $("#delete-modal #confirm-delete").click(function (evt) {
+        evt.preventDefault();
+        var id = $("#projectID").val();
+        //Remove project from the object
+        scout.helpers.removeProject(id);
+        //remove all related alerts/messages from the DOM
+        $("#printConsole ." + id + " .glyphicon-remove").click();
+        //Wipe out UI
+        scout.helpers.resetProjectUI();
+        $("#project-settings").addClass('hide');
+        $("#printConsole .alert, #printConsole .panel").addClass('hide');
+        $("#delete-modal").slideUp();
+    });
+    $("#delete-modal #cancel-delete, #delete-modal .glyphicon-remove").click(function (evt) {
+        evt.preventDefault();
+        $("#delete-modal").slideUp();
     });
 
     //On page load have this run once

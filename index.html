@@ -167,7 +167,17 @@
 
           <div class="row">
             <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-              <button id="runScout" type="submit" class="btn btn-default" disabled="disabled">Start!</button>
+              <button id="delete-project" type="button" class="btn btn-default">
+                <!--
+                  <small><span class="glyphicon glyphicon-trash"></span></small>
+                -->
+                Delete Project
+              </button>
+              <!--
+                <button id="runScout" type="submit" class="btn btn-default" disabled="disabled">
+                  Start!
+                </button>
+              -->
             </div>
           </div>
 
@@ -178,18 +188,6 @@
       <section id="printConsole" class="row"></section>
     </div> <!-- end container -->
 
-    <!--
-      /////////////////////////////////////////////////////////////////
-      //                                                             //
-      //                         ABOUT MODAL                         //
-      //                                                             //
-      /////////////////////////////////////////////////////////////////
-      // This content is displayed when the user clicks Help in the  //
-      // top navigation, then About. Some parts of the about modal   //
-      // are automatically replaced by the content defined in your   //
-      // package.json file, such as Application Name and Version.    //
-      /////////////////////////////////////////////////////////////////
-    -->
     <div id="aboutModal" class="modal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -255,6 +253,25 @@
       </div>
     </div>
 
+    <!-- Delete a project confirmation modal -->
+    <div id="delete-modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+            <h4 class="truncate">Delete Project: <span class="project-name text-info"></span></h4>
+          </div>
+          <div class="modal-body text-center">
+
+            <p>Are you sure?</p>
+
+            <button id="confirm-delete" class="btn btn-danger">Delete</button>
+            <button id="cancel-delete" class="btn btn-default">Cancel</button>
+
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- UGUI requires jQuery 1.9.1 or above. -->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>

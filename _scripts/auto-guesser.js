@@ -8,37 +8,6 @@ input/output folders and project icon.
 
 var path = require('path');
 
-//This will change all UI elements for Project Settings back to an empty/default state
-function resetProjectSettingsUI () {
-    $("#projectIcon").attr('src', '_img/logo_128.png');
-    $("#projectName").html('');
-    $("#projectFolder").val('');
-    $("#inputFolder").val('');
-    $("#inputFolderBrowse").attr('nwworkingdir','...');
-    $("#inputFolderBrowse").val('');
-    $("#outputFolder").val('');
-    $("#outputFolderBrowse").attr('nwworkingdir','...');
-    $("#outputFolderBrowse").val('');
-    $("#outputWarning").addClass('hide');
-    $('#environment input[data-argname="development"]').click();
-    $($("#outputStyle option")[0]).prop("selected", true);
-    $("#printConsole .alert, #printConsole .panel").addClass('hide');
-
-    var newProject = {
-        "projectID":     "",
-        "projectFolder": "",
-        "projectName":   "",
-        "imageFolder":   "",
-        "projectIcon":   "",
-        "inputFolder":   "",
-        "outputFolder":  "",
-        "environment":   "production",
-        "outputStyle":   "compressed",
-        "indicator":     "play"
-    };
-    scout.newProject = newProject;
-}
-
 function autoGuessProjectFolders (autoInput, autoOutput) {
     var projectFolder = scout.newProject.projectFolder;
     if (projectFolder.length < 1) {
@@ -299,7 +268,7 @@ $("#addProject, #file-newproject").click(function (event) {
 });
 
 $("#addProjectBrowse").change(function () {
-    resetProjectSettingsUI();
+    scout.helpers.resetProjectUI();
 
     //Array items are ordered from lowest to highest priority
     var autoInput = [ "scss", "sass", "_scss", "_sass" ];
@@ -363,6 +332,7 @@ function updateProjectSettingsView (base) {
     $("#projectFolder").val(        base.projectFolder);
     $("#inputFolder"  ).val(        base.inputFolder);
     $("#outputFolder" ).val(        base.outputFolder);
+    $(".project-name" ).text(       base.projectName);
 
     var workingDir = base.projectFolder;
     if (ugui.platform == "win32") {

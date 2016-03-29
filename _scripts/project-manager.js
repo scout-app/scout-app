@@ -5,11 +5,44 @@ The handles creating new projects, saving them, and loading them.
 
 (function(){
 
+    //This will change all UI elements for Project Settings back to an empty/default state
+    function resetProjectSettingsUI () {
+        $("#projectIcon").attr('src', '_img/logo_128.png');
+        $("#projectName").html('');
+        $("#projectFolder").val('');
+        $("#inputFolder").val('');
+        $("#inputFolderBrowse").attr('nwworkingdir','...');
+        $("#inputFolderBrowse").val('');
+        $("#outputFolder").val('');
+        $("#outputFolderBrowse").attr('nwworkingdir','...');
+        $("#outputFolderBrowse").val('');
+        $("#outputWarning").addClass('hide');
+        $('#environment input[data-argname="development"]').click();
+        $($("#outputStyle option")[0]).prop("selected", true);
+        $("#printConsole .alert, #printConsole .panel").addClass('hide');
+
+        var newProject = {
+            "projectID":     "",
+            "projectFolder": "",
+            "projectName":   "",
+            "imageFolder":   "",
+            "projectIcon":   "",
+            "inputFolder":   "",
+            "outputFolder":  "",
+            "environment":   "production",
+            "outputStyle":   "compressed",
+            "indicator":     "play"
+        };
+        scout.newProject = newProject;
+    }
+
     /**
      * Pass in the project ID starting with 'sa' to remove it
      * from the scout.projects array.
      *
      * @param  {string}   projectID
+     *
+     * scout.helpers.removeProject('sa0000000000000');
      */
     function removeProject (projectID) {
         if (!projectID || typeof(projectID) !== "string") {
@@ -24,8 +57,8 @@ The handles creating new projects, saving them, and loading them.
                 scout.projects.remove(projectToRemove);
             }
         }
-        updateSidebar();
-        saveSettings();
+        scout.helpers.updateSidebar();
+        scout.helpers.saveSettings();
     }
 
     /**
@@ -72,6 +105,9 @@ The handles creating new projects, saving them, and loading them.
 
         ugui.helpers.writeToFile(settingsJSON, JSON.stringify(scout));
     }
+
+
+    scout.helpers.resetProjectUI = resetProjectSettingsUI;
 
     //scout.helpers.removeProject('sa1459092789554');
     scout.helpers.removeProject = removeProject;
