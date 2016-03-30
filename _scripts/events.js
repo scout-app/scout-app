@@ -56,19 +56,25 @@
 
     $("#inputFolder, #outputFolder").keyup(forbidSameFolder).mouseup(forbidSameFolder);
 
-    function lockSubmit () {
-        $("#runScout").prop("disabled", true);
+    function lockSubmit (id) {
+        id = id || $("#projectID").val();
+        if (id) {
+            $("#sidebar ." + id + " .btn").prop("disabled", true).css('-webkit-filter', 'grayscale()');
+        }
     }
 
-    function unlockSubmit () {
-        //If a required element wasn't filled out in the form
-        if ( $("#project-settings form").is(":invalid") ) {
-            //Disable/Lock the submit button
-            $("#runScout").prop("disabled", true);
-        //If all required elements in the form have been fulfilled
-        } else {
-            //Enable/Unlock the submit button
-            $("#runScout").prop("disabled", false);
+    function unlockSubmit (id) {
+        id = id || $("#projectID").val();
+        if (id) {
+            //If a required element wasn't filled out in the form
+            if ( $("#project-settings form").is(":invalid") ) {
+                //Disable/Lock the submit button
+                $("#sidebar ." + id + " .btn").prop("disabled", true).css('-webkit-filter', 'grayscale()');
+            //If all required elements in the form have been fulfilled
+            } else {
+                //Enable/Unlock the submit button
+                $("#sidebar ." + id + " .btn").prop("disabled", false).css('-webkit-filter', 'none');
+            }
         }
     }
 

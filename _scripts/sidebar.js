@@ -26,9 +26,9 @@
               '<div class="btn btn-default truncate ' + currentProject.projectID + '" data-id="' + currentProject.projectID + '">' +
                 '<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>' +
                 currentProject.projectName +
-                '<span class="btn ' + indicatorColor + '">' +
+                '<button class="btn ' + indicatorColor + '">' +
                   '<span class="glyphicon ' + indicatorStatus + '"></span>' +
-                '</span>' +
+                '</button>' +
               '</div>';
             $("#projects-list").append(standardProject);
         }
