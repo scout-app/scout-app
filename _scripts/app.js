@@ -27,8 +27,6 @@
     $("#runScout").click( function (event) {
         //Prevent the form from sending like a normal website.
         event.preventDefault();
-        //Build the UGUI Args Object
-        ugui.helpers.buildUGUIArgObject()
         //Send the folder path to be processed
         var inputFolder = ugui.args.inputFolder.value;
         processInputFolder(inputFolder);

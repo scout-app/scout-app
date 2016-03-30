@@ -39,9 +39,12 @@
             $("#sidebar .active").removeClass('active');
             $(evt.currentTarget).addClass('active');
             var id = $(evt.currentTarget).data('id');
-            for (var j = 0; j < scout.projects.length; j++) {
-                if (id == scout.projects[j].projectID) {
-                    scout.helpers.updateProjectSettingsView(scout.projects[j]);
+            var currentlyViewedProject = $("#projectID").val();
+            if (currentlyViewedProject !== id) {
+                for (var j = 0; j < scout.projects.length; j++) {
+                    if (id == scout.projects[j].projectID) {
+                        scout.helpers.updateProjectSettingsView(scout.projects[j]);
+                    }
                 }
             }
         });
@@ -56,7 +59,6 @@
                     scout.helpers.processInputFolder(inputFolder);
                     //monitor inputFolder for changes
                     scout.helpers.startWatching(inputFolder);
-v
                     scout.projects[i].indicator = "stop";
                 }
             }
