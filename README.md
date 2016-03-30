@@ -122,7 +122,7 @@ The  main files for Scout-App 2 are:
     * [x] ~~Upon creating a project, auto-guess input/output folders and project icon. (TJW)~~
     * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
     * [ ] Create ID system that will show alerts per project, and all together in the Status view.
-    * [ ] Create a way of having multiple projects, switching between them, and removing specific projects from Scout-App
+    * [x] ~~Create a way of having multiple projects, switching between them, and removing specific projects from Scout-App~~
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
