@@ -54,11 +54,9 @@
             var id = $(evt.currentTarget).parent().parent().data("id");
             for (var i = 0; i < scout.projects.length; i++) {
                 if (scout.projects[i].projectID == id) {
-                    //Send the folder path to be processed
-                    var inputFolder = scout.projects[i].inputFolder;
-                    scout.helpers.processInputFolder(inputFolder);
+                    scout.helpers.processInputFolder(scout.projects[i]);
                     //monitor inputFolder for changes
-                    scout.helpers.startWatching(inputFolder);
+                    scout.helpers.startWatching(scout.projects[i]);
                     scout.projects[i].indicator = "stop";
                 }
             }
@@ -70,13 +68,10 @@
             var id = $(evt.currentTarget).parent().parent().data("id");
             for (var i = 0; i < scout.projects.length; i++) {
                 if (scout.projects[i].projectID == id) {
-                    //Send the folder path to be processed
-                    //var inputFolder = scout.projects[i].inputFolder;
-                    //scout.helpers.processInputFolder(inputFolder);
-                    //monitor inputFolder for changes
-                    //scout.helpers.startWatching(inputFolder);
                     //Update icon and color in sidebar
                     scout.projects[i].indicator = "play";
+                    //Stop watching the files for changes
+                    scout.projects[i].watcher.close();
                 }
             }
             updateSidebar();

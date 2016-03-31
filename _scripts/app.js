@@ -27,16 +27,14 @@
     $("#runScout").click( function (event) {
         //Prevent the form from sending like a normal website.
         event.preventDefault();
-        //Send the folder path to be processed
-        var inputFolder = ugui.args.inputFolder.value;
-        processInputFolder(inputFolder);
+        processInputFolder(scout.projects[0]);
         //monitor inputFolder for changes
-        startWatching(inputFolder);
+        startWatching(scout.projects[0]);
     });
 
-    function processInputFolder (inputPath) {
+    function processInputFolder (project) {
         //Grab all the files in the input folder and put them in an array
-        ugui.helpers.readAFolder(inputPath, function (contents) {
+        ugui.helpers.readAFolder(project.inputFolder, function (contents) {
             //check each file and process it if it is sass or scss and doesn't start with an underscore
             for (var i = 0; i < contents.length; i++) {
                 var currentFile = contents[i].name.toLowerCase();
@@ -47,19 +45,18 @@
                     //Change from 'some-file.scss' to '.scss'
                     var extension = currentFile.substring(currentFile.length - 5, currentFile.length);
                     //send to be converted to css and spit out into the output folder
-                    convertToCSS(inputPath, fileName, extension);
+                    convertToCSS(project, fileName, extension);
                 }
             }
         });
     }
 
-    function convertToCSS (inputPath, inputFileName, inputFileExt) {
+    function convertToCSS (project, inputFileName, inputFileExt) {
         var slash = "/";
         if (ugui.platform == "win32") {
             slash = "\\";
         }
-        var outputFilePath = ugui.args.outputFolder.value;
-        var outputStyle = ugui.args.outputStyle.value;
+        var outputStyle = project.outputStyle;
         var sourceMap = false;
         //Get the mixins config file
         var mixins = ugui.helpers.readAFile('mixins' + slash + 'mixins.config');
@@ -73,16 +70,19 @@
         //Remove empty strings from the array
         mixins = mixins.filter(Boolean);
 
-        //devMode will return true or false
-        var devMode = ugui.args.development.htmlticked;
+        var devMode = false;
+        //project.environment will return "production" or "development"
+        if (project.environment == "development") {
+            devMode = true;
+        }
         //If user selected Development (not production)
         if (devMode) {
             //set the location for the sourceMap
-            sourceMap = outputFilePath + slash + inputFileName + '.map'
+            sourceMap = project.outputFolder + slash + inputFileName + '.map'
         }
 
-        var fullFilePath = inputPath + slash + inputFileName + inputFileExt;
-        var outputFullFilePath = outputFilePath + slash + inputFileName + '.css';
+        var fullFilePath = project.inputFolder + slash + inputFileName + inputFileExt;
+        var outputFullFilePath = project.outputFolder + slash + inputFileName + '.css';
 
         //Use node-sass to convert sass or scss to css
         sass.render({
@@ -95,7 +95,7 @@
             'sourceMap': sourceMap,
             'sourceMapContents': devMode
         }, function (error, result) {
-            var projectID = scout.newProject.projectID;
+            var projectID = project.projectID;
             if (error) {
                 console.log(error);
                 scout.helpers.alert(error, projectID);
@@ -109,14 +109,22 @@
         });
     }
 
-    function startWatching (inputFolder) {
-        var watcher = chokidar.watch(inputFolder, {
-            ignored: /[\/\\]\./,
-            persistent: true
-        });
-        watcher.on('change', function () {
-            processInputFolder(inputFolder);
-        });
+    function startWatching (project) {
+        //loop through all projects to find the one that matches
+        for (var i = 0; i < scout.projects.length; i++) {
+            //If the ID's match
+            if (project.projectID == scout.projects[i].projectID) {
+                //Create a chokidar watcher in that project
+                scout.projects[i].watcher = chokidar.watch(project.inputFolder, {
+                    ignored: /[\/\\]\./,
+                    persistent: true
+                });
+                //Detect file changes and reprocess Sass files
+                scout.projects[i].watcher.on('change', function () {
+                    processInputFolder(project.inputFolder);
+                });
+            }
+        }
     }
 
     scout.helpers.processInputFolder = processInputFolder;
