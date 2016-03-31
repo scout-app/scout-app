@@ -120,8 +120,8 @@
                     persistent: true
                 });
                 //Detect file changes and reprocess Sass files
-                scout.projects[i].watcher.on('change', function (evt, item, stats) {
-                    console.log(evt);
+                scout.projects[i].watcher.on('change', function (item, stats) {
+                    //TODO: See if it's possible to only report changed files
                     console.log(item);
                     console.log(stats);
                     debugger;

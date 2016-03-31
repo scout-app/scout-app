@@ -40,6 +40,13 @@
         }
     });
 
+    //Clicking the "Status of all Projects" sidebar buttons
+    $("#viewStatus").click(function (evt) {
+        evt.preventDefault();
+        $("#project-settings").addClass('hide');
+        $("#printConsole .alert, #printConsole .panel").removeClass('hide');
+    });
+
     function forbidSameFolder () {
         var inputDir = $("#inputFolder").val();
         var outputDir = $("#outputFolder").val();
