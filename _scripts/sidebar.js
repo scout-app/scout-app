@@ -39,6 +39,7 @@
             $("#sidebar .active").removeClass('active');
             $(evt.currentTarget).addClass('active');
             var id = $(evt.currentTarget).data('id');
+            //If the thing you clicked on is already on display, do nothing
             var currentlyViewedProject = $("#projectID").val();
             if (currentlyViewedProject !== id) {
                 for (var j = 0; j < scout.projects.length; j++) {
@@ -68,6 +69,7 @@
             var id = $(evt.currentTarget).parent().parent().data("id");
             for (var i = 0; i < scout.projects.length; i++) {
                 if (scout.projects[i].projectID == id) {
+            debugger;
                     //Update icon and color in sidebar
                     scout.projects[i].indicator = "play";
                     //Stop watching the files for changes

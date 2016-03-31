@@ -70,7 +70,7 @@
         var time = new Date().timeNow();
         var duration = message.stats.duration + 'ms';
         if (message.stats.duration > 499) {
-            duration = (Math.round(x/100)/10) + 'seconds';
+            duration = (Math.round(message.stats.duration/100)/10) + ' seconds';
         }
 
         var formattedMessage =

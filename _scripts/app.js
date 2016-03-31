@@ -120,8 +120,12 @@
                     persistent: true
                 });
                 //Detect file changes and reprocess Sass files
-                scout.projects[i].watcher.on('change', function () {
-                    processInputFolder(project.inputFolder);
+                scout.projects[i].watcher.on('change', function (evt, item, stats) {
+                    console.log(evt);
+                    console.log(item);
+                    console.log(stats);
+                    debugger;
+                    processInputFolder(project);
                 });
             }
         }
