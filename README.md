@@ -1,6 +1,10 @@
 #![Scout-App Logo](_img/scout-wordmark-tiny.png "Scout-App Logo") Scout-App 2.0
 
-Currently in development. Here's a recent screenshot of the new version:
+Scout-App allows you to process your `.sass` and `.scss` files into CSS without needing any knowledge of the command line.
+
+Currently in development. [Be the first to try it out!](https://github.com/mhs/scout-app/issues/230).
+
+Here's a recent screenshot of the new version:
 
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/4629794/13718098/a4c4f1bc-e7b4-11e5-9fd2-81e7b8c17d2c.png" alt="Scout-App 2 Screenshot"></p>
 

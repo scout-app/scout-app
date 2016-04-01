@@ -361,6 +361,7 @@ function updateProjectSettingsView (base) {
     $("#printConsole .alert, #printConsole .panel").addClass('hide');
     $("#project-settings").removeClass('hide');
     $("#printConsole ." + base.projectID).removeClass('hide');
+    $("#printConsoleTitle").addClass('hide');
     $("#sidebar .active").removeClass('active');
     $("#sidebar ." + base.projectID).addClass('active');
 }

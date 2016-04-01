@@ -44,6 +44,8 @@
     $("#viewStatus").click(function (evt) {
         evt.preventDefault();
         $("#project-settings").addClass('hide');
+        $("#printConsoleTitle").removeClass('hide');
+        $("#sidebar .active").removeClass('active');
         $("#printConsole .alert, #printConsole .panel").removeClass('hide');
     });
 
