@@ -66,11 +66,11 @@ function autoGuessProjectFolders (autoInput, autoOutput) {
 function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
 
     if (srcDist == "src") {
-        srcDist = [ "source", "src" ];
+        srcDist = [ "app", "source", "src" ];
     } else if (srcDist == "dist") {
         srcDist = [ "built", "public", "distribution", "production", "prod", "build", "dist" ];
     } else {
-        srcDist = [ "built", "public", "distribution", "production", "prod", "build", "source", "dist", "src" ]
+        srcDist = [ "app", "built", "public", "distribution", "production", "prod", "build", "source", "dist", "src" ]
     }
 
     var projectPath = scout.newProject.projectFolder;

@@ -13,7 +13,7 @@
     $("#inputFolderIcon" ).click( function () { $("#inputFolderBrowse" ).click(); });
     $("#outputFolderIcon").click( function () { $("#outputFolderBrowse").click(); });
 
-    $("#inputFolderBrowse").change(function(){
+    $("#inputFolderBrowse").change(function () {
         var newDir = $("#inputFolderBrowse").val();
         newDir = newDir.split('\\').join('\/');
         $("#inputFolder").val(newDir);
@@ -26,7 +26,7 @@
             }
         }
     });
-    $("#outputFolderBrowse").change(function(){
+    $("#outputFolderBrowse").change(function () {
         var newDir = $("#outputFolderBrowse").val();
         newDir = newDir.split('\\').join('\/');
         $("#outputFolder").val(newDir);
@@ -36,6 +36,15 @@
             if (scout.projects[i].projectID == id) {
                 scout.projects[i].inputFolder = newDir;
                 scout.helpers.saveSettings();
+            }
+        }
+    });
+    $("#outputStyle").change(function () {
+        var id = $("#projectID").val()
+        var outputStyle = $("#outputStyle").val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].outputStyle = outputStyle;
             }
         }
     });
@@ -104,6 +113,18 @@
             $($("#outputStyle option")[3]).show();
             $($("#outputStyle option")[4]).show();
         }
+
+        var environment = $(evt.currentTarget).val();
+        var outputStyle = $("#outputStyle").val();
+        var id = $("#projectID").val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].environment = environment;
+                scout.projects[i].outputStyle = outputStyle;
+            }
+        }
+
+        scout.helpers.saveSettings();
     });
 
     /**
