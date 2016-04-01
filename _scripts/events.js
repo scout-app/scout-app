@@ -98,6 +98,7 @@
 
     $("#environment input").change( function (evt) {
         ugui.helpers.buildUGUIArgObject();
+        var manuallyUpdateOutputStyle = false;
         if (ugui.args.development.htmlticked) {
             $($("#outputStyle option")[3]).hide();
             $($("#outputStyle option")[4]).hide();
@@ -108,6 +109,7 @@
             if (isLabelSelected == false && isNestedSelected == false) {
                 //Select "Expanded"
                 $($("#outputStyle option")[2]).prop("selected", true);
+                manuallyUpdateOutputStyle = true;
             }
         } else {
             $($("#outputStyle option")[3]).show();
@@ -115,12 +117,13 @@
         }
 
         var environment = $(evt.currentTarget).val();
-        var outputStyle = $("#outputStyle").val();
         var id = $("#projectID").val();
         for (var i = 0; i < scout.projects.length; i++) {
-            if (id == scout.projects[i].projectID) {
+            if (id === scout.projects[i].projectID) {
                 scout.projects[i].environment = environment;
-                scout.projects[i].outputStyle = outputStyle;
+                if (manuallyUpdateOutputStyle) {
+                    scout.projects[i].outputStyle = $("#outputStyle").val();
+                }
             }
         }
 

@@ -141,19 +141,20 @@ The handles creating new projects, saving them, and loading them.
         $("#inputFolderBrowse" ).attr('nwworkingdir', workingDir);
         $("#outputFolderBrowse").attr('nwworkingdir', workingDir);
 
-        if (base.environment == "production") {
-            $('#environment input[data-argName="production"]').click();
-        } else if (base.environment == "development") {
-            $('#environment input[data-argName="development"]').click();
-        }
-
+        //Output Style dropdown must be updated before Environment
         var outputStyleOption = $("#outputStyle option");
-
         for (var i = 1; i < outputStyleOption.length; i++) {
             var current = $(outputStyleOption[i]).val();
             if (base.outputStyle == current) {
                 $(outputStyleOption[i]).prop("selected", true);
             }
+        }
+
+        //Environment
+        if (base.environment == "production") {
+            $('#environment input[data-argName="production"]').click();
+        } else if (base.environment == "development") {
+            $('#environment input[data-argName="development"]').click();
         }
 
         scout.helpers.unlockSubmit();
