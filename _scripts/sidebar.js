@@ -13,23 +13,25 @@
             var currentProject = scout.projects[i];
             var indicatorColor = "btn-info";
             var indicatorStatus = "glyphicon-play";
+            var indicatorDisable = "";
 
             if (currentProject.indicator == "stop") {
-                indicatorColor = "btn-wdanger"
+                indicatorColor = "btn-danger"
                 indicatorStatus = "glyphicon-stop";
-            } else if (currentProject.indicator == "play") {
-                indicatorColor = "btn-info";
-                indicatorStatus = "glyphicon-play";
+            } else if (currentProject.indicator == "gray-play") {
+                indicatorStatus = "gray glyphicon-play";
+                indicatorDisable = "disable";
             }
 
             var standardProject =
               '<div class="btn btn-default truncate ' + currentProject.projectID + '" data-id="' + currentProject.projectID + '">' +
                 '<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>' +
                 currentProject.projectName +
-                '<button class="btn ' + indicatorColor + '">' +
+                '<button class="btn ' + indicatorColor + '" ' + indicatorDisable + '>' +
                   '<span class="glyphicon ' + indicatorStatus + '"></span>' +
                 '</button>' +
               '</div>';
+
             $("#projects-list").append(standardProject);
         }
 
@@ -52,16 +54,19 @@
 
         $("#projects-list .glyphicon-play").click(function (evt) {
             evt.stopPropagation();
-            var id = $(evt.currentTarget).parent().parent().data("id");
-            for (var i = 0; i < scout.projects.length; i++) {
-                if (scout.projects[i].projectID == id) {
-                    scout.helpers.processInputFolder(scout.projects[i]);
-                    //monitor inputFolder for changes
-                    scout.helpers.startWatching(scout.projects[i]);
-                    scout.projects[i].indicator = "stop";
+            //Make sure the button isn't disabled
+            if (!$(evt.currentTarget).hasClass('gray')) {
+                var id = $(evt.currentTarget).parent().parent().data("id");
+                for (var i = 0; i < scout.projects.length; i++) {
+                    if (scout.projects[i].projectID == id) {
+                        scout.helpers.processInputFolder(scout.projects[i]);
+                        //monitor inputFolder for changes
+                        scout.helpers.startWatching(scout.projects[i]);
+                        scout.projects[i].indicator = "stop";
+                    }
                 }
+                scout.helpers.updateSidebar();
             }
-            updateSidebar();
         });
 
         $("#projects-list .glyphicon-stop").click(function (evt) {
@@ -78,7 +83,6 @@
             }
             updateSidebar();
         });
-
     }
 
     //Run once on start

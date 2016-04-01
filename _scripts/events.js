@@ -77,23 +77,21 @@
     function lockSubmit (id) {
         id = id || $("#projectID").val();
         if (id) {
-            $("#sidebar ." + id + " .btn").prop("disabled", true).css('-webkit-filter', 'grayscale()');
+            $("#sidebar ." + id + " .btn").prop("disabled", true).addClass("gray");
         }
     }
 
-    function unlockSubmit (id) {
-        id = id || $("#projectID").val();
-        if (id) {
-            //If a required element wasn't filled out in the form
-            if ( $("#project-settings form").is(":invalid") ) {
-                //Disable/Lock the submit button
-                $("#sidebar ." + id + " .btn").prop("disabled", true).css('-webkit-filter', 'grayscale()');
-            //If all required elements in the form have been fulfilled
-            } else {
-                //Enable/Unlock the submit button
-                $("#sidebar ." + id + " .btn").prop("disabled", false).css('-webkit-filter', 'none');
+    function unlockSubmit () {
+        for (var i = 0; i < scout.projects.length; i++) {
+            var inputDir = scout.projects[i].inputFolder;
+            var outputDir = scout.projects[i].outputFolder;
+            if ( inputDir === "" || outputDir === "" ) {
+                scout.projects[i].indicator = "gray-play";
+            } else if ( (inputDir === outputDir) || (outputDir.startsWith(inputDir + '/')) ) {
+                scout.projects[i].indicator = "gray-play";
             }
         }
+        scout.helpers.updateSidebar();
     }
 
     $("#environment input").change( function (evt) {

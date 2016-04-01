@@ -101,7 +101,7 @@ The handles creating new projects, saving them, and loading them.
     function saveSettings () {
         var appData = require('nw.gui').App.dataPath;
         appData.split('\\').join('/');
-        var settingsJSON = appData + "/scout-settings.json"
+        var settingsJSON = appData + "/scout-settings.json";
 
         ugui.helpers.writeToFile(settingsJSON, JSON.stringify(scout));
     }
