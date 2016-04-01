@@ -157,7 +157,6 @@ The handles creating new projects, saving them, and loading them.
             $('#environment input[data-argName="development"]').click();
         }
 
-        scout.helpers.unlockSubmit();
         $("#printConsole .alert, #printConsole .panel").addClass('hide');
         $("#project-settings").removeClass('hide');
         $("#printConsole ." + base.projectID).removeClass('hide');

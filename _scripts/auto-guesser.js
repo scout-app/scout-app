@@ -304,7 +304,7 @@ $("#addProjectBrowse").change(function () {
 
     scout.helpers.addProject(scout.newProject);
 
-    updateProjectSettingsView();
+    scout.helpers.updateProjectSettingsView();
 });
 
 

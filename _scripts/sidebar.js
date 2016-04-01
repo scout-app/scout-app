@@ -8,25 +8,28 @@
     function updateSidebar () {
         $("#projects-list").empty();
 
+        var indicatorColor = "";
+        var indicatorStatus = "";
+        var indicatorDisable = "";
         //Create list of projects in sidebar
         for (var i = 0; i < scout.projects.length; i++) {
-            var currentProject = scout.projects[i];
-            var indicatorColor = "btn-info";
-            var indicatorStatus = "glyphicon-play";
-            var indicatorDisable = "";
+            var id = scout.projects[i].projectID;
+            indicatorColor = "btn-info";
+            indicatorStatus = "glyphicon-play";
+            indicatorDisable = "";
 
-            if (currentProject.indicator == "stop") {
-                indicatorColor = "btn-danger"
+            if (scout.projects[i].indicator == "stop") {
+                indicatorColor = "btn-danger";
                 indicatorStatus = "glyphicon-stop";
-            } else if (currentProject.indicator == "gray-play") {
-                indicatorStatus = "gray glyphicon-play";
+            } else if (scout.projects[i].indicator == "gray-play") {
+                indicatorColor = "btn-info gray";
                 indicatorDisable = "disable";
             }
 
             var standardProject =
-              '<div class="btn btn-default truncate ' + currentProject.projectID + '" data-id="' + currentProject.projectID + '">' +
+              '<div class="btn btn-default truncate ' + id + '" data-id="' + id + '">' +
                 '<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>' +
-                currentProject.projectName +
+                scout.projects[i].projectName +
                 '<button class="btn ' + indicatorColor + '" ' + indicatorDisable + '>' +
                   '<span class="glyphicon ' + indicatorStatus + '"></span>' +
                 '</button>' +
@@ -86,7 +89,6 @@
     }
 
     //Run once on start
-    updateSidebar();
     scout.helpers.updateSidebar = updateSidebar;
 
 })();
