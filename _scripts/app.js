@@ -18,7 +18,11 @@
     //Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
     scout.versions.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
-
+    if (ugui.platform = "win32") {
+        scout.versions.chokidar = require(ugui.app.pathToProject.split('/').join('\\').replace('\\','') + 'node_modules\\chokidar\\package.json').version;
+    } else {
+        scout.versions.chokidar = require(ugui.app.pathToProject + 'node_modules/chokidar/package.json').version;
+    }
 
 
 
