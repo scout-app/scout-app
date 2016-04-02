@@ -193,7 +193,8 @@
       <div class="container">
         <h1>Welcome to Scout-App!</h1>
 
-        <p>Auto-import projects below or <strong><a href="#">pick a different folder</a></strong> to import projects from.</p>
+        <p>Auto-import projects below or <strong><a id="ftuxPickFolder" href="#">pick a different folder</a></strong> to import projects from.</p>
+        <input type="file" id="ftuxProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
 
         <div class="panel panel-primary text-left">
           <div class="panel-heading">
@@ -205,9 +206,9 @@
           </div>
         </div>
         <div class="row text-left">
-          <button class="btn btn-primary">Select All</button>
-          <button class="btn btn-default">Deselect All</button>
-          <button class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok"></span>Import Selected</button>
+          <button id="ftuxSelectAll"   class="btn btn-primary">Select All</button>
+          <button id="ftuxDeselectAll" class="btn btn-default">Deselect All</button>
+          <button id="ftuxStartImport" class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok"></span>Import Selected</button>
         </div>
       </div>
     </div>

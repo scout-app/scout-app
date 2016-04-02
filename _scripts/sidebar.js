@@ -62,29 +62,25 @@
                 var id = $(evt.currentTarget).parent().data("id");
                 for (var i = 0; i < scout.projects.length; i++) {
                     if (scout.projects[i].projectID == id) {
-                        scout.helpers.processInputFolder(scout.projects[i]);
-                        //monitor inputFolder for changes
-                        scout.helpers.startWatching(scout.projects[i]);
-                        scout.projects[i].indicator = "stop";
+
+                        if ($(evt.currentTarget).find('.glyphicon').hasClass('glyphicon-stop')) {
+                            //Update icon and color in sidebar
+                            scout.projects[i].indicator = "play";
+                            //Stop watching the files for changes
+                            if (scout.projects[i].watcher) {
+                                scout.projects[i].watcher.close();
+                            }
+                        } else {
+                            scout.helpers.processInputFolder(scout.projects[i]);
+                            //monitor inputFolder for changes
+                            scout.helpers.startWatching(scout.projects[i]);
+                            scout.projects[i].indicator = "stop";
+                        }
+
                     }
                 }
                 scout.helpers.updateSidebar();
             }
-        });
-
-        $("#projects-list .glyphicon-stop").click(function (evt) {
-            evt.stopPropagation();
-            var id = $(evt.currentTarget).parent().parent().data("id");
-            for (var i = 0; i < scout.projects.length; i++) {
-                if (scout.projects[i].projectID == id) {
-            debugger;
-                    //Update icon and color in sidebar
-                    scout.projects[i].indicator = "play";
-                    //Stop watching the files for changes
-                    scout.projects[i].watcher.close();
-                }
-            }
-            updateSidebar();
         });
     }
 

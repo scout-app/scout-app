@@ -7,10 +7,20 @@
 
     function loadFTUX () {
         //Hide everything!
-        $("#sidebar").css("left", "-300px");
+        $("#sidebar").css({
+            'left': '-300px'
+        });
         $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeOut();
         //Show FTUX
-        $("#ftux").css('opacity', '1.0');
+        $("#ftux").fadeIn("slow");
+    }
+
+    function unloadFTUX () {
+        //Hide FTUX
+        $("#ftux").fadeOut();
+        //Show everything!
+        $("#sidebar").css("left", "0px");
+        $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeIn();
     }
 
     function autoGuessProjectsFolder () {
@@ -72,8 +82,9 @@
         scout.ftux.projectsFolder = projectsFolder;
     }
 
-    function autoGrabProjects () {
-        var projectsFolder = scout.ftux.projectsFolder;
+    function autoGrabProjects (path) {
+        $("#ftux .panel-body").empty();
+        var projectsFolder = path || scout.ftux.projectsFolder;
         var projects = "";
         if (projectsFolder) {
             projects = ugui.helpers.readAFolder(projectsFolder);
@@ -87,7 +98,7 @@
                 var name = projects[i].name;
                 var item =
                   '<label class="col-xs-6">' +
-                    '<input type="checkbox" value="' + projectsFolder + '/' + name + '" checked> ' +
+                    '<input type="checkbox" value="' + projectsFolder + '/' + name + '" checked="checked"> ' +
                     name +
                   '</label>';
                 $("#ftux .panel-body").append(item);
@@ -95,14 +106,50 @@
         }
     }
 
-    function updatePanelContent () {
+    function updatePanelContent (path) {
+        var folder = "";
         if (scout.ftux.projectsFolder) {
             if (ugui.platform == "win32") {
-                $("#ftuxProjectsFolder").text(scout.ftux.projectsFolder.split('/').join('\\'));
+                folder = path || scout.ftux.projectsFolder.split('/').join('\\');
             } else {
-                $("#ftuxProjectsFolder").text(scout.ftux.projectsFolder);
+                folder = path || scout.ftux.projectsFolder;
             }
+            $("#ftuxProjectsFolder").text(folder);
         }
+    }
+
+    function ftuxEvents () {
+        $("#ftuxSelectAll").click(function () {
+            var inputs = $("#ftux .panel-body input");
+            for (var i = 0; i < inputs.length; i++) {
+                $(inputs[i]).prop('checked', true);
+            }
+        });
+        $("#ftuxDeselectAll").click(function () {
+            var inputs = $("#ftux .panel-body input");
+            for (var i = 0; i < inputs.length; i++) {
+                $(inputs[i]).prop('checked', false);
+            }
+        });
+        $("#ftuxStartImport").click(function () {
+            var inputs = $("#ftux .panel-body input:checked");
+            for (var i = 0; i < inputs.length; i++) {
+                var path = $(inputs[i]).val();
+                scout.helpers.autoGenerateProject(path);
+            }
+            scout.helpers.saveSettings;
+            unloadFTUX();
+        });
+        $("#ftuxPickFolder").click(function (evt) {
+            evt.preventDefault();
+            $("#ftuxProjectBrowse").click();
+        });
+        $("#ftuxProjectBrowse").change(function () {
+            var path = $("#ftuxProjectBrowse").val();
+            autoGrabProjects(path);
+            updatePanelContent(path);
+        });
+        autoGrabProjects();
     }
 
     //The main FTUX function
@@ -112,7 +159,7 @@
             autoGuessProjectsFolder();
             autoGrabProjects();
             updatePanelContent();
-            console.log(scout.ftux);
+            ftuxEvents();
         }
     }
 

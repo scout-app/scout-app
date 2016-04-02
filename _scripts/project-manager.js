@@ -81,6 +81,9 @@ The handles creating new projects, saving them, and loading them.
         scout.helpers.updateSidebar();
         scout.helpers.saveSettings();
         scout.helpers.ftux();
+        if (scout.projects.length > 0) {
+            $("#projects-list > .btn")[0].click();
+        }
     }
 
     /**
