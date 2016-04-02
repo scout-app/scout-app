@@ -45,14 +45,14 @@
             $(evt.currentTarget).addClass('active');
             var id = $(evt.currentTarget).data('id');
             //If the thing you clicked on is already on display, do nothing
-            var currentlyViewedProject = $("#projectID").val();
-            if (currentlyViewedProject !== id) {
+            //var currentlyViewedProject = $("#projectID").val();
+            //if (currentlyViewedProject !== id) {
                 for (var j = 0; j < scout.projects.length; j++) {
                     if (id == scout.projects[j].projectID) {
                         scout.helpers.updateProjectSettingsView(scout.projects[j]);
                     }
                 }
-            }
+            //}
         });
 
         $("#projects-list .btn .btn").click(function (evt) {

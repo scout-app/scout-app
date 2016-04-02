@@ -124,9 +124,11 @@ The  main files for Scout-App 2 are:
     * [x] ~~BUG 1: In Ubuntu & OSX, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason. (TJW)~~
     * [x] ~~BUG 3: In Ubuntu, the auto-guesser crashes on [this specific repo](https://github.com/UniversalGUI/UniversalGUI.github.io). (TJW)~~
     * [x] ~~Upon creating a project, auto-guess input/output folders and project icon. (TJW)~~
-    * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
-    * [ ] Create ID system that will show alerts per project, and all together in the Status view.
     * [x] ~~Create a way of having multiple projects, switching between them, and removing specific projects from Scout-App~~
+    * [ ] Work on FTUX/Empty State view. (TJW)
+    * [ ] Create ID system that will show alerts per project, and all together in the Status view. (TJW)
+    * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
+    * [ ] BUG 4: Projects object outputStyle not being set properly. Issues deleting projects.
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
@@ -155,7 +157,6 @@ The  main files for Scout-App 2 are:
     * [ ] Make sidebar resizable
     * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Import/Export projects (Would anyone even want this feature?)
-    * [ ] Work on FTUX/Empty State view
     * [ ] Auto-guesser applied to all projects in GitHub folder
 
 

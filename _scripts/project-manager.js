@@ -66,11 +66,17 @@ The handles creating new projects, saving them, and loading them.
      * scout.helpers.removeProject('sa0000000000000');
      */
     function removeProject (projectID) {
+        //Error checking
         if (!projectID || typeof(projectID) !== "string") {
             console.log("Can't remove project, pass in a valid project ID to remove");
             return;
         }
+        if (scout.projects.length < 1) {
+            console.log('Error: No projects to remove.');
+            return;
+        }
 
+        //Remove the item from the scout.projects array
         for (var i = 0; i < scout.projects.length; i++) {
             var currentItem = scout.projects[i].projectID;
             if (projectID == currentItem) {
@@ -78,12 +84,14 @@ The handles creating new projects, saving them, and loading them.
                 scout.projects.remove(projectToRemove);
             }
         }
-        scout.helpers.updateSidebar();
+
+        //Save settings, update sidebar, click the top item in sidebar, run ftux if no items
         scout.helpers.saveSettings();
-        scout.helpers.ftux();
+        scout.helpers.updateSidebar();
         if (scout.projects.length > 0) {
             $("#projects-list > .btn")[0].click();
         }
+        scout.helpers.ftux();
     }
 
     /**
