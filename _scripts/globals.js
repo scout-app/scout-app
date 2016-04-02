@@ -36,7 +36,12 @@ Array.prototype.move = function (from, to) {
     this.splice(to, 0, this.splice(from, 1)[0]);
 };
 
-//Remove an item from an array by passing in the index of that item
+/**
+ * Remove an Item From an Array
+ * by passing in the index of that item
+ *
+ * @param  {number}   itemToRemove   Zero-based index of the place in the array of the item to remove
+ */
 Array.prototype.remove = function (itemToRemove) {
     this.splice(itemToRemove, 1);
 };

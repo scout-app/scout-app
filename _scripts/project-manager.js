@@ -80,8 +80,7 @@ The handles creating new projects, saving them, and loading them.
         for (var i = 0; i < scout.projects.length; i++) {
             var currentItem = scout.projects[i].projectID;
             if (projectID == currentItem) {
-                var projectToRemove = scout.projects[i];
-                scout.projects.remove(projectToRemove);
+                scout.projects.remove(i);
             }
         }
 
@@ -89,7 +88,7 @@ The handles creating new projects, saving them, and loading them.
         scout.helpers.saveSettings();
         scout.helpers.updateSidebar();
         if (scout.projects.length > 0) {
-            $("#projects-list > .btn")[0].click();
+            $($("#projects-list > .btn")[0]).click();
         }
         scout.helpers.ftux();
     }
