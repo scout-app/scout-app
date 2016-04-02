@@ -36,6 +36,27 @@ The handles creating new projects, saving them, and loading them.
         scout.newProject = newProject;
     }
 
+    function deleteLocalSettingsFile (bool) {
+        var appData = require('nw.gui').App.dataPath;
+        var file = appData + '/scout-settings.json';
+        if (ugui.platform == "win32") {
+            file = appData + '\\scout-settings.json';
+        }
+
+        if (!bool) {
+            console.info('To delete this file:');
+            console.log(file);
+            console.info('Run this function and pass in true. Like so:');
+            console.log('scout.helpers.deleteLocalSettingsFile(true);');
+            return;
+        }
+
+        if (bool) {
+            ugui.helpers.deleteAFile(file);
+            console.info('File Deleted');
+        }
+    }
+
     /**
      * Pass in the project ID starting with 'sa' to remove it
      * from the scout.projects array.
@@ -167,7 +188,10 @@ The handles creating new projects, saving them, and loading them.
 
     scout.helpers.resetProjectUI = resetProjectSettingsUI;
 
-    //updateProjectSettingsView(scout.projects[0]);
+    //scout.helpers.deleteLocalSettingsFile(true)
+    scout.helpers.deleteLocalSettingsFile = deleteLocalSettingsFile;
+
+    //scout.helpers.updateProjectSettingsView(scout.projects[0]);
     scout.helpers.updateProjectSettingsView = updateProjectSettingsView;
 
     //scout.helpers.removeProject('sa1459092789554');

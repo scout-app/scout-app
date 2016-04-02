@@ -55,11 +55,11 @@
             }
         });
 
-        $("#projects-list .glyphicon-play").click(function (evt) {
+        $("#projects-list .btn .btn").click(function (evt) {
             evt.stopPropagation();
             //Make sure the button isn't disabled
             if (!$(evt.currentTarget).hasClass('gray')) {
-                var id = $(evt.currentTarget).parent().parent().data("id");
+                var id = $(evt.currentTarget).parent().data("id");
                 for (var i = 0; i < scout.projects.length; i++) {
                     if (scout.projects[i].projectID == id) {
                         scout.helpers.processInputFolder(scout.projects[i]);

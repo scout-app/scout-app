@@ -55,7 +55,7 @@ function autoGuessProjectFolders (autoInput, autoOutput) {
     }
 
     if (!scout.newProject) {
-        scout.newProject = {}
+        scout.newProject = {};
     }
 
     scout.newProject.projectName = projectName;
