@@ -9,6 +9,7 @@
 @import "_sidebar.sass";              // Custom styles for sidebar
 @import "_projectsettings.sass";      // Project controls, like input/output folder, environment, and output styles
 @import "_alerts.sass";               // Alerts, warnings and error messages
+@import "_ftux.sass";                 // First Time User Experience / Empty-State / Blank-State view
 
 //Stuff that goes at the end
 @import "_ugui.sass";                 // UGUI specific styles for UGUI dev tools and such

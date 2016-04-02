@@ -5,6 +5,7 @@
 
 //Create the global Scout object
 window.scout = {
+    "ftux": {},
     "helpers": {},
     "projects": [],
     "versions": {
