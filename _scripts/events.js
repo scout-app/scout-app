@@ -159,9 +159,11 @@
         $("#printConsole ." + id + " .glyphicon-remove").click();
         //Wipe out UI
         scout.helpers.resetProjectUI();
-        $("#project-settings").addClass('hide');
         $("#printConsole .alert, #printConsole .panel").addClass('hide');
         removeModal();
+        if (scout.projects.length > 0) {
+            $($("#projects-list > div")[0]).click();
+        }
     });
     //When clicking on background, cancel button, or X, remove modal
     $(".modal, #cancel-delete, .modal .glyphicon-remove").click( removeModal );
