@@ -12,7 +12,9 @@ window.scout = {
         "nodeSass": "",
         "libSass": "",
         "scout": ugui.app.version
-    }
+    },
+    "cultureCode": "en",
+    "dictionary": {}
 };
 
 //Format time as 03:14:15

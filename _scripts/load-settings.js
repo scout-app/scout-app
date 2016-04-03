@@ -31,8 +31,13 @@
     if (settingsJSON.length > 1) {
         //Convert it from a string to JSON
         var settingsObj = JSON.parse(settingsJSON);
+
         //update the scout object
-        window.scout = settingsObj;
+        scout.pojects = settingsObj.projects;
+        scout.cultureCode = settingsObj.cultureCode || "en";
+
+        //Update dictionary
+        scout.helpers.setLanguage(scout.cultureCode);
     }
 
 })()

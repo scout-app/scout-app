@@ -11,23 +11,27 @@
         var indicatorColor = "";
         var indicatorStatus = "";
         var indicatorDisable = "";
+        var title = "";
         //Create list of projects in sidebar
         for (var i = 0; i < scout.projects.length; i++) {
             var id = scout.projects[i].projectID;
             indicatorColor = "btn-info";
             indicatorStatus = "glyphicon-play";
             indicatorDisable = "";
+            title = "";
 
             if (scout.projects[i].indicator == "stop") {
                 indicatorColor = "btn-danger";
                 indicatorStatus = "glyphicon-stop";
             } else if (scout.projects[i].indicator == "gray-play") {
                 indicatorColor = "btn-info gray";
+                indicatorStatus = "glyphicon-pencil";
                 indicatorDisable = "disable";
+                title = scout.localize("MISSING_DATA");
             }
 
             var standardProject =
-              '<div class="btn btn-default truncate ' + id + '" data-id="' + id + '">' +
+              '<div class="btn btn-default truncate ' + id + '" data-id="' + id + '" title="' + title + '">' +
                 '<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>' +
                 scout.projects[i].projectName +
                 '<button class="btn ' + indicatorColor + '" ' + indicatorDisable + '>' +

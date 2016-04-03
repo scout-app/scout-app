@@ -64,7 +64,6 @@ input/output folders and project icon.
     }
 
     function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
-
         if (srcDist == "src") {
             srcDist = [ "app", "source", "src" ];
         } else if (srcDist == "dist") {
@@ -288,6 +287,8 @@ input/output folders and project icon.
         if (scout.newProject.outputFolder.length < 1) {
             autoGuessSrcDist('dist', autoOutput, 'outputFolder');
         }
+
+        scout.helpers.unlockSubmit();
 
         autoGuessImageFolder(autoImages);
         autoGuessProjectIcon(commonImages);
