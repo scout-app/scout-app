@@ -1,3 +1,5 @@
 {
-    "MISSING_DATA": "Missing input or output folder."
+    "MISSING_DATA": "Entrée ou le dossier de sortie manquant.",
+    "WELCOME_INSTRUCTIONS": "Des projets d'auto-importation ci-dessous ou <strong><a id='ftuxPickFolder' href='#'>choisir un autre dossier</a></strong> pour importer des projets à partir.",
+    "WELCOME_MESSAGE": "Bienvenue à Scout-App!"
 }
