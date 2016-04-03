@@ -18,7 +18,7 @@
     //Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
     scout.versions.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
-    if (ugui.platform = "win32") {
+    if (process.platform = "win32") {
         scout.versions.chokidar = require(ugui.app.pathToProject.split('/').join('\\').replace('\\','') + 'node_modules\\chokidar\\package.json').version;
     } else {
         scout.versions.chokidar = require(ugui.app.pathToProject + 'node_modules/chokidar/package.json').version;
@@ -57,7 +57,7 @@
 
     function convertToCSS (project, inputFileName, inputFileExt) {
         var slash = "/";
-        if (ugui.platform == "win32") {
+        if (process.platform == "win32") {
             slash = "\\";
         }
         var outputStyle = project.outputStyle;
@@ -65,7 +65,7 @@
         //Get the mixins config file
         var mixins = ugui.helpers.readAFile('mixins' + slash + 'mixins.config');
         //put split based on returns
-        if (ugui.platform == "win32") {
+        if (process.platform == "win32") {
             mixins = mixins.split('\r\n');
         } else {
             mixins = mixins.split('\n');

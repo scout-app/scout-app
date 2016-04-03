@@ -39,7 +39,7 @@ The handles creating new projects, saving them, and loading them.
     function deleteLocalSettingsFile (bool) {
         var appData = require('nw.gui').App.dataPath;
         var file = appData + '/scout-settings.json';
-        if (ugui.platform == "win32") {
+        if (process.platform == "win32") {
             file = appData + '\\scout-settings.json';
         }
 
@@ -166,7 +166,7 @@ The handles creating new projects, saving them, and loading them.
         $(".project-name" ).text(       base.projectName);
 
         var workingDir = base.projectFolder;
-        if (ugui.platform == "win32") {
+        if (process.platform == "win32") {
             workingDir = workingDir.split('/').join('\\');
         }
 

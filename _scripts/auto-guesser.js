@@ -274,7 +274,7 @@ input/output folders and project icon.
         var folder = path || $("#addProjectBrowse").val();
         scout.newProject.projectFolder = folder;
         //Set it to the New Project object, converting windows slashes to unix
-        if (ugui.platform == "win32") {
+        if (process.platform == "win32") {
             scout.newProject.projectFolder = folder.split('\\').join('/');
         }
 
