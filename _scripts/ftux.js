@@ -29,12 +29,15 @@
         //Set default paths to check based on OS standards
         var homePath = "";
         var myDocsPath = "";
-        if (ugui.platform == "linux") {
+        if (process.platform == "linux") {
             homePath = process.env.HOME;
             myDocsPath = homePath + "/Documents";
-        } else if (ugui.platform == "win32") {
+        } else if (process.platform == "win32") {
             homePath = process.env.USERPROFILE;
             myDocsPath = homePath + "\\Documents";
+        } else if (process.platform == "darwin") {
+            homePath = "/Users/" + process.env.USER;
+            myDocsPath = homePath + "/Documents";
         }
 
         //Check the user profile for common project folders

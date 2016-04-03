@@ -26,7 +26,7 @@
         }
     }
 
-    setLanguage();
+    setLanguage('fr');
     updateDataLangs();
     scout.helpers.setLanguage = setLanguage;
     scout.localize = localize;
