@@ -33,7 +33,7 @@
             var standardProject =
               '<div class="btn btn-default truncate ' + id + '" data-id="' + id + '" title="' + title + '">' +
                 '<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>' +
-                scout.projects[i].projectName +
+                '<span class="name truncate">' + scout.projects[i].projectName + '</span>' +
                 '<button class="btn ' + indicatorColor + '" ' + indicatorDisable + '>' +
                   '<span class="glyphicon ' + indicatorStatus + '"></span>' +
                 '</button>' +
