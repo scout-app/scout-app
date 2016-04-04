@@ -25,7 +25,7 @@
                 indicatorStatus = "glyphicon-stop";
             } else if (scout.projects[i].indicator == "gray-play") {
                 indicatorColor = "btn-info gray";
-                indicatorStatus = "glyphicon-pencil";
+                indicatorStatus = "glyphicon-question-sign";
                 indicatorDisable = "disable";
                 title = scout.localize("MISSING_DATA");
             }
@@ -33,7 +33,7 @@
             var standardProject =
               '<div class="btn btn-default truncate ' + id + '" data-id="' + id + '" title="' + title + '">' +
                 '<span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>' +
-                scout.projects[i].projectName +
+                '<span class="name truncate">' + scout.projects[i].projectName + '</span>' +
                 '<button class="btn ' + indicatorColor + '" ' + indicatorDisable + '>' +
                   '<span class="glyphicon ' + indicatorStatus + '"></span>' +
                 '</button>' +
@@ -48,15 +48,11 @@
             $("#sidebar .active").removeClass('active');
             $(evt.currentTarget).addClass('active');
             var id = $(evt.currentTarget).data('id');
-            //If the thing you clicked on is already on display, do nothing
-            //var currentlyViewedProject = $("#projectID").val();
-            //if (currentlyViewedProject !== id) {
-                for (var j = 0; j < scout.projects.length; j++) {
-                    if (id == scout.projects[j].projectID) {
-                        scout.helpers.updateProjectSettingsView(scout.projects[j]);
-                    }
+            for (var j = 0; j < scout.projects.length; j++) {
+                if (id == scout.projects[j].projectID) {
+                    scout.helpers.updateProjectSettingsView(scout.projects[j]);
                 }
-            //}
+            }
         });
 
         $("#projects-list .btn .btn").click(function (evt) {
@@ -64,26 +60,7 @@
             //Make sure the button isn't disabled
             if (!$(evt.currentTarget).hasClass('gray')) {
                 var id = $(evt.currentTarget).parent().data("id");
-                for (var i = 0; i < scout.projects.length; i++) {
-                    if (scout.projects[i].projectID == id) {
-
-                        if ($(evt.currentTarget).find('.glyphicon').hasClass('glyphicon-stop')) {
-                            //Update icon and color in sidebar
-                            scout.projects[i].indicator = "play";
-                            //Stop watching the files for changes
-                            if (scout.projects[i].watcher) {
-                                scout.projects[i].watcher.close();
-                            }
-                        } else {
-                            scout.helpers.processInputFolder(scout.projects[i]);
-                            //monitor inputFolder for changes
-                            scout.helpers.startWatching(scout.projects[i]);
-                            scout.projects[i].indicator = "stop";
-                        }
-
-                    }
-                }
-                scout.helpers.updateSidebar();
+                scout.helpers.stopWatching(id);
             }
         });
     }

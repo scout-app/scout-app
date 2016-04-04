@@ -1,7 +1,6 @@
 
 /*
-The handles creating new projects, filling out the settings view, and guessing the
-input/output folders and project icon.
+  Handles creating new projects and guessing the input/output folders and project icon.
 */
 
 (function(){
@@ -301,6 +300,7 @@ input/output folders and project icon.
         scout.helpers.addProject(scout.newProject);
 
         scout.helpers.updateProjectSettingsView();
+        scout.helpers.ftux();
     }
 
     $("#addProject, #file-newproject").click(function (event) {
