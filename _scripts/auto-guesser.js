@@ -300,6 +300,7 @@
         scout.helpers.addProject(scout.newProject);
 
         scout.helpers.updateProjectSettingsView();
+        scout.helpers.ftux();
     }
 
     $("#addProject, #file-newproject").click(function (event) {

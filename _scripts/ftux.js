@@ -195,6 +195,8 @@
             updatePanelContent();
             ftuxEvents();
             ftuxUnlock();
+        } else {
+            unloadFTUX();
         }
     }
 
