@@ -31,10 +31,14 @@
     if (settingsJSON.length > 1) {
         //Convert it from a string to JSON
         var settingsObj = JSON.parse(settingsJSON);
-
+console.log(scout.projects);
         //update the scout object
         scout.pojects = settingsObj.projects;
+console.log(scout.projects);
         scout.cultureCode = settingsObj.cultureCode || "en";
+debugger;
+//TEMP
+scout.cultureCode = "fr";
 
         //Update dictionary
         scout.helpers.setLanguage(scout.cultureCode);
