@@ -12,11 +12,14 @@
         scout.cultureCode = userLanguage;
         var dictionary = ugui.helpers.readAFile('cultures/' + userLanguage + '.json');
         dictionary = JSON.parse(dictionary);
-        scout.dictionary = dictionary;
+        window.dictionary = dictionary;
+        if (scout.helpers.saveSettings) {
+            scout.helpers.saveSettings();
+        }
     }
 
     function localize (phrase) {
-        return scout.dictionary[phrase];
+        return window.dictionary[phrase];
     }
 
     function updateDataLangs () {
@@ -28,7 +31,9 @@
         }
     }
 
-    setLanguage('fr');
+    //This will be overridden by the user's saved settings later,
+    //but if they don't have saved settings, we default to English.
+    setLanguage('en');
     updateDataLangs();
     scout.helpers.setLanguage = setLanguage;
     scout.localize = localize;

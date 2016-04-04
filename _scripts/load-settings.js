@@ -41,9 +41,6 @@
         scout.projects = settingsObj.projects;
         scout.cultureCode = settingsObj.cultureCode || "en";
 
-//TEMP
-scout.cultureCode = "fr";
-
         //Update dictionary
         scout.helpers.setLanguage(scout.cultureCode);
     }
