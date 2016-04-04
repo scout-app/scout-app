@@ -1,5 +1,8 @@
 
-//Container for your app's custom JS
+/*
+  The main code that handles watching and processing files.
+*/
+
 (function runApp() {
 
 
@@ -7,7 +10,7 @@
 
 
     /////////////////////////////////////////////////////////////
-    // Defin some variables                                    //
+    // Define some variables                                   //
     /////////////////////////////////////////////////////////////
 
 

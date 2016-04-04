@@ -1,4 +1,9 @@
 
+/*
+  Reads the scout-settings.json file from the appdata folder.
+  Updates window.scout.projects and window.scout.cultureCode.
+*/
+
 (function(){
     var gui = require("nw.gui");
     var fs = require("fs");
@@ -33,7 +38,7 @@
         var settingsObj = JSON.parse(settingsJSON);
 
         //update the scout object
-        scout.pojects = settingsObj.projects;
+        scout.projects = settingsObj.projects;
         scout.cultureCode = settingsObj.cultureCode || "en";
 
         //Update dictionary

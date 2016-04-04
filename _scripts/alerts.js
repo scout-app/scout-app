@@ -1,3 +1,9 @@
+
+/*
+  When you run node-sass on a project, we output status messages
+  and error alerts as green and red panels using these functions.
+*/
+
 (function(){
 
     function alert (error, projectID) {

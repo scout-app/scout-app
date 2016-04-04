@@ -1,7 +1,9 @@
 
-//FTUX: First Time User Experience
-//
-//This is to help with the empty state of the app on first use.
+/*
+  FTUX: First Time User Experience
+  This is to help with the empty state of the app on first use
+  or when you just have 0 projects.
+*/
 
 (function(){
 
