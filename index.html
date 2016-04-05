@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-    <!-- Automatically updated by your package.json file. -->
-    <title class="applicationTitle">ScoutApp: The Sass GUI</title>
-
+    <title data-lang="APPLICATION_TITLE">ScoutApp: The Sass GUI</title>
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
-    <!-- Change this next line from simplex to whatever swatch you pick. -->
     <link rel="stylesheet" href="_style/ven.bootswatch/simplex.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
-    <!-- JS is at the bottom -->
+    <!-- UGUI requires jQuery 1.9.1 or above. -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/ivan-chkv.bootstrap-dropdowns-enhancement-dist/js/dropdowns-enhancement.js"></script>
+    <script type="text/javascript" src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="_scripts/ugui.js"></script>
+    <!-- APP JS is at the bottom -->
   </head>
   <!-- Change the class form dev to prod when you're ready to distribute your application. -->
   <body role="document" class="dev">
@@ -20,44 +22,39 @@
       <div class="drag-enable">
         <div class="navbar-header drag-enable">
           <button type="button" class="navbar-toggle collapsed drag-disable" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
+            <span class="sr-only" data-lang="TOGGLE_NAVIGATION"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand">
-            <img src="_img/scout-wordmark-tiny.png" alt="ScoutApp Logo" />
+            <img src="_img/scout-wordmark-tiny.png" data-langalt="SCOUTAPP_LOGO" />
           </a>
         </div>
         <div class="navbar-collapse collapse drag-enable">
           <ul class="nav navbar-nav drag-disable">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">File <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-lang="FILE"></span> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#new" id="file-newproject">New Project</a></li>
-                <!--
-                <li><a href="#import">Open</a></li>
+                <li><a href="#new" id="file-newproject" data-lang="NEW_PROJECT"></a></li>
                 <li class="divider"></li>
-                <li><a href="#export">Export</a></li>
-                -->
-                <li class="divider"></li>
-                <li><a href="#exit">Exit</a></li>
+                <li><a href="#exit" data-lang="EXIT"></a></li>
               </ul>
             </li>
-            <li class="dropdown devNav">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">View <span class="caret"></span></a>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-lang="VIEW"></span> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <!--
                 <li><a href="#theme">Change Theme</a></li>
                 -->
-                <li><a href="#">Status</a></li>
+                <li><a href="#" data-lang="STATUS"></a></li>
                 <!-- items with a class of "devNav" are only visible when <body> has a class of "dev" -->
-                <li><a href="#console">Dev Tools</a></li>
+                <li><a href="#console" data-lang="DEV_TOOLS"></a></li>
               </ul>
             </li>
             <li class="dropdown navHelp">
               <!-- <a href="#about"> must exist in your app as it contains the credits for UGUI -->
-              <a href="#about">About</a>
+              <a href="#about" data-lang="ABOUT"></a>
             </li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -66,11 +63,11 @@
 
     <section id="sidebar">
 
-      <div id="projects-list" class="btn-group-vertical" role="group" aria-label="Listing of projects"><!-- Your list of projects. --></div>
-      <div class="btn-group-vertical" role="group" aria-label="Project Controls">
+      <div id="projects-list" class="btn-group-vertical" role="group" aria-label="Listing of projects" data-langarialabel="LISTING_OF_PROJECTS"><!-- Your list of projects. --></div>
+      <div class="btn-group-vertical" role="group" aria-label="Project Controls" data-langarialabel="PROJECT_CONTROLS">
         <input type="file" id="addProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
-        <div id="addProject" class="btn btn-primary truncate"><span class="text-default glyphicon glyphicon-plus"    aria-hidden="true"></span><strong>Add Project</strong></div>
-        <div id="viewStatus" class="btn btn-info    truncate"><span class="text-default glyphicon glyphicon-comment" aria-hidden="true"></span><strong>Status of all Projects</strong></div>
+        <div id="addProject" class="btn btn-primary truncate"><span class="text-default glyphicon glyphicon-plus"    aria-hidden="true"></span><strong data-lang="ADD_PROJECT"></strong></div>
+        <div id="viewStatus" class="btn btn-info    truncate"><span class="text-default glyphicon glyphicon-comment" aria-hidden="true"></span><strong data-lang="STATUS_OF_ALL_PROJECTS"></strong></div>
       </div>
     </section>
 
@@ -87,30 +84,30 @@
             </div>
           -->
           <div class="row">
-            <img id="projectIcon" src="_img/logo_128.png" alt="Project Icon" />
+            <img id="projectIcon" src="_img/logo_128.png" data-langalt="PROJECT_ICON" />
             <h3 id="projectName"></h3>
             <input type="hidden" id="projectID" val="" disabled />
             <input type="text" id="projectFolder" class="form-control" value="" disabled />
           </div>
           <div class="row">
-            <h3>Stylesheet Directories</h3>
+            <h3 data-lang="STYLESHEET_DIRECTORIES"></h3>
           </div>
 
           <div class="row">
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="inputFolder">Input Folder:</label>
+              <label for="inputFolder" data-lang="INPUT_FOLDER"></label>
               <input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" required="required" />
               <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" title="Browse"></span>
               <input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
             </div>
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="outputFolder">Output Folder:</label>
+              <label for="outputFolder" data-lang="OUTPUT_FOLDER"></label>
               <input id="outputFolder" type="text" class="form-control" data-argName="outputFolder" required="required" />
               <span id="outputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" title="Browse"></span>
               <input type="file" id="outputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
             </div>
             <div id="outputWarning" class="col-xs-12 col-s-12 col-md-12 col-l-12 text-danger text-center hide">
-              <strong>Output can't match or be a subfolder of input.</strong>
+              <strong data-lang="OUTPUT_WARNING"></strong>
             </div>
           </div>
 
@@ -145,21 +142,21 @@
 
           <div class="row">
             <div>
-              <h3>Environment</h3>
+              <h3 data-lang="ENVIRONMENT"></h3>
             </div>
             <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> Development</label>
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> Production</label>
+              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development" data-lang="DEVELOPMENT"         /></label>
+              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  data-lang="Production"  checked /></label>
             </div>
 
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" title="Output Style">
 
               <select id="outputStyle" data-argName="outputStyle" class="form-control" required="required">
-                <option value="expanded"   >Output Style</option>
-                <option value="nested"     >Nested</option>
-                <option value="expanded"   >Expanded</option>
-                <option value="compact"    >Compact</option>
-                <option value="compressed" >Compressed</option>
+                <option value="expanded"   data-lang="OUTPUT_STYLE"      ></option>
+                <option value="nested"     data-lang="OUTPUT_NESTED"     ></option>
+                <option value="expanded"   data-lang="OUTPUT_EXPANDED"   ></option>
+                <option value="compact"    data-lang="OUTPUT_COMPACT"    ></option>
+                <option value="compressed" data-lang="OUTPUT_COMPRESSED" ></option>
               </select>
 
             </div>
@@ -171,13 +168,8 @@
                 <!--
                   <small><span class="glyphicon glyphicon-trash"></span></small>
                 -->
-                Delete Project
+                <span data-lang="DELETE_PROJECT"></span>
               </button>
-              <!--
-                <button id="runScout" type="submit" class="btn btn-default" disabled="disabled">
-                  Start!
-                </button>
-              -->
             </div>
           </div>
 
@@ -185,7 +177,7 @@
       </section>
 
       <!-- Alerts and messages once Node-Sass is running. -->
-      <h2 id="printConsoleTitle" class="text-center">Status of all projects</h2>
+      <h2 id="printConsoleTitle" class="text-center" data-lang="STATUS_OF_ALL_PROJECTS"></h2>
       <section id="printConsole" class="row"></section>
     </div> <!-- end container -->
 
@@ -216,28 +208,20 @@
         <div class="modal-content">
           <div class="modal-header">
             <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
-            <h4>About</h4>
+            <h4 data-lang="ABOUT"></h4>
           </div>
           <div class="modal-body">
 
             <div class="panel panel-primary">
               <div class="panel-heading">
                 <span class="pull-right versionApp" title="Version">V2.0.0</span>
-                <h3 class="panel-title">About <span class="applicationTitle">Scout-App</span></h3>
+                <h3 class="panel-title" data-lang="ABOUT_SCOUTAPP"></h3>
               </div>
               <div class="panel-body">
-                <p class="well well-sm">
-                  <strong>Scout-App</strong> allows you to process your <code>.sass</code> and <code>.scss</code> files into CSS without needing any knowledge of the command line.
-                </p>
+                <p class="well well-sm" data-lang="ABOUT_DESCRIPTION"></p>
+                <p data-lang="ABOUT_DEPENDENCIES"></p>
                 <p>
-                  <strong>Scout-App</strong> uses
-                  <a class="external-link" href="https://github.com/sass/node-sass">node-sass</a>
-                  <span class="nodeSassVersion"></span> and
-                  <a class="external-link" href="https://github.com/paulmillr/chokidar">chokidar</a>
-                  <span class="chokidarVersion"></span>.
-                </p>
-                <p>
-                  Contributors to the <a href="http://github.com/mhs/scout-app" class="external-link">Scout-App</a>:<br />
+                  <span data-lang="ABOUT_CONTRIBUTORS"></span><br />
                   <!-- If the following script isn't ran on the page, it doesn't hit soon enough to check if the images loaded. -->
                   <!-- If the images load, keep text hidden, if the app is ran while a user is offline, show text instead of images. -->
                   <script>
@@ -261,7 +245,7 @@
                   </span>
                 </p>
                 <p>
-                  Visit the <span class="applicationName">Scout-App</span> website to check for updates:<br />
+                  <span data-lang="ABOUT_VISIT_UPDATE"></span><br />
                   <div class="text-center"><a href="http://mhs.github.io/scout-app" class="external-link">mhs.github.io/Scout-App</a></div>
                 </p>
                 <!--
@@ -271,7 +255,7 @@
                 -->
                 <p id="updateResults"></p>
                 <p class="text-center">
-                  <button id="scoutUpdateChecker" class="btn btn-primary">Check for updates</button>
+                  <button id="scoutUpdateChecker" class="btn btn-primary" data-lang="CHECK_FOR_UPDATES"></button>
                 </p>
               </div>
             </div>
@@ -286,26 +270,19 @@
         <div class="modal-content">
           <div class="modal-header">
             <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
-            <h4 class="truncate">Delete Project: <span class="project-name text-info"></span></h4>
+            <h4 class="truncate"><span data-lang="DELETE_PROJECT"></span>: <span class="project-name text-info"></span></h4>
           </div>
           <div class="modal-body text-center">
 
-            <p>Are you sure?</p>
+            <p data-lang="CONFIRM_DELETE"></p>
 
-            <button id="confirm-delete" class="btn btn-danger">Delete</button>
-            <button id="cancel-delete" class="btn btn-default">Cancel</button>
+            <button id="confirm-delete" class="btn btn-danger" data-lang="DELETE"></button>
+            <button id="cancel-delete" class="btn btn-default" data-lang="CANCEL"></button>
 
           </div>
         </div>
       </div>
     </div>
-
-    <!-- UGUI requires jQuery 1.9.1 or above. -->
-    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="bower_components/ivan-chkv.bootstrap-dropdowns-enhancement-dist/js/dropdowns-enhancement.js"></script>
-    <script type="text/javascript" src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-    <script type="text/javascript" src="_scripts/ugui.js"></script>
 
     <!-- App specific code -->
     <script type="text/javascript" src="_scripts/globals.js"         ></script>

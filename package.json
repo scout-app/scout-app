@@ -21,7 +21,7 @@
     "bugs": "https://github.com/mhs/scout-app/issues",
     "main": "index.html",
     "window": {
-        "title": "ScoutApp: The Sass GUI",
+        "title": "Scout-App: The Sass GUI",
         "icon": "_img/logo_32.png",
         "toolbar": false,
         "resizable": true,

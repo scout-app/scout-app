@@ -33,12 +33,29 @@
      * This function updates them with the matching translation to their KEYWORD.
      */
     function updateDataLangs () {
+        //data-lang
         var items = $("*[data-lang]");
         for (var i = 0; i < items.length; i++) {
             var item = items[i];
             var langKey = $(item).data("lang");
             $(item).html( localize(langKey) );
         }
+        //data-langalt
+        var altItems = $("*[data-langalt]");
+        for (var i = 0; i < altItems.length; i++) {
+            var altItem = altItems[i];
+            var langKey = $(altItem).data("langalt");
+            $(altItem).attr("alt", localize(langKey) );
+        }
+        //data-langarialabel
+        var ariaLabelItems = $("*[data-langarialabel]");
+        for (var i = 0; i < ariaLabelItems.length; i++) {
+            var ariaLabelItem = ariaLabelItems[i];
+            var langKey = $(ariaLabelItem).data("lang");
+            $(ariaLabelItem).attr("aria-label", localize(langKey) );
+        }
+        //Allow links with a class of "external-link" to open in the user's default browser
+        ugui.helpers.openDefaultBrowser();
     }
 
     /**
