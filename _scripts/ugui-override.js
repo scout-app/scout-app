@@ -56,7 +56,7 @@ function checkForUpdates() {
             //Display a message in the About Modal informing the user they have the latest version
             $("#updateResults").html(
                 '<p class="text-center">' +
-                  '<strong>Unable to reach update server. Try again later.</strong>' +
+                  '<strong data-lang="SERVER_DOWN">' + scout.localize("SERVER_DOWN") + '</strong>' +
                 '</p>'
             );
             console.info(º+'Unable to check for updates because GitHub cannot be reached ' +
@@ -80,9 +80,9 @@ function checkForUpdates() {
                 //Display in the About Modal a link to the release notes for the newest version
                 $("#updateResults").html(
                     '<p>' +
-                      '<strong>Update found!</strong> ' +
-                      '<a href="' + data[0].html_url + '" class="external-link">' +
-                        'View latest release' +
+                      '<strong data-lang="UPDATE_FOUND">' + scout.localize("UPDATE_FOUND") + '</strong> ' +
+                      '<a href="' + data[0].html_url + '" class="external-link" data-lang="VIEW_LATEST_RELEASE">' +
+                        scout.localize("VIEW_LATEST_RELEASE") +
                       '</a>.' +
                     '</p>'
                 );

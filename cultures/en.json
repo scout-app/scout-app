@@ -1,11 +1,18 @@
 {
+    "ALERT_TITLE": "<strong>{{time}}</strong> Error (0x0{{code}}) - Line: <strong>{{bugLine}}</strong> Col: <strong>{{col}}</strong>",
     "DESELECT_ALL": "Deselect All",
     "IMPORT_FROM_FOLDER": "From this folder: <em id='ftuxProjectsFolder'>Not Found</em>",
     "IMPORT_PROJECTS": "Import Projects",
     "IMPORT_SELECTED": "Import Selected",
     "MISSING_DATA": "Missing input or output folder.",
+    "MILLISECONDS_SHORT": "ms",
     "NO_PROJECTS_FOUND": "Click the link above and point it to the folder that contains all your project folders.",
+    "PROCESSED_IN_DURATION": "Processed in {{duration}}",
+    "SECONDS": "seconds",
     "SELECT_ALL": "Select All",
+    "SERVER_DOWN": "Unable to reach update server. Try again later.",
+    "UPDATE_FOUND": "Update found!",
+    "VIEW_LATEST_RELEASE": "View latest release",
     "WELCOME_INSTRUCTIONS": "Auto-import projects below or <strong><a id='ftuxPickFolder' href='#'>pick a different folder</a></strong> to import projects from.",
     "WELCOME_MESSAGE": "Welcome to Scout-App!"
 }

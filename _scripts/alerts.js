@@ -13,7 +13,8 @@
         var col = error.column;
         var code = error.status;
         var time = new Date().timeNow();
-        var title = '<strong>' + time + '</strong> Error (0x0' + code + ') - Line: <strong>' + bugLine + '</strong> Col: <strong>' + col + '</strong>';
+        var title = scout.localize("ALERT_TITLE");
+        title = title.replace("{{time}}", time).replace("{{code}}", code).replace("{{bugLine}}", bugLine).replace("{{col}}", col);
         var footer = '<em>' + file + '</em>';
         var bugFile = file.replace('\\','/').split('/');
         bugFile = bugFile[bugFile.length - 1];
@@ -74,13 +75,15 @@
         var folderPathSplit = message.stats.entry.split('\\').join('/').split('/');
         var folderAndFile = folderPathSplit[folderPathSplit.length - 2] + '\\' + folderPathSplit[folderPathSplit.length - 1];
         var time = new Date().timeNow();
-        var duration = message.stats.duration + 'ms';
+        var duration = message.stats.duration + scout.localize('MILLISECONDS_SHORT');
         if (message.stats.duration > 499) {
-            duration = (Math.round(message.stats.duration/100)/10) + ' seconds';
+            duration = (Math.round(message.stats.duration/100)/10) + ' ' + scout.localize("SECONDS", true);
         }
 
+        var processedTime = scout.localize("PROCESSED_IN_DURATION") ;
+        processedTime = processedTime.replace("{{duration}}", duration);
         var formattedMessage =
-        '<div class="alert alert-success ' + projectID + '" role="alert" title="Processed in ' + duration + '">' +
+        '<div class="alert alert-success ' + projectID + '" role="alert" title="' + processedTime + '">' +
           '<strong>' + time + '</strong> ' +
           folderAndFile +
           '<span class="pull-right glyphicon glyphicon-remove text-success"></span>' +
