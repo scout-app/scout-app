@@ -12,7 +12,6 @@
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/ivan-chkv.bootstrap-dropdowns-enhancement-dist/js/dropdowns-enhancement.js"></script>
     <script type="text/javascript" src="bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-    <script type="text/javascript" src="_scripts/ugui.js"></script>
     <!-- APP JS is at the bottom -->
   </head>
   <!-- Change the class form dev to prod when you're ready to distribute your application. -->
@@ -145,8 +144,8 @@
               <h3 data-lang="ENVIRONMENT"></h3>
             </div>
             <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development" data-lang="DEVELOPMENT"         /></label>
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  data-lang="Production"  checked /></label>
+              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> <span data-lang="DEVELOPMENT"></span></label>
+              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> <span data-lang="PRODUCTION" ></span></label>
             </div>
 
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" title="Output Style">
@@ -284,6 +283,7 @@
       </div>
     </div>
 
+    <script type="text/javascript" src="_scripts/ugui.js"></script>
     <!-- App specific code -->
     <script type="text/javascript" src="_scripts/globals.js"         ></script>
     <script type="text/javascript" src="_scripts/cultures.js"        ></script>
