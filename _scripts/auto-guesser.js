@@ -287,8 +287,6 @@
             autoGuessSrcDist('dist', autoOutput, 'outputFolder');
         }
 
-        scout.helpers.unlockSubmit();
-
         autoGuessImageFolder(autoImages);
         autoGuessProjectIcon(commonImages);
 
@@ -298,6 +296,7 @@
         scout.newProject.projectID = "sa" + Date.now();
 
         scout.helpers.addProject(scout.newProject);
+        scout.helpers.unlockSubmit(scout.newProject.projectID);
 
         scout.helpers.updateProjectSettingsView();
         scout.helpers.ftux();

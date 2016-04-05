@@ -61,27 +61,47 @@
     function forbidSameFolder () {
         var inputDir = $("#inputFolder").val();
         var outputDir = $("#outputFolder").val();
+        var id = $("#projectID").val();
+
+        //Update projects object
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].inputFolder = inputDir;
+                scout.projects[i].outputFolder = outputDir;
+            }
+        }
+
+        //Check validity of input and output
         if ( inputDir === "" || outputDir === "" ) {
-            return;
+            $("#outputWarning").addClass("hide");
+            lockSubmit(id);
         } else if ( (inputDir === outputDir) || (outputDir.startsWith(inputDir + '/')) ) {
             $("#outputWarning").removeClass('hide');
-            lockSubmit();
+            lockSubmit(id);
         } else {
             $("#outputWarning").addClass("hide");
-            unlockSubmit();
+            unlockSubmit(id);
         }
     }
 
-    $("#inputFolder, #outputFolder").keyup(forbidSameFolder).mouseup(forbidSameFolder);
+    $("#inputFolder, #outputFolder").keyup(forbidSameFolder).mouseup(forbidSameFolder).change(forbidSameFolder);
 
     function lockSubmit (id) {
         id = id || $("#projectID").val();
-        if (id) {
-            $("#sidebar ." + id + " .btn").prop("disabled", true).addClass("gray");
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].indicator = "gray-play";
+                scout.helpers.updateSidebar();
+                scout.helpers.saveSettings();
+                $("#sidebar .active").removeClass("active");
+                $("#sidebar ." + id).addClass("active");
+                return;
+            }
         }
     }
 
-    function unlockSubmit () {
+    function unlockSubmit (id) {
+        id = id || $("#projectID").val();
         for (var i = 0; i < scout.projects.length; i++) {
             var inputDir = scout.projects[i].inputFolder;
             var outputDir = scout.projects[i].outputFolder;
@@ -89,9 +109,15 @@
                 scout.projects[i].indicator = "gray-play";
             } else if ( (inputDir === outputDir) || (outputDir.startsWith(inputDir + '/')) ) {
                 scout.projects[i].indicator = "gray-play";
+            } else {
+                scout.projects[i].indicator = "play";
             }
         }
         scout.helpers.updateSidebar();
+        $("#sidebar .active").removeClass("active");
+        if (id) {
+            $("#sidebar ." + id).addClass("active");
+        }
     }
 
     $("#environment input").change( function (evt) {

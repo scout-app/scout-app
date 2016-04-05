@@ -30,15 +30,6 @@
 
 
 
-    //When the user clicks "Start!"
-    $("#runScout").click( function (event) {
-        //Prevent the form from sending like a normal website.
-        event.preventDefault();
-        processInputFolder(scout.projects[0]);
-        //monitor inputFolder for changes
-        startWatching(scout.projects[0]);
-    });
-
     function processInputFolder (project) {
         //Grab all the files in the input folder and put them in an array
         ugui.helpers.readAFolder(project.inputFolder, function (contents) {
