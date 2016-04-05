@@ -1982,7 +1982,7 @@ function centerNavLogo() {
     $(".navbar-brand").css("line-height", navHeight + "px");
     $(".navbar-brand").css("padding-top", "0px");
     $(".navbar-brand *").css("line-height", navHeight + "px");
-    $("#sidebar").css("padding-top", navHeight + "px");
+    $("#sidebar").css("margin-top", navHeight + "px");
 }
 
 //Run once on page load
