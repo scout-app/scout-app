@@ -1,5 +1,11 @@
 {
+    "DESELECT_ALL": "Deselect All",
+    "IMPORT_FROM_FOLDER": "From this folder: <em id='ftuxProjectsFolder'>Not Found</em>",
+    "IMPORT_PROJECTS": "Import Projects",
+    "IMPORT_SELECTED": "Import Selected",
     "MISSING_DATA": "Missing input or output folder.",
+    "NO_PROJECTS_FOUND": "Click the link above and point it to the folder that contains all your project folders.",
+    "SELECT_ALL": "Select All",
     "WELCOME_INSTRUCTIONS": "Auto-import projects below or <strong><a id='ftuxPickFolder' href='#'>pick a different folder</a></strong> to import projects from.",
     "WELCOME_MESSAGE": "Welcome to Scout-App!"
 }

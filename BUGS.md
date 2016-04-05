@@ -1,10 +1,5 @@
 ### BUGS
 
-* on input or output change:
-  * unlock
-  * updateSidebar
-  * save settings
-
 * On auto import
   * production / compressed
   * not: dev / expanded

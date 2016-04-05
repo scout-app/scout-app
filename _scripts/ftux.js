@@ -7,6 +7,7 @@
 
 (function(){
 
+    // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
         var width = $("#sidebar").css("width");
         //Hide everything!
@@ -16,6 +17,7 @@
         $("#ftux").fadeIn("slow");
     }
 
+    // Hide FTUX view | Show Sidebar | Show Project Settings
     function unloadFTUX () {
         //Hide FTUX
         $("#ftux").fadeOut();
@@ -24,6 +26,10 @@
         $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeIn();
     }
 
+    /**
+     * Checks the user profile, my docs, and root of some
+     * drives (on Windows) for projects/GitHub folder.
+     */
     function autoGuessProjectsFolder () {
         var projectsFolder = "";
         var autoProjects = ["github", "projects", "repositories", "repos", "websites"];
@@ -94,15 +100,21 @@
         scout.ftux.projectsFolder = projectsFolder;
     }
 
+    /**
+     * Look in the projects/GitHub folder. Create checkboxes for each project folder.
+     *
+     * @param  {string} path Location of project folders
+     */
     function autoGrabProjects (path) {
         $("#ftux .panel-body").empty();
         var projectsFolder = path || scout.ftux.projectsFolder;
+
         var projects = "";
         if (projectsFolder) {
             projects = ugui.helpers.readAFolder(projectsFolder);
         }
         if (!projectsFolder || projects.length < 1) {
-            $("#ftux .panel-body").html("No projects found.");
+            $("#ftux .panel-body").html(scout.localize("NO_PROJECTS_FOUND", true));
             return;
         }
         for (var i = 0; i < projects.length; i++) {
@@ -118,6 +130,10 @@
         }
     }
 
+    /**
+     * The folder location in the footer of the Import Projects panel
+     * @param  {string} path The Projects Folder path
+     */
     function updatePanelContent (path) {
         var folder = "";
         if (scout.ftux.projectsFolder) {
@@ -178,8 +194,10 @@
     }
 
     function ftuxUnlock () {
-        var inputs = $("#ftux .panel-body input:checked");
-        if (inputs.length < 1) {
+        var inputs = $("#ftux .panel-body input");
+        var checked = $("#ftux .panel-body input:checked");
+
+        if (inputs.length < 1 || checked.length < 1) {
             $("#ftuxStartImport").prop('disable', true).addClass('gray');
         } else {
             $("#ftuxStartImport").prop('disable', false).removeClass('gray');
