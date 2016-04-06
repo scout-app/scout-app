@@ -124,12 +124,15 @@ The  main files for Scout-App 2 are:
     * [x] ~~BUG 1: In Ubuntu & OSX, `@import 'buttons'` fails, as Scout-App isn't loading the mixin libraries for some reason. (TJW)~~
     * [x] ~~BUG 3: In Ubuntu, the auto-guesser crashes on [this specific repo](https://github.com/UniversalGUI/UniversalGUI.github.io). (TJW)~~
     * [x] ~~Upon creating a project, auto-guess input/output folders and project icon. (TJW)~~
-    * [x] ~~Create a way of having multiple projects, switching between them, and removing specific projects from Scout-App~~
-    * [ ] Work on FTUX/Empty State view. (TJW)
-    * [ ] Create ID system that will show alerts per project, and all together in the Status view. (TJW)
-    * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
-    * [ ] BUG 4: Projects object outputStyle not being set properly. Issues deleting projects.
+    * [x] ~~Create a way of having multiple projects, switching between them, and removing specific projects from Scout-App (TJW)~~
+    * [x] ~~Work on FTUX/Empty State view. (TJW)~~
+    * [x] ~~Create ID system that will show alerts per project, and all together in the Status view. (TJW)~~
+    * [x] ~~BUG 4: Projects object outputStyle not being set properly. Issues deleting projects. (TJW)~~
+    * [x] ~~Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations. (TJW)~~
+    * [x] ~~Auto-guesser applied to all projects in GitHub folder~~
+    * [ ] Add preference modal for language and theme settings.
     * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
+    * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
   * [ ] **To do:**
@@ -153,11 +156,11 @@ The  main files for Scout-App 2 are:
     * [ ] **To do:**
     * [ ] Clean up custom styles to allow for theme swapping. (SR)
     * [ ] Drag and drop sidebar items to reorder (HMN)
-    * [ ] Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations. (KE)
     * [ ] Make sidebar resizable
     * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Import/Export projects (Would anyone even want this feature?)
-    * [ ] Auto-guesser applied to all projects in GitHub folder
+    * [ ] Multi-project delete
+    * [ ] Delete settings file button in preferences
 
 
 * * *
