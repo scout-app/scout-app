@@ -130,8 +130,8 @@ The  main files for Scout-App 2 are:
     * [x] ~~BUG 4: Projects object outputStyle not being set properly. Issues deleting projects. (TJW)~~
     * [x] ~~Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations. (TJW)~~
     * [x] ~~Auto-guesser applied to all projects in GitHub folder~~
+    * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse. (TJW)
     * [ ] Add preference modal for language and theme settings.
-    * [ ] Make project icon show a `+` when hovering over it and allow changing it via click to browse.
     * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.

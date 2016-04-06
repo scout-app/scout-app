@@ -77,7 +77,7 @@
         var time = new Date().timeNow();
         var duration = message.stats.duration + scout.localize('MILLISECONDS_SHORT');
         if (message.stats.duration > 499) {
-            duration = (Math.round(message.stats.duration/100)/10) + ' ' + scout.localize("SECONDS", true);
+            duration = (Math.round(message.stats.duration/100)/10) + ' ' + scout.localize("SECONDS");
         }
 
         var processedTime = scout.localize("PROCESSED_IN_DURATION") ;

@@ -4,15 +4,42 @@
 $calcHeader: calc(100% - 106px)
 
 #project-settings
+    $projectIconSize: 80px
     #projectIcon
-        max-width: 100px
-        max-height: 80px
+        width: $projectIconSize
+        height: $projectIconSize
         background: #EDEDED
         border-radius: 8px
         margin: 8px 0px 0px 0px
         padding: 7px
         float: right
         box-shadow: inset 0px 1px 7px rgba(0, 0, 0, 0.15)
+    #projectIconHover
+        position: absolute
+        top: 67px
+        right: 33px
+        display: block
+        width: $projectIconSize
+        height: $projectIconSize
+        background: transparent
+        text-align: center
+        opacity: 0.0
+        cursor: pointer
+        transition: 1s ease opacity
+        &:hover
+            opacity: 1.0
+        .glyphicon-plus
+            display: block
+            width: $projectIconSize
+            height: $projectIconSize
+            background: rgba(0,0,0,0.5)
+            border-radius: 8px
+            border: 0px
+            color: #F0F0F0
+            font-size: 50px
+            line-height: $projectIconSize
+            text-shadow: 0px 0px 8px rgba(0,0,0,1)
+            box-shadow: inset 0px 0px 30px 16px rgba(0,0,0,0.6)
     #projectName
         width: $calcHeader
         word-break: break-all
