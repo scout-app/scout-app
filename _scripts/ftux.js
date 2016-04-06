@@ -169,11 +169,16 @@
                 evt.preventDefault();
                 return;
             }
+
+            //Prevent importing projects multiple times from double-clicks
+            $("#ftuxStartImport").addClass('gray');
+
             var inputs = $("#ftux .panel-body input:checked");
             for (var i = 0; i < inputs.length; i++) {
                 var path = $(inputs[i]).val();
                 scout.helpers.autoGenerateProject(path);
             }
+
             scout.helpers.saveSettings;
             unloadFTUX();
         });

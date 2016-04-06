@@ -13,6 +13,4 @@
 * on import projects
   * save settings
 
-* prevent multiple clicks on the import selected button
-
 * on ftux() only register browse button click once
