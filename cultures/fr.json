@@ -1,5 +1,6 @@
 {
     "ABOUT": "Sur",
+    "BROWSE": "Feuilleter",
     "CHECK_FOR_UPDATES": "Vérifier les mises à jour",
     "ABOUT_CONTRIBUTORS": "Les contributeurs du <a href='http://github.com/mhs/scout-app' class='external-link'>Scout-App</a>:",
     "ABOUT_DEPENDENCIES": "<strong>Scout-App</strong> utilise <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> et <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
@@ -48,6 +49,7 @@
     "STYLESHEET_DIRECTORIES": "Répertoires de Feuilles de Style",
     "TOGGLE_NAVIGATION": "Basculer la Navigation",
     "UPDATE_FOUND": "Mise à jour trouvée!",
+    "VERSION": "Version",
     "VIEW": "Vue",
     "VIEW_LATEST_RELEASE": "Voir dernière version",
     "WELCOME_INSTRUCTIONS": "Des projets d'auto-importation ci-dessous ou <strong><a id='ftuxPickFolder' href='#'>choisir un autre dossier</a></strong> pour importer des projets à partir.",

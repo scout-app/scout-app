@@ -47,6 +47,13 @@
             var langKey = $(altItem).data("langalt");
             $(altItem).attr("alt", localize(langKey) );
         }
+        //data-title
+        var titleItems = $("*[data-langtitle]");
+        for (var i = 0; i < titleItems.length; i++) {
+            var titleItem = titleItems[i];
+            var langKey = $(titleItem).data("langtitle");
+            $(titleItem).attr("title", localize(langKey) );
+        }
         //data-langarialabel
         var ariaLabelItems = $("*[data-langarialabel]");
         for (var i = 0; i < ariaLabelItems.length; i++) {
