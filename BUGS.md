@@ -1,7 +1,6 @@
 ### BUGS
 
-* On delete
-  * stop chokidar
+* On deletes
   * delete modal updates to be for the next project that gets auto-selected allowing you to double-delete on accident
 
 * on ftux() only register browse button click once

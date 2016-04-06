@@ -84,6 +84,8 @@
             }
         }
 
+        scout.helpers.stopWatching(projectID);
+
         //Save settings, update sidebar, click the top item in sidebar, run ftux if no items
         scout.helpers.saveSettings();
         scout.helpers.updateSidebar();
