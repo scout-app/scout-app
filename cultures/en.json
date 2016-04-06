@@ -36,6 +36,7 @@
     "OUTPUT_NESTED": "Nested",
     "OUTPUT_STYLE": "Output Style",
     "OUTPUT_WARNING": "Output can't match or be a subfolder of input.",
+    "PREFERENCES": "Preferences",
     "PROCESSED_IN_DURATION": "Processed in {{duration}}",
     "PRODUCTION": "Production",
     "PROJECT_CONTROLS": "Project Controls",

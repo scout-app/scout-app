@@ -36,6 +36,7 @@
     "OUTPUT_NESTED": "Imbriqué",
     "OUTPUT_STYLE": "Style de Sortie",
     "OUTPUT_WARNING": "La sortie peut ne pas correspondre ou être un sous-dossier d'entrée.",
+    "PREFERENCES": "Préférences",
     "PROCESSED_IN_DURATION": "Transformé au {{duration}}",
     "PRODUCTION": "Production",
     "PROJECT_CONTROLS": "Contrôle de Projets",
