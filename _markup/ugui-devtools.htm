@@ -1,4 +1,4 @@
-
+<!--
 <div id="uguiDevTools" class="slideHide">
 
 
@@ -6,8 +6,6 @@
   <nav>
     <span data-nav="uguiAbout">About</span>
     <span data-nav="uguiSwapper">Style Swapper</span>
-    <span class="hide" data-nav="uguiCommand">CMD Output</span>
-    <span class="hide" data-nav="uguiExecutable">Executable Info</span>
     <span data-nav="uguiShortcuts">Shortcuts</span>
   </nav>
 
@@ -23,11 +21,13 @@
 
 
 
-  <section class="uguiCommand">
-    <span>Select an executable to preview its output.</span>
-    <select class="executableName"></select>
-    <pre id="commandLine"></pre>
+  <section class="uguiSwapper">
+    <p>Test out different looks for your application. Click 'Keep' to use the currently display style</p>
+    <select id="swatchSwapper"></select>
+    <button id="setNewSwatch">Keep</button>
+    <span class="newSwatchSaved">Saved</span>
   </section>
+
 
 
 
@@ -43,37 +43,5 @@
 
 
 
-  <section class="uguiSwapper">
-    <p>Test out different looks for your application. Click 'Keep' to use the currently display style</p>
-    <select id="swatchSwapper"></select>
-    <button id="setNewSwatch">Keep</button>
-    <span class="newSwatchSaved">Saved</span>
-  </section>
-
-
-
-  <section class="uguiExecutable">
-    <div class="helpIntro">Get information from your executable.
-      <select class="executableName"></select>
-      <select class="helpDropdown">
-        <option></option>
-        <option value="/?">/?</option>
-        <option value="-?">-?</option>
-        <option value="--?">--?</option>
-        <option value="/help">/help</option>
-        <option value="-help">-help</option>
-        <option value="--help">--help</option>
-        <option value="/about">/about</option>
-        <option value="-about">-about</option>
-        <option value="--about">--about</option>
-        <option value="/h">/h</option>
-        <option value="-h">-h</option>
-        <option value="--h">--h</option>
-      </select>
-    </div>
-    <pre class="executableHelp"></pre>
-  </section>
-
-
-
 </div>
+-->
