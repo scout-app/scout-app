@@ -4,12 +4,13 @@
 @import "_var.sass";                  // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
 @import "_main.sass";                 // Main CSS for the app
 
-//Stuff that effects every page
+//Stuff that effects specific sections
 @import "_header.sass";               // CSS for the header and navigation at the top of the app.
 @import "_sidebar.sass";              // Custom styles for sidebar
 @import "_projectsettings.sass";      // Project controls, like input/output folder, environment, and output styles
 @import "_alerts.sass";               // Alerts, warnings and error messages
 @import "_ftux.sass";                 // First Time User Experience / Empty-State / Blank-State view
+@import "_preferences.sass";           // The Preferences modal
 
 //Stuff that goes at the end
 @import "_ugui.sass";                 // UGUI specific styles for UGUI dev tools and such
