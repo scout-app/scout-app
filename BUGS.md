@@ -1,9 +1,5 @@
 ### BUGS
 
-* On auto import
-  * production / compressed
-  * not: dev / expanded
-
 * On delete
   * stop chokidar
 

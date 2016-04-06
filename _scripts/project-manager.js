@@ -17,8 +17,8 @@
         $("#outputFolderBrowse").attr('nwworkingdir','...');
         $("#outputFolderBrowse").val('');
         $("#outputWarning").addClass('hide');
-        $('#environment input[data-argname="development"]').click();
-        $($("#outputStyle option")[0]).prop("selected", true);
+        $('#environment input[data-argname="production"]').click();
+        $($("#outputStyle option")[5]).prop("selected", true);
         $("#printConsole .alert, #printConsole .panel").addClass('hide');
 
         var newProject = {
