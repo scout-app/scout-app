@@ -211,7 +211,6 @@
         evt.stopPropagation();
     });
 
-
     //On page load have this run once
     unlockSubmit();
 
@@ -219,5 +218,44 @@
 
     $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
     $('.chokidarVersion').html('v' + scout.versions.chokidar);
+
+    /**
+     * OSX Keybindings.
+     * On Windows and Ubuntu Scout-App inherits the OS's global clipboard shortcuts.
+     * OSX needs you to spoon feed it how to copy and paste.
+     */
+    function osxKeyBindings() {
+        //Keyboard shortcuts
+        document.onkeydown = function(pressed) {
+            //Check CMD+V and CMD+v keys and paste
+            } else if (
+                pressed.metaKey && pressed.keyCode === 86 ||
+                pressed.metaKey && pressed.keyCode === 118 ) {
+                    pressed.preventDefault();
+                    document.execCommand("paste");
+                    return false;
+            //Check CMD+C and CMD+c keys and copy
+            } else if (
+                pressed.metaKey && pressed.keyCode === 67 ||
+                pressed.metaKey && pressed.keyCode === 99 ) {
+                    pressed.preventDefault();
+                    document.execCommand("copy");
+                    return false;
+            //Check CMD+X  and CMD+x and cut
+            } else if (
+                pressed.metaKey && pressed.keyCode === 88 ||
+                pressed.metaKey && pressed.keyCode === 120 ) {
+                    pressed.preventDefault();
+                    document.execCommand("cut");
+                    return false;
+            }
+        };
+    }
+
+    //run once on page load
+    if (process.platform == "darwin") {
+        osxKeyBindings();
+    }
+
 
 })();
