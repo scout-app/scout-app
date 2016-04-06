@@ -183,6 +183,9 @@
     //Click "Delete Project"
     $("#delete-project").click(function (evt) {
         evt.preventDefault();
+        var projectName = $("#projectName").text();
+        $(".project-name").text(projectName);
+        $("#confirm-delete").removeClass('gray');
         $("#delete-modal").fadeIn("slow");
 
         //Remove page scrollbar when modal displays
@@ -191,18 +194,27 @@
     //Confirm delete in the modal
     $("#confirm-delete").click(function (evt) {
         evt.preventDefault();
-        var id = $("#projectID").val();
-        //Remove project from the object
-        scout.helpers.removeProject(id);
-        //remove all related alerts/messages from the DOM
-        $("#printConsole ." + id + " .glyphicon-remove").click();
-        //Wipe out UI
-        scout.helpers.resetProjectUI();
-        $("#printConsole .alert, #printConsole .panel").addClass('hide');
-        removeModal();
-        if (scout.projects.length > 0) {
-            $($("#projects-list > div")[0]).click();
+
+        if (!$("#confirm-delete").hasClass('gray')) {
+            $("#confirm-delete").addClass('gray');
+
+            var id = $("#projectID").val();
+
+            //Remove project from the object
+            scout.helpers.removeProject(id);
+            //remove all related alerts/messages from the DOM
+            $("#printConsole ." + id + " .glyphicon-remove").click();
+
+            //Wipe out UI
+            scout.helpers.resetProjectUI();
+            $("#printConsole .alert, #printConsole .panel").addClass('hide');
+            removeModal();
+
+            if (scout.projects.length > 0) {
+                $($("#projects-list > div")[0]).click();
+            }
         }
+
     });
     //When clicking on background, cancel button, or X, remove modal
     $(".modal, #cancel-delete, .modal .glyphicon-remove").click( removeModal );
@@ -228,7 +240,7 @@
         //Keyboard shortcuts
         document.onkeydown = function(pressed) {
             //Check CMD+V and CMD+v keys and paste
-            } else if (
+            if (
                 pressed.metaKey && pressed.keyCode === 86 ||
                 pressed.metaKey && pressed.keyCode === 118 ) {
                     pressed.preventDefault();

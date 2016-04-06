@@ -165,7 +165,6 @@
         $("#projectFolder").val(        base.projectFolder);
         $("#inputFolder"  ).val(        base.inputFolder);
         $("#outputFolder" ).val(        base.outputFolder);
-        $(".project-name" ).text(       base.projectName);
 
         var workingDir = base.projectFolder;
         if (process.platform == "win32") {
