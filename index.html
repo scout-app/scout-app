@@ -75,19 +75,14 @@
       <section id="project-settings" class="row hide">
         <form role="form-inline">
 
-          <!--
-            <div id="DropZone" class="form-group jumbotron text-center well h3" title="Click to browse for your file.">
-              <span class="imageContainer"></span>
-              <label class="text-info h3 truncate" data-content="Dropped">Drag and Drop your file here.</label>
-              <input required="required" type="file" accept="image/png" />
-            </div>
-          -->
           <div class="row">
-            <img id="projectIcon" src="_img/logo_128.png" data-langalt="PROJECT_ICON" />
-            <span id="projectIconHover" data-langtitle="BROWSE">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-            </span>
-            <input id="projectIconBrowse" type="file" accepts=".bmp,.png,.jpg,.jpeg,.ico" class="hide" />
+            <div id="projectIconContainer">
+              <img id="projectIcon" src="_img/logo_128.png" data-langalt="PROJECT_ICON" />
+              <span id="projectIconHover" data-langtitle="BROWSE">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </span>
+              <input id="projectIconBrowse" type="file" nwworkingdir="..." accepts=".gif, .bmp, .png, .jpg, .jpeg, .ico" class="hide" />
+            </div>
             <h3 id="projectName"></h3>
             <input type="hidden" id="projectID" val="" disabled />
             <input type="text" id="projectFolder" class="form-control" value="" disabled />

@@ -7,18 +7,31 @@
 
     //Set the default starting folder for browse boxes
     var projectFolder = $("#projectFolder").val();
+    $("#projectIconBrowse").attr("nwworkingdir", projectFolder);
     $("#inputFolderBrowse").attr("nwworkingdir", projectFolder);
     $("#outputFolderBrowse").attr("nwworkingdir", projectFolder);
 
+    $("#projectIconHover").click( function () { $("#projectIconBrowse" ).click(); });
     $("#inputFolderIcon" ).click( function () { $("#inputFolderBrowse" ).click(); });
     $("#outputFolderIcon").click( function () { $("#outputFolderBrowse").click(); });
 
+    $("#projectIconBrowse").change(function () {
+        var newImg = $("#projectIconBrowse").val();
+        $("#projectIcon").attr('src', newImg);
+        var id = $("#projectID").val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (scout.projects[i].projectID == id) {
+                scout.projects[i].projectIcon = newImg;
+                scout.helpers.saveSettings();
+            }
+        }
+    });
     $("#inputFolderBrowse").change(function () {
         var newDir = $("#inputFolderBrowse").val();
         newDir = newDir.split('\\').join('\/');
         $("#inputFolder").val(newDir);
         forbidSameFolder();
-        var id = $("#projectID").val()
+        var id = $("#projectID").val();
         for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID == id) {
                 scout.projects[i].inputFolder = newDir;
@@ -31,7 +44,7 @@
         newDir = newDir.split('\\').join('\/');
         $("#outputFolder").val(newDir);
         forbidSameFolder();
-        var id = $("#projectID").val()
+        var id = $("#projectID").val();
         for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID == id) {
                 scout.projects[i].inputFolder = newDir;
@@ -40,7 +53,7 @@
         }
     });
     $("#outputStyle").change(function () {
-        var id = $("#projectID").val()
+        var id = $("#projectID").val();
         var outputStyle = $("#outputStyle").val();
         for (var i = 0; i < scout.projects.length; i++) {
             if (id == scout.projects[i].projectID) {

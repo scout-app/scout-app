@@ -5,15 +5,19 @@ $calcHeader: calc(100% - 106px)
 
 #project-settings
     $projectIconSize: 80px
-    #projectIcon
+    $projectIconPadding: 7px
+    #projectIconContainer
         width: $projectIconSize
         height: $projectIconSize
         background: #EDEDED
         border-radius: 8px
         margin: 8px 0px 0px 0px
-        padding: 7px
+        padding: $projectIconPadding
         float: right
         box-shadow: inset 0px 1px 7px rgba(0, 0, 0, 0.15)
+    #projectIcon
+        max-width: $projectIconSize - ($projectIconPadding * 2)
+        max-height: $projectIconSize - ($projectIconPadding * 2)
     #projectIconHover
         position: absolute
         top: 67px
