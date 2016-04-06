@@ -136,15 +136,17 @@ The  main files for Scout-App 2 are:
     * [ ] BUG 6: on ftux() only register browse button click once (Done. Need to test on OSX)
     * [ ] Add preference modal for language and theme settings.
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
-  * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun.
+  * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun **people are [signing up to be Beta Testers](https://github.com/mhs/scout-app/issues/230)**.
   * [ ] **To do:**
     * [ ] Once the app is pretty much functional, have the crew try it out and give input.
+    * [ ] Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js.
 * [ ] **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
   * [ ] **To do:**
+    * [ ] Optimize the payload, os we don't include any junk files.
     * [ ] Create custom build tools that package our app for distribution and remove files that are not needed in the production version
     * [ ] Test out the packaged versions on each targeted OS. Fix any issues that arise.
-* [ ] **Phase 4:** New website
+* [ ] **Phase 4:** New website **(Need help with this)** !!!!!!!!!!!!!!!
   * [ ] **Status:** Could be started at any point.
   * [ ] **To do:**
     * [ ] Design single page site for the app.
@@ -163,6 +165,7 @@ The  main files for Scout-App 2 are:
     * [ ] Import/Export projects (Would anyone even want this feature?)
     * [ ] Multi-project delete
     * [ ] Delete settings file button in preferences
+    * [ ] Accept pull requests for app translations.
 
 
 * * *
@@ -170,7 +173,7 @@ The  main files for Scout-App 2 are:
 ## Contributors to Scout-App 2
 
 * [TheJaredWilcurt](http://github.com/TheJaredWilcurt) - Creator, Maintainer, Project Manager
-* [Stephan Raab](http://github.com/StephanRaab) - Themes feature
+* [Stephan Raab](http://github.com/StephanRaab) - Themes feature - Bug Finder
 * [zdennis](http://github.com/zdennis) - UX Design and Planning
 * [mejiaj](http://github.com/mejiaj) - UX Design and Planning
 * [Mutually Human](http://github.com/mhs) - For creating the original Scout-App!
