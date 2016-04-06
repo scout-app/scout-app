@@ -182,6 +182,7 @@
             scout.helpers.saveSettings;
             unloadFTUX();
         });
+        $("#ftuxPickFolder").unbind("click");
         $("#ftuxPickFolder").click(function (evt) {
             evt.preventDefault();
             $("#ftuxProjectBrowse").click();
