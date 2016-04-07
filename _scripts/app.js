@@ -107,13 +107,13 @@
         });
     }
 
-    function startWatching (project) {
+    function startWatching (id) {
         //loop through all projects to find the one that matches
         for (var i = 0; i < scout.projects.length; i++) {
             //If the ID's match
-            if (project.projectID == scout.projects[i].projectID) {
+            if (scout.projects[i].projectID == id) {
                 //Create a chokidar watcher in that project
-                scout.projects[i].watcher = chokidar.watch(project.inputFolder, {
+                scout.projects[i].watcher = chokidar.watch(scout.projects[i].inputFolder, {
                     ignored: /[\/\\]\./,
                     persistent: true
                 });
@@ -123,8 +123,11 @@
                     //console.log(item);
                     //console.log(stats);
                     //debugger;
-                    processInputFolder(project);
+                    processInputFolder(scout.projects[i]);
                 });
+                //Update icon
+                scout.projects[i].indicator = "stop";
+                scout.helpers.updateSidebar();
             }
         }
     }
@@ -133,27 +136,36 @@
         for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID == id) {
                 var actionButtonIcon = $("#sidebar ." + id + " button .glyphicon");
+                //fix icon
                 if ($(actionButtonIcon).hasClass('glyphicon-stop')) {
                     //Update icon and color in sidebar
                     scout.projects[i].indicator = "play";
-                    //Stop watching the files for changes
-                    if (scout.projects[i].watcher) {
-                        scout.projects[i].watcher.close();
-                    }
-                } else {
-                    scout.helpers.processInputFolder(scout.projects[i]);
-                    //monitor inputFolder for changes
-                    scout.helpers.startWatching(scout.projects[i]);
-                    scout.projects[i].indicator = "stop";
                 }
-
+                //Stop watching the files for changes
+                if (scout.projects[i].watcher) {
+                    scout.projects[i].watcher.close();
+                }
+                scout.helpers.updateSidebar();
             }
         }
-        scout.helpers.updateSidebar();
+    }
+
+    //Loop through all projects and stop any of them that are running.
+    function killAllWatchers () {
+        if (scout.projects.length > 0) {
+            for (var i = 0; i < scout.projects.length; i++) {
+                if (scout.projects[i].watcher) {
+                    scout.projects[i].watcher.close();
+                    scout.projects[i].indicator = "play";
+                }
+            }
+            scout.helpers.updateSidebar();
+        }
     }
 
     scout.helpers.processInputFolder = processInputFolder;
     scout.helpers.startWatching = startWatching;
     scout.helpers.stopWatching = stopWatching;
+    scout.helpers.killAllWatchers = killAllWatchers;
 
 })(); // end runApp();

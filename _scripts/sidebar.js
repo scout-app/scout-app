@@ -60,7 +60,12 @@
             //Make sure the button isn't disabled
             if (!$(evt.currentTarget).hasClass('gray')) {
                 var id = $(evt.currentTarget).parent().data("id");
-                scout.helpers.stopWatching(id);
+                //
+                if ($(evt.currentTarget).hasClass('stop')) {
+                    scout.helpers.stopWatching(id);
+                } else if ($(evt.currentTarget).hasClass('play')) {
+                    scout.helpers.startWatching(id);
+                }
             }
         });
     }
