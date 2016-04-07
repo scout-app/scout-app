@@ -11,6 +11,7 @@
     "ALERT_TITLE": "<strong>{{time}}</ strong> Erreur (0x0{{code}}) - Ligne: <strong>{{bugLine}}</ strong> Col: <strong>{{col}}</ strong >",
     "APPLICATION_TITLE": "Scout-App: L'interface graphique Sass",
     "CANCEL": "Annuler",
+    "CAT_SCREAMING_NO": "Chat hurlant NON!",
     "CONFIRM_DELETE": "Êtes-vous sûr?",
     "DELETE": "Effacer",
     "DELETE_PROJECT": "Supprimer le Projet",
