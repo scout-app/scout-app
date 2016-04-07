@@ -135,6 +135,7 @@ The  main files for Scout-App 2 are:
     * [x] ~~Add preference modal for language and theme settings. (TJW)~~
     * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste (Done. Need to test on OSX)
     * [ ] BUG 6: on ftux() only register browse button click once (Done. Need to test on OSX)
+    * [ ] BUG 7: On OSX, browse for project folder doesn't click.
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun **people are [signing up to be Beta Testers](https://github.com/mhs/scout-app/issues/230)**.
   * [ ] **To do:**
