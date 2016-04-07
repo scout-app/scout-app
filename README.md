@@ -83,7 +83,9 @@ Scout-App 2.0 is built using the cross-platform runtime environment [NW.js](http
 
 * * *
 
-Once you have Scout-App running in NW.js click the menu/options button next to the address bar to open Chromium Developer Tools. In the console you might see this error:
+### If you get the LibSass error
+
+Once you have Scout-App running click the Dev Tools link in the View menu. In the console you might see this error:
 
     `libsass` bindings not found
 
@@ -95,14 +97,12 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 
 * * *
 
-## Project structure:
+### What you can help with
 
-The  main files for Scout-App 2 are:
-
-* **package.json** - The first thing NW.js looks at when you run the app. This gives instructions on how to open and display a window for the user (the size of it, if it has a native UI framed border, etc). This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have the toolbar set to false.
-* **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will remove the gray developer bar at the bottom of the app. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
-* **_scripts/** - Many of our the App's custom JS is modularized into files here, like `alerts.js` or `project-manager.js`.
-* **_scripts/ugui.js** - This library has a ton of useful tools, view [UGUI API](http://ugui.io/api) for more information.
+* **Translate the app** - This is the least techinal part. Simple edit the excel sheet in the cultures folder and add a new language. You can even pick an image to be shown in the selection screen.
+* **Report Bugs** - [Make a GitHub Issue](http://github.com/mhs/scout-app/) for any bug you find. Include steps to repoduce the issue and a screenshot if possible.
+* **Website** - Scout-App 2 needs a new site! (See Phase 4 below)
+* **App Features** - There is a list of desired features and tasks below.
 
 * * *
 
@@ -168,13 +168,23 @@ The  main files for Scout-App 2 are:
     * [ ] Delete settings file button in preferences
     * [ ] Accept pull requests for app translations.
 
+* * *
+
+## Project structure:
+
+The  main files for Scout-App 2 are:
+
+* **package.json** - The first thing NW.js looks at when you run the app. This gives instructions on how to open and display a window for the user (the size of it, if it has a native UI framed border, etc). This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have the toolbar set to false.
+* **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will remove the gray developer bar at the bottom of the app. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
+* **_scripts/** - Many of our the App's custom JS is modularized into files here, like `alerts.js` or `project-manager.js`.
+* **_scripts/ugui.js** - This library has a ton of useful tools, view [UGUI API](http://ugui.io/api) for more information.
 
 * * *
 
 ## Contributors to Scout-App 2
 
 * [TheJaredWilcurt](http://github.com/TheJaredWilcurt) - Creator, Maintainer, Project Manager
-* [Stephan Raab](http://github.com/StephanRaab) - Themes feature - Bug Finder
+* [Stephan Raab](http://github.com/StephanRaab) - Themes feature - Bug Finder - French translation
 * [zdennis](http://github.com/zdennis) - UX Design and Planning
 * [mejiaj](http://github.com/mejiaj) - UX Design and Planning
 * [Mutually Human](http://github.com/mhs) - For creating the original Scout-App!
