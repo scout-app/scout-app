@@ -20,7 +20,25 @@
     var fs = require('fs.extra');
 
     //The Node Sass Vendor folder is our Destination
+    var nsPath = 'node_modules/node-sass';
+
+    //Check to see if there is an existing Vendor folder
+    var nsContents = ugui.helpers.readAFolder(nsPath);
+    var vendorFolder = false;
+
+    for (var h = 0; h < nsContents.length; h++) {
+        if (nsContents[h].name.toLowerCase() == "vendor") {
+            vendorFolder = true;
+        }
+    }
+
+    //The Node Sass Vendor folder is our Destination
     var nsVenDestinationPath = 'node_modules/node-sass/vendor';
+
+    if (!vendorFolder) {
+        ugui.helpers.createAFolder(nsVenDestinationPath);
+    }
+
     //Read the contents of the folder
     ugui.helpers.readAFolder(nsVenDestinationPath, function (contents) {
         var win = require('nw.gui').Window.get();
