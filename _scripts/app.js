@@ -128,6 +128,7 @@
                 //Update icon
                 scout.projects[i].indicator = "stop";
                 scout.helpers.updateSidebar();
+                processInputFolder(scout.projects[i]);
             }
         }
     }
@@ -144,6 +145,7 @@
                 //Stop watching the files for changes
                 if (scout.projects[i].watcher) {
                     scout.projects[i].watcher.close();
+                    scout.projects[i].watcher = "";
                 }
                 scout.helpers.updateSidebar();
             }

@@ -61,9 +61,9 @@
             if (!$(evt.currentTarget).hasClass('gray')) {
                 var id = $(evt.currentTarget).parent().data("id");
                 //
-                if ($(evt.currentTarget).hasClass('stop')) {
+                if ($(evt.currentTarget).children().hasClass('glyphicon-stop')) {
                     scout.helpers.stopWatching(id);
-                } else if ($(evt.currentTarget).hasClass('play')) {
+                } else if ($(evt.currentTarget).children().hasClass('glyphicon-play')) {
                     scout.helpers.startWatching(id);
                 }
             }
