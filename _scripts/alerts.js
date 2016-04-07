@@ -86,7 +86,7 @@
         '<div class="alert alert-success ' + projectID + '" role="alert" title="' + processedTime + '">' +
           '<strong>' + time + '</strong> ' +
           folderAndFile +
-          '<span class="pull-right glyphicon glyphicon-remove text-success"></span>' +
+          '<span class="pull-right glyphicon glyphicon-remove"></span>' +
         '</div>';
 
         $("#printConsole").prepend(formattedMessage);
