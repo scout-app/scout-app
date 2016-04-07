@@ -48,19 +48,21 @@
             myDocsPath = homePath + "/Documents";
         }
 
-        //Check the user profile for common project folders
-        var contents = ugui.helpers.readAFolder(homePath);
-        for (var i = 0; i < contents.length; i++) {
-            for (var j = 0; j < autoProjects.length; j++) {
-                if (contents[i].name.toLowerCase() == autoProjects[j]) {
-                    projectsFolder = homePath.split('\\').join('/') + '/' + contents[i].name;
-                    scout.ftux.projectsFolder = projectsFolder;
-                    return;
+        if (homePath) {
+            //Check the user profile for common project folders
+            var contents = ugui.helpers.readAFolder(homePath);
+            for (var i = 0; i < contents.length; i++) {
+                for (var j = 0; j < autoProjects.length; j++) {
+                    if (contents[i].name.toLowerCase() == autoProjects[j]) {
+                        projectsFolder = homePath.split('\\').join('/') + '/' + contents[i].name;
+                        scout.ftux.projectsFolder = projectsFolder;
+                        return;
+                    }
                 }
             }
         }
         //then look in My Docs if it isn't in the user profile
-        if (!projectsFolder) {
+        if (!projectsFolder && myDocsPath) {
             var myDocsContents = ugui.helpers.readAFolder(myDocsPath);
             for (var i = 0; i < myDocsContents.length; i++) {
                 for (var j = 0; j < autoProjects.length; j++) {
