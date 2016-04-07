@@ -96,7 +96,7 @@
                     //Display a message in the About Modal informing the user they have the latest version
                     $("#updateResults").html(
                         '<p class="text-center">' +
-                          '<strong>' + scout.localize('LATEST_VERSION') + '</strong>' +
+                          '<strong data-lang="LATEST_VERSION">' + scout.localize('LATEST_VERSION') + '</strong>' +
                         '</p>'
                     );
                 }

@@ -20,6 +20,8 @@
         scout.helpers.setLanguage(lang);
         $("#culture-pics img").addClass("hide");
         $("#culture-pics ." + lang).removeClass("hide");
+        scout.helpers.updateSidebar();
+        scout.helpers.ftux();
     });
 
     //Show the correct cultural image
