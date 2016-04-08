@@ -1,6 +1,6 @@
 
 /*
-  Event bindings and DOM Manipulation
+  Event bindings and DOM Manipulation.
 */
 
 (function(){

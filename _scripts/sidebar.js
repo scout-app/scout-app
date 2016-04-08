@@ -1,6 +1,6 @@
 
 /*
-  Controls for the sidebar
+  Controls for the sidebar, its icons, and click events.
 */
 
 (function(){

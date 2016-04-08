@@ -162,7 +162,7 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
     * [ ] Listing of Mixins that are supported out of the box
 * [ ] **Phase 5:** Bug fixes/Additional features/Maintenance
   * [ ] **Status:** Lower priority features, some have been claimed
-    * [ ] **To do:**
+  * [ ] **To do:**
     * [ ] Drag and drop sidebar items to reorder (HMN)
     * [ ] Right-click to delete an project from the sidebar
     * [ ] Make sidebar resizable
@@ -181,7 +181,7 @@ The  main files for Scout-App 2 are:
 
 * **package.json** - The first thing NW.js looks at when you run the app. This gives instructions on how to open and display a window for the user (the size of it, if it has a native UI framed border, etc). This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have the toolbar set to false.
 * **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will remove the gray developer bar at the bottom of the app. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
-* **_scripts/** - Many of our the App's custom JS is modularized into files here, like `alerts.js` or `project-manager.js`.
+* **_scripts/** - The logic for Scout-App's UI is modularized into several JS file here, like `preferences.js`, `sidebar.js` or `project-manager.js`.
 * **_scripts/ugui.js** - This library has a ton of useful tools, view [UGUI API](http://ugui.io/api) for more information.
 
 * * *

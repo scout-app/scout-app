@@ -1,7 +1,10 @@
 
 /*
-  Reads the scout-settings.json file from the appdata folder.
-  Updates window.scout.projects and window.scout.cultureCode.
+  This will read the user's scout-settings.json file from
+  their OS's application data folder. Each OS stores this in
+  a different place. The we update:
+   * window.scout.projects
+   * window.scout.cultureCode.
 */
 
 (function(){

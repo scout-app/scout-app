@@ -1,9 +1,8 @@
 
 /*
   This file contains chunks from ugui.js copy/pasted in and modifed.
-  Most of these will then be placed back on the window.ugui object,
-  to replace the original. This means updating to newer versions of
-  ugui.js in the future will be easier.
+  Hopefully this will make updating to newer versions of ugui.js
+  easier in the future.
 */
 
 (function(){

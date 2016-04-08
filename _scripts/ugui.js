@@ -1,6 +1,20 @@
-//UGUI is a library and framework used to bootstrap NW.js
-//projects however it specializes in allowing the quick and
-//easy conversion of CLI to GUI.
+
+/*
+  UGUI.js is a library and framework that was used to get
+  Scout-App up and running very, very quickly. It has
+  many helper functions that we use, like for reading and
+  creating folders and files.
+
+  Some parts of this file have been modified from the
+  original source. We'll be looking at how to better handle
+  ugui.js in the future so we won't need to manually update
+  each time.
+*/
+
+
+
+
+
 
 //## TABLE OF CONTENTS
 //

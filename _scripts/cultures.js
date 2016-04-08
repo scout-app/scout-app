@@ -1,8 +1,8 @@
 
 /*
-  Localization, Internationalization, language files
+  Localization, Internationalization, language files.
   Set the correct language. Read the language file.
-  Update scout.dictionary.
+  Update scout.dictionary. Update the UI.
 */
 
 (function(){

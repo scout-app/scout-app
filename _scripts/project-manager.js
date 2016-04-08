@@ -1,6 +1,8 @@
 
 /*
-  The handles creating new projects, saving them, and loading them.
+  Manipulates the state of all projects in the app. Handles adding and
+  removing them from window.scout.projects. Also updating the project
+  settings view.
 */
 
 (function(){

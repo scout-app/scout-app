@@ -1,8 +1,9 @@
 
 /*
-    When you do npm install libsass will download the version that matches
-    your OS and Node Version. Since NW.js uses a different version of Node
-    than what you have installed, it needs a different version of libsass.
+    When you do npm install, libsass will download the version that matches
+    your OS and Node Version. Since NW.js has a different version of Node
+    built-in than what you have installed, it needs a different version of
+    libsass.
 
     We include the correct version from each OS in the _assets folder. On
     page load, if the correct version of libsass is not installed, we
