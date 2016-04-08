@@ -108,9 +108,9 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 
 ## Project management:
 
-* [ ] **Phase 1**: Beautiful, functional, and ease of use (TJW)
-  * [ ] **Status:** In progress, semi-functional
-  * [ ] **To do:**
+* [x] **Phase 1**: Beautiful, functional, and ease of use (TJW)
+  * [x] **Status:** COMPLETE
+  * [x] **To do:**
     * [x] ~~Clean up project folder. (TJW)~~
     * [x] ~~Handle a single project with input and output of files in specified folders. (TJW)~~
     * [x] ~~Fix Output Style options (nested, expanded, compact, compressed) (TJW)~~
@@ -131,24 +131,27 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
     * [x] ~~Localize the app. Create a template system, extract all text to a `en.json` file and allow for translations. (TJW)~~
     * [x] ~~Auto-guesser applied to all projects in GitHub folder~~
     * [x] ~~Make project icon show a `+` when hovering over it and allow changing it via click to browse. (TJW)~~
+    * [x] ~~Clean up custom styles to allow for theme swapping. (SR)~~
     * [x] ~~BUG 5: Delete modal updates to be for the next project that gets auto-selected allowing you to double-delete on accident (TJW)~~
     * [x] ~~Add preference modal for language and theme settings. (TJW)~~
-    * [ ] BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste (Done. Need to test on OSX)
-    * [ ] BUG 6: on ftux() only register browse button click once (Done. Need to test on OSX)
-    * [ ] BUG 7: On OSX, browse for project folder doesn't click.
+    * [x] ~~BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste (TJW)~~
+    * [x] ~~BUG 6: on ftux() only register browse button click once (TJW)~~
+    * [x] ~~BUG 7: On OSX, browse for project folder doesn't click. (TJW)~~
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
-  * [ ] **Status:** Some [discussions on UX and design](https://github.com/mhs/scout-app/issues/186) have begun **people are [signing up to be Beta Testers](https://github.com/mhs/scout-app/issues/230)**.
+  * [ ] **Status:**: [Open enrollment for Beta Testers](https://github.com/mhs/scout-app/issues/230)
   * [ ] **To do:**
+    * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
     * [ ] Once the app is pretty much functional, have the crew try it out and give input.
     * [ ] Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js.
+    * [ ] BUG 8: Run a project then add new project, the running icon will show as play instead of stop.
 * [ ] **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
   * [ ] **To do:**
     * [ ] Optimize the payload, os we don't include any junk files.
     * [ ] Create custom build tools that package our app for distribution and remove files that are not needed in the production version
     * [ ] Test out the packaged versions on each targeted OS. Fix any issues that arise.
-* [ ] **Phase 4:** New website **(Need help with this)** !!!!!!!!!!!!!!!
-  * [ ] **Status:** Could be started at any point.
+* [ ] **Phase 4:** NEW WEBSITE **(Need help with this)** !!!!!!!!!!!!!!!
+  * [ ] **Status:** Could be started at any point (hint hint).
   * [ ] **To do:**
     * [ ] Design single page site for the app.
     * [ ] Capture some sexy screenshots
@@ -159,8 +162,8 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 * [ ] **Phase 5:** Bug fixes/Additional features/Maintenance
   * [ ] **Status:** Lower priority features, some have been claimed
     * [ ] **To do:**
-    * [ ] Clean up custom styles to allow for theme swapping. (SR)
     * [ ] Drag and drop sidebar items to reorder (HMN)
+    * [ ] Right-click to delete an project from the sidebar
     * [ ] Make sidebar resizable
     * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
     * [ ] Import/Export projects (Would anyone even want this feature?)
