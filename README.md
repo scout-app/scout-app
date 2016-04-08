@@ -171,6 +171,7 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
     * [ ] Multi-project delete
     * [ ] Delete settings file button in preferences
     * [ ] Accept pull requests for app translations.
+    * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button
 
 * * *
 

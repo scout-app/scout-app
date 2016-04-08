@@ -41,6 +41,14 @@
         scout.projects = settingsObj.projects;
         scout.cultureCode = settingsObj.cultureCode || "en";
 
+        for (var i = 0; i < scout.projects.length; i++) {
+            var project = scout.projects[i];
+            project.watcher = "";
+            if (project.indicator == "stop") {
+                project.indicator = "play";
+            }
+        }
+
         //Update dictionary
         scout.helpers.setLanguage(scout.cultureCode);
     }

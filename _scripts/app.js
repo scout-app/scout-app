@@ -157,7 +157,11 @@
         if (scout.projects.length > 0) {
             for (var i = 0; i < scout.projects.length; i++) {
                 if (scout.projects[i].watcher) {
-                    scout.projects[i].watcher.close();
+                    try {
+                        scout.projects[i].watcher.close();
+                    } catch (err) {
+                        console.log("No since beating a dead horse");
+                    }
                     scout.projects[i].indicator = "play";
                 }
             }
