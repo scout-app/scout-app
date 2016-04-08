@@ -1,0 +1,35 @@
+
+WinRAR SFX Options:
+
+* General:
+Path to extract: Scout-App
+Create in "Program Files"
+
+* Setup
+blank/blank
+
+* Modes
+Unchecked/blank/blank/Display all
+
+* Advanced
+Delete:
+blank
+Shortcuts:
+P, Scout.exe, Scout-App, "Process Sass files to CSS", Scout-App, 
+D, Scout.exe, Scout-App, "Process Sass files to CSS", Scout-App, 
+
+* Update
+Extract and replace/Overwrite all files
+
+* Text and Icon
+Title: Scout-App: The Sass GUI
+Load text from file...: _assets/Install Text.txt
+SFX Logo: _assets/sfxlogo.bmp
+SFX Icon: _img/favicon.ico
+
+* License
+Title: The MIT License (MIT)
+Load text from file: LICENSE
+
+* Module
+default.sfx | Windows GUI RAR SFX

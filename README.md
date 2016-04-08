@@ -43,7 +43,6 @@ Code                                     | Source
 `@import "blueplate";`                   | [github.com/chrishumboldt/Blueplate          ](https://github.com/chrishumboldt/Blueplate)
 `@import "saffron";`                     | [github.com/corporadobob/saffron             ](https://github.com/corporadobob/saffron)
 `@import "scut";`                        | [github.com/davidtheclark/scut               ](https://github.com/davidtheclark/scut)
-`@import "sunglass";`                    | [github.com/devatrox/Sunglass                ](https://github.com/devatrox/Sunglass)
 `@import "su";`                          | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
 `@import "susy";`                        | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
 `@import "susyone";`                     | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
