@@ -7,6 +7,11 @@
 (function(){
 
     function alert (error, projectID) {
+        if ($("#project-settings").is(":visible")) {
+            var id = $("#projectID").val();
+            $("#sidebar ." + id).click();
+        }
+
         projectID = projectID || "sa0";
         var file = error.file;
         var bugLine = error.line;
@@ -68,9 +73,16 @@
                 $(this).remove();
             });
         });
+
+        $("#sidebar .active").click();
     }
 
     function message (message, projectID) {
+        if ($("#project-settings").is(":visible")) {
+            var id = $("#projectID").val();
+            $("#sidebar ." + id).click();
+        }
+
         projectID = projectID || "sa0";
         var folderPathSplit = message.stats.entry.split('\\').join('/').split('/');
         var folderAndFile = folderPathSplit[folderPathSplit.length - 2] + '\\' + folderPathSplit[folderPathSplit.length - 1];
@@ -96,6 +108,8 @@
                 $(this).remove();
             });
         });
+
+        $("#sidebar .active").click();
     }
 
     scout.helpers.alert = alert;

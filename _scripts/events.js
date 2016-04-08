@@ -116,14 +116,22 @@
     function unlockSubmit (id) {
         id = id || $("#projectID").val();
         for (var i = 0; i < scout.projects.length; i++) {
-            var inputDir = scout.projects[i].inputFolder;
-            var outputDir = scout.projects[i].outputFolder;
-            if ( inputDir === "" || outputDir === "" ) {
-                scout.projects[i].indicator = "gray-play";
-            } else if ( (inputDir === outputDir) || (outputDir.startsWith(inputDir + '/')) ) {
-                scout.projects[i].indicator = "gray-play";
+            var project  = scout.projects[i];
+            var inputDir = project.inputFolder;
+            var outputDir = project.outputFolder;
+            if (
+                (inputDir === "") ||
+                (outputDir === "") ||
+                (inputDir === outputDir) ||
+                (outputDir.startsWith(inputDir + '/')) ||
+                (outputDir.startsWith(inputDir + '\\'))
+            ) {
+                project.indicator = "gray-play";
+                scout.helpers.stopWatching( project.projectID );
+            } else if (project.indicator == "stop") {
+                project.indicator = "stop";
             } else {
-                scout.projects[i].indicator = "play";
+                project.indicator = "play";
             }
         }
         scout.helpers.updateSidebar();

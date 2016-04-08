@@ -137,13 +137,14 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
     * [x] ~~BUG 2: In OSX, CMD+V doesn't paste. Implement shortcuts for cut/copy/paste (TJW)~~
     * [x] ~~BUG 6: on ftux() only register browse button click once (TJW)~~
     * [x] ~~BUG 7: On OSX, browse for project folder doesn't click. (TJW)~~
+    * [x] ~~BUG 8: Run a project then add new project, the running icon will show as play instead of stop. (TJW)~~
+    * [x] ~~BUG 9: Select project settings A, run project B. It displays status updates of B on Settings view of A. (TJW)~~
 * [ ] **Phase 2:** Community Input and bugs (ZD/JM)
   * [ ] **Status:**: [Open enrollment for Beta Testers](https://github.com/mhs/scout-app/issues/230)
   * [ ] **To do:**
     * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
     * [ ] Once the app is pretty much functional, have the crew try it out and give input.
     * [ ] Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js.
-    * [ ] BUG 8: Run a project then add new project, the running icon will show as play instead of stop.
 * [ ] **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
   * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
   * [ ] **To do:**
