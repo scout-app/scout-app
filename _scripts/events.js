@@ -47,7 +47,7 @@
         var id = $("#projectID").val();
         for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID == id) {
-                scout.projects[i].inputFolder = newDir;
+                scout.projects[i].outputFolder = newDir;
                 scout.helpers.saveSettings();
             }
         }
