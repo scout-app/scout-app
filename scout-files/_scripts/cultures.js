@@ -74,7 +74,7 @@
     function setLanguage (userLanguage) {
         userLanguage = userLanguage || "en";
         scout.cultureCode = userLanguage;
-        var dictionary = ugui.helpers.readAFile('cultures/' + userLanguage + '.json');
+        var dictionary = ugui.helpers.readAFile('scout-files/cultures/' + userLanguage + '.json');
         dictionary = JSON.parse(dictionary);
         window.dictionary = dictionary;
         if (scout.helpers.saveSettings) {

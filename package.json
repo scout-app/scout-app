@@ -2,7 +2,7 @@
     "name": "Scout-App",
     "homepage": "https://mhs.github.io/scout-app",
     "version": "2.0.0-alpha",
-    "author": "The Jared Wilcurt, ZD, JM",
+    "author": "The Jared Wilcurt, Zach Dennis",
     "description": "Sass without all the hassle.",
     "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Mixins", "Cross-Platform" ],
     "maintainers":[{
@@ -19,10 +19,10 @@
         "url": "git://github.com/mhs/scout-app.git"
     }],
     "bugs": "https://github.com/mhs/scout-app/issues",
-    "main": "index.html",
+    "main": "scout-files/index.html",
     "window": {
         "title": "Scout-App: The Sass GUI",
-        "icon": "_img/logo_32.png",
+        "icon": "scout-files/_img/logo_32.png",
         "toolbar": false,
         "resizable": true,
         "visible": true,
@@ -42,7 +42,7 @@
     },
     "nodejs": true,
     "single-instance": true,
-    "node-main": "_scripts/node.js",
+    "node-main": "scout-files/_scripts/node.js",
     "webkit": {
         "page-cache": false,
         "java": false,

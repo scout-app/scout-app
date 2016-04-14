@@ -57,7 +57,7 @@
         var outputStyle = project.outputStyle;
         var sourceMap = false;
         //Get the mixins config file
-        var mixins = ugui.helpers.readAFile('mixins' + slash + 'mixins.config');
+        var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
         //put split based on returns
         if (process.platform == "win32") {
             mixins = mixins.split('\r\n');
@@ -81,7 +81,7 @@
 
         var fullFilePath = project.inputFolder + slash + inputFileName + inputFileExt;
         var outputFullFilePath = project.outputFolder + slash + inputFileName + '.css';
-
+debugger;
         //Use node-sass to convert sass or scss to css
         sass.render({
             'file': fullFilePath,
@@ -156,11 +156,11 @@
     function killAllWatchers () {
         if (scout.projects.length > 0) {
             for (var i = 0; i < scout.projects.length; i++) {
-                if (scout.projects[i].watcher) {
+                if (scout.projects[i].watcher && typeof(scout.projects[i].watcher) == "object") {
                     try {
                         scout.projects[i].watcher.close();
                     } catch (err) {
-                        console.log("No since beating a dead horse");
+                        console.info('The watcher for this project is already turned off.');
                     }
                     scout.projects[i].indicator = "play";
                 }
