@@ -40,7 +40,6 @@ Code                                     | Source
 `@import "bi-app-ltr";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
 `@import "bi-app-rtl";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
 `@import "pineapple-sass";`              | [github.com/ArunMichaelDsouza/pineapple-sass ](https://github.com/ArunMichaelDsouza/pineapple-sass))
-`@import "blueplate";`                   | [github.com/chrishumboldt/Blueplate          ](https://github.com/chrishumboldt/Blueplate)
 `@import "saffron";`                     | [github.com/corporadobob/saffron             ](https://github.com/corporadobob/saffron)
 `@import "scut";`                        | [github.com/davidtheclark/scut               ](https://github.com/davidtheclark/scut)
 `@import "su";`                          | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
