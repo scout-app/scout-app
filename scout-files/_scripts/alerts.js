@@ -69,9 +69,7 @@
         $("#printConsole").prepend(formmatedError);
 
         $("#printConsole .panel .glyphicon-remove").click( function () {
-            $(this).parent().parent().fadeOut(400, "linear", function () {
-                $(this).remove();
-            });
+            $(this).parent().parent().remove();
         });
 
         $("#sidebar .active").click();
@@ -104,9 +102,7 @@
         $("#printConsole").prepend(formattedMessage);
 
         $("#printConsole .alert .glyphicon-remove").click( function () {
-            $(this).parent().fadeOut(400, "linear", function () {
-                $(this).remove();
-            });
+            $(this).parent().remove();
         });
 
         $("#sidebar .active").click();
