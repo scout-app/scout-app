@@ -56,7 +56,7 @@
                 //If the OS and Architecture are supported
                 } else if (os == "darwin" || os == "freebsd" || os == "linux" || os == "win32") {
                     //Set the source path
-                    var nsVenSourcePath = '_assets/node-sass_v3.4.2';
+                    var nsVenSourcePath = 'scout-files/_assets/node-sass_v3.4.2';
                     var folderName = '/' + os + '-' + arch + '-43';
                     var file = '/binding.node';
                     var nsVenSource = nsVenSourcePath + folderName + file;

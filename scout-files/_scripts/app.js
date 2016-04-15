@@ -81,7 +81,7 @@
 
         var fullFilePath = project.inputFolder + slash + inputFileName + inputFileExt;
         var outputFullFilePath = project.outputFolder + slash + inputFileName + '.css';
-debugger;
+
         //Use node-sass to convert sass or scss to css
         sass.render({
             'file': fullFilePath,
