@@ -1,7 +1,7 @@
 {
     "name": "Scout-App",
     "homepage": "https://mhs.github.io/scout-app",
-    "version": "2.0.0-alpha",
+    "version": "2.0.0-beta",
     "author": "The Jared Wilcurt, Zach Dennis",
     "description": "Sass without all the hassle.",
     "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Mixins", "Cross-Platform" ],
