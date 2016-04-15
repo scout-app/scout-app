@@ -57,7 +57,7 @@
         var outputStyle = project.outputStyle;
         var sourceMap = false;
         //Get the mixins config file
-        var mixins = ugui.helpers.readAFile('mixins' + slash + 'mixins.config');
+        var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
         //put split based on returns
         if (process.platform == "win32") {
             mixins = mixins.split('\r\n');
@@ -81,7 +81,7 @@
 
         var fullFilePath = project.inputFolder + slash + inputFileName + inputFileExt;
         var outputFullFilePath = project.outputFolder + slash + inputFileName + '.css';
-
+debugger;
         //Use node-sass to convert sass or scss to css
         sass.render({
             'file': fullFilePath,
@@ -110,25 +110,30 @@
     function startWatching (id) {
         //loop through all projects to find the one that matches
         for (var i = 0; i < scout.projects.length; i++) {
+            //This is to preserve the correct index number for the watcher below.
+            //The string version is a copy of the index and thus does not get manipulated by the i++.
+            //It is naturally coerced from string to number.
+            var I = i.toString();
+
             //If the ID's match
-            if (scout.projects[i].projectID == id) {
+            if (scout.projects[I].projectID == id) {
                 //Create a chokidar watcher in that project
-                scout.projects[i].watcher = chokidar.watch(scout.projects[i].inputFolder, {
+                scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, {
                     ignored: /[\/\\]\./,
                     persistent: true
                 });
                 //Detect file changes and reprocess Sass files
-                scout.projects[i].watcher.on('change', function (item, stats) {
+                scout.projects[I].watcher.on('change', function (item, stats) {
                     //TODO: See if it's possible to only report changed files
                     //console.log(item);
                     //console.log(stats);
                     //debugger;
-                    processInputFolder(scout.projects[i]);
+                    processInputFolder(scout.projects[I]);
                 });
                 //Update icon
-                scout.projects[i].indicator = "stop";
+                scout.projects[I].indicator = "stop";
                 scout.helpers.updateSidebar();
-                processInputFolder(scout.projects[i]);
+                processInputFolder(scout.projects[I]);
             }
         }
     }
@@ -156,11 +161,11 @@
     function killAllWatchers () {
         if (scout.projects.length > 0) {
             for (var i = 0; i < scout.projects.length; i++) {
-                if (scout.projects[i].watcher) {
+                if (scout.projects[i].watcher && typeof(scout.projects[i].watcher) == "object") {
                     try {
                         scout.projects[i].watcher.close();
                     } catch (err) {
-                        console.log("No since beating a dead horse");
+                        console.info('The watcher for this project is already turned off.');
                     }
                     scout.projects[i].indicator = "play";
                 }

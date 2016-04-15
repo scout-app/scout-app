@@ -2482,7 +2482,7 @@ function putExeHelpInDevTools() {
 //
 function swatchSwapper() {
     //Grab all the files in the `ven.bootswatch` folder and put them in an array
-    var allSwatches = fs.readdir("_style/ven.bootswatch", function(err, files) {
+    var allSwatches = fs.readdir("scout-files/_style/ven.bootswatch", function(err, files) {
         //If that works
         if (!err) {
             //Check each file and put it in the dropdown box
