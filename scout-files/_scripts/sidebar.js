@@ -70,7 +70,8 @@
         });
     }
 
-    //Run once on start
+    //Empties the sidebar of projects
+    //loops through the scout.projects object to recreate the sidebar
     scout.helpers.updateSidebar = updateSidebar;
 
 })();
