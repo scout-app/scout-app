@@ -1,4 +1,4 @@
-#![Scout-App Logo](_img/scout-wordmark-tiny.png "Scout-App Logo") Scout-App 2.0
+#![Scout-App Logo](scout-files/_img/scout-wordmark-tiny.png "Scout-App Logo") Scout-App 2.0
 
 Scout-App allows you to process your `.sass` and `.scss` files into CSS without needing any knowledge of the command line.
 
