@@ -58,17 +58,24 @@
         }
         var outputStyle = project.outputStyle;
         var sourceMap = false;
+        var pathToProject = ugui.app.pathToProject;
         //Get the mixins config file
         var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
         //put split based on returns
         if (process.platform == "win32") {
             mixins = mixins.split('\r\n');
+            pathToProject = pathToProject.replace("/","");
         } else {
             mixins = mixins.split('\n');
         }
 
         //Remove empty strings from the array
         mixins = mixins.filter(Boolean);
+
+        //Prepend all mixin paths with the path to the Scout-App folder
+        for (var i = 0; i < mixins.length; i++) {
+            mixins[i] = pathToProject + mixins[i];
+        }
 
         var devMode = false;
         //project.environment will return "production" or "development"
