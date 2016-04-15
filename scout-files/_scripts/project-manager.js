@@ -134,6 +134,32 @@
         saveSettings();
     }
 
+    function saveCurrentProject () {
+        var id = $("#projectID").val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            var project = scout.projects[i];
+            if (id == project.projectID) {
+                project.projectIcon = $("#projectIcon").attr("src");
+
+                project.inputFolder = $("#inputFolder").val();
+                project.outputFolder = $("#outputFolder").val();
+
+                var devChecked = $('#environment input[data-argname="development"]').prop("checked");
+                var prodChecked = $('#environment input[data-argname="production"]').prop("checked");
+                var environment = "production";
+                if (devChecked) {
+                    environment = "development";
+                } else if (prodChecked) {
+                    environment = "production";
+                }
+                project.environment = environment;
+
+                project.outputStyle = $("#outputStyle").val();
+            }
+        }
+        saveSettings();
+    }
+
     function saveSettings () {
         var appData = require('nw.gui').App.dataPath;
         appData.split('\\').join('/');
@@ -213,6 +239,9 @@
 
     //scout.helpers.addProject( {projectID:'',projectName:'',projectFolder:'',inputFolder:'',outputFolder:'',projectIcon:'',environment:'',outputStyle:''} );
     scout.helpers.addProject = addProject;
+
+    //Update the values on the scout.projects object for the currently visible project then save to file
+    scout.helpers.saveCurrentProject = saveCurrentProject;
 
     //Save scout object to file in app data folder
     scout.helpers.saveSettings = saveSettings;
