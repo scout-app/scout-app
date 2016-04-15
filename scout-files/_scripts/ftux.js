@@ -13,6 +13,7 @@
         //Hide everything!
         $("#sidebar").css("left", "-" + width);
         $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeOut();
+        $("#viewStatusNav").addClass("hide");
         //Show FTUX
         $("#ftux").fadeIn("slow");
     }
@@ -24,6 +25,7 @@
         //Show everything!
         $("#sidebar").css("left", "0px");
         $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeIn();
+        $("#viewStatusNav").removeClass("hide");
     }
 
     /**

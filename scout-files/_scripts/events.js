@@ -71,6 +71,10 @@
         $("#printConsole .alert, #printConsole .panel").removeClass('hide');
     });
 
+    $('.navbar a[href="#viewStatus"]').click( function() {
+        $("#viewStatus").click();
+    });
+
     function forbidSameFolder () {
         var inputDir = $("#inputFolder").val();
         var outputDir = $("#outputFolder").val();
