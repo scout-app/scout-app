@@ -20,11 +20,14 @@
         scout.helpers.setLanguage(lang);
         $("#culture-pics img").addClass("hide");
         $("#culture-pics ." + lang).removeClass("hide");
+        $("#translators a").addClass("hide");
+        $("#translators ." + lang).removeClass("hide");
         scout.helpers.updateSidebar();
         scout.helpers.ftux();
     });
 
-    //Show the correct cultural image
+    //Show the correct cultural image and translator
     $("#culture-pics ." + scout.cultureCode).removeClass("hide");
+    $("#translators ." + scout.cultureCode).removeClass("hide");
 
 })();
