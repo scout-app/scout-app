@@ -26,6 +26,8 @@
     } else {
         scout.versions.chokidar = require(ugui.app.pathToProject + 'node_modules/chokidar/package.json').version;
     }
+    $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
+    $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
 
 
