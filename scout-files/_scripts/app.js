@@ -143,6 +143,7 @@
                 scout.projects[I].indicator = "stop";
                 scout.helpers.updateSidebar();
                 processInputFolder(scout.projects[I]);
+                return;
             }
         }
     }
