@@ -174,6 +174,8 @@
                 return;
             }
 
+            $("#addProjectBrowse").attr("nwworkingdir", $("#ftuxProjectsFolder").text());
+
             //Prevent importing projects multiple times from double-clicks
             $("#ftuxStartImport").addClass('gray');
 
