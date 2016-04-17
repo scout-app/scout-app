@@ -13,6 +13,8 @@
         }
 
         projectID = projectID || "sa0";
+        var projectName = $("#sidebar ." + projectID + " .name").text();
+
         var file = error.file;
         var bugLine = error.line;
         var col = error.column;
@@ -47,7 +49,7 @@
         }
 
         var formmatedError =
-            '<div class="panel panel-primary ' + projectID + '">' +
+            '<div class="panel panel-primary ' + projectID + '" title="' + projectName + '">' +
               '<div class="panel-heading">' +
                 '<span class="pull-right glyphicon glyphicon-remove"></span>' +
                 '<h3 class="panel-title">' + title + '</h3>' +
@@ -82,6 +84,8 @@
         }
 
         projectID = projectID || "sa0";
+        var projectName = $("#sidebar ." + projectID + " .name").text();
+
         var folderPathSplit = message.stats.entry.split('\\').join('/').split('/');
         var folderAndFile = folderPathSplit[folderPathSplit.length - 2] + '\\' + folderPathSplit[folderPathSplit.length - 1];
         var time = new Date().timeNow();
@@ -91,7 +95,7 @@
         }
 
         var processedTime = scout.localize("PROCESSED_IN_DURATION") ;
-        processedTime = processedTime.replace("{{duration}}", duration);
+        processedTime = projectName + " | " + processedTime.replace("{{duration}}", duration);
         var formattedMessage =
         '<div class="alert alert-success ' + projectID + '" role="alert" title="' + processedTime + '">' +
           '<strong>' + time + '</strong> ' +
