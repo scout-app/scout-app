@@ -132,13 +132,24 @@
                     persistent: true
                 });
                 //Detect file changes and reprocess Sass files
-                scout.projects[I].watcher.on('change', function (item, stats) {
-                    //TODO: See if it's possible to only report changed files
-                    //console.log(item);
-                    //console.log(stats);
-                    //debugger;
-                    processInputFolder(scout.projects[I]);
-                });
+                scout.projects[I].watcher
+                    .on('change', function (item, stats) {
+                        //TODO: See if it's possible to only report changed files
+                        //console.log(item);
+                        //console.log(stats);
+                        //debugger;
+                        processInputFolder(scout.projects[I]);
+                    })
+                    .on('error', function (error) {
+                        if (error.toString().toUpperCase().indexOf('ENOSPC') > -1) {
+                            console.info('Looks like you are watching more files than your OS allows by default.');
+                            console.info('To increase the amount of files that can be watched by a user, run:');
+                            console.info('echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p');
+                            console.info('The above command came from:');
+                            console.info('https://discourse.roots.io/t/gulp-watch-error-on-ubuntu-14-04-solved/3453/2');
+                            require('nw.gui').Window.get().showDevTools();
+                        }
+                    });
                 //Update icon
                 scout.projects[I].indicator = "stop";
                 scout.helpers.updateSidebar();
