@@ -158,7 +158,7 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 
 * [ ] **Status:** Could be started at any point (hint hint).
 * [ ] **To do:**
-  * [ ] Design single page (static) site for the app to be hosted on GitHub.
+  * [ ] Design single page (static) site for the app (will be hosted on GitHub).
   * [ ] Capture some sexy screenshots
   * [ ] Make downloads dynamic based on GitHub API
   * [ ] Show a comparison table of the old scout and the new Scout
