@@ -47,7 +47,7 @@
             var langKey = $(altItem).data("langalt");
             $(altItem).attr("alt", localize(langKey) );
         }
-        //data-title
+        //data-langtitle
         var titleItems = $("*[data-langtitle]");
         for (var i = 0; i < titleItems.length; i++) {
             var titleItem = titleItems[i];
@@ -58,7 +58,7 @@
         var ariaLabelItems = $("*[data-langarialabel]");
         for (var i = 0; i < ariaLabelItems.length; i++) {
             var ariaLabelItem = ariaLabelItems[i];
-            var langKey = $(ariaLabelItem).data("lang");
+            var langKey = $(ariaLabelItem).data("langarialabel");
             $(ariaLabelItem).attr("aria-label", localize(langKey) );
         }
         //Allow links with a class of "external-link" to open in the user's default browser
