@@ -182,7 +182,8 @@
             var inputs = $("#ftux .panel-body input:checked");
             for (var i = 0; i < inputs.length; i++) {
                 var path = $(inputs[i]).val();
-                scout.helpers.autoGenerateProject(path);
+                //The index + 1 means it will never pass in a 0, and thus not be seen as falsey
+                scout.helpers.autoGenerateProject(path, i + 1);
             }
 
             scout.helpers.saveSettings;

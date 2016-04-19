@@ -260,7 +260,13 @@
         });
     }
 
-    function autoGenerateProject (path) {
+    /**
+     * This takes a project input path and auto-guesses all the fields for it, then stores everything on scout.projects array.
+     * @param  {string} path     The file path to the project folder
+     * @param  {number} instance The projectID is sa + current unix time + this number. Prevents duplicate ID names
+     * @return {null}            Nothing is returned, when finished this adds a new project to the scout.projects array
+     */
+    function autoGenerateProject (path, instance) {
         scout.helpers.resetProjectUI();
 
         //Array items are ordered from lowest to highest priority
@@ -293,7 +299,11 @@
         //Reset the folder browse box
         $("#addProjectBrowse").val("");
 
-        scout.newProject.projectID = "sa" + Date.now();
+        if (instance && typeof(instance) == "number") {
+            scout.newProject.projectID = "sa" + (Date.now() + instance);
+        } else {
+            scout.newProject.projectID = "sa" + Date.now();
+        }
 
         scout.helpers.addProject(scout.newProject);
         scout.helpers.unlockSubmit(scout.newProject.projectID);
