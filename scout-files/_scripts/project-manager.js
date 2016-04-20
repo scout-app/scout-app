@@ -54,8 +54,9 @@
         }
 
         if (bool) {
-            ugui.helpers.deleteAFile(file);
-            console.info('File Deleted');
+            ugui.helpers.deleteAFile(file, function (){
+                require('nw.gui').Window.get().reload();
+            });
         }
     }
 
