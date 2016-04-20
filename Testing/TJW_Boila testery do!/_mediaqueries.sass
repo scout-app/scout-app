@@ -1,0 +1,123 @@
+
+// Media Queries that alter the styles on the page depending on browser width
+
+//5. Laptops
+@media screen and (max-width: 1429px)
+    #Wrapper
+        max-width: 900px
+    h1,
+    h3,
+    #MainContent p,
+    #MainContent table,
+    #MainContent ol,
+    #MainContent ul
+        margin-right: 68px
+        margin-left: 68px
+
+//4. Tablets and Netbooks
+@media screen and (max-width: 960px)
+    #Wrapper
+        max-width: 700px
+    h1,
+    h3,
+    #MainContent p,
+    #MainContent table,
+    #MainContent ol,
+    #MainContent ul
+        margin-right: 57px
+        margin-left: 57px
+
+//3. Landscape Phones
+@media screen and (max-width: 709px)
+    #Wrapper
+        max-width: 500px
+    #Header
+        height: auto
+    .logo
+        margin: 0px 0px 0px 150px
+    #MainNav
+        display: block
+        float: none
+        clear: both
+        li a
+            border-radius: 0px
+    h1,
+    h3,
+    #MainContent p,
+    #MainContent table,
+    #MainContent ol,
+    #MainContent ul
+        margin-right: 46px
+        margin-left: 46px
+
+//2. Portrait Phones
+@media screen and (max-width: 518px)
+    #Wrapper
+        max-width: 320px
+    #Header .logo
+        display: block
+        margin: 0px auto 25px auto
+        top: 12px
+    #Footer
+        height: 115px
+    #MainNav
+        width: 100%
+        margin: 0px
+        padding: 0px
+        li
+            &.selected a,
+            &.selected a:hover
+                margin: 0px 0px 0px 0px
+                padding: 20px 0px
+            a
+                width: 160px
+                margin: 0px
+                padding: 20px 0px
+                text-align: center
+    h1,
+    h3,
+    #MainContent p,
+    #MainContent table,
+    #MainContent ol,
+    #MainContent ul
+        margin-right: 35px
+        margin-left: 35px
+
+//1. Old Phones
+@media screen and (max-width: 336px)
+    #Wrapper
+        max-width: 240px
+    #Footer
+        height: 130px
+    #Footer .legal
+        line-height: 1.2em
+    h1,
+    h3,
+    #MainContent p,
+    #MainContent table,
+    #MainContent ol,
+    #MainContent ul
+        margin-right: 20px
+        margin-left: 20px
+    #MainContent table
+        margin: 20px 0px 20px 0px
+    #MainNav li
+        &.selected a,
+        a:hover
+            margin: 0px
+        a
+            margin: 0px
+            width: 240px
+    .breadcrumbs
+        +bmp0
+        width: 100%
+        li
+            padding: 0px
+        li a
+            font-size: 0.75em
+            padding: 0px 5px 0px 5px
+            border:
+                style: solid
+                color: #DEDEDE
+                width: 0px 1px 1px 0px
+            background-image: none

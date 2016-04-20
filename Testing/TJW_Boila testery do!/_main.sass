@@ -1,0 +1,82 @@
+
+// The main document, every page on the site refers to this basic document
+
+*,
+*:before,
+*:after
+    box-sizing: border-box
+
+html
+    +bmp0
+    width: 100%
+    height: 100%
+
+body
+    +bmp0
+    width: 100%
+    background-color: #348
+    background-position: 0px 0px
+    background-repeat: repeat
+
+.floatright
+    float: right
+.floatleft
+    float: left
+
+.italic,
+.italics
+    font-style: italic
+
+.gray,
+.grey,
+a.gray,
+a.grey
+    color: #999 !important
+
+a:hover.gray,
+a:hover.grey
+    color: #777 !important
+
+img
+    -ms-interpolation-mode: bicubic
+
+a:link,
+a:visited
+    color: #F06F61
+
+h1:first-child
+    margin-top: 20px
+
+h1,
+h2,
+h3
+    margin: 90px 95px 10px 95px
+    font-family: "Trebuchet MS", arial, sans-serif
+    font-variant: small-caps
+    font-weight: bold
+    color: #333
+    letter-spacing: 1px
+    clear: both
+
+h2
+    margin: 0px
+    font-variant: normal
+
+h3
+    font-size: 26px
+
+#Wrapper
+    max-width: 1403px
+    margin: 0 auto
+    background-color: #FFF
+
+#MainContent
+    p,
+    table,
+    ol,
+    ul
+        margin-left: 95px
+        margin-right: 95px
+        font-family: "Trebuchet MS", arial, sans-serif
+        color: #333
+        line-height: 1.35em

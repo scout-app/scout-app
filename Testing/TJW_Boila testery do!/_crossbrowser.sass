@@ -1,0 +1,77 @@
+
+// CSS to fix issues that only occur on specific OS's, Devices, Browsers, or Platforms.
+
+// 6. Desktops
+
+
+// 5. Laptops
+@media screen and (max-width:1429px)
+
+
+// 4. Tablet and Netbook
+@media screen and (max-width:960px)
+
+
+// 3. Landscape Phones
+@media screen and (max-width:709px)
+
+
+// 2. Portrait Phones
+@media screen and (max-width:518px)
+    .gecko,
+    .gecko.mobile
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 158px
+            &:nth-of-type(odd)
+                width: 158px
+    .ie
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 160px
+            &:nth-of-type(odd)
+                width: 160px
+                margin-right: 0px
+    .safari.win
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 157px
+            &:nth-of-type(odd)
+                width: 157px
+                margin-right: 1px
+    .android
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 159px
+            &:nth-of-type(odd)
+                width: 159px
+
+// 1. Old phones
+@media screen and (max-width:336px)
+    .gecko,
+    .gecko.mobile
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 238px
+            &:nth-of-type(odd)
+                width: 238px
+    .ie
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 240px
+                margin: 0px
+            &:nth-of-type(odd)
+                width: 240px
+                margin: 0px
+    .safari.win
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 238px
+            &:nth-of-type(odd)
+                width: 238px
+    .android
+        #MainNav li a
+            &:nth-of-type(even)
+                width: 238px
+            &:nth-of-type(odd)
+                width: 238px

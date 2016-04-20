@@ -1,0 +1,18 @@
+@charset "utf-8";             // Character type for the stylesheet
+
+//Stuff that goes at the start
+@import "_var.sass";          // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
+@import "_meyer.sass";        // Resets browser defaults so browsers render pages the same
+@import "_normalize.sass";    // Removes inconsistencies in the way different browsers render items by default
+
+//Stuff that effects every page
+@import "_main.sass";         // Main CSS for the site
+@import "_header.sass";       // CSS for the header and navigation at the top of each page
+@import "_footer.sass";       // CSS for the footer at the bottom of every page
+
+//Stuff that effects specific pages
+
+//Stuff that goes at the end
+@import "_flyingfocus.sass";  // CSS generated specifically by the Flying Focus js plugin
+@import "_mediaqueries.sass"; // Adjusts the CSS of elements depending on browser or device resolution. Adaptive Web Design.
+//@import "_crossbrowser.sass"; // CSS to correct issues that only occur in specific environments

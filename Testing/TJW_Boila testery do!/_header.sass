@@ -1,0 +1,86 @@
+// For the header, nav, and breadcrumbs that appear on every page.
+
+#Header
+    background-color: #E4D9CE
+    border-width: 0px 0px 1px 0px
+    border-color: #AAA
+    border-style: solid
+    .logo
+        display: inline-block
+        height: 144px
+        margin: 3px 0px 0px 4px
+        position: relative
+        top: 18px
+
+#MainNav
+    text-align: right
+    margin: 0px 20px 0px 0px
+    position: relative
+    top: 1px
+    font-size: 0px
+    li
+        display: inline-block
+        &.selected
+            a,
+            a:hover
+                border-bottom-color: #FFF
+                padding-top: 11px
+                background-color: #F3F1EE
+                background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%)
+                filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FFFFFF', endColorstr='#00ffffff',GradientType=0 ) // IE6-9
+        a
+            display: inline-block
+            background: #F0ECE8
+            padding: 9px 11px 8px 10px
+            margin: 0px 4px 0px 0px
+            box-shadow: inset 0px 0px 1px 1px #F6F6F6
+            color: #333
+            text-decoration: none
+            border:
+                color: #BBB
+                style: solid
+                width: 1px
+                radius: 3px 3px 0px 0px
+            font:
+                width: bold
+                size: 12px
+                family: "helvetica neue", helvetica, arial, sans-serif
+            text:
+                align: center
+                shadow: 0px 1px 0px #FFF
+            &:hover
+                background: #F5F5F5
+                box-shadow: inset 0px 0px 1px 1px #EAEAEA
+                color: #222
+                cursor: pointer
+            &:active
+                background: #D0D0D0
+                box-shadow: inset 0px 0px 1px 1px #E3E3E3
+                color: #000
+
+.breadcrumbs
+    height: 2.3em
+    border-width: 0px 0px 1px 0px
+    border-style: solid
+    border-color: #DEDEDE
+    list-style-type: none
+    padding: 0px
+    margin: 0px !important
+    li
+        float: left
+        line-height: 2.3em
+        color: #777
+        list-style-type: none
+        padding: 0em 0em 0em .75em
+        margin: 0px
+        a
+            background: url("../_img/crumbs.png") no-repeat right center
+            display: block
+            padding: 0px 15px 0px 0px
+            &:link,
+            &:visited
+                color: #777
+                text-decoration: none
+            &:hover,
+            &:focus
+                color: #F06F61
