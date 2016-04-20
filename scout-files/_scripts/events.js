@@ -61,6 +61,30 @@
             }
         }
     });
+    $("#inputFolder").on('blur', function () {
+        var newDir = $("#inputFolder").val();
+        newDir = newDir.split('\\').join('\/');
+        forbidSameFolder();
+        var id = $("#projectID").val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (scout.projects[i].projectID == id) {
+                scout.projects[i].inputFolder = newDir;
+                scout.helpers.saveSettings();
+            }
+        }
+    });
+    $("#outputFolder").on('blur', function () {
+        var newDir = $("#outputFolder").val();
+        newDir = newDir.split('\\').join('\/');
+        forbidSameFolder();
+        var id = $("#projectID").val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (scout.projects[i].projectID == id) {
+                scout.projects[i].outputFolder = newDir;
+                scout.helpers.saveSettings();
+            }
+        }
+    });
 
     //Clicking the "Status of all Projects" sidebar buttons
     $("#viewStatus").click(function (evt) {

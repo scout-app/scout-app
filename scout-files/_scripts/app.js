@@ -150,6 +150,8 @@
                             console.info('The above command came from:');
                             console.info('https://discourse.roots.io/t/gulp-watch-error-on-ubuntu-14-04-solved/3453/2');
                             require('nw.gui').Window.get().showDevTools();
+                        } else {
+                            console.log("There was an error watching the input files: ", error);
                         }
                     });
                 //Update icon
