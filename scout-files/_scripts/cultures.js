@@ -61,6 +61,13 @@
             var langKey = $(ariaLabelItem).data("langarialabel");
             $(ariaLabelItem).attr("aria-label", localize(langKey) );
         }
+        //data-langhref
+        var hrefItems = $("*[data-langhref");
+        for (var i = 0; i < hrefItems.length; i++) {
+            var hrefItem = hrefItems[i];
+            var langKey = $(hrefItem).data("langhref");
+            $(hrefItem).attr("href", localize(langKey) );
+        }
         //Allow links with a class of "external-link" to open in the user's default browser
         ugui.helpers.openDefaultBrowser();
         $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
@@ -81,6 +88,7 @@
             scout.helpers.saveSettings();
         }
         updateDataLangs();
+        $("#culture-pics").attr('src', 'cultures/' + userLanguage + ".jpg");
     }
 
     //This will be overridden by the user's saved settings later,
