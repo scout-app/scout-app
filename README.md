@@ -2,11 +2,28 @@
 
 Scout-App allows you to process your `.sass` and `.scss` files into CSS without needing any knowledge of the command line.
 
-Currently in development. [Be the first to try it out!](https://github.com/mhs/scout-app/issues/230).
+**[BETA VERSION AVAILABLE!](https://github.com/TheJaredWilcurt/scout-app/releases).**
 
 Here's a recent screenshot of the new version:
 
 <p align="center"><img src="https://cloud.githubusercontent.com/assets/4629794/13718098/a4c4f1bc-e7b4-11e5-9fd2-81e7b8c17d2c.png" alt="Scout-App 2 Screenshot"></p>
+
+**Officially Supported OS's**:
+
+OS             | 32-Bit             | 64-Bit
+:--            | :--:               | :--:
+Windows XP SP3 | :white_check_mark: | :x:
+Windows Vista  | :white_check_mark: | :white_check_mark:
+Windows 7      | :white_check_mark: | :white_check_mark:
+Windows 8/8.1  | :white_check_mark: | :white_check_mark:
+Windows 10     | :white_check_mark: | :white_check_mark:
+Ubuntu 12.04   | :white_check_mark: | :white_check_mark:
+Ubuntu 14.04   | :white_check_mark: | :white_check_mark:
+OSX 10.7       | :x:                | :white_check_mark:
+OSX 10.8       | :x:                | :white_check_mark:
+OSX 10.9       | :x:                | :white_check_mark:
+OSX 10.10      | :x:                | :white_check_mark:
+OSX 10.11+     | :x:                | :white_check_mark:
 
 * * *
 
@@ -39,7 +56,7 @@ Code                                     | Source
 `@import "buttons";`                     | [github.com/alexwolfe/Buttons                ](https://github.com/alexwolfe/Buttons)
 `@import "bi-app-ltr";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
 `@import "bi-app-rtl";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
-`@import "pineapple-sass";`              | [github.com/ArunMichaelDsouza/pineapple-sass ](https://github.com/ArunMichaelDsouza/pineapple-sass))
+`@import "pineapple-sass";`              | [github.com/ArunMichaelDsouza/pineapple-sass ](https://github.com/ArunMichaelDsouza/pineapple-sass)
 `@import "saffron";`                     | [github.com/corporadobob/saffron             ](https://github.com/corporadobob/saffron)
 `@import "scut";`                        | [github.com/davidtheclark/scut               ](https://github.com/davidtheclark/scut)
 `@import "su";`                          | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
