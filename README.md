@@ -21,7 +21,7 @@ Scout Comparison           | 0.7.1           | 2.0.0
 **Compass Support**        | Full Support    | Only Mixins
 **Speed**                  | Potato          | Kitten with a Jetpack
 **Project Setup**          | Manual          | Automatic & Manual
-**Themes**                 | 1               | 5 (15 planned)
+**Themes**                 | 1               | 19 + Create your own
 **Alerts & Errors**        | Console logs    | Human Readable in UI
 **Run from Tray**          | No              | Planned
 **Custom Mixin Libraries** | No              | Yes
@@ -101,6 +101,7 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 * **Report Bugs** - [Make a GitHub Issue](http://github.com/mhs/scout-app/) for any bug you find. Include steps to repoduce the issue and a screenshot if possible.
 * **Website** - Scout-App 2 needs a new site! (See Phase 4 below)
 * **App Features** - There is a list of desired features and tasks below.
+* **Bug fixes** - If you find a bug and now how to fix it, or want to fix a reported bug
 
 * * *
 
@@ -143,14 +144,14 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 * [ ] **Status:**: [Open enrollment for Beta Testers](https://github.com/mhs/scout-app/issues/230)
 * [ ] **To do:**
   * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
+  * [x] ~~Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js. (TJW)~~
   * [ ] Once the app is pretty much functional, have the crew try it out and give input.
-  * [ ] Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js.
 
 #### **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
 
 * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
 * [ ] **To do:**
-  * [ ] Optimize the payload, os we don't include any junk files.
+  * [ ] Optimize the payload, so we don't include any junk files.
   * [ ] Create custom build tools that package our app for distribution and remove files that are not needed in the production version
   * [ ] Test out the packaged versions on each targeted OS. Fix any issues that arise.
 
@@ -160,7 +161,7 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 * [ ] **To do:**
   * [ ] Design single page (static) site for the app (will be hosted on GitHub).
   * [ ] Capture some sexy screenshots
-  * [ ] Make downloads dynamic based on GitHub API
+  * [ ] Make downloads dynamic based on [GitHub API](https://developer.github.com/v3/repos/releases)
   * [ ] Show a comparison table of the old scout and the new Scout
   * [ ] Have dynamic download button based on [the OS](https://github.com/FLIF-hub/UGUI_FLIF/blob/gh-pages/crossbrowser.js) and [32/64-Bit arch](https://github.com/peterhurford/64or32) of the user.
   * [ ] Display a "minimum system requirements", maybe tailor it to each OS, as free space requirement will vary
@@ -186,8 +187,8 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 
 The  main files for Scout-App 2 are:
 
-* **package.json** - The first thing NW.js looks at when you run the app. This gives instructions on how to open and display a window for the user (the size of it, if it has a native UI framed border, etc). This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies. The production version will have the toolbar set to false.
-* **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will remove the gray developer bar at the bottom of the app. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
+* **package.json** - The first thing NW.js looks at when you run the app. This gives instructions on how to open and display a window for the user (the size of it, if it has a native UI framed border, etc). This also acts as the standard Node/NPM package file that can be used to define a node project or install dependencies.
+* **index.html** - This is the main page of the app. It's set up like a standard html file, you'll just need to read through it and look at the comments for anything out of the ordinary. One thing specifically is the body tag has a class of "dev". Changing this to "prod" will remove the Dev Tools link under View in the nav bar and disable F5 refresh and F12 dev tools. Most of this is just markup for bootstrap. Some markup has been commented out, as it is for form elements I didn't see a use for at the time, but are already set up if we end up needing them (such as a drag/drop input box for files, or a range slider).
 * **_scripts/** - The logic for Scout-App's UI is modularized into several JS file here, like `preferences.js`, `sidebar.js` or `project-manager.js`.
 * **_scripts/ugui.js** - This library has a ton of useful tools, view [UGUI API](http://ugui.io/api) for more information.
 
