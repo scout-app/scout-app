@@ -1,5 +1,5 @@
 {
-    "ABOUT": "O",
+    "ABOUT": "O программе",
     "ABOUT_CONTRIBUTORS": "о вкладчиков k <a href='http://github.com/mhs/scout-app' class='external-link'>Cкаут-Aппa</a>:",
     "ABOUT_DEPENDENCIES": "<strong>Cкаут-Aпп</strong> использует <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> и <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "ABOUT_DESCRIPTION": "<strong>Cкаут-Aппa</strong> позволяет обрабатывать <code>.sass</code> и <code>.scss</code> файлы в CSS без использования командной строки",
