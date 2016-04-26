@@ -189,6 +189,7 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
 * [ ] **Status:** Lower priority features, some have been claimed
 * [ ] **To do:**
   * [ ] Drag and drop sidebar items to reorder (HMN)
+  * [ ] Abilitity to clear all alerts and messags at once
   * [ ] Right-click to delete an project from the sidebar
   * [ ] Make sidebar resizable
   * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
