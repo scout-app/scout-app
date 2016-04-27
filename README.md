@@ -198,6 +198,8 @@ So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-14`, `win32-
   * [ ] Delete settings file button in preferences
   * [ ] Accept pull requests for app translations.
   * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button
+  * [ ] Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root.
+  * [ ] Investigate adding [Eyeglass](https://github.com/sass-eyeglass/eyeglass) into Scout-App, as it's the closest time to Compass for Node-Sass.
 
 * * *
 
