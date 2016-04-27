@@ -2,7 +2,7 @@
   "name": "Scout-App",
   "description": "Sass without all the hassle.",
   "homepage": "http://mhs.github.uo/scout-app",
-  "version": "2.0.0-beta",
+  "version": "2.0.1-beta",
   "main": "index.html",
   "authors": [
     "The Jared Wilcurt",

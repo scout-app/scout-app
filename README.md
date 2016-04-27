@@ -29,7 +29,7 @@ OSX 10.11+     | :x:                | :white_check_mark:
 
 ## Scout-App Comparison
 
-Scout Comparison           | 0.7.1           | 2.0.0
+Scout Comparison           | 0.7.1           | 2.0.1
 :--                        | :--             | :--
 **Sass Version**           | 2012 (Ruby)     | 2016 (SassC)
 **Technology**             | Air, Java, Ruby | NW.js, Node
