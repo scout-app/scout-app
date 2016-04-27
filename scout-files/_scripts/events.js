@@ -269,7 +269,8 @@
      * On Windows and Ubuntu Scout-App inherits the OS's global clipboard shortcuts.
      * OSX needs you to spoon feed it how to copy and paste.
      */
-    function osxKeyBindings() {
+    function osxKeyBindings () {
+        var win = require('nw.gui').Window.get();
         //Keyboard shortcuts
         document.onkeydown = function(pressed) {
             //Check CMD+V and CMD+v keys and paste
@@ -286,12 +287,28 @@
                     pressed.preventDefault();
                     document.execCommand("copy");
                     return false;
-            //Check CMD+X  and CMD+x and cut
+            //Check CMD+X and CMD+x and cut
             } else if (
                 pressed.metaKey && pressed.keyCode === 88 ||
                 pressed.metaKey && pressed.keyCode === 120 ) {
                     pressed.preventDefault();
                     document.execCommand("cut");
+                    return false;
+            //Check CMD+Shift+I and open dev tools
+            } else if (
+                pressed.metaKey && pressed.shiftKey && pressed.keyCode === 73 ||
+                pressed.metaKey && pressed.shiftKey && pressed.keyCode === 105) {
+                    win.showDevTools();
+                    return false;
+            //Check CMD+Q and CMD+q and close the app
+            } else if (
+                pressed.metaKey && pressed.keyCode === 81||
+                pressed.metaKey && pressed.keyCode === 113) {
+                    win.on('close', function() {
+                        this.hide();
+                        this.close(true);
+                    });
+                    win.close();
                     return false;
             }
         };
