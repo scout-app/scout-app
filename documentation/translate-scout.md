@@ -1,5 +1,7 @@
 ## Translating Scout-App 2
 
+Below are 3 different ways of contributing, pick whichever is easiest for you.
+
 ### Detailed Google Sheets Instructions
 
 1. Log into your Google Account and go to this URL:
