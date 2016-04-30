@@ -19,11 +19,7 @@ Windows 8/8.1  | :white_check_mark: | :white_check_mark:
 Windows 10     | :white_check_mark: | :white_check_mark:
 Ubuntu 12.04   | :white_check_mark: | :white_check_mark:
 Ubuntu 14.04   | :white_check_mark: | :white_check_mark:
-OSX 10.7       | :x:                | :white_check_mark:
-OSX 10.8       | :x:                | :white_check_mark:
-OSX 10.9       | :x:                | :white_check_mark:
-OSX 10.10      | :x:                | :white_check_mark:
-OSX 10.11+     | :x:                | :white_check_mark:
+OSX 10.7+      | :x:                | :white_check_mark:
 
 * * *
 
@@ -42,7 +38,7 @@ Scout Comparison           | 0.7.1           | 2.0.1
 **Alerts & Errors**        | Console logs    | Human Readable in UI
 **Run from Tray**          | No              | Planned
 **Custom Mixin Libraries** | No              | Yes
-**Languages**              | English         | English, French, Russian (more planned)
+**Languages**              | English         | English, French, Russian, [more planned](documentation/translate-scout.md)
 
 * * *
 
