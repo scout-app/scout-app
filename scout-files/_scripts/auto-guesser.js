@@ -271,7 +271,7 @@
 
         //Array items are ordered from lowest to highest priority
         var autoInput = [ "scss", "sass", "_scss", "_sass" ];
-        var autoOutput = [ "css", "styles", "style", "_css", "_styles", "_style" ];
+        var autoOutput = [ "css", "stylesheets", "stylesheet", "styles", "style", "_css", "_stylesheets", "_stylesheet", "_styles", "_style" ];
         var autoImages = [ "graphics", "images", "image", "imgs", "img", "meta", "_graphics", "_images", "_image", "_imgs", "_img", "_meta"];
         var commonImages = [ "logo.png", "mstile03wd.png", "apl-str.png", "logo_48.png", "logo-48.png", "logo48.png", "apl_57.png", "apl-57.png", "apl57.png", "mstile01sm.png", "apl_72.png", "apl-72.png", "apl72.png", "logo_256.png", "logo-256.png", "logo256.png", "logo_512.png", "logo-512.png", "logo512.png", "fluid.png", "mstile04lg.png", "mstile02md.png", "apl_144.png", "apl-144.png", "apl144.png", "apl_114.png", "apl-114.png", "apl114.png", "logo_128.png", "logo-128.png", "logo128.png" ];
 

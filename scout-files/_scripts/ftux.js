@@ -34,7 +34,8 @@
      */
     function autoGuessProjectsFolder () {
         var projectsFolder = "";
-        var autoProjects = ["github", "projects", "repositories", "repos", "websites"];
+        var tempProjectsFolder = "";
+        var autoProjects = [ "github", "projects", "repositories", "repos", "websites" ];
 
         //Set default paths to check based on OS standards
         var homePath = "";
@@ -56,9 +57,16 @@
             for (var i = 0; i < contents.length; i++) {
                 for (var j = 0; j < autoProjects.length; j++) {
                     if (contents[i].name.toLowerCase() == autoProjects[j]) {
-                        projectsFolder = homePath.split('\\').join('/') + '/' + contents[i].name;
-                        scout.ftux.projectsFolder = projectsFolder;
-                        return;
+                        tempProjectsFolder = homePath.split('\\').join('/') + '/' + contents[i].name;
+                        var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
+                        //make sure there is at least one project folder in the projects folder
+                        for (var k = 0; k < innerContents.length; k++) {
+                            if (innerContents.length > 0 && innerContents[k].isFolder) {
+                                projectsFolder = tempProjectsFolder;
+                                scout.ftux.projectsFolder = projectsFolder;
+                                return;
+                            }
+                        }
                     }
                 }
             }
@@ -69,9 +77,16 @@
             for (var i = 0; i < myDocsContents.length; i++) {
                 for (var j = 0; j < autoProjects.length; j++) {
                     if (myDocsContents[i].name.toLowerCase() == autoProjects[j]) {
-                        projectsFolder = myDocsPath.split('\\').join('/') + '/' + myDocsContents[i].name;
-                        scout.ftux.projectsFolder = projectsFolder;
-                        return;
+                        tempProjectsFolder = myDocsPath.split('\\').join('/') + '/' + myDocsContents[i].name;
+                        var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
+                        //make sure there is at least one project folder in the projects folder
+                        for (var k = 0; k < innerContents.length; k++) {
+                            if (innerContents.length > 0 && innerContents[k].isFolder) {
+                                projectsFolder = tempProjectsFolder;
+                                scout.ftux.projectsFolder = projectsFolder;
+                                return;
+                            }
+                        }
                     }
                 }
             }
@@ -89,9 +104,16 @@
                     try {
                         stats = fs.lstatSync(driveAndFolder);
                         if (stats.isDirectory()) {
-                            projectsFolder = driveAndFolder;
-                            scout.ftux.projectsFolder = projectsFolder;
-                            return;
+                            tempProjectsFolder = driveAndFolder;
+                            var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
+                            //make sure there is at least one project folder in the projects folder
+                            for (var k = 0; k < innerContents.length; k++) {
+                                if (innerContents.length > 0 && innerContents[k].isFolder) {
+                                    projectsFolder = tempProjectsFolder;
+                                    scout.ftux.projectsFolder = projectsFolder;
+                                    return;
+                                }
+                            }
                         }
                     }
                     catch (err) {
