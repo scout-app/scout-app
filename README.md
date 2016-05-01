@@ -10,16 +10,12 @@ Here's a recent screenshot of the new version:
 
 **Officially Supported OS's**:
 
-OS             | 32-Bit             | 64-Bit
-:--            | :--:               | :--:
-Windows XP SP3 | :white_check_mark: | :x:
-Windows Vista  | :white_check_mark: | :white_check_mark:
-Windows 7      | :white_check_mark: | :white_check_mark:
-Windows 8/8.1  | :white_check_mark: | :white_check_mark:
-Windows 10     | :white_check_mark: | :white_check_mark:
-Ubuntu 12.04   | :white_check_mark: | :white_check_mark:
-Ubuntu 14.04   | :white_check_mark: | :white_check_mark:
-OSX 10.7+      | :x:                | :white_check_mark:
+OS                            | 32-Bit             | 64-Bit
+:--                           | :--:               | :--:
+Windows XP (SP3)              | :white_check_mark: | :x:
+Windows Vista, 7, 8, 8.1, 10+ | :white_check_mark: | :white_check_mark:
+Ubuntu 12.04 & 14.04          | :white_check_mark: | :white_check_mark:
+OSX 10.7+                     | :x:                | :white_check_mark:
 
 * * *
 
