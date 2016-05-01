@@ -1,6 +1,6 @@
 ## Contributing
 
-Scout-App 2 is **Written in JavaScript, Sass, and HTML**. It is built using the cross-platform runtime environment **[NW.js](http://nwjs.io)** and the **[UGUI](http://ugui.io)** framework.
+Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the cross-platform runtime environment **[NW.js](http://nwjs.io)** and the **[UGUI](http://ugui.io)** framework.
 
 ### What you can help with
 
