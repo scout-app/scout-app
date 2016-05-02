@@ -83,4 +83,4 @@
   * [ ] Accept pull requests for app translations.
   * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button
   * [ ] Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root.
-  * [ ] Investigate adding [Eyeglass](https://github.com/sass-eyeglass/eyeglass) into Scout-App, as it's the closest time to Compass for Node-Sass.
+  * [ ] Investigate adding [Eyeglass](https://github.com/sass-eyeglass/eyeglass) into Scout-App, as it's the closest thing to Compass for Node-Sass.
