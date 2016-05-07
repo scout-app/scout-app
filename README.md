@@ -65,6 +65,7 @@ Code                                     | Source
 `@import "breakpoint";`                  | [github.com/lesjames/breakpoint              ](https://github.com/lesjames/breakpoint)
 `@import "sass-css3-mixins";`            | [github.com/matthieua/sass-css3-mixins       ](https://github.com/matthieua/sass-css3-mixins)
 `@import "cssowl";`                      | [github.com/owl-stars/cssowl                 ](https://github.com/owl-stars/cssowl)
+`@import "sierra";`                      | [github.com/sierra-library/sierra            ](https://github.com/sierra-library/sierra)
 `@import "spice";`                       | [github.com/spice-sass/spice                 ](https://github.com/spice-sass/spice)
 `@import "meyer";`                       | [github.com/TheJaredWilcurt/meyer-sass       ](https://github.com/TheJaredWilcurt/meyer-sass)
 `@import "bourbon-deprecated-upcoming";` | [github.com/thoughtbot/bourbon               ](https://github.com/thoughtbot/bourbon)
