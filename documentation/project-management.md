@@ -61,7 +61,7 @@
 * [ ] **Status:** Could be started at any point (hint hint).
 * [ ] **To do:**
   * [ ] Design single page (static) site for the app (will be hosted on GitHub).
-  * [ ] Capture some sexy screenshots
+  * [x] ~~Create screenshots for Win/OSX/Ubuntu. (TJW)~~
   * [ ] Make downloads dynamic based on [GitHub API](https://developer.github.com/v3/repos/releases)
   * [ ] Show a comparison table of the old scout and the new Scout
   * [ ] Have dynamic download button based on [the OS](https://github.com/FLIF-hub/UGUI_FLIF/blob/gh-pages/crossbrowser.js) and [32/64-Bit arch](https://github.com/peterhurford/64or32) of the user.
