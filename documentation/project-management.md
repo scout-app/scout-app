@@ -65,15 +65,18 @@
 #### **Phase 5:** Bug fixes/Additional features/Maintenance
 * [ ] **Status:** Lower priority features, some have been claimed
 * [ ] **To do:**
+  * [ ] Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root.
   * [ ] Drag and drop sidebar items to reorder (HMN)
   * [ ] Abilitity to clear all alerts and messags at once
   * [ ] Right-click to delete an project from the sidebar
   * [ ] Make sidebar resizable
-  * [ ] Minimize to tray, icon indicators, alert popups when in tray mode
+  * [ ] Tray icon/Minimize to tray
+  * [ ] Tray icon indicators
+  * [ ] Desktop notifications for alerts and errors
   * [ ] Import/Export projects (Would anyone even want this feature?)
   * [ ] Multi-project delete
+  * [ ] Multi-project import outside of FTUX view
   * [ ] Delete settings file button in preferences
   * [ ] Accept pull requests for app translations.
   * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button
-  * [ ] Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root.
   * [ ] Investigate adding [Eyeglass](https://github.com/sass-eyeglass/eyeglass) into Scout-App, as it's the closest thing to Compass for Node-Sass.
