@@ -35,11 +35,11 @@
 
 #### **Phase 2:** Community Input and bugs (ZD/JM)
 
-* [ ] **Status:**: [Open enrollment for Beta Testers](https://github.com/mhs/scout-app/issues/230)
-* [ ] **To do:**
+* [x] **Status:**: [In beta](http://github.com/TheJaredWilcurt/scout-app/releases)
+* [x] **To do:**
   * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
   * [x] ~~Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js. (TJW)~~
-  * [ ] Once the app is pretty much functional, have the crew try it out and give input.
+  * [x] Once the app is pretty much functional, have the crew try it out and give input.
 
 #### **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
 
