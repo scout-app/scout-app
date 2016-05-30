@@ -100,6 +100,7 @@ If we've missed a popular mixin library, request it on the [issues](https://gith
 * [TheJaredWilcurt](http://github.com/TheJaredWilcurt) - Creator, Maintainer, Project Manager
 * [Stephan Raab](http://github.com/StephanRaab) - Themes feature - Bug Finder - French translation
 * [Daniel Golant](https://github.com/BlackBetty) - UX Testing and Design - Russian Translation
+* [Kim Sharpe](https://github.com/kimmortal1) - New Logo Design
 * [zdennis](http://github.com/zdennis) - UX Design and Planning
 * [mejiaj](http://github.com/mejiaj) - UX Design and Planning
 * [Mutually Human](http://github.com/mhs) - For creating the original Scout-App!
