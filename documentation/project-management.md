@@ -72,7 +72,7 @@
   * [ ] Make sidebar resizable
   * [ ] Tray icon/Minimize to tray
   * [ ] Tray icon indicators
-  * [ ] Desktop notifications for alerts and errors
+  * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/mhs/scout-app/issues/240))
   * [ ] Import/Export projects (Would anyone even want this feature?)
   * [ ] Multi-project delete
   * [ ] Multi-project import outside of FTUX view
