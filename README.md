@@ -34,7 +34,7 @@ Scout Comparison           | 0.7.1           | 2.0.1
 **Alerts & Errors**        | Console logs    | Human Readable in UI
 **Run from Tray**          | No              | Planned
 **Custom Mixin Libraries** | No              | Yes
-**Languages**              | English         | English, French, Russian, [more planned](documentation/translate-scout.md)
+**Languages**              | English         | English, Dutch, French, Russian, [contribute more](documentation/translate-scout.md)
 
 * * *
 
@@ -98,7 +98,7 @@ If we've missed a popular mixin library, request it on the [issues](https://gith
 ## Contributors to Scout-App 2
 
 * [TheJaredWilcurt](http://github.com/TheJaredWilcurt) - Creator, Maintainer, Project Manager
-* [Stephan Raab](http://github.com/StephanRaab) - Themes feature - Bug Finder - French translation
+* [Stephan Raab](http://github.com/StephanRaab) - Themes feature - Bug Finder - French/Dutch translation
 * [Daniel Golant](https://github.com/BlackBetty) - UX Testing and Design - Russian Translation
 * [Kim Sharpe](https://github.com/kimmortal1) - New Logo Design
 * [zdennis](http://github.com/zdennis) - UX Design and Planning

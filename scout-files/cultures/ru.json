@@ -27,6 +27,7 @@
     "INPUT_FOLDER": "папка ввода",
     "MISSING_DATA": "папка вход или выход отсутствует",
     "LANG_ENGLISH": "Aнглийский (English)",
+    "LANG_DUTCH": "Голландский (Nederlands)",
     "LANG_FRENCH": "Французский (Français)",
     "LANG_RUSSIAN": "Русский",
     "LANGUAGE_CHOICE": "Выбор языков",
