@@ -141,11 +141,11 @@
             }
 
             //Set up for the regex
-            var re_start = '(<link rel="stylesheet" href="_style\\/ven\\.bootswatch\\/)';
+            var re_start = '(<link rel="stylesheet" href="_themes\\/)';
             var re_file = '((?:[a-z][a-z\\.\\d_]+)\\.(?:[a-z\\d]{3}))(?![\\w\\.])';
             var re_end = '(" data-swatch="swapper">)';
 
-            //Would match: `<link rel="stylesheet" href="_style/ven.bootswatch/cerulean.min.css" data-swatch="swapper">`
+            //Would match: `<link rel="stylesheet" href="_themes/cerulean.min.css" data-swatch="swapper">`
             var createRegex = RegExp(re_start + re_file + re_end, ["i"]);
             var findSwatchLine = createRegex.exec(data);
             //If we could find the line in the file
@@ -178,14 +178,14 @@
     //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
     //### F05. Swap Bootswatches
     //
-    //>This grabs a list of all files in the `ven.bootswatch` folder
+    //>This grabs a list of all files in the `_themes` folder
     // and puts them in a dropdown box under File > Preferences, so
     // users can try out different stylesheets.
 
     //
     function themeSwapper() {
-        //Grab all the files in the `ven.bootswatch` folder and put them in an array
-        var allSwatches = fs.readdir("scout-files/_style/ven.bootswatch", function(err, files) {
+        //Grab all the files in the `_themes` folder and put them in an array
+        var allSwatches = fs.readdir("scout-files/_themes", function (err, files) {
             //If that works
             if (!err) {
                 //Check each file and put it in the dropdown box
@@ -194,7 +194,7 @@
                     var swatchName = files[index].split(".min.css")[0]; //simplex
                     swatchName = swatchName.split(".css")[0];           //For files without ".min" but with ".css"
                     $("#themeChoices").append(
-                        '<option value="_style/ven.bootswatch/' + cssFileName + '">' +
+                        '<option value="_themes/' + cssFileName + '">' +
                           swatchName +
                         '</option>'
                     );

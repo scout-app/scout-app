@@ -2477,14 +2477,14 @@ function putExeHelpInDevTools() {
 //### F05. Swap Bootswatches
 //
 //>This function is only ran when in dev mode. It grabs a list
-// of all files in the `ven.bootswatch` folder and puts them in
+// of all files in the `_themes` folder and puts them in
 // a dropdown box in UGUI Developer Toolbar so developers can
 // try out different stylesheets.
 
 //
 function swatchSwapper() {
-    //Grab all the files in the `ven.bootswatch` folder and put them in an array
-    var allSwatches = fs.readdir("scout-files/_style/ven.bootswatch", function(err, files) {
+    //Grab all the files in the `_themes` folder and put them in an array
+    var allSwatches = fs.readdir("scout-files/_themes", function(err, files) {
         //If that works
         if (!err) {
             //Check each file and put it in the dropdown box
@@ -2492,7 +2492,7 @@ function swatchSwapper() {
                 var cssFileName = files[index];                     //cerulean.min.css
                 var swatchName = files[index].split(".min.css")[0]; //cerulean
                 $("#swatchSwapper").append(
-                    '<option value="_style/ven.bootswatch/' + cssFileName + '">' +
+                    '<option value="_themes/' + cssFileName + '">' +
                       swatchName +
                     '</option>'
                 );
@@ -2549,11 +2549,11 @@ function saveNewSwatch(newSwatch) {
         }
 
         //Set up for the regex
-        var re_start = '(<link rel="stylesheet" href="_style\\/ven\\.bootswatch\\/)';
+        var re_start = '(<link rel="stylesheet" href="_themes\\/)';
         var re_file = '((?:[a-z][a-z\\.\\d_]+)\\.(?:[a-z\\d]{3}))(?![\\w\\.])';
         var re_end = '(" data-swatch="swapper">)';
 
-        //Would match: `<link rel="stylesheet" href="_style/ven.bootswatch/cerulean.min.css" data-swatch="swapper">`
+        //Would match: `<link rel="stylesheet" href="_themes/cerulean.min.css" data-swatch="swapper">`
         var createRegex = RegExp(re_start + re_file + re_end, ["i"]);
         var findSwatchLine = createRegex.exec(data);
         //If we could find the line in the file
