@@ -39,7 +39,7 @@
 * [x] **To do:**
   * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
   * [x] ~~Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js. (TJW)~~
-  * [x] Once the app is pretty much functional, have the crew try it out and give input.
+  * [x] ~~Once the app is pretty much functional, have the crew try it out and give input.~~
 
 #### **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
 
@@ -65,7 +65,7 @@
 #### **Phase 5:** Bug fixes/Additional features/Maintenance
 * [ ] **Status:** Lower priority features, some have been claimed
 * [ ] **To do:**
-  * [ ] Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root.
+  * [x] ~~Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root. (TJW)~~
   * [ ] Drag and drop sidebar items to reorder (HMN)
   * [ ] Abilitity to clear all alerts and messags at once
   * [ ] Right-click to delete an project from the sidebar

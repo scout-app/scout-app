@@ -18,6 +18,8 @@
     var sass = require('node-sass');
     //Chokidar allows for watching files
     var chokidar = require('chokidar');
+    //Pull in the built in Path module
+    var path = require('path');
 
     //Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
@@ -32,34 +34,42 @@
     $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
 
-
-
-    function processInputFolder (project) {
+    function processInputFolder (project, inputSubFolder) {
+        var inputFolder = project.inputFolder;
+        if (inputSubFolder) {
+            inputFolder = path.join(project.inputFolder, inputSubFolder);
+        }
         //Grab all the files in the input folder and put them in an array
-        ugui.helpers.readAFolder(project.inputFolder, function (contents) {
+        ugui.helpers.readAFolder(inputFolder, function (contents) {
             //check each file and process it if it is sass or scss and doesn't start with an underscore
             for (var i = 0; i < contents.length; i++) {
-                var currentFile = contents[i].name.toLowerCase();
+                var folder = contents[i].isFolder;
+                var currentName = contents[i].name;
+                if (folder) {
+                    var subfolder = currentName;
+                    if (inputSubFolder) {
+                        subfolder = path.join(inputSubFolder, currentName);
+                    }
+                    //console.log(subfolder);
+                    var newOutputSubFolder = path.join(project.outputFolder, subfolder);
+                    ugui.helpers.createAFolder(newOutputSubFolder);
+                    processInputFolder(project, subfolder);
                 //Skip all files that begin with an _ and Process all sass/scss files
-                if ( !currentFile.startsWith("_") && (currentFile.endsWith(".sass") || currentFile.endsWith(".scss")) ) {
+                } else if ( !currentName.startsWith("_") && (currentName.toLowerCase().endsWith(".sass") || currentName.toLowerCase().endsWith(".scss")) ) {
                     //Change from 'some-file.scss' to 'some-file'
-                    var fileName = currentFile.slice(0,-5);
+                    var fileName = currentName.slice(0,-5);
                     //Change from 'some-file.scss' to '.scss'
-                    var extension = currentFile.substring(currentFile.length - 5, currentFile.length);
+                    var extension = currentName.substring(currentName.length - 5, currentName.length);
                     //send to be converted to css and spit out into the output folder
-                    convertToCSS(project, fileName, extension);
+                    convertToCSS(project, fileName, extension, inputSubFolder);
                 }
             }
         });
     }
 
-    function convertToCSS (project, inputFileName, inputFileExt) {
-        var slash = "/";
-        if (process.platform == "win32") {
-            slash = "\\";
-        }
+    function convertToCSS (project, inputFileName, inputFileExt, inputSubFolder) {
+        var outputSubFolder = inputSubFolder || "";
         var outputStyle = project.outputStyle;
-        var sourceMap = false;
         var pathToProject = ugui.app.pathToProject;
         //Get the mixins config file
         var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
@@ -84,14 +94,16 @@
         if (project.environment == "development") {
             devMode = true;
         }
+
+        var sourceMap = false;
         //If user selected Development (not production)
         if (devMode) {
             //set the location for the sourceMap
-            sourceMap = project.outputFolder + slash + inputFileName + '.map'
+            sourceMap = path.join(project.outputFolder, outputSubFolder, inputFileName + '.map');
         }
 
-        var fullFilePath = project.inputFolder + slash + inputFileName + inputFileExt;
-        var outputFullFilePath = project.outputFolder + slash + inputFileName + '.css';
+        var fullFilePath = path.join(project.inputFolder, outputSubFolder, inputFileName + inputFileExt);
+        var outputFullFilePath = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css');
 
         //Use node-sass to convert sass or scss to css
         sass.render({
