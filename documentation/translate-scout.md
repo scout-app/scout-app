@@ -1,8 +1,8 @@
 ## Translating Scout-App 2
 
-Below are 3 different ways of contributing, pick whichever is easiest for you.
+Below are **3 different ways** of contributing, pick whichever is easiest for you.
 
-### Detailed Google Sheets Instructions
+### Way 1: Detailed Google Sheets Instructions
 
 1. Log into your Google Account and go to this URL:
   * https://docs.google.com/spreadsheets/d/16FtHGThz0-CBz_rf_9QO4zOV7oNmNk2BlwmtvKuzAhs/edit?usp=sharing
@@ -13,13 +13,13 @@ Below are 3 different ways of contributing, pick whichever is easiest for you.
 
 * * *
 
-### Quick GitHub Instructions
+### Way 2: Quick GitHub Instructions
 
 To translate Scout-App to a different language, you'll need to fork and clone down the repo, edit an Excel file, make a commit, and do a pull request.
 
 * * *
 
-### Detailed GitHub Instructions
+### Way 3: Detailed GitHub Instructions
 
 #### Getting the project set up
 
