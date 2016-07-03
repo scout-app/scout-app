@@ -10,31 +10,12 @@ Here's a recent screenshot of the new version:
 
 **Officially Supported OS's**:
 
-OS                            | 32-Bit             | 64-Bit
-:--                           | :--:               | :--:
-Windows XP (SP3)              | :white_check_mark: | :x:
-Windows Vista, 7, 8, 8.1, 10+ | :white_check_mark: | :white_check_mark:
-Ubuntu 12.04 & 14.04          | :white_check_mark: | :white_check_mark:
-OSX 10.7+                     | :x:                | :white_check_mark:
-
-* * *
-
-## Scout-App Comparison
-
-Scout Comparison           | 0.7.1           | 2.0.1
-:--                        | :--             | :--
-**Sass Version**           | 2012 (Ruby)     | 2016 (SassC)
-**Technology**             | Air, Java, Ruby | NW.js, Node
-**Cross-Platform**         | OSX, Windows    | Windows, Linux, OSX
-**Syntax Support**         | scss and sass   | scss and sass
-**Compass Support**        | Full Support    | Only Mixins
-**Speed**                  | Potato          | Kitten with a Jetpack
-**Project Setup**          | Manual          | Automatic & Manual
-**Themes**                 | 1               | 19 + Create your own
-**Alerts & Errors**        | Console logs    | Human Readable in UI
-**Run from Tray**          | No              | Planned
-**Custom Mixin Libraries** | No              | Yes
-**Languages**              | English         | English, Dutch, French, Russian, [contribute more](documentation/translate-scout.md)
+OS                                | 32-Bit             | 64-Bit
+:--                               | :--:               | :--:
+Windows XP, Vista, 7, 8, 8.1, 10+ | :white_check_mark: | :white_check_mark:
+Ubuntu 12, 14, 16                 | :white_check_mark: | :white_check_mark:
+Zorin 9 & 11                      | :white_check_mark: | :white_check_mark:
+OSX 10.6+                         | :x:                | :white_check_mark:
 
 * * *
 
@@ -85,7 +66,7 @@ If we've missed a popular mixin library, request it on the [issues](https://gith
 
 ## Translate Scout-App
 
-* [Has been moved to it's own page](documentation/translate-scout.md)
+* [Has been moved to the website](http://TheJaredWilcurt.github.io/scout-app/index.html#cultures)
 
 * * *
 
@@ -95,15 +76,9 @@ If we've missed a popular mixin library, request it on the [issues](https://gith
 
 * * *
 
-## Contributors to Scout-App 2
+## Contributors to Scout-App
 
-* [TheJaredWilcurt](http://github.com/TheJaredWilcurt) - Creator, Maintainer, Project Manager
-* [Stephan Raab](http://github.com/StephanRaab) - Themes feature - Bug Finder - French/Dutch translation
-* [Daniel Golant](https://github.com/BlackBetty) - UX Testing and Design - Russian Translation
-* [Kim Sharpe](https://github.com/kimmortal1) - New Logo Design
-* [zdennis](http://github.com/zdennis) - UX Design and Planning
-* [mejiaj](http://github.com/mejiaj) - UX Design and Planning
-* [Mutually Human](http://github.com/mhs) - For creating the original Scout-App!
+* [Has been moved to the website](http://TheJaredWilcurt.github.io/scout-app/index.html#contributors)
 
 [To be a contributor, click here](documentation/contributing.md)
 
