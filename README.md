@@ -6,7 +6,7 @@ Scout-App allows you to process your `.sass` and `.scss` files into CSS without 
 
 Here's a recent screenshot of the new version:
 
-<p align="center"><img src="https://cloud.githubusercontent.com/assets/4629794/13718098/a4c4f1bc-e7b4-11e5-9fd2-81e7b8c17d2c.png" alt="Scout-App 2 Screenshot"></p>
+<p align="center"><img src="http://thejaredwilcurt.github.io/scout-app/_img/screenshots/win/02.png" alt="Scout-App 2 Screenshot"></p>
 
 **Officially Supported OS's**:
 
