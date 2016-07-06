@@ -21,40 +21,7 @@ OSX 10.6+                         | :x:                | :white_check_mark:
 
 ## Supported/built-in mixin libraries:
 
-Simply add the @import into your code to have access to that library.
-
-*Sorted by URL*
-
-Code                                     | Source
-:--                                      | :--
-`@import "buttons";`                     | [github.com/alexwolfe/Buttons                ](https://github.com/alexwolfe/Buttons)
-`@import "bi-app-ltr";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
-`@import "bi-app-rtl";`                  | [github.com/anasnakawa/bi-app-sass           ](https://github.com/anasnakawa/bi-app-sass)
-`@import "pineapple-sass";`              | [github.com/ArunMichaelDsouza/pineapple-sass ](https://github.com/ArunMichaelDsouza/pineapple-sass)
-`@import "saffron";`                     | [github.com/corporadobob/saffron             ](https://github.com/corporadobob/saffron)
-`@import "scut";`                        | [github.com/davidtheclark/scut               ](https://github.com/davidtheclark/scut)
-`@import "su";`                          | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
-`@import "susy";`                        | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
-`@import "susyone";`                     | [github.com/ericam/susy                      ](https://github.com/ericam/susy)
-`@import "andy";`                        | [github.com/gillesbertaux/andy               ](https://github.com/gillesbertaux/andy)
-`@import "typesettings";`                | [github.com/ianrose/typesettings             ](https://github.com/ianrose/typesettings)
-`@import "compass";`                     | [github.com/Igosuki/compass-mixins           ](https://github.com/Igosuki/compass-mixins)
-`@import "lemonade";`                    | [github.com/Igosuki/compass-mixins           ](https://github.com/Igosuki/compass-mixins)
-`@import "sassy-buttons";`               | [github.com/jhardy/Sassy-Buttons             ](https://github.com/jhardy/Sassy-Buttons)
-`@import "bluejay";`                     | [github.com/kalebheitzman/bluebird           ](https://github.com/kalebheitzman/bluebird)
-`@import "sass-easing";`                 | [github.com/kingscooty/sass-easing           ](https://github.com/kingscooty/sass-easing)
-`@import "family";`                      | [github.com/LukyVj/family.scss               ](https://github.com/LukyVj/family.scss)
-`@import "breakpoint";`                  | [github.com/lesjames/breakpoint              ](https://github.com/lesjames/breakpoint)
-`@import "sass-css3-mixins";`            | [github.com/matthieua/sass-css3-mixins       ](https://github.com/matthieua/sass-css3-mixins)
-`@import "cssowl";`                      | [github.com/owl-stars/cssowl                 ](https://github.com/owl-stars/cssowl)
-`@import "sierra";`                      | [github.com/sierra-library/sierra            ](https://github.com/sierra-library/sierra)
-`@import "spice";`                       | [github.com/spice-sass/spice                 ](https://github.com/spice-sass/spice)
-`@import "meyer";`                       | [github.com/TheJaredWilcurt/meyer-sass       ](https://github.com/TheJaredWilcurt/meyer-sass)
-`@import "bourbon-deprecated-upcoming";` | [github.com/thoughtbot/bourbon               ](https://github.com/thoughtbot/bourbon)
-`@import "bourbon";`                     | [github.com/thoughtbot/bourbon               ](https://github.com/thoughtbot/bourbon)
-`@import "neat";`                        | [github.com/thoughtbot/neat                  ](https://github.com/thoughtbot/neat)
-
-If we've missed a popular mixin library, request it on the [issues](https://github.com/mhs/scout-app/issues) page.
+* [Has been moved to the website](http://TheJaredWilcurt.github.io/scout-app/index.html#mixins)
 
 * * *
 
