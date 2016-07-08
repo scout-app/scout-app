@@ -14,6 +14,8 @@
     /////////////////////////////////////////////////////////////
 
 
+    //File System access
+    var fs = require('fs');
     //Pull in Node-Sass
     var sass = require('node-sass');
     //Chokidar allows for watching files
@@ -52,7 +54,10 @@
                     }
                     //console.log(subfolder);
                     var newOutputSubFolder = path.join(project.outputFolder, subfolder);
-                    ugui.helpers.createAFolder(newOutputSubFolder);
+                    var newOutputSubFolderExists = fs.existsSync(newOutputSubFolder);
+                    if (!newOutputSubFolderExists) {
+                        ugui.helpers.createAFolder(newOutputSubFolder);
+                    }
                     processInputFolder(project, subfolder);
                 //Skip all files that begin with an _ and Process all sass/scss files
                 } else if ( !currentName.startsWith("_") && (currentName.toLowerCase().endsWith(".sass") || currentName.toLowerCase().endsWith(".scss")) ) {
