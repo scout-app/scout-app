@@ -5,9 +5,7 @@
   "version": "2.0.1-beta",
   "main": "index.html",
   "authors": [
-    "The Jared Wilcurt",
-    "ZD",
-    "JM"
+    "The Jared Wilcurt"
   ],
   "keywords": [
     "Sass",
