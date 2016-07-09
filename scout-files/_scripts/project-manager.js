@@ -165,8 +165,13 @@
         var appData = require('nw.gui').App.dataPath;
         appData.split('\\').join('/');
         var settingsJSON = appData + "/scout-settings.json";
-
-        ugui.helpers.writeToFile(settingsJSON, JSON.stringify(scout));
+        var data = {};
+        data.projects = scout.projects;
+        data.versions = scout.versions;
+        data.cultureCode = scout.cultureCode;
+        data = JSON.stringify(data, null, 4);
+        data = data + '\n';
+        ugui.helpers.writeToFile(settingsJSON, data);
     }
 
     /**
