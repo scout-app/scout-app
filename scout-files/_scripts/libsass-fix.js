@@ -18,7 +18,7 @@
 (function(){
 
     //Allow access to the filesystem
-    var fs = require('fs.extra');
+    var fs = require('fs-extra');
 
     //The Node Sass Vendor folder is our Destination
     var nsPath = 'node_modules/node-sass';
