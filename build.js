@@ -13,6 +13,9 @@
 
 // Variables
 var fs = require('fs-extra');
+var manifest = fs.readJsonSync('package.json');
+manifest.devDependencies = {};
+console.log(manifest);
 var o = '../scout-app-build/';
 var s = 'scout-files/';
 
@@ -26,7 +29,7 @@ fs.mkdirsSync(o + s);
 
 // Copy files over
 console.log('copying files');
-fs.copySync('package.json',   o + 'package.json');
+fs.writeJsonSync(o + 'package.json', manifest);
 fs.copySync('bower.json',     o + 'bower.json');
 fs.copySync(s + 'index.html', o + s + 'index.html');
 
@@ -45,6 +48,6 @@ fs.removeSync(o + s + 'cultures/cultures.xls');
 fs.removeSync(o + s + 'cultures/README.md');
 
 // Run executables
-var exec = require("child_process").execSync;
-exec('npm --prefix ../scout-app-build install --production ../scout-app-build');
+// var exec = require("child_process").execSync;
+// exec('npm --prefix ../scout-app-build install --production ../scout-app-build');
 
