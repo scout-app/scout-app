@@ -11,6 +11,19 @@
 // nw.exe with a custom icon
 
 
+// Variables
+var start = Date.now() + "";
+var fs = require('fs-extra');
+var exec = require("child_process").execSync;
+var manifest = fs.readJsonSync('package.json');
+var bowerJSON = fs.readJsonSync('bower.json');
+manifest.name = manifest.name.toLowerCase();
+bowerJSON.name = bowerJSON.name.toLowerCase();
+delete manifest.devDependencies;
+var build = '../scout-app-build/';
+var sf = 'scout-files/';
+
+// Functions
 function timer (finish, begin) {
     //3195
     var subtract = finish - begin;
@@ -59,18 +72,6 @@ function minutes (finish, begin) {
     return time;
 }
 
-
-// Variables
-var start = Date.now() + "";
-var fs = require('fs-extra');
-var exec = require("child_process").execSync;
-var manifest = fs.readJsonSync('package.json');
-var bowerJSON = fs.readJsonSync('bower.json');
-manifest.name = manifest.name.toLowerCase();
-bowerJSON.name = bowerJSON.name.toLowerCase();
-delete manifest.devDependencies;
-var build = '../scout-app-build/';
-var sf = 'scout-files/';
 
 // Clean build folder
 if (fs.existsSync(build + 'License'))          { fs.removeSync(build + 'License')          }
