@@ -35,7 +35,7 @@
 
 #### **Phase 2:** Community Input and bugs (ZD/JM)
 
-* [x] **Status:**: [In beta](http://github.com/TheJaredWilcurt/scout-app/releases)
+* [x] **Status:** [In beta](http://github.com/TheJaredWilcurt/scout-app/releases)
 * [x] **To do:**
   * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
   * [x] ~~Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js. (TJW)~~
@@ -45,20 +45,23 @@
 
 * [ ] **Status:** Waiting for Phase 1 and 2 to be completed
 * [ ] **To do:**
-  * [ ] Optimize the payload, so we don't include any junk files.
+  * [x] ~~Optimize the payload, so we don't include any junk files. (TJW)~~
   * [ ] Create custom build tools that package our app for distribution and remove files that are not needed in the production version
+    * [x] ~~Windows (TJW)~~
+    * [ ] Linux
+    * [ ] OSX
   * [ ] Test out the packaged versions on each targeted OS. Fix any issues that arise.
   * [ ] Research different installer options for each OS.
-    * [x] ~~WinRAR SFX Installer.~~
+    * [x] ~~WinRAR SFX Installer. (TJW)~~
     * [ ] How to create a .deb file for Ubuntu.
     * [ ] MAS ([Mac App Store](https://github.com/nwjs/nw.js/wiki/Mac-App-Store-(MAS)-Submission-Guideline)).
     * [ ] [Inno Setup](http://www.jrsoftware.org/isinfo.php).
     * [ ] [NSIS](http://nsis.sourceforge.net/Main_Page)
-    * [ ] [Windows Installer](https://msdn.microsoft.com/en-us/library/cc185688(VS.85%29.aspx)
+    * [ ] [Windows Installer](https://msdn.microsoft.com/en-us/library/cc185688%28VS.85%29.aspx)
 
 #### **Phase 4:** NEW WEBSITE **(Need help with this)** !!!!!!!!!!!!!!!
 
-* [ ] **Status:** Could be started at any point (hint hint).
+* [ ] **Status:** Almost complete.
 * [ ] **To do:**
   * [ ] [Moved this section to the `gh-pages` branch](https://github.com/TheJaredWilcurt/scout-app/tree/gh-pages)
 
