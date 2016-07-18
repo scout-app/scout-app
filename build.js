@@ -13,6 +13,8 @@
 
 // Variables
 var fs = require('fs-extra');
+var rimraf = require('rimraf'); // rimraf used to set number of retries for deleting files in use
+//var del = require('del'); // del used to delete entire folders with the exception of specific files
 var manifest = fs.readJsonSync('package.json');
 manifest.devDependencies = {};
 console.log(manifest);

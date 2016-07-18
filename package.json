@@ -5,7 +5,7 @@
     "author": "The Jared Wilcurt, Zach Dennis",
     "description": "Sass without all the hassle.",
     "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Mixins", "Cross-Platform" ],
-    "maintainers":[{
+    "maintainers": [{
         "name": "The Jared Wilcurt",
         "email": "TheJaredWilcurt@users.noreply.github.com",
         "web": "https://ugui.io"
@@ -55,7 +55,8 @@
     },
     "devDependencies": {
         "nw": "^0.12.3",
-        "bower": "~1.x.x"
+        "bower": "~1.x.x",
+        "rimraf": "^2.x.x"
     },
     "scripts": {
         "start": "nw .",
