@@ -1,5 +1,6 @@
 ## Project management:
 
+
 #### **Phase 1**: Beautiful, functional, and ease of use (TJW)
 
 * [x] **Status:** COMPLETE
@@ -33,6 +34,7 @@
   * [x] ~~BUG 8: Run a project then add new project, the running icon will show as play instead of stop. (TJW)~~
   * [x] ~~BUG 9: Select project settings A, run project B. It displays status updates of B on Settings view of A. (TJW)~~
 
+
 #### **Phase 2:** Community Input and bugs (ZD/JM)
 
 * [x] **Status:** [In beta](http://github.com/TheJaredWilcurt/scout-app/releases)
@@ -40,6 +42,7 @@
   * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
   * [x] ~~Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js. (TJW)~~
   * [x] ~~Once the app is pretty much functional, have the crew try it out and give input.~~
+
 
 #### **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
 
@@ -59,13 +62,16 @@
     * [ ] [NSIS](http://nsis.sourceforge.net/Main_Page)
     * [ ] [Windows Installer](https://msdn.microsoft.com/en-us/library/cc185688%28VS.85%29.aspx)
 
-#### **Phase 4:** NEW WEBSITE **(Need help with this)** !!!!!!!!!!!!!!!
+
+#### **Phase 4:** New Website
 
 * [ ] **Status:** Almost complete.
 * [ ] **To do:**
   * [ ] [Moved this section to the `gh-pages` branch](https://github.com/TheJaredWilcurt/scout-app/tree/gh-pages)
 
+
 #### **Phase 5:** Bug fixes/Additional features/Maintenance
+
 * [ ] **Status:** Lower priority features, some have been claimed
 * [ ] **To do:**
   * [x] ~~Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root. ([#241](https://github.com/mhs/scout-app/issues/241)) (TJW)~~
