@@ -24,6 +24,8 @@ bowerJSON.name = bowerJSON.name.toLowerCase();
 delete manifest.devDependencies;
 var build = '../scout-app-build/';
 var sf = 'scout-files/';
+var bindings = '_assets/node-sass_v3.4.2/';
+var ns = 'node_modules/node-sass/vendor/';
 var os = process.platform;
 var win = false;
 var lin = false;
@@ -31,9 +33,10 @@ var osx = false;
 if (os == 'win32' ) { win = true; }
 if (os == 'linux' ) { lin = true; }
 if (os == 'darwin') { osx = true; }
-if (os == 'freebsd' || os == 'sunos' ) {
-    console.log("Unsupported Operating System, build probably won't work");
+if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os != 'darwin' ) ) {
     lin = true;
+    console.log('UNSUPPORTED OPERATING SYSTEM')
+    console.log('Build will probably fail.');
 }
 
 // Functions
@@ -89,9 +92,15 @@ function minutes (finish, begin) {
 }
 
 function rmrf (location) {
-    var winLocation = location.split('/').join('\\');
-    while ( fs.existsSync(location) ) {
-        exec('rd /S /Q ' + winLocation);
+    if (win) {
+        var winLocation = location.split('/').join('\\');
+        while ( fs.existsSync(location) ) {
+            exec('rd /S /Q ' + winLocation);
+        }
+    } else {
+        while ( fs.existsSync(location) ) {
+            fs.removeSync(location);
+        }
     }
 }
 
@@ -132,17 +141,29 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
-exec('npm --loglevel=error --prefix ' + build + 'temp install ' + build);
+if (win) {
+    exec('npm --loglevel=error --prefix ' + build + 'temp install ' + build);
+} else {
+    exec('npm --loglevel=error --prefix ' + build + 'temp install ' + build);
+}
 var timeExec = Date.now() + '';
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
 
 // Move node_modules and bower_components into place
-fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
+if (win) {
+    fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
+} else {
+    fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
+}
 var timeBower = Date.now() + '';
 console.log('Move bower_components - ' + timer(timeBower, timeExec));
 
-fs.copySync(build + 'temp/node_modules/scout-app/node_modules',     build + 'node_modules');
+if (win) {
+    fs.copySync(build + 'temp/node_modules/scout-app/node_modules',     build + 'node_modules');
+} else {
+    fs.copySync(build + 'temp/node_modules/scout-app/node_modules',     build + 'node_modules');
+}
 var timeNM = Date.now() + '';
 console.log('Move node_modules     - ' + timer(timeNM, timeBower));
 
@@ -151,10 +172,20 @@ var timeRmvTmp = Date.now() + '';
 console.log('Delete Temp           - ' + timer(timeRmvTmp, timeNM));
 
 
-// Node-Sass Vendor cleanup
+// Node-Sass Vendor Bindings
 rmrf(build + 'node_modules/node-sass/vendor');
-fs.copySync(sf + '_assets/node-sass_v3.4.2/win32-ia32-43', build + 'node_modules/node-sass/vendor/win32-ia32-43');
-fs.copySync(sf + '_assets/node-sass_v3.4.2/win32-x64-43',  build + 'node_modules/node-sass/vendor/win32-x64-43');
+if (win) {
+    fs.copySync(sf + bindings + 'win32-ia32-43', build + ns + 'win32-ia32-43');
+    fs.copySync(sf + bindings + 'win32-x64-43',  build + ns + 'win32-x64-43');
+} else if (os == 'freebsd') {
+    fs.copySync(sf + bindings + 'freebsd-ia32-43', build + ns + 'freebsd-ia32-43');
+    fs.copySync(sf + bindings + 'freebsd-x64-43',  build + ns + 'freebsd-x64-43');
+} else if (darwin) {
+    fs.copySync(sf + bindings + 'darwin-x64-43',  build + ns + 'darwin-x64-43');
+} else if (lin) {
+    fs.copySync(sf + bindings + 'linux-ia32-43', build + ns + 'linux-ia32-43');
+    fs.copySync(sf + bindings + 'linux-x64-43',  build + ns + 'linux-x64-43');
+}
 var timeNS = Date.now() + '';
 console.log('Node-Sass bindings    - ' + timer(timeNS, timeNM));
 
@@ -166,4 +197,10 @@ console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(en
 
 
 //Run the app
-var scoutExe = exec(build.split('/').join('\\') + 'Scout-App.exe');
+if (win) {
+    exec(build.split('/').join('\\') + 'Scout-App.exe');
+} else if (darwin) {
+    //????
+} else {
+    exec(build + 'Scout-App');
+}
