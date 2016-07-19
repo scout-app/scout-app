@@ -12,9 +12,9 @@
 
 
 // Variables
-var start = Date.now() + "";
+var start = Date.now() + '';
 var fs = require('fs-extra');
-var exec = require("child_process").execSync;
+var exec = require('child_process').execSync;
 //var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
 //var del = require('del'); // used to delete entire folders with the exception of specific files
 var manifest = fs.readJsonSync('package.json');
@@ -34,24 +34,24 @@ function timer (finish, begin) {
     var round = Math.round(subtract / 10);
     //320 becomes 3.2
     var seconds = round / 100;
-    //3.2 becomes ["3", "2"]
+    //3.2 becomes ['3', '2']
     var splitSeconds = seconds.toString().split('.');
     if (splitSeconds[0].length < 2) {
-        //"3" becomes " 3"
-        splitSeconds[0] = " " + splitSeconds[0];
+        //'3' becomes ' 3'
+        splitSeconds[0] = ' ' + splitSeconds[0];
     }
     if (splitSeconds.length == 1 || splitSeconds[1].length < 1) {
-        //"" becomes "00"
-        splitSeconds[1] = "00";
+        //'' becomes '00'
+        splitSeconds[1] = '00';
     } else if (splitSeconds[1].length == 1) {
-        //"2" becomes "20"
-        splitSeconds[1] = splitSeconds[1] + "0";
+        //'2' becomes '20'
+        splitSeconds[1] = splitSeconds[1] + '0';
     }
     if (splitSeconds[0].length == 3) {
         splitSeconds[1] = splitSeconds[1][0];
     }
-    //[" 3", "20"] becomes " 3.20 seconds"
-    var time = splitSeconds.join('.') + " seconds";
+    //[' 3', '20'] becomes ' 3.20 seconds'
+    var time = splitSeconds.join('.') + ' seconds';
     return time;
 }
 
@@ -69,10 +69,10 @@ function minutes (finish, begin) {
         //22.5 = 23
         splitMinutes[1] = Math.round(splitMinutes[1]).toString();
     } else {
-        splitMinutes[1] = "00";
+        splitMinutes[1] = '00';
     }
     if (splitMinutes[1].length == 1) {
-        splitMinutes[1] = "0" + splitMinutes[1];
+        splitMinutes[1] = '0' + splitMinutes[1];
     }
     var time = splitMinutes.join(':');
     return time;
@@ -93,7 +93,7 @@ rmrf(build + 'node_modules');
 rmrf(build + 'temp');
 rmrf(build + sf);
 fs.mkdirsSync(build + sf);
-var timeClean = Date.now() + "";
+var timeClean = Date.now() + '';
 console.log('Cleaning build folder - ' + timer(timeClean, start));
 
 
@@ -101,7 +101,7 @@ console.log('Cleaning build folder - ' + timer(timeClean, start));
 fs.writeJsonSync(build + 'package.json', manifest);
 fs.writeJsonSync(build + 'bower.json', bowerJSON);;
 fs.copySync(sf + 'index.html', build + sf + 'index.html');
-var timeFiles = Date.now() + "";
+var timeFiles = Date.now() + '';
 console.log('Copying files         - ' + timer(timeFiles, timeClean));
 
 
@@ -117,27 +117,27 @@ fs.copySync(sf + 'mixins',    build + sf + 'mixins');
 fs.copySync(sf + 'cultures',  build + sf + 'cultures');
 fs.removeSync(build + sf + 'cultures/cultures.xls');
 fs.removeSync(build + sf + 'cultures/README.md');
-var timeFolder = Date.now() + "";
+var timeFolder = Date.now() + '';
 console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
 exec('npm --loglevel=error --prefix ' + build + 'temp install ' + build);
-var timeExec = Date.now() + "";
+var timeExec = Date.now() + '';
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
 
 // Move node_modules and bower_components into place
 fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
-var timeBower = Date.now() + "";
+var timeBower = Date.now() + '';
 console.log('Move bower_components - ' + timer(timeBower, timeExec));
 
 fs.copySync(build + 'temp/node_modules/scout-app/node_modules',     build + 'node_modules');
-var timeNM = Date.now() + "";
+var timeNM = Date.now() + '';
 console.log('Move node_modules     - ' + timer(timeNM, timeBower));
 
 rmrf(build + 'temp');
-var timeRmvTmp = Date.now() + "";
+var timeRmvTmp = Date.now() + '';
 console.log('Delete Temp           - ' + timer(timeRmvTmp, timeNM));
 
 
@@ -145,12 +145,12 @@ console.log('Delete Temp           - ' + timer(timeRmvTmp, timeNM));
 rmrf(build + 'node_modules/node-sass/vendor');
 fs.copySync(sf + '_assets/node-sass_v3.4.2/win32-ia32-43', build + 'node_modules/node-sass/vendor/win32-ia32-43');
 fs.copySync(sf + '_assets/node-sass_v3.4.2/win32-x64-43',  build + 'node_modules/node-sass/vendor/win32-x64-43');
-var timeNS = Date.now() + "";
+var timeNS = Date.now() + '';
 console.log('Node-Sass bindings    - ' + timer(timeNS, timeNM));
 
 
 // Total Time
-var end = Date.now() + "";
+var end = Date.now() + '';
 console.log('-------------------------------------');
 console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(end, start));
 
