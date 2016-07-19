@@ -24,7 +24,17 @@ bowerJSON.name = bowerJSON.name.toLowerCase();
 delete manifest.devDependencies;
 var build = '../scout-app-build/';
 var sf = 'scout-files/';
-
+var os = process.platform;
+var win = false;
+var lin = false;
+var osx = false;
+if (os == 'win32' ) { win = true; }
+if (os == 'linux' ) { lin = true; }
+if (os == 'darwin') { osx = true; }
+if (os == 'freebsd' || os == 'sunos' ) {
+    console.log("Unsupported Operating System, build probably won't work");
+    lin = true;
+}
 
 // Functions
 function timer (finish, begin) {
