@@ -47,6 +47,9 @@ function timer (finish, begin) {
         //"2" becomes "20"
         splitSeconds[1] = splitSeconds[1] + "0";
     }
+    if (splitSeconds[0].length == 3) {
+        splitSeconds[1] = splitSeconds[1][0];
+    }
     //[" 3", "20"] becomes " 3.20 seconds"
     var time = splitSeconds.join('.') + " seconds";
     return time;
@@ -119,7 +122,7 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
-exec('npm --prefix ' + build + 'temp install --production ' + build);
+exec('npm --loglevel=error --prefix ' + build + 'temp install ' + build);
 var timeExec = Date.now() + "";
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
@@ -148,6 +151,7 @@ console.log('Node-Sass bindings    - ' + timer(timeNS, timeNM));
 
 // Total Time
 var end = Date.now() + "";
+console.log('-------------------------------------');
 console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(end, start));
 
 
