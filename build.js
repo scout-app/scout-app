@@ -14,9 +14,9 @@
 // Variables
 var start = Date.now() + "";
 var fs = require('fs-extra');
-var rimraf = require('rimraf'); // rimraf used to set number of retries for deleting files in use
-//var del = require('del'); // del used to delete entire folders with the exception of specific files
 var exec = require("child_process").execSync;
+//var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
+//var del = require('del'); // used to delete entire folders with the exception of specific files
 var manifest = fs.readJsonSync('package.json');
 var bowerJSON = fs.readJsonSync('bower.json');
 manifest.name = manifest.name.toLowerCase();
@@ -24,6 +24,7 @@ bowerJSON.name = bowerJSON.name.toLowerCase();
 delete manifest.devDependencies;
 var build = '../scout-app-build/';
 var sf = 'scout-files/';
+
 
 // Functions
 function timer (finish, begin) {
@@ -74,16 +75,24 @@ function minutes (finish, begin) {
     return time;
 }
 
+function rmrf (location) {
+    var winLocation = location.split('/').join('\\');
+    while ( fs.existsSync(location) ) {
+        exec('rd /S /Q ' + winLocation);
+    }
+}
+
 
 // Clean build folder
-if (fs.existsSync(build + 'License'))          { fs.removeSync(build + 'License')          }
-if (fs.existsSync(build + 'bower_components')) { fs.removeSync(build + 'bower_components') }
-if (fs.existsSync(build + 'node_modules'))     { fs.removeSync(build + 'node_modules')     }
-if (fs.existsSync(build + 'temp'))             { fs.removeSync(build + 'temp')             }
-if (fs.existsSync(build + sf))                 { fs.removeSync(build + sf)                 }
+rmrf(build + 'License');
+rmrf(build + 'bower_components');
+rmrf(build + 'node_modules');
+rmrf(build + 'temp');
+rmrf(build + sf);
 fs.mkdirsSync(build + sf);
 var timeClean = Date.now() + "";
 console.log('Cleaning build folder - ' + timer(timeClean, start));
+
 
 // Copy files over
 fs.writeJsonSync(build + 'package.json', manifest);
@@ -91,6 +100,7 @@ fs.writeJsonSync(build + 'bower.json', bowerJSON);;
 fs.copySync(sf + 'index.html', build + sf + 'index.html');
 var timeFiles = Date.now() + "";
 console.log('Copying files         - ' + timer(timeFiles, timeClean));
+
 
 // Copy folders over
 fs.copySync('License',        build + 'License');
@@ -107,30 +117,39 @@ fs.removeSync(build + sf + 'cultures/README.md');
 var timeFolder = Date.now() + "";
 console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
+
 // Run executables
-exec('npm --prefix ' + build + 'temp install ' + build);
+exec('npm --prefix ' + build + 'temp install --production ' + build);
 var timeExec = Date.now() + "";
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
+
 
 // Move node_modules and bower_components into place
 fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
 var timeBower = Date.now() + "";
 console.log('Move bower_components - ' + timer(timeBower, timeExec));
+
 fs.copySync(build + 'temp/node_modules/scout-app/node_modules',     build + 'node_modules');
-if (fs.existsSync(build + 'temp')) { fs.removeSync(build + 'temp') }
 var timeNM = Date.now() + "";
 console.log('Move node_modules     - ' + timer(timeNM, timeBower));
 
+rmrf(build + 'temp');
+var timeRmvTmp = Date.now() + "";
+console.log('Delete Temp           - ' + timer(timeRmvTmp, timeNM));
+
+
 // Node-Sass Vendor cleanup
-if (fs.existsSync(build + 'node_modules/node-sass/vendor')) { fs.removeSync(build + 'node_modules/node-sass/vendor') }
+rmrf(build + 'node_modules/node-sass/vendor');
 fs.copySync(sf + '_assets/node-sass_v3.4.2/win32-ia32-43', build + 'node_modules/node-sass/vendor/win32-ia32-43');
 fs.copySync(sf + '_assets/node-sass_v3.4.2/win32-x64-43',  build + 'node_modules/node-sass/vendor/win32-x64-43');
 var timeNS = Date.now() + "";
 console.log('Node-Sass bindings    - ' + timer(timeNS, timeNM));
 
+
 // Total Time
 var end = Date.now() + "";
 console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(end, start));
+
 
 //Run the app
 var scoutExe = exec(build.split('/').join('\\') + 'Scout-App.exe');

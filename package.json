@@ -55,8 +55,7 @@
     },
     "devDependencies": {
         "nw": "^0.12.3",
-        "bower": "~1.x.x",
-        "rimraf": "^2.x.x"
+        "bower": "~1.x.x"
     },
     "scripts": {
         "start": "nw .",
