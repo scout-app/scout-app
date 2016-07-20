@@ -1,4 +1,4 @@
-//BUILDING FOR WINDOWS:
+//BUILDING FOR WINDOWS/LINUX:
 
 //Prerequisites: Must have Node, NPM, and Bower installed globally.
 //This assumes you have a folder next to `scout-app` called `scout-app-build`.
@@ -13,31 +13,32 @@
 
 // Variables
 var start = Date.now() + '';
-var fs = require('fs-extra');
-var exec = require('child_process').execSync;
-//var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
-//var del = require('del'); // used to delete entire folders with the exception of specific files
-var manifest = fs.readJsonSync('package.json');
-var bowerJSON = fs.readJsonSync('bower.json');
-manifest.name = manifest.name.toLowerCase();
-bowerJSON.name = bowerJSON.name.toLowerCase();
-delete manifest.devDependencies;
-var build = '../scout-app-build/';
-var sf = 'scout-files/';
-var bindings = '_assets/node-sass_v3.4.2/';
-var ns = 'node_modules/node-sass/vendor/';
 var os = process.platform;
 var win = false;
 var lin = false;
-var osx = false;
+var darwin = false;
 if (os == 'win32' ) { win = true; }
 if (os == 'linux' ) { lin = true; }
-if (os == 'darwin') { osx = true; }
+if (os == 'darwin') { darwin = true; }
 if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os != 'darwin' ) ) {
     lin = true;
     console.log('UNSUPPORTED OPERATING SYSTEM')
     console.log('Build will probably fail.');
 }
+var fs = require('fs-extra');
+var exec = require('child_process').execSync;
+//var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
+//var del = require('del'); // used to delete entire folders with the exception of specific files
+var manifest = fs.readJsonSync('package.json');
+manifest.name = manifest.name.toLowerCase();
+delete manifest.devDependencies;
+if (lin) { manifest.window.icon = 'scout-files/_img/logo_128.png'; }
+var bowerJSON = fs.readJsonSync('bower.json');
+bowerJSON.name = bowerJSON.name.toLowerCase();
+var build = '../scout-app-build/';
+var sf = 'scout-files/';
+var bindings = '_assets/node-sass_v3.4.2/';
+var ns = 'node_modules/node-sass/vendor/';
 
 // Functions
 function timer (finish, begin) {
@@ -74,19 +75,25 @@ function minutes (finish, begin) {
     //82500 = 1.375
     var minutes = subtract / 60000;
     minutes = Math.round(minutes * 1000) / 1000;
-    //
+    //1.375 = ['1', '375']
     var splitMinutes = minutes.toString().split('.');
-    if (splitMinutes[1]) {
-        //375 = 22.5
-        splitMinutes[1] = (splitMinutes[1] / 1000) * 60;
-        //22.5 = 23
-        splitMinutes[1] = Math.round(splitMinutes[1]).toString();
-    } else {
-        splitMinutes[1] = '00';
+    if (!splitMinutes[1]) {
+        splitMinutes[1] = '000';
+    } else if (splitMinutes[1].length == 1) {
+        //['1', '3'] = ['1', '300']
+        splitMinutes[1] = splitMinutes[1] * 100;
+    } else if (splitMinutes[1].length == 2) {
+        //['1', '32'] = ['1', '320']
+        splitMinutes[1] = splitMinutes[1] * 10;
     }
+    //['1', '300'] = ['1', '18']
+    splitMinutes[1] = (splitMinutes[1] / 1000) * 60;
+    splitMinutes[1] = Math.round(splitMinutes[1]).toString();
+    //['1', '9'] = ['1', '09']
     if (splitMinutes[1].length == 1) {
         splitMinutes[1] = '0' + splitMinutes[1];
     }
+    //['1', '09'] = '1:09'
     var time = splitMinutes.join(':');
     return time;
 }
@@ -150,22 +157,29 @@ var timeExec = Date.now() + '';
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
 
-// Move node_modules and bower_components into place
-if (win) {
-    fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
-} else {
-    fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
-}
+// Move bower_components into place and clean
+fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
 var timeBower = Date.now() + '';
 console.log('Move bower_components - ' + timer(timeBower, timeExec));
+if (!win) {
+    rmrf(build + 'temp/node_modules/scout-app');
+    var timeBowerDel = Date.now() + '';
+    console.log('Del bower_components  - ' + timer(timeBowerDel, timeBower));
+}
 
+
+// Move node_modules into place and clean
 if (win) {
-    fs.copySync(build + 'temp/node_modules/scout-app/node_modules',     build + 'node_modules');
+    fs.copySync(build + 'temp/node_modules/scout-app/node_modules', build + 'node_modules');
 } else {
-    fs.copySync(build + 'temp/node_modules/scout-app/node_modules',     build + 'node_modules');
+    fs.copySync(build + 'temp/node_modules', build + 'node_modules');
 }
 var timeNM = Date.now() + '';
-console.log('Move node_modules     - ' + timer(timeNM, timeBower));
+if (win) {
+    console.log('Move node_modules     - ' + timer(timeNM, timeBower));
+} else {
+    console.log('Move node_modules     - ' + timer(timeNM, timeBowerDel));
+}
 
 rmrf(build + 'temp');
 var timeRmvTmp = Date.now() + '';
@@ -198,9 +212,13 @@ console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(en
 
 //Run the app
 if (win) {
-    exec(build.split('/').join('\\') + 'Scout-App.exe');
+    if ( fs.existsSync(build + 'Scout-App.exe') ) {
+        exec(build.split('/').join('\\') + 'Scout-App.exe');
+    }
 } else if (darwin) {
     //????
 } else {
-    exec(build + 'Scout-App');
+    if ( fs.existsSync(build + 'Scout-App') ) {
+        exec(build + 'Scout-App');
+    }
 }
