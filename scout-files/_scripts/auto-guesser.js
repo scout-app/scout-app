@@ -87,15 +87,20 @@
                         if (currentItem == subfolder) {
                             //read folder C:/myproj/src/ or C:/myproj/dist
                             ugui.helpers.readAFolder(projectPath + '/' + subfolder, function (SDContents) {
-                                //loop throuhg C:/myproj/src/*
+                                //loop through C:/myproj/src/*
                                 for (var k = 0; k < SDContents.length; k++) {
                                     var SDCurrentItem = SDContents[k].name.toLowerCase();
                                     //only proceed if a folder
                                     if (SDContents[k].isFolder) {
+                                        //loop through ["sass", "scss"] or ["styles", "css"]
                                         for (var l = 0; l < autoFolder.length; l++) {
+                                            //Current item we are looping through
                                             var subsubfolder = autoFolder[l];
+                                            //If the actual folder matches the item being looped
                                             if (SDCurrentItem == subsubfolder) {
-                                                var path = projectPath + '/' + subfolder + '/' + subsubfolder;
+                                                //Create the full path to the found folder
+                                                var path = projectPath + '/' + subfolder + '/' + SDContents[k].name;
+                                                //Update the scout new project object
                                                 scout.newProject[newProjectProperty] = path;
                                             }
                                         }
