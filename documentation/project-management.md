@@ -37,7 +37,7 @@
 
 #### **Phase 2:** Community Input and bugs (ZD/JM)
 
-* [x] **Status:** [In beta](http://github.com/TheJaredWilcurt/scout-app/releases)
+* [x] **Status:** COMPLETED
 * [x] **To do:**
   * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
   * [x] ~~Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js. (TJW)~~
@@ -46,14 +46,14 @@
 
 #### **Phase 3:** Cross-platform testing (Ubuntu, Win, OSX), build tools
 
-* [ ] **Status:** Waiting for Phase 1 and 2 to be completed
+* [ ] **Status:** In progress
 * [ ] **To do:**
   * [x] ~~Optimize the payload, so we don't include any junk files. (TJW)~~
   * [ ] Create custom build tools that package our app for distribution and remove files that are not needed in the production version
     * [x] ~~Windows (TJW)~~
-    * [ ] Linux
+    * [x] ~~Linux (TJW)~~
     * [ ] OSX
-  * [ ] Test out the packaged versions on each targeted OS. Fix any issues that arise.
+  * [x] ~~Test out the packaged versions on each targeted OS. Fix any issues that arise.~~
   * [ ] Research different installer options for each OS.
     * [x] ~~WinRAR SFX Installer. (TJW)~~
     * [ ] How to create a .deb file for Ubuntu.
@@ -65,7 +65,7 @@
 
 #### **Phase 4:** New Website
 
-* [ ] **Status:** Almost complete.
+* [ ] **Status:** Done, but could be improved
 * [ ] **To do:**
   * [ ] [Moved this section to the `gh-pages` branch](https://github.com/TheJaredWilcurt/scout-app/tree/gh-pages)
 
