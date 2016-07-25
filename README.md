@@ -2,7 +2,7 @@
 
 Scout-App allows you to process your `.sass` and `.scss` files into CSS without needing any knowledge of the command line.
 
-* Downloads available at [Scout-App.io](http://scout-app.io)
+<h1 align="center">Downloads available at <a href="http://scout-app.io"><b>Scout-App.io</b></a></h1>
 
 <p align="center"><img src="http://scout-app.io/_img/screenshots/win/02.png" alt="Scout-App 2 Screenshot"></p>
 
@@ -19,32 +19,34 @@ OSX 10.6+                         | :x:                | :white_check_mark:
 
 ## Supported/built-in mixin libraries:
 
-* [Has been moved to the website](http://scout-app.io/index.html#mixins)
+* [See website](http://scout-app.io/index.html#mixins)
 
 * * *
 
 ## Contributing
 
-* [Has been moved to it's own page](documentation/contributing.md)
+* [Moved to it's own page](documentation/contributing.md)
 
 * * *
 
 ## Translate Scout-App
 
-* [Has been moved to the website](http://scout-app.io/index.html#cultures)
+* [See website](http://scout-app.io/index.html#cultures)
 
 * * *
 
 ## Project Roadmap:
 
-* [Has been moved to it's own page](documentation/project-management.md)
+* [Moved to it's own page](documentation/project-management.md)
 
 * * *
 
 ## Contributors to Scout-App
 
-* [Has been moved to the website](http://scout-app.io/index.html#contributors)
+* [See website](http://scout-app.io/index.html#contributors)
 
-[To be a contributor, click here](documentation/contributing.md)
+**[To be a contributor, click here](documentation/contributing.md)**
+
+* * *
 
 Scout-App 2 is built using the cross-platform runtime environment [NW.js](http://nwjs.io) and the [UGUI](http://ugui.io) framework.
