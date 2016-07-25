@@ -4,7 +4,7 @@ Scout-App allows you to process your `.sass` and `.scss` files into CSS without 
 
 * Downloads available at [Scout-App.io](http://scout-app.io)
 
-<p align="center"><img src="http://thejaredwilcurt.github.io/scout-app/_img/screenshots/win/02.png" alt="Scout-App 2 Screenshot"></p>
+<p align="center"><img src="http://scout-app.io/_img/screenshots/win/02.png" alt="Scout-App 2 Screenshot"></p>
 
 **Officially Supported OS's**:
 
@@ -19,7 +19,7 @@ OSX 10.6+                         | :x:                | :white_check_mark:
 
 ## Supported/built-in mixin libraries:
 
-* [Has been moved to the website](http://TheJaredWilcurt.github.io/scout-app/index.html#mixins)
+* [Has been moved to the website](http://scout-app.io/index.html#mixins)
 
 * * *
 
@@ -31,7 +31,7 @@ OSX 10.6+                         | :x:                | :white_check_mark:
 
 ## Translate Scout-App
 
-* [Has been moved to the website](http://TheJaredWilcurt.github.io/scout-app/index.html#cultures)
+* [Has been moved to the website](http://scout-app.io/index.html#cultures)
 
 * * *
 
@@ -43,7 +43,7 @@ OSX 10.6+                         | :x:                | :white_check_mark:
 
 ## Contributors to Scout-App
 
-* [Has been moved to the website](http://TheJaredWilcurt.github.io/scout-app/index.html#contributors)
+* [Has been moved to the website](http://scout-app.io/index.html#contributors)
 
 [To be a contributor, click here](documentation/contributing.md)
 
