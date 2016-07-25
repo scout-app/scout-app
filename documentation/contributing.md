@@ -5,7 +5,7 @@ Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the 
 ### What you can help with
 
 * **Translate the app** - Go to the [Translate Scout-App](http://scout-app.io/index.html#cultures) page.
-* **Report Bugs** - [Make a GitHub Issue](https://github.com/mhs/scout-app/issues/new?title=SA2%20-%20&body=OS%3A%20%0DInformation%20from%20Dev%20Tools%3A%20%0D%0D%28Attach%20screenshot%20below%29) for any bug you find. Include steps to repoduce the issue and a screenshot if possible.
+* **Report Bugs** - [Make a GitHub Issue](https://github.com/mhs/scout-app/issues/new?title=SA2%20-%20&body=OS%3A%20%0DVersion%3A%20%0DInformation%20from%20Dev%20Tools%3A%20%0D%0D%28Attach%20screenshot%20below%29) for any bug you find. Include steps to repoduce the issue and a screenshot if possible.
 * **Website** - Scout-App 2's website can always be improved (See: [Project Management](https://github.com/TheJaredWilcurt/scout-app/tree/gh-pages#project-management))
 * **App Features** - There is a list of desired features to be added to Scout-App 2. (See Phase 5 of [Project Management](project-management.md#phase-5-bug-fixesadditional-featuresmaintenance))
 * **Bug fixes** - If you find a bug and now how to fix it, or want to fix a reported bug, fork the repo and make a pull request.
