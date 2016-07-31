@@ -75,6 +75,8 @@
 * [ ] **Status:** Lower priority features, some have been claimed
 * [ ] **To do:**
   * [x] ~~Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root. ([#241](https://github.com/mhs/scout-app/issues/241)) (TJW)~~
+  * [ ] Redesign FTUX
+  * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files
   * [ ] Drag and drop sidebar items to reorder (HMN)
   * [ ] Abilitity to clear all alerts and messags at once
   * [ ] Right-click to delete an project from the sidebar
