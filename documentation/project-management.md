@@ -78,6 +78,7 @@
   * [ ] Redesign FTUX
   * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files
   * [ ] Drag and drop sidebar items to reorder (HMN)
+  * [ ] Scan Desktop for projects folders
   * [ ] Abilitity to clear all alerts and messags at once
   * [ ] Right-click to delete an project from the sidebar
   * [ ] Make sidebar resizable
