@@ -83,6 +83,7 @@
   * [ ] Right-click to delete an project from the sidebar
   * [ ] Make sidebar resizable
   * [ ] Tray icon/Minimize to tray
+  * [ ] Allow users to rename project titles
   * [ ] Tray icon indicators
   * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/mhs/scout-app/issues/240))
   * [ ] Import/Export projects (Would anyone even want this feature?)
