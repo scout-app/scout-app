@@ -48,7 +48,7 @@ In the Developer Tools Console, you can type `scout` to see the main Scout objec
 * `dictionary`: This is used for temporary storage while switching languages in the UI. It will occassionally hold the same contents as one of the JSON files in the `cultures` folder.
 * `ftux`: "[**F**irst **T**ime **U**ser E**x**perience](https://en.wikipedia.org/wiki/First-time_user_experience)". This is used as temporary storage for information generated on the FTUX screen. FTUX is shown whenever the user has 0 projects added to Scout-App.
 * `helpers`: These are helper functions that can be called at any time from any file. Here is more information about specific helper functions:
- * `addProject`: Accepts a "project object" argument that contains an ID, Name, and local Directory. It addes it to the `scout.projects` list, updates the sidebar, and then saves settings.
+ * `addProject`: Accepts a "project object" argument that contains an ID, Name, and local Directory. It adds it to the `scout.projects` list, updates the sidebar, and then saves settings.
  * `alert`: Accepts an error and project ID. Displays an error message in the UI and in the console.
  * `autoGenerateProject`: This accepts a project folder as an argument and then uses it to auto guess the settings for the project, adds it to the `scout.projects` list, and updates the sidebar and project view.
  * `deleteLocalSettingsFile`: This is currently not triggered by anything in the UI and can only be ran manually in the developer tools. It deletes the Scout-App user settings file for the currently logged in user. Good for testing when you have 5000 projects and need to get back down to 0.
@@ -57,9 +57,9 @@ In the Developer Tools Console, you can type `scout` to see the main Scout objec
  * `localize`: When dynamically switching languages we use this function to localize the culture key into the correct translation.
  * `message`: Displays positive messages, like when a `.sass` file is successfully processed to `.css` without any errors.
  * `processInputFolder`: Recursively processes all `.sass` and `.scss` files in the project's input folder, skipping any that begin with an `_` (underscore).
- * `removeProject`: Access a project ID as an argument. Removes that project from the `scout.projects` list, updates the sidebar, and saves the settings. Then updates the project settings to show the first project in the sidebar.
+ * `removeProject`: Accepts a project ID as an argument. Removes that project from the `scout.projects` list, updates the sidebar, and saves the settings. Then updates the project settings to show the first project in the sidebar.
  * `resetProjectUI`: This will reset the values in the right-side Project Panel, clearing out all values to prepare for showing a new project.
- * `saveCurrentProject`: This is ran when modifying the settings of a specific project. It updates the `scout.projects` object and saves settings.
+ * `saveCurrentProject`: This is ran when modifying the settings of a specific project. It updates the `scout.projects` object and saves settings to disk.
  * `saveSettings`: Saves portions of the `scout` object to the hard drive to be auto loaded when Scout-App is launched. Specifically it saves `scout.projects`, `scout.versions`, `scout.cultureCode` to the following location:
    * **Windows:** `%LOCALAPPDATA%/scout-app/scout-settings.json`
     * **Linux:** `~/.config/scout-app/scout-settings.json`
@@ -75,20 +75,20 @@ In the Developer Tools Console, you can type `scout` to see the main Scout objec
 * `projects`: A listing of all the projects added to Scout-App and their settings. The details of a project are below:
  * `environment`: Can be `production` or `development`, set in the UI.
  * `imageFolder`: Can be set by the auto guesser code, by the user in the UI. Default is empty string.
- * `indicator`: Controls what icon is shown in the sidebar. `play`, `gray-play`, and `stop`. These also affect whether you can run or stop a project.
+ * `indicator`: Controls what icon is shown in the sidebar. `play`, `gray-play`, and `stop`. These also affects whether you can run or stop a project.
  * `inputFolder`: The input Sass folder. Can be set by the auto guesser code or by the user. Default is empty string.
  * `outputFolder`: The output CSS folder for processed Sass. Can be set by the auto guesser code or by the user. Default is empty string.
- * `outputStyle`: Set by the user in the UI, can be `nested`, `expanded`, `compact`, `compressed`. Defaults to `compressed`.
+ * `outputStyle`: Set by the user in the UI, can be `nested`, `expanded`, `compact`, or `compressed`. Defaults to `compressed`.
  * `projectFolder`: The folder for the project, used to create it's `projectName` and as the location to base all auto guessing. Chosen by the user.
  * `projectID`: This is a unique ID that would look something like: `sa1470092339976`. It allows the user to use the same name or projectFolder for multiple projects without the UI being buggy.
  * `projectIcon`: Can be auto guessed, set by the user in the UI, or left as the default `_img/logo_128.png`, which is Scout-App's own icon of Scout the Puppy.
- * `projectName`: The title of the project, by default it is based off the last folder in `projectFolder`
+ * `projectName`: The title of the project, by default it is based off of the last folder in `projectFolder`
  * `watcher`: This is the watcher function/object for this project. It informs Scout-App that `chokidar` is watching the `inputFolder` of this project for changes.
 * `versions`: The version numbers for Scout-App and it's dependencies.
  * `chokidar`: Allows for watching for file changes.
  * `libSass`: The library version of SassC, used at the core of Scout-App to process `.sass` and `.scss` files into CSS.
  * `nodeSass`: The Node module that allows Scout-App to interface with `libSass`.
- * `scout`: Scout-Apps own version 
+ * `scout`: Scout-Apps own version.
 
 
 * * *
@@ -102,6 +102,6 @@ Once you have Scout-App running click the Dev Tools link in the View menu. In th
 
 Follow these instructions to fix it.
 
-Then that means the version of Node.JS you have has a different version of the V8 JavaScript engine than what is built in to NW.js. This is actually expected for NW.js development as the node-sass module we're using wasn't designed with it in mind. You'll need to go into the folder `/node_modules/node-sass/vendor` to see what binding folder you have. It will start with one of the following `darwin`, `freebsd`, `linux`, or `win` followed by either `ia32` or `x64`. You'll need to copy over all matching folders from the `/_assets` folder into the `/node_modules/node-sass/vendor` folder.
+This error means the version of Node.JS you have globally installed on your systme is has a different version of the V8 JavaScript engine than what is built in to NW.js. This is actually expected for NW.js development as the node-sass module we're using wasn't designed with it in mind. You'll need to go into the folder `/node_modules/node-sass/vendor` to see what binding folder you have. It will start with one of the following `darwin`, `freebsd`, `linux`, or `win` followed by either `ia32` or `x64`. You'll need to copy over all matching folders from the `/_assets` folder into the `/node_modules/node-sass/vendor` folder.
 
 So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-43`, and `win32-ia32-43` to the vendor folder.
