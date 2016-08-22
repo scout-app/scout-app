@@ -1,0 +1,27 @@
+.ezdz
+    position: relative
+    label
+        margin: 0px
+        line-height: 1.5em
+        vertical-align: middle
+        &:after
+            content: " "
+    span
+        vertical-align: middle
+    img
+        display: block
+        border-radius: 10px
+        vertical-align: middle
+        max-width: 100px
+        max-height: 50px
+        margin: 0px 5px 0px 0px
+    [type="file"]
+        position: absolute
+        cursor: pointer
+        opacity: 1
+        top: 0px
+        right: 0px
+        width: 100%
+        height: 100%
+    [type="file"] /deep/ [type="button"]
+        display: none

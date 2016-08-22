@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title data-lang="APPLICATION_TITLE">Scout-App: The Sass GUI</title>
+    <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
+    <link rel="stylesheet" href="_style/ven.bootstrap.css">
+    <link rel="stylesheet" href="_themes/simplex.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_style/ugui-devtools.css">
+    <link rel="stylesheet" href="_style/style.css">
+
+    <!-- Commented out debugger -->
+    <!-- <script type="text/javascript"> require('nw.gui').Window.get().showDevTools(); </script> -->
+
+    <!-- UGUI requires jQuery 1.9.1 or above. -->
+    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/ivan-chkv.bootstrap-dropdowns-enhancement-dist/js/dropdowns-enhancement.js"></script>
+    <script type="text/javascript" src="../bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <!-- APP JS is at the bottom -->
+  </head>
+  <!-- Change the class form dev to prod when you're ready to distribute your application. -->
+  <body role="document" class="dev">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top drag-enable" role="navigation">
+      <div class="drag-enable">
+        <div class="navbar-header drag-enable">
+          <button type="button" class="navbar-toggle collapsed drag-disable" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only" data-lang="TOGGLE_NAVIGATION"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">
+            <img src="_img/wordmark-dark.png" data-langalt="SCOUTAPP_LOGO" />
+          </a>
+        </div>
+        <div class="navbar-collapse collapse drag-enable">
+          <ul class="nav navbar-nav drag-disable">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-lang="FILE"></span> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#new"   id="file-newproject" data-lang="NEW_PROJECT"></a></li>
+                <li><a href="#prefs" id="preferences"     data-lang="PREFERENCES"></a></li>
+                <li class="divider"></li>
+                <li><a href="#exit" data-lang="EXIT"></a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-lang="VIEW"></span> <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li id="viewStatusNav"><a href="#viewStatus" data-lang="STATUS"></a></li>
+                <!-- items with a class of "devNav" are only visible when <body> has a class of "dev" -->
+                <li><a href="#console" data-lang="DEV_TOOLS"></a></li>
+              </ul>
+            </li>
+            <li class="dropdown navHelp">
+              <!-- <a href="#about"> must exist in your app as it contains the credits for UGUI -->
+              <a href="#about" data-lang="ABOUT"></a>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <section id="sidebar">
+
+      <div id="projects-list" class="btn-group-vertical" role="group" aria-label="Listing of projects" data-langarialabel="LISTING_OF_PROJECTS"><!-- Your list of projects. --></div>
+      <div class="btn-group-vertical" role="group" aria-label="Project Controls" data-langarialabel="PROJECT_CONTROLS">
+        <input type="file" id="addProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+        <div id="addProject" class="btn btn-primary truncate"><span class="text-default glyphicon glyphicon-plus"    aria-hidden="true"></span><strong data-lang="ADD_PROJECT"></strong></div>
+        <div id="viewStatus" class="btn btn-info    truncate"><span class="text-default glyphicon glyphicon-comment" aria-hidden="true"></span><strong data-lang="STATUS_OF_ALL_PROJECTS"></strong></div>
+      </div>
+    </section>
+
+    <div class="container" role="main">
+
+      <section id="project-settings" class="row hide">
+        <form role="form-inline">
+
+          <div class="row">
+            <div id="projectIconContainer">
+              <img id="projectIcon" src="_img/logo_128.png" data-langalt="PROJECT_ICON" />
+              <span id="projectIconHover" data-langtitle="BROWSE">
+                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+              </span>
+              <input id="projectIconBrowse" type="file" nwworkingdir="..." accept=".GIF, .BMP, .PNG, .JPG, .JPEG, .ICO" class="hide" />
+            </div>
+            <h3 id="projectName"></h3>
+            <input type="hidden" id="projectID" val="" disabled />
+            <input type="text" id="projectFolder" class="form-control" value="" disabled />
+          </div>
+          <div class="row">
+            <h3 data-lang="STYLESHEET_DIRECTORIES"></h3>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
+              <label for="inputFolder" data-lang="INPUT_FOLDER"></label>
+              <input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" required="required" />
+              <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
+              <input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+            </div>
+            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
+              <label for="outputFolder" data-lang="OUTPUT_FOLDER"></label>
+              <input id="outputFolder" type="text" class="form-control" data-argName="outputFolder" required="required" />
+              <span id="outputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
+              <input type="file" id="outputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+            </div>
+            <div id="outputWarning" class="col-xs-12 col-s-12 col-md-12 col-l-12 text-danger text-center hide">
+              <strong data-lang="OUTPUT_WARNING"></strong>
+            </div>
+          </div>
+
+          <!--
+            <div class="row">
+              <h3>Other Directories</h3>
+            </div>
+
+            <div class="row form-group">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <label>JavaScripts Folder:</label>
+                <input type="text" id="jsFilePath" disabled />
+                <div class="inputDirectoryContainer">
+                  <button class="inputDirectoryBttn">...</button>
+                  <input type="file" id="jsFolderBrowse" data-argName="jsFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+                </div>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <label>Images Folder:</label>
+                <input type="text" id="imgFilePath" disabled />
+                <div class="inputDirectoryContainer">
+                  <button class="inputDirectoryBttn">...</button>
+                  <input type="file" id="imgFolderBrowse" data-argName="imgFolder" class="form-control" nwdirectory="nwdirectory" nwworkingdir="..." />
+                </div>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <label>Config File:</label>
+                <input type="file" />
+              </div>
+            </div>
+          -->
+
+          <div class="row">
+            <div>
+              <h3 data-lang="ENVIRONMENT"></h3>
+            </div>
+            <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
+              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> <span data-lang="DEVELOPMENT"></span></label>
+              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> <span data-lang="PRODUCTION" ></span></label>
+            </div>
+
+            <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
+
+              <select id="outputStyle" data-argName="outputStyle" class="form-control" required="required">
+                <option value="expanded"   data-lang="OUTPUT_STYLE"      ></option>
+                <option value="nested"     data-lang="OUTPUT_NESTED"     ></option>
+                <option value="expanded"   data-lang="OUTPUT_EXPANDED"   ></option>
+                <option value="compact"    data-lang="OUTPUT_COMPACT"    ></option>
+                <option value="compressed" data-lang="OUTPUT_COMPRESSED" ></option>
+              </select>
+
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+              <button id="delete-project" type="button" class="btn btn-default">
+                <!--
+                  <small><span class="glyphicon glyphicon-trash"></span></small>
+                -->
+                <span data-lang="DELETE_PROJECT"></span>
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </section>
+
+      <!-- Alerts and messages once Node-Sass is running. -->
+      <h2 id="printConsoleTitle" class="text-center" data-lang="STATUS_OF_ALL_PROJECTS"></h2>
+      <section id="printConsole" class="row"></section>
+    </div> <!-- end container -->
+
+    <div id="ftux" class="text-center">
+      <div class="container">
+        <h1 data-lang="WELCOME_MESSAGE"></h1>
+
+        <p data-lang="WELCOME_INSTRUCTIONS"></p>
+        <input type="file" id="ftuxProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+
+        <div class="panel panel-primary text-left">
+          <div class="panel-heading">
+            <h3 class="panel-title" data-lang="IMPORT_PROJECTS"></h3>
+          </div>
+          <div class="panel-body"></div>
+          <div class="panel-footer" data-lang="IMPORT_FROM_FOLDER"></div>
+        </div>
+        <div class="row text-left">
+          <button id="ftuxSelectAll"   class="btn btn-primary" data-lang="SELECT_ALL"></button>
+          <button id="ftuxDeselectAll" class="btn btn-default" data-lang="DESELECT_ALL"></button>
+          <button id="ftuxStartImport" class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok"></span><span data-lang="IMPORT_SELECTED"></span></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="aboutModal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+            <h4 data-lang="ABOUT"></h4>
+          </div>
+          <div class="modal-body">
+
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <span class="pull-right versionApp" data-langtitle="VERSION">V2.0.2</span>
+                <h3 class="panel-title" data-lang="ABOUT_SCOUTAPP"></h3>
+              </div>
+              <div class="panel-body">
+                <p class="well well-sm" data-lang="ABOUT_DESCRIPTION"></p>
+                <p data-lang="ABOUT_DEPENDENCIES"></p>
+                <p>
+                  <span data-lang="ABOUT_CONTRIBUTORS"></span><br />
+                  <!-- If the following script isn't ran on the page, it doesn't hit soon enough to check if the images loaded. -->
+                  <!-- If the images load, keep text hidden, if the app is ran while a user is offline, show text instead of images. -->
+                  <script>
+                    function offline() {
+                      $(".gitHubContributors").addClass("notOnline");
+                    }
+                  </script>
+                  <span class="gitHubContributors">
+                    <a class="external-link" href="http://github.com/TheJaredWilcurt">
+                      <img onerror="offline()" src="https://avatars.githubusercontent.com/u/4629794?v=3&s=64" alt="TheJaredWilcurt" title="TheJaredWilcurt" />
+                      TheJaredWilcurt</a>,
+                    <a class="external-link" href="http://github.com/StephanRaab">
+                      <img onerror="offline()" src="https://avatars.githubusercontent.com/u/8717350?v=3&s=64" alt="StephanRaab" title="StephanRaab" />
+                      StephanRaab</a>,
+                    <a class="external-link" href="https://github.com/BlackBetty">
+                      <img onerror="offline()" src="https://avatars2.githubusercontent.com/u/8434515?v=3&s=64" alt="BlackBetty" title="BlackBetty" />
+                      Daniel Golant</a>,
+                    <a class="external-link" href="https://github.com/kimmortal1">
+                      <img onerror="offline()" src="https://avatars2.githubusercontent.com/u/6833383?v=3&s=64" alt="kimmortal1" title="kimmortal1" />
+                      Kim Sharpe</a>,
+                    <a class="external-link" href="http://github.com/zdennis">
+                      <img onerror="offline()" src="https://avatars.githubusercontent.com/u/967?v=3&s=64" alt="zdennis" title="zdennis" />
+                      zdennis</a>,
+                    <a class="external-link" href="http://github.com/mejiaj">
+                      <img onerror="offline()" src="https://avatars.githubusercontent.com/u/3385219?v=3&s=64" alt="mejiaj" title="mejiaj" />
+                      mejiaj</a>
+                  </span>
+                </p>
+                <p>
+                  <span data-lang="ABOUT_VISIT_UPDATE"></span><br />
+                  <div class="text-center"><a href="http://scout-app.io" class="external-link">Scout-App.io</a></div>
+                </p>
+                <!--
+                  This is the "Check for Updates" feature. If your app is publicly available on GitHub
+                  you can use it. Since this takes a few extra steps to set up, it is commented out by
+                  default. See: http://ugui.io/api for more information about this feature.
+                -->
+                <p id="updateResults"></p>
+                <p class="text-center">
+                  <button id="scoutUpdateChecker" class="btn btn-primary" data-lang="CHECK_FOR_UPDATES"></button>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delete a project confirmation modal -->
+    <div id="delete-modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+            <h4 class="truncate"><span data-lang="DELETE_PROJECT"></span>: <span class="project-name text-info"></span></h4>
+          </div>
+          <div class="modal-body text-center">
+
+            <img src="_img/cat-screaming-no.jpg" data-langalt="CAT_SCREAMING_NO" />
+
+            <p data-lang="CONFIRM_DELETE"></p>
+
+            <button id="confirm-delete" class="btn btn-danger" data-lang="DELETE"></button>
+            <button id="cancel-delete" class="btn btn-default" data-lang="CANCEL"></button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- App Preferences modal -->
+    <div id="preferences-modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+            <h4 data-lang="PREFERENCES"></h4>
+          </div>
+          <div class="modal-body text-center">
+
+            <div class="row">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <h5 data-lang="LANGUAGE_CHOICE"></h5>
+
+                <select id="cultureChoices"  data-argName="culturechoice" class="form-control" required="required">
+                  <option value="en" data-lang="LANG_ENGLISH" ></option>
+                  <option value="nl" data-lang="LANG_DUTCH"   ></option>
+                  <option value="fr" data-lang="LANG_FRENCH"  ></option>
+                  <option value="ru" data-lang="LANG_RUSSIAN" ></option>
+                </select>
+              </div>
+
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
+                <h5 data-lang="STYLESHEET_CHOICE"></h5>
+
+                <select id="themeChoices"  data-argName="themechoice" class="form-control" required="required">
+                  <!-- Dynamically filled from the _themes folder. -->
+                </select>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 text-left small">
+                <em data-lang="TRANSLATED_BY"></em>
+                <a href="#" class="external-link" data-langhref="TRANSLATOR_URL" data-lang="TRANSLATOR"></a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-center">
+                <img id="culture-pics" src="cultures/en.jpg" data-langalt="TRANSLATOR_MEME" data-langtitle="TRANSLATOR_MEME" />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="_scripts/ugui.js"></script>
+    <!-- App specific code -->
+    <script type="text/javascript" src="_scripts/globals.js"         ></script>
+    <script type="text/javascript" src="_scripts/cultures.js"        ></script>
+    <script type="text/javascript" src="_scripts/load-settings.js"   ></script>
+    <script type="text/javascript" src="_scripts/ugui-override.js"   ></script>
+    <script type="text/javascript" src="_scripts/alerts.js"          ></script>
+    <script type="text/javascript" src="_scripts/libsass-fix.js"     ></script>
+    <script type="text/javascript" src="_scripts/app.js"             ></script>
+    <script type="text/javascript" src="_scripts/project-manager.js" ></script>
+    <script type="text/javascript" src="_scripts/sidebar.js"         ></script>
+    <script type="text/javascript" src="_scripts/events.js"          ></script>
+    <script type="text/javascript" src="_scripts/auto-guesser.js"    ></script>
+    <script type="text/javascript" src="_scripts/ftux.js"            ></script>
+    <script type="text/javascript" src="_scripts/preferences.js"     ></script>
+
+  </body>
+</html>

@@ -1,0 +1,68 @@
+
+//Sidebar that contains all projects
+
+$sidebar-width: 300px
+
+#sidebar
+    position: fixed
+    top: 0px
+    bottom: 0px
+    left: 0px
+    display: inline-block
+    width: $sidebar-width
+    margin: 41px 0px 0px 0px
+    padding: 1px 0px 0px 0px
+    background: #626262
+    overflow: auto
+    transition: 0.6s ease all
+    div
+        display: block
+        width: 100%
+        font-size: 16px
+        text-align: left
+    .name
+        display: inline-block
+        width: 192px
+    .btn-group-vertical
+        border-radius: 0px
+    .glyphicon
+        margin: 0px 10px 0px 0px
+        padding: 0px
+    .glyphicon-folder-open
+        top: 0px
+        right: 0px
+        background: transparent
+    .glyphicon-play,
+    .glyphicon-stop
+        font-size: 12px
+        line-height: 22px
+        margin: 0px
+        padding: 0px
+    .glyphicon-stop
+        margin: 0px 0px 0px -0.8px
+    .glyphicon-question-sign
+        margin: 2px 0px 0px 0px
+        font-size: 21px
+    .glyphicon-asterisk
+        margin: 0px 0px 0px 0px
+    .glyphicon-pencil
+        margin: 5px 1px 0px 0px
+        font-size: 14px
+    .btn
+        border-radius: 0px
+        .btn
+            width: 27px
+            height: 27px
+            border: 0px
+            border-radius: 50%
+            margin: 0px
+            padding: 0px 0px 3px 0px
+            float: right
+    .btn-group-vertical
+        &>.btn:last-child:not(:first-child),
+        &>.btn:first-child:not(:last-child)
+            border-radius: 0px
+
+.container
+    padding-left: $sidebar-width + 8px
+

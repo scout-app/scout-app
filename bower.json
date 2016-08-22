@@ -1,0 +1,58 @@
+{
+  "name": "Scout-App",
+  "description": "Sass without all the hassle.",
+  "homepage": "http://scout-app.io",
+  "version": "2.0.2",
+  "main": "index.html",
+  "authors": [
+    "The Jared Wilcurt"
+  ],
+  "keywords": [
+    "Sass",
+    "Compass",
+    "CSS",
+    "Preprocessor",
+    "GUI",
+    "SassC",
+    "Mixins",
+    "Cross-Platform"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.x.x",
+    "bootstrap": "3.2.0",
+    "seiyria-bootstrap-slider": "^5.x.x",
+    "ivan-chkv.bootstrap-dropdowns-enhancement-dist": "3.1.1",
+
+    "andy": "latest",
+    "bi-app-sass": "latest",
+    "bluebird-sass": "latest",
+    "bourbon": "latest",
+    "breakpoint": "latest",
+    "buttons": "latest",
+    "compass-mixins": "latest",
+    "cssowl": "latest",
+    "family.scss": "latest",
+    "meyer-sass": "latest",
+    "neat": "latest",
+    "pineapple-sass": "latest",
+    "saffron": "latest",
+    "sass-css3-mixins": "latest",
+    "sass-easing": "latest",
+    "sassier-buttons": "latest",
+    "scut": "latest",
+    "sierra": "latest",
+    "spice-sass": "latest",
+    "susy": "latest",
+    "typesettings": "latest"
+  },
+  "devDependencies": {}
+}

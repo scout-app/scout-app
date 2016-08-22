@@ -1,0 +1,29 @@
+
+// CSS to style the Flying Focus jQuery plugin, and to allow it to work in other browsers
+
+#flying-focus
+    position: absolute
+    border-radius: 2px
+    margin: 0px
+    background: transparent
+    transition-property: left, top, width, height, opacity
+    transition-timing-function: cubic-bezier(0, 0.2, 0, 1)
+    box-shadow: 0px 0px 2px 3px #78AEDA, 0px 0px 2px #78AEDA inset
+    pointer-events: none
+    visibility: hidden
+
+#flying-focus.flying-focus_visible
+    visibility: visible
+    z-index: 9999
+
+.flying-focus_target
+    outline: none !important
+
+.flying-focus_target::-moz-focus-inner
+    border: 0px !important
+
+@media screen and (-webkit-min-device-pixel-ratio: 0)
+    #flying-focus
+        box-shadow: none
+        outline: 5px auto -webkit-focus-ring-color
+        outline-offset: -3px

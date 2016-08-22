@@ -1,0 +1,63 @@
+
+// Styles only used by UGUI
+
+cmd,
+cmd def,
+cmd arg
+    display: none
+    font-size: 0px
+    opacity: 0
+    color: transparent
+
+.modal
+    background-color: rgba(0,0,0,0.6)
+    .glyphicon-remove
+        cursor: pointer
+    .versionApp,
+    .versionUGUI
+        position: relative
+        top: -0.2em
+        background-color: rgba(0,0,0,0.2)
+        border-radius: 100px
+        margin: 0px
+        padding: 3px 8px
+        color: #FFF
+        line-height: normal
+        box-shadow: inset 1px 1px 2px rgba(0,0,0,0.25)
+
+body .devNav,
+body.prod .devNav
+    display: none !important
+
+body.dev .devNav
+    display: block !important
+
+#aboutModal
+    z-index: 1080
+    .modal-body
+        overflow: auto
+        min-height: 115px
+    .versionUGUI:before
+        content: "V"
+
+.modal-header.shortScreen
+    padding: 0px 9px !important
+    h4
+        margin: 8px 4px !important
+
+.gitHubContributors
+    font-size: 0px
+    img
+        max-width: 32px
+        max-height: 32px
+
+.notOnline
+    font-size: 1em
+    img
+        display: none
+
+.returnedCmdText
+    max-height: 225px
+
+.no-overflow
+    overflow: hidden

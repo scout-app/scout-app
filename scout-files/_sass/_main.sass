@@ -1,0 +1,68 @@
+
+// The main document, every page refers to this basic document
+
+*,
+*:before,
+*:after
+    box-sizing: border-box
+
+html
+    +bmp0
+    width: 100%
+    height: 100%
+
+body
+    +bmp0
+    width: 100%
+    padding-top: 43px
+
+input[type="color"]
+    +bmp0
+    width: 3em
+    height: 1.5em
+    background: transparent
+
+.truncate
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+.gray
+    cursor: not-allowed
+    -webkit-filter: #{"grayscale()"}
+
+.row
+    margin: 8px 0px 0px 0px
+
+.vtop,
+.vmiddle,
+.vcenter,
+.vbottom
+    display: inline-block
+    float: none
+
+.vtop
+    vertical-align: top
+
+.vmiddle,
+.vcenter
+    vertical-align: middle
+
+.vbottom
+    vertical-align: bottom
+
+.inputDirectoryContainer
+    display: inline
+    position: relative
+
+input[nwdirectory]
+    position: absolute
+    display: inline
+    opacity: 0
+    border: 0px
+    margin: 0px
+    padding: 0px
+    overflow: hidden
+
+.inputDirectoryBttn
+    position: absolute

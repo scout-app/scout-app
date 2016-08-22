@@ -1,0 +1,70 @@
+{
+    "name": "Scout-App",
+    "homepage": "http://scout-app.io",
+    "version": "2.0.2",
+    "author": "The Jared Wilcurt, Zach Dennis",
+    "description": "Sass without all the hassle.",
+    "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Mixins", "Cross-Platform" ],
+    "maintainers": [{
+        "name": "The Jared Wilcurt",
+        "email": "TheJaredWilcurt@users.noreply.github.com",
+        "web": "https://ugui.io"
+    },{
+        "name": "Zach Dennis",
+        "email": "zdennis@users.noreply.github.com",
+        "web": "https://github.com/zdennis"
+    }],
+    "repository": [{
+        "type": "git",
+        "url": "git://github.com/mhs/scout-app.git"
+    }],
+    "bugs": "https://github.com/mhs/scout-app/issues",
+    "main": "scout-files/index.html",
+    "window": {
+        "title": "Scout-App: The Sass GUI",
+        "icon": "scout-files/_img/logo_32.png",
+        "toolbar": false,
+        "resizable": true,
+        "visible": true,
+        "transparent": false,
+        "width": 784,
+        "height": 611,
+        "min_width": 650,
+        "min_height": 300,
+        "max_width": 8000,
+        "max_height": 8000,
+        "position": "center",
+        "always-on-top": false,
+        "show_in_taskbar": true,
+        "fullscreen": false,
+        "frame": true,
+        "as_desktop": false
+    },
+    "nodejs": true,
+    "single-instance": true,
+    "node-main": "scout-files/_scripts/node.js",
+    "webkit": {
+        "page-cache": false,
+        "java": false,
+        "plugin": true
+    },
+    "dependencies": {
+        "node-sass": "^3.x.x",
+        "chokidar": "^1.x.x",
+        "fs-extra": "^0.30.x"
+    },
+    "devDependencies": {
+        "nw": "^0.12.3",
+        "bower": "~1.x.x"
+    },
+    "scripts": {
+        "start": "nw .",
+        "postinstall": "bower update",
+        "build": "node build.js"
+    },
+    "license": "MIT",
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://github.com/mhs/scout-app/blob/master/LICENSE"
+    }]
+}

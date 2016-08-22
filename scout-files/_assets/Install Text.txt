@@ -1,0 +1,13 @@
+Scout-App is an easy to use application that handles all your projects with ease.
+
+Simply point to your project folder (containing a website or web app), then pick your input (Sass) and output (CSS) folders and you're done!
+
+Supports English and French.
+
+----
+
+Scout-App est une application facile à utiliser qui gère tous vos projets avec facilité.
+
+Il suffit de pointer vers votre dossier de projet (contenant un site Web ou une application Web), puis choisissez votre entrée (Sass) et de sortie (CSS) dossiers et vous avez terminé!
+
+Prend en charge l'anglais et le français.
