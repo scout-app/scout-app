@@ -1,6 +1,6 @@
 {
     "ABOUT": "À propos",
-    "ABOUT_CONTRIBUTORS": "Contributeurs à <a href='http://github.com/mhs/scout-app' class='external-link'>Scout-App</a>:",
+    "ABOUT_CONTRIBUTORS": "Contributeurs à <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "ABOUT_DEPENDENCIES": "<strong>Scout-App</strong> utilise <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> et <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "ABOUT_DESCRIPTION": "<strong>Scout-App</strong> vous permet de traiter votre <code>.sass</code> et <code>.scss</code> fichiers en CSS sans avoir besoin d'aucune connaissance de la ligne de commande.",
     "ABOUT_SCOUTAPP": "Apropos de Scout-App",

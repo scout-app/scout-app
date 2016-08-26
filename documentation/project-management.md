@@ -39,7 +39,7 @@
 
 * [x] **Status:** COMPLETED
 * [x] **To do:**
-  * [x] ~~[Discussions on UX and design](https://github.com/mhs/scout-app/issues/186) (ZD/JM/TJW)~~
+  * [x] ~~[Discussions on UX and design](https://github.com/scout-app/scout-app/issues/186) (ZD/JM/TJW)~~
   * [x] ~~Create pre-built, but not optimized versions so people can test the app without needing to have Node installed or manually set up NW.js. (TJW)~~
   * [x] ~~Once the app is pretty much functional, have the crew try it out and give input.~~
 
@@ -67,14 +67,14 @@
 
 * [ ] **Status:** Done, but could be improved
 * [ ] **To do:**
-  * [ ] [Moved this section to the `gh-pages` branch](https://github.com/TheJaredWilcurt/scout-app/tree/gh-pages)
+  * [ ] [Moved this section to the `scout-app.github.io` repo](https://github.com/scout-app/scout-app.github.io)
 
 
 #### **Phase 5:** Bug fixes/Additional features/Maintenance
 
 * [ ] **Status:** Lower priority features, some have been claimed
 * [ ] **To do:**
-  * [x] ~~Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root. ([#241](https://github.com/mhs/scout-app/issues/241)) (TJW)~~
+  * [x] ~~Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root. ([#241](https://github.com/scout-app/scout-app/issues/241)) (TJW)~~
   * [ ] Redesign FTUX
   * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files
   * [ ] Drag and drop sidebar items to reorder (HMN)
@@ -85,7 +85,7 @@
   * [ ] Tray icon/Minimize to tray
   * [ ] Allow users to rename project titles
   * [ ] Tray icon indicators
-  * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/mhs/scout-app/issues/240))
+  * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240))
   * [ ] Import/Export projects (Would anyone even want this feature?)
   * [ ] Multi-project delete
   * [ ] Multi-project import outside of FTUX view

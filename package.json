@@ -8,7 +8,7 @@
     "maintainers": [{
         "name": "The Jared Wilcurt",
         "email": "TheJaredWilcurt@users.noreply.github.com",
-        "web": "https://ugui.io"
+        "web": "https://github.com/TheJaredWilcurt"
     },{
         "name": "Zach Dennis",
         "email": "zdennis@users.noreply.github.com",
@@ -16,9 +16,9 @@
     }],
     "repository": [{
         "type": "git",
-        "url": "git://github.com/mhs/scout-app.git"
+        "url": "git://github.com/scout-app/scout-app.git"
     }],
-    "bugs": "https://github.com/mhs/scout-app/issues",
+    "bugs": "https://github.com/scout-app/scout-app/issues",
     "main": "scout-files/index.html",
     "window": {
         "title": "Scout-App: The Sass GUI",
@@ -65,6 +65,6 @@
     "license": "MIT",
     "licenses": [{
         "type": "MIT",
-        "url": "https://github.com/mhs/scout-app/blob/master/LICENSE"
+        "url": "https://github.com/scout-app/scout-app/blob/master/LICENSE"
     }]
 }

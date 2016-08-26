@@ -1,6 +1,6 @@
 {
     "ABOUT": "Over",
-    "ABOUT_CONTRIBUTORS": "Bijdragers van de <a href='http://github.com/mhs/scout-app' class='external-link'>Scout-App</a>:",
+    "ABOUT_CONTRIBUTORS": "Bijdragers van de <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "ABOUT_DEPENDENCIES": "<strong>Scout-App</strong> gebruikt <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> en <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>",
     "ABOUT_DESCRIPTION": "<strong>Scout-App</strong> laat je <code>.sass</code> en <code>.scss</code> bestanden verwerken zonder enige kennis van de command line.",
     "ABOUT_SCOUTAPP": "Over Scout-App",
