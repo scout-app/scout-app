@@ -42,7 +42,7 @@ The  main files for Scout-App 2 are:
 
 ### The Scout "[God Object](https://en.wikipedia.org/wiki/God_object)"
 
-In the Developer Tools Console, you can type `scout` to see the main Scout object. It contains the following:
+In the Developer Tools Console, you can type `window.scout` (or just `scout`) to see the main Scout object. It contains the following:
 
 * `cultureCode`: This will be set to `en` by default but can be changed by the user in the UI under `File > Preferences`
 * `dictionary`: This is used for temporary storage while switching languages in the UI. It will occassionally hold the same contents as one of the JSON files in the `cultures` folder.
