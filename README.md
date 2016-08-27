@@ -19,36 +19,14 @@ OSX 10.6+                         | :x:                | :white_check_mark:
 
 * * *
 
-## Supported/built-in mixin libraries:
-
-* [See website](http://scout-app.io/index.html#mixins)
-
-* * *
-
-## Contributing
-
-* [Moved to it's own page](documentation/contributing.md)
-
-* * *
-
-## Translate Scout-App
-
-* [See website](http://scout-app.io/index.html#cultures)
-
-* * *
-
-## Project Roadmap:
-
-* [Moved to it's own page](documentation/project-management.md)
-
-* * *
-
-## Contributors to Scout-App
-
-* [See website](http://scout-app.io/index.html#contributors)
-
-**[To be a contributor, click here](documentation/contributing.md)**
+* [Supported/built-in mixin libraries](http://scout-app.io/index.html#mixins)
+* [Translate Scout-App](http://scout-app.io/index.html#cultures)
+* [Project Roadmap](documentation/project-management.md)
+* [Contributors to Scout-App](http://scout-app.io/index.html#contributors)
+* **[To be a contributor, click here](documentation/contributing.md)**
 
 * * *
 
 Scout-App 2 is built using the cross-platform runtime environment [NW.js](http://nwjs.io) and the [UGUI](http://ugui.io) framework.
+
+If you want Scout-App Classic: [Website](http://Scout-App.io/classic) | [Repo](https://github.com/scout-app/scout-app/tree/scout-app-classic)
