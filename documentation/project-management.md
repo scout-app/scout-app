@@ -79,9 +79,9 @@
   * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240))
   * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172)).
   * [ ] Play sounds with alerts/messages ([#161](https://github.com/scout-app/scout-app/issues/161))
+  * [ ] Drag and drop sidebar items to reorder ([#130](https://github.com/scout-app/scout-app/issues/130))
   * [ ] Redesign FTUX
   * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files
-  * [ ] Drag and drop sidebar items to reorder (HMN)
   * [ ] Scan Desktop for projects folders
   * [ ] Abilitity to clear all alerts and messags at once
   * [ ] Right-click to delete an project from the sidebar
