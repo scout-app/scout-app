@@ -76,7 +76,7 @@
 * [ ] **To do:**
   * [x] ~~Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root. ([#241](https://github.com/scout-app/scout-app/issues/241)) (TJW)~~
   * [ ] Allow users to rename project titles ([#179](https://github.com/scout-app/scout-app/issues/179))
-  * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240))
+  * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240), [#79](https://github.com/scout-app/scout-app/issues/79))
   * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172)).
   * [ ] Play sounds with alerts/messages ([#161](https://github.com/scout-app/scout-app/issues/161))
   * [ ] Drag and drop sidebar items to reorder ([#130](https://github.com/scout-app/scout-app/issues/130))
