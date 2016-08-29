@@ -78,6 +78,7 @@
   * [ ] Allow users to rename project titles ([#179](https://github.com/scout-app/scout-app/issues/179))
   * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240))
   * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172)).
+  * [ ] Play sounds with alerts/messages ([#161](https://github.com/scout-app/scout-app/issues/161))
   * [ ] Redesign FTUX
   * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files
   * [ ] Drag and drop sidebar items to reorder (HMN)
