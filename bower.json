@@ -1,22 +1,11 @@
 {
-  "name": "Scout-App",
-  "description": "Sass without all the hassle.",
+  "name": "scout-app",
   "homepage": "http://scout-app.io",
   "version": "2.0.2",
+  "authors": [ "The Jared Wilcurt" ],
+  "description": "A cross platform desktop application for processing Sass to CSS.",
+  "keywords": [ "Sass", "SCSS", "CSS", "Preprocessor", "Cross-Platform", "Desktop App", "GUI", "SassC", "Node-Sass" ],
   "main": "index.html",
-  "authors": [
-    "The Jared Wilcurt"
-  ],
-  "keywords": [
-    "Sass",
-    "Compass",
-    "CSS",
-    "Preprocessor",
-    "GUI",
-    "SassC",
-    "Mixins",
-    "Cross-Platform"
-  ],
   "license": "MIT",
   "private": true,
   "ignore": [

@@ -1,10 +1,10 @@
 {
-    "name": "Scout-App",
+    "name": "scout-app",
     "homepage": "http://scout-app.io",
     "version": "2.0.2",
     "author": "The Jared Wilcurt, Zach Dennis",
-    "description": "Sass without all the hassle.",
-    "keywords": [ "Sass", "Compass", "CSS", "Preprocessor", "GUI", "SassC", "Mixins", "Cross-Platform" ],
+    "description": "A cross platform desktop application for processing Sass to CSS.",
+    "keywords": [ "Sass", "SCSS", "CSS", "Preprocessor", "Cross-Platform", "Desktop App", "GUI", "SassC", "Node-Sass" ],
     "maintainers": [{
         "name": "The Jared Wilcurt",
         "email": "TheJaredWilcurt@users.noreply.github.com",
@@ -65,6 +65,6 @@
     "license": "MIT",
     "licenses": [{
         "type": "MIT",
-        "url": "https://github.com/scout-app/scout-app/blob/master/LICENSE"
+        "url": "https://github.com/scout-app/scout-app/blob/master/License"
     }]
 }
