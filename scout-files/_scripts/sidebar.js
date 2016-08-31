@@ -68,6 +68,20 @@
                 }
             }
         });
+
+        $('#projects-list').sortable({
+            axis: 'y',
+            placeholder: 'btn btn-info',
+            start: function (evt, ui) {
+                scout.sort = {};
+                scout.sort.start = ui.item.index();
+            },
+            stop: function (evt, ui) {
+                scout.sort.end = ui.item.index();
+                scout.projects.move(scout.sort.start, scout.sort.end);
+                scout.helpers.saveSettings();
+            }
+        }).disableSelection();
     }
 
     //Empties the sidebar of projects
