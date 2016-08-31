@@ -75,13 +75,13 @@
 * [ ] **Status:** Lower priority features, some have been claimed
 * [ ] **To do:**
   * [x] ~~Recursive Sass input folder rendering. We currently monitor all changes, but only process files in the root. ([#241](https://github.com/scout-app/scout-app/issues/241)) (TJW)~~
-  * [ ] Right-click to delete an project from the sidebar ([#65](https://github.com/scout-app/scout-app/issues/65))
+  * [x] ~~Drag and drop sidebar items to reorder ([#130](https://github.com/scout-app/scout-app/issues/130)) (TJW)~~
+  * [x] ~~Right-click to delete an project from the sidebar ([#65](https://github.com/scout-app/scout-app/issues/65)) (TJW)~~
   * [ ] Allow users to rename project titles ([#179](https://github.com/scout-app/scout-app/issues/179))
   * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240), [#79](https://github.com/scout-app/scout-app/issues/79), [#12](https://github.com/scout-app/scout-app/issues/12))
   * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172)).
   * [ ] Allow for specific projects to run on app launch ([#69](https://github.com/scout-app/scout-app/issues/69)).
   * [ ] Play sounds with alerts/messages ([#161](https://github.com/scout-app/scout-app/issues/161))
-  * [ ] Drag and drop sidebar items to reorder ([#130](https://github.com/scout-app/scout-app/issues/130))
   * [ ] Redesign FTUX
   * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files
   * [ ] Scan Desktop for projects folders
