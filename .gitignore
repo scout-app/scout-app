@@ -4,3 +4,5 @@
 /tmp
 /build
 *.pfx
+/node_modules
+/bower_components
