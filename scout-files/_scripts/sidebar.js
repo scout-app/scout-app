@@ -82,6 +82,37 @@
                 scout.helpers.saveSettings();
             }
         }).disableSelection();
+
+        function rightClickDeleteMenu () {
+            function Menu () {
+                var gui = require("nw.gui");
+                var menu = new gui.Menu();
+                var removeProject = scout.localize('DELETE_PROJECT');
+
+                var deleteProject = new gui.MenuItem( {
+                    label: removeProject,
+                    click: function () {
+                        $("#delete-project").click();
+                    }
+                });
+
+                menu.append(deleteProject);
+
+                return menu;
+            }
+
+            var menu = new Menu();
+
+            $('#projects-list > .btn').on('contextmenu', function (evt) {
+                evt.preventDefault();
+                evt.stopPropagation();
+                $(this).click();
+                menu.popup(evt.originalEvent.x, evt.originalEvent.y);
+            });
+        }
+
+        //Run once on page load
+        rightClickDeleteMenu();
     }
 
     //Empties the sidebar of projects
