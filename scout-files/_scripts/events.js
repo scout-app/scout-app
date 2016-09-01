@@ -5,6 +5,57 @@
 
 (function(){
 
+    function projectRenameHeight () {
+        var inputHeight = $("#projectNameEditable").height();
+        if (inputHeight == 0) {
+            inputHeight = 34;
+        }
+        $("#projectNameEditable .glyphicon").css('line-height', inputHeight + 'px');
+
+    }
+    window.setTimeout(projectRenameHeight, 500);
+
+    function resetProjectName () {
+        $("#projectNameEditable").hide();
+        $("#projectName").show();
+    }
+    function confirmNewProjectName () {
+        var projectID = $("#projectID").val();
+        var newName = $("#projectNameEditable input").val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (scout.projects[i].projectID == projectID) {
+                scout.projects[i].projectName = newName;
+                break;
+            }
+        }
+        $("#projectName").html(newName);
+        scout.helpers.updateSidebar();
+        resetProjectName();
+        scout.helpers.saveSettings();
+    }
+    function cancelNewProjectName () {
+        resetProjectName();
+    }
+
+    $("#projectName").click(function () {
+        var origName = $(this).text();
+        $(this).hide();
+        $("#projectNameEditable input").val(origName);
+        $("#projectNameEditable").show();
+        $("#projectNameEditable").keyup(function (evt) {
+            evt.preventDefault();
+            // if user hit enter
+            if (evt.keyCode == 13) {
+                confirmNewProjectName();
+            // if user hit escape
+            } else if (evt.keyCode == 27) {
+                cancelNewProjectName();
+            }
+        });
+    });
+    $("#projectNameEditable .glyphicon-ok").click(confirmNewProjectName);
+    $("#projectNameEditable .glyphicon-remove").click(cancelNewProjectName);
+
     //Set the default starting folder for browse boxes
     var projectFolder = $("#projectFolder").val();
     $("#projectIconBrowse").attr("nwworkingdir", projectFolder);
@@ -259,11 +310,6 @@
         evt.stopPropagation();
     });
 
-    //On page load have this run once
-    unlockSubmit();
-
-    scout.helpers.unlockSubmit = unlockSubmit;
-
     /**
      * OSX Keybindings.
      * On Windows and Ubuntu Scout-App inherits the OS's global clipboard shortcuts.
@@ -318,6 +364,12 @@
     if (process.platform == "darwin") {
         osxKeyBindings();
     }
+
+    //On page load have this run once
+    unlockSubmit();
+
+    scout.helpers.projectRenameHeight = projectRenameHeight;
+    scout.helpers.unlockSubmit = unlockSubmit;
 
 
 })();

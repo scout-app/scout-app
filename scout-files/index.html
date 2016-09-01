@@ -4,7 +4,7 @@
     <title data-lang="APPLICATION_TITLE">Scout-App: The Sass GUI</title>
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
-    <link rel="stylesheet" href="_themes/simplex.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_themes/darkly.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
 
@@ -86,7 +86,12 @@
               </span>
               <input id="projectIconBrowse" type="file" nwworkingdir="..." accept=".GIF, .BMP, .PNG, .JPG, .JPEG, .ICO" class="hide" />
             </div>
-            <h3 id="projectName"></h3>
+            <h3 id="projectName" class="edit"></h3>
+            <h3 id="projectNameEditable">
+              <input type="text" class="form-control" />
+              <span class="pull-right glyphicon glyphicon-remove text-danger"></span>
+              <span class="pull-right glyphicon glyphicon-ok text-success"></span>
+            </h3>
             <input type="hidden" id="projectID" val="" disabled />
             <input type="text" id="projectFolder" class="form-control" value="" disabled />
           </div>

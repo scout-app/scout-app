@@ -13,7 +13,12 @@
         }
 
         projectID = projectID || "sa0";
-        var projectName = $("#sidebar ." + projectID + " .name").text();
+        for (var i = 0; i < scout.projects.length;i++) {
+            if (scout.projects[i].projectID === projectID) {
+                var projectName = scout.projects[i].projectName;
+                break;
+            }
+        }
 
         var file = error.file;
         var bugLine = error.line;
@@ -84,7 +89,12 @@
         }
 
         projectID = projectID || "sa0";
-        var projectName = $("#sidebar ." + projectID + " .name").text();
+        for (var i = 0; i < scout.projects.length;i++) {
+            if (scout.projects[i].projectID === projectID) {
+                var projectName = scout.projects[i].projectName;
+                break;
+            }
+        }
 
         var folderPathSplit = message.stats.entry.split('\\').join('/').split('/');
         var folderAndFile = folderPathSplit[folderPathSplit.length - 2] + '\\' + folderPathSplit[folderPathSplit.length - 1];

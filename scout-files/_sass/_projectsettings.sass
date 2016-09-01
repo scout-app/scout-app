@@ -53,6 +53,38 @@ $calcHeader: calc(100% - 100px)
     #projectName
         width: $calcHeader
         word-break: break-all
+        cursor: pointer
+    #projectNameEditable
+        position: relative
+        display: none
+        width: $calcHeader
+        word-break: break-all
+        input
+            padding-right: 53px
+            font-size: inherit
+        .glyphicon
+            position: absolute
+            right: 4px
+            padding: 0px 0px 0px 5px
+            font-size: 21px
+            cursor: pointer
+        .glyphicon-ok
+            right: 30px
+    .edit
+        &:after
+            content: "\270f"
+            position: relative
+            display: inline-block
+            padding: 0px 0px 0px 5px
+            font-family: 'Glyphicons Halflings'
+            font-size: 14px
+            font-style: normal
+            font-weight: normal
+            line-height: 1
+            -webkit-font-smoothing: antialiased
+            opacity: 0.0
+        &:hover:after
+            opacity: 0.8
     #projectFolder
         +bmp0
         width: $calcHeader
@@ -67,6 +99,13 @@ $calcHeader: calc(100% - 100px)
     #outputFolder
         padding-right: 32px
     .glyphicon-folder-open
+        top: -25px
+        right: 15px
+        color: #95A5A6
+        background: #FFF
+        padding: 0px 0px 0px 4px
+        cursor: pointer
+    .glyphicon-pencil
         top: -25px
         right: 15px
         color: #95A5A6

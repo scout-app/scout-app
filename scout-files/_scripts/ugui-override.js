@@ -212,7 +212,6 @@
             }
         });
 
-
         //When you change what is selected in the dropdown box, swap out the current swatch for the new one.
         $("#themeChoices").change( function() {
             //The currently selected swatch
@@ -225,6 +224,7 @@
             //slowest you can go in animation before something looks choppy.
             window.setTimeout(ugui.helpers.centerNavLogo, 140);
             window.setTimeout(ugui.helpers.sliderHandleColor, 140);
+            window.setTimeout(scout.helpers.projectRenameHeight, 140);
 
             //Update index.htm to use the selected swatch as the new default
             saveNewSwatch(newSwatch);

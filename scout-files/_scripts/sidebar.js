@@ -55,6 +55,7 @@
             }
         });
 
+        // Clicking the play/stop button
         $("#projects-list .btn .btn").click(function (evt) {
             evt.stopPropagation();
             //Make sure the button isn't disabled
@@ -69,6 +70,7 @@
             }
         });
 
+        // Drag and Drop sorting
         $('#projects-list').sortable({
             axis: 'y',
             placeholder: 'btn btn-info',

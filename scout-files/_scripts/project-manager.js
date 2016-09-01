@@ -194,7 +194,7 @@
     function updateProjectSettingsView (base) {
         var base = base || scout.newProject;
         $("#projectIcon"  ).attr('src', base.projectIcon);
-        $("#projectName"  ).html(       base.projectName);
+        $("#projectName"  ).text(       base.projectName);
         $("#projectID"    ).val(        base.projectID);
         $("#projectFolder").val(        base.projectFolder);
         $("#inputFolder"  ).val(        base.inputFolder);
@@ -230,6 +230,7 @@
         $("#printConsoleTitle").addClass('hide');
         $("#sidebar .active").removeClass('active');
         $("#sidebar ." + base.projectID).addClass('active');
+        scout.helpers.projectRenameHeight();
     }
 
     scout.helpers.resetProjectUI = resetProjectSettingsUI;
