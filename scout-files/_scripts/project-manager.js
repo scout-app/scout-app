@@ -192,6 +192,7 @@
      *
      */
     function updateProjectSettingsView (base) {
+        $('#projectNameEditable .glyphicon-remove').click();
         var base = base || scout.newProject;
         $("#projectIcon"  ).attr('src', base.projectIcon);
         $("#projectName"  ).text(       base.projectName);
