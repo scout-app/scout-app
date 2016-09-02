@@ -92,6 +92,7 @@
         //Prepend all mixin paths with the path to the Scout-App folder
         for (var i = 0; i < mixins.length; i++) {
             mixins[i] = pathToProject + mixins[i];
+            mixins[i] = mixins[i].replace(/%20/g, ' ');
         }
 
         var devMode = false;
