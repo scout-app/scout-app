@@ -6,7 +6,18 @@
 
 (function(){
 
+    function playAlert () {
+        var alert = new Audio('_sound/scout-alert.wav');
+        alert.play();
+    }
+
+    function playMessage () {
+        var message = new Audio('_sound/scout-message.wav');
+        message.play();
+    }
+
     function alert (error, projectID) {
+        playAlert();
         if ($("#project-settings").is(":visible")) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
@@ -83,6 +94,7 @@
     }
 
     function message (message, projectID) {
+        playMessage();
         if ($("#project-settings").is(":visible")) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
