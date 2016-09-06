@@ -19,7 +19,6 @@ Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the 
 ### Running Scout-App Locally for Development
 
 1. Clone down this `scout-app` repo
-2. Switch to the `Scout-App-2-Dev` branch
 3. Install [Node.JS](http://nodejs.org) if you don't have it
 4. Run `npm install`
 5. Run `npm start`
