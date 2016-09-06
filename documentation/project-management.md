@@ -79,7 +79,7 @@
   * [x] ~~Right-click to delete an project from the sidebar ([#65](https://github.com/scout-app/scout-app/issues/65)) (TJW)~~
   * [x] ~~Allow users to rename project titles ([#179](https://github.com/scout-app/scout-app/issues/179)) (TJW)~~
   * [ ] Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240), [#79](https://github.com/scout-app/scout-app/issues/79), [#12](https://github.com/scout-app/scout-app/issues/12))
-  * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172)).
+  * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172), [#258](https://github.com/scout-app/scout-app/issues/258)).
   * [ ] Allow for specific projects to run on app launch ([#69](https://github.com/scout-app/scout-app/issues/69)).
   * [ ] Play sounds with alerts/messages ([#161](https://github.com/scout-app/scout-app/issues/161))
   * [ ] Redesign FTUX
