@@ -1,6 +1,21 @@
 
 // Preferences modal
 
+#preferences-modal
+    .modal-body
+        max-height: 407px
+        overflow: auto
+    .radio + .radio,
+    .checkbox + .checkbox
+        margin-top: inherit
+    h5[data-lang="LANGUAGE_CHOICE"]:before
+        content: "\e135"
+        padding: 0px 3px 0px 0px
+    .custom-pbrush:before
+        +icon
+        content: "\e900"
+        padding: 0px 3px 0px 0px
+
 #themeChoices
     text-transform: capitalize
 

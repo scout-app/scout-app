@@ -2,6 +2,7 @@
 
 //Stuff that goes at the start
 @import "_var.sass";                  // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
+@import "_scout-icons.sass";          // Importing custom made SVG icons as a font
 @import "_main.sass";                 // Main CSS for the app
 
 //Stuff that effects specific sections

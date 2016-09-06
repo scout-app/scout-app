@@ -4,7 +4,7 @@
     <title data-lang="APPLICATION_TITLE">Scout-App: The Sass GUI</title>
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
-    <link rel="stylesheet" href="_themes/darkly.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_themes/simplex.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
 
@@ -86,7 +86,7 @@
               </span>
               <input id="projectIconBrowse" type="file" nwworkingdir="..." accept=".GIF, .BMP, .PNG, .JPG, .JPEG, .ICO" class="hide" />
             </div>
-            <h3 id="projectName" class="edit"></h3>
+            <h3 id="projectName" class="edit custom-icon"></h3>
             <h3 id="projectNameEditable">
               <input type="text" class="form-control" />
               <span class="pull-right glyphicon glyphicon-remove text-danger"></span>
@@ -310,9 +310,9 @@
 
             <div class="row">
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-                <h5 data-lang="LANGUAGE_CHOICE"></h5>
+                <h5 data-lang="LANGUAGE_CHOICE" class="custom-icon"></h5>
 
-                <select id="cultureChoices"  data-argName="culturechoice" class="form-control" required="required">
+                <select id="cultureChoices" data-argName="culturechoice" class="form-control" required="required">
                   <option value="en" data-lang="LANG_ENGLISH" ></option>
                   <option value="nl" data-lang="LANG_DUTCH"   ></option>
                   <option value="fr" data-lang="LANG_FRENCH"  ></option>
@@ -321,9 +321,9 @@
               </div>
 
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-                <h5 data-lang="STYLESHEET_CHOICE"></h5>
+                <h5 data-lang="STYLESHEET_CHOICE" class="custom-pbrush"></h5>
 
-                <select id="themeChoices"  data-argName="themechoice" class="form-control" required="required">
+                <select id="themeChoices" data-argName="themechoice" class="form-control" required="required">
                   <!-- Dynamically filled from the _themes folder. -->
                 </select>
               </div>
