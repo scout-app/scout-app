@@ -57,6 +57,7 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
  * `localize`: When dynamically switching languages we use this function to localize the culture key into the correct translation.
  * `message`: Displays positive messages, like when a `.sass` file is successfully processed to `.css` without any errors.
  * `processInputFolder`: Recursively processes all `.sass` and `.scss` files in the project's input folder, skipping any that begin with an `_` (underscore).
+ * `projectRenameHeight`: Detects the correct height to set the confirm/cancel icons when editing a project name. These need to be vertically re-centered every time the app loads, or a new theme is picked.
  * `removeProject`: Accepts a project ID as an argument. Removes that project from the `scout.projects` list, updates the sidebar, and saves the settings. Then updates the project settings to show the first project in the sidebar.
  * `resetProjectUI`: This will reset the values in the right-side Project Panel, clearing out all values to prepare for showing a new project.
  * `saveCurrentProject`: This is ran when modifying the settings of a specific project. It updates the `scout.projects` object and saves settings to disk.
@@ -84,6 +85,7 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
  * `projectIcon`: Can be auto guessed, set by the user in the UI, or left as the default `_img/logo_128.png`, which is Scout-App's own icon of Scout the Puppy.
  * `projectName`: The title of the project, by default it is based off of the last folder in `projectFolder`
  * `watcher`: This is the watcher function/object for this project. It informs Scout-App that `chokidar` is watching the `inputFolder` of this project for changes.
+* `sort`: This is temporary storage for when we drag a project in the sidebar to reorder them. It stores the starting and ending positions.
 * `versions`: The version numbers for Scout-App and it's dependencies.
  * `chokidar`: Allows for watching for file changes.
  * `libSass`: The library version of SassC, used at the core of Scout-App to process `.sass` and `.scss` files into CSS.
