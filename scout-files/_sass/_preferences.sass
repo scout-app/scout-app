@@ -8,9 +8,14 @@
     .radio + .radio,
     .checkbox + .checkbox
         margin-top: inherit
-    h5[data-lang="LANGUAGE_CHOICE"]:before
+    .notifications:before
+        content: "\e123"
+    .success:before
+        content: "\e013"
+    .error:before
+        content: "\e014"
+    .language:before
         content: "\e135"
-        padding: 0px 3px 0px 0px
     .custom-pbrush:before
         +icon
         content: "\e900"
