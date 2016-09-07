@@ -44,9 +44,16 @@ The  main files for Scout-App 2 are:
 
 In the Developer Tools Console, you can type `window.scout` (or just `scout`) to see the main Scout object. It contains the following:
 
-* `cultureCode`: This will be set to `en` by default but can be changed by the user in the UI under `File > Preferences`
 * `dictionary`: This is used for temporary storage while switching languages in the UI. It will occassionally hold the same contents as one of the JSON files in the `cultures` folder.
 * `ftux`: "[**F**irst **T**ime **U**ser E**x**perience](https://en.wikipedia.org/wiki/First-time_user_experience)". This is used as temporary storage for information generated on the FTUX screen. FTUX is shown whenever the user has 0 projects added to Scout-App.
+* `globalSettings`: This is where we store app-wide settings, rather than project specific settings.
+ * `cultureCode`: This will be set to `en` by default but can be changed by the user in the UI under `File > Preferences`.
+ * `alertDesktop`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
+ * `alertInApp`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
+ * `alertSound`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
+ * `messageDesktop`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
+ * `messageInApp`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
+ * `messageSound`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
 * `helpers`: These are helper functions that can be called at any time from any file. Here is more information about specific helper functions:
  * `addProject`: Accepts a "project object" argument that contains an ID, Name, and local Directory. It adds it to the `scout.projects` list, updates the sidebar, and then saves settings.
  * `alert`: Accepts an error and project ID. Displays an error message in the UI and in the console.

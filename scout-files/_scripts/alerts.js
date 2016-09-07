@@ -134,7 +134,7 @@
         $("#sidebar .active").click();
     }
 
-    $('[data-argName="msgSound"]').click(playMessage);
+    $('[data-argName="messageSound"]').click(playMessage);
     $('[data-argName="alertSound"]').click(playAlert);
 
     scout.helpers.alert = alert;
