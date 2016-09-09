@@ -17,7 +17,10 @@
     }
 
     function alert (error, projectID) {
-        playAlert();
+        if (scout.globalSettings.alertSound) {
+            playAlert();
+        }
+
         if ($("#project-settings").is(":visible")) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
@@ -84,7 +87,9 @@
               '</div>' +
             '</div>';
 
-        $("#printConsole").prepend(formmatedError);
+        if (scout.globalSettings.alertInApp) {
+            $("#printConsole").prepend(formmatedError);
+        }
 
         $("#printConsole .panel .glyphicon-remove").click( function () {
             $(this).parent().parent().remove();
@@ -94,7 +99,9 @@
     }
 
     function message (message, projectID) {
-        playMessage();
+        if (scout.globalSettings.messageSound) {
+            playMessage();
+        }
         if ($("#project-settings").is(":visible")) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
@@ -125,7 +132,9 @@
           '<span class="pull-right glyphicon glyphicon-remove"></span>' +
         '</div>';
 
-        $("#printConsole").prepend(formattedMessage);
+        if (scout.globalSettings.messageInApp) {
+            $("#printConsole").prepend(formattedMessage);
+        }
 
         $("#printConsole .alert .glyphicon-remove").click( function () {
             $(this).parent().remove();
