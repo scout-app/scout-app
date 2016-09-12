@@ -9,40 +9,19 @@
         $("#preferences-modal").fadeIn();
     });
 
-    if (scout.globalSettings.alertInApp) {
-        $("[data-argName=alertInApp]").prop("checked", true);
-    } else {
-        $("[data-argName=alertInApp]").prop("checked", false);
-    }
-    if (scout.globalSettings.alertSound) {
-        $("[data-argName=alertSound]").prop("checked", true);
-    } else {
-        $("[data-argName=alertSound]").prop("checked", false);
-    }
-    /*
-    if (scout.globalSettings.alertDesktop) {
-        $("[data-argName=alertDesktop]").prop("checked", true);
-    } else {
-        $("[data-argName=alertDesktop]").prop("checked", false);
-    }
-    */
-    if (scout.globalSettings.messageInApp) {
-        $("[data-argName=messageInApp]").prop("checked", true);
-    } else {
-        $("[data-argName=messageInApp]").prop("checked", false);
-    }
-    if (scout.globalSettings.messageSound) {
-        $("[data-argName=messageSound]").prop("checked", true);
-    } else {
-        $("[data-argName=messageSound]").prop("checked", false);
-    }
-    /*
-    if (scout.globalSettings.messageDesktop) {
-        $("[data-argName=messageDesktop]").prop("checked", true);
-    } else {
-        $("[data-argName=messageDesktop]").prop("checked", false);
-    }
-    */
+    $("[data-argName=alertInApp], " +
+      "[data-argName=alertSound], " +
+      "[data-argName=alertDesktop], " +
+      "[data-argName=messageInApp], " +
+      "[data-argName=messageSound], " +
+      "[data-argName=messageDesktop]").prop("checked", false);
+
+    if (scout.globalSettings.alertInApp)     { $("[data-argName=alertInApp]").prop("checked", true);     }
+    if (scout.globalSettings.alertSound)     { $("[data-argName=alertSound]").prop("checked", true);     }
+    if (scout.globalSettings.alertDesktop)   { $("[data-argName=alertDesktop]").prop("checked", true);   }
+    if (scout.globalSettings.messageInApp)   { $("[data-argName=messageInApp]").prop("checked", true);   }
+    if (scout.globalSettings.messageSound)   { $("[data-argName=messageSound]").prop("checked", true);   }
+    if (scout.globalSettings.messageDesktop) { $("[data-argName=messageDesktop]").prop("checked", true); }
 
     for (var i = 0; i < $("#cultureChoices option").length; i++) {
         if ( $($("#cultureChoices option")[i]).val() == scout.globalSettings.cultureCode ) {
@@ -63,12 +42,12 @@
 
     function checkboxChanged () {
         ugui.helpers.buildUGUIArgObject();
-        //scout.globalSettings.alertDesktop   = ugui.args.alertDesktop.htmlticked;
-        //scout.globalSettings.messageDesktop = ugui.args.messageDesktop.htmlticked;
-        scout.globalSettings.alertInApp       = ugui.args.alertInApp.htmlticked;
-        scout.globalSettings.alertSound       = ugui.args.alertSound.htmlticked;
-        scout.globalSettings.messageInApp     = ugui.args.messageInApp.htmlticked;
-        scout.globalSettings.messageSound     = ugui.args.messageSound.htmlticked;
+        scout.globalSettings.alertDesktop   = ugui.args.alertDesktop.htmlticked;
+        scout.globalSettings.alertInApp     = ugui.args.alertInApp.htmlticked;
+        scout.globalSettings.alertSound     = ugui.args.alertSound.htmlticked;
+        scout.globalSettings.messageDesktop = ugui.args.messageDesktop.htmlticked;
+        scout.globalSettings.messageInApp   = ugui.args.messageInApp.htmlticked;
+        scout.globalSettings.messageSound   = ugui.args.messageSound.htmlticked;
     }
 
     $('#preferences-modal input[type="checkbox"]').change(checkboxChanged);

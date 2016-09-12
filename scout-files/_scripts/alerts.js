@@ -34,6 +34,7 @@
             }
         }
 
+        var path = require('path');
         var file = error.file;
         var bugLine = error.line;
         var col = error.column;
@@ -42,8 +43,7 @@
         var title = scout.localize("ALERT_TITLE");
         title = title.replace("{{time}}", time).replace("{{code}}", code).replace("{{bugLine}}", bugLine).replace("{{col}}", col);
         var footer = '<em>' + file + '</em>';
-        var bugFile = file.replace('\\','/').split('/');
-        bugFile = bugFile[bugFile.length - 1];
+        var bugFile = path.basename(file);
 
         var fileContents = ugui.helpers.readAFile(file);
         fileContents = fileContents.split('\n');
@@ -96,6 +96,29 @@
         });
 
         $("#sidebar .active").click();
+
+        if (scout.globalSettings.alertDesktop) {
+            var lineAndCol = title.split(') - ')[1];
+            lineAndCol = lineAndCol.replace(/<strong>/g,'').replace(/<\/strong>/g,'');
+            var notification = new Notification(bugFile, {
+                icon: "_img/logo_32.png",
+                body: lineAndCol
+            });
+
+            notification.onclick = function () {
+                $("#viewStatus").click();
+                var win = require('nw.gui').Window.get();
+                win.show();
+                win.focus();
+            }
+
+            notification.onshow = function () {
+                // auto close after 1 second
+                setTimeout(function () {
+                    notification.close();
+                }, 1000);
+            }
+        }
     }
 
     function message (message, projectID) {
@@ -141,6 +164,29 @@
         });
 
         $("#sidebar .active").click();
+
+        if (scout.globalSettings.messageDesktop) {
+            var path = require('path');
+            var file = path.basename(message.stats.entry);
+            var notification = new Notification(file, {
+                icon: "_img/logo_32.png",
+                body: processedTime
+            });
+
+            notification.onclick = function () {
+                $("#viewStatus").click();
+                var win = require('nw.gui').Window.get();
+                win.show();
+                win.focus();
+            }
+
+            notification.onshow = function () {
+                // auto close after 1 second
+                setTimeout(function () {
+                    notification.close();
+                }, 1000);
+            }
+        }
     }
 
     $('[data-argName="messageSound"]').click(playMessage);
