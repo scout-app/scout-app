@@ -54,7 +54,7 @@
         "fs-extra": "^0.30.x"
     },
     "devDependencies": {
-        "nw": "^0.14.7",
+        "nw": "^0.14.7-sdk",
         "bower": "~1.x.x"
     },
     "scripts": {
