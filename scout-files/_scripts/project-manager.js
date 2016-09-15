@@ -39,7 +39,7 @@
     }
 
     function deleteLocalSettingsFile (bool) {
-        var appData = require('nw.gui').App.dataPath;
+        var appData = nw.App.dataPath;
         var file = appData + '/scout-settings.json';
         if (process.platform == "win32") {
             file = appData + '\\scout-settings.json';
@@ -55,7 +55,7 @@
 
         if (bool) {
             ugui.helpers.deleteAFile(file, function (){
-                require('nw.gui').Window.get().reload();
+                nw.Window.get().reload();
             });
         }
     }
@@ -162,7 +162,7 @@
     }
 
     function saveSettings () {
-        var appData = require('nw.gui').App.dataPath;
+        var appData = nw.App.dataPath;
         appData.split('\\').join('/');
         var settingsJSON = appData + "/scout-settings.json";
         var data = {};

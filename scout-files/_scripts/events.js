@@ -316,7 +316,7 @@
      * OSX needs you to spoon feed it how to copy and paste.
      */
     function osxKeyBindings () {
-        var win = require('nw.gui').Window.get();
+        var win = nw.Window.get();
         //Keyboard shortcuts
         document.onkeydown = function(pressed) {
             //Check CMD+V and CMD+v keys and paste

@@ -49,12 +49,12 @@
         "plugin": true
     },
     "dependencies": {
-        "node-sass": "^3.x.x",
+        "node-sass": "3.4.2",
         "chokidar": "^1.x.x",
         "fs-extra": "^0.30.x"
     },
     "devDependencies": {
-        "nw": "^0.14.7-sdk",
+        "nw": "0.14.7-sdk",
         "bower": "~1.x.x"
     },
     "scripts": {

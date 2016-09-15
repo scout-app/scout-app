@@ -42,9 +42,9 @@
 
     //Read the contents of the folder
     ugui.helpers.readAFolder(nsVenDestinationPath, function (contents) {
-        var win = require('nw.gui').Window.get();
+        var win = nw.Window.get();
         //If there are no folders or the existing folder is not the right version
-        if (contents.length == 0 || (contents.length == 1 && contents[0].name.split('-')[2] !== '43') ) {
+        if (contents.length == 0 || (contents.length == 1 && contents[0].name.split('-')[2] !== '47') ) {
             var os = process.platform;
             var arch = process.arch;
             //Verify the machine is 32 or 64-Bit
@@ -57,7 +57,7 @@
                 } else if (os == "darwin" || os == "freebsd" || os == "linux" || os == "win32") {
                     //Set the source path
                     var nsVenSourcePath = 'scout-files/_assets/node-sass_v3.4.2';
-                    var folderName = '/' + os + '-' + arch + '-43';
+                    var folderName = '/' + os + '-' + arch + '-47';
                     var file = '/binding.node';
                     var nsVenSource = nsVenSourcePath + folderName + file;
                     var nsVenDestination = nsVenDestinationPath + folderName + file;
