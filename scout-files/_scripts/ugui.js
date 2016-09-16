@@ -170,7 +170,7 @@ for (index = 0; index < executable.length; index++) {
 var textFields = $( "textarea[data-argName], input[data-argName][type=text]" ).toArray();
 
 //Allow access to the filesystem
-var fs = require("fs");
+var fs = require("fs-extra");
 
 //Access the contents of the package.json file
 var packageJSON = require("nw.gui").App.manifest;

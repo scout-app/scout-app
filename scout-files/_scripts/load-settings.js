@@ -8,7 +8,7 @@
 */
 
 (function () {
-    var fs = require("fs");
+    var fs = require("fs-extra");
     var path = require("path");
     var gui = require("nw.gui");
     var appData = gui.App.dataPath;
