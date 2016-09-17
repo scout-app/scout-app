@@ -308,9 +308,28 @@
           </div>
           <div class="modal-body text-center">
 
+
+            <div class="row">
+              <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
+                <h4 data-lang="NOTIFICATIONS_CHOICE" class="notifications custom-icon"></h4>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left">
+                <div class="text-center" data-lang="MESSAGES_TITLE_SUCCESS"></div>
+                <label><input type="checkbox" checked data-argName="messageInApp"   value="messageinapp"   /> <span data-lang="MESSAGES_IN_APP"></span></label><br />
+                <label><input type="checkbox"         data-argName="messageDesktop" value="messagedesktop" /> <span data-lang="MESSAGES_DESKTOP"></span></label><br />
+                <label><input type="checkbox" checked data-argName="messageSound"   value="messagesound"   /> <span data-lang="MESSAGES_SOUND"></span></label>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left">
+                <div class="text-center" data-lang="MESSAGES_TITLE_ERROR"></div>
+                <label><input type="checkbox" checked data-argName="alertInApp"     value="alertinapp"     /> <span data-lang="MESSAGES_IN_APP"></span></label><br />
+                <label><input type="checkbox" checked data-argName="alertDesktop"   value="alertdesktop"   /> <span data-lang="MESSAGES_DESKTOP"></span></label><br />
+                <label><input type="checkbox" checked data-argName="alertSound"     value="alertsound"     /> <span data-lang="MESSAGES_SOUND"></span></label>
+              </div>
+            </div>
+
             <div class="row">
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-                <h5 data-lang="LANGUAGE_CHOICE" class="custom-icon"></h5>
+                <h4 data-lang="LANGUAGE_CHOICE" class="language custom-icon"></h4>
 
                 <select id="cultureChoices" data-argName="culturechoice" class="form-control" required="required">
                   <option value="en" data-lang="LANG_ENGLISH" ></option>
@@ -321,7 +340,7 @@
               </div>
 
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
-                <h5 data-lang="STYLESHEET_CHOICE" class="custom-pbrush"></h5>
+                <h4 data-lang="STYLESHEET_CHOICE" class="custom-pbrush"></h4>
 
                 <select id="themeChoices" data-argName="themechoice" class="form-control" required="required">
                   <!-- Dynamically filled from the _themes folder. -->

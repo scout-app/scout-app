@@ -6,6 +6,15 @@
 //Create the global Scout object
 window.scout = {
     "ftux": {},
+    "globalSettings": {
+        "cultureCode": "en",
+        "alertDesktop": true,
+        "alertInApp": true,
+        "alertSound": true,
+        "messageDesktop": false,
+        "messageInApp": true,
+        "messageSound": true
+    },
     "helpers": {},
     "projects": [],
     "versions": {
@@ -13,7 +22,6 @@ window.scout = {
         "libSass": "",
         "scout": ugui.app.version
     },
-    "cultureCode": "en",
     "dictionary": {}
 };
 
