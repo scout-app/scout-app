@@ -16,6 +16,28 @@
         message.play();
     }
 
+    function desktopNotification (file, bodyText, alertOrMessage) {
+        var randNum = Math.round(Math.random() * 10000);
+        scout.helpers[alertOrMessage].notification[randNum] = new Notification(file, {
+            icon: "_img/logo_32.png",
+            body: bodyText
+        });
+
+        scout.helpers[alertOrMessage].notification[randNum].onclick = function () {
+            $("#viewStatus").click();
+            var win = require('nw.gui').Window.get();
+            win.show();
+            win.focus();
+        }
+
+        scout.helpers[alertOrMessage].notification[randNum].onshow = function () {
+            // auto close after 1 second
+            setTimeout(function () {
+                scout.helpers[alertOrMessage].notification[randNum].close();
+            }, 3000);
+        }
+    }
+
     function alert (error, projectID) {
         if (scout.globalSettings.alertSound) {
             playAlert();
@@ -100,29 +122,7 @@
         if (scout.globalSettings.alertDesktop) {
             var lineAndCol = title.split(') - ')[1];
             lineAndCol = lineAndCol.replace(/<strong>/g,'').replace(/<\/strong>/g,'');
-            var randNum = Math.round(Math.random() * 1000);
-            console.log(randNum);
-            var notification = {};
-            notification[randNum] = new Notification(bugFile, {
-                icon: "_img/logo_32.png",
-                body: lineAndCol
-            });
-
-            notification[randNum].onclick = function () {
-                $("#viewStatus").click();
-                var win = require('nw.gui').Window.get();
-                win.show();
-                win.focus();
-                console.log('ckucj;', randNum);
-            }
-
-            notification[randNum].onshow = function () {
-                // auto close after 1 second
-                setTimeout(function () {
-                    notification[randNum].close();
-                }, 3000);
-            }
-            console.log(randNum);
+            desktopNotification(bugFile, lineAndCol, 'alert');
         }
     }
 
@@ -173,24 +173,7 @@
         if (scout.globalSettings.messageDesktop) {
             var path = require('path');
             var file = path.basename(message.stats.entry);
-            var notification = new Notification(file, {
-                icon: "_img/logo_32.png",
-                body: processedTime
-            });
-
-            notification.onclick = function () {
-                $("#viewStatus").click();
-                var win = require('nw.gui').Window.get();
-                win.show();
-                win.focus();
-            }
-
-            notification.onshow = function () {
-                // auto close after 1 second
-                setTimeout(function () {
-                    notification.close();
-                }, 1000);
-            }
+            desktopNotification(file, processedTime, 'message');
         }
     }
 
@@ -199,5 +182,7 @@
 
     scout.helpers.alert = alert;
     scout.helpers.message = message;
+    scout.helpers.alert.notification = {};
+    scout.helpers.message.notification = {};
 
 })();
