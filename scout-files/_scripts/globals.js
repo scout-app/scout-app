@@ -11,7 +11,7 @@ window.scout = {
         "alertDesktop": true,
         "alertInApp": true,
         "alertSound": true,
-        "messageDesktop": true,
+        "messageDesktop": false,
         "messageInApp": true,
         "messageSound": true
     },
