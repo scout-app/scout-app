@@ -51,7 +51,7 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
  * `alertDesktop`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
  * `alertInApp`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
  * `alertSound`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
- * `messageDesktop`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
+ * `messageDesktop`: This will be set to `false` by default, but can be changed by the user in the UI under `File > Preferences`.
  * `messageInApp`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
  * `messageSound`: This will be set to `true` by default, but can be changed by the user in the UI under `File > Preferences`.
 * `helpers`: These are helper functions that can be called at any time from any file. Here is more information about specific helper functions:
