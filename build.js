@@ -1,9 +1,11 @@
 //BUILDING FOR WINDOWS/LINUX:
 
 //Prerequisites: Must have Node, NPM, and Bower installed globally.
+//
 //This assumes you have a folder next to `scout-app` called `scout-app-build`.
 //`scout-app-build` folder should contain:
 //  * locales (folder)
+//  * ffmpegsumo.dll
 //  * icudtl.dat
 //  * nw.pak
 //  * Scout-App.exe
@@ -29,12 +31,12 @@ var fs = require('fs-extra');
 var exec = require('child_process').execSync;
 //var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
 //var del = require('del'); // used to delete entire folders with the exception of specific files
-var manifest = fs.readJsonSync('package.json');
-manifest.name = manifest.name.toLowerCase();
-delete manifest.devDependencies;
-if (lin) { manifest.window.icon = 'scout-files/_img/logo_128.png'; }
 var bowerJSON = fs.readJsonSync('bower.json');
-bowerJSON.name = bowerJSON.name.toLowerCase();
+var manifest = fs.readJsonSync('package.json');
+delete manifest.devDependencies;
+if (lin) {
+    manifest.window.icon = 'scout-files/_img/logo_128.png';
+}
 var build = '../scout-app-build/';
 var sf = 'scout-files/';
 var bindings = '_assets/node-sass_v3.4.2/';
@@ -116,7 +118,6 @@ function rmrf (location) {
 rmrf(build + 'License');
 rmrf(build + 'bower_components');
 rmrf(build + 'node_modules');
-rmrf(build + 'temp');
 rmrf(build + sf);
 fs.mkdirsSync(build + sf);
 var timeClean = Date.now() + '';
@@ -137,6 +138,7 @@ fs.copySync(sf + '_fonts',    build + sf + '_fonts');
 fs.copySync(sf + '_img',      build + sf + '_img');
 fs.copySync(sf + '_markup',   build + sf + '_markup');
 fs.copySync(sf + '_scripts',  build + sf + '_scripts');
+fs.copySync(sf + '_sound',    build + sf + '_sound');
 fs.copySync(sf + '_style',    build + sf + '_style');
 fs.copySync(sf + '_themes',   build + sf + '_themes');
 fs.copySync(sf + 'mixins',    build + sf + 'mixins');
@@ -148,60 +150,24 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
-if (win) {
-    exec('npm --loglevel=error --prefix ' + build + 'temp install ' + build);
-} else {
-    exec('npm --loglevel=error --prefix ' + build + 'temp install ' + build);
+process.chdir('../scout-app-build');
+exec('npm --loglevel=error install');
+if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.scss')) {
+    fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.sass');
 }
+process.chdir('../scout-app');
 var timeExec = Date.now() + '';
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
 
-// Move bower_components into place and clean
-fs.copySync(build + 'temp/node_modules/scout-app/bower_components', build + 'bower_components');
-var timeBower = Date.now() + '';
-console.log('Move bower_components - ' + timer(timeBower, timeExec));
-if (!win) {
-    rmrf(build + 'temp/node_modules/scout-app');
-    var timeBowerDel = Date.now() + '';
-    console.log('Del bower_components  - ' + timer(timeBowerDel, timeBower));
-}
-
-
-// Move node_modules into place and clean
-if (win) {
-    fs.copySync(build + 'temp/node_modules/scout-app/node_modules', build + 'node_modules');
-} else {
-    fs.copySync(build + 'temp/node_modules', build + 'node_modules');
-}
-var timeNM = Date.now() + '';
-if (win) {
-    console.log('Move node_modules     - ' + timer(timeNM, timeBower));
-} else {
-    console.log('Move node_modules     - ' + timer(timeNM, timeBowerDel));
-}
-
-rmrf(build + 'temp');
-var timeRmvTmp = Date.now() + '';
-console.log('Delete Temp           - ' + timer(timeRmvTmp, timeNM));
-
-
 // Node-Sass Vendor Bindings
 rmrf(build + 'node_modules/node-sass/vendor');
-if (win) {
-    fs.copySync(sf + bindings + 'win32-ia32-43', build + ns + 'win32-ia32-43');
-    fs.copySync(sf + bindings + 'win32-x64-43',  build + ns + 'win32-x64-43');
-} else if (os == 'freebsd') {
-    fs.copySync(sf + bindings + 'freebsd-ia32-43', build + ns + 'freebsd-ia32-43');
-    fs.copySync(sf + bindings + 'freebsd-x64-43',  build + ns + 'freebsd-x64-43');
-} else if (darwin) {
-    fs.copySync(sf + bindings + 'darwin-x64-43',  build + ns + 'darwin-x64-43');
-} else if (lin) {
-    fs.copySync(sf + bindings + 'linux-ia32-43', build + ns + 'linux-ia32-43');
-    fs.copySync(sf + bindings + 'linux-x64-43',  build + ns + 'linux-x64-43');
+fs.copySync(sf + bindings + os + '-x64-43', build + ns + os + '-x64-43');
+if (!darwin) {
+    fs.copySync(sf + bindings + os + '-ia32-43', build + ns + os + '-ia32-43');
 }
 var timeNS = Date.now() + '';
-console.log('Node-Sass bindings    - ' + timer(timeNS, timeNM));
+console.log('Node-Sass bindings    - ' + timer(timeNS, timeExec));
 
 
 // Total Time
