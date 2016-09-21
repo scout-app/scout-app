@@ -26,6 +26,7 @@ if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os !
     console.log('Build will probably fail.');
 }
 var fs = require('fs-extra');
+var ZipZipTop = require("zip-zip-top");
 var exec = require('child_process').execSync;
 //var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
 //var del = require('del'); // used to delete entire folders with the exception of specific files
@@ -202,6 +203,44 @@ if (win) {
 }
 var timeNS = Date.now() + '';
 console.log('Node-Sass bindings    - ' + timer(timeNS, timeNM));
+
+
+// Zip package
+var zipBuild = new ZipZipTop();
+var zipOptions = { 'rootFolder': 'newRootFolder' };
+zipBuild.zipFolder('../scout-app-build', function () {
+    if (err) { console.log(err); }
+    var osTitle = '';
+    if (os == 'win32')   { osTitle = 'WIN'; } else
+    if (os == 'darwin')  { osTitle = 'OSX'; } else
+    if (os == 'freebsd') { osTitle = 'BSD'; } else
+    if (os == 'sunos')   { osTitle = 'SUN'; } else
+    if (os == 'linux')   { osTitle = 'LIN64'; }
+    var filename = '../' + osTitle + '_Scout-App_' + manifest.version + '.zip';
+    zipBuild.writeToFile(filename, function (err) {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log('Done');
+    });
+}, zipOptions);
+if (lin) {
+    var zipBuild32 = new ZipZipTop();
+    zipBuild32.zipFolder('../scout-app-build-32', function () {
+        if (err) { console.log(err); }
+        var filename32 = '../LIN32_Scout-App_' + manifest.version + '.zip';
+        zipBuild32.writeToFile(filename32, function (err) {
+            if (err) {
+                console.log(err);
+                return;
+            }
+            console.log('Done');
+        });
+    }, zipOptions);
+}
+var timeZip = Date.now() + '';
+console.log('Node-Sass bindings    - ' + timer(timeZip, timeNS));
 
 
 // Total Time
