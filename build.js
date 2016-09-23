@@ -236,6 +236,7 @@ exec(zipExe + ' a -bd -tzip -mx=9 -y ' + outputZip + ' ' + buildInput);
 if (lin) {
     buildInput = '../scout-app-build/lin32/Scout-App';
     outputZip = '../scout-app-build/LIN32_Scout-App_' + manifest.version + '.zip';
+    fs.removeSync(outputZip);
     exec(zipExe + ' a -bd -tzip -mx=9 -y ' + outputZip + ' ' + buildInput);
 }
 var timeZip = Date.now() + '';
