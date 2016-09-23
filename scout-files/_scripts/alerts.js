@@ -16,8 +16,33 @@
         message.play();
     }
 
+    function desktopNotification (file, bodyText, alertOrMessage) {
+        var randNum = Math.round(Math.random() * 10000);
+        scout.helpers[alertOrMessage].notification[randNum] = new Notification(file, {
+            icon: "_img/logo_32.png",
+            body: bodyText
+        });
+
+        scout.helpers[alertOrMessage].notification[randNum].onclick = function () {
+            $("#viewStatus").click();
+            var win = require('nw.gui').Window.get();
+            win.show();
+            win.focus();
+        }
+
+        scout.helpers[alertOrMessage].notification[randNum].onshow = function () {
+            // auto close after 1 second
+            setTimeout(function () {
+                scout.helpers[alertOrMessage].notification[randNum].close();
+            }, 3000);
+        }
+    }
+
     function alert (error, projectID) {
-        playAlert();
+        if (scout.globalSettings.alertSound) {
+            playAlert();
+        }
+
         if ($("#project-settings").is(":visible")) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
@@ -31,6 +56,7 @@
             }
         }
 
+        var path = require('path');
         var file = error.file;
         var bugLine = error.line;
         var col = error.column;
@@ -39,8 +65,7 @@
         var title = scout.localize("ALERT_TITLE");
         title = title.replace("{{time}}", time).replace("{{code}}", code).replace("{{bugLine}}", bugLine).replace("{{col}}", col);
         var footer = '<em>' + file + '</em>';
-        var bugFile = file.replace('\\','/').split('/');
-        bugFile = bugFile[bugFile.length - 1];
+        var bugFile = path.basename(file);
 
         var fileContents = ugui.helpers.readAFile(file);
         fileContents = fileContents.split('\n');
@@ -84,17 +109,27 @@
               '</div>' +
             '</div>';
 
-        $("#printConsole").prepend(formmatedError);
+        if (scout.globalSettings.alertInApp) {
+            $("#printConsole").prepend(formmatedError);
+        }
 
         $("#printConsole .panel .glyphicon-remove").click( function () {
             $(this).parent().parent().remove();
         });
 
         $("#sidebar .active").click();
+
+        if (scout.globalSettings.alertDesktop) {
+            var lineAndCol = title.split(') - ')[1];
+            lineAndCol = lineAndCol.replace(/<strong>/g,'').replace(/<\/strong>/g,'');
+            desktopNotification(bugFile, lineAndCol, 'alert');
+        }
     }
 
     function message (message, projectID) {
-        playMessage();
+        if (scout.globalSettings.messageSound) {
+            playMessage();
+        }
         if ($("#project-settings").is(":visible")) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
@@ -125,16 +160,29 @@
           '<span class="pull-right glyphicon glyphicon-remove"></span>' +
         '</div>';
 
-        $("#printConsole").prepend(formattedMessage);
+        if (scout.globalSettings.messageInApp) {
+            $("#printConsole").prepend(formattedMessage);
+        }
 
         $("#printConsole .alert .glyphicon-remove").click( function () {
             $(this).parent().remove();
         });
 
         $("#sidebar .active").click();
+
+        if (scout.globalSettings.messageDesktop) {
+            var path = require('path');
+            var file = path.basename(message.stats.entry);
+            desktopNotification(file, processedTime, 'message');
+        }
     }
+
+    $('[data-argName="messageSound"]').click(playMessage);
+    $('[data-argName="alertSound"]').click(playAlert);
 
     scout.helpers.alert = alert;
     scout.helpers.message = message;
+    scout.helpers.alert.notification = {};
+    scout.helpers.message.notification = {};
 
 })();

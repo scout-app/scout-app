@@ -11,7 +11,6 @@
             inputHeight = 34;
         }
         $("#projectNameEditable .glyphicon").css('line-height', inputHeight + 'px');
-
     }
     window.setTimeout(projectRenameHeight, 500);
 
@@ -266,6 +265,17 @@
                 $(".navbar-toggle").trigger("click");
             }
         });
+
+        // If you clicked outside the modal to close it
+        var modalID = $(event.currentTarget).attr('id');
+        if (!modalID) {
+            // If you clicked the X to close the modal
+            modalID = $(event.currentTarget).parent().parent().parent().parent().attr('id');
+        }
+        // Auto-save when exiting the preferences modal
+        if (modalID == "preferences-modal") {
+            scout.helpers.saveSettings();
+        }
     }
     //Click "Delete Project"
     $("#delete-project").click(function (evt) {
@@ -304,7 +314,10 @@
 
     });
     //When clicking on background, cancel button, or X, remove modal
-    $(".modal, #cancel-delete, .modal .glyphicon-remove").click( removeModal );
+    $(".modal, #cancel-delete, .modal .glyphicon-remove").click( function () {
+        // close the modal without saving
+        removeModal();
+    });
     //Allow you to click in the modal without triggering the `removeModal` function called when you click its parent element
     $(".modal .modal-content").click( function( evt ) {
         evt.stopPropagation();

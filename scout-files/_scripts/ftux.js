@@ -96,7 +96,7 @@
             //Each drive letter adds like half a second to load time, so I limited them to the common ones
             var driveLetters = ["C", "D", "E", "F", "Z", "Y", "X", "G", "H", "M", "N",];
             var shortProjects = ["GitHub", "Projects"];
-            var fs = require('fs');
+            var fs = require('fs-extra');
             var stats = "";
             for (var i = 0; i < driveLetters.length; i++) {
                 for (var j = 0; j < shortProjects.length; j++) {

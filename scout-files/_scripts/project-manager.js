@@ -168,7 +168,7 @@
         var data = {};
         data.projects = scout.projects;
         data.versions = scout.versions;
-        data.cultureCode = scout.cultureCode;
+        data.globalSettings = scout.globalSettings;
         data = JSON.stringify(data, null, 4);
         data = data + '\n';
         ugui.helpers.writeToFile(settingsJSON, data);
