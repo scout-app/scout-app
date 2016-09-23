@@ -2,7 +2,7 @@
 
 // Prerequisites: Must have Node, NPM, and Bower installed globally.
 //
-// This assumes you have a folder next to `scout-app` called `scout-app-build`.
+// This assumes you have a folder next to `scout-app` called `scout-app-build/win32/Scout-App`
 // `scout-app-build` folder should contain:
 //  * locales (folder)
 //  * ffmpegsumo.dll
@@ -28,7 +28,7 @@ if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os !
     console.log('Build will probably fail.');
 }
 var fs = require('fs-extra');
-var ZipZipTop = require("zip-zip-top");
+var path = require('path');
 var exec = require('child_process').execSync;
 //var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
 //var del = require('del'); // used to delete entire folders with the exception of specific files
@@ -38,8 +38,13 @@ delete manifest.devDependencies;
 if (lin) {
     manifest.window.icon = 'scout-files/_img/logo_128.png';
 }
-var build = '../scout-app-build/';
-var build32 = '../scout-app-build-32/';
+var build = '../scout-app-build/win32/Scout-App/';
+if (darwin) {
+    build = '../scout-app-build/osx64/Scout-App/';
+} else if (lin) {
+    build = '../scout-app-build/lin64/Scout-App/';
+}
+var build32 = '../scout-app-build/lin32/Scout-App/';
 var sf = 'scout-files/';
 var bindings = '_assets/node-sass_v3.4.2/';
 var ns = 'node_modules/node-sass/vendor/';
@@ -172,20 +177,19 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
-process.chdir('../scout-app-build');
+process.chdir(build);
 exec('npm --loglevel=error install');
-process.chdir('../scout-app-build');
 if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.scss')) {
     fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.sass');
 }
 if (lin) {
-    process.chdir('../scout-app-build-32');
+    process.chdir('../../lin32/Scout-App');
     exec('npm --loglevel=error install');
     if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.scss')) {
         fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.sass');
     }
 }
-process.chdir('../scout-app');
+process.chdir('../../../scout-app');
 var timeExec = Date.now() + '';
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
@@ -206,41 +210,37 @@ console.log('Node-Sass bindings    - ' + timer(timeNS, timeExec));
 
 
 // Zip package
-var zipBuild = new ZipZipTop();
-var zipOptions = { 'rootFolder': 'newRootFolder' };
-zipBuild.zipFolder('../scout-app-build', function () {
-    if (err) { console.log(err); }
-    var osTitle = '';
-    if (os == 'win32')   { osTitle = 'WIN'; } else
-    if (os == 'darwin')  { osTitle = 'OSX'; } else
-    if (os == 'freebsd') { osTitle = 'BSD'; } else
-    if (os == 'sunos')   { osTitle = 'SUN'; } else
-    if (os == 'linux')   { osTitle = 'LIN64'; }
-    var filename = '../' + osTitle + '_Scout-App_' + manifest.version + '.zip';
-    zipBuild.writeToFile(filename, function (err) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log('Done');
-    });
-}, zipOptions);
+
+var zipExe = '';
+var buildInput = '';
+var outputZip = '';
+if (win) {
+    zipExe = 'node_modules\\7zip-bin-win\\' + process.arch + '\\7za.exe';
+    buildInput = '..\\scout-app-build\\win32\\Scout-App';
+    outputZip = '..\\scout-app-build\\WIN_Scout-App_' + manifest.version + '.zip';
+} else if (darwin) {
+    zipExe = 'node_modules/7zip-bin-osx/7za';
+    buildInput = '../scout-app-build/osx64/Scout-App';
+    outputZip = '../scout-app-build/OSX_Scout-App_' + manifest.version + '.zip';
+} else if (lin) {
+    zipExe = 'node_modules/7zip-bin-linux/' + process.arch + '/7za';
+    buildInput = '../scout-app-build/lin64/Scout-App';
+    outputZip = '../scout-app-build/LIN64_Scout-App_' + manifest.version + '.zip';
+}
+fs.removeSync(outputZip);
+// a     = create archive
+// -bd   = do not display a progress bar in the CLI
+// -tzip = create a zip formatted file
+// -mx=9 = use maximum compression
+// -y    = auto answer yes to all prompts
+exec(zipExe + ' a -bd -tzip -mx=9 -y ' + outputZip + ' ' + buildInput);
 if (lin) {
-    var zipBuild32 = new ZipZipTop();
-    zipBuild32.zipFolder('../scout-app-build-32', function () {
-        if (err) { console.log(err); }
-        var filename32 = '../LIN32_Scout-App_' + manifest.version + '.zip';
-        zipBuild32.writeToFile(filename32, function (err) {
-            if (err) {
-                console.log(err);
-                return;
-            }
-            console.log('Done');
-        });
-    }, zipOptions);
+    buildInput = '../scout-app-build/lin32/Scout-App';
+    outputZip = '../scout-app-build/LIN32_Scout-App_' + manifest.version + '.zip';
+    exec(zipExe + ' a -bd -tzip -mx=9 -y ' + outputZip + ' ' + buildInput);
 }
 var timeZip = Date.now() + '';
-console.log('Node-Sass bindings    - ' + timer(timeZip, timeNS));
+console.log('Zipped Package        - ' + timer(timeZip, timeNS));
 
 // 7za.exe a -bd -tzip -mx=9 -y output.zip inputFolder
 
@@ -254,7 +254,7 @@ console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(en
 // Run the app
 if (win) {
     if ( fs.existsSync(build + 'Scout-App.exe') ) {
-        exec(build.split('/').join('\\') + 'Scout-App.exe');
+        exec(path.join(build, 'Scout-App.exe'));
     }
 } else if (lin && process.arch == 'x64') {
     if ( fs.existsSync(build + 'Scout-App') ) {
@@ -266,8 +266,4 @@ if (win) {
     }
 } else if (darwin) {
     // stub
-} else {
-    if ( fs.existsSync(build + 'Scout-App') ) {
-        exec(build + 'Scout-App');
-    }
 }
