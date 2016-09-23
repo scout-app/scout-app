@@ -210,7 +210,6 @@ console.log('Node-Sass bindings    - ' + timer(timeNS, timeExec));
 
 
 // Zip package
-
 var zipExe = '';
 var buildInput = '';
 var outputZip = '';
@@ -241,8 +240,6 @@ if (lin) {
 }
 var timeZip = Date.now() + '';
 console.log('Zipped Package        - ' + timer(timeZip, timeNS));
-
-// 7za.exe a -bd -tzip -mx=9 -y output.zip inputFolder
 
 
 // Total Time
