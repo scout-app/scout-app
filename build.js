@@ -34,13 +34,16 @@ var exec = require('child_process').execSync;
 //var del = require('del'); // used to delete entire folders with the exception of specific files
 var bowerJSON = fs.readJsonSync('bower.json');
 var manifest = fs.readJsonSync('package.json');
+if (darwin) {
+    delete manifest.scripts.postinstall;
+}
 delete manifest.devDependencies;
 if (lin) {
     manifest.window.icon = 'scout-files/_img/logo_128.png';
 }
 var build = '../scout-app-build/win32/Scout-App/';
 if (darwin) {
-    build = '../scout-app-build/osx64/Scout-App/';
+    build = '../scout-app-build/Scout-App.app/Contents/Resources/app.nw/';
 } else if (lin) {
     build = '../scout-app-build/lin64/Scout-App/';
 }
@@ -177,6 +180,9 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
+if (darwin) {
+    copy('bower_components', 'bower_components');
+}
 process.chdir(build);
 exec('npm --loglevel=error install');
 if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.scss')) {
@@ -189,7 +195,12 @@ if (lin) {
         fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.sass');
     }
 }
-process.chdir('../../../scout-app');
+if (darwin) {
+    process.chdir('../../../../../scout-app');
+} else {
+    process.chdir('../../../scout-app');
+}
+
 var timeExec = Date.now() + '';
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
@@ -215,16 +226,22 @@ var buildInput = '';
 var outputZip = '';
 if (win) {
     zipExe = 'node_modules\\7zip-bin-win\\' + process.arch + '\\7za.exe';
+    if (!fs.existsSync(zipExe)) {
+        zipExe = 'node_modules\\7zip-bin\\' + zipExe;
+    }
     buildInput = '..\\scout-app-build\\win32\\Scout-App';
     outputZip = '..\\scout-app-build\\WIN_Scout-App_' + manifest.version + '.zip';
 } else if (darwin) {
     zipExe = 'node_modules/7zip-bin-osx/7za';
-    buildInput = '../scout-app-build/osx64/Scout-App';
+    buildInput = '../scout-app-build/Scout-App.app';
     outputZip = '../scout-app-build/OSX_Scout-App_' + manifest.version + '.zip';
 } else if (lin) {
     zipExe = 'node_modules/7zip-bin-linux/' + process.arch + '/7za';
     buildInput = '../scout-app-build/lin64/Scout-App';
     outputZip = '../scout-app-build/LIN64_Scout-App_' + manifest.version + '.zip';
+}
+if ((darwin || lin) && !fs.existsSync(zipExe)) {
+    zipExe = 'node_modules/7zip-bin/' + zipExe;
 }
 fs.removeSync(outputZip);
 // a     = create archive
@@ -263,5 +280,5 @@ if (win) {
         exec(build32 + 'Scout-App');
     }
 } else if (darwin) {
-    // stub
+    exec('../scout-app-build/Scout-App.app/Contents/MacOS/nwjs');
 }
