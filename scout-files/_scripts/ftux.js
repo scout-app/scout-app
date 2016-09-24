@@ -7,6 +7,9 @@
 
 (function(){
 
+    var fs = require('fs-extra');
+    var path = require('path');
+
     // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
         var width = $("#sidebar").css("width");
@@ -33,23 +36,21 @@
      * drives (on Windows) for projects/GitHub folder.
      */
     function autoGuessProjectsFolder () {
-        var projectsFolder = "";
-        var tempProjectsFolder = "";
-        var autoProjects = [ "github", "projects", "repositories", "repos", "websites" ];
+        var projectsFolder = '';
+        var tempProjectsFolder = '';
+        var autoProjects = [ 'github', 'projects', 'repositories', 'repos', 'websites' ];
 
         //Set default paths to check based on OS standards
-        var homePath = "";
-        var myDocsPath = "";
-        if (process.platform == "linux") {
+        var homePath = '';
+        if (process.platform == 'linux') {
             homePath = process.env.HOME;
-            myDocsPath = homePath + "/Documents";
-        } else if (process.platform == "win32") {
+        } else if (process.platform == 'win32') {
             homePath = process.env.USERPROFILE;
-            myDocsPath = homePath + "\\Documents";
-        } else if (process.platform == "darwin") {
-            homePath = "/Users/" + process.env.USER;
-            myDocsPath = homePath + "/Documents";
+        } else if (process.platform == 'darwin') {
+            homePath = '/Users/' + process.env.USER;
         }
+        var myDocsPath = path.join(homePath, 'Documents');
+        var myDesktopPath = path.join(homePath, 'Desktop');
 
         if (homePath) {
             //Check the user profile for common project folders
@@ -91,16 +92,35 @@
                 }
             }
         }
+        //then look on the Desktop if it isn't in the My Documents folder
+        if (!projectsFolder && myDesktopPath) {
+            var myDesktopContents = ugui.helpers.readAFolder(myDesktopPath);
+            for (var i = 0; i < myDesktopContents.length; i++) {
+                for (var j = 0; j < autoProjects.length; j++) {
+                    if (myDesktopContents[i].name.toLowerCase() == autoProjects[j]) {
+                        tempProjectsFolder = myDesktopPath.split('\\').join('/') + '/' + myDesktopContents[i].name;
+                        var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
+                        //make sure there is at least one project folder in the projects folder
+                        for (var k = 0; k < innerContents.length; k++) {
+                            if (innerContents.length > 0 && innerContents[k].isFolder) {
+                                projectsFolder = tempProjectsFolder;
+                                scout.ftux.projectsFolder = projectsFolder;
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+        }
         //If on Window and no project folder was found in Docs or User, check drive roots (slow)
-        if (!projectsFolder && process.platform == "win32") {
+        if (!projectsFolder && process.platform == 'win32') {
             //Each drive letter adds like half a second to load time, so I limited them to the common ones
-            var driveLetters = ["C", "D", "E", "F", "Z", "Y", "X", "G", "H", "M", "N",];
-            var shortProjects = ["GitHub", "Projects"];
-            var fs = require('fs-extra');
-            var stats = "";
+            var driveLetters = ['C', 'D', 'E', 'F', 'Z', 'Y', 'X', 'G', 'H', 'M', 'N',];
+            var shortProjects = ['GitHub', 'Projects'];
+            var stats = '';
             for (var i = 0; i < driveLetters.length; i++) {
                 for (var j = 0; j < shortProjects.length; j++) {
-                    var driveAndFolder = driveLetters[i] + ":/" + shortProjects[j];
+                    var driveAndFolder = driveLetters[i] + ':/' + shortProjects[j];
                     try {
                         stats = fs.lstatSync(driveAndFolder);
                         if (stats.isDirectory()) {
@@ -140,7 +160,7 @@
             projects = ugui.helpers.readAFolder(projectsFolder);
         }
         if (!projectsFolder || projects.length < 1) {
-            $("#ftux .panel-body").html(scout.localize("NO_PROJECTS_FOUND", true));
+            $("#ftux .panel-body").html(scout.localize('NO_PROJECTS_FOUND', true));
             return;
         }
         for (var i = 0; i < projects.length; i++) {
