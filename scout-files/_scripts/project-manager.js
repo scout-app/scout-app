@@ -5,7 +5,7 @@
   settings view.
 */
 
-(function(){
+(function () {
 
     //This will change all UI elements for Project Settings back to an empty/default state
     function resetProjectSettingsUI () {
@@ -20,7 +20,7 @@
         $("#outputFolderBrowse").val('');
         $("#outputWarning").addClass('hide');
         $('#environment input[data-argname="production"]').click();
-        $($("#outputStyle option")[5]).prop("selected", true);
+        $($("#outputStyle option")[5]).prop('selected', true);
         $("#printConsole .alert, #printConsole .panel").addClass('hide');
 
         var newProject = {
@@ -41,7 +41,7 @@
     function deleteLocalSettingsFile (bool) {
         var appData = require('nw.gui').App.dataPath;
         var file = appData + '/scout-settings.json';
-        if (process.platform == "win32") {
+        if (process.platform == 'win32') {
             file = appData + '\\scout-settings.json';
         }
 
@@ -54,7 +54,7 @@
         }
 
         if (bool) {
-            ugui.helpers.deleteAFile(file, function (){
+            ugui.helpers.deleteAFile(file, function () {
                 require('nw.gui').Window.get().reload();
             });
         }
@@ -70,8 +70,8 @@
      */
     function removeProject (projectID) {
         //Error checking
-        if (!projectID || typeof(projectID) !== "string") {
-            console.log("Can't remove project, pass in a valid project ID to remove");
+        if (!projectID || typeof(projectID) !== 'string') {
+            console.log('Can\'t remove project, pass in a valid project ID to remove');
             return;
         }
         if (scout.projects.length < 1) {
@@ -115,15 +115,15 @@
      * @param {object}   project
      */
     function addProject (project) {
-        if (!project || typeof(project) !== "object") {
-            console.log("Can't add project, you need to pass in a valid project.")
+        if (!project || typeof(project) !== 'object') {
+            console.log('Can\'t add project, you need to pass in a valid project.')
             return;
         }
         if (!project.projectID ||
             !project.projectName ||
             !project.projectFolder
         ) {
-            console.log("Can't add project, you are missing stuff.");
+            console.log('Can\'t add project, you are missing stuff.');
             console.log(project);
             return;
         }
@@ -140,18 +140,18 @@
         for (var i = 0; i < scout.projects.length; i++) {
             var project = scout.projects[i];
             if (id == project.projectID) {
-                project.projectIcon = $("#projectIcon").attr("src");
+                project.projectIcon = $("#projectIcon").attr('src');
 
                 project.inputFolder = $("#inputFolder").val();
                 project.outputFolder = $("#outputFolder").val();
 
-                var devChecked = $('#environment input[data-argname="development"]').prop("checked");
-                var prodChecked = $('#environment input[data-argname="production"]').prop("checked");
-                var environment = "production";
+                var devChecked = $('#environment input[data-argname="development"]').prop('checked');
+                var prodChecked = $('#environment input[data-argname="production"]').prop('checked');
+                var environment = 'production';
                 if (devChecked) {
-                    environment = "development";
+                    environment = 'development';
                 } else if (prodChecked) {
-                    environment = "production";
+                    environment = 'production';
                 }
                 project.environment = environment;
 
@@ -164,7 +164,7 @@
     function saveSettings () {
         var appData = require('nw.gui').App.dataPath;
         appData.split('\\').join('/');
-        var settingsJSON = appData + "/scout-settings.json";
+        var settingsJSON = appData + '/scout-settings.json';
         var data = {};
         data.projects = scout.projects;
         data.versions = scout.versions;
@@ -192,7 +192,7 @@
      *
      */
     function updateProjectSettingsView (base) {
-        $('#projectNameEditable .glyphicon-remove').click();
+        $("#projectNameEditable .glyphicon-remove").click();
         var base = base || scout.newProject;
         $("#projectIcon"  ).attr('src', base.projectIcon);
         $("#projectName"  ).text(       base.projectName);
@@ -202,7 +202,7 @@
         $("#outputFolder" ).val(        base.outputFolder);
 
         var workingDir = base.projectFolder;
-        if (process.platform == "win32") {
+        if (process.platform == 'win32') {
             workingDir = workingDir.split('/').join('\\');
         }
 
@@ -214,14 +214,14 @@
         for (var i = 1; i < outputStyleOption.length; i++) {
             var current = $(outputStyleOption[i]).val();
             if (base.outputStyle == current) {
-                $(outputStyleOption[i]).prop("selected", true);
+                $(outputStyleOption[i]).prop('selected', true);
             }
         }
 
         //Environment
-        if (base.environment == "production") {
+        if (base.environment == 'production') {
             $('#environment input[data-argName="production"]').click();
-        } else if (base.environment == "development") {
+        } else if (base.environment == 'development') {
             $('#environment input[data-argName="development"]').click();
         }
 

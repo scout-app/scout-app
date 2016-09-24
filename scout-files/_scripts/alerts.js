@@ -4,7 +4,7 @@
   and error alerts as green and red panels using these functions.
 */
 
-(function(){
+(function () {
 
     function playAlert () {
         var alert = new Audio('_sound/scout-alert.wav');
@@ -19,7 +19,7 @@
     function desktopNotification (file, bodyText, alertOrMessage) {
         var randNum = Math.round(Math.random() * 10000);
         scout.helpers[alertOrMessage].notification[randNum] = new Notification(file, {
-            icon: "_img/logo_32.png",
+            icon: '_img/logo_32.png',
             body: bodyText
         });
 
@@ -43,12 +43,12 @@
             playAlert();
         }
 
-        if ($("#project-settings").is(":visible")) {
+        if ($("#project-settings").is(':visible')) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
         }
 
-        projectID = projectID || "sa0";
+        projectID = projectID || 'sa0';
         for (var i = 0; i < scout.projects.length;i++) {
             if (scout.projects[i].projectID === projectID) {
                 var projectName = scout.projects[i].projectName;
@@ -62,8 +62,8 @@
         var col = error.column;
         var code = error.status;
         var time = new Date().timeNow();
-        var title = scout.localize("ALERT_TITLE");
-        title = title.replace("{{time}}", time).replace("{{code}}", code).replace("{{bugLine}}", bugLine).replace("{{col}}", col);
+        var title = scout.localize('ALERT_TITLE');
+        title = title.replace('{{time}}', time).replace('{{code}}', code).replace('{{bugLine}}', bugLine).replace('{{col}}', col);
         var footer = '<em>' + file + '</em>';
         var bugFile = path.basename(file);
 
@@ -130,12 +130,12 @@
         if (scout.globalSettings.messageSound) {
             playMessage();
         }
-        if ($("#project-settings").is(":visible")) {
+        if ($("#project-settings").is(':visible')) {
             var id = $("#projectID").val();
             $("#sidebar ." + id).click();
         }
 
-        projectID = projectID || "sa0";
+        projectID = projectID || 'sa0';
         for (var i = 0; i < scout.projects.length;i++) {
             if (scout.projects[i].projectID === projectID) {
                 var projectName = scout.projects[i].projectName;
@@ -148,11 +148,11 @@
         var time = new Date().timeNow();
         var duration = message.stats.duration + scout.localize('MILLISECONDS_SHORT');
         if (message.stats.duration > 499) {
-            duration = (Math.round(message.stats.duration/100)/10) + ' ' + scout.localize("SECONDS");
+            duration = (Math.round(message.stats.duration/100)/10) + ' ' + scout.localize('SECONDS');
         }
 
-        var processedTime = scout.localize("PROCESSED_IN_DURATION") ;
-        processedTime = projectName + " | " + processedTime.replace("{{duration}}", duration);
+        var processedTime = scout.localize('PROCESSED_IN_DURATION') ;
+        processedTime = projectName + ' | ' + processedTime.replace('{{duration}}', duration);
         var formattedMessage =
         '<div class="alert alert-success ' + projectID + '" role="alert" title="' + processedTime + '">' +
           '<strong>' + time + '</strong> ' +

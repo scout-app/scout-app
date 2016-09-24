@@ -3,31 +3,31 @@
   Controls for the sidebar, its icons, and click events.
 */
 
-(function(){
+(function () {
 
     function updateSidebar () {
         $("#projects-list").empty();
 
-        var indicatorColor = "";
-        var indicatorStatus = "";
-        var indicatorDisable = "";
-        var title = "";
+        var indicatorColor = '';
+        var indicatorStatus = '';
+        var indicatorDisable = '';
+        var title = '';
         //Create list of projects in sidebar
         for (var i = 0; i < scout.projects.length; i++) {
             var id = scout.projects[i].projectID;
-            indicatorColor = "btn-info";
-            indicatorStatus = "glyphicon-play";
-            indicatorDisable = "";
-            title = "";
+            indicatorColor = 'btn-info';
+            indicatorStatus = 'glyphicon-play';
+            indicatorDisable = '';
+            title = '';
 
-            if (scout.projects[i].indicator == "stop") {
-                indicatorColor = "btn-danger";
-                indicatorStatus = "glyphicon-stop";
-            } else if (scout.projects[i].indicator == "gray-play") {
-                indicatorColor = "btn-info gray";
-                indicatorStatus = "glyphicon-question-sign";
-                indicatorDisable = "disable";
-                title = scout.localize("MISSING_DATA");
+            if (scout.projects[i].indicator == 'stop') {
+                indicatorColor = 'btn-danger';
+                indicatorStatus = 'glyphicon-stop';
+            } else if (scout.projects[i].indicator == 'gray-play') {
+                indicatorColor = 'btn-info gray';
+                indicatorStatus = 'glyphicon-question-sign';
+                indicatorDisable = 'disable';
+                title = scout.localize('MISSING_DATA');
             }
 
             var standardProject =
@@ -60,7 +60,7 @@
             evt.stopPropagation();
             //Make sure the button isn't disabled
             if (!$(evt.currentTarget).hasClass('gray')) {
-                var id = $(evt.currentTarget).parent().data("id");
+                var id = $(evt.currentTarget).parent().data('id');
                 //
                 if ($(evt.currentTarget).children().hasClass('glyphicon-stop')) {
                     scout.helpers.stopWatching(id);
@@ -71,7 +71,7 @@
         });
 
         // Drag and Drop sorting
-        $('#projects-list').sortable({
+        $("#projects-list").sortable({
             axis: 'y',
             placeholder: 'btn btn-info',
             start: function (evt, ui) {
@@ -87,7 +87,7 @@
 
         function rightClickDeleteMenu () {
             function Menu () {
-                var gui = require("nw.gui");
+                var gui = require('nw.gui');
                 var menu = new gui.Menu();
                 var removeProject = scout.localize('DELETE_PROJECT');
 
@@ -105,7 +105,7 @@
 
             var menu = new Menu();
 
-            $('#projects-list > .btn').on('contextmenu', function (evt) {
+            $("#projects-list > .btn").on('contextmenu', function (evt) {
                 evt.preventDefault();
                 evt.stopPropagation();
                 $(this).click();

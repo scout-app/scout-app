@@ -8,16 +8,16 @@
 */
 
 (function () {
-    var fs = require("fs-extra");
-    var path = require("path");
-    var gui = require("nw.gui");
+    var fs = require('fs-extra');
+    var path = require('path');
+    var gui = require('nw.gui');
     var appData = gui.App.dataPath;
-    var settingsFile = path.join(appData, "scout-settings.json");
+    var settingsFile = path.join(appData, 'scout-settings.json');
 
-    var settingsJSON = "";
+    var settingsJSON = '';
     //Attempt to read the settings file
     try {
-        settingsJSON = fs.readFileSync(settingsFile, {encoding: "utf-8"});
+        settingsJSON = fs.readFileSync(settingsFile, {encoding: 'utf-8'});
     } catch (err) {
         //If the file does exist grab it's error code
         if (err.code === 'ENOENT') {
@@ -35,18 +35,18 @@
         //update the scout object
         scout.projects = settingsObj.projects;
         scout.globalSettings = settingsObj.globalSettings || {};
-        //Check if lang is stored in the 2.5.x+ location, then check if it's in the 2.0.x location, then give it "en"
+        //Check if lang is stored in the 2.5.x+ location, then check if it's in the 2.0.x location, then give it 'en'
         if (settingsObj.globalSettings) {
-            scout.globalSettings.cultureCode = settingsObj.globalSettings.cultureCode || settingsObj.cultureCode || "en";
+            scout.globalSettings.cultureCode = settingsObj.globalSettings.cultureCode || settingsObj.cultureCode || 'en';
         } else {
-            scout.globalSettings.cultureCode = settingsObj.cultureCode || "en";
+            scout.globalSettings.cultureCode = settingsObj.cultureCode || 'en';
         }
 
         for (var i = 0; i < scout.projects.length; i++) {
             var project = scout.projects[i];
-            project.watcher = "";
-            if (project.indicator == "stop") {
-                project.indicator = "play";
+            project.watcher = '';
+            if (project.indicator == 'stop') {
+                project.indicator = 'play';
             }
         }
 

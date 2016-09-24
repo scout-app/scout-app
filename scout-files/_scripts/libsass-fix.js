@@ -15,7 +15,7 @@
     will not be needed.
 */
 
-(function(){
+(function () {
 
     //Allow access to the filesystem
     var fs = require('fs-extra');
@@ -28,7 +28,7 @@
     var vendorFolder = false;
 
     for (var h = 0; h < nsContents.length; h++) {
-        if (nsContents[h].name.toLowerCase() == "vendor") {
+        if (nsContents[h].name.toLowerCase() == 'vendor') {
             vendorFolder = true;
         }
     }
@@ -48,13 +48,13 @@
             var os = process.platform;
             var arch = process.arch;
             //Verify the machine is 32 or 64-Bit
-            if (arch == "x64" || arch == "ia32") {
+            if (arch == 'x64' || arch == 'ia32') {
                 //32-Bit OSX is unsupported
-                if (os == "darwin" && arch == "ia32") {
+                if (os == 'darwin' && arch == 'ia32') {
                     console.log('Node-Sass does not support OSX 32-Bit');
                     win.showDevTools();
                 //If the OS and Architecture are supported
-                } else if (os == "darwin" || os == "freebsd" || os == "linux" || os == "win32") {
+                } else if (os == 'darwin' || os == 'freebsd' || os == 'linux' || os == 'win32') {
                     //Set the source path
                     var nsVenSourcePath = 'scout-files/_assets/node-sass_v3.4.2';
                     var folderName = '/' + os + '-' + arch + '-43';

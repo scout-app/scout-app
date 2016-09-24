@@ -125,7 +125,7 @@ $(document).ready( runUGUI );
 //This lets you open NW.js, then immediately launch the Webkit Developer Tools, then a few seconds later run UGUI.
 //Good for hitting a debugger in time, as often the JS runs before the Webkit Developer Tools can open.
 function waitUGUI() {
-    require("nw.gui").Window.get().showDevTools();
+    require('nw.gui').Window.get().showDevTools();
     setTimeout(runUGUI, 6000);
 }
 
@@ -134,7 +134,7 @@ function waitUGUI() {
 (function runUGUI() {
 
 //This is the one place where the UGUI version is declared
-var uguiVersion = "2.0.0a";
+var uguiVersion = '2.0.0a';
 
 
 
@@ -157,7 +157,7 @@ var index = 0;
 var executable = [];
 for (index = 0; index < $("cmd").length; index++) {
     var currentCommandBlock = $("cmd")[index];
-    executable.push($(currentCommandBlock).attr("executable"));
+    executable.push($(currentCommandBlock).attr('executable'));
 }
 
 //Create the argsForm array containing all elements with a `data-argName` for each executable form.
@@ -170,10 +170,10 @@ for (index = 0; index < executable.length; index++) {
 var textFields = $( "textarea[data-argName], input[data-argName][type=text]" ).toArray();
 
 //Allow access to the filesystem
-var fs = require("fs-extra");
+var fs = require('fs-extra');
 
 //Access the contents of the package.json file
-var packageJSON = require("nw.gui").App.manifest;
+var packageJSON = require('nw.gui').App.manifest;
 
 //Name of the developer's application as a URL/File path safe name, set in package.json
 var appName = packageJSON.name;
@@ -282,16 +282,16 @@ if (!window.ugui) {
 // easier. Cow & Taco examples below to make life simpler.
 //>
 //
-//>     $("#taco").click( function() {
+//>     $("#taco").click( function () {
 //         runcmd('pngquant --force "file.png"');
 //     });
 //
-//>     runcmd("node --version", function(data) {
+//>     runcmd("node --version", function (data) {
 //         $("#cow").html("<pre>Node Version: " + data + "</pre>");
 //     });
 
 //
-function runcmd(executableAndArgs, callback) {
+function runcmd (executableAndArgs, callback) {
     //Validate that the required argument is passed and is a string
     if (!executableAndArgs || typeof(executableAndArgs) !== "string") {
         console.info(º+"You must pass in a string containing the exectuable " +
@@ -301,10 +301,10 @@ function runcmd(executableAndArgs, callback) {
         return;
     }
 
-    var exec = require("child_process").exec;
+    var exec = require('child_process').exec;
     var child = exec( executableAndArgs,
         //Throw errors and information into console
-        function(error, stdout, stderr) {
+        function (error, stdout, stderr) {
             console.log(executableAndArgs);
             console.log("stdout: " + stdout);
             console.log("stderr: " + stderr);
@@ -315,7 +315,7 @@ function runcmd(executableAndArgs, callback) {
         }
     );
     //Return data from command line
-    child.stdout.on("data", function(chunk) {
+    child.stdout.on("data", function (chunk) {
         if (typeof callback === "function") {
             callback(chunk);
         }
@@ -342,16 +342,16 @@ function runcmd(executableAndArgs, callback) {
 //
 //>     var parameters = {
 //         "executableAndArgs": "node --version",
-//         "returnedData": function(data) {
+//         "returnedData": function (data) {
 //             console.log("The text from the executable: " + data);
 //         },
-//         "onExit": function(code) {
+//         "onExit": function (code) {
 //             console.log("Executable finished with the exit code: " + code);
 //         },
-//         "onError": function(err) {
+//         "onError": function (err) {
 //             console.log("Executable finished with the error: " + err);
 //         },
-//         "onClose": function(code) {
+//         "onClose": function (code) {
 //             console.log("Executable has closed with the exit code: " + code);
 //         }
 //     };
@@ -388,10 +388,10 @@ function runcmdAdvanced(parameters) {
         return;
     }
 
-    var exec = require("child_process").exec;
+    var exec = require('child_process').exec;
     var child = exec( parameters.executableAndArgs,
         //Throw errors and information into console
-        function(error, stdout, stderr) {
+        function (error, stdout, stderr) {
             console.log(parameters.executableAndArgs);
             console.log("stdout: " + stdout);
             console.log("stderr: " + stderr);
@@ -405,28 +405,28 @@ function runcmdAdvanced(parameters) {
     );
 
     //Detect when executable finishes
-    child.on("exit", function(code) {
+    child.on("exit", function (code) {
         if (typeof parameters.onExit === "function") {
             parameters.onExit(code);
         }
     });
 
     //Detect when executable errors
-    child.on("error", function(code) {
+    child.on("error", function (code) {
         if (typeof parameters.onError === "function") {
             parameters.onError(code);
         }
     });
 
     //Detect when the executable is closed
-    child.on("close", function(code) {
+    child.on("close", function (code) {
         if (typeof parameters.onClose === "function") {
             parameters.onClose(code);
         }
     });
 
     //Return data from command line
-    child.stdout.on("data", function(chunk) {
+    child.stdout.on("data", function (chunk) {
         if (typeof parameters.returnedData === "function") {
             parameters.returnedData(chunk);
         }
@@ -516,7 +516,7 @@ function readAFolder(filePath, callback) {
     }
 
     //Output an error if we can't access the file
-    fs.readdir(filePath, function(err) {
+    fs.readdir(filePath, function (err) {
         //If there were problems reading the contents of a folder, stop and report them
         if (err)  {
             console.info(º+"Unable to read contents of the folder:", consoleNormal);
@@ -530,7 +530,7 @@ function readAFolder(filePath, callback) {
     //Store the contents of the passed in directory as an array
     var contentsList = fs.readdirSync(filePath);
 
-    contentsList.forEach( function(file) {
+    contentsList.forEach( function (file) {
         stats = fs.lstatSync(filePath + correctSlash + file);
 
         //Check if it's a folder
@@ -603,7 +603,7 @@ function writeToFile(filePathAndName, data, callback) {
     }
 
     //Write to the file the user passed in
-    fs.writeFile(filePathAndName, data, function(err) {
+    fs.writeFile(filePathAndName, data, function (err) {
         //If there was a problem writing to the file
         if (err) {
             console.info(º+"There was an error attempting to save your data.", consoleNormal);
@@ -634,7 +634,7 @@ function writeToFile(filePathAndName, data, callback) {
 //>You'd need to create the "Taco" folder first, then the
 // "Cheese" folder, like so:
 //
-//>     ugui.helpers.createAFolder("C:/Taco", function(){
+//>     ugui.helpers.createAFolder("C:/Taco", function () {
 //         ugui.helpers.createAFolder("C:/Taco/Cheese");
 //     });
 //
@@ -659,7 +659,7 @@ function createAFolder(filePath, callback) {
     }
 
     //Create the folder in the supplied location
-    fs.mkdir(filePath, function(err) {
+    fs.mkdir(filePath, function (err) {
         //If there was a problem creating the folder
         if (err) {
             console.info(º+"There was an error attempting to create the folder.", consoleNormal);
@@ -703,7 +703,7 @@ function deleteAFile(filePathAndName, callback) {
     }
 
     //Delete the selected file
-    fs.unlink(filePathAndName, function(err) {
+    fs.unlink(filePathAndName, function (err) {
         //If there was a problem deleting the file
         if (err) {
             console.info(º+"There was an error attempting to delete the file.", consoleNormal);
@@ -750,7 +750,7 @@ function deleteAFolder(filePath, callback) {
     }
 
     //Delete the selected folder
-    fs.rmdir(filePath, function(err) {
+    fs.rmdir(filePath, function (err) {
         //If there was a problem deleting the folder
         if (err) {
             console.info(º+"There was an error attempting to delete the folder.", consoleNormal);
@@ -782,7 +782,7 @@ function deleteAFolder(filePath, callback) {
 //     ugui.helpers.getFileSize("C:/folder/pizza.jpg").bytes;
 //     ugui.helpers.getFileSize("C:/folder/pizza.jpg").kilobytes;
 //     ugui.helpers.getFileSize("C:/folder/pizza.jpg").megabytes;
-//     ugui.helpers.getFileSize("C:/folder/pizza.jpg", function(fileSize,err) {
+//     ugui.helpers.getFileSize("C:/folder/pizza.jpg", function (fileSize,err) {
 //         if (err) {
 //             $("body").prepend(
 //               '<div class="alert alert-danger alert-dismissible" role="alert">' +
@@ -823,7 +823,7 @@ function getFileSize(filePath, callback) {
     if (callback) {
 
         //Get the metadata for the file
-        fs.stat(filePath, function(err, stats) {
+        fs.stat(filePath, function (err, stats) {
             //If there was a problem getting the file's metadata
             if (err) {
                 //output an error to the console, but keep running
@@ -845,7 +845,7 @@ function getFileSize(filePath, callback) {
     //If a callback wasn't passed in
     } else {
         //Check if we can access the file
-        fs.stat(filePath, function(err) {
+        fs.stat(filePath, function (err) {
             //If there was a problem getting the file's metadata
             if (err) {
                 //console log an error and quit
@@ -915,7 +915,7 @@ function setZoomPercent(percent, visible) {
     var displayPercentOnPage = visible || false;
 
     //Allow access to the window settings
-    var win = require("nw.gui").Window.get();
+    var win = require('nw.gui').Window.get();
 
     //zoom level expects 0 for default (100%) and ~2.224 for 200%
     //Negative numbers reduce the size. This isn't very intuitive
@@ -926,7 +926,7 @@ function setZoomPercent(percent, visible) {
     if (displayPercentOnPage) {
         //Define a function to hide the Zoom Level percent that appears on screen
         function hideZoomLevel() {
-            $('.ugui-zoom-level').remove();
+            $(".ugui-zoom-level").remove();
         }
         //Create a div on the page to display the current zoom percent
         $("body").append('<div class="ugui-zoom-level">' + zoomPercent + '%</div>');
@@ -1034,7 +1034,7 @@ function openFolder(folderPath) {
 // on the page. Then run the command.
 
 //When you click the submit button.
-$(".sendCmdArgs").click( function(event) {
+$(".sendCmdArgs").click( function (event) {
 
     //Prevent the form from sending like a normal website.
     event.preventDefault();
@@ -1054,7 +1054,7 @@ $(".sendCmdArgs").click( function(event) {
     //Check if the form has an element with a class of `returnedCmdText`
     if ( $("#" + thisExecutable + " .returnedCmdText").length > 0 ) {
         //If so, run a command and put its returned text on the page
-        runcmd( builtCommandString, function(data) {
+        runcmd( builtCommandString, function (data) {
             $("#" + thisExecutable + " .returnedCmdText").html(data);
         });
     } else {
@@ -1382,7 +1382,7 @@ function patternMatchingDefinitionEngine() {
     //A regular expression that matches `((x))` and captures `x`
     var re = /\(\((.*?)\)\)/gi;
 
-    $("def").each(function(index, value) {
+    $("def").each(function (index, value) {
         //Assign "value" to `def`
         //`def = <def name="quality">((min)),((max))</def>`
         var def = value;
@@ -1892,7 +1892,7 @@ getAboutModal();
 
 //
 function getAboutModal() {
-    $.get("_markup/ugui-about.htm", function( aboutMarkup ) {
+    $.get("_markup/ugui-about.htm", function ( aboutMarkup ) {
         //Put UGUI about info in about modal
         $("#aboutModal .modal-body").append( aboutMarkup );
 
@@ -1911,7 +1911,7 @@ function getAboutModal() {
 
         //Remove modal, enable scrollbar
         function removeModal() {
-            $("#aboutModal").slideUp("slow", function() {
+            $("#aboutModal").slideUp("slow", function () {
                 $("body").removeClass('no-overflow');
                 //If the navigation is expanded, then close it after exiting the modal
                 if ( !$(".navbar-toggle").hasClass("collapsed") ) {
@@ -1923,7 +1923,7 @@ function getAboutModal() {
         //When clicking on background or X, remove modal
         $("#aboutModal").click( removeModal );
         //Allow you to click in the modal without triggering the `removeModal` function called when you click its parent element
-        $("#aboutModal .modal-content").click( function( event ) {
+        $("#aboutModal .modal-content").click( function ( event ) {
             event.stopPropagation();
         });
         $("#aboutModal .glyphicon-remove").click( removeModal );
@@ -1944,25 +1944,25 @@ function getAboutModal() {
 // functionality of the items in the top navigation bar.
 
 //Clicking View > Command Line Output in the Nav Bar
-$('.navbar a[href="#cmdoutput"]').click( function() {
+$('.navbar a[href="#cmdoutput"]').click( function () {
     $('#uguiDevTools nav span[data-nav="uguiCommand"]').trigger("click");
 });
 
 //Clicking View > Console in the Nav Bar
-$('.navbar a[href="#console"]').click( function() {
-    require("nw.gui").Window.get().showDevTools();
+$('.navbar a[href="#console"]').click( function () {
+    require('nw.gui').Window.get().showDevTools();
 });
 
 //Clicking View > Fullscreen
-$('.navbar a[href="#fullscreen"]').click( function() {
-    require("nw.gui").Window.get().toggleFullscreen();
+$('.navbar a[href="#fullscreen"]').click( function () {
+    require('nw.gui').Window.get().toggleFullscreen();
 });
 
 //Clicking "About" in the Nav Bar
-$('.navbar a[href="#about"]').click( function() {
+$('.navbar a[href="#about"]').click( function () {
 
     //Get the current Window
-    var win = require("nw.gui").Window.get();
+    var win = require('nw.gui').Window.get();
 
     //Show the modal
     $("#aboutModal").fadeIn("slow");
@@ -2003,8 +2003,8 @@ function centerNavLogo() {
 centerNavLogo();
 
 //When you click on the exit in the navigation, close this instance of NW.js
-$('.navbar a[href="#exit"]').click( function() {
-    require("nw.gui").Window.get().close(true);
+$('.navbar a[href="#exit"]').click( function () {
+    require('nw.gui').Window.get().close(true);
 });
 
 
@@ -2024,12 +2024,12 @@ $('.navbar a[href="#exit"]').click( function() {
 function openDefaultBrowser() {
 
     //Load native UI library.
-    var gui = require("nw.gui");
+    var gui = require('nw.gui');
 
     $(".external-link").unbind("click");
 
     //Open URL with default browser.
-    $(".external-link").click( function( event ) {
+    $(".external-link").click( function ( event ) {
         //Prevent the link from loading in NW.js
         event.preventDefault();
         //Get the `href` URL for the current link
@@ -2090,7 +2090,7 @@ function checkForUpdates() {
     //Hit the GitHub API to get the data for latest releases
     $.ajax({
         url: updateURL,
-        error: function(){
+        error: function () {
             //Display a message in the About Modal informing the user they have the latest version
             $("#updateResults").html(
                 '<p class="text-center">' +
@@ -2102,7 +2102,7 @@ function checkForUpdates() {
             console.info(º+helpMessage, consoleNormal);
             return;
         },
-        success: function(data){
+        success: function (data) {
             //0.2.5
             var remoteVersion = data[0].tag_name.split("v")[1];
             var localVersion = appVersion;
@@ -2209,7 +2209,7 @@ function warnIfDuplicateArgNames() {
 
         //If the new array had any duplicates removed display a warning.
         if ( cmdArgsWithoutDuplicates.length < cmdArgs.length ) {
-            $.get("_markup/ugui-multiargnames.htm", function(multiArgNamesMarkup) {
+            $.get("_markup/ugui-multiargnames.htm", function (multiArgNamesMarkup) {
                 //Put alert message at the top of page
                 $("body.dev").prepend( multiArgNamesMarkup );
             });
@@ -2279,7 +2279,7 @@ if ( $("body").hasClass("prod") ) {
     $("#uguiDevTools").remove();
 } else if ( $("body").hasClass("dev") ) {
     //Grab the UGUI Developer Toolbar markup
-    $.get("_markup/ugui-devtools.htm", function( uguiDevToolsMarkup ) {
+    $.get("_markup/ugui-devtools.htm", function ( uguiDevToolsMarkup ) {
         //Put Developer Toolbar markup on the page
         $("body.dev").append( uguiDevToolsMarkup );
         //Update the UGUI version to the correct version
@@ -2291,7 +2291,7 @@ if ( $("body").hasClass("prod") ) {
         $("#uguiDevTools").show();
 
         //Hide/Show based on UGUI Dev Tools navigation
-        $("#uguiDevTools nav span").click( function() {
+        $("#uguiDevTools nav span").click( function () {
             var sectionClicked = $(this).attr("data-nav");
             $("#uguiDevTools nav span").removeClass("selected");
 
@@ -2311,7 +2311,7 @@ if ( $("body").hasClass("prod") ) {
         swatchSwapper();
 
         //When the developer clicks "Keep"
-        $("#setNewSwatch").click( function() {
+        $("#setNewSwatch").click( function () {
             //The currently selected swatch
             var newSwatch = $("#swatchSwapper").val();
             //Update index.htm to use the selected swatch as the new default
@@ -2326,9 +2326,9 @@ if ( $("body").hasClass("prod") ) {
     });
 
     //Get NW.js GUI and WIN
-    var gui = require("nw.gui");
+    var gui = require('nw.gui');
     //Get the window object
-    var win = require("nw.gui").Window.get();
+    var win = require('nw.gui').Window.get();
 
     //Keyboard shortcuts
     keyBindings();
@@ -2378,7 +2378,7 @@ if( $("body").hasClass("dev") ) {
     //Cycle through all executables used by the app
     for (index = 0; index < executable.length; index++) {
         //If any of the form elements with a `data-argName` change
-        $(argsForm[index]).change( function() {
+        $(argsForm[index]).change( function () {
             //Check if it was the drag/drop input box
             if ( $(this).parent().hasClass("ezdz") ) {
                 var file = this.files[0];
@@ -2399,7 +2399,7 @@ if( $("body").hasClass("dev") ) {
     $(".slider").on( "slide", updateUGUIDevCommandLine );
 } else {
     //If we're not in `dev` mode, make sure the EZDZ can still run
-    $(".ezdz input").change( function() {
+    $(".ezdz input").change( function () {
         var file = this.files[0];
         //pass in the data-argName to EZDZ
         file.argName = $(this).attr("data-argName");
@@ -2459,7 +2459,7 @@ function putExeHelpInDevTools() {
         //Don't run if there isn't a help choice
         if (helpChoice) {
             //Run the executable using the user's chosen argument to get its help info
-            runcmd( executableChoice + " " + helpChoice, function(returnedHelpInfo) {
+            runcmd( executableChoice + " " + helpChoice, function (returnedHelpInfo) {
                 //Put the help info in a `<pre>`
                 $("#uguiDevTools pre.executableHelp").text( returnedHelpInfo );
             });
@@ -2484,7 +2484,7 @@ function putExeHelpInDevTools() {
 //
 function swatchSwapper() {
     //Grab all the files in the `_themes` folder and put them in an array
-    var allSwatches = fs.readdir("scout-files/_themes", function(err, files) {
+    var allSwatches = fs.readdir("scout-files/_themes", function (err, files) {
         //If that works
         if (!err) {
             //Check each file and put it in the dropdown box
@@ -2503,7 +2503,7 @@ function swatchSwapper() {
     });
 
     //When you change what is selected in the dropdown box, swap out the current swatch for the new one.
-    $("#swatchSwapper").change( function() {
+    $("#swatchSwapper").change( function () {
         $("head link[data-swatch]").attr( "href", $("#swatchSwapper").val() );
         //Nav logo wasn't vertically centering after changing a stylesheet because the function was being ran after
         //the stylesheet was swapped instead of after the page rendered the styles. Since Webkit does not have a way of
@@ -2542,7 +2542,7 @@ function saveNewSwatch(newSwatch) {
     var filename = window.ugui.app.startPage;
 
     //Read the contents of index.htm like a normal file and put them in the "data" variable
-    fs.readFile(filename, "utf8", function(err, data) {
+    fs.readFile(filename, "utf8", function (err, data) {
         //If it can't read it for some reason, throw an error
         if (err) {
             return console.log(err);
@@ -2568,14 +2568,14 @@ function saveNewSwatch(newSwatch) {
         }
 
         //With the contents of index.htm update, save over the file
-        fs.writeFile(filename, data, function(err) {
+        fs.writeFile(filename, data, function (err) {
             if (err) return console.log(err);
         });
 
         //Animate the "Saved" text, having it fade in
         $(".newSwatchSaved").addClass("showSaved");
         //Wait 2 seconds and then fade the "Saved" text out
-        setTimeout(function() {
+        setTimeout(function () {
             $(".newSwatchSaved").removeClass("showSaved");
         }, 2000);
 
@@ -2597,7 +2597,7 @@ function saveNewSwatch(newSwatch) {
 //
 function keyBindings() {
     //Keyboard shortcuts
-    document.onkeydown = function(pressed) {
+    document.onkeydown = function (pressed) {
         //Check `CTRL+F` key and do nothing :(
         if ( pressed.ctrlKey && pressed.keyCode === 70 ) {
             pressed.preventDefault();
@@ -2683,13 +2683,13 @@ function keyBindings() {
 //>**Credits:** [EZDZ on GitHub](https://github.com/jaysalvat/ezdz)
 
 //
-$(".ezdz").on("dragover", function() {
+$(".ezdz").on("dragover", function () {
     $(this).children("label").removeClass("text-info");    //Static
     $(this).children("label").removeClass("text-success"); //Dropped
     $(this).children("label").addClass("text-warning");    //Hover
 });
 
-$(".ezdz").on("dragleave", function() {
+$(".ezdz").on("dragleave", function () {
     $(this).children("label").removeClass("text-success"); //Dropped
     $(this).children("label").removeClass("text-warning"); //Hover
     $(this).children("label").addClass("text-info");       //Static
@@ -2719,7 +2719,7 @@ function ezdz(fileInfo) {
 
         /* reader.readAsDataURL(file); */
 
-        /* reader.onload = function(event) { */
+        /* reader.onload = function (event) { */
             /* var data = event.target.result; */
             /* var $img = $("<img />").attr("src", data).fadeIn(); */
             var $img = $("<img />").attr("src", file.path).fadeIn();
@@ -2754,7 +2754,7 @@ function ezdz(fileInfo) {
 if (bootstrap3_enabled && slider_enabled) {
     //Initialize the bootstrap-slider plugin for all elements on the page with a class of `slider`
     $(".slider").slider({
-        formatter: function(value) {
+        formatter: function (value) {
             return value;
         }
     });
@@ -2837,26 +2837,26 @@ if (bootstrap3_enabled && slider_enabled) {
 //
 function cutCopyPasteMenu() {
     function Menu(cutLabel, copyLabel, pasteLabel) {
-        var gui = require("nw.gui");
+        var gui = require('nw.gui');
         var menu = new gui.Menu();
 
         var cut = new gui.MenuItem( {
             label: cutLabel || "Cut",
-            click: function() {
+            click: function () {
                 document.execCommand("cut");
                 console.log("Menu:", "cut to clipboard");
             }
         });
         var copy = new gui.MenuItem({
             label: copyLabel || "Copy",
-            click: function() {
+            click: function () {
                 document.execCommand("copy");
                 console.log("Menu:", "copied to clipboard");
             }
         });
         var paste = new gui.MenuItem({
             label: pasteLabel || "Paste",
-            click: function() {
+            click: function () {
                 document.execCommand("paste");
                 console.log("Menu:", "pasted to textarea");
             }
@@ -2870,7 +2870,7 @@ function cutCopyPasteMenu() {
     }
 
     var menu = new Menu(/* pass cut, copy, paste labels if you need in */);
-    $(document).on("contextmenu", function(event) {
+    $(document).on("contextmenu", function (event) {
         event.preventDefault();
         menu.popup(event.originalEvent.x, event.originalEvent.y);
     });
@@ -2989,7 +2989,7 @@ function openNewWindow(url, parameters) {
         var parameters = {};
     }
 
-    var gui = require("nw.gui");
+    var gui = require('nw.gui');
     var defaults = gui.App.manifest.window;
 
     //Use the parameters passed in, fallback to the options in package.json, and if those don't exist use UGUI defaults
@@ -3069,7 +3069,7 @@ function openNewWindow(url, parameters) {
 
 //
 function saveSettings(customLocation, callback) {
-    var gui = require("nw.gui");
+    var gui = require('nw.gui');
 
     var defaultLocation = "";
 
@@ -3098,11 +3098,11 @@ function saveSettings(customLocation, callback) {
         console.info(º+"1. Just a string to a custom file path.", consoleNormal);
         console.info(º+'ugui.helpers.saveSettings( "C:\\folder\\app-settings.json" );', consoleCode);
         console.info(º+"2. Just a function as a callback to be ran when save completes.", consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings( function(){console.log("Saved.")} );', consoleCode);
+        console.info(º+'ugui.helpers.saveSettings( function () {console.log("Saved.")} );', consoleCode);
         console.info(º+"3. A string followed by a function, as a custom path and " +
             "callback upon completion.", consoleNormal);
         console.info(º+'ugui.helpers.saveSettings( "C:\\folder\\app-settings.json", ' +
-            'function(){console.log("Saved.")} );', consoleCode);
+            'function () {console.log("Saved.")} );', consoleCode);
         console.info(º+"4. Nothing at all.", consoleNormal);
         console.info(º+'ugui.helpers.saveSettings();', consoleCode);
         console.info(º+"By passing in nothing, UGUI will use the default save location of:", consoleNormal);
@@ -3122,7 +3122,7 @@ function saveSettings(customLocation, callback) {
     var settingsJSON = JSON.stringify(ugui.args);
 
     //Save the `ugui.args` object to the `uguisettings.json` file
-    fs.writeFile(settingsFile, settingsJSON, function(err) {
+    fs.writeFile(settingsFile, settingsJSON, function (err) {
         if (err) {
             console.warn(º+"There was an error in attempting to save to the location:", consoleNormal);
             console.warn(º+settingsFile, consoleCode);
@@ -3140,7 +3140,7 @@ function saveSettings(customLocation, callback) {
 }
 
 //Make sure anything is a class of `save-ugui-settings` is wired up to save the UGUI settings
-$(".save-ugui-settings").click( function() {
+$(".save-ugui-settings").click( function () {
     saveSettings();
 } );
 
@@ -3164,7 +3164,7 @@ $(".save-ugui-settings").click( function() {
 
 //
 function loadSettings(customLocation, callback) {
-    var gui = require("nw.gui");
+    var gui = require('nw.gui');
 
     var defaultLocation = "";
 
@@ -3193,11 +3193,11 @@ function loadSettings(customLocation, callback) {
         console.info(º+"1. Just a string to a custom file path.", consoleNormal);
         console.info(º+'ugui.helpers.loadSettings( "C:\\folder\\app-settings.json" );', consoleCode);
         console.info(º+"2. Just a function as a callback to be ran when loading completes.", consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings( function(){console.log("Loaded.")} );', consoleCode);
+        console.info(º+'ugui.helpers.loadSettings( function () {console.log("Loaded.")} );', consoleCode);
         console.info(º+"3. A string followed by a function, as a custom path and " +
             "callback upon completion.", consoleNormal);
         console.info(º+'ugui.helpers.loadSettings( "C:\\folder\\app-settings.json", ' +
-            'function(){console.log("loadd.")} );', consoleCode);
+            'function () {console.log("loadd.")} );', consoleCode);
         console.info(º+"4. Nothing at all.", consoleNormal);
         console.info(º+'ugui.helpers.loadSettings();', consoleCode);
         console.info(º+"By passing in nothing, UGUI will use the default load location of:", consoleNormal);
@@ -3212,7 +3212,7 @@ function loadSettings(customLocation, callback) {
     }
 
     //Attempt to read the file
-    fs.readFile(settingsFile, {encoding: "utf-8"}, function(err, data) {
+    fs.readFile(settingsFile, {encoding: "utf-8"}, function (err, data) {
         //Display console warning if unable to read the file
         if (err) {
             console.warn(º+"Could not read settings file from location:", consoleNormal);
@@ -3294,7 +3294,7 @@ function loadSettings(customLocation, callback) {
                         //Check if the value is not a number, like `'0,25'` rather than `2`
                         if (isNaN(settingsObj[key].value)) {
                             //Split `0,25` into `0` and `25` and return them as numbers instead of strings
-                            var parsedValue = settingsObj[key].value.split(",").map( function(num) {
+                            var parsedValue = settingsObj[key].value.split(",").map( function (num) {
                                 return parseInt(num);
                             });
                             //Set the value to `0,25` and the data-slider-value to `[0,25]`
@@ -3335,7 +3335,7 @@ function loadSettings(customLocation, callback) {
 }
 
 //Make sure anything is a class of `load-ugui-settings` is wired up to load the UGUI settings
-$(".load-ugui-settings").click( function() {
+$(".load-ugui-settings").click( function () {
     loadSettings();
 });
 

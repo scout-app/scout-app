@@ -3,7 +3,7 @@
   Handles creating new projects and guessing the input/output folders and project icon.
 */
 
-(function(){
+(function () {
 
     var path = require('path');
 
@@ -14,8 +14,8 @@
         }
         var projectPath = projectFolder + '/';
         var projectName = path.basename(projectFolder);
-        var inputFolder = "";
-        var outputFolder = "";
+        var inputFolder = '';
+        var outputFolder = '';
 
         ugui.helpers.readAFolder(projectFolder, function (contents) {
             for (var i = 0; i < contents.length; i++) {
@@ -63,12 +63,12 @@
     }
 
     function autoGuessSrcDist (srcDist, autoFolder, newProjectProperty) {
-        if (srcDist == "src") {
-            srcDist = [ "app", "source", "src", "scout-files" ];
-        } else if (srcDist == "dist") {
-            srcDist = [ "built", "public", "distribution", "production", "prod", "build", "dist", "scout-files" ];
+        if (srcDist == 'src') {
+            srcDist = [ 'app', 'source', 'src', 'scout-files' ];
+        } else if (srcDist == 'dist') {
+            srcDist = [ 'built', 'public', 'distribution', 'production', 'prod', 'build', 'dist', 'scout-files' ];
         } else {
-            srcDist = [ "app", "built", "public", "distribution", "production", "prod", "build", "source", "dist", "src", "scout-files" ]
+            srcDist = [ 'app', 'built', 'public', 'distribution', 'production', 'prod', 'build', 'source', 'dist', 'src', 'scout-files' ]
         }
 
         var projectPath = scout.newProject.projectFolder;
@@ -79,7 +79,7 @@
                 var currentItem = contents[i].name.toLowerCase();
                 //only proceed if it's a folder
                 if (contents[i].isFolder) {
-                    //loop through ["src","source"] or ["dist", "build"]
+                    //loop through ['src','source'] or ['dist', 'build']
                     for (var j = 0; j < srcDist.length; j++) {
                         //subfolder = src
                         var subfolder = srcDist[j];
@@ -92,7 +92,7 @@
                                     var SDCurrentItem = SDContents[k].name.toLowerCase();
                                     //only proceed if a folder
                                     if (SDContents[k].isFolder) {
-                                        //loop through ["sass", "scss"] or ["styles", "css"]
+                                        //loop through ['sass', 'scss'] or ['styles', 'css']
                                         for (var l = 0; l < autoFolder.length; l++) {
                                             //Current item we are looping through
                                             var subsubfolder = autoFolder[l];
@@ -127,10 +127,10 @@
                 //If the item is a folder
                 if (contents[i].isFolder) {
                     //Check if the item's name is src or source
-                    if (currentItem == "source") {
-                        src = "source";
-                    } else if (currentItem == "src") {
-                        src = "src";
+                    if (currentItem == 'source') {
+                        src = 'source';
+                    } else if (currentItem == 'src') {
+                        src = 'src';
                     //Otherwise check if it matches something in the the autoImages array
                     } else {
                         for (var j = 0; j < autoImages.length; j++) {
@@ -142,8 +142,8 @@
                 }
             }
 
-            // src = "src";
-            // imgFolder = "_img";
+            // src = 'src';
+            // imgFolder = '_img';
 
             if (imgFolder) {
                 var projectImageFolder = projectFolder + '/' + imgFolder;
@@ -161,8 +161,8 @@
                 });
             }
 
-            // src = "src";
-            // imgFolder = "_img/meta";
+            // src = 'src';
+            // imgFolder = '_img/meta';
 
             if (src && !imgFolder) {
                 var srcFolder = projectFolder + '/' + src;
@@ -175,8 +175,8 @@
                                     imgFolder == src + '/' + autoImages[n];
                                 }
                             }
-                            // src = "src";
-                            // imgFolder = "src/_img";
+                            // src = 'src';
+                            // imgFolder = 'src/_img';
                             if (imgFolder) {
                                 var srcImgFolder = projectFolder + '/' + imgFolder;
                                 ugui.helpers.readAFolder(srcImgFolder, function (SIcontents) {
@@ -197,12 +197,12 @@
                 });
             }
 
-            // src = "src";
-            // imgFolder = "src/_img/meta";
+            // src = 'src';
+            // imgFolder = 'src/_img/meta';
             if (imgFolder) {
                 scout.newProject.imageFolder = projectFolder + '/' + imgFolder;
             } else {
-                scout.newProject.imageFolder = "";
+                scout.newProject.imageFolder = '';
             }
 
         });
@@ -210,7 +210,7 @@
 
     function autoGuessProjectIcon (commonImages) {
         var imgFolder = scout.newProject.imageFolder;
-        var defaultIcon = "_img/logo_128.png";
+        var defaultIcon = '_img/logo_128.png';
         //If there is no imageFolder
         if (imgFolder.length < 1) {
             //user the Scout-App icon
@@ -225,7 +225,7 @@
                 var currentItem = contents[i].name.toLowerCase();
                 if (contents[i].isFolder == false) {
                     for (var j = 0; j < commonImages.length; j++) {
-                        if (currentItem == commonImages[j]){
+                        if (currentItem == commonImages[j]) {
                             projectIcon = imgFolder + '/' + commonImages[j];
                         }
                     }
@@ -275,16 +275,16 @@
         scout.helpers.resetProjectUI();
 
         //Array items are ordered from lowest to highest priority
-        var autoInput = [ "scss", "sass", "_scss", "_sass" ];
-        var autoOutput = [ "css", "stylesheets", "stylesheet", "styles", "style", "_css", "_stylesheets", "_stylesheet", "_styles", "_style" ];
-        var autoImages = [ "graphics", "images", "image", "imgs", "img", "meta", "_graphics", "_images", "_image", "_imgs", "_img", "_meta"];
-        var commonImages = [ "logo.png", "mstile03wd.png", "apl-str.png", "logo_48.png", "logo-48.png", "logo48.png", "apl_57.png", "apl-57.png", "apl57.png", "mstile01sm.png", "apl_72.png", "apl-72.png", "apl72.png", "logo_256.png", "logo-256.png", "logo256.png", "logo_512.png", "logo-512.png", "logo512.png", "fluid.png", "mstile04lg.png", "mstile02md.png", "apl_144.png", "apl-144.png", "apl144.png", "apl_114.png", "apl-114.png", "apl114.png", "logo_128.png", "logo-128.png", "logo128.png" ];
+        var autoInput = [ 'scss', 'sass', '_scss', '_sass' ];
+        var autoOutput = [ 'css', 'stylesheets', 'stylesheet', 'styles', 'style', '_css', '_stylesheets', '_stylesheet', '_styles', '_style' ];
+        var autoImages = [ 'graphics', 'images', 'image', 'imgs', 'img', 'meta', '_graphics', '_images', '_image', '_imgs', '_img', '_meta'];
+        var commonImages = [ 'logo.png', 'mstile03wd.png', 'apl-str.png', 'logo_48.png', 'logo-48.png', 'logo48.png', 'apl_57.png', 'apl-57.png', 'apl57.png', 'mstile01sm.png', 'apl_72.png', 'apl-72.png', 'apl72.png', 'logo_256.png', 'logo-256.png', 'logo256.png', 'logo_512.png', 'logo-512.png', 'logo512.png', 'fluid.png', 'mstile04lg.png', 'mstile02md.png', 'apl_144.png', 'apl-144.png', 'apl144.png', 'apl_114.png', 'apl-114.png', 'apl114.png', 'logo_128.png', 'logo-128.png', 'logo128.png' ];
 
         //Get the path for the project folder the user selected
         var folder = path || $("#addProjectBrowse").val();
         scout.newProject.projectFolder = folder;
         //Set it to the New Project object, converting windows slashes to unix
-        if (process.platform == "win32") {
+        if (process.platform == 'win32') {
             scout.newProject.projectFolder = folder.split('\\').join('/');
         }
 
@@ -302,12 +302,12 @@
         autoGuessProjectIcon(commonImages);
 
         //Reset the folder browse box
-        $("#addProjectBrowse").val("");
+        $("#addProjectBrowse").val('');
 
-        if (instance && typeof(instance) == "number") {
-            scout.newProject.projectID = "sa" + (Date.now() + instance);
+        if (instance && typeof(instance) == 'number') {
+            scout.newProject.projectID = 'sa' + (Date.now() + instance);
         } else {
-            scout.newProject.projectID = "sa" + Date.now();
+            scout.newProject.projectID = 'sa' + Date.now();
         }
 
         scout.helpers.addProject(scout.newProject);

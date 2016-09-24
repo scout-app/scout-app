@@ -5,7 +5,7 @@
   Update scout.dictionary. Update the UI.
 */
 
-(function(){
+(function () {
 
     /**
      * This is the basic KEY to Definition function for languages.
@@ -17,7 +17,7 @@
     function localize (phrase, wrapInDataLang) {
         wrapInDataLang = wrapInDataLang || false;
         if (!phrase) {
-            return "No translation found.";
+            return 'No translation found.';
         }
         var translation = window.dictionary[phrase];
 
@@ -37,41 +37,41 @@
         var items = $("*[data-lang]");
         for (var i = 0; i < items.length; i++) {
             var item = items[i];
-            var langKey = $(item).data("lang");
+            var langKey = $(item).data('lang');
             $(item).html( localize(langKey) );
         }
         //data-langalt
         var altItems = $("*[data-langalt]");
         for (var i = 0; i < altItems.length; i++) {
             var altItem = altItems[i];
-            var langKey = $(altItem).data("langalt");
-            $(altItem).attr("alt", localize(langKey) );
+            var langKey = $(altItem).data('langalt');
+            $(altItem).attr('alt', localize(langKey) );
         }
         //data-langtitle
         var titleItems = $("*[data-langtitle]");
         for (var i = 0; i < titleItems.length; i++) {
             var titleItem = titleItems[i];
-            var langKey = $(titleItem).data("langtitle");
-            $(titleItem).attr("title", localize(langKey) );
+            var langKey = $(titleItem).data('langtitle');
+            $(titleItem).attr('title', localize(langKey) );
         }
         //data-langarialabel
         var ariaLabelItems = $("*[data-langarialabel]");
         for (var i = 0; i < ariaLabelItems.length; i++) {
             var ariaLabelItem = ariaLabelItems[i];
-            var langKey = $(ariaLabelItem).data("langarialabel");
-            $(ariaLabelItem).attr("aria-label", localize(langKey) );
+            var langKey = $(ariaLabelItem).data('langarialabel');
+            $(ariaLabelItem).attr('aria-label', localize(langKey) );
         }
         //data-langhref
         var hrefItems = $("*[data-langhref");
         for (var i = 0; i < hrefItems.length; i++) {
             var hrefItem = hrefItems[i];
-            var langKey = $(hrefItem).data("langhref");
-            $(hrefItem).attr("href", localize(langKey) );
+            var langKey = $(hrefItem).data('langhref');
+            $(hrefItem).attr('href', localize(langKey) );
         }
         //Allow links with a class of "external-link" to open in the user's default browser
         ugui.helpers.openDefaultBrowser();
-        $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
-        $('.chokidarVersion').html('v' + scout.versions.chokidar);
+        $(".nodeSassVersion").html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
+        $(".chokidarVersion").html('v' + scout.versions.chokidar);
     }
 
     /**
@@ -79,7 +79,7 @@
      * @param {sting} userLanguage  Should match a .json file in the cultures folder.
      */
     function setLanguage (userLanguage) {
-        userLanguage = userLanguage || "en";
+        userLanguage = userLanguage || 'en';
         scout.globalSettings.cultureCode = userLanguage;
         var dictionary = ugui.helpers.readAFile('scout-files/cultures/' + userLanguage + '.json');
         dictionary = JSON.parse(dictionary);
@@ -88,7 +88,7 @@
             scout.helpers.saveSettings();
         }
         updateDataLangs();
-        $("#culture-pics").attr('src', 'cultures/' + userLanguage + ".jpg");
+        $("#culture-pics").attr('src', 'cultures/' + userLanguage + '.jpg');
     }
 
     //This will be overridden by the user's saved settings later,

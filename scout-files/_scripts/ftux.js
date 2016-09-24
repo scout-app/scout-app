@@ -5,20 +5,20 @@
   or when you just have 0 projects.
 */
 
-(function(){
+(function () {
 
     var fs = require('fs-extra');
     var path = require('path');
 
     // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
-        var width = $("#sidebar").css("width");
+        var width = $("#sidebar").css('width');
         //Hide everything!
-        $("#sidebar").css("left", "-" + width);
+        $("#sidebar").css('left', '-' + width);
         $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeOut();
-        $("#viewStatusNav").addClass("hide");
+        $("#viewStatusNav").addClass('hide');
         //Show FTUX
-        $("#ftux").fadeIn("slow");
+        $("#ftux").fadeIn('slow');
     }
 
     // Hide FTUX view | Show Sidebar | Show Project Settings
@@ -26,9 +26,9 @@
         //Hide FTUX
         $("#ftux").fadeOut();
         //Show everything!
-        $("#sidebar").css("left", "0px");
+        $("#sidebar").css('left', '0px');
         $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeIn();
-        $("#viewStatusNav").removeClass("hide");
+        $("#viewStatusNav").removeClass('hide');
     }
 
     /**
@@ -155,7 +155,7 @@
         $("#ftux .panel-body").empty();
         var projectsFolder = path || scout.ftux.projectsFolder;
 
-        var projects = "";
+        var projects = '';
         if (projectsFolder) {
             projects = ugui.helpers.readAFolder(projectsFolder);
         }
@@ -181,9 +181,9 @@
      * @param  {string} path The Projects Folder path
      */
     function updatePanelContent (path) {
-        var folder = "";
+        var folder = '';
         if (scout.ftux.projectsFolder) {
-            if (process.platform == "win32") {
+            if (process.platform == 'win32') {
                 folder = path || scout.ftux.projectsFolder.split('/').join('\\');
             } else {
                 folder = path || scout.ftux.projectsFolder;
@@ -216,7 +216,7 @@
                 return;
             }
 
-            $("#addProjectBrowse").attr("nwworkingdir", $("#ftuxProjectsFolder").text());
+            $("#addProjectBrowse").attr('nwworkingdir', $("#ftuxProjectsFolder").text());
 
             //Prevent importing projects multiple times from double-clicks
             $("#ftuxStartImport").addClass('gray');
@@ -231,7 +231,7 @@
             scout.helpers.saveSettings;
             unloadFTUX();
         });
-        $("#ftuxPickFolder").unbind("click");
+        $("#ftuxPickFolder").unbind('click');
         $("#ftuxPickFolder").click(function (evt) {
             evt.preventDefault();
             $("#ftuxProjectBrowse").click();

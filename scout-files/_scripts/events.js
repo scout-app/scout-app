@@ -3,7 +3,7 @@
   Event bindings and DOM Manipulation.
 */
 
-(function(){
+(function () {
 
     function projectRenameHeight () {
         var inputHeight = $("#projectNameEditable").height();
@@ -57,9 +57,9 @@
 
     //Set the default starting folder for browse boxes
     var projectFolder = $("#projectFolder").val();
-    $("#projectIconBrowse").attr("nwworkingdir", projectFolder);
-    $("#inputFolderBrowse").attr("nwworkingdir", projectFolder);
-    $("#outputFolderBrowse").attr("nwworkingdir", projectFolder);
+    $("#projectIconBrowse").attr('nwworkingdir', projectFolder);
+    $("#inputFolderBrowse").attr('nwworkingdir', projectFolder);
+    $("#outputFolderBrowse").attr('nwworkingdir', projectFolder);
 
     $("#projectIconHover").click( function () { $("#projectIconBrowse" ).click(); });
     $("#inputFolderIcon" ).click( function () { $("#inputFolderBrowse" ).click(); });
@@ -145,7 +145,7 @@
         $("#printConsole .alert, #printConsole .panel").removeClass('hide');
     });
 
-    $('.navbar a[href="#viewStatus"]').click( function() {
+    $('.navbar a[href="#viewStatus"]').click( function () {
         $("#viewStatus").click();
     });
 
@@ -163,14 +163,14 @@
         }
 
         //Check validity of input and output
-        if ( inputDir === "" || outputDir === "" ) {
-            $("#outputWarning").addClass("hide");
+        if ( inputDir === '' || outputDir === '' ) {
+            $("#outputWarning").addClass('hide');
             lockSubmit(id);
         } else if ( (inputDir === outputDir) || (outputDir.startsWith(inputDir + '/')) ) {
             $("#outputWarning").removeClass('hide');
             lockSubmit(id);
         } else {
-            $("#outputWarning").addClass("hide");
+            $("#outputWarning").addClass('hide');
             unlockSubmit(id);
         }
     }
@@ -181,11 +181,11 @@
         id = id || $("#projectID").val();
         for (var i = 0; i < scout.projects.length; i++) {
             if (id == scout.projects[i].projectID) {
-                scout.projects[i].indicator = "gray-play";
+                scout.projects[i].indicator = 'gray-play';
                 scout.helpers.updateSidebar();
                 scout.helpers.saveSettings();
-                $("#sidebar .active").removeClass("active");
-                $("#sidebar ." + id).addClass("active");
+                $("#sidebar .active").removeClass('active');
+                $("#sidebar ." + id).addClass('active');
                 return;
             }
         }
@@ -198,24 +198,24 @@
             var inputDir = project.inputFolder;
             var outputDir = project.outputFolder;
             if (
-                (inputDir === "") ||
-                (outputDir === "") ||
+                (inputDir === '') ||
+                (outputDir === '') ||
                 (inputDir === outputDir) ||
                 (outputDir.startsWith(inputDir + '/')) ||
                 (outputDir.startsWith(inputDir + '\\'))
             ) {
-                project.indicator = "gray-play";
+                project.indicator = 'gray-play';
                 scout.helpers.stopWatching( project.projectID );
-            } else if (project.indicator == "stop") {
-                project.indicator = "stop";
+            } else if (project.indicator == 'stop') {
+                project.indicator = 'stop';
             } else {
-                project.indicator = "play";
+                project.indicator = 'play';
             }
         }
         scout.helpers.updateSidebar();
-        $("#sidebar .active").removeClass("active");
+        $("#sidebar .active").removeClass('active');
         if (id) {
-            $("#sidebar ." + id).addClass("active");
+            $("#sidebar ." + id).addClass('active');
         }
     }
 
@@ -226,12 +226,12 @@
             $($("#outputStyle option")[3]).hide();
             $($("#outputStyle option")[4]).hide();
 
-            var isLabelSelected = $($("#outputStyle option")[0]).prop("selected");
-            var isNestedSelected = $($("#outputStyle option")[1]).prop("selected");
+            var isLabelSelected = $($("#outputStyle option")[0]).prop('selected');
+            var isNestedSelected = $($("#outputStyle option")[1]).prop('selected');
             //If the first or second items in the dropdown are picked, that's cool, set everything else to the 3rd option
             if (isLabelSelected == false && isNestedSelected == false) {
                 //Select "Expanded"
-                $($("#outputStyle option")[2]).prop("selected", true);
+                $($("#outputStyle option")[2]).prop('selected', true);
                 manuallyUpdateOutputStyle = true;
             }
         } else {
@@ -258,11 +258,11 @@
      */
     //Remove modal, enable scrollbar
     function removeModal () {
-        $(".modal").slideUp("slow", function() {
+        $(".modal").slideUp('slow', function () {
             $("body").removeClass('no-overflow');
             //If the navigation is expanded, then close it after exiting the modal
-            if ( !$(".navbar-toggle").hasClass("collapsed") ) {
-                $(".navbar-toggle").trigger("click");
+            if ( !$(".navbar-toggle").hasClass('collapsed') ) {
+                $(".navbar-toggle").trigger('click');
             }
         });
 
@@ -273,7 +273,7 @@
             modalID = $(event.currentTarget).parent().parent().parent().parent().attr('id');
         }
         // Auto-save when exiting the preferences modal
-        if (modalID == "preferences-modal") {
+        if (modalID == 'preferences-modal') {
             scout.helpers.saveSettings();
         }
     }
@@ -283,10 +283,10 @@
         var projectName = $("#projectName").text();
         $(".project-name").text(projectName);
         $("#confirm-delete").removeClass('gray');
-        $("#delete-modal").fadeIn("slow");
+        $("#delete-modal").fadeIn('slow');
 
         //Remove page scrollbar when modal displays
-        $("body").addClass("no-overflow");
+        $("body").addClass('no-overflow');
     });
     //Confirm delete in the modal
     $("#confirm-delete").click(function (evt) {
@@ -319,7 +319,7 @@
         removeModal();
     });
     //Allow you to click in the modal without triggering the `removeModal` function called when you click its parent element
-    $(".modal .modal-content").click( function( evt ) {
+    $(".modal .modal-content").click( function (evt) {
         evt.stopPropagation();
     });
 
@@ -331,27 +331,27 @@
     function osxKeyBindings () {
         var win = require('nw.gui').Window.get();
         //Keyboard shortcuts
-        document.onkeydown = function(pressed) {
+        document.onkeydown = function (pressed) {
             //Check CMD+V and CMD+v keys and paste
             if (
                 pressed.metaKey && pressed.keyCode === 86 ||
                 pressed.metaKey && pressed.keyCode === 118 ) {
                     pressed.preventDefault();
-                    document.execCommand("paste");
+                    document.execCommand('paste');
                     return false;
             //Check CMD+C and CMD+c keys and copy
             } else if (
                 pressed.metaKey && pressed.keyCode === 67 ||
                 pressed.metaKey && pressed.keyCode === 99 ) {
                     pressed.preventDefault();
-                    document.execCommand("copy");
+                    document.execCommand('copy');
                     return false;
             //Check CMD+X and CMD+x and cut
             } else if (
                 pressed.metaKey && pressed.keyCode === 88 ||
                 pressed.metaKey && pressed.keyCode === 120 ) {
                     pressed.preventDefault();
-                    document.execCommand("cut");
+                    document.execCommand('cut');
                     return false;
             //Check CMD+Shift+I and open dev tools
             } else if (
@@ -363,7 +363,7 @@
             } else if (
                 pressed.metaKey && pressed.keyCode === 81||
                 pressed.metaKey && pressed.keyCode === 113) {
-                    win.on('close', function() {
+                    win.on('close', function () {
                         this.hide();
                         this.close(true);
                     });
@@ -374,7 +374,7 @@
     }
 
     //run once on page load
-    if (process.platform == "darwin") {
+    if (process.platform == 'darwin') {
         osxKeyBindings();
     }
 
@@ -383,6 +383,5 @@
 
     scout.helpers.projectRenameHeight = projectRenameHeight;
     scout.helpers.unlockSubmit = unlockSubmit;
-
 
 })();

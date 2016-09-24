@@ -26,14 +26,14 @@
     //Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
     scout.versions.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
-    if (process.platform == "win32") {
+    if (process.platform == 'win32') {
         var pathToProject = ugui.app.pathToProject.replace('/','').split('/').join('\\').split('%20').join(' ');
         scout.versions.chokidar = require(pathToProject + 'node_modules\\chokidar\\package.json').version;
     } else {
         scout.versions.chokidar = require(ugui.app.pathToProject.split('%20').join(' ') + 'node_modules/chokidar/package.json').version;
     }
-    $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
-    $('.chokidarVersion').html('v' + scout.versions.chokidar);
+    $(".nodeSassVersion").html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
+    $(".chokidarVersion").html('v' + scout.versions.chokidar);
 
 
     function processInputFolder (project, inputSubFolder) {
@@ -54,7 +54,7 @@
                     }
                     processInputFolder(project, subfolder);
                 //Skip all files that begin with an _ and Process all sass/scss files
-                } else if ( !currentName.startsWith("_") && (currentName.toLowerCase().endsWith(".sass") || currentName.toLowerCase().endsWith(".scss")) ) {
+                } else if ( !currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss')) ) {
                     //Change from 'some-file.scss' to 'some-file'
                     var fileName = currentName.slice(0,-5);
                     //Change from 'some-file.scss' to '.scss'
@@ -67,15 +67,15 @@
     }
 
     function convertToCSS (project, inputFileName, inputFileExt, inputSubFolder) {
-        var outputSubFolder = inputSubFolder || "";
+        var outputSubFolder = inputSubFolder || '';
         var outputStyle = project.outputStyle;
         var pathToProject = ugui.app.pathToProject;
         //Get the mixins config file
         var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
         //put split based on returns
-        if (process.platform == "win32") {
+        if (process.platform == 'win32') {
             mixins = mixins.split('\r\n');
-            pathToProject = pathToProject.replace("/","");
+            pathToProject = pathToProject.replace('/','');
         } else {
             mixins = mixins.split('\n');
         }
@@ -91,7 +91,7 @@
 
         var devMode = false;
         //project.environment will return "production" or "development"
-        if (project.environment == "development") {
+        if (project.environment == 'development') {
             devMode = true;
         }
 
@@ -171,11 +171,11 @@
                             console.info('https://discourse.roots.io/t/gulp-watch-error-on-ubuntu-14-04-solved/3453/2');
                             require('nw.gui').Window.get().showDevTools();
                         } else {
-                            console.log("There was an error watching the input files: ", error);
+                            console.log('There was an error watching the input files: ', error);
                         }
                     });
                 //Update icon
-                scout.projects[I].indicator = "stop";
+                scout.projects[I].indicator = 'stop';
                 scout.helpers.updateSidebar();
                 processInputFolder(scout.projects[I]);
                 return;
@@ -190,12 +190,12 @@
                 //fix icon
                 if ($(actionButtonIcon).hasClass('glyphicon-stop')) {
                     //Update icon and color in sidebar
-                    scout.projects[i].indicator = "play";
+                    scout.projects[i].indicator = 'play';
                 }
                 //Stop watching the files for changes
                 if (scout.projects[i].watcher) {
                     scout.projects[i].watcher.close();
-                    scout.projects[i].watcher = "";
+                    scout.projects[i].watcher = '';
                 }
                 scout.helpers.updateSidebar();
             }
@@ -206,13 +206,13 @@
     function killAllWatchers () {
         if (scout.projects.length > 0) {
             for (var i = 0; i < scout.projects.length; i++) {
-                if (scout.projects[i].watcher && typeof(scout.projects[i].watcher) == "object") {
+                if (scout.projects[i].watcher && typeof(scout.projects[i].watcher) == 'object') {
                     try {
                         scout.projects[i].watcher.close();
                     } catch (err) {
                         console.info('The watcher for this project is already turned off.');
                     }
-                    scout.projects[i].indicator = "play";
+                    scout.projects[i].indicator = 'play';
                 }
             }
             scout.helpers.updateSidebar();
