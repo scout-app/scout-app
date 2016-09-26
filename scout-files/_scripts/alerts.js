@@ -84,7 +84,7 @@
             errorPreview =
               //line before the error
               '<span class="num">' + (bugLine-1) + ':</span> ' + fileContents[(bugLine-2)] + '\n' +
-              theError + '\n' +
+              theError +
               //line after the error
               '<span class="num">' + (bugLine+1) + ':</span> ' + fileContents[bugLine];
         }
