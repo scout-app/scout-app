@@ -30,6 +30,8 @@
     "LANG_DANISH": "датский (Dansk)",
     "LANG_DUTCH": "Голландский (Nederlands)",
     "LANG_FRENCH": "Французский (Français)",
+    "LANG_ITALIAN": "итальянский (Italiano)",
+    "LANG_REDNECK": "деревенщина Американская (Redneck)",
     "LANG_RUSSIAN": "Русский",
     "LANGUAGE_CHOICE": "Выбор языков",
     "LATEST_VERSION": "У вас есть последняя версия Cкаут-Aппa",
@@ -72,6 +74,6 @@
     "VERSION": "Версия",
     "VIEW": "Посмотреть",
     "VIEW_LATEST_RELEASE": "Посмотреть последний выпуск",
-    "WELCOME_INSTRUCTIONS": "Авто-импорт проектов ниже, или <strong><a id='ftuxPickFolder' href='#'> выбрать другую папку</a></strong> для импорта проектов.",
+    "WELCOME_INSTRUCTIONS": "Авто-импорт проектов ниже, или <strong><a id='ftuxPickFolder' href='#'>выбрать другую папку</a></strong> для импорта проектов.",
     "WELCOME_MESSAGE": "Добро пожаловать в Cкаут-Aпп!"
 }

@@ -30,6 +30,8 @@
     "LANG_DANISH": "In the preferences modal, options for language choices.",
     "LANG_DUTCH": "In the preferences modal, options for language choices.",
     "LANG_FRENCH": "In the preferences modal, options for language choices.",
+    "LANG_ITALIAN": "In the preferences modal, options for language choices.",
+    "LANG_REDNECK": "In the preferences modal, options for language choices.",
     "LANG_RUSSIAN": "In the preferences modal, options for language choices.",
     "LANGUAGE_CHOICE": "In the preferences modal, this is the label for the language dropdown.",
     "LATEST_VERSION": "In the About modal, after the user checks for updates, if there is no newer version available this is displayed.",
