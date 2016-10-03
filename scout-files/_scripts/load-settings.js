@@ -2,7 +2,7 @@
 /*
   This will read the user's scout-settings.json file from
   their OS's application data folder. Each OS stores this in
-  a different place. The we update:
+  a different place. Then we update:
    * window.scout.projects
    * window.scout.globalSettings.cultureCode
 */
@@ -19,7 +19,7 @@
     try {
         settingsJSON = fs.readFileSync(settingsFile, {encoding: 'utf-8'});
     } catch (err) {
-        //If the file does exist grab it's error code
+        //If the file does exist grab its error code
         if (err.code === 'ENOENT') {
             console.info('No settings file found, no biggie.');
         } else {
