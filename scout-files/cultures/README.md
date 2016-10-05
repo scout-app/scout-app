@@ -19,17 +19,23 @@ Scout-App wants to show a personal touch for each culture. So we attach some cul
 
 Examples:
 
-### America
+
+
+### American English
 
 King of the Hill is an American cartoon set in Texas following Hank Hill. He is known for saying "I sell propane and propane accessories".
 
 ![](en.jpg)
 
-### Russia
+
+
+### Russian
 
 Vinni Pukh is a strange Russian adaptation of Winne the Pooh. He is a bit more existenstial, asking questions like "And why does honey exist? For me to eat it - I think so". So in this translation he is saying "Why does Sass exist? For me to use, of course!"
 
 ![](ru.jpg)
+
+
 
 ### Dutch
 
@@ -37,8 +43,18 @@ This is from a webcomic called "[Scandinavia and the World](http://satwcomic.com
 
 ![](nl.jpg)
 
-### Italy
+
+
+### Italian
 
 This is the Leaning Tower of Pisa from Italy with some CSS being applied to cause it's famous slant.
 
 ![](it.jpg)
+
+
+
+### Spanish
+
+An image of Don Quixote with the text "Too much CSS may be madness. And maddest of all, to see CSS as it is and not as it should be." Based on the quote "Too much sanity may be madness. And maddest of all, to see life as it is and not as it should be."
+
+![](es.jpg)
