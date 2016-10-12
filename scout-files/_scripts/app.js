@@ -35,6 +35,10 @@
     $(".nodeSassVersion").html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
     $(".chokidarVersion").html('v' + scout.versions.chokidar);
 
+    //If the input folder does not contain any Sass, then alert the user
+    function checkForSassOnce (project) {
+        //do stuff
+    }
 
     function processInputFolder (project, inputSubFolder) {
         var inputFolder = project.inputFolder;
@@ -219,6 +223,7 @@
         }
     }
 
+    scout.helpers.checkForSassOnce = checkForSassOnce;
     scout.helpers.processInputFolder = processInputFolder;
     scout.helpers.startWatching = startWatching;
     scout.helpers.stopWatching = stopWatching;
