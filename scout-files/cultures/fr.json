@@ -45,6 +45,7 @@
     "MILLISECONDS_SHORT": "ms",
     "NEW_PROJECT": "Nouveau Projet",
     "NO_PROJECTS_FOUND": "Cliquez sur le lien ci-dessus et le pointer vers le dossier qui contient tous vos dossiers de projet.",
+    "NO_SASS_FILES": "Le dossier d'entrée Ce projet ne contient aucun fichier Sass qui peuvent être traités.",
     "NOTIFICATIONS_CHOICE": "Notifications",
     "OUTPUT_COMPACT": "Compact",
     "OUTPUT_COMPRESSED": "Compressé",

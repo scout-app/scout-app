@@ -45,6 +45,7 @@
     "MILLISECONDS_SHORT": "ms",
     "NEW_PROJECT": "Nuovo processo",
     "NO_PROJECTS_FOUND": "Clicca il link qui sopra e fallo puntare alla cartella che contiente tutti i tuoi progetti",
+    "NO_SASS_FILES": "Cartella di input di questo progetto non contiene file Sass che possono essere elaborati.",
     "NOTIFICATIONS_CHOICE": "Notifiche",
     "OUTPUT_COMPACT": "Compatto",
     "OUTPUT_COMPRESSED": "Compresso",

@@ -126,6 +126,75 @@
         }
     }
 
+    function warn (error, projectID) {
+        if (scout.globalSettings.alertSound) {
+            playAlert();
+        }
+
+        if ($("#project-settings").is(':visible')) {
+            var id = $("#projectID").val();
+            $("#sidebar ." + id).click();
+        }
+
+        projectID = projectID || 'sa0';
+        for (var i = 0; i < scout.projects.length;i++) {
+            if (scout.projects[i].projectID === projectID) {
+                var projectName = scout.projects[i].projectName;
+                break;
+            }
+        }
+
+        var path = require('path');
+        var file = error.file || error.folder;
+        var bugLine = error.line;
+        var col = error.column;
+        var code = error.status;
+        var time = new Date().timeNow();
+        var title = scout.localize('ALERT_TITLE');
+        title = title
+            .replace('{{time}}', time)
+            .replace('{{code}}', code)
+            .replace('{{bugLine}}', bugLine)
+            .replace('{{col}}', col);
+        var footer = '<em>' + file + '</em>';
+        var bugFile = path.basename(file);
+        var errorMessage = error.message
+            .replace(/[\r,\n]\s\s/g, '<br /><span class="bullet"></span>')
+            .replace(/[\n\r]/g, '<br />')
+            .replace(file,'');
+
+        var formmatedError =
+            '<div class="panel panel-warning ' + projectID + '" title="' + projectName + '">' +
+              '<div class="panel-heading">' +
+                '<span class="pull-right glyphicon glyphicon-remove"></span>' +
+                '<h3 class="panel-title">' + title + '</h3>' +
+              '</div>' +
+              '<div class="panel-body">' +
+                errorMessage + '<br />' +
+                '<strong><span class="bullet"></span>' + bugFile + '</strong><br />' +
+              '</div>' +
+              '<div class="panel-footer">' +
+                footer +
+              '</div>' +
+            '</div>';
+
+        if (scout.globalSettings.alertInApp) {
+            $("#printConsole").prepend(formmatedError);
+        }
+
+        $("#printConsole .panel .glyphicon-remove").click( function () {
+            $(this).parent().parent().remove();
+        });
+
+        $("#sidebar .active").click();
+
+        if (scout.globalSettings.alertDesktop) {
+            var lineAndCol = title.split(') - ')[1];
+            lineAndCol = lineAndCol.replace(/<strong>/g,'').replace(/<\/strong>/g,'');
+            desktopNotification(bugFile, lineAndCol, 'alert');
+        }
+    }
+
     function message (message, projectID) {
         if (scout.globalSettings.messageSound) {
             playMessage();
@@ -181,8 +250,10 @@
     $('[data-argName="alertSound"]').click(playAlert);
 
     scout.helpers.alert = alert;
+    scout.helpers.warn = warn;
     scout.helpers.message = message;
     scout.helpers.alert.notification = {};
+    scout.helpers.warn.notification = {};
     scout.helpers.message.notification = {};
 
 })();

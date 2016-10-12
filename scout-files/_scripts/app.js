@@ -36,8 +36,31 @@
     $(".chokidarVersion").html('v' + scout.versions.chokidar);
 
     //If the input folder does not contain any Sass, then alert the user
-    function checkForSassOnce (project) {
-        //do stuff
+    function checkForSassOnce (project, inputSubFolder, hasSassFiles) {
+        var hasSassFiles = hasSassFiles || false;
+        var inputFolder = project.inputFolder;
+        if (inputSubFolder) {
+            inputFolder = path.join(project.inputFolder, inputSubFolder);
+        }
+        //Grab all the files in the input folder and put them in an array
+        ugui.helpers.readAFolder(inputFolder, function (contents) {
+            //check each file and process it if it is sass or scss and doesn't start with an underscore
+            for (var i = 0; i < contents.length; i++) {
+                var folder = contents[i].isFolder;
+                var currentName = contents[i].name;
+                if (folder) {
+                    var subfolder = currentName;
+                    if (inputSubFolder) {
+                        subfolder = path.join(inputSubFolder, currentName);
+                    }
+                    checkForSassOnce(project, subfolder, hasSassFiles);
+                //Skip all files that begin with an _ and Process all sass/scss files
+                } else if ( !currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss')) ) {
+                    hasSassFiles = true;
+                }
+            }
+            project.hasSassFiles = hasSassFiles;
+        });
     }
 
     function processInputFolder (project, inputSubFolder) {
@@ -181,6 +204,21 @@
                 //Update icon
                 scout.projects[I].indicator = 'stop';
                 scout.helpers.updateSidebar();
+                checkForSassOnce(scout.projects[I]);
+                if (!scout.projects[I].hasSassFiles) {
+                    var id = scout.projects[I].projectID;
+                    var msg = scout.localize('NO_SASS_FILES');
+                    var err = {
+                        "folder": scout.projects[I].inputFolder,
+                        "line": 0,
+                        "column": 0,
+                        "status": 0,
+                        "formatted": msg,
+                        "message": msg,
+                        "name": "Error"
+                    }
+                    scout.helpers.warn(err, id);
+                }
                 processInputFolder(scout.projects[I]);
                 return;
             }
@@ -223,7 +261,6 @@
         }
     }
 
-    scout.helpers.checkForSassOnce = checkForSassOnce;
     scout.helpers.processInputFolder = processInputFolder;
     scout.helpers.startWatching = startWatching;
     scout.helpers.stopWatching = stopWatching;

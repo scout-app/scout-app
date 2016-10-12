@@ -45,6 +45,7 @@
     "MILLISECONDS_SHORT": "ms",
     "NEW_PROJECT": "новый проект",
     "NO_PROJECTS_FOUND": "Нажмите на ссылку выше и направьте его в папку, которая содержит все вашего проекта",
+    "NO_SASS_FILES": "Папка ввода данного проекта не содержит файлов Sass, которые могут быть обработаны.",
     "NOTIFICATIONS_CHOICE": "Уведомления",
     "OUTPUT_COMPACT": "компактный",
     "OUTPUT_COMPRESSED": "Сжатый",
