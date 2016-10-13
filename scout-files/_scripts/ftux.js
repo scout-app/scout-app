@@ -48,6 +48,9 @@
             homePath = process.env.USERPROFILE;
         } else if (process.platform == 'darwin') {
             homePath = '/Users/' + process.env.USER;
+            if (process.env.HOME) {
+                homePath = process.env.HOME;
+            }
         }
         var myDocsPath = path.join(homePath, 'Documents');
         var myDesktopPath = path.join(homePath, 'Desktop');
