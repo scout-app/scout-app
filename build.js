@@ -12,6 +12,12 @@
 // All of those are from NW.js 0.12.3, the .exe is a renamed version of
 // nw.exe with a custom icon
 
+// BUILDING FOR OSX:
+// Prerequisites: Must have Node and NPM installed globally.
+//
+// This assumes you have a folder next to `scout-app` called `scout-app-build`
+// `scout-app-build` folder should contain the last Scout-App.app file that was released
+
 
 // Variables
 var start = Date.now() + '';
