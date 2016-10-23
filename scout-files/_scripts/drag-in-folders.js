@@ -28,16 +28,23 @@
         }]);
     });
 
-    body.ondragover = function () {
+    body.ondragover = function (evt) {
+        evt.preventDefault();
         return false;
     };
 
-    body.ondragenter = function () {
+    body.ondragenter = function (evt) {
+        evt.preventDefault();
+        debugger;
         $('#drag-in-folders').fadeIn();
+        return;
     };
 
-    body.ondragleave = function () {
-        $('#drag-in-folders').fadeOut();
+    body.ondragleave = function (evt) {
+        evt.preventDefault();
+        debugger;
+        $('#drag-in-folders').slideUp();
+        return;
     };
 
     // drag-n-drop files to the app window's special holder
