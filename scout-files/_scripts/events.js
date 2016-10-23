@@ -5,6 +5,18 @@
 
 (function () {
 
+    $("#project-settings .nav-tabs li").click(function () {
+        var allTabs = "#project-settings .nav-tabs li";
+        var allSections = '#project-settings section';
+        var clickedTab = this;
+        var relatedSection = '#' + $(clickedTab).data('key');
+
+        $(allTabs).removeClass('active');
+        $(clickedTab).addClass('active');
+        $(allSections).addClass('hide');
+        $(relatedSection).removeClass('hide');
+    });
+
     function projectRenameHeight () {
         var inputHeight = $("#projectNameEditable").height();
         if (inputHeight == 0) {

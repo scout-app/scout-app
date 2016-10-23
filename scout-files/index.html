@@ -95,27 +95,82 @@
             <input type="hidden" id="projectID" val="" disabled />
             <input type="text" id="projectFolder" class="form-control" value="" disabled />
           </div>
-          <div class="row">
-            <h3 data-lang="STYLESHEET_DIRECTORIES"></h3>
-          </div>
 
           <div class="row">
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="inputFolder" data-lang="INPUT_FOLDER"></label>
-              <input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" required="required" />
-              <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
-              <input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
-            </div>
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
-              <label for="outputFolder" data-lang="OUTPUT_FOLDER"></label>
-              <input id="outputFolder" type="text" class="form-control" data-argName="outputFolder" required="required" />
-              <span id="outputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
-              <input type="file" id="outputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
-            </div>
-            <div id="outputWarning" class="col-xs-12 col-s-12 col-md-12 col-l-12 text-danger text-center hide">
-              <strong data-lang="OUTPUT_WARNING"></strong>
-            </div>
+            <ul class="nav nav-tabs">
+              <li role="presentation" data-key="sass-settings" class="active"><a href="#">Sass</a></li>
+              <li role="presentation" data-key="live-reload-settings"><a href="#">Live Reload</a></li>
+            </ul>
           </div>
+
+          <section id="sass-settings">
+
+            <div class="row">
+              <h3 data-lang="STYLESHEET_DIRECTORIES"></h3>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
+                <label for="inputFolder" data-lang="INPUT_FOLDER"></label>
+                <input id="inputFolder" type="text" class="form-control" data-argName="inputFolder" required="required" />
+                <span id="inputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
+                <input type="file" id="inputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+              </div>
+              <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
+                <label for="outputFolder" data-lang="OUTPUT_FOLDER"></label>
+                <input id="outputFolder" type="text" class="form-control" data-argName="outputFolder" required="required" />
+                <span id="outputFolderIcon" class="glyphicon glyphicon-folder-open pull-right" data-langtitle="BROWSE"></span>
+                <input type="file" id="outputFolderBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
+              </div>
+              <div id="outputWarning" class="col-xs-12 col-s-12 col-md-12 col-l-12 text-danger text-center hide">
+                <strong data-lang="OUTPUT_WARNING"></strong>
+              </div>
+            </div>
+
+            <div class="row">
+              <div>
+                <h3 data-lang="ENVIRONMENT"></h3>
+              </div>
+              <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
+                <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> <span data-lang="DEVELOPMENT"></span></label>
+                <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> <span data-lang="PRODUCTION" ></span></label>
+              </div>
+
+              <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
+
+                <select id="outputStyle" data-argName="outputStyle" class="form-control" required="required">
+                  <option value="expanded"   data-lang="OUTPUT_STYLE"      ></option>
+                  <option value="nested"     data-lang="OUTPUT_NESTED"     ></option>
+                  <option value="expanded"   data-lang="OUTPUT_EXPANDED"   ></option>
+                  <option value="compact"    data-lang="OUTPUT_COMPACT"    ></option>
+                  <option value="compressed" data-lang="OUTPUT_COMPRESSED" ></option>
+                </select>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
+                <button id="delete-project" type="button" class="btn btn-default">
+                  <!--
+                    <small><span class="glyphicon glyphicon-trash"></span></small>
+                  -->
+                  <span data-lang="DELETE_PROJECT"></span>
+                </button>
+              </div>
+            </div>
+          </section> <!-- End Sass Settings -->
+
+          <section id="live-reload-settings" class="hide">
+            <div class="row">
+              <h3>Live Reload</h3> <!-- LOCALIZE -->
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-s-6 col-md-6 col-l-6">
+                <label>Live Reload feature coming soon.</label> <!-- LOCALIZE -->
+              </div>
+            </div>
+          </section>
 
           <!--
             <div class="row">
@@ -145,39 +200,6 @@
               </div>
             </div>
           -->
-
-          <div class="row">
-            <div>
-              <h3 data-lang="ENVIRONMENT"></h3>
-            </div>
-            <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> <span data-lang="DEVELOPMENT"></span></label>
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> <span data-lang="PRODUCTION" ></span></label>
-            </div>
-
-            <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
-
-              <select id="outputStyle" data-argName="outputStyle" class="form-control" required="required">
-                <option value="expanded"   data-lang="OUTPUT_STYLE"      ></option>
-                <option value="nested"     data-lang="OUTPUT_NESTED"     ></option>
-                <option value="expanded"   data-lang="OUTPUT_EXPANDED"   ></option>
-                <option value="compact"    data-lang="OUTPUT_COMPACT"    ></option>
-                <option value="compressed" data-lang="OUTPUT_COMPRESSED" ></option>
-              </select>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">
-              <button id="delete-project" type="button" class="btn btn-default">
-                <!--
-                  <small><span class="glyphicon glyphicon-trash"></span></small>
-                -->
-                <span data-lang="DELETE_PROJECT"></span>
-              </button>
-            </div>
-          </div>
 
         </form>
       </section>
