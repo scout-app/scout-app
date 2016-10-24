@@ -60,6 +60,7 @@
     },
     "scripts": {
         "start": "nw .",
+        "installer": "npm install --loglevel=error",
         "postinstall": "bower update",
         "build": "node build.js"
     },
