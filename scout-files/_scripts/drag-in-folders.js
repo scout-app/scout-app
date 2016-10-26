@@ -2,16 +2,15 @@
 
     var fs = require('fs-extra');
     var path = require('path');
-    var gui = require('nw.gui');
-    var appData = gui.App.dataPath;
+    var nw = require('nw.gui');
+    var appData = nw.App.dataPath;
     var modal = $('#drag-in-folders')[0];
 
     // send files to the not already running app
     // ("Open With" or drag-n-drop)
-    if (gui.App.argv.length) {
-        var files = gui.App.argv.map(function (path) {
+    if (ugui.app.argv.length) {
+        var files = ugui.app.argv.map(function (path) {
             return {
-                name: path.substring(path.lastIndexOf('/') + 1),
                 path: path
             };
         });
@@ -21,9 +20,8 @@
 
     // send files to the already running app
     // ("Open With" or drag-n-drop)
-    gui.App.on('open', function (path) {
+    nw.App.on('open', function (path) {
         onFilesDrop([{
-            name: path.substring(path.lastIndexOf('/') + 1),
             path: path
         }]);
     });
@@ -72,6 +70,8 @@
                 scout.helpers.autoGenerateProject(folder);
             }
         };
+
+        ugui.app.argv = [];
     }
 
 })();

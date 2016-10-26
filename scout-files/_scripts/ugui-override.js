@@ -8,6 +8,7 @@
 (function () {
 
 
+    var nw = require('nw.gui');
     var fs = require('fs-extra');
 
 
@@ -232,5 +233,11 @@
     }
 
     themeSwapper();
+
+
+    // The Scout-App.exe arguments that are temporarily stored in the UGUI App object.
+    // Since you need to check at one point if args are passed in, but clear them out later.
+    // We store them here temporarily because nw.App.argv cannot be cleared out.
+    ugui.app.argv = nw.App.argv;
 
 })();

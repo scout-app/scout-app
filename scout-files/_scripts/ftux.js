@@ -7,6 +7,7 @@
 
 (function () {
 
+    var nw = require('nw.gui');
     var fs = require('fs-extra');
     var path = require('path');
 
@@ -264,7 +265,7 @@
 
     //The main FTUX function
     function ftux () {
-        if (scout.projects.length < 1) {
+        if (scout.projects.length < 1 && ugui.app.argv.length < 1) {
             loadFTUX();
             autoGuessProjectsFolder();
             autoGrabProjects();
