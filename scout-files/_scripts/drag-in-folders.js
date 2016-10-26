@@ -4,7 +4,7 @@
     var path = require('path');
     var gui = require('nw.gui');
     var appData = gui.App.dataPath;
-    var body = $('html')[0];
+    var modal = $('#drag-in-folders')[0];
 
     // send files to the not already running app
     // ("Open With" or drag-n-drop)
@@ -28,32 +28,37 @@
         }]);
     });
 
-    body.ondragover = function (evt) {
-        evt.preventDefault();
-        return false;
-    };
 
-    body.ondragenter = function (evt) {
-        evt.preventDefault();
-        debugger;
-        $('#drag-in-folders').fadeIn();
-        return;
-    };
+    function showModal () {
+        modal.style.visibility = 'visible';
+    }
+    function hideModal () {
+        modal.style.visibility = 'hidden';
+    }
 
-    body.ondragleave = function (evt) {
-        evt.preventDefault();
-        debugger;
-        $('#drag-in-folders').slideUp();
-        return;
-    };
+    function allowDrag (evt) {
+        if (true) {  // Test that the item being dragged is a valid one
+            evt.dataTransfer.dropEffect = 'copy';
+            evt.preventDefault();
+        }
+    }
 
-    // drag-n-drop files to the app window's special holder
-    body.ondrop = function (evt) {
+    function handleDrop (evt) {
         evt.preventDefault();
         var files = [].slice.call(evt.dataTransfer.files);
         onFilesDrop(files);
-        $('#drag-in-folders').fadeOut('fast');
-    };
+        hideModal();
+    }
+
+    window.addEventListener('dragenter', function () {
+        showModal();
+    });
+    modal.addEventListener('dragenter', allowDrag);
+    modal.addEventListener('dragover', allowDrag);
+    modal.addEventListener('dragleave', function () {
+        hideModal();
+    });
+    modal.addEventListener('drop', handleDrop);
 
     /**
      * Actions to perform when new files are imported
