@@ -5,24 +5,24 @@
 
 //Create the global Scout object
 window.scout = {
-    "ftux": {},
-    "globalSettings": {
-        "cultureCode": "en",
-        "alertDesktop": true,
-        "alertInApp": true,
-        "alertSound": true,
-        "messageDesktop": false,
-        "messageInApp": true,
-        "messageSound": true
+    'ftux': {},
+    'globalSettings': {
+        'cultureCode': 'en',
+        'alertDesktop': true,
+        'alertInApp': true,
+        'alertSound': true,
+        'messageDesktop': false,
+        'messageInApp': true,
+        'messageSound': true
     },
-    "helpers": {},
-    "projects": [],
-    "versions": {
-        "nodeSass": "",
-        "libSass": "",
-        "scout": ugui.app.version
+    'helpers': {},
+    'projects': [],
+    'versions': {
+        'nodeSass': '',
+        'libSass': '',
+        'scout': window.ugui.app.version
     },
-    "dictionary": {}
+    'dictionary': {}
 };
 
 //Format time as 03:14:15

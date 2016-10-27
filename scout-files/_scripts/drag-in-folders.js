@@ -1,9 +1,11 @@
 (function () {
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
     var fs = require('fs-extra');
-    var path = require('path');
     var nw = require('nw.gui');
-    var appData = nw.App.dataPath;
     var modal = $('#drag-in-folders')[0];
 
     // send files to the not already running app
@@ -35,10 +37,8 @@
     }
 
     function allowDrag (evt) {
-        if (true) {  // Test that the item being dragged is a valid one
-            evt.dataTransfer.dropEffect = 'copy';
-            evt.preventDefault();
-        }
+        evt.dataTransfer.dropEffect = 'copy';
+        evt.preventDefault();
     }
 
     function handleDrop (evt) {
@@ -69,7 +69,7 @@
             if (isFolder) {
                 scout.helpers.autoGenerateProject(folder);
             }
-        };
+        }
 
         ugui.app.argv = [];
     }

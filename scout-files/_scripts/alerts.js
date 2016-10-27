@@ -6,6 +6,10 @@
 
 (function () {
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
     function playAlert () {
         var alert = new Audio('_sound/scout-alert.wav');
         alert.play();
@@ -24,18 +28,18 @@
         });
 
         scout.helpers[alertOrMessage].notification[randNum].onclick = function () {
-            $("#viewStatus").click();
+            $('#viewStatus').click();
             var win = require('nw.gui').Window.get();
             win.show();
             win.focus();
-        }
+        };
 
         scout.helpers[alertOrMessage].notification[randNum].onshow = function () {
             // auto close after 1 second
             setTimeout(function () {
                 scout.helpers[alertOrMessage].notification[randNum].close();
             }, 3000);
-        }
+        };
     }
 
     function alert (error, projectID) {
@@ -43,9 +47,9 @@
             playAlert();
         }
 
-        if ($("#project-settings").is(':visible')) {
-            var id = $("#projectID").val();
-            $("#sidebar ." + id).click();
+        if ($('#project-settings').is(':visible')) {
+            var id = $('#projectID').val();
+            $('#sidebar .' + id).click();
         }
 
         projectID = projectID || 'sa0';
@@ -110,14 +114,14 @@
             '</div>';
 
         if (scout.globalSettings.alertInApp) {
-            $("#printConsole").prepend(formmatedError);
+            $('#printConsole').prepend(formmatedError);
         }
 
-        $("#printConsole .panel .glyphicon-remove").click( function () {
+        $('#printConsole .panel .glyphicon-remove').click( function () {
             $(this).parent().parent().remove();
         });
 
-        $("#sidebar .active").click();
+        $('#sidebar .active').click();
 
         if (scout.globalSettings.alertDesktop) {
             var lineAndCol = title.split(') - ')[1];
@@ -131,9 +135,9 @@
             playAlert();
         }
 
-        if ($("#project-settings").is(':visible')) {
-            var id = $("#projectID").val();
-            $("#sidebar ." + id).click();
+        if ($('#project-settings').is(':visible')) {
+            var id = $('#projectID').val();
+            $('#sidebar .' + id).click();
         }
 
         projectID = projectID || 'sa0';
@@ -179,14 +183,14 @@
             '</div>';
 
         if (scout.globalSettings.alertInApp) {
-            $("#printConsole").prepend(formmatedError);
+            $('#printConsole').prepend(formmatedError);
         }
 
-        $("#printConsole .panel .glyphicon-remove").click( function () {
+        $('#printConsole .panel .glyphicon-remove').click( function () {
             $(this).parent().parent().remove();
         });
 
-        $("#sidebar .active").click();
+        $('#sidebar .active').click();
 
         if (scout.globalSettings.alertDesktop) {
             var lineAndCol = title.split(') - ')[1];
@@ -199,9 +203,9 @@
         if (scout.globalSettings.messageSound) {
             playMessage();
         }
-        if ($("#project-settings").is(':visible')) {
-            var id = $("#projectID").val();
-            $("#sidebar ." + id).click();
+        if ($('#project-settings').is(':visible')) {
+            var id = $('#projectID').val();
+            $('#sidebar .' + id).click();
         }
 
         projectID = projectID || 'sa0';
@@ -230,14 +234,14 @@
         '</div>';
 
         if (scout.globalSettings.messageInApp) {
-            $("#printConsole").prepend(formattedMessage);
+            $('#printConsole').prepend(formattedMessage);
         }
 
-        $("#printConsole .alert .glyphicon-remove").click( function () {
+        $('#printConsole .alert .glyphicon-remove').click( function () {
             $(this).parent().remove();
         });
 
-        $("#sidebar .active").click();
+        $('#sidebar .active').click();
 
         if (scout.globalSettings.messageDesktop) {
             var path = require('path');
@@ -249,11 +253,11 @@
     $('[data-argName="messageSound"]').click(playMessage);
     $('[data-argName="alertSound"]').click(playAlert);
 
-    scout.helpers.alert = alert;
-    scout.helpers.warn = warn;
-    scout.helpers.message = message;
-    scout.helpers.alert.notification = {};
-    scout.helpers.warn.notification = {};
-    scout.helpers.message.notification = {};
+    window.scout.helpers.alert = alert;
+    window.scout.helpers.warn = warn;
+    window.scout.helpers.message = message;
+    window.scout.helpers.alert.notification = {};
+    window.scout.helpers.warn.notification = {};
+    window.scout.helpers.message.notification = {};
 
 })();

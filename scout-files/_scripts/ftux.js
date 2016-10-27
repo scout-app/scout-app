@@ -7,29 +7,32 @@
 
 (function () {
 
-    var nw = require('nw.gui');
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
     var fs = require('fs-extra');
     var path = require('path');
 
     // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
-        var width = $("#sidebar").css('width');
+        var width = $('#sidebar').css('width');
         //Hide everything!
-        $("#sidebar").css('left', '-' + width);
-        $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeOut();
-        $("#viewStatusNav").addClass('hide');
+        $('#sidebar').css('left', '-' + width);
+        $('#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel').fadeOut();
+        $('#viewStatusNav').addClass('hide');
         //Show FTUX
-        $("#ftux").fadeIn('slow');
+        $('#ftux').fadeIn('slow');
     }
 
     // Hide FTUX view | Show Sidebar | Show Project Settings
     function unloadFTUX () {
         //Hide FTUX
-        $("#ftux").fadeOut();
+        $('#ftux').fadeOut();
         //Show everything!
-        $("#sidebar").css('left', '0px');
-        $("#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel").fadeIn();
-        $("#viewStatusNav").removeClass('hide');
+        $('#sidebar').css('left', '0px');
+        $('#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel').fadeIn();
+        $('#viewStatusNav').removeClass('hide');
     }
 
     /**
@@ -79,14 +82,14 @@
         //then look in My Docs if it isn't in the user profile
         if (!projectsFolder && myDocsPath) {
             var myDocsContents = ugui.helpers.readAFolder(myDocsPath);
-            for (var i = 0; i < myDocsContents.length; i++) {
-                for (var j = 0; j < autoProjects.length; j++) {
-                    if (myDocsContents[i].name.toLowerCase() == autoProjects[j]) {
-                        tempProjectsFolder = myDocsPath.split('\\').join('/') + '/' + myDocsContents[i].name;
-                        var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
+            for (var l = 0; l < myDocsContents.length; l++) {
+                for (var m = 0; m < autoProjects.length; m++) {
+                    if (myDocsContents[l].name.toLowerCase() == autoProjects[m]) {
+                        tempProjectsFolder = myDocsPath.split('\\').join('/') + '/' + myDocsContents[l].name;
+                        var myDocsInnerContents = ugui.helpers.readAFolder(tempProjectsFolder);
                         //make sure there is at least one project folder in the projects folder
-                        for (var k = 0; k < innerContents.length; k++) {
-                            if (innerContents.length > 0 && innerContents[k].isFolder) {
+                        for (var n = 0; n < myDocsInnerContents.length; n++) {
+                            if (myDocsInnerContents.length > 0 && myDocsInnerContents[n].isFolder) {
                                 projectsFolder = tempProjectsFolder;
                                 scout.ftux.projectsFolder = projectsFolder;
                                 return;
@@ -99,14 +102,14 @@
         //then look on the Desktop if it isn't in the My Documents folder
         if (!projectsFolder && myDesktopPath) {
             var myDesktopContents = ugui.helpers.readAFolder(myDesktopPath);
-            for (var i = 0; i < myDesktopContents.length; i++) {
-                for (var j = 0; j < autoProjects.length; j++) {
-                    if (myDesktopContents[i].name.toLowerCase() == autoProjects[j]) {
-                        tempProjectsFolder = myDesktopPath.split('\\').join('/') + '/' + myDesktopContents[i].name;
-                        var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
+            for (var o = 0; o < myDesktopContents.length; o++) {
+                for (var p = 0; p < autoProjects.length; p++) {
+                    if (myDesktopContents[o].name.toLowerCase() == autoProjects[p]) {
+                        tempProjectsFolder = myDesktopPath.split('\\').join('/') + '/' + myDesktopContents[o].name;
+                        var desktopContents = ugui.helpers.readAFolder(tempProjectsFolder);
                         //make sure there is at least one project folder in the projects folder
-                        for (var k = 0; k < innerContents.length; k++) {
-                            if (innerContents.length > 0 && innerContents[k].isFolder) {
+                        for (var q = 0; q < desktopContents.length; q++) {
+                            if (desktopContents.length > 0 && desktopContents[q].isFolder) {
                                 projectsFolder = tempProjectsFolder;
                                 scout.ftux.projectsFolder = projectsFolder;
                                 return;
@@ -122,17 +125,17 @@
             var driveLetters = ['C', 'D', 'E', 'F', 'Z', 'Y', 'X', 'G', 'H', 'M', 'N',];
             var shortProjects = ['GitHub', 'Projects'];
             var stats = '';
-            for (var i = 0; i < driveLetters.length; i++) {
-                for (var j = 0; j < shortProjects.length; j++) {
-                    var driveAndFolder = driveLetters[i] + ':/' + shortProjects[j];
+            for (var r = 0; r < driveLetters.length; r++) {
+                for (var s = 0; s < shortProjects.length; s++) {
+                    var driveAndFolder = driveLetters[r] + ':/' + shortProjects[s];
                     try {
                         stats = fs.lstatSync(driveAndFolder);
                         if (stats.isDirectory()) {
                             tempProjectsFolder = driveAndFolder;
-                            var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
+                            var driveFolderContents = ugui.helpers.readAFolder(tempProjectsFolder);
                             //make sure there is at least one project folder in the projects folder
-                            for (var k = 0; k < innerContents.length; k++) {
-                                if (innerContents.length > 0 && innerContents[k].isFolder) {
+                            for (var t = 0; t < driveFolderContents.length; t++) {
+                                if (driveFolderContents.length > 0 && driveFolderContents[t].isFolder) {
                                     projectsFolder = tempProjectsFolder;
                                     scout.ftux.projectsFolder = projectsFolder;
                                     return;
@@ -156,7 +159,7 @@
      * @param  {string} path Location of project folders
      */
     function autoGrabProjects (path) {
-        $("#ftux .panel-body").empty();
+        $('#ftux .panel-body').empty();
         var projectsFolder = path || scout.ftux.projectsFolder;
 
         var projects = '';
@@ -164,7 +167,7 @@
             projects = ugui.helpers.readAFolder(projectsFolder);
         }
         if (!projectsFolder || projects.length < 1) {
-            $("#ftux .panel-body").html(scout.localize('NO_PROJECTS_FOUND', true));
+            $('#ftux .panel-body').html(scout.localize('NO_PROJECTS_FOUND', true));
             return;
         }
         for (var i = 0; i < projects.length; i++) {
@@ -175,7 +178,7 @@
                     '<input type="checkbox" value="' + projectsFolder + '/' + name + '" checked="checked"> ' +
                     name +
                   '</label>';
-                $("#ftux .panel-body").append(item);
+                $('#ftux .panel-body').append(item);
             }
         }
     }
@@ -192,40 +195,40 @@
             } else {
                 folder = path || scout.ftux.projectsFolder;
             }
-            $("#ftuxProjectsFolder").text(folder);
+            $('#ftuxProjectsFolder').text(folder);
         }
     }
 
     function ftuxEvents () {
-        $("#ftux .panel-body label").click(function () {
+        $('#ftux .panel-body label').click(function () {
             ftuxUnlock();
         });
-        $("#ftuxSelectAll").click(function () {
-            var inputs = $("#ftux .panel-body input");
+        $('#ftuxSelectAll').click(function () {
+            var inputs = $('#ftux .panel-body input');
             for (var i = 0; i < inputs.length; i++) {
                 $(inputs[i]).prop('checked', true);
             }
             ftuxUnlock();
         });
-        $("#ftuxDeselectAll").click(function () {
-            var inputs = $("#ftux .panel-body input");
+        $('#ftuxDeselectAll').click(function () {
+            var inputs = $('#ftux .panel-body input');
             for (var i = 0; i < inputs.length; i++) {
                 $(inputs[i]).prop('checked', false);
             }
             ftuxUnlock();
         });
-        $("#ftuxStartImport").click(function (evt) {
-            if ($("#ftuxStartImport").hasClass('gray')) {
+        $('#ftuxStartImport').click(function (evt) {
+            if ($('#ftuxStartImport').hasClass('gray')) {
                 evt.preventDefault();
                 return;
             }
 
-            $("#addProjectBrowse").attr('nwworkingdir', $("#ftuxProjectsFolder").text());
+            $('#addProjectBrowse').attr('nwworkingdir', $('#ftuxProjectsFolder').text());
 
             //Prevent importing projects multiple times from double-clicks
-            $("#ftuxStartImport").addClass('gray');
+            $('#ftuxStartImport').addClass('gray');
 
-            var inputs = $("#ftux .panel-body input:checked");
+            var inputs = $('#ftux .panel-body input:checked');
             for (var i = 0; i < inputs.length; i++) {
                 var path = $(inputs[i]).val();
                 //The index + 1 means it will never pass in a 0, and thus not be seen as falsey
@@ -235,31 +238,31 @@
             scout.helpers.saveSettings;
             unloadFTUX();
         });
-        $("#ftuxPickFolder").unbind('click');
-        $("#ftuxPickFolder").click(function (evt) {
+        $('#ftuxPickFolder').unbind('click');
+        $('#ftuxPickFolder').click(function (evt) {
             evt.preventDefault();
-            $("#ftuxProjectBrowse").click();
+            $('#ftuxProjectBrowse').click();
             ftuxUnlock();
         });
-        $("#ftuxProjectBrowse").change(function () {
-            var path = $("#ftuxProjectBrowse").val();
+        $('#ftuxProjectBrowse').change(function () {
+            var path = $('#ftuxProjectBrowse').val();
             autoGrabProjects(path);
             updatePanelContent(path);
             ftuxUnlock();
-            $("#ftux .panel-body label").click(function () {
+            $('#ftux .panel-body label').click(function () {
                 ftuxUnlock();
             });
         });
     }
 
     function ftuxUnlock () {
-        var inputs = $("#ftux .panel-body input");
-        var checked = $("#ftux .panel-body input:checked");
+        var inputs = $('#ftux .panel-body input');
+        var checked = $('#ftux .panel-body input:checked');
 
         if (inputs.length < 1 || checked.length < 1) {
-            $("#ftuxStartImport").prop('disable', true).addClass('gray');
+            $('#ftuxStartImport').prop('disable', true).addClass('gray');
         } else {
-            $("#ftuxStartImport").prop('disable', false).removeClass('gray');
+            $('#ftuxStartImport').prop('disable', false).removeClass('gray');
         }
     }
 
@@ -279,6 +282,6 @@
 
     //run once
     ftux();
-    scout.helpers.ftux = ftux;
+    window.scout.helpers.ftux = ftux;
 
 })();

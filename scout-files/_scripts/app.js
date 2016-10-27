@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 
 /*
   The main code that handles watching and processing files.
@@ -13,6 +15,9 @@
     // Define some variables                                   //
     /////////////////////////////////////////////////////////////
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
 
     //File System access
     var fs = require('fs-extra');
@@ -32,12 +37,12 @@
     } else {
         scout.versions.chokidar = require(ugui.app.pathToProject.split('%20').join(' ') + 'node_modules/chokidar/package.json').version;
     }
-    $(".nodeSassVersion").html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
-    $(".chokidarVersion").html('v' + scout.versions.chokidar);
+    $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
+    $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
     //If the input folder does not contain any Sass, then alert the user
     function checkForSassOnce (project, inputSubFolder, hasSassFiles) {
-        var hasSassFiles = hasSassFiles || false;
+        hasSassFiles = hasSassFiles || false;
         var inputFolder = project.inputFolder;
         if (inputSubFolder) {
             inputFolder = path.join(project.inputFolder, inputSubFolder);
@@ -145,23 +150,23 @@
         }, function (error, result) {
             var projectID = project.projectID;
             if (error) {
-                console.log(error);
+                console.warn(error);
                 scout.helpers.alert(error, projectID);
             } else {
                 fs.outputFile(outputFullFilePath, result.css.toString(), function (err) {
                     if (err) {
-                        console.log(err);
+                        console.warn(err);
                     }
                 });
                 if (devMode) {
                     fs.outputFile(sourceMap, result.map.toString(), function (err) {
                         if (err) {
-                            console.log(err);
+                            console.warn(err);
                         }
                     });
                 }
                 scout.helpers.message(result, projectID);
-            };
+            }
         });
     }
 
@@ -182,7 +187,7 @@
                 });
                 //Detect file changes and reprocess Sass files
                 scout.projects[I].watcher
-                    .on('change', function (item, stats) {
+                    .on('change', function (/*item , stats*/) {
                         //TODO: See if it's possible to only report changed files
                         //console.log(item);
                         //console.log(stats);
@@ -206,17 +211,17 @@
                 scout.helpers.updateSidebar();
                 checkForSassOnce(scout.projects[I]);
                 if (!scout.projects[I].hasSassFiles) {
-                    var id = scout.projects[I].projectID;
+                    id = scout.projects[I].projectID;
                     var msg = scout.localize('NO_SASS_FILES');
                     var err = {
-                        "folder": scout.projects[I].inputFolder,
-                        "line": 0,
-                        "column": 0,
-                        "status": 0,
-                        "formatted": msg,
-                        "message": msg,
-                        "name": "Error"
-                    }
+                        'folder': scout.projects[I].inputFolder,
+                        'line': 0,
+                        'column': 0,
+                        'status': 0,
+                        'formatted': msg,
+                        'message': msg,
+                        'name': 'Error'
+                    };
                     scout.helpers.warn(err, id);
                 }
                 processInputFolder(scout.projects[I]);
@@ -228,7 +233,7 @@
     function stopWatching (id) {
         for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID == id) {
-                var actionButtonIcon = $("#sidebar ." + id + " button .glyphicon");
+                var actionButtonIcon = $('#sidebar .' + id + ' button .glyphicon');
                 //fix icon
                 if ($(actionButtonIcon).hasClass('glyphicon-stop')) {
                     //Update icon and color in sidebar
@@ -261,9 +266,9 @@
         }
     }
 
-    scout.helpers.processInputFolder = processInputFolder;
-    scout.helpers.startWatching = startWatching;
-    scout.helpers.stopWatching = stopWatching;
-    scout.helpers.killAllWatchers = killAllWatchers;
+    window.scout.helpers.processInputFolder = processInputFolder;
+    window.scout.helpers.startWatching = startWatching;
+    window.scout.helpers.stopWatching = stopWatching;
+    window.scout.helpers.killAllWatchers = killAllWatchers;
 
 })(); // end runApp();

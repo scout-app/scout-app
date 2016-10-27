@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 // BUILDING FOR WINDOWS/LINUX:
 
 // Prerequisites: Must have Node, NPM, and Bower installed globally.
@@ -30,7 +32,7 @@ if (os == 'linux' ) { lin = true; }
 if (os == 'darwin') { darwin = true; }
 if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os != 'darwin' ) ) {
     lin = true;
-    console.log('UNSUPPORTED OPERATING SYSTEM')
+    console.log('UNSUPPORTED OPERATING SYSTEM');
     console.log('Build will probably fail.');
 }
 var fs = require('fs-extra');

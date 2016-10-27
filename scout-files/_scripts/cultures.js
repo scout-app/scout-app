@@ -7,6 +7,10 @@
 
 (function () {
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
     /**
      * This is the basic KEY to Definition function for languages.
      *
@@ -34,44 +38,46 @@
      */
     function updateDataLangs () {
         //data-lang
-        var items = $("*[data-lang]");
-        for (var i = 0; i < items.length; i++) {
+        var i = 0;
+        var langKey = '';
+        var items = $('*[data-lang]');
+        for (i = 0; i < items.length; i++) {
             var item = items[i];
-            var langKey = $(item).data('lang');
+            langKey = $(item).data('lang');
             $(item).html( localize(langKey) );
         }
         //data-langalt
-        var altItems = $("*[data-langalt]");
-        for (var i = 0; i < altItems.length; i++) {
+        var altItems = $('*[data-langalt]');
+        for (i = 0; i < altItems.length; i++) {
             var altItem = altItems[i];
-            var langKey = $(altItem).data('langalt');
+            langKey = $(altItem).data('langalt');
             $(altItem).attr('alt', localize(langKey) );
         }
         //data-langtitle
-        var titleItems = $("*[data-langtitle]");
-        for (var i = 0; i < titleItems.length; i++) {
+        var titleItems = $('*[data-langtitle]');
+        for (i = 0; i < titleItems.length; i++) {
             var titleItem = titleItems[i];
-            var langKey = $(titleItem).data('langtitle');
+            langKey = $(titleItem).data('langtitle');
             $(titleItem).attr('title', localize(langKey) );
         }
         //data-langarialabel
-        var ariaLabelItems = $("*[data-langarialabel]");
-        for (var i = 0; i < ariaLabelItems.length; i++) {
+        var ariaLabelItems = $('*[data-langarialabel]');
+        for (i = 0; i < ariaLabelItems.length; i++) {
             var ariaLabelItem = ariaLabelItems[i];
-            var langKey = $(ariaLabelItem).data('langarialabel');
+            langKey = $(ariaLabelItem).data('langarialabel');
             $(ariaLabelItem).attr('aria-label', localize(langKey) );
         }
         //data-langhref
-        var hrefItems = $("*[data-langhref");
-        for (var i = 0; i < hrefItems.length; i++) {
+        var hrefItems = $('*[data-langhref');
+        for (i = 0; i < hrefItems.length; i++) {
             var hrefItem = hrefItems[i];
-            var langKey = $(hrefItem).data('langhref');
+            langKey = $(hrefItem).data('langhref');
             $(hrefItem).attr('href', localize(langKey) );
         }
         //Allow links with a class of "external-link" to open in the user's default browser
         ugui.helpers.openDefaultBrowser();
-        $(".nodeSassVersion").html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
-        $(".chokidarVersion").html('v' + scout.versions.chokidar);
+        $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
+        $('.chokidarVersion').html('v' + scout.versions.chokidar);
     }
 
     /**
@@ -88,15 +94,15 @@
             scout.helpers.saveSettings();
         }
         updateDataLangs();
-        $("#culture-pics").attr('src', 'cultures/' + userLanguage + '.jpg');
+        $('#culture-pics').attr('src', 'cultures/' + userLanguage + '.jpg');
     }
 
     //This will be overridden by the user's saved settings later,
     //but if they don't have saved settings, we default to English.
     setLanguage('en');
     updateDataLangs();
-    scout.helpers.setLanguage = setLanguage;
-    scout.helpers.updateDataLangs = updateDataLangs;
-    scout.localize = localize;
+    window.scout.helpers.setLanguage = setLanguage;
+    window.scout.helpers.updateDataLangs = updateDataLangs;
+    window.scout.localize = localize;
 
 })();
