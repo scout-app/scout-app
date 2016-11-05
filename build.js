@@ -4,15 +4,21 @@
 
 // Prerequisites: Must have Node, NPM, and Bower installed globally.
 //
-// This assumes you have a folder next to `scout-app` called `scout-app-build/win32/Scout-App`
-// `scout-app-build` folder should contain:
+// This assumes you have a folder next to `scout-app` called
+// * `scout-app-build/win32/Scout-App`
+// * `scout-app-build/lin64/Scout-App`
+// * `scout-app-build/lin32/Scout-App`
+//
+// The `scout-app-build/XXXX/Scout-App` folder should contain:
 //  * locales (folder)
 //  * ffmpegsumo.dll
 //  * icudtl.dat
 //  * nw.pak
 //  * Scout-App.exe
+// (Or the Linux equivalents)
+//
 // All of those are from NW.js 0.12.3, the .exe is a renamed version of
-// nw.exe with a custom icon
+// `nw.exe` with a custom icon and modified version number using Resource Hacker.
 
 // BUILDING FOR OSX:
 // Prerequisites: Must have Node and NPM installed globally.
