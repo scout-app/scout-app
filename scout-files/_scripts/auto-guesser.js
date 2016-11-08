@@ -5,6 +5,10 @@
 
 (function () {
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
     var path = require('path');
 
     function autoGuessProjectFolders (autoInput, autoOutput) {
@@ -68,7 +72,7 @@
         } else if (srcDist == 'dist') {
             srcDist = [ 'built', 'public', 'distribution', 'production', 'prod', 'build', 'dist', 'scout-files' ];
         } else {
-            srcDist = [ 'app', 'built', 'public', 'distribution', 'production', 'prod', 'build', 'source', 'dist', 'src', 'scout-files' ]
+            srcDist = [ 'app', 'built', 'public', 'distribution', 'production', 'prod', 'build', 'source', 'dist', 'src', 'scout-files' ];
         }
 
         var projectPath = scout.newProject.projectFolder;
@@ -281,7 +285,7 @@
         var commonImages = [ 'logo.png', 'mstile03wd.png', 'apl-str.png', 'logo_48.png', 'logo-48.png', 'logo48.png', 'apl_57.png', 'apl-57.png', 'apl57.png', 'mstile01sm.png', 'apl_72.png', 'apl-72.png', 'apl72.png', 'logo_256.png', 'logo-256.png', 'logo256.png', 'logo_512.png', 'logo-512.png', 'logo512.png', 'fluid.png', 'mstile04lg.png', 'mstile02md.png', 'apl_144.png', 'apl-144.png', 'apl144.png', 'apl_114.png', 'apl-114.png', 'apl114.png', 'logo_128.png', 'logo-128.png', 'logo128.png' ];
 
         //Get the path for the project folder the user selected
-        var folder = path || $("#addProjectBrowse").val();
+        var folder = path || $('#addProjectBrowse').val();
         scout.newProject.projectFolder = folder;
         //Set it to the New Project object, converting windows slashes to unix
         if (process.platform == 'win32') {
@@ -302,7 +306,7 @@
         autoGuessProjectIcon(commonImages);
 
         //Reset the folder browse box
-        $("#addProjectBrowse").val('');
+        $('#addProjectBrowse').val('');
 
         if (instance && typeof(instance) == 'number') {
             scout.newProject.projectID = 'sa' + (Date.now() + instance);
@@ -317,16 +321,16 @@
         scout.helpers.ftux();
     }
 
-    $("#addProject, #file-newproject").click(function (event) {
+    $('#addProject, #file-newproject').click(function (event) {
         event.preventDefault();
-        $("#addProjectBrowse").click();
+        $('#addProjectBrowse').click();
     });
 
-    $("#addProjectBrowse").change(function () {
+    $('#addProjectBrowse').change(function () {
         autoGenerateProject();
     });
 
     //scout.helpers.autoGenerateProject('C:/Projects/MyProject');
-    scout.helpers.autoGenerateProject = autoGenerateProject;
+    window.scout.helpers.autoGenerateProject = autoGenerateProject;
 
 })();

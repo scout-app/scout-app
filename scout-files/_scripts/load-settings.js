@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 /*
   This will read the user's scout-settings.json file from
@@ -8,6 +9,8 @@
 */
 
 (function () {
+    var scout = window.scout;
+
     var fs = require('fs-extra');
     var path = require('path');
     var gui = require('nw.gui');
@@ -53,4 +56,4 @@
         //Update dictionary
         scout.helpers.setLanguage(scout.globalSettings.cultureCode);
     }
-})()
+})();

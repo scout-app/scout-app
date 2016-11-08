@@ -1,16 +1,24 @@
+/* eslint-disable no-console */
+
 // BUILDING FOR WINDOWS/LINUX:
 
 // Prerequisites: Must have Node, NPM, and Bower installed globally.
 //
-// This assumes you have a folder next to `scout-app` called `scout-app-build/win32/Scout-App`
-// `scout-app-build` folder should contain:
+// This assumes you have a folder next to `scout-app` called
+// * `scout-app-build/win32/Scout-App`
+// * `scout-app-build/lin64/Scout-App`
+// * `scout-app-build/lin32/Scout-App`
+//
+// The `scout-app-build/XXXX/Scout-App` folder should contain:
 //  * locales (folder)
 //  * ffmpegsumo.dll
 //  * icudtl.dat
 //  * nw.pak
 //  * Scout-App.exe
+// (Or the Linux equivalents)
+//
 // All of those are from NW.js 0.12.3, the .exe is a renamed version of
-// nw.exe with a custom icon
+// `nw.exe` with a custom icon and modified version number using Resource Hacker.
 
 // BUILDING FOR OSX:
 // Prerequisites: Must have Node and NPM installed globally.
@@ -30,7 +38,7 @@ if (os == 'linux' ) { lin = true; }
 if (os == 'darwin') { darwin = true; }
 if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os != 'darwin' ) ) {
     lin = true;
-    console.log('UNSUPPORTED OPERATING SYSTEM')
+    console.log('UNSUPPORTED OPERATING SYSTEM');
     console.log('Build will probably fail.');
 }
 var fs = require('fs-extra');

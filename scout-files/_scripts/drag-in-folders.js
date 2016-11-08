@@ -1,17 +1,18 @@
 (function () {
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
     var fs = require('fs-extra');
-    var path = require('path');
-    var gui = require('nw.gui');
-    var appData = gui.App.dataPath;
-    var body = $('html')[0];
+    var nw = require('nw.gui');
+    var modal = $('#drag-in-folders')[0];
 
     // send files to the not already running app
     // ("Open With" or drag-n-drop)
-    if (gui.App.argv.length) {
-        var files = gui.App.argv.map(function (path) {
+    if (ugui.app.argv.length) {
+        var files = ugui.app.argv.map(function (path) {
             return {
-                name: path.substring(path.lastIndexOf('/') + 1),
                 path: path
             };
         });
@@ -21,39 +22,41 @@
 
     // send files to the already running app
     // ("Open With" or drag-n-drop)
-    gui.App.on('open', function (path) {
+    nw.App.on('open', function (path) {
         onFilesDrop([{
-            name: path.substring(path.lastIndexOf('/') + 1),
             path: path
         }]);
     });
 
-    body.ondragover = function (evt) {
-        evt.preventDefault();
-        return false;
-    };
 
-    body.ondragenter = function (evt) {
-        evt.preventDefault();
-        debugger;
-        $('#drag-in-folders').fadeIn();
-        return;
-    };
+    function showModal () {
+        modal.style.visibility = 'visible';
+    }
+    function hideModal () {
+        modal.style.visibility = 'hidden';
+    }
 
-    body.ondragleave = function (evt) {
+    function allowDrag (evt) {
+        evt.dataTransfer.dropEffect = 'copy';
         evt.preventDefault();
-        debugger;
-        $('#drag-in-folders').slideUp();
-        return;
-    };
+    }
 
-    // drag-n-drop files to the app window's special holder
-    body.ondrop = function (evt) {
+    function handleDrop (evt) {
         evt.preventDefault();
         var files = [].slice.call(evt.dataTransfer.files);
         onFilesDrop(files);
-        $('#drag-in-folders').fadeOut('fast');
-    };
+        hideModal();
+    }
+
+    window.addEventListener('dragenter', function () {
+        showModal();
+    });
+    modal.addEventListener('dragenter', allowDrag);
+    modal.addEventListener('dragover', allowDrag);
+    modal.addEventListener('dragleave', function () {
+        hideModal();
+    });
+    modal.addEventListener('drop', handleDrop);
 
     /**
      * Actions to perform when new files are imported
@@ -66,7 +69,9 @@
             if (isFolder) {
                 scout.helpers.autoGenerateProject(folder);
             }
-        };
+        }
+
+        ugui.app.argv = [];
     }
 
 })();

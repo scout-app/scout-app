@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 /*
   Manipulates the state of all projects in the app. Handles adding and
@@ -7,33 +8,37 @@
 
 (function () {
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
     //This will change all UI elements for Project Settings back to an empty/default state
     function resetProjectSettingsUI () {
-        $("#projectIcon").attr('src', '_img/logo_128.png');
-        $("#projectName").html('');
-        $("#projectFolder").val('');
-        $("#inputFolder").val('');
-        $("#inputFolderBrowse").attr('nwworkingdir','...');
-        $("#inputFolderBrowse").val('');
-        $("#outputFolder").val('');
-        $("#outputFolderBrowse").attr('nwworkingdir','...');
-        $("#outputFolderBrowse").val('');
-        $("#outputWarning").addClass('hide');
+        $('#projectIcon').attr('src', '_img/logo_128.png');
+        $('#projectName').html('');
+        $('#projectFolder').val('');
+        $('#inputFolder').val('');
+        $('#inputFolderBrowse').attr('nwworkingdir','...');
+        $('#inputFolderBrowse').val('');
+        $('#outputFolder').val('');
+        $('#outputFolderBrowse').attr('nwworkingdir','...');
+        $('#outputFolderBrowse').val('');
+        $('#outputWarning').addClass('hide');
         $('#environment input[data-argname="production"]').click();
-        $($("#outputStyle option")[5]).prop('selected', true);
-        $("#printConsole .alert, #printConsole .panel").addClass('hide');
+        $($('#outputStyle option')[5]).prop('selected', true);
+        $('#printConsole .alert, #printConsole .panel').addClass('hide');
 
         var newProject = {
-            "projectID":     "",
-            "projectFolder": "",
-            "projectName":   "",
-            "imageFolder":   "",
-            "projectIcon":   "",
-            "inputFolder":   "",
-            "outputFolder":  "",
-            "environment":   "production",
-            "outputStyle":   "compressed",
-            "indicator":     "play"
+            'projectID':     '',
+            'projectFolder': '',
+            'projectName':   '',
+            'imageFolder':   '',
+            'projectIcon':   '',
+            'inputFolder':   '',
+            'outputFolder':  '',
+            'environment':   'production',
+            'outputStyle':   'compressed',
+            'indicator':     'play'
         };
         scout.newProject = newProject;
     }
@@ -93,7 +98,7 @@
         scout.helpers.saveSettings();
         scout.helpers.updateSidebar();
         if (scout.projects.length > 0) {
-            $($("#projects-list > .btn")[0]).click();
+            $($('#projects-list > .btn')[0]).click();
         }
         scout.helpers.ftux();
     }
@@ -116,7 +121,7 @@
      */
     function addProject (project) {
         if (!project || typeof(project) !== 'object') {
-            console.log('Can\'t add project, you need to pass in a valid project.')
+            console.log('Can\'t add project, you need to pass in a valid project.');
             return;
         }
         if (!project.projectID ||
@@ -136,14 +141,14 @@
     }
 
     function saveCurrentProject () {
-        var id = $("#projectID").val();
+        var id = $('#projectID').val();
         for (var i = 0; i < scout.projects.length; i++) {
             var project = scout.projects[i];
             if (id == project.projectID) {
-                project.projectIcon = $("#projectIcon").attr('src');
+                project.projectIcon = $('#projectIcon').attr('src');
 
-                project.inputFolder = $("#inputFolder").val();
-                project.outputFolder = $("#outputFolder").val();
+                project.inputFolder = $('#inputFolder').val();
+                project.outputFolder = $('#outputFolder').val();
 
                 var devChecked = $('#environment input[data-argname="development"]').prop('checked');
                 var prodChecked = $('#environment input[data-argname="production"]').prop('checked');
@@ -155,7 +160,7 @@
                 }
                 project.environment = environment;
 
-                project.outputStyle = $("#outputStyle").val();
+                project.outputStyle = $('#outputStyle').val();
             }
         }
         saveSettings();
@@ -192,25 +197,25 @@
      *
      */
     function updateProjectSettingsView (base) {
-        $("#projectNameEditable .glyphicon-remove").click();
-        var base = base || scout.newProject;
-        $("#projectIcon"  ).attr('src', base.projectIcon);
-        $("#projectName"  ).text(       base.projectName);
-        $("#projectID"    ).val(        base.projectID);
-        $("#projectFolder").val(        base.projectFolder);
-        $("#inputFolder"  ).val(        base.inputFolder);
-        $("#outputFolder" ).val(        base.outputFolder);
+        $('#projectNameEditable .glyphicon-remove').click();
+        base = base || scout.newProject;
+        $('#projectIcon'  ).attr('src', base.projectIcon);
+        $('#projectName'  ).text(       base.projectName);
+        $('#projectID'    ).val(        base.projectID);
+        $('#projectFolder').val(        base.projectFolder);
+        $('#inputFolder'  ).val(        base.inputFolder);
+        $('#outputFolder' ).val(        base.outputFolder);
 
         var workingDir = base.projectFolder;
         if (process.platform == 'win32') {
             workingDir = workingDir.split('/').join('\\');
         }
 
-        $("#inputFolderBrowse" ).attr('nwworkingdir', workingDir);
-        $("#outputFolderBrowse").attr('nwworkingdir', workingDir);
+        $('#inputFolderBrowse' ).attr('nwworkingdir', workingDir);
+        $('#outputFolderBrowse').attr('nwworkingdir', workingDir);
 
         //Output Style dropdown must be updated before Environment
-        var outputStyleOption = $("#outputStyle option");
+        var outputStyleOption = $('#outputStyle option');
         for (var i = 1; i < outputStyleOption.length; i++) {
             var current = $(outputStyleOption[i]).val();
             if (base.outputStyle == current) {
@@ -225,33 +230,33 @@
             $('#environment input[data-argName="development"]').click();
         }
 
-        $("#printConsole .alert, #printConsole .panel").addClass('hide');
-        $("#project-settings").removeClass('hide');
-        $("#printConsole ." + base.projectID).removeClass('hide');
-        $("#printConsoleTitle").addClass('hide');
-        $("#sidebar .active").removeClass('active');
-        $("#sidebar ." + base.projectID).addClass('active');
+        $('#printConsole .alert, #printConsole .panel').addClass('hide');
+        $('#project-settings').removeClass('hide');
+        $('#printConsole .' + base.projectID).removeClass('hide');
+        $('#printConsoleTitle').addClass('hide');
+        $('#sidebar .active').removeClass('active');
+        $('#sidebar .' + base.projectID).addClass('active');
         scout.helpers.projectRenameHeight();
     }
 
-    scout.helpers.resetProjectUI = resetProjectSettingsUI;
+    window.scout.helpers.resetProjectUI = resetProjectSettingsUI;
 
     //scout.helpers.deleteLocalSettingsFile(true)
-    scout.helpers.deleteLocalSettingsFile = deleteLocalSettingsFile;
+    window.scout.helpers.deleteLocalSettingsFile = deleteLocalSettingsFile;
 
     //scout.helpers.updateProjectSettingsView(scout.projects[0]);
-    scout.helpers.updateProjectSettingsView = updateProjectSettingsView;
+    window.scout.helpers.updateProjectSettingsView = updateProjectSettingsView;
 
     //scout.helpers.removeProject('sa1459092789554');
-    scout.helpers.removeProject = removeProject;
+    window.scout.helpers.removeProject = removeProject;
 
     //scout.helpers.addProject( {projectID:'',projectName:'',projectFolder:'',inputFolder:'',outputFolder:'',projectIcon:'',environment:'',outputStyle:''} );
-    scout.helpers.addProject = addProject;
+    window.scout.helpers.addProject = addProject;
 
     //Update the values on the scout.projects object for the currently visible project then save to file
-    scout.helpers.saveCurrentProject = saveCurrentProject;
+    window.scout.helpers.saveCurrentProject = saveCurrentProject;
 
     //Save scout object to file in app data folder
-    scout.helpers.saveSettings = saveSettings;
+    window.scout.helpers.saveSettings = saveSettings;
 
 })();

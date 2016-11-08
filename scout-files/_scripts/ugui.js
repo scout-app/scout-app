@@ -1,3 +1,4 @@
+/* eslint-disable */
 
 /*
   UGUI.js is a library and framework that was used to get

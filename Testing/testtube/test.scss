@@ -1,5 +1,6 @@
 @import "_test.sass";
 @import "subfolder/subsubfolder/shouldnotbecopied/_justapartial.sass";
+@import 'base';
 
 #thingy {
     border: 1px solid #F00;

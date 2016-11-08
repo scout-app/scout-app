@@ -5,8 +5,11 @@
 
 (function () {
 
+    var $ = window.$;
+    var scout = window.scout;
+
     function updateSidebar () {
-        $("#projects-list").empty();
+        $('#projects-list').empty();
 
         var indicatorColor = '';
         var indicatorStatus = '';
@@ -39,13 +42,13 @@
                 '</button>' +
               '</div>';
 
-            $("#projects-list").append(standardProject);
+            $('#projects-list').append(standardProject);
         }
 
         //Register click events for sidebar buttons
-        $("#projects-list div").click(function (evt) {
+        $('#projects-list div').click(function (evt) {
             evt.stopPropagation();
-            $("#sidebar .active").removeClass('active');
+            $('#sidebar .active').removeClass('active');
             $(evt.currentTarget).addClass('active');
             var id = $(evt.currentTarget).data('id');
             for (var j = 0; j < scout.projects.length; j++) {
@@ -56,7 +59,7 @@
         });
 
         // Clicking the play/stop button
-        $("#projects-list .btn .btn").click(function (evt) {
+        $('#projects-list .btn .btn').click(function (evt) {
             evt.stopPropagation();
             //Make sure the button isn't disabled
             if (!$(evt.currentTarget).hasClass('gray')) {
@@ -71,7 +74,7 @@
         });
 
         // Drag and Drop sorting
-        $("#projects-list").sortable({
+        $('#projects-list').sortable({
             axis: 'y',
             placeholder: 'btn btn-info',
             start: function (evt, ui) {
@@ -94,7 +97,7 @@
                 var deleteProject = new gui.MenuItem( {
                     label: removeProject,
                     click: function () {
-                        $("#delete-project").click();
+                        $('#delete-project').click();
                     }
                 });
 
@@ -105,7 +108,7 @@
 
             var menu = new Menu();
 
-            $("#projects-list > .btn").on('contextmenu', function (evt) {
+            $('#projects-list > .btn').on('contextmenu', function (evt) {
                 evt.preventDefault();
                 evt.stopPropagation();
                 $(this).click();
@@ -119,6 +122,6 @@
 
     //Empties the sidebar of projects
     //loops through the scout.projects object to recreate the sidebar
-    scout.helpers.updateSidebar = updateSidebar;
+    window.scout.helpers.updateSidebar = updateSidebar;
 
 })();

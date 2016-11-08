@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 /*
   This file contains chunks from ugui.js copy/pasted in and modifed.
@@ -8,6 +9,11 @@
 (function () {
 
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+
+    var nw = require('nw.gui');
     var fs = require('fs-extra');
 
 
@@ -21,7 +27,7 @@
     // number in the `package.json`, then offer a link to the release
     // page if there is a newer release.
     //
-    //>You must supply a "Repository URL" in your `package.json` file
+    //>You must supply a 'Repository URL" in your `package.json` file
     // and it must match the following pattern:
     //
     //`git://github.com/USERNAME/REPO.git`
@@ -56,7 +62,7 @@
             url: updateURL,
             error: function () {
                 //Display a message in the About Modal informing the user they have the latest version
-                $("#updateResults").html(
+                $('#updateResults').html(
                     '<p class="text-center">' +
                       '<strong data-lang="SERVER_DOWN">' + scout.localize('SERVER_DOWN') + '</strong>' +
                     '</p>'
@@ -71,8 +77,10 @@
                 var remoteVersion = data[0].name.split('v')[1].split('_')[0];
                 var localVersion = ugui.app.version.split('-')[0];
                 //[ '0', '2', '5' ]
-                var rvs = remoteVersionSplit = remoteVersion.split('.');
-                var lvs = localVersionSplit = localVersion.split('.');
+                var remoteVersionSplit = remoteVersion.split('.');
+                var rvs = remoteVersionSplit;
+                var localVersionSplit = localVersion.split('.');
+                var lvs = localVersionSplit;
                 //Check if the Major, Minor, or Patch have been updated on the remote
                 if (
                      (rvs[0] > lvs[0]) ||
@@ -80,7 +88,7 @@
                      (rvs[0] == lvs[0] && rvs[1] == lvs[1] && rvs[2] > lvs[2])
                    ) {
                     //Display in the About Modal a link to the release notes for the newest version
-                    $("#updateResults").html(
+                    $('#updateResults').html(
                         '<p>' +
                           '<strong data-lang="UPDATE_FOUND">' + scout.localize('UPDATE_FOUND') + '</strong> ' +
                           '<a href="' + data[0].html_url + '" class="external-link" data-lang="VIEW_LATEST_RELEASE">' +
@@ -93,7 +101,7 @@
                 //If there is not a new version of the app available
                 } else {
                     //Display a message in the About Modal informing the user they have the latest version
-                    $("#updateResults").html(
+                    $('#updateResults').html(
                         '<p class="text-center">' +
                           '<strong data-lang="LATEST_VERSION">' + scout.localize('LATEST_VERSION') + '</strong>' +
                         '</p>'
@@ -104,7 +112,7 @@
     }
 
     //When the user clicks the "Check for updates" button in the about modal run the above function
-    $("#scoutUpdateChecker").click(checkForUpdates);
+    $('#scoutUpdateChecker').click(checkForUpdates);
 
 
 
@@ -136,7 +144,7 @@
         fs.readFile(filename, 'utf8', function (err, data) {
             //If it can't read it for some reason, throw an error
             if (err) {
-                console.log(err);
+                console.warn(err);
                 return;
             }
 
@@ -162,9 +170,9 @@
             //With the contents of index.htm update, save over the file
             fs.writeFile(filename, data, function (err) {
                 if (err) {
-                    console.log(err)
+                    console.warn(err);
                     return;
-                };
+                }
             });
         });
     }
@@ -185,15 +193,15 @@
     //
     function themeSwapper() {
         //Grab all the files in the `_themes` folder and put them in an array
-        var allSwatches = fs.readdir('scout-files/_themes', function (err, files) {
+        fs.readdir('scout-files/_themes', function (err, files) {
             //If that works
             if (!err) {
                 //Check each file and put it in the dropdown box
-                for (index = 0; index < files.length; index++) {
+                for (var index = 0; index < files.length; index++) {
                     var cssFileName = files[index];                     //simplex.min.css
                     var swatchName = files[index].split('.min.css')[0]; //simplex
                     swatchName = swatchName.split('.css')[0];           //For files without '.min' but with '.css'
-                    $("#themeChoices").append(
+                    $('#themeChoices').append(
                         '<option value="_themes/' + cssFileName + '">' +
                           swatchName +
                         '</option>'
@@ -203,20 +211,20 @@
                 console.warn('Could not return list of style swatches.');
             }
             //Set the correct item in the dropdown to be selected.
-            var pageSetting = $("head link[data-swatch]").attr('href');
+            var pageSetting = $('head link[data-swatch]').attr('href');
 
-            for (var i = 0; i < $("#themeChoices option").length; i++) {
-                if ($( $("#themeChoices option")[i] ).val() == pageSetting) {
-                    $( $("#themeChoices option")[i] ).prop('selected', true);
+            for (var i = 0; i < $('#themeChoices option').length; i++) {
+                if ($( $('#themeChoices option')[i] ).val() == pageSetting) {
+                    $( $('#themeChoices option')[i] ).prop('selected', true);
                 }
             }
         });
 
         //When you change what is selected in the dropdown box, swap out the current swatch for the new one.
-        $("#themeChoices").change( function () {
+        $('#themeChoices').change( function () {
             //The currently selected swatch
-            var newSwatch = $("#themeChoices").val();
-            $("head link[data-swatch]").attr('href', newSwatch);
+            var newSwatch = $('#themeChoices').val();
+            $('head link[data-swatch]').attr('href', newSwatch);
 
             //Nav logo wasn't vertically centering after changing a stylesheet because the function was being ran after
             //the stylesheet was swapped instead of after the page rendered the styles. Since Webkit does not have a way of
@@ -232,5 +240,11 @@
     }
 
     themeSwapper();
+
+
+    // The Scout-App.exe arguments that are temporarily stored in the UGUI App object.
+    // Since you need to check at one point if args are passed in, but clear them out later.
+    // We store them here temporarily because nw.App.argv cannot be cleared out.
+    window.ugui.app.argv = nw.App.argv;
 
 })();

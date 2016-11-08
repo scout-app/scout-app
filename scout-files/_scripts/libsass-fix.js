@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 
 /*
     When you do npm install, libsass will download the version that matches
@@ -16,6 +17,8 @@
 */
 
 (function () {
+
+    var ugui = window.ugui;
 
     //Allow access to the filesystem
     var fs = require('fs-extra');
@@ -80,7 +83,7 @@
                 }
             } else {
                 console.log('Node-Sass only supports ia32 and x64 (32-Bit and 64-Bit) computers.');
-                console.log('You have: ' + architecture);
+                console.log('You have: ' + arch);
                 win.showDevTools();
             }
 
