@@ -51,7 +51,8 @@
     "dependencies": {
         "node-sass": "^3.x.x",
         "chokidar": "^1.x.x",
-        "fs-extra": "^0.30.x"
+        "fs-extra": "^0.30.x",
+        "livereload": "^0.6.x"
     },
     "devDependencies": {
         "nw": "^0.12.3",
