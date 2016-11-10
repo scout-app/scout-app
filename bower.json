@@ -24,6 +24,7 @@
 
     "html5-boilerplate": "latest",
     "foundation": "latest",
+    "bulma": "latest",
 
     "andy": "latest",
     "bi-app-sass": "latest",
