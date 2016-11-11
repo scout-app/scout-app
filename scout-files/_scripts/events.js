@@ -77,9 +77,9 @@
     $('#inputFolderBrowse').attr('nwworkingdir', projectFolder);
     $('#outputFolderBrowse').attr('nwworkingdir', projectFolder);
 
-    $('#projectIconHover').click( function () { $('#projectIconBrowse' ).click(); });
-    $('#inputFolderIcon' ).click( function () { $('#inputFolderBrowse' ).click(); });
-    $('#outputFolderIcon').click( function () { $('#outputFolderBrowse').click(); });
+    $('#projectIconHover').click(function () { $('#projectIconBrowse').click(); });
+    $('#inputFolderIcon').click(function () { $('#inputFolderBrowse').click(); });
+    $('#outputFolderIcon').click(function () { $('#outputFolderBrowse').click(); });
 
     $('#projectIconBrowse').change(function () {
         var newImg = $('#projectIconBrowse').val();
@@ -161,7 +161,7 @@
         $('#printConsole .alert, #printConsole .panel').removeClass('hide');
     });
 
-    $('.navbar a[href="#viewStatus"]').click( function () {
+    $('.navbar a[href="#viewStatus"]').click(function () {
         $('#viewStatus').click();
     });
 
@@ -179,10 +179,10 @@
         }
 
         //Check validity of input and output
-        if ( inputDir === '' || outputDir === '' ) {
+        if (inputDir === '' || outputDir === '') {
             $('#outputWarning').addClass('hide');
             lockSubmit(id);
-        } else if ( (inputDir === outputDir) || (outputDir.startsWith(inputDir + '/')) ) {
+        } else if ((inputDir === outputDir) || (outputDir.startsWith(inputDir + '/'))) {
             $('#outputWarning').removeClass('hide');
             lockSubmit(id);
         } else {
@@ -221,7 +221,7 @@
                 (outputDir.startsWith(inputDir + '\\'))
             ) {
                 project.indicator = 'gray-play';
-                scout.helpers.stopWatching( project.projectID );
+                scout.helpers.stopWatching(project.projectID);
             } else if (project.indicator == 'stop') {
                 project.indicator = 'stop';
             } else {
@@ -235,7 +235,7 @@
         }
     }
 
-    $('#environment input').change( function (evt) {
+    $('#environment input').change(function (evt) {
         ugui.helpers.buildUGUIArgObject();
         var manuallyUpdateOutputStyle = false;
         if (ugui.args.development.htmlticked) {
@@ -277,7 +277,7 @@
         $('.modal').slideUp('slow', function () {
             $('body').removeClass('no-overflow');
             //If the navigation is expanded, then close it after exiting the modal
-            if ( !$('.navbar-toggle').hasClass('collapsed') ) {
+            if (!$('.navbar-toggle').hasClass('collapsed')) {
                 $('.navbar-toggle').trigger('click');
             }
         });
@@ -330,12 +330,12 @@
 
     });
     //When clicking on background, cancel button, or X, remove modal
-    $('.modal, #cancel-delete, .modal .glyphicon-remove').click( function () {
+    $('.modal, #cancel-delete, .modal .glyphicon-remove').click(function () {
         // close the modal without saving
         removeModal();
     });
     //Allow you to click in the modal without triggering the `removeModal` function called when you click its parent element
-    $('.modal .modal-content').click( function (evt) {
+    $('.modal .modal-content').click(function (evt) {
         evt.stopPropagation();
     });
 
@@ -350,21 +350,21 @@
         document.onkeydown = function (pressed) {
             //Check CMD+V and CMD+v keys and paste
             if (pressed.metaKey && pressed.keyCode === 86 ||
-                pressed.metaKey && pressed.keyCode === 118 ) {
+                pressed.metaKey && pressed.keyCode === 118) {
                 pressed.preventDefault();
                 document.execCommand('paste');
                 return false;
             //Check CMD+C and CMD+c keys and copy
             } else if (
                 pressed.metaKey && pressed.keyCode === 67 ||
-                pressed.metaKey && pressed.keyCode === 99 ) {
+                pressed.metaKey && pressed.keyCode === 99) {
                 pressed.preventDefault();
                 document.execCommand('copy');
                 return false;
             //Check CMD+X and CMD+x and cut
             } else if (
                 pressed.metaKey && pressed.keyCode === 88 ||
-                pressed.metaKey && pressed.keyCode === 120 ) {
+                pressed.metaKey && pressed.keyCode === 120) {
                 pressed.preventDefault();
                 document.execCommand('cut');
                 return false;

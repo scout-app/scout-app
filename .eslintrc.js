@@ -9,6 +9,7 @@ module.exports = {
         "linebreak-style":             ["error", "windows"],
         "quotes":                      ["error", "single"],
         "semi":                        ["error", "always"],
-        "space-before-function-paren": ["error", "always"]
+        "space-before-function-paren": ["error", "always"],
+        "space-in-parens":             ["error", "never"]
     }
 };

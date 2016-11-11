@@ -33,10 +33,10 @@ var os = process.platform;
 var win = false;
 var lin = false;
 var darwin = false;
-if (os == 'win32' ) { win = true; }
-if (os == 'linux' ) { lin = true; }
+if (os == 'win32')  { win = true; }
+if (os == 'linux')  { lin = true; }
 if (os == 'darwin') { darwin = true; }
-if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os != 'darwin' ) ) {
+if (os == 'freebsd' || os == 'sunos' || (os != 'win32' && os != 'linux' && os != 'darwin')) {
     lin = true;
     console.log('UNSUPPORTED OPERATING SYSTEM');
     console.log('Build will probably fail.');
@@ -127,11 +127,11 @@ function minutes (finish, begin) {
 function rmrf (location) {
     if (win) {
         var winLocation = location.split('/').join('\\');
-        while ( fs.existsSync(location) ) {
+        while (fs.existsSync(location)) {
             exec('rd /S /Q ' + winLocation);
         }
     } else {
-        while ( fs.existsSync(location) ) {
+        while (fs.existsSync(location)) {
             fs.removeSync(location);
         }
     }
@@ -282,15 +282,15 @@ console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(en
 
 // Run the app
 if (win) {
-    if ( fs.existsSync(build + 'Scout-App.exe') ) {
+    if (fs.existsSync(build + 'Scout-App.exe')) {
         exec(path.join(build, 'Scout-App.exe'));
     }
 } else if (lin && process.arch == 'x64') {
-    if ( fs.existsSync(build + 'Scout-App') ) {
+    if (fs.existsSync(build + 'Scout-App')) {
         exec(build + 'Scout-App');
     }
 } else if (lin && process.arch == 'ia32') {
-    if ( fs.existsSync(build32 + 'Scout-App') ) {
+    if (fs.existsSync(build32 + 'Scout-App')) {
         exec(build32 + 'Scout-App');
     }
 } else if (darwin) {

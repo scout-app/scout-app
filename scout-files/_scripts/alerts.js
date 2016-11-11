@@ -117,7 +117,7 @@
             $('#printConsole').prepend(formmatedError);
         }
 
-        $('#printConsole .panel .glyphicon-remove').click( function () {
+        $('#printConsole .panel .glyphicon-remove').click(function () {
             $(this).parent().parent().remove();
         });
 
@@ -186,7 +186,7 @@
             $('#printConsole').prepend(formmatedError);
         }
 
-        $('#printConsole .panel .glyphicon-remove').click( function () {
+        $('#printConsole .panel .glyphicon-remove').click(function () {
             $(this).parent().parent().remove();
         });
 
@@ -237,7 +237,7 @@
             $('#printConsole').prepend(formattedMessage);
         }
 
-        $('#printConsole .alert .glyphicon-remove').click( function () {
+        $('#printConsole .alert .glyphicon-remove').click(function () {
             $(this).parent().remove();
         });
 

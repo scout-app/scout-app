@@ -27,7 +27,7 @@
     // number in the `package.json`, then offer a link to the release
     // page if there is a newer release.
     //
-    //>You must supply a 'Repository URL" in your `package.json` file
+    //>You must supply a "Repository URL" in your `package.json` file
     // and it must match the following pattern:
     //
     //`git://github.com/USERNAME/REPO.git`
@@ -214,14 +214,14 @@
             var pageSetting = $('head link[data-swatch]').attr('href');
 
             for (var i = 0; i < $('#themeChoices option').length; i++) {
-                if ($( $('#themeChoices option')[i] ).val() == pageSetting) {
-                    $( $('#themeChoices option')[i] ).prop('selected', true);
+                if ($($('#themeChoices option')[i]).val() == pageSetting) {
+                    $($('#themeChoices option')[i]).prop('selected', true);
                 }
             }
         });
 
         //When you change what is selected in the dropdown box, swap out the current swatch for the new one.
-        $('#themeChoices').change( function () {
+        $('#themeChoices').change(function () {
             //The currently selected swatch
             var newSwatch = $('#themeChoices').val();
             $('head link[data-swatch]').attr('href', newSwatch);
