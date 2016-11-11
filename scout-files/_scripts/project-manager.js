@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable space-in-parens */
 
 /*
   Manipulates the state of all projects in the app. Handles adding and

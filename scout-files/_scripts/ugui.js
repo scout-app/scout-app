@@ -1,4 +1,6 @@
-/* eslint-disable */
+/* eslint-disable no-console */
+/* eslint-disable indent */
+/* eslint-disable no-constant-condition */
 
 /*
   UGUI.js is a library and framework that was used to get
@@ -121,7 +123,7 @@
 //
 /*
 //Wait for the document to load before running ugui.js. Use either runUGUI or waitUGUI for immediate or delayed launch.
-$(document).ready( runUGUI );
+$(document).ready(runUGUI);
 
 //This lets you open NW.js, then immediately launch the Webkit Developer Tools, then a few seconds later run UGUI.
 //Good for hitting a debugger in time, as often the JS runs before the Webkit Developer Tools can open.
@@ -132,7 +134,7 @@ function waitUGUI() {
 
 */
 //Container for all UGUI components
-(function runUGUI() {
+(function runUGUI () {
 
 //This is the one place where the UGUI version is declared
 var uguiVersion = '2.0.0a';
@@ -167,11 +169,11 @@ for (index = 0; index < $('cmd').length; index++) {
 //Create the argsForm array containing all elements with a `data-argName` for each executable form.
 var argsForm = [];
 for (index = 0; index < executable.length; index++) {
-    argsForm.push( $('#' + executable[index] + ' *[data-argName]' ) );
+    argsForm.push($('#' + executable[index] + ' *[data-argName]'));
 }
 
 //Get all text fields where a single or double quoatation mark could be entered
-var textFields = $( 'textarea[data-argName], input[data-argName][type=text]' ).toArray();
+var textFields = $('textarea[data-argName], input[data-argName][type=text]').toArray();
 
 //Allow access to the filesystem
 var fs = require('fs-extra');
@@ -205,7 +207,7 @@ var platform = process.platform;
 
 //If you're on Windows then folders in file paths are separated with `\`, otherwise OS's use `/`
 var correctSlash = '/';
-if ( platform == 'win32' ) {
+if (platform == 'win32') {
     correctSlash = '\\';
 } else {
     correctSlash = '/';
@@ -215,7 +217,7 @@ if ( platform == 'win32' ) {
 var bootstrap3_enabled = (typeof $().emulateTransitionEnd == 'function');
 
 //Detect if Bootstrap Slider is loaded
-var slider_enabled = (typeof $().slider == 'function' );
+var slider_enabled = (typeof $().slider == 'function');
 
 //You can stylize console outputs in Webkit, these are essentially CSS classes
 var consoleNormal = 'font-family: sans-serif';
@@ -287,7 +289,7 @@ var ugui = window.ugui;
 // easier. Cow & Taco examples below to make life simpler.
 //>
 //
-//>     $('#taco').click( function () {
+//>     $('#taco').click(function () {
 //         runcmd('pngquant --force "file.png"');
 //     });
 //
@@ -307,7 +309,7 @@ function runcmd (executableAndArgs, callback) {
     }
 
     var exec = require('child_process').exec;
-    var child = exec( executableAndArgs,
+    var child = exec(executableAndArgs,
         //Throw errors and information into console
         function (error, stdout, stderr) {
             console.log(executableAndArgs);
@@ -394,7 +396,7 @@ function runcmdAdvanced (parameters) {
     }
 
     var exec = require('child_process').exec;
-    var child = exec( parameters.executableAndArgs,
+    var child = exec(parameters.executableAndArgs,
         //Throw errors and information into console
         function (error, stdout, stderr) {
             console.log(parameters.executableAndArgs);
@@ -499,7 +501,7 @@ function readAFile (filePathAndName) {
 //     })
 
 //
-function readAFolder(filePath, callback) {
+function readAFolder (filePath, callback) {
     //Validate that required argument is passed
     if (!filePath) {
         console.info(º+'Supply a path to the file you want to read as ' +
@@ -535,8 +537,8 @@ function readAFolder(filePath, callback) {
     //Store the contents of the passed in directory as an array
     var contentsList = fs.readdirSync(filePath);
 
-    contentsList.forEach( function (file) {
-        stats = fs.lstatSync(filePath + correctSlash + file);
+    contentsList.forEach(function (file) {
+        var stats = fs.lstatSync(filePath + correctSlash + file);
 
         //Check if it's a folder
         if (stats.isDirectory()) {
@@ -586,7 +588,7 @@ function readAFolder(filePath, callback) {
 //>     ugui.helpers.writeToFile('C:/folder/new_file.htm', 'Text.');
 
 //
-function writeToFile(filePathAndName, data, callback) {
+function writeToFile (filePathAndName, data, callback) {
     //Validate that required arguments are passed and are the correct types
     if (!filePathAndName || typeof(filePathAndName) !== 'string') {
         console.info(º+'Supply a path to the file you want to create or replace the ' +
@@ -817,7 +819,7 @@ function getFileSize (filePath, callback) {
     } else if (callback && typeof(callback) !== 'function') {
         console.info(º+'Your callback must be passed as a function.', consoleNormal);
         return;
-    };
+    }
 
     //Set up the info message for both possibilities below
     var infoMessage = 'There was an error attempting to retrieve file size.';
@@ -905,7 +907,7 @@ function setZoomPercent (percent, visible) {
             'the zoom level percent.', consoleNormal);
         console.info(º+'Example:', consoleBold);
         console.info(º+'ugui.helpers.setZoomPercent(200); //200% of default size', consoleCode);
-        console.info(º+'Or leave it blank to reset back to 100% (default size)', consoleNormal)
+        console.info(º+'Or leave it blank to reset back to 100% (default size)', consoleNormal);
         return;
     } else if (visible && typeof(visible) !== 'boolean') {
         console.info(º+'You must pass in true or false to set the visibility' +
@@ -927,12 +929,13 @@ function setZoomPercent (percent, visible) {
     //though so we do some math to allow easier numbers.
     win.zoomLevel = Math.log(zoomPercent/100) / Math.log(1.2);
 
+    //Define a function to hide the Zoom Level percent that appears on screen
+    function hideZoomLevel () {
+        $('.ugui-zoom-level').remove();
+    }
+
     //If `true` was passed in
     if (displayPercentOnPage) {
-        //Define a function to hide the Zoom Level percent that appears on screen
-        function hideZoomLevel() {
-            $('.ugui-zoom-level').remove();
-        }
         //Create a div on the page to display the current zoom percent
         $('body').append('<div class="ugui-zoom-level">' + zoomPercent + '%</div>');
         //After one second remove it from the page
@@ -1039,7 +1042,7 @@ function openFolder (folderPath) {
 // on the page. Then run the command.
 
 //When you click the submit button.
-$('.sendCmdArgs').click( function (event) {
+$('.sendCmdArgs').click(function (event) {
 
     //Prevent the form from sending like a normal website.
     event.preventDefault();
@@ -1057,9 +1060,9 @@ $('.sendCmdArgs').click( function (event) {
     var builtCommandString = convertCommandArraytoString(builtCommandArray);
 
     //Check if the form has an element with a class of `returnedCmdText`
-    if ( $('#' + thisExecutable + ' .returnedCmdText').length > 0 ) {
+    if ($('#' + thisExecutable + ' .returnedCmdText').length > 0) {
         //If so, run a command and put its returned text on the page
-        runcmd( builtCommandString, function (data) {
+        runcmd(builtCommandString, function (data) {
             $('#' + thisExecutable + ' .returnedCmdText').html(data);
         });
     } else {
@@ -1109,13 +1112,13 @@ function buildCommandArray (thisExecutable) {
         //Set the current `<arg>`
         var currentArg = $('cmd[executable=' + thisExecutable + '] arg')[index];
         //Put the `<arg>` text into an array
-        cmdArgsText.push( $(currentArg).text() );
+        cmdArgsText.push($(currentArg).text());
     }
 
     //Loop through all phrases and add processed versions to output array
     for (index = 0; index < cmdArgsText.length; index++) {
         //`cmdArgsText[index]` is `--quality ((meow)) to ((oink.min))`
-        cmds.push( parseArgument(cmdArgsText[index]) );
+        cmds.push(parseArgument(cmdArgsText[index]));
     }
 
     //After all the processing is done and the array is built, return it
@@ -1157,15 +1160,15 @@ function buildUGUIArgObject () {
         var argTag = $(cmdArgs[index]).prop('tagName').toLowerCase();
 
         //See if the current item is a range slider
-        if ( $(cmdArgs[index]).hasClass('slider') ) {
+        if ($(cmdArgs[index]).hasClass('slider')) {
             //Manually set the type to `range` for range slider elements
             argType = 'range';
         //See if the element is an item in one of Bootstrap's fake dropdowns
-        } else if ( $(cmdArgs[index]).parent().parent().hasClass('dropdown-menu') ) {
+        } else if ($(cmdArgs[index]).parent().parent().hasClass('dropdown-menu')) {
             //Manually set the type to `dropdown`
             argType = 'dropdown';
         //Check to see if input is a folder browser
-        } else if ( $(cmdArgs[index]).attr('nwdirectory') ) {
+        } else if ($(cmdArgs[index]).attr('nwdirectory')) {
             //Manually set the type if it's a folder browser
             argType = 'folder';
         //If a select tag was used (traditional dropdown)
@@ -1211,7 +1214,7 @@ function buildUGUIArgObject () {
 
         //For checkboxes and radio dials, add special info
         if (argType === 'checkbox' || argType === 'radio' || argType === 'dropdown') {
-            if ( $(cmdArgs[index]).prop('checked') ) {
+            if ($(cmdArgs[index]).prop('checked')) {
                 window.ugui.args[argName].htmlticked = true;
             } else {
                 window.ugui.args[argName].htmlticked = false;
@@ -1238,38 +1241,38 @@ buildUGUIArgObject();
 // how `findKeyValue()` works to return data from it:
 //
 //>     var a = {
-//         "b": "dog",
-//         "c": {
-//             "d": "cat",
-//             "e": "bat"
+//         'b': 'dog',
+//         'c': {
+//             'd': 'cat',
+//             'e': 'bat'
 //         }
 //     };
-//     var ab  = ["b"];
-//     var acd = ["c","d"];
+//     var ab  = ['b'];
+//     var acd = ['c','d'];
 //
-//>     console.log( findKeyValue(a,ab) );  //dog
-//     console.log( findKeyValue(a,acd) ); //cat
+//>     console.log(findKeyValue(a,ab) );  //dog
+//     console.log(findKeyValue(a,acd) ); //cat
 
 //
 function findKeyValue (obj, arr) {
     //Validate that both required arguments are passed
     if(!obj || !arr) {
-        console.info(º+"You need to supply an object and an array of " +
-            "strings to drill down within the object.", consoleNormal);
+        console.info(º+'You need to supply an object and an array of ' +
+            'strings to drill down within the object.', consoleNormal);
         return;
     }
     //Validate types
-    if (Object.prototype.toString.call(obj) !== "[object Object]") {
-        console.info(º+"First argument must be passed as an object.", consoleNormal);
+    if (Object.prototype.toString.call(obj) !== '[object Object]') {
+        console.info(º+'First argument must be passed as an object.', consoleNormal);
         return;
-    } else if (Object.prototype.toString.call(arr) !== "[object Array]") {
-        console.info(º+"Second argument must be passed as strings in an array.", consoleNormal);
+    } else if (Object.prototype.toString.call(arr) !== '[object Array]') {
+        console.info(º+'Second argument must be passed as strings in an array.', consoleNormal);
         return;
     }
     //Validate that all items of the array are strings
     for (i = 0; i < arr.length; i++) {
-        if (typeof(arr[i]) !== "string") {
-            console.info(º+"Second argument must be passed as strings in an array.", consoleNormal);
+        if (typeof(arr[i]) !== 'string') {
+            console.info(º+'Second argument must be passed as strings in an array.', consoleNormal);
             return;
         }
     }
@@ -1279,7 +1282,7 @@ function findKeyValue (obj, arr) {
         obj = obj[arr[i]];
     }
     //For stuff like `((moo))`, assume the user means `((moo.value))`
-    if (Object.prototype.toString.call(obj) === "[object Object]") {
+    if (Object.prototype.toString.call(obj) === '[object Object]') {
         obj = obj.value;
     }
     /* console.log(obj); */
@@ -1299,68 +1302,68 @@ function findKeyValue (obj, arr) {
 // the UGUI Args Object found here: `window.ugui.args`
 
 //
-function parseArgument(argumentText) {
+function parseArgument (argumentText) {
     //Validate that required argument is passed
     if (!argumentText) {
-        console.info(º+"This processes strings of text that contain " +
-            "((keywords)) in them from the <cmd> tags.", consoleNormal);
+        console.info(º+'This processes strings of text that contain ' +
+            '((keywords)) in them from the <cmd> tags.', consoleNormal);
         return;
     }
     //Validate types
-    if (typeof(argumentText) !== "string") {
-        console.info(º+"Argument text must be passed as a string.", consoleNormal);
+    if (typeof(argumentText) !== 'string') {
+        console.info(º+'Argument text must be passed as a string.', consoleNormal);
         return;
     }
 
-    //`argumentText = "and ((meow)), with ((oink)) too. "`
+    //`argumentText = 'and ((meow)), with ((oink)) too. '`
     var regexToMatch = /\(\((.*?)\)\)/;
 
     //Keep rerunning this until all `((keywords))` in `argumentText` are replaced with their actual values
-    while ( regexToMatch.test(argumentText) ) {
+    while (regexToMatch.test(argumentText)) {
 
-        //`match = ["((meow))","meow"]`
+        //`match = ['((meow))','meow']`
         var match = regexToMatch.exec(argumentText);
         var uguiArgObj = window.ugui.args;
 
-        var regExMatch = RegExp( "\\(\\(" + match[1] + "\\)\\)" );
+        var regExMatch = RegExp('\\(\\(' + match[1] + '\\)\\)');
         //`matched = uguiArgObj.meow`
         var matched = uguiArgObj[match[1]];
 
         if (matched === undefined) {
-            var matchName = match[1].split(".")[0];
+            var matchName = match[1].split('.')[0];
             matched = uguiArgObj[matchName];
         }
 
-        /* console.log( "-----------------" ); */
-        /* console.log( "value: ", matched.value ); */
+        /* console.log('-----------------'); */
+        /* console.log('value: ', matched.value ); */
 
         //Skip all unchecked checkboxes and unchecked radio dials.
         //Skip everything without a value
         if (
-            (matched.htmltype === "checkbox" && matched.htmlticked === false) ||
-            (matched.htmltype === "radio" && matched.htmlticked === false) ||
-            (matched.htmltype === "dropdown" && matched.htmlticked === false) ||
-            (typeof(matched.value) === "undefined") ||
-            (matched.value === "")
+            (matched.htmltype === 'checkbox' && matched.htmlticked === false) ||
+            (matched.htmltype === 'radio' && matched.htmlticked === false) ||
+            (matched.htmltype === 'dropdown' && matched.htmlticked === false) ||
+            (typeof(matched.value) === 'undefined') ||
+            (matched.value === '')
            ) {
             //Replace the `--quality ((meow))` with an empty string
-            argumentText = "";
+            argumentText = '';
             return argumentText;
         //Run all the non-checkbox/radio/file elements,
         //all checked checkboxes and checked radio dials
         } else if (
-            (matched.htmltype !== "checkbox" && matched.htmltype !== "radio") ||
-            (matched.htmltype === "checkbox" && matched.htmlticked === true) ||
-            (matched.htmltype === "radio" && matched.htmlticked === true)
+            (matched.htmltype !== 'checkbox' && matched.htmltype !== 'radio') ||
+            (matched.htmltype === 'checkbox' && matched.htmlticked === true) ||
+            (matched.htmltype === 'radio' && matched.htmlticked === true)
            ) {
             //Find the correct value from the UGUI Args Object
-            var foundKeyValue = findKeyValue( uguiArgObj, match[1].split(".") );
-            //Replace the "--quality ((meow))" with "--quality 9"
-            argumentText = argumentText.replace( regExMatch, foundKeyValue );
+            var foundKeyValue = findKeyValue(uguiArgObj, match[1].split('.'));
+            //Replace the '--quality ((meow))' with '--quality 9'
+            argumentText = argumentText.replace(regExMatch, foundKeyValue);
         //And whatever's left
         } else {
-            //Replace the "--quality ((meow))" with ""
-            argumentText = "";
+            //Replace the '--quality ((meow))' with ''
+            argumentText = '';
         }
 
     /* console.log(argumentText); */
@@ -1383,22 +1386,22 @@ function parseArgument(argumentText) {
 // Object.
 
 //
-function patternMatchingDefinitionEngine() {
+function patternMatchingDefinitionEngine () {
     //A regular expression that matches `((x))` and captures `x`
     var re = /\(\((.*?)\)\)/gi;
 
-    $("def").each(function (index, value) {
-        //Assign "value" to `def`
+    $('def').each(function (index, value) {
+        //Assign 'value' to `def`
         //`def = <def name="quality">((min)),((max))</def>`
         var def = value;
 
         //Get the actual definition from the `<def>`
-        //`definition = "((min)),((max))"`
-        var definition = $("def").html();
+        //`definition = '((min)),((max))'`
+        var definition = $(def).html();
 
         //Get the argument associated with this `<def>`
         //`arg = ugui.args.quality`
-        var arg = ugui.args[$("def").attr("name")];
+        var arg = ugui.args[$(def).attr('name')];
 
         var match;
         var currentIndex = 0;
@@ -1414,7 +1417,7 @@ function patternMatchingDefinitionEngine() {
                 currentIndex = re.lastIndex;
 
                 //Add the argument from the definition to the global UGUI object
-                arg[match[1]] = "";
+                arg[match[1]] = '';
 
                 //Add the argument to the `args` array for value assignment in next loop
                 args.push(match[1]);
@@ -1425,22 +1428,22 @@ function patternMatchingDefinitionEngine() {
                 //End the loop
                 break;
             }
-        };
+        }
 
         //Get the value of the associated argument
-        //`argValue = "0,75"`
+        //`argValue = '0,75'`
         var argValue = arg.value;
 
         //`splitIndex` is used to keep track of where we are in the value
-        splitIndex = 0;
+        var splitIndex = 0;
 
         //Loop through the arguments defined by this `<def>`, parse the value using the separators, and assign the correct value
         for (var i = 0; i < args.length; i++) {
             //The separators around the current argument  
-            //`firstSeparator = ""`  
-            //`secondSeparator = ","`
-            firstSeparator = separators[i];
-            secondSeparator = separators[i + 1];
+            //`firstSeparator = ''`  
+            //`secondSeparator = ','`
+            var firstSeparator = separators[i];
+            var secondSeparator = separators[i + 1];
 
             //The first if catches cases where the dev has unnecessarily used a `<def>`
             if (firstSeparator == '' && secondSeparator == '') {
@@ -1478,23 +1481,23 @@ function patternMatchingDefinitionEngine() {
 // to the command line.
 
 //
-function convertCommandArraytoString( cmdArray ) {
+function convertCommandArraytoString (cmdArray) {
     //Validate that the required argument is passed
     if (!cmdArray) {
-        console.info(º+"Accepts an array of executable and commands, " +
-            "removes empty arguments and puts everything into a string " +
-            "ready to be sent out to the command line.", consoleNormal);
+        console.info(º+'Accepts an array of executable and commands, ' +
+            'removes empty arguments and puts everything into a string ' +
+            'ready to be sent out to the command line.', consoleNormal);
         return;
     }
     //Validate types
-    if (Object.prototype.toString.call(cmdArray) !== "[object Array]") {
-        console.info(º+"Command array must be passed as strings in an array.", consoleNormal);
+    if (Object.prototype.toString.call(cmdArray) !== '[object Array]') {
+        console.info(º+'Command array must be passed as strings in an array.', consoleNormal);
         return;
     }
     //Validate that all items of the array are strings
-    for (i = 0; i < cmdArray.length; i++) {
-        if (typeof(cmdArray[i]) !== "string") {
-            console.info(º+"Arguments must be passed as strings in an array.", consoleNormal);
+    for (index = 0; index < cmdArray.length; index++) {
+        if (typeof(cmdArray[index]) !== 'string') {
+            console.info(º+'Arguments must be passed as strings in an array.', consoleNormal);
             return;
         }
     }
@@ -1502,7 +1505,7 @@ function convertCommandArraytoString( cmdArray ) {
     //Create and empty variable
     var cmdString = '';
 
-    //     cmdArray = ["cli_filename", "", "", "-nyan", "--speed 1mph", "", "", "-pear", "--potato", "", "", "", "-m "Text"", ""C:\kittens.new.png""]
+    //     cmdArray = ['cli_filename', '', '', '-nyan', '--speed 1mph', '', '', '-pear', '--potato', '', '', '', '-m "Text"', '"C:\kittens.new.png"']
     for (index = 0; index < cmdArray.length; index++) {
         //Make sure the executable isn't preceded with a space
         if (index === 0) {
@@ -1565,7 +1568,7 @@ function setInputFilePathNameExt (currentElement, argName) {
         filename = fileAttributes.name;
 
         //If you're on Windows then folders in file paths are separated with `\`, otherwise OS's use `/`
-        if ( platform == 'win32' ) {
+        if (platform == 'win32') {
             //Get the index of the final backslash so we can split the name from the path
             var lastBackslash = fullFilepath.lastIndexOf('\\');
             //`C:\users\bob\desktop\`
@@ -1648,7 +1651,7 @@ function setInputFolderPathName (currentElement, argName) {
         var fullFilePath =  fileAttributes.fullpath || fileAttributes.path;
 
         //If you're on Windows then folders in file paths are separated with `\`, otherwise OS's use `/`
-        if ( platform == 'win32' ) {
+        if (platform == 'win32') {
             //Get the index of the final backslash so we can split the name from the path
             var lastBackslash = fullFilePath.lastIndexOf('\\');
             //`C:\users\bob\desktop\`
@@ -1692,18 +1695,18 @@ function setInputFolderPathName (currentElement, argName) {
 // the form is submitted.
 
 //Remove all quotes on every text field whenever typing or leaving the field
-$(textFields).keyup( removeTypedQuotes );
-$(textFields).blur( removeTypedQuotes );
+$(textFields).keyup(removeTypedQuotes);
+$(textFields).blur(removeTypedQuotes);
 
 function removeTypedQuotes () {
     //Loop through all text fields on the page
     for (index = 0; index < textFields.length; index++) {
         //User entered text of current text field
-        var textFieldValue = $( textFields[index] ).val();
+        var textFieldValue = $(textFields[index]).val();
         //If the current text field has a double or single quote in it
-        if ( textFieldValue.indexOf('"') != -1 || textFieldValue.indexOf("'") != -1 ) {
+        if (textFieldValue.indexOf('\"') != -1 || textFieldValue.indexOf('\'') != -1) {
             //Remove quotes in current text field
-            $( textFields[index] ).val( $( textFields[index] ).val().replace(/['"]/g, '') );
+            $(textFields[index]).val($(textFields[index]).val().replace(/['"]/g, ''));
         }
     }
 }
@@ -1775,9 +1778,9 @@ function colorProcessor (inputColor, argName) {
     var Blue  = (parseInt(B) * 16) + parseInt(b);
 
     //As 0-100%
-    var RP = Math.floor( (Red/255) * 100 );
-    var GP = Math.floor( (Green/255) * 100 );
-    var BP = Math.floor( (Blue/255) * 100 );
+    var RP = Math.floor((Red/255) * 100);
+    var GP = Math.floor((Green/255) * 100);
+    var BP = Math.floor((Blue/255) * 100);
 
     var DecRrGgBb = R + ' ' + r + ' ' + G + ' ' + g + ' ' + B + ' ' + b;
     //Create the args object parameters on the UGUI Args Object
@@ -1842,7 +1845,7 @@ function unlockSubmit () {
         //Get the current executable
         var currentExecutable = executable[index];
         //If a required element wasn't filled out in this form
-        if ( $('#' + currentExecutable).is(':invalid') ) {
+        if ($('#' + currentExecutable).is(':invalid')) {
             //Disable/Lock the submit button
             $('#' + currentExecutable + ' .sendCmdArgs').prop('disabled', true);
         //If all required elements in a form have been fulfilled
@@ -1856,9 +1859,9 @@ function unlockSubmit () {
 
 for (index = 0; index < argsForm.length; index++) {
     //When you click out of a form element
-    $(argsForm[index]).keyup  ( unlockSubmit );
-    $(argsForm[index]).mouseup( unlockSubmit );
-    $(argsForm[index]).change ( unlockSubmit );
+    $(argsForm[index]).keyup  (unlockSubmit);
+    $(argsForm[index]).mouseup(unlockSubmit);
+    $(argsForm[index]).change (unlockSubmit);
 }
 
 //On page load have this run once to unlock submit if nothing is required.
@@ -1877,9 +1880,9 @@ unlockSubmit();
 // the package.json. This replaces the text on the page.
 
 //
-$(".applicationName").html(appName);
-$(".applicationTitle").html(appTitle);
-$(".applicationDescription").html(appDescription);
+$('.applicationName').html(appName);
+$('.applicationTitle').html(appTitle);
+$('.applicationDescription').html(appDescription);
 getAboutModal();
 
 
@@ -1897,9 +1900,9 @@ getAboutModal();
 
 //
 function getAboutModal () {
-    $.get('_markup/ugui-about.htm', function ( aboutMarkup ) {
+    $.get('_markup/ugui-about.htm', function (aboutMarkup) {
         //Put UGUI about info in about modal
-        $('#aboutModal .modal-body').append( aboutMarkup );
+        $('#aboutModal .modal-body').append(aboutMarkup);
 
         //Wait for the "UGUI about" info to be loaded before updating the "App about" section
         //Load application name, version number, and author from package.json
@@ -1915,23 +1918,23 @@ function getAboutModal () {
         openDefaultBrowser();
 
         //Remove modal, enable scrollbar
-        function removeModal() {
+        function removeModal () {
             $('#aboutModal').slideUp('slow', function () {
                 $('body').removeClass('no-overflow');
                 //If the navigation is expanded, then close it after exiting the modal
-                if ( !$('.navbar-toggle').hasClass('collapsed') ) {
+                if (!$('.navbar-toggle').hasClass('collapsed')) {
                     $('.navbar-toggle').trigger('click');
                 }
             });
         }
 
         //When clicking on background or X, remove modal
-        $('#aboutModal').click( removeModal );
+        $('#aboutModal').click(removeModal);
         //Allow you to click in the modal without triggering the `removeModal` function called when you click its parent element
-        $('#aboutModal .modal-content').click( function ( event ) {
+        $('#aboutModal .modal-content').click(function (event) {
             event.stopPropagation();
         });
-        $('#aboutModal .glyphicon-remove').click( removeModal );
+        $('#aboutModal .glyphicon-remove').click(removeModal);
 
     });
 }
@@ -1949,22 +1952,22 @@ function getAboutModal () {
 // functionality of the items in the top navigation bar.
 
 //Clicking View > Command Line Output in the Nav Bar
-$('.navbar a[href="#cmdoutput"]').click( function () {
+$('.navbar a[href="#cmdoutput"]').click(function () {
     $('#uguiDevTools nav span[data-nav="uguiCommand"]').trigger('click');
 });
 
 //Clicking View > Console in the Nav Bar
-$('.navbar a[href="#console"]').click( function () {
+$('.navbar a[href="#console"]').click(function () {
     require('nw.gui').Window.get().showDevTools();
 });
 
 //Clicking View > Fullscreen
-$('.navbar a[href="#fullscreen"]').click( function () {
+$('.navbar a[href="#fullscreen"]').click(function () {
     require('nw.gui').Window.get().toggleFullscreen();
 });
 
 //Clicking "About" in the Nav Bar
-$('.navbar a[href="#about"]').click( function () {
+$('.navbar a[href="#about"]').click(function () {
 
     //Get the current Window
     var win = require('nw.gui').Window.get();
@@ -1972,8 +1975,8 @@ $('.navbar a[href="#about"]').click( function () {
     //Show the modal
     $('#aboutModal').fadeIn('slow');
 
-    function setModalHeight() {
-        if ( win.height < 301 ) {
+    function setModalHeight () {
+        if (win.height < 301) {
             $('.modal-header').addClass('shortScreen');
         } else {
             $('.modal-header').removeClass('shortScreen');
@@ -1982,13 +1985,13 @@ $('.navbar a[href="#about"]').click( function () {
     }
 
     //Get the current height of the window and set the modal to 75% of that
-    function modalBodyHeight() {
-        $('#aboutModal .modal-body').css('max-height', (win.height * 0.5) + 'px' );
+    function modalBodyHeight () {
+        $('#aboutModal .modal-body').css('max-height', (win.height * 0.5) + 'px');
     }
 
     //Make the header of the modal small when app is tiny
     setModalHeight();
-    win.on('resize', setModalHeight );
+    win.on('resize', setModalHeight);
 
     //Remove page scrollbar when modal displays
     $('body').addClass('no-overflow');
@@ -1996,7 +1999,7 @@ $('.navbar a[href="#about"]').click( function () {
 });
 
 //Makes sure that the logo and app name in the nav bar are vertically centered
-function centerNavLogo() {
+function centerNavLogo () {
     var navHeight = $('.navbar').height();
     $('.navbar-brand').css('line-height', navHeight + 'px');
     $('.navbar-brand').css('padding-top', '0px');
@@ -2008,7 +2011,7 @@ function centerNavLogo() {
 centerNavLogo();
 
 //When you click on the exit in the navigation, close this instance of NW.js
-$('.navbar a[href="#exit"]').click( function () {
+$('.navbar a[href="#exit"]').click(function () {
     require('nw.gui').Window.get().close(true);
 });
 
@@ -2034,7 +2037,7 @@ function openDefaultBrowser () {
     $('.external-link').unbind('click');
 
     //Open URL with default browser.
-    $('.external-link').click( function ( event ) {
+    $('.external-link').click(function (event) {
         //Prevent the link from loading in NW.js
         event.preventDefault();
         //Get the `href` URL for the current link
@@ -2073,7 +2076,7 @@ openDefaultBrowser();
 function checkForUpdates () {
     //git://github.com/USERNAME/REPO.git
     var repoURL = packageJSON.repository[0].url;
-    //[ "git:", "", "github.com", "USERNAME", "REPO.git" ]
+    //[ 'git:', '', 'github.com', 'USERNAME', 'REPO.git' ]
     var repoURLSplit = repoURL.split('/');
     var helpMessage = 'Visit UGUI.io/api to learn how to use the "Check for updates" feature.';
 
@@ -2109,11 +2112,13 @@ function checkForUpdates () {
         },
         success: function (data) {
             //0.2.5
-            var remoteVersion = data[0].tag_name.split("v")[1];
+            var remoteVersion = data[0].tag_name.split('v')[1];
             var localVersion = appVersion;
-            //[ "0", "2", "5" ]
-            var rvs = remoteVersionSplit = remoteVersion.split(".");
-            var lvs = localVersionSplit = localVersion.split(".");
+            //[ '0', '2', '5' ]
+            var remoteVersionSplit = remoteVersion.split('.');
+            var localVersionSplit = localVersion.split('.');
+            var rvs = remoteVersionSplit;
+            var lvs = localVersionSplit;
             //Check if the Major, Minor, or Patch have been updated on the remote
             if (
                  (rvs[0] > lvs[0]) ||
@@ -2121,7 +2126,7 @@ function checkForUpdates () {
                  (rvs[0] == lvs[0] && rvs[1] == lvs[1] && rvs[2] > lvs[2])
                ) {
                 //Display in the About Modal a link to the release notes for the newest version
-                $("#updateResults").html(
+                $('#updateResults').html(
                     '<p>' +
                       '<strong>Update found!</strong> ' +
                       '<a href="' + data[0].html_url + '" class="external-link">' +
@@ -2134,7 +2139,7 @@ function checkForUpdates () {
             //If there is not a new version of the app available
             } else {
                 //Display a message in the About Modal informing the user they have the latest version
-                $("#updateResults").html(
+                $('#updateResults').html(
                     '<p class="text-center">' +
                       '<strong>You have the latest version of ' + appTitle + '.</strong>' +
                     '</p>'
@@ -2145,7 +2150,7 @@ function checkForUpdates () {
 }
 
 //When the user clicks the "Check for updates" button in the about modal run the above function
-$("#updateChecker").click(checkForUpdates);
+$('#updateChecker').click(checkForUpdates);
 
 
 
@@ -2208,15 +2213,15 @@ function warnIfDuplicateArgNames () {
 
         //Create a new array with duplicate `argName`s removed
         cmdArgsWithoutDuplicates = [];
-        for ( var key in duplicatesArray ) {
+        for (var key in duplicatesArray) {
             cmdArgsWithoutDuplicates.push(duplicatesArray[key]);
         }
 
         //If the new array had any duplicates removed display a warning.
-        if ( cmdArgsWithoutDuplicates.length < cmdArgs.length ) {
-            $.get("_markup/ugui-multiargnames.htm", function (multiArgNamesMarkup) {
+        if (cmdArgsWithoutDuplicates.length < cmdArgs.length) {
+            $.get('_markup/ugui-multiargnames.htm', function (multiArgNamesMarkup) {
                 //Put alert message at the top of page
-                $("body.dev").prepend( multiArgNamesMarkup );
+                $('body.dev').prepend(multiArgNamesMarkup);
             });
             //Keep the console warning formatted nicely for cli filenames under 16 characters in length
             var spacesNeeded = 16 - executable[index].length;
@@ -2226,11 +2231,11 @@ function warnIfDuplicateArgNames () {
                     spaces = spaces + ' ';
                 }
             }
-            console.warn( '' );
-            console.warn( '////////////////////////////////////////' );
-            console.warn( '// All data-argName\'s must be unique. //' );
-            console.warn( '// FOUND IN ' + executable[index].toUpperCase() + ' SECTION. ' + spaces + '//');
-            console.warn( '////////////////////////////////////////' );
+            console.warn('');
+            console.warn('////////////////////////////////////////');
+            console.warn('// All data-argName\'s must be unique. //');
+            console.warn('// FOUND IN ' + executable[index].toUpperCase() + ' SECTION. ' + spaces + '//');
+            console.warn('////////////////////////////////////////');
         }
     }
 }
@@ -2280,58 +2285,56 @@ function warnIfDuplicateArgNames () {
 // bottom of the page.
 
 //Check if the body has a class of prod for Production Environment
-if ( $("body").hasClass("prod") ) {
-    $("#uguiDevTools").remove();
-} else if ( $("body").hasClass("dev") ) {
+if ($('body').hasClass('prod')) {
+    $('#uguiDevTools').remove();
+} else if ($('body').hasClass('dev')) {
     //Grab the UGUI Developer Toolbar markup
-    $.get("_markup/ugui-devtools.htm", function ( uguiDevToolsMarkup ) {
+    $.get('_markup/ugui-devtools.htm', function (uguiDevToolsMarkup) {
         //Put Developer Toolbar markup on the page
-        $("body.dev").append( uguiDevToolsMarkup );
+        $('body.dev').append(uguiDevToolsMarkup);
         //Update the UGUI version to the correct version
-        $("#uguiDevTools .versionUGUI").html(window.ugui.version);
+        $('#uguiDevTools .versionUGUI').html(window.ugui.version);
         fillExecutableDropdowns();
         putExeHelpInDevTools();
-        $("#uguiDevTools section").addClass("shrink");
-        $("#uguiDevTools section *").addClass("shrink");
-        $("#uguiDevTools").show();
+        $('#uguiDevTools section').addClass('shrink');
+        $('#uguiDevTools section *').addClass('shrink');
+        $('#uguiDevTools').show();
 
         //Hide/Show based on UGUI Dev Tools navigation
-        $("#uguiDevTools nav span").click( function () {
-            var sectionClicked = $(this).attr("data-nav");
-            $("#uguiDevTools nav span").removeClass("selected");
+        $('#uguiDevTools nav span').click(function () {
+            var sectionClicked = $(this).attr('data-nav');
+            $('#uguiDevTools nav span').removeClass('selected');
 
-            if ( $("#uguiDevTools section." + sectionClicked).hasClass("shrink") ) {
-                $("#uguiDevTools nav span[data-nav=" + sectionClicked + "]").addClass("selected");
-                $("#uguiDevTools section").addClass("shrink");
-                $("#uguiDevTools section *").addClass("shrink");
-                $("#uguiDevTools section." + sectionClicked).removeClass("shrink");
-                $("#uguiDevTools section." + sectionClicked + " *").removeClass("shrink");
+            if ($('#uguiDevTools section.' + sectionClicked).hasClass('shrink')) {
+                $('#uguiDevTools nav span[data-nav=' + sectionClicked + ']').addClass('selected');
+                $('#uguiDevTools section').addClass('shrink');
+                $('#uguiDevTools section *').addClass('shrink');
+                $('#uguiDevTools section.' + sectionClicked).removeClass('shrink');
+                $('#uguiDevTools section.' + sectionClicked + ' *').removeClass('shrink');
             } else {
-                $("#uguiDevTools nav span[data-nav=" + sectionClicked + "]").removeClass("selected");
-                $("#uguiDevTools section." + sectionClicked).addClass("shrink");
-                $("#uguiDevTools section." + sectionClicked + " *").addClass("shrink");
+                $('#uguiDevTools nav span[data-nav=' + sectionClicked + ']').removeClass('selected');
+                $('#uguiDevTools section.' + sectionClicked).addClass('shrink');
+                $('#uguiDevTools section.' + sectionClicked + ' *').addClass('shrink');
             }
         });
 
         swatchSwapper();
 
         //When the developer clicks "Keep"
-        $("#setNewSwatch").click( function () {
+        $('#setNewSwatch').click(function () {
             //The currently selected swatch
-            var newSwatch = $("#swatchSwapper").val();
+            var newSwatch = $('#swatchSwapper').val();
             //Update index.htm to use the selected swatch as the new default
             saveNewSwatch(newSwatch);
         });
 
         openDefaultBrowser();
 
-        //Update the UGUI Developer Toolbar's "CMD Output" section
+        //Update the UGUI Developer Toolbar's 'CMD Output' section
         updateUGUIDevCommandLine();
-        $("#uguiDevTools .uguiCommand .executableName").change(updateUGUIDevCommandLine);
+        $('#uguiDevTools .uguiCommand .executableName').change(updateUGUIDevCommandLine);
     });
 
-    //Get NW.js GUI and WIN
-    var gui = require('nw.gui');
     //Get the window object
     var win = require('nw.gui').Window.get();
 
@@ -2360,7 +2363,7 @@ if ( $("body").hasClass("prod") ) {
 function fillExecutableDropdowns () {
     //Check each file and put it in the dropdown box
     for (index = 0; index < executable.length; index++) {
-        $(".executableName").append('<option value="' + executable[index] + '">' + executable[index] + '</option>');
+        $('.executableName').append('<option value="' + executable[index] + '">' + executable[index] + '</option>');
     }
 }
 
@@ -2378,17 +2381,17 @@ function fillExecutableDropdowns () {
 // form elements.
 
 //Make sure we're in dev mode first
-if( $("body").hasClass("dev") ) {
+if($('body').hasClass('dev')) {
 
     //Cycle through all executables used by the app
     for (index = 0; index < executable.length; index++) {
         //If any of the form elements with a `data-argName` change
-        $(argsForm[index]).change( function () {
+        $(argsForm[index]).change(function () {
             //Check if it was the drag/drop input box
-            if ( $(this).parent().hasClass("ezdz") ) {
+            if ($(this).parent().hasClass('ezdz')) {
                 var file = this.files[0];
                 //pass in the data-argName to EZDZ
-                file.argName = $(this).attr("data-argName");
+                file.argName = $(this).attr('data-argName');
                 //Run a custom function before updating dev tools
                 ezdz(file);
             }
@@ -2399,25 +2402,25 @@ if( $("body").hasClass("dev") ) {
     }
 
     //If the user types anything in a form
-    $(textFields).keyup( updateUGUIDevCommandLine );
-    $(textFields).blur( updateUGUIDevCommandLine );
-    $(".slider").on( "slide", updateUGUIDevCommandLine );
+    $(textFields).keyup(updateUGUIDevCommandLine);
+    $(textFields).blur(updateUGUIDevCommandLine);
+    $('.slider').on('slide', updateUGUIDevCommandLine);
 } else {
     //If we're not in `dev` mode, make sure the EZDZ can still run
-    $(".ezdz input").change( function () {
+    $('.ezdz input').change(function () {
         var file = this.files[0];
         //pass in the data-argName to EZDZ
-        file.argName = $(this).attr("data-argName");
+        file.argName = $(this).attr('data-argName');
         ezdz(file);
     });
 }
 
 function updateUGUIDevCommandLine () {
     //Clear it out first
-    $("#commandLine").empty();
+    $('#commandLine').empty();
 
     //Get the executable from the dropdown lists
-    var pickedExecutable = $(".uguiCommand .executableName").val();
+    var pickedExecutable = $('.uguiCommand .executableName').val();
 
     //For apps that don't use `<cmd>` blocks, skip this section
     if (pickedExecutable != null) {
@@ -2426,13 +2429,13 @@ function updateUGUIDevCommandLine () {
         var devCommandOutputSpaces = [];
 
         for (var index = 0; index < devCommandOutput.length; index++) {
-            if (devCommandOutput[index] !== "") {
+            if (devCommandOutput[index] !== '') {
                 devCommandOutputSpaces.push(' ' + devCommandOutput[index]);
             }
         }
 
         //Replace the text in the "CMD Output" section of the UGUI Developer Toolbar
-        $("#commandLine").html( devCommandOutputSpaces );
+        $('#commandLine').html(devCommandOutputSpaces);
     }
 }
 
@@ -2452,21 +2455,21 @@ function updateUGUIDevCommandLine () {
 //
 function putExeHelpInDevTools () {
     //Every time the dropdown changes update the `<pre>`
-    $("#uguiDevTools .executableName").change(getHelpInfo);
-    $("#uguiDevTools .helpDropdown").change(getHelpInfo);
+    $('#uguiDevTools .executableName').change(getHelpInfo);
+    $('#uguiDevTools .helpDropdown').change(getHelpInfo);
 
-    function getHelpInfo() {
+    function getHelpInfo () {
         //Grab the correct executable from the dropdown
-        var executableChoice = $(".uguiExecutable .executableName").val();
+        var executableChoice = $('.uguiExecutable .executableName').val();
         //Grab which kind of help argument they chose, like `--help` or `/?`
-        var helpChoice = $(".uguiExecutable .helpDropdown").val();
+        var helpChoice = $('.uguiExecutable .helpDropdown').val();
 
         //Don't run if there isn't a help choice
         if (helpChoice) {
             //Run the executable using the user's chosen argument to get its help info
-            runcmd( executableChoice + ' ' + helpChoice, function (returnedHelpInfo) {
+            runcmd(executableChoice + ' ' + helpChoice, function (returnedHelpInfo) {
                 //Put the help info in a `<pre>`
-                $("#uguiDevTools pre.executableHelp").text( returnedHelpInfo );
+                $('#uguiDevTools pre.executableHelp').text(returnedHelpInfo);
             });
         }
     }
@@ -2489,27 +2492,27 @@ function putExeHelpInDevTools () {
 //
 function swatchSwapper () {
     //Grab all the files in the `_themes` folder and put them in an array
-    var allSwatches = fs.readdir("scout-files/_themes", function (err, files) {
+    fs.readdir('scout-files/_themes', function (err, files) {
         //If that works
         if (!err) {
             //Check each file and put it in the dropdown box
             for (index = 0; index < files.length; index++) {
                 var cssFileName = files[index];                     //cerulean.min.css
-                var swatchName = files[index].split(".min.css")[0]; //cerulean
-                $("#swatchSwapper").append(
+                var swatchName = files[index].split('.min.css')[0]; //cerulean
+                $('#swatchSwapper').append(
                     '<option value="_themes/' + cssFileName + '">' +
                       swatchName +
                     '</option>'
                 );
             }
         } else {
-            console.warn(º+"Could not return list of style swatches.", consoleBold);
+            console.warn(º+'Could not return list of style swatches.', consoleBold);
         }
     });
 
     //When you change what is selected in the dropdown box, swap out the current swatch for the new one.
-    $("#swatchSwapper").change( function () {
-        $("head link[data-swatch]").attr( "href", $("#swatchSwapper").val() );
+    $('#swatchSwapper').change(function () {
+        $('head link[data-swatch]').attr('href', $('#swatchSwapper').val());
         //Nav logo wasn't vertically centering after changing a stylesheet because the function was being ran after
         //the stylesheet was swapped instead of after the page rendered the styles. Since Webkit does not have a way of
         //indicating when a repaint finishes, unfortunately a delay had to be used. 71 was chosen because 14 FPS is the
@@ -2538,8 +2541,8 @@ function swatchSwapper () {
 //
 function saveNewSwatch (newSwatch) {
     //Validate that the required argument is passed and is the correct type
-    if (!newSwatch || typeof(newSwatch) !== "string") {
-        console.info(º+"You must pass in a new swatch as a string", consoleNormal);
+    if (!newSwatch || typeof(newSwatch) !== 'string') {
+        console.info(º+'You must pass in a new swatch as a string', consoleNormal);
         return;
     }
 
@@ -2547,7 +2550,7 @@ function saveNewSwatch (newSwatch) {
     var filename = window.ugui.app.startPage;
 
     //Read the contents of index.htm like a normal file and put them in the "data" variable
-    fs.readFile(filename, "utf8", function (err, data) {
+    fs.readFile(filename, 'utf8', function (err, data) {
         //If it can't read it for some reason, throw an error
         if (err) {
             return console.log(err);
@@ -2559,7 +2562,7 @@ function saveNewSwatch (newSwatch) {
         var re_end = '(" data-swatch="swapper">)';
 
         //Would match: `<link rel="stylesheet" href="_themes/cerulean.min.css" data-swatch="swapper">`
-        var createRegex = RegExp(re_start + re_file + re_end, ["i"]);
+        var createRegex = RegExp(re_start + re_file + re_end, ['i']);
         var findSwatchLine = createRegex.exec(data);
         //If we could find the line in the file
         if (findSwatchLine != null) {
@@ -2578,10 +2581,10 @@ function saveNewSwatch (newSwatch) {
         });
 
         //Animate the "Saved" text, having it fade in
-        $(".newSwatchSaved").addClass("showSaved");
+        $('.newSwatchSaved').addClass('showSaved');
         //Wait 2 seconds and then fade the "Saved" text out
         setTimeout(function () {
-            $(".newSwatchSaved").removeClass("showSaved");
+            $('.newSwatchSaved').removeClass('showSaved');
         }, 2000);
 
     });
@@ -2604,15 +2607,15 @@ function keyBindings () {
     //Keyboard shortcuts
     document.onkeydown = function (pressed) {
         //Check `CTRL+F` key and do nothing :(
-        if ( pressed.ctrlKey && pressed.keyCode === 70 ) {
+        if (pressed.ctrlKey && pressed.keyCode === 70) {
             pressed.preventDefault();
-            console.info(º+"NW.js currently has no 'Find' feature built in. Sorry :(", consoleNormal);
+            console.info(º+'NW.js currently has no "Find" feature built in. Sorry :(', consoleNormal);
             return false;
         //Check `CTRL+F5`, `CTRL+R`, or `CMD+R` keys and hard refresh the page
         } else if (
             pressed.ctrlKey && pressed.keyCode === 116 ||
             pressed.ctrlKey && pressed.keyCode === 82 ||
-            pressed.metaKey && pressed.keyCode === 82 ) {
+            pressed.metaKey && pressed.keyCode === 82) {
                 pressed.preventDefault();
                 scout.helpers.killAllWatchers();
                 win.reloadDev();
@@ -2620,13 +2623,13 @@ function keyBindings () {
         //Check `Shift+F5` and `CMD+Shift+R` keys and refresh ignoring cache
         } else if (
             pressed.shiftKey && pressed.keyCode === 116 ||
-            pressed.metaKey && pressed.shiftKey && pressed.keyCode === 82 ) {
+            pressed.metaKey && pressed.shiftKey && pressed.keyCode === 82) {
                 pressed.preventDefault();
                 scout.helpers.killAllWatchers();
                 win.reloadIgnoringCache();
                 return false;
         //Check `F5` key and soft refresh
-        } else if ( pressed.keyCode === 116 ) {
+        } else if (pressed.keyCode === 116) {
             pressed.preventDefault();
             scout.helpers.killAllWatchers();
             win.reload();
@@ -2635,7 +2638,7 @@ function keyBindings () {
         } else if (
             pressed.keyCode === 123 ||
             pressed.ctrlKey && pressed.shiftKey && pressed.keyCode === 73 ||
-            pressed.altKey && pressed.shiftKey && pressed.keyCode === 73 ) {
+            pressed.altKey && pressed.shiftKey && pressed.keyCode === 73) {
                 pressed.preventDefault();
                 win.showDevTools();
                 return false;
@@ -2688,36 +2691,36 @@ function keyBindings () {
 //>**Credits:** [EZDZ on GitHub](https://github.com/jaysalvat/ezdz)
 
 //
-$(".ezdz").on("dragover", function () {
-    $(this).children("label").removeClass("text-info");    //Static
-    $(this).children("label").removeClass("text-success"); //Dropped
-    $(this).children("label").addClass("text-warning");    //Hover
+$('.ezdz').on('dragover', function () {
+    $(this).children('label').removeClass('text-info');    //Static
+    $(this).children('label').removeClass('text-success'); //Dropped
+    $(this).children('label').addClass('text-warning');    //Hover
 });
 
-$(".ezdz").on("dragleave", function () {
-    $(this).children("label").removeClass("text-success"); //Dropped
-    $(this).children("label").removeClass("text-warning"); //Hover
-    $(this).children("label").addClass("text-info");       //Static
+$('.ezdz').on('dragleave', function () {
+    $(this).children('label').removeClass('text-success'); //Dropped
+    $(this).children('label').removeClass('text-warning'); //Hover
+    $(this).children('label').addClass('text-info');       //Static
 });
 
 function ezdz (fileInfo) {
     //Validate that the required argument is passed and the correct type
-    if (!fileInfo || typeof(fileInfo) !== "object") {
-        console.info(º+"You must pass in your file information as an object.", consoleNormal);
+    if (!fileInfo || typeof(fileInfo) !== 'object') {
+        console.info(º+'You must pass in your file information as an object.', consoleNormal);
         return;
     }
     var file = fileInfo;
     var element = '[data-argName="' + file.argName + '"]';
 
-    $(element).siblings("label").removeClass("text-info");    //Static
-    $(element).siblings("label").removeClass("text-warning"); //Hover
+    $(element).siblings('label').removeClass('text-info');    //Static
+    $(element).siblings('label').removeClass('text-warning'); //Hover
 
     if (this.accept && $.inArray(file.type, this.accept.split(/, ?/)) == -1) {
-        return alert("File type not allowed.");
+        return alert('File type not allowed.');
     }
 
-    $(element).siblings("label").addClass("text-success");   //Dropped
-    $(element).siblings("span img").remove();
+    $(element).siblings('label').addClass('text-success');   //Dropped
+    $(element).siblings('span img').remove();
 
     if ((/^image\/(gif|png|jpeg|jpg|webp|bmp|ico)$/i).test(file.type)) {
         /* var reader = new FileReader(file); */
@@ -2726,19 +2729,19 @@ function ezdz (fileInfo) {
 
         /* reader.onload = function (event) { */
             /* var data = event.target.result; */
-            /* var $img = $("<img />").attr("src", data).fadeIn(); */
-            var $img = $("<img />").attr("src", file.path).fadeIn();
+            /* var $img = $('<img />').attr('src', data).fadeIn(); */
+            var $img = $('<img />').attr('src', file.path).fadeIn();
 
-            $(element).siblings("span img").attr("alt", "Thumbnail of selected image.");
-            $(element).siblings("span").html($img);
+            $(element).siblings('span img').attr('alt', 'Thumbnail of selected image.');
+            $(element).siblings('span').html($img);
         /* }; */
     } else {
-        $(element).siblings("span").children("img").remove();
+        $(element).siblings('span').children('img').remove();
     }
 
     //Update the text on screen to display the name of the file that was dropped
-    var droppedFilename = file.name + " selected";
-    $(element).siblings("label").html(droppedFilename);
+    var droppedFilename = file.name + ' selected';
+    $(element).siblings('label').html(droppedFilename);
 }
 
 
@@ -2758,7 +2761,7 @@ function ezdz (fileInfo) {
 //Verify the developer is using Bootstrap slider
 if (bootstrap3_enabled && slider_enabled) {
     //Initialize the bootstrap-slider plugin for all elements on the page with a class of `slider`
-    $(".slider").slider({
+    $('.slider').slider({
         formatter: function (value) {
             return value;
         }
@@ -2771,18 +2774,18 @@ function sliderHandleSolid (themeColor) {
     //Verify the developer is using Bootstrap slider
     if (bootstrap3_enabled && slider_enabled) {
         //Validate that the required argument is passed and the correct type
-        if (!themeColor || typeof(themeColor) !== "string") {
-            console.info(º+"You must pass in your theme color as a string in RGB format. Example:", consoleNormal);
+        if (!themeColor || typeof(themeColor) !== 'string') {
+            console.info(º+'You must pass in your theme color as a string in RGB format. Example:', consoleNormal);
             console.info(º+'rgb(141, 12, 70)', consoleCode);
             return;
         }
 
         //If the navigation bar is white set the slider handle to gray
-        if (themeColor == "rgb(255, 255, 255)") {
-            $(".slider .slider-handle").css("background-color", "#7E7E7E");
+        if (themeColor == 'rgb(255, 255, 255)') {
+            $('.slider .slider-handle').css('background-color', '#7E7E7E');
         } else {
             //Set the color of the slider handle to match the color of the navigation bar
-            $(".slider .slider-handle").css("background-color", themeColor);
+            $('.slider .slider-handle').css('background-color', themeColor);
         }
     }
 }
@@ -2791,28 +2794,28 @@ function sliderHandleGradient (themeGradient) {
     //Verify the developer is using Bootstrap slider
     if (bootstrap3_enabled && slider_enabled) {
         //Validate that the required argument is passed and the correct type
-        if (!themeGradient || typeof(themeGradient) !== "string") {
-            console.info(º+"You must pass in your theme gradient as a string in RGB format. Example:", consoleNormal);
+        if (!themeGradient || typeof(themeGradient) !== 'string') {
+            console.info(º+'You must pass in your theme gradient as a string in RGB format. Example:', consoleNormal);
             console.info(º+'linear-gradient(rgb(84, 180, 235), rgb(47, 164, 231) 60%, rgb(29, 156, 229))', consoleCode);
             return;
         }
 
-        $(".slider .slider-handle").css("background-image", themeGradient);
+        $('.slider .slider-handle').css('background-image', themeGradient);
     }
 }
 
 function sliderHandleColor () {
     //Verify the developer is using Bootstrap slider and that the navbar exists
-    if ( bootstrap3_enabled && slider_enabled && ( $(".navbar").length > 0 ) ) {
+    if (bootstrap3_enabled && slider_enabled && ($('.navbar').length > 0)) {
         //Remove the color of the slider handle
-        $(".slider .slider-handle").css("background-image", "none");
+        $('.slider .slider-handle').css('background-image', 'none');
 
         //Get the color of the navigation bar
-        var themeColor = $(".navbar").css("background-color");
+        var themeColor = $('.navbar').css('background-color');
         //Get the background image or gradient
-        var themeGradient = $(".navbar").css("background-image");
+        var themeGradient = $('.navbar').css('background-image');
 
-        if (themeGradient == "none") {
+        if (themeGradient == 'none') {
             sliderHandleSolid(themeColor);
         } else {
             sliderHandleGradient(themeGradient);
@@ -2845,7 +2848,7 @@ function cutCopyPasteMenu () {
         var gui = require('nw.gui');
         var menu = new gui.Menu();
 
-        var cut = new gui.MenuItem( {
+        var cut = new gui.MenuItem({
             label: cutLabel || 'Cut',
             click: function () {
                 document.execCommand('cut');
@@ -3079,7 +3082,7 @@ function saveSettings (customLocation, callback) {
     var defaultLocation = '';
 
     //If you're on windows then folders in file paths are separated with `\`, otherwise OS's use `/`
-    if ( process.platform == 'win32' ) {
+    if (process.platform == 'win32') {
         //Find the path to the settings file and store it
         defaultLocation = (gui.App.dataPath + '\\uguisettings.json');
     } else {
@@ -3101,12 +3104,12 @@ function saveSettings (customLocation, callback) {
        ) {
         console.info(º+'The following arguments are allowed:', consoleBold);
         console.info(º+'1. Just a string to a custom file path.', consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings( "C:\\folder\\app-settings.json" );', consoleCode);
+        console.info(º+'ugui.helpers.saveSettings("C:\\folder\\app-settings.json" );', consoleCode);
         console.info(º+'2. Just a function as a callback to be ran when save completes.', consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings( function () {console.log("Saved.")} );', consoleCode);
+        console.info(º+'ugui.helpers.saveSettings(function () {console.log("Saved.")} );', consoleCode);
         console.info(º+'3. A string followed by a function, as a custom path and ' +
             'callback upon completion.', consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings( "C:\\folder\\app-settings.json", ' +
+        console.info(º+'ugui.helpers.saveSettings("C:\\folder\\app-settings.json", ' +
             'function () {console.log("Saved.")} );', consoleCode);
         console.info(º+'4. Nothing at all.', consoleNormal);
         console.info(º+'ugui.helpers.saveSettings();', consoleCode);
@@ -3115,7 +3118,7 @@ function saveSettings (customLocation, callback) {
         console.info(º+'And upon completion of saving the settings, nothing will be triggered.', consoleNormal);
         return;
     //Check if `customLocation` is exists and is a string
-    } else if ( customLocation && typeof(customLocation) === 'string') {
+    } else if (customLocation && typeof(customLocation) === 'string') {
         //Set the settings file to the custom, passed in, location
         settingsFile = customLocation;
     }
@@ -3145,9 +3148,9 @@ function saveSettings (customLocation, callback) {
 }
 
 //Make sure anything is a class of `save-ugui-settings` is wired up to save the UGUI settings
-$('.save-ugui-settings').click( function () {
+$('.save-ugui-settings').click(function () {
     saveSettings();
-} );
+});
 
 
 
@@ -3174,7 +3177,7 @@ function loadSettings (customLocation, callback) {
     var defaultLocation = '';
 
     //If you're on windows then folders in file paths are separated with `\`, otherwise OS's use `/`
-    if ( process.platform == 'win32' ) {
+    if (process.platform == 'win32') {
         //Find the path to the settings file and store it
         defaultLocation = (gui.App.dataPath + '\\uguisettings.json');
     } else {
@@ -3196,13 +3199,13 @@ function loadSettings (customLocation, callback) {
        ) {
         console.info(º+'The following arguments are allowed:', consoleBold);
         console.info(º+'1. Just a string to a custom file path.', consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings( "C:\\folder\\app-settings.json" );', consoleCode);
+        console.info(º+'ugui.helpers.loadSettings("C:\\folder\\app-settings.json");', consoleCode);
         console.info(º+'2. Just a function as a callback to be ran when loading completes.', consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings( function () {console.log("Loaded.")} );', consoleCode);
+        console.info(º+'ugui.helpers.loadSettings(function () {console.log("Loaded.")});', consoleCode);
         console.info(º+'3. A string followed by a function, as a custom path and ' +
             'callback upon completion.', consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings( "C:\\folder\\app-settings.json", ' +
-            'function () {console.log("loadd.")} );', consoleCode);
+        console.info(º+'ugui.helpers.loadSettings("C:\\folder\\app-settings.json", ' +
+            'function () {console.log("loadd.")});', consoleCode);
         console.info(º+'4. Nothing at all.', consoleNormal);
         console.info(º+'ugui.helpers.loadSettings();', consoleCode);
         console.info(º+'By passing in nothing, UGUI will use the default load location of:', consoleNormal);
@@ -3211,7 +3214,7 @@ function loadSettings (customLocation, callback) {
             'page will be updated, as will the UGUI Args Object.', consoleNormal);
         return;
     //Check if `customLocation` is exists and is a string
-    } else if ( customLocation && typeof(customLocation) === 'string') {
+    } else if (customLocation && typeof(customLocation) === 'string') {
         //Set the settings file to the custom, passed in, location
         settingsFile = customLocation;
     }
@@ -3235,7 +3238,7 @@ function loadSettings (customLocation, callback) {
 
                 //Check if the key has a corresponding UI element
                 //and that it isn't set to 'do not save'
-                if ( $('[data-argName' + key + ']') && !($('[data-argName' + key + ']').hasClass('do-not-save')) ) {
+                if ($('[data-argName' + key + ']') && !($('[data-argName' + key + ']').hasClass('do-not-save'))) {
                     /* console.log(htmltype); */
                     //If `<input type='file'>` and it has value
                     if (htmltype == 'folder' && settingsObj[key].value !== '') {
@@ -3257,7 +3260,7 @@ function loadSettings (customLocation, callback) {
                         $('[data-argName=' + key + ']')[0].files[0] = folder;
 
                         //Update EZDZ if the element is using it
-                        if ( $('[data-argName=' + key + ']').parent().hasClass('ezdz') ) {
+                        if ($('[data-argName=' + key + ']').parent().hasClass('ezdz')) {
                             //Run EZDZ to update visuals on the page
                             ezdz(folder);
                         }
@@ -3278,12 +3281,12 @@ function loadSettings (customLocation, callback) {
                         $('[data-argName=' + key + ']')[0].files[0] = file;
 
                         //Update EZDZ if the element is using it
-                        if ( $('[data-argName=' + key + ']').parent().hasClass('ezdz') ) {
+                        if ($('[data-argName=' + key + ']').parent().hasClass('ezdz')) {
                             //Run EZDZ to update visuals on the page
                             ezdz(file);
                         }
                     //If `<input type='checkbox'>` or `<input type='radio'>`
-                    } else if ( htmltype == 'checkbox' || htmltype == 'radio') {
+                    } else if (htmltype == 'checkbox' || htmltype == 'radio') {
                         //Set the value of the element as checked or not
                         if (htmlticked == true) {
                             $('[data-argName=' + key + ']').prop('checked', true);
@@ -3299,7 +3302,7 @@ function loadSettings (customLocation, callback) {
                         //Check if the value is not a number, like `'0,25'` rather than `2`
                         if (isNaN(settingsObj[key].value)) {
                             //Split `0,25` into `0` and `25` and return them as numbers instead of strings
-                            var parsedValue = settingsObj[key].value.split(',').map( function (num) {
+                            var parsedValue = settingsObj[key].value.split(',').map(function (num) {
                                 return parseInt(num);
                             });
                             //Set the value to `0,25` and the data-slider-value to `[0,25]`
@@ -3340,7 +3343,7 @@ function loadSettings (customLocation, callback) {
 }
 
 //Make sure anything is a class of `load-ugui-settings` is wired up to load the UGUI settings
-$('.load-ugui-settings').click( function () {
+$('.load-ugui-settings').click(function () {
     loadSettings();
 });
 

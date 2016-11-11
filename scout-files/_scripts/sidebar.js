@@ -94,7 +94,7 @@
                 var menu = new gui.Menu();
                 var removeProject = scout.localize('DELETE_PROJECT');
 
-                var deleteProject = new gui.MenuItem( {
+                var deleteProject = new gui.MenuItem({
                     label: removeProject,
                     click: function () {
                         $('#delete-project').click();

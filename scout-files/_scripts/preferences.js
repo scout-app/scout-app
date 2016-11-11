@@ -28,8 +28,8 @@
     if (scout.globalSettings.messageDesktop) { $('[data-argName=messageDesktop]').prop('checked', true); }
 
     for (var i = 0; i < $('#cultureChoices option').length; i++) {
-        if ( $($('#cultureChoices option')[i]).val() == scout.globalSettings.cultureCode ) {
-            $( $('#cultureChoices option')[i] ).prop('selected', true);
+        if ($($('#cultureChoices option')[i]).val() == scout.globalSettings.cultureCode) {
+            $($('#cultureChoices option')[i]).prop('selected', true);
         }
     }
 
