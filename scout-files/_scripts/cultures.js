@@ -44,35 +44,35 @@
         for (i = 0; i < items.length; i++) {
             var item = items[i];
             langKey = $(item).data('lang');
-            $(item).html( localize(langKey) );
+            $(item).html(localize(langKey));
         }
         //data-langalt
         var altItems = $('*[data-langalt]');
         for (i = 0; i < altItems.length; i++) {
             var altItem = altItems[i];
             langKey = $(altItem).data('langalt');
-            $(altItem).attr('alt', localize(langKey) );
+            $(altItem).attr('alt', localize(langKey));
         }
         //data-langtitle
         var titleItems = $('*[data-langtitle]');
         for (i = 0; i < titleItems.length; i++) {
             var titleItem = titleItems[i];
             langKey = $(titleItem).data('langtitle');
-            $(titleItem).attr('title', localize(langKey) );
+            $(titleItem).attr('title', localize(langKey));
         }
         //data-langarialabel
         var ariaLabelItems = $('*[data-langarialabel]');
         for (i = 0; i < ariaLabelItems.length; i++) {
             var ariaLabelItem = ariaLabelItems[i];
             langKey = $(ariaLabelItem).data('langarialabel');
-            $(ariaLabelItem).attr('aria-label', localize(langKey) );
+            $(ariaLabelItem).attr('aria-label', localize(langKey));
         }
         //data-langhref
         var hrefItems = $('*[data-langhref');
         for (i = 0; i < hrefItems.length; i++) {
             var hrefItem = hrefItems[i];
             langKey = $(hrefItem).data('langhref');
-            $(hrefItem).attr('href', localize(langKey) );
+            $(hrefItem).attr('href', localize(langKey));
         }
         //Allow links with a class of "external-link" to open in the user's default browser
         ugui.helpers.openDefaultBrowser();

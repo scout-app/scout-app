@@ -5,7 +5,7 @@
   The main code that handles watching and processing files.
 */
 
-(function runApp() {
+(function runApp () {
 
 
 
@@ -60,7 +60,7 @@
                     }
                     checkForSassOnce(project, subfolder, hasSassFiles);
                 //Skip all files that begin with an _ and Process all sass/scss files
-                } else if ( !currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss')) ) {
+                } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
                     hasSassFiles = true;
                 }
             }
@@ -86,7 +86,7 @@
                     }
                     processInputFolder(project, subfolder);
                 //Skip all files that begin with an _ and Process all sass/scss files
-                } else if ( !currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss')) ) {
+                } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
                     //Change from 'some-file.scss' to 'some-file'
                     var fileName = currentName.slice(0,-5);
                     //Change from 'some-file.scss' to '.scss'
