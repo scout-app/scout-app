@@ -1,9 +1,11 @@
+/* eslint-disable no-console */
+
 
 /*
   The main code that handles watching and processing files.
 */
 
-(function runApp() {
+(function runApp () {
 
 
 
@@ -13,6 +15,10 @@
     // Define some variables                                   //
     /////////////////////////////////////////////////////////////
 
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
+    var nw = window.nw;
 
     //File System access
     var fs = require('fs-extra');
@@ -26,7 +32,7 @@
     //Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
     scout.versions.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
-    if (process.platform == "win32") {
+    if (process.platform == 'win32') {
         var pathToProject = ugui.app.pathToProject.replace('/','').split('/').join('\\').split('%20').join(' ');
         scout.versions.chokidar = require(pathToProject + 'node_modules\\chokidar\\package.json').version;
     } else {
@@ -35,6 +41,33 @@
     $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
     $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
+    //If the input folder does not contain any Sass, then alert the user
+    function checkForSassOnce (project, inputSubFolder, hasSassFiles) {
+        hasSassFiles = hasSassFiles || false;
+        var inputFolder = project.inputFolder;
+        if (inputSubFolder) {
+            inputFolder = path.join(project.inputFolder, inputSubFolder);
+        }
+        //Grab all the files in the input folder and put them in an array
+        ugui.helpers.readAFolder(inputFolder, function (contents) {
+            //check each file and process it if it is sass or scss and doesn't start with an underscore
+            for (var i = 0; i < contents.length; i++) {
+                var folder = contents[i].isFolder;
+                var currentName = contents[i].name;
+                if (folder) {
+                    var subfolder = currentName;
+                    if (inputSubFolder) {
+                        subfolder = path.join(inputSubFolder, currentName);
+                    }
+                    checkForSassOnce(project, subfolder, hasSassFiles);
+                //Skip all files that begin with an _ and Process all sass/scss files
+                } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
+                    hasSassFiles = true;
+                }
+            }
+            project.hasSassFiles = hasSassFiles;
+        });
+    }
 
     function processInputFolder (project, inputSubFolder) {
         var inputFolder = project.inputFolder;
@@ -54,7 +87,7 @@
                     }
                     processInputFolder(project, subfolder);
                 //Skip all files that begin with an _ and Process all sass/scss files
-                } else if ( !currentName.startsWith("_") && (currentName.toLowerCase().endsWith(".sass") || currentName.toLowerCase().endsWith(".scss")) ) {
+                } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
                     //Change from 'some-file.scss' to 'some-file'
                     var fileName = currentName.slice(0,-5);
                     //Change from 'some-file.scss' to '.scss'
@@ -67,15 +100,15 @@
     }
 
     function convertToCSS (project, inputFileName, inputFileExt, inputSubFolder) {
-        var outputSubFolder = inputSubFolder || "";
+        var outputSubFolder = inputSubFolder || '';
         var outputStyle = project.outputStyle;
         var pathToProject = ugui.app.pathToProject;
         //Get the mixins config file
         var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
         //put split based on returns
-        if (process.platform == "win32") {
+        if (process.platform == 'win32') {
             mixins = mixins.split('\r\n');
-            pathToProject = pathToProject.replace("/","");
+            pathToProject = pathToProject.replace('/','');
         } else {
             mixins = mixins.split('\n');
         }
@@ -91,7 +124,7 @@
 
         var devMode = false;
         //project.environment will return "production" or "development"
-        if (project.environment == "development") {
+        if (project.environment == 'development') {
             devMode = true;
         }
 
@@ -118,23 +151,23 @@
         }, function (error, result) {
             var projectID = project.projectID;
             if (error) {
-                console.log(error);
+                console.warn(error);
                 scout.helpers.alert(error, projectID);
             } else {
                 fs.outputFile(outputFullFilePath, result.css.toString(), function (err) {
                     if (err) {
-                        console.log(err);
+                        console.warn(err);
                     }
                 });
                 if (devMode) {
                     fs.outputFile(sourceMap, result.map.toString(), function (err) {
                         if (err) {
-                            console.log(err);
+                            console.warn(err);
                         }
                     });
                 }
                 scout.helpers.message(result, projectID);
-            };
+            }
         });
     }
 
@@ -155,7 +188,7 @@
                 });
                 //Detect file changes and reprocess Sass files
                 scout.projects[I].watcher
-                    .on('change', function (item, stats) {
+                    .on('change', function (/*item, stats*/) {
                         //TODO: See if it's possible to only report changed files
                         //console.log(item);
                         //console.log(stats);
@@ -171,12 +204,27 @@
                             console.info('https://discourse.roots.io/t/gulp-watch-error-on-ubuntu-14-04-solved/3453/2');
                             nw.Window.get().showDevTools();
                         } else {
-                            console.log("There was an error watching the input files: ", error);
+                            console.log('There was an error watching the input files: ', error);
                         }
                     });
                 //Update icon
-                scout.projects[I].indicator = "stop";
+                scout.projects[I].indicator = 'stop';
                 scout.helpers.updateSidebar();
+                checkForSassOnce(scout.projects[I]);
+                if (!scout.projects[I].hasSassFiles) {
+                    id = scout.projects[I].projectID;
+                    var msg = scout.localize('NO_SASS_FILES');
+                    var err = {
+                        'folder': scout.projects[I].inputFolder,
+                        'line': 0,
+                        'column': 0,
+                        'status': 0,
+                        'formatted': msg,
+                        'message': msg,
+                        'name': 'Error'
+                    };
+                    scout.helpers.warn(err, id);
+                }
                 processInputFolder(scout.projects[I]);
                 return;
             }
@@ -186,16 +234,16 @@
     function stopWatching (id) {
         for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID == id) {
-                var actionButtonIcon = $("#sidebar ." + id + " button .glyphicon");
+                var actionButtonIcon = $('#sidebar .' + id + ' button .glyphicon');
                 //fix icon
                 if ($(actionButtonIcon).hasClass('glyphicon-stop')) {
                     //Update icon and color in sidebar
-                    scout.projects[i].indicator = "play";
+                    scout.projects[i].indicator = 'play';
                 }
                 //Stop watching the files for changes
                 if (scout.projects[i].watcher) {
                     scout.projects[i].watcher.close();
-                    scout.projects[i].watcher = "";
+                    scout.projects[i].watcher = '';
                 }
                 scout.helpers.updateSidebar();
             }
@@ -206,22 +254,22 @@
     function killAllWatchers () {
         if (scout.projects.length > 0) {
             for (var i = 0; i < scout.projects.length; i++) {
-                if (scout.projects[i].watcher && typeof(scout.projects[i].watcher) == "object") {
+                if (scout.projects[i].watcher && typeof(scout.projects[i].watcher) == 'object') {
                     try {
                         scout.projects[i].watcher.close();
                     } catch (err) {
                         console.info('The watcher for this project is already turned off.');
                     }
-                    scout.projects[i].indicator = "play";
+                    scout.projects[i].indicator = 'play';
                 }
             }
             scout.helpers.updateSidebar();
         }
     }
 
-    scout.helpers.processInputFolder = processInputFolder;
-    scout.helpers.startWatching = startWatching;
-    scout.helpers.stopWatching = stopWatching;
-    scout.helpers.killAllWatchers = killAllWatchers;
+    window.scout.helpers.processInputFolder = processInputFolder;
+    window.scout.helpers.startWatching = startWatching;
+    window.scout.helpers.stopWatching = stopWatching;
+    window.scout.helpers.killAllWatchers = killAllWatchers;
 
 })(); // end runApp();

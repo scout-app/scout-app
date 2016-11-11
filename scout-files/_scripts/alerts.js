@@ -4,7 +4,11 @@
   and error alerts as green and red panels using these functions.
 */
 
-(function(){
+(function () {
+
+    var $ = window.$;
+    var scout = window.scout;
+    var ugui = window.ugui;
 
     function playAlert () {
         var alert = new Audio('_sound/scout-alert.wav');
@@ -19,23 +23,23 @@
     function desktopNotification (file, bodyText, alertOrMessage) {
         var randNum = Math.round(Math.random() * 10000);
         scout.helpers[alertOrMessage].notification[randNum] = new Notification(file, {
-            icon: "_img/logo_32.png",
+            icon: '_img/logo_32.png',
             body: bodyText
         });
 
         scout.helpers[alertOrMessage].notification[randNum].onclick = function () {
-            $("#viewStatus").click();
+            $('#viewStatus').click();
             var win = require('nw.gui').Window.get();
             win.show();
             win.focus();
-        }
+        };
 
         scout.helpers[alertOrMessage].notification[randNum].onshow = function () {
             // auto close after 1 second
             setTimeout(function () {
                 scout.helpers[alertOrMessage].notification[randNum].close();
             }, 3000);
-        }
+        };
     }
 
     function alert (error, projectID) {
@@ -43,12 +47,12 @@
             playAlert();
         }
 
-        if ($("#project-settings").is(":visible")) {
-            var id = $("#projectID").val();
-            $("#sidebar ." + id).click();
+        if ($('#project-settings').is(':visible')) {
+            var id = $('#projectID').val();
+            $('#sidebar .' + id).click();
         }
 
-        projectID = projectID || "sa0";
+        projectID = projectID || 'sa0';
         for (var i = 0; i < scout.projects.length;i++) {
             if (scout.projects[i].projectID === projectID) {
                 var projectName = scout.projects[i].projectName;
@@ -62,8 +66,8 @@
         var col = error.column;
         var code = error.status;
         var time = new Date().timeNow();
-        var title = scout.localize("ALERT_TITLE");
-        title = title.replace("{{time}}", time).replace("{{code}}", code).replace("{{bugLine}}", bugLine).replace("{{col}}", col);
+        var title = scout.localize('ALERT_TITLE');
+        title = title.replace('{{time}}', time).replace('{{code}}', code).replace('{{bugLine}}', bugLine).replace('{{col}}', col);
         var footer = '<em>' + file + '</em>';
         var bugFile = path.basename(file);
 
@@ -84,7 +88,7 @@
             errorPreview =
               //line before the error
               '<span class="num">' + (bugLine-1) + ':</span> ' + fileContents[(bugLine-2)] + '\n' +
-              theError + '\n' +
+              theError +
               //line after the error
               '<span class="num">' + (bugLine+1) + ':</span> ' + fileContents[bugLine];
         }
@@ -110,14 +114,83 @@
             '</div>';
 
         if (scout.globalSettings.alertInApp) {
-            $("#printConsole").prepend(formmatedError);
+            $('#printConsole').prepend(formmatedError);
         }
 
-        $("#printConsole .panel .glyphicon-remove").click( function () {
+        $('#printConsole .panel .glyphicon-remove').click(function () {
             $(this).parent().parent().remove();
         });
 
-        $("#sidebar .active").click();
+        $('#sidebar .active').click();
+
+        if (scout.globalSettings.alertDesktop) {
+            var lineAndCol = title.split(') - ')[1];
+            lineAndCol = lineAndCol.replace(/<strong>/g,'').replace(/<\/strong>/g,'');
+            desktopNotification(bugFile, lineAndCol, 'alert');
+        }
+    }
+
+    function warn (error, projectID) {
+        if (scout.globalSettings.alertSound) {
+            playAlert();
+        }
+
+        if ($('#project-settings').is(':visible')) {
+            var id = $('#projectID').val();
+            $('#sidebar .' + id).click();
+        }
+
+        projectID = projectID || 'sa0';
+        for (var i = 0; i < scout.projects.length;i++) {
+            if (scout.projects[i].projectID === projectID) {
+                var projectName = scout.projects[i].projectName;
+                break;
+            }
+        }
+
+        var path = require('path');
+        var file = error.file || error.folder;
+        var bugLine = error.line;
+        var col = error.column;
+        var code = error.status;
+        var time = new Date().timeNow();
+        var title = scout.localize('ALERT_TITLE');
+        title = title
+            .replace('{{time}}', time)
+            .replace('{{code}}', code)
+            .replace('{{bugLine}}', bugLine)
+            .replace('{{col}}', col);
+        var footer = '<em>' + file + '</em>';
+        var bugFile = path.basename(file);
+        var errorMessage = error.message
+            .replace(/[\r,\n]\s\s/g, '<br /><span class="bullet"></span>')
+            .replace(/[\n\r]/g, '<br />')
+            .replace(file,'');
+
+        var formmatedError =
+            '<div class="panel panel-warning ' + projectID + '" title="' + projectName + '">' +
+              '<div class="panel-heading">' +
+                '<span class="pull-right glyphicon glyphicon-remove"></span>' +
+                '<h3 class="panel-title">' + title + '</h3>' +
+              '</div>' +
+              '<div class="panel-body">' +
+                errorMessage + '<br />' +
+                '<strong><span class="bullet"></span>' + bugFile + '</strong><br />' +
+              '</div>' +
+              '<div class="panel-footer">' +
+                footer +
+              '</div>' +
+            '</div>';
+
+        if (scout.globalSettings.alertInApp) {
+            $('#printConsole').prepend(formmatedError);
+        }
+
+        $('#printConsole .panel .glyphicon-remove').click(function () {
+            $(this).parent().parent().remove();
+        });
+
+        $('#sidebar .active').click();
 
         if (scout.globalSettings.alertDesktop) {
             var lineAndCol = title.split(') - ')[1];
@@ -130,12 +203,12 @@
         if (scout.globalSettings.messageSound) {
             playMessage();
         }
-        if ($("#project-settings").is(":visible")) {
-            var id = $("#projectID").val();
-            $("#sidebar ." + id).click();
+        if ($('#project-settings').is(':visible')) {
+            var id = $('#projectID').val();
+            $('#sidebar .' + id).click();
         }
 
-        projectID = projectID || "sa0";
+        projectID = projectID || 'sa0';
         for (var i = 0; i < scout.projects.length;i++) {
             if (scout.projects[i].projectID === projectID) {
                 var projectName = scout.projects[i].projectName;
@@ -148,11 +221,11 @@
         var time = new Date().timeNow();
         var duration = message.stats.duration + scout.localize('MILLISECONDS_SHORT');
         if (message.stats.duration > 499) {
-            duration = (Math.round(message.stats.duration/100)/10) + ' ' + scout.localize("SECONDS");
+            duration = (Math.round(message.stats.duration/100)/10) + ' ' + scout.localize('SECONDS');
         }
 
-        var processedTime = scout.localize("PROCESSED_IN_DURATION") ;
-        processedTime = projectName + " | " + processedTime.replace("{{duration}}", duration);
+        var processedTime = scout.localize('PROCESSED_IN_DURATION') ;
+        processedTime = projectName + ' | ' + processedTime.replace('{{duration}}', duration);
         var formattedMessage =
         '<div class="alert alert-success ' + projectID + '" role="alert" title="' + processedTime + '">' +
           '<strong>' + time + '</strong> ' +
@@ -161,14 +234,14 @@
         '</div>';
 
         if (scout.globalSettings.messageInApp) {
-            $("#printConsole").prepend(formattedMessage);
+            $('#printConsole').prepend(formattedMessage);
         }
 
-        $("#printConsole .alert .glyphicon-remove").click( function () {
+        $('#printConsole .alert .glyphicon-remove').click(function () {
             $(this).parent().remove();
         });
 
-        $("#sidebar .active").click();
+        $('#sidebar .active').click();
 
         if (scout.globalSettings.messageDesktop) {
             var path = require('path');
@@ -180,9 +253,11 @@
     $('[data-argName="messageSound"]').click(playMessage);
     $('[data-argName="alertSound"]').click(playAlert);
 
-    scout.helpers.alert = alert;
-    scout.helpers.message = message;
-    scout.helpers.alert.notification = {};
-    scout.helpers.message.notification = {};
+    window.scout.helpers.alert = alert;
+    window.scout.helpers.warn = warn;
+    window.scout.helpers.message = message;
+    window.scout.helpers.alert.notification = {};
+    window.scout.helpers.warn.notification = {};
+    window.scout.helpers.message.notification = {};
 
 })();

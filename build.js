@@ -1,16 +1,30 @@
+/* eslint-disable no-console */
+
 // BUILDING FOR WINDOWS/LINUX:
 
 // Prerequisites: Must have Node, NPM, and Bower installed globally.
 //
-// This assumes you have a folder next to `scout-app` called `scout-app-build/win32/Scout-App`
-// `scout-app-build` folder should contain:
+// This assumes you have a folder next to `scout-app` called
+// * `scout-app-build/win32/Scout-App`
+// * `scout-app-build/lin64/Scout-App`
+// * `scout-app-build/lin32/Scout-App`
+//
+// The `scout-app-build/XXXX/Scout-App` folder should contain:
 //  * locales (folder)
 //  * ffmpegsumo.dll
 //  * icudtl.dat
 //  * nw.pak
 //  * Scout-App.exe
+// (Or the Linux equivalents)
+//
 // All of those are from NW.js 0.12.3, the .exe is a renamed version of
-// nw.exe with a custom icon
+// `nw.exe` with a custom icon and modified version number using Resource Hacker.
+
+// BUILDING FOR OSX:
+// Prerequisites: Must have Node and NPM installed globally.
+//
+// This assumes you have a folder next to `scout-app` called `scout-app-build`
+// `scout-app-build` folder should contain the last Scout-App.app file that was released
 
 
 // Variables
@@ -19,12 +33,12 @@ var os = process.platform;
 var win = false;
 var lin = false;
 var darwin = false;
-if (os == 'win32' ) { win = true; }
-if (os == 'linux' ) { lin = true; }
+if (os == 'win32')  { win = true; }
+if (os == 'linux')  { lin = true; }
 if (os == 'darwin') { darwin = true; }
-if (os == 'freebsd' || os == 'sunos' || ( os != 'win32' && os != 'linux' && os != 'darwin' ) ) {
+if (os == 'freebsd' || os == 'sunos' || (os != 'win32' && os != 'linux' && os != 'darwin')) {
     lin = true;
-    console.log('UNSUPPORTED OPERATING SYSTEM')
+    console.log('UNSUPPORTED OPERATING SYSTEM');
     console.log('Build will probably fail.');
 }
 var fs = require('fs-extra');
@@ -34,13 +48,16 @@ var exec = require('child_process').execSync;
 //var del = require('del'); // used to delete entire folders with the exception of specific files
 var bowerJSON = fs.readJsonSync('bower.json');
 var manifest = fs.readJsonSync('package.json');
+if (darwin) {
+    delete manifest.scripts.postinstall;
+}
 delete manifest.devDependencies;
 if (lin) {
     manifest.window.icon = 'scout-files/_img/logo_128.png';
 }
 var build = '../scout-app-build/win32/Scout-App/';
 if (darwin) {
-    build = '../scout-app-build/osx64/Scout-App/';
+    build = '../scout-app-build/Scout-App.app/Contents/Resources/app.nw/';
 } else if (lin) {
     build = '../scout-app-build/lin64/Scout-App/';
 }
@@ -110,11 +127,11 @@ function minutes (finish, begin) {
 function rmrf (location) {
     if (win) {
         var winLocation = location.split('/').join('\\');
-        while ( fs.existsSync(location) ) {
+        while (fs.existsSync(location)) {
             exec('rd /S /Q ' + winLocation);
         }
     } else {
-        while ( fs.existsSync(location) ) {
+        while (fs.existsSync(location)) {
             fs.removeSync(location);
         }
     }
@@ -177,6 +194,9 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
+if (darwin) {
+    copy('bower_components', 'bower_components');
+}
 process.chdir(build);
 exec('npm --loglevel=error install');
 if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.scss')) {
@@ -189,7 +209,12 @@ if (lin) {
         fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.sass');
     }
 }
-process.chdir('../../../scout-app');
+if (darwin) {
+    process.chdir('../../../../../scout-app');
+} else {
+    process.chdir('../../../scout-app');
+}
+
 var timeExec = Date.now() + '';
 console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
 
@@ -215,16 +240,22 @@ var buildInput = '';
 var outputZip = '';
 if (win) {
     zipExe = 'node_modules\\7zip-bin-win\\' + process.arch + '\\7za.exe';
+    if (!fs.existsSync(zipExe)) {
+        zipExe = 'node_modules\\7zip-bin\\' + zipExe;
+    }
     buildInput = '..\\scout-app-build\\win32\\Scout-App';
     outputZip = '..\\scout-app-build\\WIN_Scout-App_' + manifest.version + '.zip';
 } else if (darwin) {
     zipExe = 'node_modules/7zip-bin-osx/7za';
-    buildInput = '../scout-app-build/osx64/Scout-App';
+    buildInput = '../scout-app-build/Scout-App.app';
     outputZip = '../scout-app-build/OSX_Scout-App_' + manifest.version + '.zip';
 } else if (lin) {
     zipExe = 'node_modules/7zip-bin-linux/' + process.arch + '/7za';
     buildInput = '../scout-app-build/lin64/Scout-App';
     outputZip = '../scout-app-build/LIN64_Scout-App_' + manifest.version + '.zip';
+}
+if ((darwin || lin) && !fs.existsSync(zipExe)) {
+    zipExe = 'node_modules/7zip-bin/' + zipExe;
 }
 fs.removeSync(outputZip);
 // a     = create archive
@@ -251,17 +282,17 @@ console.log('Total Build Time      - ' + timer(end, start) + ' or ' + minutes(en
 
 // Run the app
 if (win) {
-    if ( fs.existsSync(build + 'Scout-App.exe') ) {
+    if (fs.existsSync(build + 'Scout-App.exe')) {
         exec(path.join(build, 'Scout-App.exe'));
     }
 } else if (lin && process.arch == 'x64') {
-    if ( fs.existsSync(build + 'Scout-App') ) {
+    if (fs.existsSync(build + 'Scout-App')) {
         exec(build + 'Scout-App');
     }
 } else if (lin && process.arch == 'ia32') {
-    if ( fs.existsSync(build32 + 'Scout-App') ) {
+    if (fs.existsSync(build32 + 'Scout-App')) {
         exec(build32 + 'Scout-App');
     }
 } else if (darwin) {
-    // stub
+    exec('../scout-app-build/Scout-App.app/Contents/MacOS/nwjs');
 }

@@ -35,20 +35,21 @@
   * [x] ~~BUG: Don't create empty folders in the output directory ([#262](https://github.com/scout-app/scout-app/issues/262)) (TJW)~~
   * [x] ~~Play sounds with alerts/messages ([#161](https://github.com/scout-app/scout-app/issues/161)) (TJW)~~
   * [x] ~~Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240), [#79](https://github.com/scout-app/scout-app/issues/79), [#12](https://github.com/scout-app/scout-app/issues/12)) (TJW)~~
-  * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172), [#258](https://github.com/scout-app/scout-app/issues/258)).
-  * [ ] Allow for specific projects to run on app launch ([#69](https://github.com/scout-app/scout-app/issues/69)).
+  * [x] ~~Scan Desktop for projects folders (TJW)~~
   * [ ] Import projects by dragging a folder into Scout-App ([#259](https://github.com/scout-app/scout-app/issues/259))
-  * [ ] Redesign FTUX
-  * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files
-  * [ ] Scan Desktop for projects folders
-  * [ ] Abilitity to clear all alerts and messags at once
-  * [ ] Make sidebar resizable
-  * [ ] Tray icon/Minimize to tray
-  * [ ] Tray icon indicators
+  * [ ] Redesign FTUX ([#273](https://github.com/scout-app/scout-app/issues/273))
+  * [ ] Multi-project import outside of FTUX view ([#273](https://github.com/scout-app/scout-app/issues/273))
+  * [ ] Implement Live Reload or something similar ([#39](https://github.com/scout-app/scout-app/issues/39))
+  * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172), [#258](https://github.com/scout-app/scout-app/issues/258)).
+  * [ ] Allow for specific projects to run on app launch ([#69](https://github.com/scout-app/scout-app/issues/69))
+  * [ ] Tray icon/Minimize to tray ([#278](https://github.com/scout-app/scout-app/issues/278))
+  * [ ] Investigate adding [Eyeglass](https://github.com/sass-eyeglass/eyeglass) into Scout-App, as it's the closest thing to Compass for Node-Sass. ([#279](https://github.com/scout-app/scout-app/issues/279))
+  * [ ] Possibly implement an ITCSS specificity graph into the UI for sucessfully outputted CSS files ([#280](https://github.com/scout-app/scout-app/issues/280))
+  * [ ] Abilitity to clear all alerts and messages at once ([#281](https://github.com/scout-app/scout-app/issues/281))
+  * [ ] Make sidebar resizable ([#282](https://github.com/scout-app/scout-app/issues/282))
+  * [ ] Tray icon indicators ([#283](https://github.com/scout-app/scout-app/issues/283))
   * [ ] Import/Export projects (Would anyone even want this feature?)
   * [ ] Multi-project delete
-  * [ ] Multi-project import outside of FTUX view
   * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button
   * [ ] Delete settings file button in preferences
-  * [ ] Accept pull requests for app translations.
-  * [ ] Investigate adding [Eyeglass](https://github.com/sass-eyeglass/eyeglass) into Scout-App, as it's the closest thing to Compass for Node-Sass.
+

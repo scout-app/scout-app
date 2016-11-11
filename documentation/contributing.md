@@ -18,11 +18,12 @@ Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the 
 
 ### Running Scout-App Locally for Development
 
-1. Clone down this `scout-app` repo
-3. Install [Node.JS](http://nodejs.org) if you don't have it
-4. Run `npm install`
-5. Run `npm start`
-6. Read below if you get libsass bindings errors.
+1. Clone down this `scout-app` repo with [Git](https://git-scm.com)
+1. Install [Node.JS](http://nodejs.org) if you don't have it
+1. Run `npm install --loglevel=error`
+ * If you get a message about `Skipping failed optional dependency` or `Not compatible with your operating system or architecture:` it is normal and expected. Scout-App is cross-platform, so some dependencies are OS specific. These warnings are just there to say that something relating to a different OS wasn't installed.
+1. Run `npm start`
+1. [Read below if you get libsass bindings errors](#if-you-get-the-libsass-error).
 
 
 * * *
