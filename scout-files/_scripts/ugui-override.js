@@ -27,7 +27,7 @@
     // number in the `package.json`, then offer a link to the release
     // page if there is a newer release.
     //
-    //>You must supply a 'Repository URL" in your `package.json` file
+    //>You must supply a "Repository URL" in your `package.json` file
     // and it must match the following pattern:
     //
     //`git://github.com/USERNAME/REPO.git`
@@ -35,7 +35,7 @@
     //>And you must also publish releases on GitHub
 
     //When the user clicks the button in the help menu, contact Github and check for updates
-    function checkForUpdates() {
+    function checkForUpdates () {
         //git://github.com/USERNAME/REPO.git
         var repoURL = ugui.app.packageJSON.repository[0].url;
         //[ 'git:', '', 'github.com', 'USERNAME', 'REPO.git' ]
@@ -130,7 +130,7 @@
     // on every load it uses the correct theme.
 
     //
-    function saveNewSwatch(newSwatch) {
+    function saveNewSwatch (newSwatch) {
         //Validate that the required argument is passed and is the correct type
         if (!newSwatch || typeof(newSwatch) !== 'string') {
             console.info('You must pass in a new swatch as a string');
@@ -191,7 +191,7 @@
     // users can try out different stylesheets.
 
     //
-    function themeSwapper() {
+    function themeSwapper () {
         //Grab all the files in the `_themes` folder and put them in an array
         fs.readdir('scout-files/_themes', function (err, files) {
             //If that works

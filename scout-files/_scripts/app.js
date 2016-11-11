@@ -5,7 +5,7 @@
   The main code that handles watching and processing files.
 */
 
-(function runApp() {
+(function runApp () {
 
 
 
