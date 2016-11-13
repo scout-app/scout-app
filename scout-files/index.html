@@ -191,20 +191,94 @@
       <div class="container">
         <h1 data-lang="WELCOME_MESSAGE"></h1>
 
-        <p data-lang="WELCOME_INSTRUCTIONS"></p>
         <input type="file" id="ftuxProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
 
         <div class="panel panel-primary text-left">
           <div class="panel-heading">
             <h3 class="panel-title" data-lang="IMPORT_PROJECTS"></h3>
           </div>
-          <div class="panel-body"></div>
-          <div class="panel-footer" data-lang="IMPORT_FROM_FOLDER"></div>
+          <div class="panel-body text-center">
+            <style>
+              .bordered {
+                max-width: 329px;
+                border-radius: 5px;
+                border: 3px dashed #CCC;
+                margin: 7px auto 0px;
+                cursor: pointer;
+              }
+              .bordered img {
+                max-height: 80px;
+                margin: 11px 0px;
+                opacity: 0.25;
+              }
+              .ftux-title {
+                opacity: 0.5;
+              }
+              .ftux-title h3 {
+                font-weight: bold;
+              }
+              .faded75 {
+                opacity: 0.75;
+                margin: 8px 0px 0px 0px;
+              }
+              .dashed-hr {
+                height: 3px;
+                background-image: linear-gradient(to right, #E0E0E0 33%, rgba(255,255,255,0) 0%);
+                background-position: bottom;
+                background-repeat: repeat-x;
+                background-size: 11px 3px;
+                border: 0px;
+                border-radius: 50%;
+                margin: 24px 0px 14px 0px;
+              }
+              .inline-block {
+                display: inline-block;
+                margin: 10px 12px 4px;
+              }
+            </style>
+            <div id="ftux-bordered" class="bordered text-center">
+              <img src="_assets/folder.svg" alt="folder icon" />
+            </div>
+            <div class="ftux-title">
+              <h3>Drag and Drop</h3> <h4>anywhere to import projects</h4>
+            </div> <!-- LOCALIZE -->
+            <hr class="dashed-hr" />
+            <div class="row">
+              <div class="text-center inline-block">
+                <button id="ftux-add-project" class="btn btn-lg btn-default">
+                  <span class="glyphicon glyphicon-plus"></span>
+                  Add a Project <!-- LOCALIZE -->
+                </button>
+                <p class="faded75">select a project folder</p> <!-- LOCALIZE -->
+              </div>
+              <div class="text-center inline-block">
+                <button class="btn btn-lg btn-primary">
+                  <span class="glyphicon glyphicon-plus-sign"></span>
+                  Add Group of Projects <!-- LOCALIZE -->
+                </button>
+                <p class="faded75">select the group folder</p> <!-- LOCALIZE -->
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="row text-left">
-          <button id="ftuxSelectAll"   class="btn btn-primary" data-lang="SELECT_ALL"></button>
-          <button id="ftuxDeselectAll" class="btn btn-default" data-lang="DESELECT_ALL"></button>
-          <button id="ftuxStartImport" class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok"></span><span data-lang="IMPORT_SELECTED"></span></button>
+      </div>
+    </div>
+
+    <!-- Multi-Project Import modal -->
+    <div id="multi-import-modal" class="modal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+            <h4>Multi-Project Import</h4> <!-- LOCALIZE -->
+          </div>
+          <div class="modal-body text-center">
+
+            <div class="row">
+              <button id="ftuxStartImport" class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok"></span><span data-lang="IMPORT_SELECTED"></span></button>
+            </div>
+
+          </div>
         </div>
       </div>
     </div>

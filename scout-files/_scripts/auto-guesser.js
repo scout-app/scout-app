@@ -321,7 +321,8 @@
         scout.helpers.ftux();
     }
 
-    $('#addProject, #file-newproject').click(function (event) {
+    // If the user clicks on the add project button in the nav, sidebar, ftux, or the drag n' drop zone on ftux
+    $('#addProject, #file-newproject, #ftux-bordered, #ftux-add-project').click(function (event) {
         event.preventDefault();
         $('#addProjectBrowse').click();
     });

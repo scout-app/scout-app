@@ -11,8 +11,8 @@
     var scout = window.scout;
     var ugui = window.ugui;
 
-    var fs = require('fs-extra');
-    var path = require('path');
+    //var fs = require('fs-extra');
+    //var path = require('path');
 
     // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
@@ -39,6 +39,7 @@
      * Checks the user profile, my docs, and root of some
      * drives (on Windows) for projects/GitHub folder.
      */
+    /*
     function autoGuessProjectsFolder () {
         var projectsFolder = '';
         var tempProjectsFolder = '';
@@ -152,12 +153,14 @@
 
         scout.ftux.projectsFolder = projectsFolder;
     }
+    */
 
     /**
      * Look in the projects/GitHub folder. Create checkboxes for each project folder.
      *
      * @param  {string} path Location of project folders
      */
+    /*
     function autoGrabProjects (path) {
         $('#ftux .panel-body').empty();
         var projectsFolder = path || scout.ftux.projectsFolder;
@@ -182,11 +185,13 @@
             }
         }
     }
+    */
 
     /**
      * The folder location in the footer of the Import Projects panel
      * @param  {string} path The Projects Folder path
      */
+    /*
     function updatePanelContent (path) {
         var folder = '';
         if (scout.ftux.projectsFolder) {
@@ -198,63 +203,13 @@
             $('#ftuxProjectsFolder').text(folder);
         }
     }
+    */
 
     function ftuxEvents () {
-        $('#ftux .panel-body label').click(function () {
-            ftuxUnlock();
-        });
-        $('#ftuxSelectAll').click(function () {
-            var inputs = $('#ftux .panel-body input');
-            for (var i = 0; i < inputs.length; i++) {
-                $(inputs[i]).prop('checked', true);
-            }
-            ftuxUnlock();
-        });
-        $('#ftuxDeselectAll').click(function () {
-            var inputs = $('#ftux .panel-body input');
-            for (var i = 0; i < inputs.length; i++) {
-                $(inputs[i]).prop('checked', false);
-            }
-            ftuxUnlock();
-        });
-        $('#ftuxStartImport').click(function (evt) {
-            if ($('#ftuxStartImport').hasClass('gray')) {
-                evt.preventDefault();
-                return;
-            }
 
-            $('#addProjectBrowse').attr('nwworkingdir', $('#ftuxProjectsFolder').text());
-
-            //Prevent importing projects multiple times from double-clicks
-            $('#ftuxStartImport').addClass('gray');
-
-            var inputs = $('#ftux .panel-body input:checked');
-            for (var i = 0; i < inputs.length; i++) {
-                var path = $(inputs[i]).val();
-                //The index + 1 means it will never pass in a 0, and thus not be seen as falsey
-                scout.helpers.autoGenerateProject(path, i + 1);
-            }
-
-            scout.helpers.saveSettings;
-            unloadFTUX();
-        });
-        $('#ftuxPickFolder').unbind('click');
-        $('#ftuxPickFolder').click(function (evt) {
-            evt.preventDefault();
-            $('#ftuxProjectBrowse').click();
-            ftuxUnlock();
-        });
-        $('#ftuxProjectBrowse').change(function () {
-            var path = $('#ftuxProjectBrowse').val();
-            autoGrabProjects(path);
-            updatePanelContent(path);
-            ftuxUnlock();
-            $('#ftux .panel-body label').click(function () {
-                ftuxUnlock();
-            });
-        });
     }
 
+    /*
     function ftuxUnlock () {
         var inputs = $('#ftux .panel-body input');
         var checked = $('#ftux .panel-body input:checked');
@@ -265,16 +220,17 @@
             $('#ftuxStartImport').prop('disable', false).removeClass('gray');
         }
     }
+    */
 
     //The main FTUX function
     function ftux () {
         if (scout.projects.length < 1 && ugui.app.argv.length < 1) {
             loadFTUX();
-            autoGuessProjectsFolder();
-            autoGrabProjects();
-            updatePanelContent();
+            //autoGuessProjectsFolder();
+            //autoGrabProjects();
+            //updatePanelContent();
             ftuxEvents();
-            ftuxUnlock();
+            //ftuxUnlock();
         } else {
             unloadFTUX();
         }

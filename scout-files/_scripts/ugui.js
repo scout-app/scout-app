@@ -151,7 +151,6 @@ var uguiVersion = '2.0.0a';
 //>Listing of variables used throughout this library.
 
 var $ = window.$;
-var scout = window.scout;
 
 //All arguments sent in the command
 var allArgElements = $('cmd arg');
@@ -2617,7 +2616,7 @@ function keyBindings () {
             pressed.ctrlKey && pressed.keyCode === 82 ||
             pressed.metaKey && pressed.keyCode === 82) {
                 pressed.preventDefault();
-                scout.helpers.killAllWatchers();
+                window.scout.helpers.killAllWatchers();
                 win.reloadDev();
                 return false;
         //Check `Shift+F5` and `CMD+Shift+R` keys and refresh ignoring cache
@@ -2625,13 +2624,13 @@ function keyBindings () {
             pressed.shiftKey && pressed.keyCode === 116 ||
             pressed.metaKey && pressed.shiftKey && pressed.keyCode === 82) {
                 pressed.preventDefault();
-                scout.helpers.killAllWatchers();
+                window.scout.helpers.killAllWatchers();
                 win.reloadIgnoringCache();
                 return false;
         //Check `F5` key and soft refresh
         } else if (pressed.keyCode === 116) {
             pressed.preventDefault();
-            scout.helpers.killAllWatchers();
+            window.scout.helpers.killAllWatchers();
             win.reload();
             return false;
         //Check `F12`, `Ctrl+Shift+I`, or `Option+Shift+I` and display Webkit Dev Tools
