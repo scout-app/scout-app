@@ -40,8 +40,10 @@
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-lang="FILE"></span> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
-                <li><a href="#new"   id="file-newproject" data-lang="NEW_PROJECT"></a></li>
-                <li><a href="#prefs" id="preferences"     data-lang="PREFERENCES"></a></li>
+                <li><a href="#new"      id="file-newproject"  data-lang="NEW_PROJECT"></a></li>
+                <li><a href="#template" id="file-boilerplate"                        >New from Boilerplate</a></li> <!-- LOCALIZE -->
+                <li><a href="#multi"    id="file-multi"                              >Multi-Project Import</a></li> <!-- LOCALIZE -->
+                <li><a href="#prefs"    id="preferences"      data-lang="PREFERENCES"></a></li>
                 <li class="divider"></li>
                 <li><a href="#exit" data-lang="EXIT"></a></li>
               </ul>
@@ -253,7 +255,7 @@
                 <p class="faded75">select a project folder</p> <!-- LOCALIZE -->
               </div>
               <div class="text-center inline-block">
-                <button class="btn btn-lg btn-primary">
+                <button id="ftux-multi" class="btn btn-lg btn-primary">
                   <span class="glyphicon glyphicon-plus-sign"></span>
                   Add Group of Projects <!-- LOCALIZE -->
                 </button>
@@ -273,12 +275,52 @@
             <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
             <h4>Multi-Project Import</h4> <!-- LOCALIZE -->
           </div>
-          <div class="modal-body text-center">
+          <div class="modal-body">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                  <strong><span class="numToImport">0</span> Selected Projects</strong>
+              </div>
+              <div class="panel-body">
 
-            <div class="row">
-              <button id="ftuxStartImport" class="btn btn-success pull-right"><span class="glyphicon glyphicon-ok"></span><span data-lang="IMPORT_SELECTED"></span></button>
+                <table class="table table-striped table-hover table-condensed">
+                  <thead>
+                    <tr>
+                      <th><input type="checkbox" id="ftux-select-all" title="Select/Deselect All"/></th> <!-- LOCALIZE -->
+                      <th>Project Name</th> <!-- LOCALIZE -->
+                      <th class="text-center">Input (Sass)</th> <!-- LOCALIZE -->
+                      <th class="text-center">Output (CSS)</th> <!-- LOCALIZE -->
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+
+              </div>
+              <div class="panel-footer">
+
+                <div class="row">
+                  <div class="col-xs-9">
+                    <button class="bordered"><span class="glyphicon glyphicon-tint"></span> Drag &amp; Drop</button> <!-- LOCALIZE -->
+                    <a href="#" class="text-success">
+                      <span class="glyphicon glyphicon-plus"></span>
+                      <u>Add another project</u> <!-- LOCALIZE -->
+                    </a>
+                    <a href="#" class="text-success">
+                      <span class="glyphicon glyphicon-th-list"></span>
+                      <u>Group of projects</u> <!-- LOCALIZE -->
+                    </a>
+                  </div>
+                  <div class="col-xs-3">
+                    <button id="ftuxStartImport" class="btn btn-success pull-right">
+                      <span class="glyphicon glyphicon-ok"></span>
+                      Import <span class="numToImport">0</span> Projects <!-- LOCALIZE -->
+                    </button>
+                  </div>
+                </div>
+
+              </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -465,6 +507,7 @@
     <script type="text/javascript" src="_scripts/sidebar.js"         ></script>
     <script type="text/javascript" src="_scripts/events.js"          ></script>
     <script type="text/javascript" src="_scripts/auto-guesser.js"    ></script>
+    <script type="text/javascript" src="_scripts/multi-import.js"    ></script>
     <script type="text/javascript" src="_scripts/ftux.js"            ></script>
     <script type="text/javascript" src="_scripts/drag-in-folders.js" ></script>
     <script type="text/javascript" src="_scripts/preferences.js"     ></script>
