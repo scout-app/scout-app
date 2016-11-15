@@ -246,21 +246,30 @@
                 padding: 0;
                 line-height: inherit;
               }
+              .icon-dragndrop:before {
+                font-weight: bold;
+              }
               #multi-import-modal .panel-heading {
                 font-size: 1.2em;
               }
               #multi-import-modal .panel-body {
                 padding: 0px 6px;
               }
-              #multi-import-modal .panel-footer {
+              #multi-import-modal .panel-footer,
+              #multi-import-modal .panel-footer .row,
+              #multi-import-modal .panel-footer .col-xs-4 {
+                margin: 0px;
                 padding: 0px;
               }
               #multi-import-modal .panel-footer span {
                 margin: 0px 5px 0px 10px;
               }
               #multi-import-modal .panel-footer u {
-                line-height: 3em;
                 margin-right: 1em;
+              }
+              #multi-import-modal .panel-footer a {
+                display: inline-block;
+                padding: 10px 0px;
               }
               #multi-import-modal .panel-footer a:hover {
                 text-decoration: none;
@@ -389,20 +398,26 @@
 
               </div>
               <div class="panel-footer text-center">
-
-                    <button class="drag-n-drop">
-                      <!-- <span class="glyphicon glyphicon-tint"></span> -->
+                <div class="row">
+                  <div class="col-xs-4">
+                    <a href="#" class="drag-n-drop">
                       <span class="icon icon-dragndrop"></span>
                       Drag &amp; Drop<!-- LOCALIZE -->
-                    </button>
+                    </a>
+                  </div>
+                  <div class="col-xs-4">
                     <a href="#" class="text-success">
                       <span class="glyphicon glyphicon-plus"></span>
                       <u>Add another project</u> <!-- LOCALIZE -->
                     </a>
+                  </div>
+                  <div class="col-xs-4">
                     <a href="#" class="text-success">
                       <span class="glyphicon glyphicon-th-list"></span>
                       <u>Group of projects</u> <!-- LOCALIZE -->
                     </a>
+                  </div>
+                </div>
 
               </div>
             </div>
