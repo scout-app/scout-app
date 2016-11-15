@@ -11,8 +11,8 @@
     var scout = window.scout;
     var ugui = window.ugui;
 
-    //var fs = require('fs-extra');
-    //var path = require('path');
+    var fs = require('fs-extra');
+    var path = require('path');
 
     // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
@@ -39,7 +39,7 @@
      * Checks the user profile, my docs, and root of some
      * drives (on Windows) for projects/GitHub folder.
      */
-    /*
+
     function autoGuessProjectsFolder () {
         var projectsFolder = '';
         var tempProjectsFolder = '';
@@ -153,39 +153,57 @@
 
         scout.ftux.projectsFolder = projectsFolder;
     }
-    */
+
 
     /**
      * Look in the projects/GitHub folder. Create checkboxes for each project folder.
      *
      * @param  {string} path Location of project folders
      */
-    /*
-    function autoGrabProjects (path) {
-        $('#ftux .panel-body').empty();
-        var projectsFolder = path || scout.ftux.projectsFolder;
+    function autoGrabProjects (filePath) {
+        var projectsFolder = filePath || scout.ftux.projectsFolder;
 
         var projects = '';
         if (projectsFolder) {
             projects = ugui.helpers.readAFolder(projectsFolder);
         }
         if (!projectsFolder || projects.length < 1) {
-            $('#ftux .panel-body').html(scout.localize('NO_PROJECTS_FOUND', true));
             return;
         }
+
+        var projectsFolderName = projectsFolder;
+        if (ugui.platform == 'win32') {
+            projectsFolderName = path.normalize(projectsFolder);
+        }
+
+        var filePathRow =
+          '<tr class="filepath">' +
+            '<td class="text-primary" colspan="4">' + projectsFolderName + '</td>' +
+            '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
+          '</tr>';
+
+        $('#multi-import-modal tbody').append(filePathRow);
+
         for (var i = 0; i < projects.length; i++) {
             if (projects[i].isFolder) {
-                var name = projects[i].name;
-                var item =
-                  '<label class="col-xs-6">' +
-                    '<input type="checkbox" value="' + projectsFolder + '/' + name + '" checked="checked"> ' +
-                    name +
-                  '</label>';
-                $('#ftux .panel-body').append(item);
+                var currentName = projects[i].name;
+                var currentPath = path.join(projectsFolder, projects[0].name);
+                var currentProjId = 'sa' + (Date.now() + i);
+                var input = 'ok';
+                var output = 'ok';
+                var row =
+                  '<tr>' +
+                    '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" />' +
+                    '<td><label for="' + currentProjId + '">' + currentName + '</label></td>' +
+                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + input + '"></span></label></td>' +
+                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + output + '"></span></label></td>' +
+                    '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
+                  '</tr>';
+
+                $('#multi-import-modal tbody').append(row);
             }
         }
     }
-    */
 
     /**
      * The folder location in the footer of the Import Projects panel
@@ -226,8 +244,8 @@
     function ftux () {
         if (scout.projects.length < 1 && ugui.app.argv.length < 1) {
             loadFTUX();
-            //autoGuessProjectsFolder();
-            //autoGrabProjects();
+            autoGuessProjectsFolder();
+            autoGrabProjects();
             //updatePanelContent();
             ftuxEvents();
             //ftuxUnlock();

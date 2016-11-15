@@ -41,7 +41,6 @@
     "MESSAGES_TITLE_SUCCESS": "In the preferences, this is the label above the success message choices.",
     "MILLISECONDS_SHORT": "When Scout-App successfully processes Sass files to CSS we output a message. When the user hovers over the message it states 'Project Name | Processed in 224 ms'",
     "NEW_PROJECT": "Under 'File' in the nav bar, this is an option. It lets the user browse for a project folder to add to Scout-App.",
-    "NO_PROJECTS_FOUND": "When the user has no projects in Scout-App. If Scout-App can't find a folder containing the user's projects, it displays this message.",
     "NO_SASS_FILES": "When the user runs a project, but its input folder doesn't have any Sass files that can be processed, this error message is displayed.",
     "NOTIFICATIONS_CHOICE": "In the preferences modal, this is the label above the notification settings.",
     "OUTPUT_COMPACT": "In the project settings view, there is a setting for the level of compression for the outputted CSS. This is one of the options.",
