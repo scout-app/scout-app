@@ -29,15 +29,15 @@
     var path = require('path');
 
     //Get versions
-    scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass','').replace('(Wrapper)','').replace('[JavaScript]','').trim();
-    scout.versions.libSass  = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)','').replace('[C/C++]','').trim();
+    scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass', '').replace('(Wrapper)', '').replace('[JavaScript]', '').trim();
+    scout.versions.libSass = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)', '').replace('[C/C++]', '').trim();
     if (process.platform == 'win32') {
-        var pathToProject = ugui.app.pathToProject.replace('/','').split('/').join('\\').split('%20').join(' ');
+        var pathToProject = ugui.app.pathToProject.replace('/', '').split('/').join('\\').split('%20').join(' ');
         scout.versions.chokidar = require(pathToProject + 'node_modules\\chokidar\\package.json').version;
     } else {
         scout.versions.chokidar = require(ugui.app.pathToProject.split('%20').join(' ') + 'node_modules/chokidar/package.json').version;
     }
-    $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
+    $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')');
     $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
     //If the input folder does not contain any Sass, then alert the user
@@ -88,7 +88,7 @@
                 //Skip all files that begin with an _ and Process all sass/scss files
                 } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
                     //Change from 'some-file.scss' to 'some-file'
-                    var fileName = currentName.slice(0,-5);
+                    var fileName = currentName.slice(0, -5);
                     //Change from 'some-file.scss' to '.scss'
                     var extension = currentName.substring(currentName.length - 5, currentName.length);
                     //send to be converted to css and spit out into the output folder
@@ -107,7 +107,7 @@
         //put split based on returns
         if (process.platform == 'win32') {
             mixins = mixins.split('\r\n');
-            pathToProject = pathToProject.replace('/','');
+            pathToProject = pathToProject.replace('/', '');
         } else {
             mixins = mixins.split('\n');
         }

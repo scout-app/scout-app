@@ -1,3 +1,4 @@
+/* eslint-disable no-multi-spaces */
 
 /*
   App-wide preference controls. Language settings, Theme ,etc.

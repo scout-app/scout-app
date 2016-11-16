@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable no-multi-spaces */
 
 // BUILDING FOR WINDOWS/LINUX:
 

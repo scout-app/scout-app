@@ -27,9 +27,12 @@ window.scout = {
 
 //Format time as 03:14:15
 Date.prototype.timeNow = function () {
-    return ((this.getHours() < 10)?'0':'') + ((this.getHours()>12)?(this.getHours()-12):this.getHours()) + ':' +
-    ((this.getMinutes() < 10)?'0':'') + this.getMinutes() + ':' + ((this.getSeconds() < 10)?'0':'') +
-    this.getSeconds() + ((this.getHours()>12)?(' PM'):' AM');
+    return ((this.getHours() < 10) ? '0' : '') + // eslint-disable-line no-ternary
+    ((this.getHours() > 12) ? (this.getHours() - 12) : this.getHours()) + ':' + // eslint-disable-line no-ternary
+    ((this.getMinutes() < 10) ? '0' : '') + this.getMinutes() + ':' + // eslint-disable-line no-ternary
+    ((this.getSeconds() < 10) ? '0' : '') + // eslint-disable-line no-ternary
+    this.getSeconds() +
+    ((this.getHours() > 12) ? (' PM') : ' AM'); // eslint-disable-line no-ternary
 };
 
 //Set up ability to use "startsWith" and "endsWith"

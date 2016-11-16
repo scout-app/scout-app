@@ -65,7 +65,7 @@
                     var nsVenSource = nsVenSourcePath + folderName + file;
                     var nsVenDestination = nsVenDestinationPath + folderName + file;
                     //Creat a folder in the Dest with the correct name
-                    ugui.helpers.createAFolder(nsVenDestinationPath + folderName , function () {
+                    ugui.helpers.createAFolder(nsVenDestinationPath + folderName, function () {
                         //copy source to dest
                         fs.copy(nsVenSource, nsVenDestination, function (err) {
                             if (err) {

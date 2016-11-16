@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable space-in-parens */
+/* eslint-disable no-multi-spaces */
 
 /*
   Manipulates the state of all projects in the app. Handles adding and
@@ -19,10 +20,10 @@
         $('#projectName').html('');
         $('#projectFolder').val('');
         $('#inputFolder').val('');
-        $('#inputFolderBrowse').attr('nwworkingdir','...');
+        $('#inputFolderBrowse').attr('nwworkingdir', '...');
         $('#inputFolderBrowse').val('');
         $('#outputFolder').val('');
-        $('#outputFolderBrowse').attr('nwworkingdir','...');
+        $('#outputFolderBrowse').attr('nwworkingdir', '...');
         $('#outputFolderBrowse').val('');
         $('#outputWarning').addClass('hide');
         $('#environment input[data-argname="production"]').click();

@@ -198,7 +198,7 @@
     function unlockSubmit (id) {
         id = id || $('#projectID').val();
         for (var i = 0; i < scout.projects.length; i++) {
-            var project  = scout.projects[i];
+            var project = scout.projects[i];
             var inputDir = project.inputFolder;
             var outputDir = project.outputFolder;
             if (
@@ -364,7 +364,7 @@
                 return false;
             //Check CMD+Q and CMD+q and close the app
             } else if (
-                pressed.metaKey && pressed.keyCode === 81||
+                pressed.metaKey && pressed.keyCode === 81 ||
                 pressed.metaKey && pressed.keyCode === 113) {
                 win.on('close', function () {
                     this.hide();

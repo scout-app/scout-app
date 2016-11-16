@@ -123,7 +123,7 @@
         //If on Window and no project folder was found in Docs or User, check drive roots (slow)
         if (!projectsFolder && process.platform == 'win32') {
             //Each drive letter adds like half a second to load time, so I limited them to the common ones
-            var driveLetters = ['C', 'D', 'E', 'F', 'Z', 'Y', 'X', 'G', 'H', 'M', 'N',];
+            var driveLetters = ['C', 'D', 'E', 'F', 'Z', 'Y', 'X', 'G', 'H', 'M', 'N'];
             var shortProjects = ['GitHub', 'Projects'];
             var stats = '';
             for (var r = 0; r < driveLetters.length; r++) {

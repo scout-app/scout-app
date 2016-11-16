@@ -76,7 +76,7 @@
         }
         //Allow links with a class of "external-link" to open in the user's default browser
         ugui.helpers.openDefaultBrowser();
-        $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass +  ' / LibSass v' + scout.versions.libSass + ')');
+        $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')');
         $('.chokidarVersion').html('v' + scout.versions.chokidar);
     }
 
