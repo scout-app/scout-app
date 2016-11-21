@@ -12,6 +12,7 @@ module.exports = {
         "linebreak-style":             ["error", "windows"],
         "no-multi-spaces":             ["error"],
         "no-ternary":                  ["error"],
+        "one-var":                     ["error", "never"],
         "quotes":                      ["error", "single"],
         "semi":                        ["error", "always"],
         "space-before-function-paren": ["error", "always"],
