@@ -165,15 +165,19 @@
                 var currentProjId = 'sa' + (Date.now() + i);
                 var input = '';
                 var output = '';
+                var checked = '';
                 if (projectContents.inputFolder) {
                     input = 'ok';
                 }
                 if (projectContents.outputFolder) {
                     output = 'ok';
                 }
+                if (projectContents.inputFolder && projectContents.outputFolder) {
+                    checked = 'checked="checked"';
+                }
                 var row =
                   '<tr>' +
-                    '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" />' +
+                    '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" ' + checked + ' />' +
                     '<td><label for="' + currentProjId + '">' + currentName + '</label></td>' +
                     '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + input + '"></span></label></td>' +
                     '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + output + '"></span></label></td>' +
@@ -183,27 +187,31 @@
                 $('#multi-import-modal tbody').append(row);
             }
         }
+        updateSelectedCount();
+        $('#multi-import-modal tbody input').click(updateSelectedCount);
     }
 
-    /**
-     * The folder location in the footer of the Import Projects panel
-     * @param  {string} path The Projects Folder path
-     */
-    function updatePanelContent (path) {
-        var folder = '';
-        if (scout.ftux.projectsFolder) {
-            if (process.platform == 'win32') {
-                folder = path || scout.ftux.projectsFolder.split('/').join('\\');
+    function updateSelectedCount () {
+        var allCheckboxes = $('#multi-import-modal tbody input');
+        var total = 0;
+        for (var i = 0; i < allCheckboxes.length; i++) {
+            var currentCheckbox = allCheckboxes[i];
+            var checked = $(currentCheckbox).prop('checked');
+            if (checked) {
+                total = total + 1;
+                $(currentCheckbox).parent().parent().addClass('success');
             } else {
-                folder = path || scout.ftux.projectsFolder;
+                $(currentCheckbox).parent().parent().removeClass('success');
             }
-            $('#ftuxProjectsFolder').text(folder);
         }
+        $('.numToImport').text(total);
+        ftuxUnlock();
+        //removeExtraFilePaths();
     }
 
     function ftuxUnlock () {
-        var inputs = $('#ftux .panel-body input');
-        var checked = $('#ftux .panel-body input:checked');
+        var inputs = $('#multi-import-modal input');
+        var checked = $('#multi-import-modal input:checked');
 
         if (inputs.length < 1 || checked.length < 1) {
             $('#ftuxStartImport').prop('disable', true).addClass('gray');
@@ -216,7 +224,6 @@
         $('#multi-import-modal').fadeIn();
         autoGuessProjectsFolder();
         autoGrabProjects();
-        updatePanelContent();
         ftuxUnlock();
     });
     $('#file-multi').click();
