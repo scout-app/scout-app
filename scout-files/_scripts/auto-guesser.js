@@ -272,10 +272,11 @@
     /**
      * This takes a project input path and auto-guesses all the fields for it, then stores everything on scout.projects array.
      * @param  {string} path     The file path to the project folder
+     * @param  {bool}   quick    If this is true, we stop half way through and only return if the project as an input and output folder
      * @param  {number} instance The projectID is sa + current unix time + this number. Prevents duplicate ID names
      * @return {null}            Nothing is returned, when finished this adds a new project to the scout.projects array
      */
-    function autoGenerateProject (path, instance) {
+    function autoGenerateProject (path, quick, instance) {
         scout.helpers.resetProjectUI();
 
         //Array items are ordered from lowest to highest priority
@@ -300,6 +301,10 @@
         }
         if (scout.newProject.outputFolder.length < 1) {
             autoGuessSrcDist('dist', autoOutput, 'outputFolder');
+        }
+
+        if (quick) {
+            return scout.newProject;
         }
 
         autoGuessImageFolder(autoImages);

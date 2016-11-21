@@ -156,12 +156,21 @@
         $('#multi-import-modal tbody').append(filePathRow);
 
         for (var i = 0; i < projects.length; i++) {
-            if (projects[i].isFolder) {
-                var currentName = projects[i].name;
+            var project = projects[i];
+            if (project.isFolder) {
+                var fullProjectPath = path.join(projectsFolder, project.name);
+                var projectContents = scout.helpers.autoGenerateProject(fullProjectPath, true);
+                var currentName = project.name;
                 var currentPath = path.join(projectsFolder, projects[0].name);
                 var currentProjId = 'sa' + (Date.now() + i);
-                var input = 'ok';
-                var output = 'ok';
+                var input = '';
+                var output = '';
+                if (projectContents.inputFolder) {
+                    input = 'ok';
+                }
+                if (projectContents.outputFolder) {
+                    output = 'ok';
+                }
                 var row =
                   '<tr>' +
                     '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" />' +
