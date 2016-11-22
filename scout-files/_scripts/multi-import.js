@@ -166,21 +166,25 @@
                 var input = '';
                 var output = '';
                 var checked = '';
+                var inputTitle = '';
+                var outputTitle = '';
                 if (projectContents.inputFolder) {
                     input = 'ok';
+                    inputTitle = 'title="' + path.normalize(projectContents.inputFolder) + '"';
                 }
                 if (projectContents.outputFolder) {
                     output = 'ok';
+                    outputTitle = 'title="' + path.normalize(projectContents.outputFolder) + '"';
                 }
                 if (projectContents.inputFolder && projectContents.outputFolder) {
                     checked = 'checked="checked"';
                 }
                 var row =
-                  '<tr>' +
+                  '<tr class="potential-project">' +
                     '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" ' + checked + ' />' +
                     '<td><label for="' + currentProjId + '">' + currentName + '</label></td>' +
-                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + input + '"></span></label></td>' +
-                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + output + '"></span></label></td>' +
+                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + input + '" ' + inputTitle + '></span></label></td>' +
+                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + output + '" ' + outputTitle + '></span></label></td>' +
                     '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
                   '</tr>';
 
@@ -205,11 +209,11 @@
             }
         }
         $('.numToImport').text(total);
-        ftuxUnlock();
+        multiImportUnlock();
         //removeExtraFilePaths();
     }
 
-    function ftuxUnlock () {
+    function multiImportUnlock () {
         var inputs = $('#multi-import-modal input');
         var checked = $('#multi-import-modal input:checked');
 
@@ -220,12 +224,36 @@
         }
     }
 
+    $('#multi-import-modal thead input').click(function (evt) {
+        if (evt.target.checked) {
+            $('#multi-import-modal tbody input').prop('checked', true);
+        } else {
+            $('#multi-import-modal tbody input').prop('checked', false);
+        }
+        updateSelectedCount();
+    });
+
+    function handleXs () {
+        $('#multi-import-modal .potential-project .glyphicon-remove').hover(function () {
+            $(this).parent().parent().addClass('danger');
+        }, function () {
+            $(this).parent().parent().removeClass('danger');
+        });
+        $('#multi-import-modal .potential-project .glyphicon-remove').click(function () {
+            $(this).parent().parent().remove();
+            updateSelectedCount();
+        });
+    }
+
     $('#file-multi, #ftux-multi').click(function () {
         $('#multi-import-modal').fadeIn();
         autoGuessProjectsFolder();
         autoGrabProjects();
-        ftuxUnlock();
+        multiImportUnlock();
+        handleXs();
     });
+
+    //TEMPORARY
     $('#file-multi').click();
 
 })();
