@@ -161,7 +161,7 @@
                 var fullProjectPath = path.join(projectsFolder, project.name);
                 var projectContents = scout.helpers.autoGenerateProject(fullProjectPath, true);
                 var currentName = project.name;
-                var currentPath = path.join(projectsFolder, projects[0].name);
+                var currentPath = path.join(projectsFolder, projects[i].name);
                 var currentProjId = 'sa' + (Date.now() + i);
                 var input = '';
                 var output = '';
@@ -257,11 +257,24 @@
     }
 
     $('#file-multi, #ftux-multi').click(function () {
+        $('#multi-import-modal tbody').empty();
         $('#multi-import-modal').fadeIn();
         autoGuessProjectsFolder();
         autoGrabProjects();
         multiImportUnlock();
         handleXs();
+    });
+
+    $('#ftuxStartImport').click(function () {
+        if (!$(this).hasClass('gray')) {
+            $('#multi-import-modal .modal-header .glyphicon-remove').click();
+
+            var projects = $('#multi-import-modal .potential-project input:checked');
+            for (var i = 0; i < projects.length; i++) {
+                var filePath = $(projects[i]).val();
+                scout.helpers.autoGenerateProject(filePath);
+            }
+        }
     });
 
     //TEMPORARY
