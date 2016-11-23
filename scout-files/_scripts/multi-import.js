@@ -142,11 +142,6 @@
             return;
         }
 
-        var projectsFolderName = projectsFolder;
-        if (ugui.platform == 'win32') {
-            projectsFolderName = path.normalize(projectsFolder);
-        }
-
         var whereToAppendRow = '#multi-import-modal tbody';
 
         var allFilePaths = $('#multi-import-modal .filepath');
@@ -160,7 +155,7 @@
         if (whereToAppendRow === '#multi-import-modal tbody') {
             var filePathRow =
               '<tr class="filepath">' +
-                '<td class="text-primary" colspan="4">' + projectsFolderName + '</td>' +
+                '<td class="text-primary" colspan="4">' + path.normalize(projectsFolder) + '</td>' +
                 '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
               '</tr>';
 
@@ -171,11 +166,17 @@
             var project = projects[i];
             if (project.isFolder) {
                 var row = generateProjectRow(project, i);
+                //We don't want to append TO the .filepath, we want to append AFTER it
                 $(whereToAppendRow).append(row);
             }
         }
         updateSelectedCount();
         $('#multi-import-modal tbody input').click(updateSelectedCount);
+    }
+
+    function addItemToMultiImportModal (a) {
+        /* eslint-disable no-console */
+        console.log(a);
     }
 
     function generateProjectRow (project, i) {
@@ -300,6 +301,8 @@
 
     //TEMPORARY
     $('#file-multi').click();
+
+    window.scout.addItemToMultiImportModal = addItemToMultiImportModal;
 
 })();
 

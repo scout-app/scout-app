@@ -63,10 +63,13 @@
      * @param  {array} files A list of folders
      */
     function onFilesDrop (folders) {
+        var multiImportModalIsVisible = $('#multi-import-modal:visible').length > 0;
         for (var i = 0; i < folders.length; i++) {
             var folder = folders[i].path;
             var isFolder = fs.lstatSync(folder).isDirectory();
-            if (isFolder) {
+            if (isFolder && multiImportModalIsVisible) {
+                scout.helpers.addItemToMultiImportModal(folder);
+            } else if (isFolder) {
                 scout.helpers.autoGenerateProject(folder);
             }
         }
