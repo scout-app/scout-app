@@ -243,6 +243,17 @@
             $(this).parent().parent().remove();
             updateSelectedCount();
         });
+
+        $('#multi-import-modal .filepath .glyphicon-remove').hover(function () {
+            $(this).parent().parent().nextUntil('.filepath').addClass('danger');
+        }, function () {
+            $(this).parent().parent().nextUntil('.filepath').removeClass('danger');
+        });
+        $('#multi-import-modal .filepath .glyphicon-remove').click(function () {
+            $(this).parent().parent().nextUntil('.filepath').remove();
+            $(this).parent().parent().remove();
+            updateSelectedCount();
+        });
     }
 
     $('#file-multi, #ftux-multi').click(function () {

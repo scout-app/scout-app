@@ -53,8 +53,9 @@
         display: block
         height: 238px
         overflow: auto
-    tr .glyphicon-remove
-        visibility: hidden
+    tr
+        .glyphicon-remove
+            visibility: hidden
         &:hover .glyphicon-remove
             visibility: visible
     th,
@@ -64,7 +65,7 @@
         &:nth-of-type(3),
         &:nth-of-type(4)
             width: 20%
-        &:nth-of-type(5)
+        &:last-of-type
             width: 35px
     th:last-of-type
         width: 1.35em
