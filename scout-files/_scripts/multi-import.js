@@ -11,7 +11,6 @@
      * Checks the user profile, my docs, and root of some
      * drives (on Windows) for projects/GitHub folder.
      */
-
     function autoGuessProjectsFolder () {
         var projectsFolder = '';
         var tempProjectsFolder = '';
@@ -128,6 +127,7 @@
 
     /**
      * Look in the projects/GitHub folder. Create checkboxes for each project folder.
+     * Check to see if the project contains an input/output folder.
      *
      * @param  {string} path Location of project folders
      */
@@ -147,52 +147,73 @@
             projectsFolderName = path.normalize(projectsFolder);
         }
 
-        var filePathRow =
-          '<tr class="filepath">' +
-            '<td class="text-primary" colspan="4">' + projectsFolderName + '</td>' +
-            '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
-          '</tr>';
+        var whereToAppendRow = '#multi-import-modal tbody';
 
-        $('#multi-import-modal tbody').append(filePathRow);
+        var allFilePaths = $('#multi-import-modal .filepath');
+        for (var j = 0; j < allFilePaths.length; j++) {
+            var currentPath = $(allFilePaths[i]).text();
+            if (path.normalize(projectsFolder) === currentPath) {
+                whereToAppendRow = allFilePaths[i];
+            }
+        }
+
+        if (whereToAppendRow === '#multi-import-modal tbody') {
+            var filePathRow =
+              '<tr class="filepath">' +
+                '<td class="text-primary" colspan="4">' + projectsFolderName + '</td>' +
+                '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
+              '</tr>';
+
+            $('#multi-import-modal tbody').append(filePathRow);
+        }
 
         for (var i = 0; i < projects.length; i++) {
             var project = projects[i];
             if (project.isFolder) {
-                var fullProjectPath = path.join(projectsFolder, project.name);
-                var projectContents = scout.helpers.autoGenerateProject(fullProjectPath, true);
-                var currentName = project.name;
-                var currentPath = path.join(projectsFolder, projects[i].name);
-                var currentProjId = 'sa' + (Date.now() + i);
-                var input = '';
-                var output = '';
-                var checked = '';
-                var inputTitle = '';
-                var outputTitle = '';
-                if (projectContents.inputFolder) {
-                    input = 'ok';
-                    inputTitle = 'title="' + path.normalize(projectContents.inputFolder) + '"';
-                }
-                if (projectContents.outputFolder) {
-                    output = 'ok';
-                    outputTitle = 'title="' + path.normalize(projectContents.outputFolder) + '"';
-                }
-                if (projectContents.inputFolder && projectContents.outputFolder) {
-                    checked = 'checked="checked"';
-                }
-                var row =
-                  '<tr class="potential-project">' +
-                    '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" ' + checked + ' />' +
-                    '<td><label for="' + currentProjId + '">' + currentName + '</label></td>' +
-                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + input + '" ' + inputTitle + '></span></label></td>' +
-                    '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + output + '" ' + outputTitle + '></span></label></td>' +
-                    '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
-                  '</tr>';
-
-                $('#multi-import-modal tbody').append(row);
+                var row = generateProjectRow(project, i);
+                $(whereToAppendRow).append(row);
             }
         }
         updateSelectedCount();
         $('#multi-import-modal tbody input').click(updateSelectedCount);
+    }
+
+    function generateProjectRow (project, i) {
+        var projectsFolder = 'The full path to the parent folder of the project';
+        if (typeof(project) == 'string') {
+            project = '';
+        }
+        i = i || 0;
+        var fullProjectPath = path.join(projectsFolder, project.name);
+        var projectContents = scout.helpers.autoGenerateProject(fullProjectPath, true);
+        var currentName = project.name;
+        var currentPath = path.join(projectsFolder, project.name);
+        var currentProjId = 'sa' + (Date.now() + i);
+        var input = '';
+        var output = '';
+        var checked = '';
+        var inputTitle = '';
+        var outputTitle = '';
+        if (projectContents.inputFolder) {
+            input = 'ok';
+            inputTitle = 'title="' + path.normalize(projectContents.inputFolder) + '"';
+        }
+        if (projectContents.outputFolder) {
+            output = 'ok';
+            outputTitle = 'title="' + path.normalize(projectContents.outputFolder) + '"';
+        }
+        if (projectContents.inputFolder && projectContents.outputFolder) {
+            checked = 'checked="checked"';
+        }
+        var row =
+          '<tr class="potential-project">' +
+            '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" ' + checked + ' />' +
+            '<td><label for="' + currentProjId + '">' + currentName + '</label></td>' +
+            '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + input + '" ' + inputTitle + '></span></label></td>' +
+            '<td class="text-center"><label for="' + currentProjId + '"><span class="glyphicon glyphicon-' + output + '" ' + outputTitle + '></span></label></td>' +
+            '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
+          '</tr>';
+        return row;
     }
 
     function updateSelectedCount () {
