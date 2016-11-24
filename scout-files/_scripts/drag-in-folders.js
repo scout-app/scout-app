@@ -1,7 +1,6 @@
 (function () {
 
     var $ = window.$;
-    var scout = window.scout;
     var ugui = window.ugui;
 
     var fs = require('fs-extra');
@@ -68,9 +67,9 @@
             var folder = folders[i].path;
             var isFolder = fs.lstatSync(folder).isDirectory();
             if (isFolder && multiImportModalIsVisible) {
-                scout.helpers.addItemToMultiImportModal(folder);
+                window.scout.helpers.addItemToMultiImportModal(folder, i);
             } else if (isFolder) {
-                scout.helpers.autoGenerateProject(folder);
+                window.scout.helpers.autoGenerateProject(folder, false, i);
             }
         }
 
