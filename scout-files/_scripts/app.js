@@ -1,23 +1,14 @@
 /* eslint-disable no-console */
 
-
 /*
   The main code that handles watching and processing files.
 */
 
-(function runApp () {
-
-
-
-
+(function ($, scout, ugui) {
 
     /////////////////////////////////////////////////////////////
     // Define some variables                                   //
     /////////////////////////////////////////////////////////////
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
 
     //File System access
     var fs = require('fs-extra');
@@ -266,9 +257,9 @@
         }
     }
 
-    window.scout.helpers.processInputFolder = processInputFolder;
-    window.scout.helpers.startWatching = startWatching;
-    window.scout.helpers.stopWatching = stopWatching;
-    window.scout.helpers.killAllWatchers = killAllWatchers;
+    scout.helpers.processInputFolder = processInputFolder;
+    scout.helpers.startWatching = startWatching;
+    scout.helpers.stopWatching = stopWatching;
+    scout.helpers.killAllWatchers = killAllWatchers;
 
-})(); // end runApp();
+})(window.$, window.scout, window.ugui);

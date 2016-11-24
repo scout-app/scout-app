@@ -4,11 +4,7 @@
   App-wide preference controls. Language settings, Theme ,etc.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function ($, scout, ugui) {
 
     $('#preferences').click(function () {
         $('#preferences-modal').fadeIn();
@@ -61,4 +57,4 @@
     $('#culture-pics .' + scout.globalSettings.cultureCode).removeClass('hide');
     $('#translators .' + scout.globalSettings.cultureCode).removeClass('hide');
 
-})();
+})(window.$, window.scout, window.ugui);

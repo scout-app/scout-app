@@ -3,11 +3,7 @@
   Handles creating new projects and guessing the input/output folders and project icon.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function ($, scout, ugui) {
 
     var path = require('path');
 
@@ -339,4 +335,4 @@
     //scout.helpers.autoGenerateProject('C:/Projects/MyProject');
     window.scout.helpers.autoGenerateProject = autoGenerateProject;
 
-})();
+})(window.$, window.scout, window.ugui);

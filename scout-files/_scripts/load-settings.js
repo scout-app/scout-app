@@ -8,8 +8,7 @@
    * window.scout.globalSettings.cultureCode
 */
 
-(function () {
-    var scout = window.scout;
+(function (scout) {
 
     var fs = require('fs-extra');
     var path = require('path');
@@ -56,4 +55,4 @@
         //Update dictionary
         scout.helpers.setLanguage(scout.globalSettings.cultureCode);
     }
-})();
+})(window.scout);

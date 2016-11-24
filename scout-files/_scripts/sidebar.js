@@ -3,10 +3,7 @@
   Controls for the sidebar, its icons, and click events.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
+(function ($, scout) {
 
     function updateSidebar () {
         $('#projects-list').empty();
@@ -122,6 +119,6 @@
 
     //Empties the sidebar of projects
     //loops through the scout.projects object to recreate the sidebar
-    window.scout.helpers.updateSidebar = updateSidebar;
+    scout.helpers.updateSidebar = updateSidebar;
 
-})();
+})(window.$, window.scout);

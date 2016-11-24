@@ -1,8 +1,9 @@
-(function () {
 
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+/*
+  Handles all of the UI logic for the Multi-Project Import modal.
+*/
+
+(function ($, scout, ugui) {
 
     var fs = require('fs-extra');
     var path = require('path');
@@ -216,8 +217,6 @@
         } else {
             $('#multi-import-modal tbody').append(row);
         }
-
-
     }
 
     function generateProjectRow (project, projectsFolder, i) {
@@ -341,6 +340,4 @@
 
     window.scout.helpers.addItemToMultiImportModal = addItemToMultiImportModal;
 
-})();
-
-
+})(window.$, window.scout, window.ugui);

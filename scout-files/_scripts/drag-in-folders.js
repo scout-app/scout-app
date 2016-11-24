@@ -1,7 +1,11 @@
-(function () {
 
-    var $ = window.$;
-    var ugui = window.ugui;
+/*
+  When you drag and drop files or folders this verifies that it
+  is a folder, and either adds the project to Scout-App or it
+  puts it in the Multi-Project Import modal if it is open.
+*/
+
+(function ($, ugui) {
 
     var fs = require('fs-extra');
     var nw = require('nw.gui');
@@ -26,7 +30,6 @@
             path: path
         }]);
     });
-
 
     function showModal () {
         modal.style.visibility = 'visible';
@@ -76,4 +79,4 @@
         ugui.app.argv = [];
     }
 
-})();
+})(window.$, window.ugui);

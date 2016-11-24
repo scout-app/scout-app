@@ -4,11 +4,7 @@
   and error alerts as green and red panels using these functions.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function ($, scout, ugui) {
 
     function playAlert () {
         var alert = new Audio('_sound/scout-alert.wav');
@@ -253,11 +249,11 @@
     $('[data-argName="messageSound"]').click(playMessage);
     $('[data-argName="alertSound"]').click(playAlert);
 
-    window.scout.helpers.alert = alert;
-    window.scout.helpers.warn = warn;
-    window.scout.helpers.message = message;
-    window.scout.helpers.alert.notification = {};
-    window.scout.helpers.warn.notification = {};
-    window.scout.helpers.message.notification = {};
+    scout.helpers.alert = alert;
+    scout.helpers.warn = warn;
+    scout.helpers.message = message;
+    scout.helpers.alert.notification = {};
+    scout.helpers.warn.notification = {};
+    scout.helpers.message.notification = {};
 
-})();
+})(window.$, window.scout, window.ugui);

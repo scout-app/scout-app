@@ -135,7 +135,7 @@ function waitUGUI() {
 
 */
 //Container for all UGUI components
-(function runUGUI () {
+(function runUGUI (window, $) {
 
 //This is the one place where the UGUI version is declared
 var uguiVersion = '2.0.0a';
@@ -150,8 +150,6 @@ var uguiVersion = '2.0.0a';
 //### A02. UGUI Variables
 //
 //>Listing of variables used throughout this library.
-
-var $ = window.$;
 
 //All arguments sent in the command
 var allArgElements = $('cmd arg');
@@ -3416,7 +3414,7 @@ window.ugui = {
 
 
 // End of `ugui();`
-})();
+})(window, window.$);
 
 
 

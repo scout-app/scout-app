@@ -5,11 +5,7 @@
   Update scout.dictionary. Update the UI.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function (window, $, scout, ugui) {
 
     /**
      * This is the basic KEY to Definition function for languages.
@@ -101,8 +97,8 @@
     //but if they don't have saved settings, we default to English.
     setLanguage('en');
     updateDataLangs();
-    window.scout.helpers.setLanguage = setLanguage;
-    window.scout.helpers.updateDataLangs = updateDataLangs;
-    window.scout.localize = localize;
+    scout.helpers.setLanguage = setLanguage;
+    scout.helpers.updateDataLangs = updateDataLangs;
+    scout.localize = localize;
 
-})();
+})(window, window.$, window.scout, window.ugui);

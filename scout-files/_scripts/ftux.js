@@ -5,11 +5,7 @@
   or when you just have 0 projects.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function ($, scout, ugui) {
 
     // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
@@ -47,6 +43,6 @@
 
     //run once
     ftux();
-    window.scout.helpers.ftux = ftux;
+    scout.helpers.ftux = ftux;
 
-})();
+})(window.$, window.scout, window.ugui);

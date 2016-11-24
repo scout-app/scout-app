@@ -6,16 +6,10 @@
   easier in the future.
 */
 
-(function () {
-
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function (window, $, scout, ugui) {
 
     var nw = require('nw.gui');
     var fs = require('fs-extra');
-
 
     //* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
     //### D06. Check for updates
@@ -245,6 +239,6 @@
     // The Scout-App.exe arguments that are temporarily stored in the UGUI App object.
     // Since you need to check at one point if args are passed in, but clear them out later.
     // We store them here temporarily because nw.App.argv cannot be cleared out.
-    window.ugui.app.argv = nw.App.argv;
+    ugui.app.argv = nw.App.argv;
 
-})();
+})(window, window.$, window.scout, window.ugui);

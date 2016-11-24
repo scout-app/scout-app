@@ -3,11 +3,7 @@
   Event bindings and DOM Manipulation.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function ($, scout, ugui) {
 
     function projectRenameHeight () {
         var inputHeight = $('#projectNameEditable').height();
@@ -384,7 +380,7 @@
     //On page load have this run once
     unlockSubmit();
 
-    window.scout.helpers.projectRenameHeight = projectRenameHeight;
-    window.scout.helpers.unlockSubmit = unlockSubmit;
+    scout.helpers.projectRenameHeight = projectRenameHeight;
+    scout.helpers.unlockSubmit = unlockSubmit;
 
-})();
+})(window.$, window.scout, window.ugui);

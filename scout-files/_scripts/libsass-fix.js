@@ -16,9 +16,7 @@
     will not be needed.
 */
 
-(function () {
-
-    var ugui = window.ugui;
+(function (ugui) {
 
     //Allow access to the filesystem
     var fs = require('fs-extra');
@@ -90,4 +88,4 @@
         }
     });
 
-})();
+})(window.ugui);
