@@ -6,20 +6,12 @@
 
 (function ($, scout, ugui) {
 
-    /////////////////////////////////////////////////////////////
-    // Define some variables                                   //
-    /////////////////////////////////////////////////////////////
-
-    //File System access
     var fs = require('fs-extra');
-    //Pull in Node-Sass
     var sass = require('node-sass');
-    //Chokidar allows for watching files
     var chokidar = require('chokidar');
-    //Pull in the built in Path module
     var path = require('path');
 
-    //Get versions
+    // Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass', '').replace('(Wrapper)', '').replace('[JavaScript]', '').trim();
     scout.versions.libSass = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)', '').replace('[C/C++]', '').trim();
     if (process.platform == 'win32') {
@@ -31,16 +23,16 @@
     $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')');
     $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
-    //If the input folder does not contain any Sass, then alert the user
+    // If the input folder does not contain any Sass, then alert the user
     function checkForSassOnce (project, inputSubFolder, hasSassFiles) {
         hasSassFiles = hasSassFiles || false;
         var inputFolder = project.inputFolder;
         if (inputSubFolder) {
             inputFolder = path.join(project.inputFolder, inputSubFolder);
         }
-        //Grab all the files in the input folder and put them in an array
+        // Grab all the files in the input folder and put them in an array
         ugui.helpers.readAFolder(inputFolder, function (contents) {
-            //check each file and process it if it is sass or scss and doesn't start with an underscore
+            // check each file and process it if it is sass or scss and doesn't start with an underscore
             for (var i = 0; i < contents.length; i++) {
                 var folder = contents[i].isFolder;
                 var currentName = contents[i].name;
@@ -50,7 +42,7 @@
                         subfolder = path.join(inputSubFolder, currentName);
                     }
                     checkForSassOnce(project, subfolder, hasSassFiles);
-                //Skip all files that begin with an _ and Process all sass/scss files
+                // Skip all files that begin with an _ and Process all sass/scss files
                 } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
                     hasSassFiles = true;
                 }
@@ -64,9 +56,9 @@
         if (inputSubFolder) {
             inputFolder = path.join(project.inputFolder, inputSubFolder);
         }
-        //Grab all the files in the input folder and put them in an array
+        // Grab all the files in the input folder and put them in an array
         ugui.helpers.readAFolder(inputFolder, function (contents) {
-            //check each file and process it if it is sass or scss and doesn't start with an underscore
+            // check each file and process it if it is sass or scss and doesn't start with an underscore
             for (var i = 0; i < contents.length; i++) {
                 var folder = contents[i].isFolder;
                 var currentName = contents[i].name;
@@ -76,13 +68,13 @@
                         subfolder = path.join(inputSubFolder, currentName);
                     }
                     processInputFolder(project, subfolder);
-                //Skip all files that begin with an _ and Process all sass/scss files
+                // Skip all files that begin with an _ and Process all sass/scss files
                 } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
-                    //Change from 'some-file.scss' to 'some-file'
+                    // Change from 'some-file.scss' to 'some-file'
                     var fileName = currentName.slice(0, -5);
-                    //Change from 'some-file.scss' to '.scss'
+                    // Change from 'some-file.scss' to '.scss'
                     var extension = currentName.substring(currentName.length - 5, currentName.length);
-                    //send to be converted to css and spit out into the output folder
+                    // send to be converted to css and spit out into the output folder
                     convertToCSS(project, fileName, extension, inputSubFolder);
                 }
             }
@@ -93,9 +85,9 @@
         var outputSubFolder = inputSubFolder || '';
         var outputStyle = project.outputStyle;
         var pathToProject = ugui.app.pathToProject;
-        //Get the mixins config file
+        // Get the mixins config file
         var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
-        //put split based on returns
+        // put split based on returns
         if (process.platform == 'win32') {
             mixins = mixins.split('\r\n');
             pathToProject = pathToProject.replace('/', '');
@@ -103,32 +95,32 @@
             mixins = mixins.split('\n');
         }
 
-        //Remove empty strings from the array
+        // Remove empty strings from the array
         mixins = mixins.filter(Boolean);
 
-        //Prepend all mixin paths with the path to the Scout-App folder
+        // Prepend all mixin paths with the path to the Scout-App folder
         for (var i = 0; i < mixins.length; i++) {
             mixins[i] = pathToProject + mixins[i];
             mixins[i] = mixins[i].replace(/%20/g, ' ');
         }
 
         var devMode = false;
-        //project.environment will return "production" or "development"
+        // project.environment will return "production" or "development"
         if (project.environment == 'development') {
             devMode = true;
         }
 
         var sourceMap = false;
-        //If user selected Development (not production)
+        // If user selected Development (not production)
         if (devMode) {
-            //set the location for the sourceMap
+            // set the location for the sourceMap
             sourceMap = path.join(project.outputFolder, outputSubFolder, inputFileName + '.map');
         }
 
         var fullFilePath = path.join(project.inputFolder, outputSubFolder, inputFileName + inputFileExt);
         var outputFullFilePath = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css');
 
-        //Use node-sass to convert sass or scss to css
+        // Use node-sass to convert sass or scss to css
         sass.render({
             'file': fullFilePath,
             'outfile': sourceMap,
@@ -162,27 +154,27 @@
     }
 
     function startWatching (id) {
-        //loop through all projects to find the one that matches
+        // loop through all projects to find the one that matches
         for (var i = 0; i < scout.projects.length; i++) {
-            //This is to preserve the correct index number for the watcher below.
-            //The string version is a copy of the index and thus does not get manipulated by the i++.
-            //It is naturally coerced from string to number.
+            // This is to preserve the correct index number for the watcher below.
+            // The string version is a copy of the index and thus does not get manipulated by the i++.
+            // It is naturally coerced from string to number.
             var I = i.toString();
 
-            //If the ID's match
+            // If the ID's match
             if (scout.projects[I].projectID == id) {
-                //Create a chokidar watcher in that project
+                // Create a chokidar watcher in that project
                 scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, {
                     ignored: /[\/\\]\./,
                     persistent: true
                 });
-                //Detect file changes and reprocess Sass files
+                // Detect file changes and reprocess Sass files
                 scout.projects[I].watcher
-                    .on('change', function (/*item, stats*/) {
-                        //TODO: See if it's possible to only report changed files
-                        //console.log(item);
-                        //console.log(stats);
-                        //debugger;
+                    .on('change', function (/* item, stats*/) {
+                        // TODO: See if it's possible to only report changed files
+                        // console.log(item);
+                        // console.log(stats);
+                        // debugger;
                         processInputFolder(scout.projects[I]);
                     })
                     .on('error', function (error) {
@@ -197,7 +189,7 @@
                             console.log('There was an error watching the input files: ', error);
                         }
                     });
-                //Update icon
+                // Update icon
                 scout.projects[I].indicator = 'stop';
                 scout.helpers.updateSidebar();
                 checkForSassOnce(scout.projects[I]);
@@ -225,12 +217,12 @@
         for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID == id) {
                 var actionButtonIcon = $('#sidebar .' + id + ' button .glyphicon');
-                //fix icon
+                // fix icon
                 if ($(actionButtonIcon).hasClass('glyphicon-stop')) {
-                    //Update icon and color in sidebar
+                    // Update icon and color in sidebar
                     scout.projects[i].indicator = 'play';
                 }
-                //Stop watching the files for changes
+                // Stop watching the files for changes
                 if (scout.projects[i].watcher) {
                     scout.projects[i].watcher.close();
                     scout.projects[i].watcher = '';
@@ -240,7 +232,7 @@
         }
     }
 
-    //Loop through all projects and stop any of them that are running.
+    // Loop through all projects and stop any of them that are running.
     function killAllWatchers () {
         if (scout.projects.length > 0) {
             for (var i = 0; i < scout.projects.length; i++) {

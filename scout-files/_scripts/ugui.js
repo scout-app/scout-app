@@ -2,6 +2,7 @@
 /* eslint-disable indent */
 /* eslint-disable no-constant-condition */
 /* eslint-disable no-multi-spaces */
+/* eslint-disable spaced-comment */
 
 /*
   UGUI.js is a library and framework that was used to get

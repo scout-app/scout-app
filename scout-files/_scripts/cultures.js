@@ -33,7 +33,7 @@
      * This function updates them with the matching translation to their KEYWORD.
      */
     function updateDataLangs () {
-        //data-lang
+        // data-lang
         var i = 0;
         var langKey = '';
         var items = $('*[data-lang]');
@@ -42,35 +42,35 @@
             langKey = $(item).data('lang');
             $(item).html(localize(langKey));
         }
-        //data-langalt
+        // data-langalt
         var altItems = $('*[data-langalt]');
         for (i = 0; i < altItems.length; i++) {
             var altItem = altItems[i];
             langKey = $(altItem).data('langalt');
             $(altItem).attr('alt', localize(langKey));
         }
-        //data-langtitle
+        // data-langtitle
         var titleItems = $('*[data-langtitle]');
         for (i = 0; i < titleItems.length; i++) {
             var titleItem = titleItems[i];
             langKey = $(titleItem).data('langtitle');
             $(titleItem).attr('title', localize(langKey));
         }
-        //data-langarialabel
+        // data-langarialabel
         var ariaLabelItems = $('*[data-langarialabel]');
         for (i = 0; i < ariaLabelItems.length; i++) {
             var ariaLabelItem = ariaLabelItems[i];
             langKey = $(ariaLabelItem).data('langarialabel');
             $(ariaLabelItem).attr('aria-label', localize(langKey));
         }
-        //data-langhref
+        // data-langhref
         var hrefItems = $('*[data-langhref');
         for (i = 0; i < hrefItems.length; i++) {
             var hrefItem = hrefItems[i];
             langKey = $(hrefItem).data('langhref');
             $(hrefItem).attr('href', localize(langKey));
         }
-        //Allow links with a class of "external-link" to open in the user's default browser
+        // Allow links with a class of "external-link" to open in the user's default browser
         ugui.helpers.openDefaultBrowser();
         $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')');
         $('.chokidarVersion').html('v' + scout.versions.chokidar);
@@ -93,8 +93,8 @@
         $('#culture-pics').attr('src', 'cultures/' + userLanguage + '.jpg');
     }
 
-    //This will be overridden by the user's saved settings later,
-    //but if they don't have saved settings, we default to English.
+    // This will be overridden by the user's saved settings later,
+    // but if they don't have saved settings, we default to English.
     setLanguage('en');
     updateDataLangs();
     scout.helpers.setLanguage = setLanguage;

@@ -18,13 +18,13 @@
 
 (function (ugui) {
 
-    //Allow access to the filesystem
+    // Allow access to the filesystem
     var fs = require('fs-extra');
 
-    //The Node Sass Vendor folder is our Destination
+    // The Node Sass Vendor folder is our Destination
     var nsPath = 'node_modules/node-sass';
 
-    //Check to see if there is an existing Vendor folder
+    // Check to see if there is an existing Vendor folder
     var nsContents = ugui.helpers.readAFolder(nsPath);
     var vendorFolder = false;
 
@@ -34,37 +34,37 @@
         }
     }
 
-    //The Node Sass Vendor folder is our Destination
+    // The Node Sass Vendor folder is our Destination
     var nsVenDestinationPath = 'node_modules/node-sass/vendor';
 
     if (!vendorFolder) {
         ugui.helpers.createAFolder(nsVenDestinationPath);
     }
 
-    //Read the contents of the folder
+    // Read the contents of the folder
     ugui.helpers.readAFolder(nsVenDestinationPath, function (contents) {
         var win = require('nw.gui').Window.get();
-        //If there are no folders or the existing folder is not the right version
+        // If there are no folders or the existing folder is not the right version
         if (contents.length == 0 || (contents.length == 1 && contents[0].name.split('-')[2] !== '43')) {
             var os = process.platform;
             var arch = process.arch;
-            //Verify the machine is 32 or 64-Bit
+            // Verify the machine is 32 or 64-Bit
             if (arch == 'x64' || arch == 'ia32') {
-                //32-Bit OSX is unsupported
+                // 32-Bit OSX is unsupported
                 if (os == 'darwin' && arch == 'ia32') {
                     console.log('Node-Sass does not support OSX 32-Bit');
                     win.showDevTools();
-                //If the OS and Architecture are supported
+                // If the OS and Architecture are supported
                 } else if (os == 'darwin' || os == 'freebsd' || os == 'linux' || os == 'win32') {
-                    //Set the source path
+                    // Set the source path
                     var nsVenSourcePath = 'scout-files/_assets/node-sass_v3.4.2';
                     var folderName = '/' + os + '-' + arch + '-43';
                     var file = '/binding.node';
                     var nsVenSource = nsVenSourcePath + folderName + file;
                     var nsVenDestination = nsVenDestinationPath + folderName + file;
-                    //Creat a folder in the Dest with the correct name
+                    // Creat a folder in the Dest with the correct name
                     ugui.helpers.createAFolder(nsVenDestinationPath + folderName, function () {
-                        //copy source to dest
+                        // copy source to dest
                         fs.copy(nsVenSource, nsVenDestination, function (err) {
                             if (err) {
                                 console.log('Error attempting to copy LibSass bindings');

@@ -73,19 +73,19 @@
 
         var theError = '<span class="num">' + bugLine + ':</span> <span class="text-primary">' + fileContents[(bugLine - 1)] + '</span>';
         var errorPreview = theError;
-        //Replace tabbed returns with bullet points, and regular returns with <BR>'s
+        // Replace tabbed returns with bullet points, and regular returns with <BR>'s
         var errorMessage = error.message
             .replace(/[\r,\n]\s\s/g, '<br /><span class="bullet"></span>')
             .replace(/[\n\r]/g, '<br />')
             .replace(file, '');
 
-        //Make sure there are at least 3 lines in the file and the error isn't on the first or last line
+        // Make sure there are at least 3 lines in the file and the error isn't on the first or last line
         if (count > 3 && (bugLine - 1) !== 0 && (bugLine) !== count) {
             errorPreview =
-              //line before the error
+              // line before the error
               '<span class="num">' + (bugLine - 1) + ':</span> ' + fileContents[(bugLine - 2)] + '\n' +
               theError +
-              //line after the error
+              // line after the error
               '<span class="num">' + (bugLine + 1) + ':</span> ' + fileContents[bugLine];
         }
 

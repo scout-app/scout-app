@@ -10,19 +10,19 @@
     // Show FTUX view | Hide Sidebar | Hide Project Settings
     function loadFTUX () {
         var width = $('#sidebar').css('width');
-        //Hide everything!
+        // Hide everything!
         $('#sidebar').css('left', '-' + width);
         $('#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel').fadeOut();
         $('#viewStatusNav').addClass('hide');
-        //Show FTUX
+        // Show FTUX
         $('#ftux').fadeIn('slow');
     }
 
     // Hide FTUX view | Show Sidebar | Show Project Settings
     function unloadFTUX () {
-        //Hide FTUX
+        // Hide FTUX
         $('#ftux').fadeOut();
-        //Show everything!
+        // Show everything!
         $('#sidebar').css('left', '0px');
         $('#project-settings, #printConsoleTitle, #printConsole .alert, #printConsole .panel').fadeIn();
         $('#viewStatusNav').removeClass('hide');
@@ -31,7 +31,7 @@
     function ftuxEvents () {
     }
 
-    //The main FTUX function
+    // The main FTUX function
     function ftux () {
         if (scout.projects.length < 1 && ugui.app.argv.length < 1) {
             loadFTUX();
@@ -41,7 +41,7 @@
         }
     }
 
-    //run once
+    // run once
     ftux();
     scout.helpers.ftux = ftux;
 

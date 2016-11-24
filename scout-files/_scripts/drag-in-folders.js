@@ -53,7 +53,7 @@
     window.addEventListener('dragenter', function () {
         showModal();
     });
-    //modal.addEventListener('dragenter', allowDrag);
+    // modal.addEventListener('dragenter', allowDrag);
     window.addEventListener('dragover', allowDrag);
     modal.addEventListener('dragleave', function () {
         hideModal();

@@ -12,7 +12,7 @@
         var indicatorStatus = '';
         var indicatorDisable = '';
         var title = '';
-        //Create list of projects in sidebar
+        // Create list of projects in sidebar
         for (var i = 0; i < scout.projects.length; i++) {
             var id = scout.projects[i].projectID;
             indicatorColor = 'btn-info';
@@ -42,7 +42,7 @@
             $('#projects-list').append(standardProject);
         }
 
-        //Register click events for sidebar buttons
+        // Register click events for sidebar buttons
         $('#projects-list div').click(function (evt) {
             evt.stopPropagation();
             $('#sidebar .active').removeClass('active');
@@ -58,7 +58,7 @@
         // Clicking the play/stop button
         $('#projects-list .btn .btn').click(function (evt) {
             evt.stopPropagation();
-            //Make sure the button isn't disabled
+            // Make sure the button isn't disabled
             if (!$(evt.currentTarget).hasClass('gray')) {
                 var id = $(evt.currentTarget).parent().data('id');
                 //
@@ -113,12 +113,12 @@
             });
         }
 
-        //Run once on page load
+        // Run once on page load
         rightClickDeleteMenu();
     }
 
-    //Empties the sidebar of projects
-    //loops through the scout.projects object to recreate the sidebar
+    // Empties the sidebar of projects
+    // loops through the scout.projects object to recreate the sidebar
     scout.helpers.updateSidebar = updateSidebar;
 
 })(window.$, window.scout);

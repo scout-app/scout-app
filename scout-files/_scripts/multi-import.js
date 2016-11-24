@@ -17,7 +17,7 @@
         var tempProjectsFolder = '';
         var autoProjects = [ 'github', 'projects', 'repositories', 'repos', 'websites' ];
 
-        //Set default paths to check based on OS standards
+        // Set default paths to check based on OS standards
         var homePath = '';
         if (process.platform == 'linux') {
             homePath = process.env.HOME;
@@ -33,14 +33,14 @@
         var myDesktopPath = path.join(homePath, 'Desktop');
 
         if (homePath) {
-            //Check the user profile for common project folders
+            // Check the user profile for common project folders
             var contents = ugui.helpers.readAFolder(homePath);
             for (var i = 0; i < contents.length; i++) {
                 for (var j = 0; j < autoProjects.length; j++) {
                     if (contents[i].name.toLowerCase() == autoProjects[j]) {
                         tempProjectsFolder = homePath.split('\\').join('/') + '/' + contents[i].name;
                         var innerContents = ugui.helpers.readAFolder(tempProjectsFolder);
-                        //make sure there is at least one project folder in the projects folder
+                        // make sure there is at least one project folder in the projects folder
                         for (var k = 0; k < innerContents.length; k++) {
                             if (innerContents.length > 0 && innerContents[k].isFolder) {
                                 projectsFolder = tempProjectsFolder;
@@ -52,7 +52,7 @@
                 }
             }
         }
-        //then look in My Docs if it isn't in the user profile
+        // then look in My Docs if it isn't in the user profile
         if (!projectsFolder && myDocsPath) {
             var myDocsContents = ugui.helpers.readAFolder(myDocsPath);
             for (var l = 0; l < myDocsContents.length; l++) {
@@ -60,7 +60,7 @@
                     if (myDocsContents[l].name.toLowerCase() == autoProjects[m]) {
                         tempProjectsFolder = myDocsPath.split('\\').join('/') + '/' + myDocsContents[l].name;
                         var myDocsInnerContents = ugui.helpers.readAFolder(tempProjectsFolder);
-                        //make sure there is at least one project folder in the projects folder
+                        // make sure there is at least one project folder in the projects folder
                         for (var n = 0; n < myDocsInnerContents.length; n++) {
                             if (myDocsInnerContents.length > 0 && myDocsInnerContents[n].isFolder) {
                                 projectsFolder = tempProjectsFolder;
@@ -72,7 +72,7 @@
                 }
             }
         }
-        //then look on the Desktop if it isn't in the My Documents folder
+        // then look on the Desktop if it isn't in the My Documents folder
         if (!projectsFolder && myDesktopPath) {
             var myDesktopContents = ugui.helpers.readAFolder(myDesktopPath);
             for (var o = 0; o < myDesktopContents.length; o++) {
@@ -80,7 +80,7 @@
                     if (myDesktopContents[o].name.toLowerCase() == autoProjects[p]) {
                         tempProjectsFolder = myDesktopPath.split('\\').join('/') + '/' + myDesktopContents[o].name;
                         var desktopContents = ugui.helpers.readAFolder(tempProjectsFolder);
-                        //make sure there is at least one project folder in the projects folder
+                        // make sure there is at least one project folder in the projects folder
                         for (var q = 0; q < desktopContents.length; q++) {
                             if (desktopContents.length > 0 && desktopContents[q].isFolder) {
                                 projectsFolder = tempProjectsFolder;
@@ -92,9 +92,9 @@
                 }
             }
         }
-        //If on Window and no project folder was found in Docs or User, check drive roots (slow)
+        // If on Window and no project folder was found in Docs or User, check drive roots (slow)
         if (!projectsFolder && process.platform == 'win32') {
-            //Each drive letter adds like half a second to load time, so I limited them to the common ones
+            // Each drive letter adds like half a second to load time, so I limited them to the common ones
             var driveLetters = ['C', 'D', 'E', 'F', 'Z', 'Y', 'X', 'G', 'H', 'M', 'N'];
             var shortProjects = ['GitHub', 'Projects'];
             var stats = '';
@@ -106,7 +106,7 @@
                         if (stats.isDirectory()) {
                             tempProjectsFolder = driveAndFolder;
                             var driveFolderContents = ugui.helpers.readAFolder(tempProjectsFolder);
-                            //make sure there is at least one project folder in the projects folder
+                            // make sure there is at least one project folder in the projects folder
                             for (var t = 0; t < driveFolderContents.length; t++) {
                                 if (driveFolderContents.length > 0 && driveFolderContents[t].isFolder) {
                                     projectsFolder = tempProjectsFolder;
@@ -268,7 +268,7 @@
         }
         $('.numToImport').text(total);
         multiImportUnlock();
-        //removeExtraFilePaths();
+        // removeExtraFilePaths();
     }
 
     function multiImportUnlock () {
@@ -335,7 +335,7 @@
         }
     });
 
-    //TEMPORARY
+    // TEMPORARY
     $('#file-multi').click();
 
     window.scout.helpers.addItemToMultiImportModal = addItemToMultiImportModal;

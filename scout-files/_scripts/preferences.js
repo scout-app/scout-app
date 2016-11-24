@@ -53,7 +53,7 @@
 
     $('#preferences-modal input[type="checkbox"]').change(checkboxChanged);
 
-    //Show the correct cultural image and translator
+    // Show the correct cultural image and translator
     $('#culture-pics .' + scout.globalSettings.cultureCode).removeClass('hide');
     $('#translators .' + scout.globalSettings.cultureCode).removeClass('hide');
 

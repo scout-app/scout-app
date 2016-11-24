@@ -3,7 +3,7 @@
   Global stuff
 */
 
-//Create the global Scout object
+// Create the global Scout object
 window.scout = {
     'ftux': {},
     'globalSettings': {
