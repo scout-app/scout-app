@@ -142,17 +142,17 @@
             return;
         }
 
-        var whereToAppendRow = '#multi-import-modal tbody';
+        var appendAfterExistingFilePath = '';
 
         var allFilePaths = $('#multi-import-modal .filepath');
         for (var j = 0; j < allFilePaths.length; j++) {
             var currentPath = $(allFilePaths[i]).text();
             if (path.normalize(projectsFolder) === currentPath) {
-                whereToAppendRow = allFilePaths[i];
+                appendAfterExistingFilePath = allFilePaths[i];
             }
         }
 
-        if (whereToAppendRow === '#multi-import-modal tbody') {
+        if (!appendAfterExistingFilePath) {
             var filePathRow =
               '<tr class="filepath">' +
                 '<td class="text-primary" colspan="4">' + path.normalize(projectsFolder) + '</td>' +
@@ -165,9 +165,21 @@
         for (var i = 0; i < projects.length; i++) {
             var project = projects[i];
             if (project.isFolder) {
-                var row = generateProjectRow(project, i);
-                //We don't want to append TO the .filepath, we want to append AFTER it
-                $(whereToAppendRow).append(row);
+                var checkForDupes = $('#multi-import-modal .potential-project input');
+                for (var k = 0; k < checkForDupes.length; k++) {
+                    var orig = checkForDupes[k];
+                    var possibleDupe = path.join(projectsFolder, project.name);
+                    if (orig == possibleDupe) {
+                        /* eslint-disable no-console */
+                        console.log(possibleDupe);
+                    }
+                }
+                var row = generateProjectRow(project, projectsFolder, i);
+                if (appendAfterExistingFilePath) {
+                    $(appendAfterExistingFilePath).after(row);
+                } else {
+                    $('#multi-import-modal tbody').append(row);
+                }
             }
         }
         updateSelectedCount();
@@ -179,8 +191,7 @@
         console.log(a);
     }
 
-    function generateProjectRow (project, i) {
-        var projectsFolder = 'The full path to the parent folder of the project';
+    function generateProjectRow (project, projectsFolder, i) {
         if (typeof(project) == 'string') {
             project = '';
         }
