@@ -242,6 +242,7 @@
         if (projectContents.inputFolder && projectContents.outputFolder) {
             checked = 'checked="checked"';
         }
+
         var row =
           '<tr class="potential-project">' +
             '<td><input type="checkbox" id="' + currentProjId + '" value="' + currentPath + '" ' + checked + ' />' +
@@ -298,6 +299,11 @@
             $(this).parent().parent().removeClass('danger');
         });
         $('#multi-import-modal .potential-project .glyphicon-remove').click(function () {
+            var nextRowIsProject = $(this).parent().parent().next().hasClass('potential-project');
+            var prevRowIsFilePath = $(this).parent().parent().prev().hasClass('filepath');
+            if (prevRowIsFilePath && !nextRowIsProject) {
+                $(this).parent().parent().prev().remove();
+            }
             $(this).parent().parent().remove();
             updateSelectedCount();
         });
