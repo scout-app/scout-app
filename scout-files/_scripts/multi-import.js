@@ -126,20 +126,6 @@
         scout.ftux.projectsFolder = projectsFolder;
     }
 
-    function checkIfFilepathRowExists (projectsFolder) {
-        var appendAfterExistingFilePath = '';
-
-        var allFilePaths = $('#multi-import-modal .filepath');
-        for (var i = 0; i < allFilePaths.length; i++) {
-            var currentPath = $(allFilePaths[i]).text();
-            if (path.normalize(projectsFolder) === currentPath) {
-                appendAfterExistingFilePath = allFilePaths[i];
-            }
-        }
-        return appendAfterExistingFilePath;
-    }
-
-
     /**
      * Look in the projects/GitHub folder. Create checkboxes for each project folder.
      * Check to see if the project contains an input/output folder.
@@ -160,36 +146,28 @@
         var appendAfterExistingFilePath = checkIfFilepathRowExists(projectsFolder);
 
         if (!appendAfterExistingFilePath) {
-            var filePathRow =
-              '<tr class="filepath">' +
-                '<td class="text-primary" colspan="4">' + path.normalize(projectsFolder) + '</td>' +
-                '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
-              '</tr>';
-
+            var filePathRow = generateFilePathRow(projectsFolder);
             $('#multi-import-modal tbody').append(filePathRow);
         }
 
         for (var i = 0; i < projects.length; i++) {
             var project = projects[i];
             if (project.isFolder) {
-                var checkForDupes = $('#multi-import-modal .potential-project input');
-                for (var k = 0; k < checkForDupes.length; k++) {
-                    var existingRow = $(checkForDupes[k]).val();
-                    var possibleDupe = path.join(projectsFolder, project.name);
-                    if (existingRow == possibleDupe) {
-                        /* eslint-disable no-console */
-                        console.log(possibleDupe);
+                var joinedFilePath = path.join(projectsFolder, project.name);
+                var projectExists = checkForDupes(joinedFilePath);
+                // Only give the project a new row if it does not already exist
+                if (!projectExists) {
+                    var row = generateProjectRow(project, projectsFolder, i);
+                    if (appendAfterExistingFilePath) {
+                        $(appendAfterExistingFilePath).after(row);
+                    } else {
+                        $('#multi-import-modal tbody').append(row);
                     }
-                }
-                var row = generateProjectRow(project, projectsFolder, i);
-                if (appendAfterExistingFilePath) {
-                    $(appendAfterExistingFilePath).after(row);
-                } else {
-                    $('#multi-import-modal tbody').append(row);
                 }
             }
         }
         updateSelectedCount();
+        handleXs();
         $('#multi-import-modal tbody input').click(updateSelectedCount);
     }
 
@@ -201,22 +179,57 @@
 
         var appendAfterExistingFilePath = checkIfFilepathRowExists(projectsFolder);
 
-        var checkForDupes = $('#multi-import-modal .potential-project input');
-        for (var k = 0; k < checkForDupes.length; k++) {
-            var existingRow = $(checkForDupes[k]).val();
-            var possibleDupe = filePath;
-            if (existingRow == possibleDupe) {
-                /* eslint-disable no-console */
-                console.log(possibleDupe);
-            }
+        if (checkForDupes(filePath)) {
+            return;
         }
+
         var row = generateProjectRow(project, projectsFolder, i);
 
         if (appendAfterExistingFilePath) {
             $(appendAfterExistingFilePath).after(row);
         } else {
+            var filePathRow = generateFilePathRow(projectsFolder);
+            $('#multi-import-modal tbody').append(filePathRow);
             $('#multi-import-modal tbody').append(row);
         }
+        updateSelectedCount();
+        $('#multi-import-modal tbody input').click(updateSelectedCount);
+        handleXs();
+    }
+
+    function checkIfFilepathRowExists (projectsFolder) {
+        var appendAfterExistingFilePath = '';
+
+        var allFilePaths = $('#multi-import-modal .filepath');
+        for (var i = 0; i < allFilePaths.length; i++) {
+            var currentPath = $(allFilePaths[i]).text();
+            if (path.normalize(projectsFolder) === currentPath) {
+                appendAfterExistingFilePath = allFilePaths[i];
+            }
+        }
+        return appendAfterExistingFilePath;
+    }
+
+    function checkForDupes (filePath) {
+        var potentialProjects = $('#multi-import-modal .potential-project input');
+        var dupeStatus = false;
+        for (var i = 0; i < potentialProjects.length; i++) {
+            var existingRow = $(potentialProjects[i]).val();
+            var possibleDupe = filePath;
+            if (existingRow == possibleDupe) {
+                dupeStatus = true;
+            }
+        }
+        return dupeStatus;
+    }
+
+    function generateFilePathRow (projectsFolder) {
+        var filePathRow =
+          '<tr class="filepath">' +
+            '<td class="text-primary" colspan="4">' + path.normalize(projectsFolder) + '</td>' +
+            '<td class="text-center removable"><span class="glyphicon glyphicon-remove"></span></td>' +
+          '</tr>';
+        return filePathRow;
     }
 
     function generateProjectRow (project, projectsFolder, i) {
@@ -272,26 +285,6 @@
         // removeExtraFilePaths();
     }
 
-    function multiImportUnlock () {
-        var inputs = $('#multi-import-modal input');
-        var checked = $('#multi-import-modal input:checked');
-
-        if (inputs.length < 1 || checked.length < 1) {
-            $('#ftuxStartImport').prop('disable', true).addClass('gray');
-        } else {
-            $('#ftuxStartImport').prop('disable', false).removeClass('gray');
-        }
-    }
-
-    $('#multi-import-modal thead input').click(function (evt) {
-        if (evt.target.checked) {
-            $('#multi-import-modal tbody input').prop('checked', true);
-        } else {
-            $('#multi-import-modal tbody input').prop('checked', false);
-        }
-        updateSelectedCount();
-    });
-
     function handleXs () {
         $('#multi-import-modal .potential-project .glyphicon-remove').hover(function () {
             $(this).parent().parent().addClass('danger');
@@ -320,13 +313,32 @@
         });
     }
 
+    function multiImportUnlock () {
+        var inputs = $('#multi-import-modal input');
+        var checked = $('#multi-import-modal input:checked');
+
+        if (inputs.length < 1 || checked.length < 1) {
+            $('#ftuxStartImport').prop('disable', true).addClass('gray');
+        } else {
+            $('#ftuxStartImport').prop('disable', false).removeClass('gray');
+        }
+    }
+
+    $('#multi-import-modal thead input').click(function (evt) {
+        if (evt.target.checked) {
+            $('#multi-import-modal tbody input').prop('checked', true);
+        } else {
+            $('#multi-import-modal tbody input').prop('checked', false);
+        }
+        updateSelectedCount();
+    });
+
     $('#file-multi, #ftux-multi').click(function () {
         $('#multi-import-modal tbody').empty();
         $('#multi-import-modal').fadeIn();
         autoGuessProjectsFolder();
         autoGrabProjects();
         multiImportUnlock();
-        handleXs();
     });
 
     $('#ftuxStartImport').click(function () {
@@ -344,6 +356,6 @@
     // TEMPORARY
     $('#file-multi').click();
 
-    window.scout.helpers.addItemToMultiImportModal = addItemToMultiImportModal;
+    scout.helpers.addItemToMultiImportModal = addItemToMultiImportModal;
 
 })(window.$, window.scout, window.ugui);
