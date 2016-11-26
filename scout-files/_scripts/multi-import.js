@@ -353,6 +353,30 @@
         }
     });
 
+    $('#addProjectToImporter, #dragProjectToImporter').click(function (evt) {
+        evt.preventDefault();
+        $('#addProjectToImporterBrowse').click();
+    });
+    $('#addProjectsToImporter').click(function (evt) {
+        evt.preventDefault();
+        $('#addProjectsToImporterBrowse').click();
+    });
+
+    $('#addProjectToImporterBrowse').change(function () {
+        var projectPath = $(this).val();
+        if (projectPath) {
+            addItemToMultiImportModal(projectPath);
+        }
+    });
+    $('#addProjectsToImporterBrowse').change(function () {
+        var projectsPath = $(this).val();
+        if (projectsPath) {
+            autoGrabProjects(projectsPath);
+        }
+    });
+
+
+
     // TEMPORARY
     $('#file-multi').click();
 
