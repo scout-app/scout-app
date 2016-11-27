@@ -132,8 +132,8 @@
      *
      * @param  {string} path Location of project folders
      */
-    function autoGrabProjects (filePath) {
-        var projectsFolder = filePath || scout.ftux.projectsFolder;
+    function autoGrabProjects (projectsPath) {
+        var projectsFolder = projectsPath || scout.ftux.projectsFolder;
 
         var projects = '';
         if (projectsFolder) {
@@ -171,15 +171,15 @@
         $('#multi-import-modal tbody input').click(updateSelectedCount);
     }
 
-    function addItemToMultiImportModal (filePath, i) {
+    function addItemToMultiImportModal (projectPath, i) {
         var project = {
-            'name': path.basename(filePath)
+            'name': path.basename(projectPath)
         };
-        var projectsFolder = path.dirname(filePath);
+        var projectsFolder = path.dirname(projectPath);
 
         var appendAfterExistingFilePath = checkIfFilepathRowExists(projectsFolder);
 
-        if (checkForDupes(filePath)) {
+        if (checkForDupes(projectPath)) {
             return;
         }
 
