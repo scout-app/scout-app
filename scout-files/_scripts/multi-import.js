@@ -375,11 +375,6 @@
         }
     });
 
-
-
-    // TEMPORARY
-    $('#file-multi').click();
-
     scout.helpers.addItemToMultiImportModal = addItemToMultiImportModal;
 
 })(window.$, window.scout, window.ugui);
