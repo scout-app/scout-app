@@ -65,7 +65,7 @@
         "start": "nw .",
         "installer": "npm install --loglevel=error",
         "postinstall": "bower update",
-        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js",
+        "lint": "eslint --config=.eslintrc.js scout-files/_scripts0 build0.js",
         "build": "node build.js"
     },
     "license": "MIT",
