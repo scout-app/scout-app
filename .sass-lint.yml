@@ -48,23 +48,45 @@ rules:
     -
       order:
         - content
+
         - position
         - top
         - right
         - bottom
         - left
+
         - display
+        - align-content
+        - align-items
+        - align-self
+        - flex
+        - flex-basis
+        - flex-direction
+        - flex-flow
+        - flex-grow
+        - flex-shrink
+        - flex-wrap
+        - justify-content
+        - order
+
         - width
         - height
         - min-width
         - min-height
         - max-width
         - max-height
+
         - background
         - background-color
         - background-image
+        - background-position
         - background-repeat
+        - background-size
+
         - border
+        - border-width
+        - border-style
+        - border-color
         - border-top
         - border-top-width
         - border-top-style
@@ -81,10 +103,11 @@ rules:
         - border-left-width
         - border-left-style
         - border-left-color
-        - border-width
-        - border-style
-        - border-color
         - border-radius
+        - border-top-left-radius
+        - border-top-right-radius
+        - border-bottom-right-radius
+        - border-bottom-left-radius
         - margin
         - margin-top
         - margin-right
@@ -95,22 +118,43 @@ rules:
         - padding-right
         - padding-bottom
         - padding-left
+
         - color
         - font-family
         - font-size
+        - -webkit-font-smoothing
+        - font-smoothing
         - font-style
         - font-weight
+        - font-variant
+        - letter-spacing
         - line-height
         - list-style
         - list-style-image
         - list-style-position
         - list-style-type
+        - speak
         - text-align
         - text-decoration
+        - text-overflow
+        - text-rendering
         - text-shadow
+        - text-transform
+        - white-space
+        - word-break
+
         - box-shadow
+        - clear
         - cursor
+        - float
         - opacity
+        - outline
+        - outline-offset
+        - overflow
+        - -webkit-transform
+        - transform
+        - -webkit-transition
+        - transition
         - vertical-align
         - visibility
         - z-index
