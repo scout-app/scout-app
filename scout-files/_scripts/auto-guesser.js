@@ -5,6 +5,7 @@
 
 (function ($, scout, ugui) {
 
+    var fs = require('fs-extra');
     var path = require('path');
 
     function autoGuessProjectFolders (autoInput, autoOutput) {
@@ -119,6 +120,7 @@
 
         ugui.helpers.readAFolder(projectFolder, function (contents) {
             var src = false;
+            var publicName = false;
             var imgFolder = false;
 
             // Loop throught the contents of the project folder
@@ -131,6 +133,8 @@
                         src = 'source';
                     } else if (currentItem == 'src') {
                         src = 'src';
+                    } else if (currentItem == 'public') {
+                        publicName = 'public';
                     // Otherwise check if it matches something in the the autoImages array
                     } else {
                         for (var j = 0; j < autoImages.length; j++) {
@@ -144,7 +148,6 @@
 
             // src = 'src';
             // imgFolder = '_img';
-
             if (imgFolder) {
                 var projectImageFolder = projectFolder + '/' + imgFolder;
                 ugui.helpers.readAFolder(projectImageFolder, function (imgContents) {
@@ -163,7 +166,6 @@
 
             // src = 'src';
             // imgFolder = '_img/meta';
-
             if (src && !imgFolder) {
                 var srcFolder = projectFolder + '/' + src;
                 ugui.helpers.readAFolder(srcFolder, function (srcContents) {
@@ -172,7 +174,7 @@
                         if (srcContents[m].isFolder) {
                             for (var n = 0; n < autoImages.length; n++) {
                                 if (currentSrcItem == autoImages[n]) {
-                                    imgFolder == src + '/' + autoImages[n];
+                                    imgFolder = src + '/' + autoImages[n];
                                 }
                             }
                             // src = 'src';
@@ -180,6 +182,41 @@
                             if (imgFolder) {
                                 var srcImgFolder = projectFolder + '/' + imgFolder;
                                 ugui.helpers.readAFolder(srcImgFolder, function (SIcontents) {
+                                    for (var o = 0; o < SIcontents.length; o++) {
+                                        var SIcurrentItem = SIcontents[o].name.toLowerCase();
+                                        if (SIcontents[o].isFolder) {
+                                            for (var p = 0; p < autoImages.length; p++) {
+                                                if (SIcurrentItem == autoImages[p]) {
+                                                    imgFolder = imgFolder + '/' + autoImages[p];
+                                                }
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    }
+                });
+            }
+
+            // publicName = 'public';
+            // imgFolder = '_img/meta';
+            if (publicName && !imgFolder) {
+                var publicFolder = projectFolder + '/' + publicName;
+                ugui.helpers.readAFolder(publicFolder, function (publicContents) {
+                    for (var m = 0; m < publicContents.length; m++) {
+                        var currentPublicItem = publicContents[m].name.toLowerCase();
+                        if (publicContents[m].isFolder) {
+                            for (var n = 0; n < autoImages.length; n++) {
+                                if (currentPublicItem == autoImages[n]) {
+                                    imgFolder = publicName + '/' + publicContents[m].name;
+                                }
+                            }
+                            // public = 'public';
+                            // imgFolder = 'public/_img';
+                            if (imgFolder) {
+                                var publicImgFolder = projectFolder + '/' + imgFolder;
+                                ugui.helpers.readAFolder(publicImgFolder, function (SIcontents) {
                                     for (var o = 0; o < SIcontents.length; o++) {
                                         var SIcurrentItem = SIcontents[o].name.toLowerCase();
                                         if (SIcontents[o].isFolder) {
@@ -212,49 +249,30 @@
         var favicon = scout.newProject.projectFolder + '/favicon.ico';
         var srcFav = scout.newProject.projectFolder + '/src/favicon.ico';
         var distFav = scout.newProject.projectFolder + '/dist/favicon.ico';
-        ugui.helpers.getFileSize(favicon, function (fileSize, err) {
-            if (!err && fileSize.bytes > 1) {
-                scout.newProject.projectIcon = favicon;
-                return;
-            } else {
-                ugui.helpers.getFileSize(srcFav, function (srcFileSize, srcErr) {
-                    if (!srcErr && srcFileSize.bytes > 1) {
-                        scout.newProject.projectIcon = srcFav;
-                        return;
-                    } else {
-                        ugui.helpers.getFileSize(distFav, function (distFileSize, distErr) {
-                            if (!distErr && distFileSize > 1) {
-                                scout.newProject.projectIcon = distFav;
-                                return;
-                            } else {
-                                scout.newProject.projectIcon = '_img/logo_128.png';
-                                return;
-                            }
-                        });
-                    }
-                });
-            }
-        });
+        var projectIcon = '_img/logo_128.png';
+        if (fs.existsSync(favicon)) {
+            projectIcon = favicon;
+        } else if (fs.existsSync(srcFav)) {
+            projectIcon = srcFav;
+        } else if (fs.existsSync(distFav)) {
+            projectIcon = distFav;
+        }
+        return projectIcon;
     }
 
     function autoGuessProjectIcon (commonImages) {
         var imgFolder = scout.newProject.imageFolder;
         var defaultIcon = '_img/logo_128.png';
         var projectIcon = defaultIcon;
-        // If there is no imageFolder
-        if (imgFolder.length < 1) {
-            // attempt the favicon, or just use the default Scout-App logo
-            projectIcon = useFavicon();
-            scout.newProject.projectIcon = projectIcon;
-        } else {
+        // If there is an imageFolder
+        if (imgFolder.length > 0) {
             ugui.helpers.readAFolder(imgFolder, function (contents) {
-                // Set the size for each image
                 for (var i = 0; i < contents.length; i++) {
                     var currentItem = contents[i].name.toLowerCase();
                     if (contents[i].isFolder == false) {
                         for (var j = 0; j < commonImages.length; j++) {
                             if (currentItem == commonImages[j]) {
-                                projectIcon = imgFolder + '/' + commonImages[j];
+                                projectIcon = imgFolder + '/' + contents[i].name;
                             }
                         }
                     }
@@ -262,11 +280,15 @@
 
                 // Attempt favicon.ico if no image was found
                 if (projectIcon == defaultIcon) {
-                    useFavicon();
-                } else {
-                    scout.newProject.projectIcon = projectIcon;
+                    projectIcon = useFavicon();
                 }
+
+                scout.newProject.projectIcon = projectIcon;
             });
+        } else {
+            // attempt the favicon, fallback to Scout-App logo
+            projectIcon = useFavicon();
+            scout.newProject.projectIcon = projectIcon;
         }
     }
 
@@ -307,7 +329,6 @@
         if (quick) {
             return scout.newProject;
         }
-
         autoGuessImageFolder(autoImages);
         autoGuessProjectIcon(commonImages);
 
