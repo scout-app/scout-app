@@ -208,61 +208,66 @@
         });
     }
 
-    function autoGuessProjectIcon (commonImages) {
-        var imgFolder = scout.newProject.imageFolder;
-        var defaultIcon = '_img/logo_128.png';
-        // If there is no imageFolder
-        if (imgFolder.length < 1) {
-            // user the Scout-App icon
-            scout.newProject.projectIcon = defaultIcon;
-            return;
-        }
-
-        ugui.helpers.readAFolder(imgFolder, function (contents) {
-            var projectIcon = defaultIcon;
-            // Set the size for each image
-            for (var i = 0; i < contents.length; i++) {
-                var currentItem = contents[i].name.toLowerCase();
-                if (contents[i].isFolder == false) {
-                    for (var j = 0; j < commonImages.length; j++) {
-                        if (currentItem == commonImages[j]) {
-                            projectIcon = imgFolder + '/' + commonImages[j];
-                        }
-                    }
-                }
-            }
-
-            // Attempt favicon.ico if no image was found
-            if (projectIcon.length < 1) {
-                var favicon = scout.newProject.projectFolder + '/favion.ico';
-                var srcFav = scout.newProject.projectFolder + '/src/favion.ico';
-                var distFav = scout.newProject.projectFolder + '/dist/favion.ico';
-                ugui.helpers.getFileSize(favicon, function (fileSize, err) {
-                    if (!err) {
-                        if (fileSize.bytes > 1) {
-                            projectIcon = favicon;
-                        } else {
-                            ugui.helpers.getFileSize(srcFav, function (srcFileSize, srcErr) {
-                                if (!srcErr) {
-                                    if (srcFileSize.bytes > 1) {
-                                        projectIcon = srcFav;
-                                    } else {
-                                        ugui.helpers.getFileSize(distFav, function (distFileSize, distErr) {
-                                            if (!distErr) {
-                                                if (distFileSize > 1) {
-                                                    projectIcon = distFav;
-                                                }
-                                            }
-                                        });
-                                    }
-                                }
-                            });
-                        }
+    function useFavicon () {
+        var favicon = scout.newProject.projectFolder + '/favicon.ico';
+        var srcFav = scout.newProject.projectFolder + '/src/favicon.ico';
+        var distFav = scout.newProject.projectFolder + '/dist/favicon.ico';
+        ugui.helpers.getFileSize(favicon, function (fileSize, err) {
+            if (!err && fileSize.bytes > 1) {
+                scout.newProject.projectIcon = favicon;
+                return;
+            } else {
+                ugui.helpers.getFileSize(srcFav, function (srcFileSize, srcErr) {
+                    if (!srcErr && srcFileSize.bytes > 1) {
+                        scout.newProject.projectIcon = srcFav;
+                        return;
+                    } else {
+                        ugui.helpers.getFileSize(distFav, function (distFileSize, distErr) {
+                            if (!distErr && distFileSize > 1) {
+                                scout.newProject.projectIcon = distFav;
+                                return;
+                            } else {
+                                scout.newProject.projectIcon = '_img/logo_128.png';
+                                return;
+                            }
+                        });
                     }
                 });
             }
-            scout.newProject.projectIcon = projectIcon;
         });
+    }
+
+    function autoGuessProjectIcon (commonImages) {
+        var imgFolder = scout.newProject.imageFolder;
+        var defaultIcon = '_img/logo_128.png';
+        var projectIcon = defaultIcon;
+        // If there is no imageFolder
+        if (imgFolder.length < 1) {
+            // attempt the favicon, or just use the default Scout-App logo
+            projectIcon = useFavicon();
+            scout.newProject.projectIcon = projectIcon;
+        } else {
+            ugui.helpers.readAFolder(imgFolder, function (contents) {
+                // Set the size for each image
+                for (var i = 0; i < contents.length; i++) {
+                    var currentItem = contents[i].name.toLowerCase();
+                    if (contents[i].isFolder == false) {
+                        for (var j = 0; j < commonImages.length; j++) {
+                            if (currentItem == commonImages[j]) {
+                                projectIcon = imgFolder + '/' + commonImages[j];
+                            }
+                        }
+                    }
+                }
+
+                // Attempt favicon.ico if no image was found
+                if (projectIcon == defaultIcon) {
+                    useFavicon();
+                } else {
+                    scout.newProject.projectIcon = projectIcon;
+                }
+            });
+        }
     }
 
     /**
@@ -279,7 +284,7 @@
         var autoInput = [ 'scss', 'sass', '_scss', '_sass' ];
         var autoOutput = [ 'css', 'stylesheets', 'stylesheet', 'styles', 'style', '_css', '_stylesheets', '_stylesheet', '_styles', '_style' ];
         var autoImages = [ 'graphics', 'images', 'image', 'imgs', 'img', 'meta', '_graphics', '_images', '_image', '_imgs', '_img', '_meta'];
-        var commonImages = [ 'logo.png', 'mstile03wd.png', 'apl-str.png', 'logo_48.png', 'logo-48.png', 'logo48.png', 'apl_57.png', 'apl-57.png', 'apl57.png', 'mstile01sm.png', 'apl_72.png', 'apl-72.png', 'apl72.png', 'logo_256.png', 'logo-256.png', 'logo256.png', 'logo_512.png', 'logo-512.png', 'logo512.png', 'fluid.png', 'mstile04lg.png', 'mstile02md.png', 'apl_144.png', 'apl-144.png', 'apl144.png', 'apl_114.png', 'apl-114.png', 'apl114.png', 'logo_128.png', 'logo-128.png', 'logo128.png' ];
+        var commonImages = [ 'favicon.ico', 'logo.png', 'mstile03wd.png', 'apl-str.png', 'logo_48.png', 'logo-48.png', 'logo48.png', 'apl_57.png', 'apl-57.png', 'apl57.png', 'mstile01sm.png', 'apl_72.png', 'apl-72.png', 'apl72.png', 'logo_256.png', 'logo-256.png', 'logo256.png', 'logo_512.png', 'logo-512.png', 'logo512.png', 'fluid.png', 'mstile04lg.png', 'mstile02md.png', 'apl_144.png', 'apl-144.png', 'apl144.png', 'apl_114.png', 'apl-114.png', 'apl114.png', 'logo_128.png', 'logo-128.png', 'logo128.png' ];
 
         // Get the path for the project folder the user selected
         var folder = path || $('#addProjectBrowse').val();
