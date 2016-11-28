@@ -12,10 +12,11 @@
      * Checks the user profile, my docs, and root of some
      * drives (on Windows) for projects/GitHub folder.
      */
-    function autoGuessProjectsFolder () {
+    function autoGuessProjectsFolder (callback) {
         var projectsFolder = '';
+        var projectsFound = 0;
         var tempProjectsFolder = '';
-        var autoProjects = [ 'github', 'projects', 'repositories', 'repos', 'websites' ];
+        var autoProjects = ['github', 'projects', 'repositories', 'repos', 'websites'];
 
         // Set default paths to check based on OS standards
         var homePath = '';
@@ -43,10 +44,17 @@
                         // make sure there is at least one project folder in the projects folder
                         for (var k = 0; k < innerContents.length; k++) {
                             if (innerContents.length > 0 && innerContents[k].isFolder) {
-                                projectsFolder = tempProjectsFolder;
-                                scout.ftux.projectsFolder = projectsFolder;
-                                return;
+                                projectsFound = projectsFound + 1;
                             }
+                        }
+                        if (projectsFound > 0) {
+                            projectsFolder = tempProjectsFolder;
+                            scout.ftux.projectsFound = projectsFound;
+                            scout.ftux.projectsFolder = projectsFolder;
+                            if (callback) {
+                                callback();
+                            }
+                            return;
                         }
                     }
                 }
@@ -63,10 +71,17 @@
                         // make sure there is at least one project folder in the projects folder
                         for (var n = 0; n < myDocsInnerContents.length; n++) {
                             if (myDocsInnerContents.length > 0 && myDocsInnerContents[n].isFolder) {
-                                projectsFolder = tempProjectsFolder;
-                                scout.ftux.projectsFolder = projectsFolder;
-                                return;
+                                projectsFound = projectsFound + 1;
                             }
+                        }
+                        if (projectsFound > 0) {
+                            projectsFolder = tempProjectsFolder;
+                            scout.ftux.projectsFound = projectsFound;
+                            scout.ftux.projectsFolder = projectsFolder;
+                            if (callback) {
+                                callback();
+                            }
+                            return;
                         }
                     }
                 }
@@ -83,10 +98,17 @@
                         // make sure there is at least one project folder in the projects folder
                         for (var q = 0; q < desktopContents.length; q++) {
                             if (desktopContents.length > 0 && desktopContents[q].isFolder) {
-                                projectsFolder = tempProjectsFolder;
-                                scout.ftux.projectsFolder = projectsFolder;
-                                return;
+                                projectsFound = projectsFound + 1;
                             }
+                        }
+                        if (projectsFound > 0) {
+                            projectsFolder = tempProjectsFolder;
+                            scout.ftux.projectsFound = projectsFound;
+                            scout.ftux.projectsFolder = projectsFolder;
+                            if (callback) {
+                                callback();
+                            }
+                            return;
                         }
                     }
                 }
@@ -109,10 +131,17 @@
                             // make sure there is at least one project folder in the projects folder
                             for (var t = 0; t < driveFolderContents.length; t++) {
                                 if (driveFolderContents.length > 0 && driveFolderContents[t].isFolder) {
-                                    projectsFolder = tempProjectsFolder;
-                                    scout.ftux.projectsFolder = projectsFolder;
-                                    return;
+                                    projectsFound = projectsFound + 1;
                                 }
+                            }
+                            if (projectsFound > 0) {
+                                projectsFolder = tempProjectsFolder;
+                                scout.ftux.projectsFound = projectsFound;
+                                scout.ftux.projectsFolder = projectsFolder;
+                                if (callback) {
+                                    callback();
+                                }
+                                return;
                             }
                         }
                     }
@@ -123,7 +152,9 @@
             }
         }
 
+        scout.ftux.projectsFound = projectsFound;
         scout.ftux.projectsFolder = projectsFolder;
+        callback();
     }
 
     /**
@@ -336,7 +367,6 @@
     $('#file-multi, #ftux-multi').click(function () {
         $('#multi-import-modal tbody').empty();
         $('#multi-import-modal').fadeIn();
-        autoGuessProjectsFolder();
         autoGrabProjects();
         multiImportUnlock();
     });
@@ -375,6 +405,7 @@
         }
     });
 
+    scout.helpers.autoGuessProjectsFolder = autoGuessProjectsFolder;
     scout.helpers.addItemToMultiImportModal = addItemToMultiImportModal;
 
 })(window.$, window.scout, window.ugui);
