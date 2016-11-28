@@ -2576,7 +2576,9 @@ function saveNewSwatch (newSwatch) {
 
         //With the contents of index.htm update, save over the file
         fs.writeFile(filename, data, function (err) {
-            if (err) return console.log(err);
+            if (err) {
+                return console.log(err);
+            }
         });
 
         //Animate the "Saved" text, having it fade in
