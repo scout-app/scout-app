@@ -1,3 +1,4 @@
+// sass-lint:disable no-important
 
 @import "_var.sass"
 
@@ -8,26 +9,26 @@ body.dev
     margin-bottom: 0px
 
 #uguiDevTools
+    position: fixed
+    bottom: 0px
+    left: 10%
     display: none
+    width: 80%
     background-color: #E0E0E0
-    color: $uguiTextColor
-    padding: 0px 10px 0px 10px
     border-width: 3px 3px 0px 3px
     border-style: solid
     border-color: #777
     border-radius: 25px 25px 0px 0px
-    width: 80%
-    position: fixed
-    bottom: 0px
-    left: 10%
-    letter-spacing: 0px
-    text-rendering: optimizeSpeed !important
-    -webkit-font-smoothing: antialiased
+    padding: 0px 10px 0px 10px
+    color: $uguiTextColor
     font-family: sans-serif
     font-size: 14px
+    letter-spacing: 0px
     line-height: 20px
+    text-rendering: optimizeSpeed !important
     transition: $quick
     z-index: 9999
+    -webkit-font-smoothing: antialiased
     a
         color: #428BCA
         &:hover,
@@ -37,12 +38,12 @@ body.dev
         margin: 0px 0px 9px 9px
         span
             +user-select-none
-            font-size: 10px
             color: #666
+            font-size: 10px
             cursor: pointer
             &.selected
-                font-weight: bold
                 color: #555
+                font-weight: bold
                 text-shadow: 1px 1px 0px #FAFAFA, -1px -1px 0px #FAFAFA, -1px 1px 0px #FAFAFA, 1px -1px 0px #FAFAFA
             &:after
                 content: " | "
@@ -54,45 +55,45 @@ body.dev
     select
         background-color: #F5F5F5
         border: 1px solid #CCC
-        padding: 2px
-        font-size: 13px
-        font-family: sans-serif
         margin: 0px 0px 3px 0px
+        padding: 2px
+        font-family: sans-serif
+        font-size: 13px
     section
-        padding: 1px
-        margin: 0px 0px 10px 0px
         display: block
         height: auto
+        margin: 0px 0px 10px 0px
+        padding: 1px
     img
         display: block
         width: 320px
         height: 180px
-        float: left
         border: 0px
         margin: 0px 7px 10px 0px
         padding: 0px
+        float: left
     h3
         +bmp0
         border: 0px
         margin: 18px 0px 0px 0px
         padding: 0px
+        color: $uguiTextColor
         font-family: sans-serif
         font-size: 18px
         font-weight: bold
-        color: $uguiTextColor
         text-shadow: inherit
     p
         border: 0px
-        padding: 0px
         margin: 8px 0px
+        padding: 0px
+        color: $uguiTextColor
         font-size: 14px
         line-height: 1.4
-        color: $uguiTextColor
     code
         +bmp0
         color: $uguiTextColor
-        font-size: 11px
         font-family: monospace
+        font-size: 11px
     ul,
     li strong
         +bmp0
@@ -100,12 +101,12 @@ body.dev
         font-size: 14px
         line-height: 1.4
     li
-        line-height: 1.4
+        border: 0px
+        margin: 0px 0px 0px 23px
+        padding: 0px
         color: $uguiTextColor
         font-size: 14px
-        border: 0px
-        padding: 0px
-        margin: 0px 0px 0px 23px
+        line-height: 1.4
     &.slideHide
         bottom: -7px !important
         transition: $quick
@@ -114,8 +115,8 @@ body.dev
     .uguiSwapper p,
     .uguiCommand span,
     .helpIntro
-        font-size: 12px
         color: #444
+        font-size: 12px
 
 .shrink
     height: 0px !important
@@ -127,15 +128,15 @@ body.dev
     opacity: 0 !important
 
 #commandLine
+    max-height: 92px
     background-color: #F5F5F5
     border: 1px solid #CCC
     margin: 0px
     padding: 10px
     color: $uguiTextColor
-    font-size: 11px
     font-family: monospace
+    font-size: 11px
     line-height: 1.4
-    max-height: 92px
     overflow: auto
     &:before
         content: "Command Line Output Preview:"
@@ -149,9 +150,9 @@ body.dev
         border: 1px solid #CCC
         border-radius: 3px
         padding: 2px
-        font-weight: bold
         font-size: 11px
         font-style: normal
+        font-weight: bold
 
 #swatchSwapper,
 span[data-nav="uguiExecutable"],
@@ -170,8 +171,8 @@ span[data-nav="uguiExecutable"],
 
 .newSwatchSaved
     font-style: italic
-    opacity: 0
     -webkit-transition: 0.5s ease-in-out
+    opacity: 0
     transition: 0.5s ease-in-out
     &.showSaved
         opacity: 1

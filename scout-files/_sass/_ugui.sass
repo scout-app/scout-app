@@ -1,3 +1,4 @@
+// sass-lint:disable no-important
 
 // Styles only used by UGUI
 
@@ -5,9 +6,9 @@ cmd,
 cmd def,
 cmd arg
     display: none
+    color: transparent
     font-size: 0px
     opacity: 0
-    color: transparent
 
 .modal
     background-color: rgba(0,0,0,0.6)
@@ -35,8 +36,8 @@ body.dev .devNav
 #aboutModal
     z-index: 1080
     .modal-body
-        overflow: auto
         min-height: 115px
+        overflow: auto
     .versionUGUI:before
         content: "V"
 

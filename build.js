@@ -1,4 +1,5 @@
 /* eslint-disable no-console */
+/* eslint-disable no-multi-spaces */
 
 // BUILDING FOR WINDOWS/LINUX:
 
@@ -44,8 +45,8 @@ if (os == 'freebsd' || os == 'sunos' || (os != 'win32' && os != 'linux' && os !=
 var fs = require('fs-extra');
 var path = require('path');
 var exec = require('child_process').execSync;
-//var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
-//var del = require('del'); // used to delete entire folders with the exception of specific files
+// var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
+// var del = require('del'); // used to delete entire folders with the exception of specific files
 var bowerJSON = fs.readJsonSync('bower.json');
 var manifest = fs.readJsonSync('package.json');
 if (darwin) {
@@ -68,58 +69,58 @@ var ns = 'node_modules/node-sass/vendor/';
 
 // Functions
 function timer (finish, begin) {
-    //3195
+    // 3195
     var subtract = finish - begin;
-    //319.5 becomes 320
+    // 319.5 becomes 320
     var round = Math.round(subtract / 10);
-    //320 becomes 3.2
+    // 320 becomes 3.2
     var seconds = round / 100;
-    //3.2 becomes ['3', '2']
+    // 3.2 becomes ['3', '2']
     var splitSeconds = seconds.toString().split('.');
     if (splitSeconds[0].length < 2) {
-        //'3' becomes ' 3'
+        // '3' becomes ' 3'
         splitSeconds[0] = ' ' + splitSeconds[0];
     }
     if (splitSeconds.length == 1 || splitSeconds[1].length < 1) {
-        //'' becomes '00'
+        // '' becomes '00'
         splitSeconds[1] = '00';
     } else if (splitSeconds[1].length == 1) {
-        //'2' becomes '20'
+        // '2' becomes '20'
         splitSeconds[1] = splitSeconds[1] + '0';
     }
     if (splitSeconds[0].length == 3) {
         splitSeconds[1] = splitSeconds[1][0];
     }
-    //[' 3', '20'] becomes ' 3.20 seconds'
+    // [' 3', '20'] becomes ' 3.20 seconds'
     var time = splitSeconds.join('.') + ' seconds';
     return time;
 }
 
 function minutes (finish, begin) {
-    //82500
+    // 82500
     var subtract = finish - begin;
-    //82500 = 1.375
+    // 82500 = 1.375
     var minutes = subtract / 60000;
     minutes = Math.round(minutes * 1000) / 1000;
-    //1.375 = ['1', '375']
+    // 1.375 = ['1', '375']
     var splitMinutes = minutes.toString().split('.');
     if (!splitMinutes[1]) {
         splitMinutes[1] = '000';
     } else if (splitMinutes[1].length == 1) {
-        //['1', '3'] = ['1', '300']
+        // ['1', '3'] = ['1', '300']
         splitMinutes[1] = splitMinutes[1] * 100;
     } else if (splitMinutes[1].length == 2) {
-        //['1', '32'] = ['1', '320']
+        // ['1', '32'] = ['1', '320']
         splitMinutes[1] = splitMinutes[1] * 10;
     }
-    //['1', '300'] = ['1', '18']
+    // ['1', '300'] = ['1', '18']
     splitMinutes[1] = (splitMinutes[1] / 1000) * 60;
     splitMinutes[1] = Math.round(splitMinutes[1]).toString();
-    //['1', '9'] = ['1', '09']
+    // ['1', '9'] = ['1', '09']
     if (splitMinutes[1].length == 1) {
         splitMinutes[1] = '0' + splitMinutes[1];
     }
-    //['1', '09'] = '1:09'
+    // ['1', '09'] = '1:09'
     var time = splitMinutes.join(':');
     return time;
 }

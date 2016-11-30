@@ -1,0 +1,162 @@
+#########################
+## Sample Sass Lint File
+#########################
+# Linter Options
+options:
+  # Don't merge default rules
+  merge-default-rules: false
+  # Raise an error if more than 50 warnings are generated
+  max-warnings: 50
+# File Options
+files:
+  include: 'sass/**/*.s+(a|c)ss'
+  ignore:
+    - 'sass/vendor/**/*.*'
+# Rule Configuration
+rules:
+  extends-before-mixins: 2
+
+  extends-before-declarations: 2
+
+  placeholder-in-extend: 2
+
+  mixins-before-declarations:
+    - 2
+    -
+      exclude:
+        - breakpoint
+        - mq
+
+  no-warn: 1
+
+  no-debug: 1
+
+  no-important: 2
+
+  hex-notation:
+    - 2
+    -
+      style: uppercase
+
+  indentation:
+    - 2
+    -
+      size: 4
+
+  property-sort-order:
+    - 1
+    -
+      order:
+        - content
+
+        - position
+        - top
+        - right
+        - bottom
+        - left
+
+        - display
+        - align-content
+        - align-items
+        - align-self
+        - flex
+        - flex-basis
+        - flex-direction
+        - flex-flow
+        - flex-grow
+        - flex-shrink
+        - flex-wrap
+        - justify-content
+        - order
+
+        - width
+        - height
+        - min-width
+        - min-height
+        - max-width
+        - max-height
+
+        - background
+        - background-color
+        - background-image
+        - background-position
+        - background-repeat
+        - background-size
+
+        - border
+        - border-width
+        - border-style
+        - border-color
+        - border-top
+        - border-top-width
+        - border-top-style
+        - border-top-color
+        - border-right
+        - border-right-width
+        - border-right-style
+        - border-right-color
+        - border-bottom
+        - border-bottom-width
+        - border-bottom-style
+        - border-bottom-color
+        - border-left
+        - border-left-width
+        - border-left-style
+        - border-left-color
+        - border-radius
+        - border-top-left-radius
+        - border-top-right-radius
+        - border-bottom-right-radius
+        - border-bottom-left-radius
+        - margin
+        - margin-top
+        - margin-right
+        - margin-bottom
+        - margin-left
+        - padding
+        - padding-top
+        - padding-right
+        - padding-bottom
+        - padding-left
+
+        - color
+        - font-family
+        - font-size
+        - -webkit-font-smoothing
+        - font-smoothing
+        - font-style
+        - font-weight
+        - font-variant
+        - letter-spacing
+        - line-height
+        - list-style
+        - list-style-image
+        - list-style-position
+        - list-style-type
+        - speak
+        - text-align
+        - text-decoration
+        - text-overflow
+        - text-rendering
+        - text-shadow
+        - text-transform
+        - white-space
+        - word-break
+
+        - box-shadow
+        - clear
+        - cursor
+        - float
+        - opacity
+        - outline
+        - outline-offset
+        - overflow
+        - -webkit-transform
+        - transform
+        - -webkit-transition
+        - transition
+        - vertical-align
+        - visibility
+        - z-index
+      ignore-custom-properties: true
+
