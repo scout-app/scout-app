@@ -1,6 +1,8 @@
 /* eslint-disable no-console */
 /* eslint-disable indent */
 /* eslint-disable no-constant-condition */
+/* eslint-disable no-multi-spaces */
+/* eslint-disable spaced-comment */
 
 /*
   UGUI.js is a library and framework that was used to get
@@ -134,7 +136,7 @@ function waitUGUI() {
 
 */
 //Container for all UGUI components
-(function runUGUI () {
+(function runUGUI (window, $) {
 
 //This is the one place where the UGUI version is declared
 var uguiVersion = '2.0.0a';
@@ -149,9 +151,6 @@ var uguiVersion = '2.0.0a';
 //### A02. UGUI Variables
 //
 //>Listing of variables used throughout this library.
-
-var $ = window.$;
-var scout = window.scout;
 
 //All arguments sent in the command
 var allArgElements = $('cmd arg');
@@ -239,7 +238,7 @@ var consoleError  = 'background: #F6EEEE;' +
                     'box-shadow: 0px 0px 1px 1px rgba(193,176,178,0.3)';
 
 //Placing this at the start of a console output will let you style it.  
-//**Example**: `console.info(º+'Some bold text.', consoleBold);`
+//**Example**: `console.info(º + 'Some bold text.', consoleBold);`
 var º = '%c';
 
 //Make sure the `ugui` and `ugui.args` objects exist, if not create them
@@ -301,10 +300,10 @@ var ugui = window.ugui;
 function runcmd (executableAndArgs, callback) {
     //Validate that the required argument is passed and is a string
     if (!executableAndArgs || typeof(executableAndArgs) !== 'string') {
-        console.info(º+'You must pass in a string containing the exectuable ' +
+        console.info(º + 'You must pass in a string containing the exectuable ' +
             'and arguments to be sent to the command line.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.runcmd("pngquant.exe --speed 11mph --force file.png");', consoleCode);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.runcmd("pngquant.exe --speed 11mph --force file.png");', consoleCode);
         return;
     }
 
@@ -367,31 +366,31 @@ function runcmd (executableAndArgs, callback) {
 function runcmdAdvanced (parameters) {
     //Validate that required argument is passed
     if (!parameters) {
-        console.info(º+'You must pass in an object with your options.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'var parameters = { \'executableAndArgs\': \'node --version\' };', consoleCode);
-        console.info(º+'ugui.helpers.runcmdAdv(parameters);', consoleCode);
+        console.info(º + 'You must pass in an object with your options.', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'var parameters = { \'executableAndArgs\': \'node --version\' };', consoleCode);
+        console.info(º + 'ugui.helpers.runcmdAdv(parameters);', consoleCode);
         return;
     }
     //Validate types
     if (Object.prototype.toString.call(parameters) !== '[object Object]') {
-        console.info(º+'Your parameters must be passed as an object.', consoleNormal);
+        console.info(º + 'Your parameters must be passed as an object.', consoleNormal);
         return;
     } else if (typeof(parameters.executableAndArgs) !== 'string') {
-        console.info(º+'Executable and arguments must be passed as a string. Example:', consoleNormal);
-        console.info(º+'"node --version"', consoleCode);
+        console.info(º + 'Executable and arguments must be passed as a string. Example:', consoleNormal);
+        console.info(º + '"node --version"', consoleCode);
         return;
     } else if (parameters.returnedData && typeof(parameters.returnedData) !== 'function') {
-        console.info(º+'returnedData must be a function.', consoleNormal);
+        console.info(º + 'returnedData must be a function.', consoleNormal);
         return;
     } else if (parameters.onExit && typeof(parameters.onExit) !== 'function') {
-        console.info(º+'onExit must be a function.', consoleNormal);
+        console.info(º + 'onExit must be a function.', consoleNormal);
         return;
     } else if (parameters.onError && typeof(parameters.onError) !== 'function') {
-        console.info(º+'onError must be a function.', consoleNormal);
+        console.info(º + 'onError must be a function.', consoleNormal);
         return;
     } else if (parameters.onClose && typeof(parameters.onClose) !== 'function') {
-        console.info(º+'onClose must be a function.', consoleNormal);
+        console.info(º + 'onClose must be a function.', consoleNormal);
         return;
     }
 
@@ -458,13 +457,13 @@ function runcmdAdvanced (parameters) {
 function readAFile (filePathAndName) {
     //Validate that required argument is passed
     if (!filePathAndName) {
-        console.info(º+'Supply a path to the file you want to read as ' +
+        console.info(º + 'Supply a path to the file you want to read as ' +
             'an argument to this function.', consoleNormal);
         return;
     }
     //Validate types
     if (typeof(filePathAndName) !== 'string') {
-        console.info(º+'File path must be passed as a string.', consoleNormal);
+        console.info(º + 'File path must be passed as a string.', consoleNormal);
         return;
     }
     var fileData = fs.readFileSync(filePathAndName, {encoding: 'UTF-8'});
@@ -504,30 +503,30 @@ function readAFile (filePathAndName) {
 function readAFolder (filePath, callback) {
     //Validate that required argument is passed
     if (!filePath) {
-        console.info(º+'Supply a path to the file you want to read as ' +
+        console.info(º + 'Supply a path to the file you want to read as ' +
             'an argument to this function.', consoleNormal);
         return;
     }
     //Validate types
     if (typeof(filePath) !== 'string') {
-        console.info(º+'File path must be passed as a string.', consoleNormal);
+        console.info(º + 'File path must be passed as a string.', consoleNormal);
         return;
     } else if (callback && typeof(callback) !== 'function') {
-        console.info(º+'Callback must be passed as a function.', consoleNormal);
+        console.info(º + 'Callback must be passed as a function.', consoleNormal);
         return;
     }
 
     //fs.readdir only accepts unix style folder paths
     if (platform == 'win32') {
-        filePath = filePath.replace('\\','/');
+        filePath = filePath.replace('\\', '/');
     }
 
     //Output an error if we can't access the file
     fs.readdir(filePath, function (err) {
         //If there were problems reading the contents of a folder, stop and report them
-        if (err)  {
-            console.info(º+'Unable to read contents of the folder:', consoleNormal);
-            console.warn(º+err.message, consoleError);
+        if (err) {
+            console.info(º + 'Unable to read contents of the folder:', consoleNormal);
+            console.warn(º + err.message, consoleError);
             return;
         }
     });
@@ -591,21 +590,21 @@ function readAFolder (filePath, callback) {
 function writeToFile (filePathAndName, data, callback) {
     //Validate that required arguments are passed and are the correct types
     if (!filePathAndName || typeof(filePathAndName) !== 'string') {
-        console.info(º+'Supply a path to the file you want to create or replace the ' +
+        console.info(º + 'Supply a path to the file you want to create or replace the ' +
             'contents of as the first argument to this function.', consoleNormal);
-        console.info(º+'File path and name must be passed as a string.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.writeToFile("C:/folder/file.htm", "Your data.");', consoleCode);
+        console.info(º + 'File path and name must be passed as a string.', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.writeToFile("C:/folder/file.htm", "Your data.");', consoleCode);
         return;
     } else if (!data) {
-        console.info(º+'You must pass in the data to be stored as the second argument ' +
+        console.info(º + 'You must pass in the data to be stored as the second argument ' +
             'to this function.', consoleNormal);
         return;
     } else if (typeof(data) !== 'string') {
-        console.info(º+'The data to be stored must be passed as a string.', consoleNormal);
+        console.info(º + 'The data to be stored must be passed as a string.', consoleNormal);
         return;
     } else if (callback && typeof(callback) !== 'function') {
-        console.info(º+'Your callback must be passed as a function.', consoleNormal);
+        console.info(º + 'Your callback must be passed as a function.', consoleNormal);
         return;
     }
 
@@ -613,8 +612,8 @@ function writeToFile (filePathAndName, data, callback) {
     fs.writeFile(filePathAndName, data, function (err) {
         //If there was a problem writing to the file
         if (err) {
-            console.info(º+'There was an error attempting to save your data.', consoleNormal);
-            console.warn(º+err.message, consoleError);
+            console.info(º + 'There was an error attempting to save your data.', consoleNormal);
+            console.warn(º + err.message, consoleError);
             return;
         //If the file was updated and the user passed in a callback function, run it
         } else if (callback) {
@@ -653,15 +652,15 @@ function writeToFile (filePathAndName, data, callback) {
 function createAFolder (filePath, callback) {
     //Validate that required argument is passed and is the correct types
     if (!filePath || typeof(filePath) !== 'string') {
-        console.info(º+'Supply a path to where you want your folder as the first ' +
+        console.info(º + 'Supply a path to where you want your folder as the first ' +
             'argument to this function.', consoleNormal);
-        console.info(º+'Folder path must be passed as a string.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.createAFolder("C:/folder/new_folder");', consoleCode);
+        console.info(º + 'Folder path must be passed as a string.', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.createAFolder("C:/folder/new_folder");', consoleCode);
         return;
     //If a callback was passed in and it isn't a function
     } else if (callback && typeof(callback) !== 'function') {
-        console.info(º+'Your callback must be passed as a function.', consoleNormal);
+        console.info(º + 'Your callback must be passed as a function.', consoleNormal);
         return;
     }
 
@@ -669,8 +668,8 @@ function createAFolder (filePath, callback) {
     fs.mkdir(filePath, function (err) {
         //If there was a problem creating the folder
         if (err) {
-            console.info(º+'There was an error attempting to create the folder.', consoleNormal);
-            console.warn(º+err.message, consoleError);
+            console.info(º + 'There was an error attempting to create the folder.', consoleNormal);
+            console.warn(º + err.message, consoleError);
             return;
         //If the folder was created and the user passed in a callback function, run it now
         } else if (callback) {
@@ -697,15 +696,15 @@ function createAFolder (filePath, callback) {
 function deleteAFile (filePathAndName, callback) {
     //Validate that required argument is passed and is the correct types
     if (!filePathAndName || typeof(filePathAndName) !== 'string') {
-        console.info(º+'Supply a path to the file you want to delete as ' +
+        console.info(º + 'Supply a path to the file you want to delete as ' +
             'the first argument to this function.', consoleNormal);
-        console.info(º+'File path must be passed as a string.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.deleteAFile("C:/folder/delete_me.txt");', consoleCode);
+        console.info(º + 'File path must be passed as a string.', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.deleteAFile("C:/folder/delete_me.txt");', consoleCode);
         return;
     //If a callback was passed in and it isn't a function
     } else if (callback && typeof(callback) !== 'function') {
-        console.info(º+'Your callback must be passed as a function.', consoleNormal);
+        console.info(º + 'Your callback must be passed as a function.', consoleNormal);
         return;
     }
 
@@ -713,8 +712,8 @@ function deleteAFile (filePathAndName, callback) {
     fs.unlink(filePathAndName, function (err) {
         //If there was a problem deleting the file
         if (err) {
-            console.info(º+'There was an error attempting to delete the file.', consoleNormal);
-            console.warn(º+err.message, consoleError);
+            console.info(º + 'There was an error attempting to delete the file.', consoleNormal);
+            console.warn(º + err.message, consoleError);
             return;
         //If the file deleted and the user passed in a callback function, run it now
         } else if (callback) {
@@ -744,15 +743,15 @@ function deleteAFile (filePathAndName, callback) {
 function deleteAFolder (filePath, callback) {
     //Validate that required argument is passed and is the correct types
     if (!filePath || typeof(filePath) !== 'string') {
-        console.info(º+'Supply a path to the folder you want to delete as ' +
+        console.info(º + 'Supply a path to the folder you want to delete as ' +
             'the first argument to this function.', consoleNormal);
-        console.info(º+'Folder path must be passed as a string.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.deleteAFolder("C:/folder/delete_me");', consoleCode);
+        console.info(º + 'Folder path must be passed as a string.', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.deleteAFolder("C:/folder/delete_me");', consoleCode);
         return;
     //If a callback was passed in and it isn't a function
     } else if (callback && typeof(callback) !== 'function') {
-        console.info(º+'Your callback must be passed as a function.', consoleNormal);
+        console.info(º + 'Your callback must be passed as a function.', consoleNormal);
         return;
     }
 
@@ -760,8 +759,8 @@ function deleteAFolder (filePath, callback) {
     fs.rmdir(filePath, function (err) {
         //If there was a problem deleting the folder
         if (err) {
-            console.info(º+'There was an error attempting to delete the folder.', consoleNormal);
-            console.warn(º+err.message, consoleError);
+            console.info(º + 'There was an error attempting to delete the folder.', consoleNormal);
+            console.warn(º + err.message, consoleError);
             return;
         //If the folder deleted and the user passed in a callback function, run it now
         } else if (callback) {
@@ -809,15 +808,15 @@ function deleteAFolder (filePath, callback) {
 function getFileSize (filePath, callback) {
     //Validate that required argument is passed and is the correct types
     if (!filePath || typeof(filePath) !== 'string') {
-        console.info(º+'Supply a path to the file you want the size of as ' +
+        console.info(º + 'Supply a path to the file you want the size of as ' +
             'the first argument to this function.', consoleNormal);
-        console.info(º+'File path must be passed as a string.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.getFileSize("C:/folder/pizza.jpg");', consoleCode);
+        console.info(º + 'File path must be passed as a string.', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.getFileSize("C:/folder/pizza.jpg");', consoleCode);
         return;
     //If a callback was passed in and it isn't a function
     } else if (callback && typeof(callback) !== 'function') {
-        console.info(º+'Your callback must be passed as a function.', consoleNormal);
+        console.info(º + 'Your callback must be passed as a function.', consoleNormal);
         return;
     }
 
@@ -834,8 +833,8 @@ function getFileSize (filePath, callback) {
             //If there was a problem getting the file's metadata
             if (err) {
                 //output an error to the console, but keep running
-                console.info(º+infoMessage, consoleNormal);
-                console.warn(º+err.message, consoleError);
+                console.info(º + infoMessage, consoleNormal);
+                console.warn(º + err.message, consoleError);
             //If there wasn't an error
             } else {
                 //Create an object with common file size conversions
@@ -846,7 +845,7 @@ function getFileSize (filePath, callback) {
                 };
             }
             //Run the callback with the filesizes if it worked, or an error if it didn't
-            callback(fileSize,err);
+            callback(fileSize, err);
             return;
         });
     //If a callback wasn't passed in
@@ -856,8 +855,8 @@ function getFileSize (filePath, callback) {
             //If there was a problem getting the file's metadata
             if (err) {
                 //console log an error and quit
-                console.info(º+infoMessage, consoleNormal);
-                console.warn(º+err.message, consoleError);
+                console.info(º + infoMessage, consoleNormal);
+                console.warn(º + err.message, consoleError);
                 return;
             }
         });
@@ -903,17 +902,17 @@ function getFileSize (filePath, callback) {
 function setZoomPercent (percent, visible) {
     //Validate that required argument is passed and is the correct types
     if (percent && typeof(percent) !== 'number') {
-        console.info(º+'You must pass in a positive interger to represent' +
+        console.info(º + 'You must pass in a positive interger to represent' +
             'the zoom level percent.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.setZoomPercent(200); //200% of default size', consoleCode);
-        console.info(º+'Or leave it blank to reset back to 100% (default size)', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.setZoomPercent(200); //200% of default size', consoleCode);
+        console.info(º + 'Or leave it blank to reset back to 100% (default size)', consoleNormal);
         return;
     } else if (visible && typeof(visible) !== 'boolean') {
-        console.info(º+'You must pass in true or false to set the visibility' +
+        console.info(º + 'You must pass in true or false to set the visibility' +
             'of the zoom level percent on the page.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.setZoomPercent(110, true);', consoleCode);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.setZoomPercent(110, true);', consoleCode);
         return;
     }
 
@@ -927,7 +926,7 @@ function setZoomPercent (percent, visible) {
     //zoom level expects 0 for default (100%) and ~2.224 for 200%
     //Negative numbers reduce the size. This isn't very intuitive
     //though so we do some math to allow easier numbers.
-    win.zoomLevel = Math.log(zoomPercent/100) / Math.log(1.2);
+    win.zoomLevel = Math.log(zoomPercent / 100) / Math.log(1.2);
 
     //Define a function to hide the Zoom Level percent that appears on screen
     function hideZoomLevel () {
@@ -963,17 +962,17 @@ function setZoomPercent (percent, visible) {
 function openFolder (folderPath) {
     //Validate that required argument is passed and is the correct types
     if (!folderPath || typeof(folderPath) !== 'string') {
-        console.info(º+'Supply a path to the folder you want to open as ' +
+        console.info(º + 'Supply a path to the folder you want to open as ' +
             'the first argument to this function.', consoleNormal);
-        console.info(º+'Folder path must be passed as a string.', consoleNormal);
-        console.info(º+'Example:', consoleBold);
-        console.info(º+'ugui.helpers.open("C:\\folder");', consoleCode);
+        console.info(º + 'Folder path must be passed as a string.', consoleNormal);
+        console.info(º + 'Example:', consoleBold);
+        console.info(º + 'ugui.helpers.open("C:\\folder");', consoleCode);
         return;
     }
 
     var os = process.platform;
-    var winPath = folderPath.replace('/','\\');
-    var nonWinPath = folderPath.replace('\\','/');
+    var winPath = folderPath.replace('/', '\\');
+    var nonWinPath = folderPath.replace('\\', '/');
 
     //If you're on Windows
     if (os == 'win32') {
@@ -1089,7 +1088,7 @@ $('.sendCmdArgs').click(function (event) {
 function buildCommandArray (thisExecutable) {
     //Validate types
     if (thisExecutable !== undefined && typeof(thisExecutable) !== 'string') {
-        console.info(º+'Executable must be passed as a string.', consoleNormal);
+        console.info(º + 'Executable must be passed as a string.', consoleNormal);
         return;
     }
 
@@ -1257,22 +1256,22 @@ buildUGUIArgObject();
 function findKeyValue (obj, arr) {
     //Validate that both required arguments are passed
     if(!obj || !arr) {
-        console.info(º+'You need to supply an object and an array of ' +
+        console.info(º + 'You need to supply an object and an array of ' +
             'strings to drill down within the object.', consoleNormal);
         return;
     }
     //Validate types
     if (Object.prototype.toString.call(obj) !== '[object Object]') {
-        console.info(º+'First argument must be passed as an object.', consoleNormal);
+        console.info(º + 'First argument must be passed as an object.', consoleNormal);
         return;
     } else if (Object.prototype.toString.call(arr) !== '[object Array]') {
-        console.info(º+'Second argument must be passed as strings in an array.', consoleNormal);
+        console.info(º + 'Second argument must be passed as strings in an array.', consoleNormal);
         return;
     }
     //Validate that all items of the array are strings
     for (i = 0; i < arr.length; i++) {
         if (typeof(arr[i]) !== 'string') {
-            console.info(º+'Second argument must be passed as strings in an array.', consoleNormal);
+            console.info(º + 'Second argument must be passed as strings in an array.', consoleNormal);
             return;
         }
     }
@@ -1305,13 +1304,13 @@ function findKeyValue (obj, arr) {
 function parseArgument (argumentText) {
     //Validate that required argument is passed
     if (!argumentText) {
-        console.info(º+'This processes strings of text that contain ' +
+        console.info(º + 'This processes strings of text that contain ' +
             '((keywords)) in them from the <cmd> tags.', consoleNormal);
         return;
     }
     //Validate types
     if (typeof(argumentText) !== 'string') {
-        console.info(º+'Argument text must be passed as a string.', consoleNormal);
+        console.info(º + 'Argument text must be passed as a string.', consoleNormal);
         return;
     }
 
@@ -1484,20 +1483,20 @@ function patternMatchingDefinitionEngine () {
 function convertCommandArraytoString (cmdArray) {
     //Validate that the required argument is passed
     if (!cmdArray) {
-        console.info(º+'Accepts an array of executable and commands, ' +
+        console.info(º + 'Accepts an array of executable and commands, ' +
             'removes empty arguments and puts everything into a string ' +
             'ready to be sent out to the command line.', consoleNormal);
         return;
     }
     //Validate types
     if (Object.prototype.toString.call(cmdArray) !== '[object Array]') {
-        console.info(º+'Command array must be passed as strings in an array.', consoleNormal);
+        console.info(º + 'Command array must be passed as strings in an array.', consoleNormal);
         return;
     }
     //Validate that all items of the array are strings
     for (index = 0; index < cmdArray.length; index++) {
         if (typeof(cmdArray[index]) !== 'string') {
-            console.info(º+'Arguments must be passed as strings in an array.', consoleNormal);
+            console.info(º + 'Arguments must be passed as strings in an array.', consoleNormal);
             return;
         }
     }
@@ -1538,16 +1537,16 @@ function convertCommandArraytoString (cmdArray) {
 function setInputFilePathNameExt (currentElement, argName) {
     //Validate that both required arguments are passed
     if (!currentElement || !argName) {
-        console.info(º+'You must pass in the element as an object and ' +
+        console.info(º + 'You must pass in the element as an object and ' +
             'its argName as a string.', consoleNormal);
         return;
     }
     //Validate types
     if (typeof(currentElement) !== 'object') {
-        console.info(º+'Element must be passed as a jQuery object.', consoleNormal);
+        console.info(º + 'Element must be passed as a jQuery object.', consoleNormal);
         return;
     } else if (typeof(argName) !== 'string') {
-        console.info(º+'The argName must be passed as a string.', consoleNormal);
+        console.info(º + 'The argName must be passed as a string.', consoleNormal);
         return;
     }
 
@@ -1572,12 +1571,12 @@ function setInputFilePathNameExt (currentElement, argName) {
             //Get the index of the final backslash so we can split the name from the path
             var lastBackslash = fullFilepath.lastIndexOf('\\');
             //`C:\users\bob\desktop\`
-            filepath = fullFilepath.substring(0, lastBackslash+1);
+            filepath = fullFilepath.substring(0, lastBackslash + 1);
         } else {
             //Get the index of the final backslash so we can split the name from the path
             var lastSlash = fullFilepath.lastIndexOf('/');
             //`/home/bob/desktop/`
-            filepath = fullFilepath.substring(0, lastSlash+1);
+            filepath = fullFilepath.substring(0, lastSlash + 1);
         }
 
         //Split `'cows.new.png'` into `['cows', 'new', 'png']`
@@ -1623,16 +1622,16 @@ function setInputFilePathNameExt (currentElement, argName) {
 function setInputFolderPathName (currentElement, argName) {
     //Validate that both required arguments are passed
     if (!currentElement || !argName) {
-        console.info(º+'You must pass in the element as an object and ' +
+        console.info(º + 'You must pass in the element as an object and ' +
             'its argName as a string.', consoleNormal);
         return;
     }
     //Validate types
     if (typeof(currentElement) !== 'object') {
-        console.info(º+'Element must be passed as a jQuery object.', consoleNormal);
+        console.info(º + 'Element must be passed as a jQuery object.', consoleNormal);
         return;
     } else if (typeof(argName) !== 'string') {
-        console.info(º+'The argName must be passed as a string.', consoleNormal);
+        console.info(º + 'The argName must be passed as a string.', consoleNormal);
         return;
     }
 
@@ -1648,20 +1647,20 @@ function setInputFolderPathName (currentElement, argName) {
 
         //Either `C:\users\bob\desktop\cows.new.png` or `/home/bob/desktop/cows.new.png`  
         //Use the first one, unless you are loading settings and it doesn't exist
-        var fullFilePath =  fileAttributes.fullpath || fileAttributes.path;
+        var fullFilePath = fileAttributes.fullpath || fileAttributes.path;
 
         //If you're on Windows then folders in file paths are separated with `\`, otherwise OS's use `/`
         if (platform == 'win32') {
             //Get the index of the final backslash so we can split the name from the path
             var lastBackslash = fullFilePath.lastIndexOf('\\');
             //`C:\users\bob\desktop\`
-            filePath = fullFilePath.substring(0, lastBackslash+1);
+            filePath = fullFilePath.substring(0, lastBackslash + 1);
             folderName = fullFilePath.split('\\').pop();
         } else {
             //Get the index of the final backslash so we can split the name from the path
             var lastSlash = fullFilePath.lastIndexOf('/');
             //`/home/bob/desktop/`
-            filePath = fullFilePath.substring(0, lastSlash+1);
+            filePath = fullFilePath.substring(0, lastSlash + 1);
             folderName = fullFilePath.split('/').pop();
         }
 
@@ -1730,19 +1729,19 @@ removeTypedQuotes();
 function colorProcessor (inputColor, argName) {
     //Validate that both required arguments are passed
     if (!inputColor || !argName) {
-        console.info(º+'You must pass in your Hex color (#FF0000) as a ' +
+        console.info(º + 'You must pass in your Hex color (#FF0000) as a ' +
             'string accompanied by it\'s argName.', consoleNormal);
         return;
     }
     //Validate types
     if (typeof(inputColor) !== 'string') {
-        console.info(º+'Hex color must be passed as a string.', consoleNormal);
+        console.info(º + 'Hex color must be passed as a string.', consoleNormal);
         return;
     } else if (inputColor[0] !== '#') {
-        console.info(º+'Hex color must begin with #.', consoleNormal);
+        console.info(º + 'Hex color must begin with #.', consoleNormal);
         return;
     } else if (typeof(argName) !== 'string') {
-        console.info(º+'argName must be passed as a string.', consoleNormal);
+        console.info(º + 'argName must be passed as a string.', consoleNormal);
         return;
     }
 
@@ -1778,9 +1777,9 @@ function colorProcessor (inputColor, argName) {
     var Blue  = (parseInt(B) * 16) + parseInt(b);
 
     //As 0-100%
-    var RP = Math.floor((Red/255) * 100);
-    var GP = Math.floor((Green/255) * 100);
-    var BP = Math.floor((Blue/255) * 100);
+    var RP = Math.floor((Red / 255) * 100);
+    var GP = Math.floor((Green / 255) * 100);
+    var BP = Math.floor((Blue / 255) * 100);
 
     var DecRrGgBb = R + ' ' + r + ' ' + G + ' ' + g + ' ' + B + ' ' + b;
     //Create the args object parameters on the UGUI Args Object
@@ -2089,9 +2088,9 @@ function checkForUpdates () {
         //Build the URL for the API
         var updateURL = 'https://api.github.com/repos/' + username + '/' + repoName + '/releases';
     } else {
-        console.info(º+'Unable to check for updates because your Repository ' +
+        console.info(º + 'Unable to check for updates because your Repository ' +
             'URL does not match expected pattern.', consoleNormal);
-        console.info(º+helpMessage, consoleNormal);
+        console.info(º + helpMessage, consoleNormal);
         return;
     }
 
@@ -2105,9 +2104,9 @@ function checkForUpdates () {
                   '<strong>Unable to reach update server. Try again later.</strong>' +
                 '</p>'
             );
-            console.info(º+'Unable to check for updates because GitHub cannot be reached ' +
+            console.info(º + 'Unable to check for updates because GitHub cannot be reached ' +
                 'or your Repository URL does not match expected pattern.', consoleError);
-            console.info(º+helpMessage, consoleNormal);
+            console.info(º + helpMessage, consoleNormal);
             return;
         },
         success: function (data) {
@@ -2506,7 +2505,7 @@ function swatchSwapper () {
                 );
             }
         } else {
-            console.warn(º+'Could not return list of style swatches.', consoleBold);
+            console.warn(º + 'Could not return list of style swatches.', consoleBold);
         }
     });
 
@@ -2542,7 +2541,7 @@ function swatchSwapper () {
 function saveNewSwatch (newSwatch) {
     //Validate that the required argument is passed and is the correct type
     if (!newSwatch || typeof(newSwatch) !== 'string') {
-        console.info(º+'You must pass in a new swatch as a string', consoleNormal);
+        console.info(º + 'You must pass in a new swatch as a string', consoleNormal);
         return;
     }
 
@@ -2577,7 +2576,9 @@ function saveNewSwatch (newSwatch) {
 
         //With the contents of index.htm update, save over the file
         fs.writeFile(filename, data, function (err) {
-            if (err) return console.log(err);
+            if (err) {
+                return console.log(err);
+            }
         });
 
         //Animate the "Saved" text, having it fade in
@@ -2609,7 +2610,7 @@ function keyBindings () {
         //Check `CTRL+F` key and do nothing :(
         if (pressed.ctrlKey && pressed.keyCode === 70) {
             pressed.preventDefault();
-            console.info(º+'NW.js currently has no "Find" feature built in. Sorry :(', consoleNormal);
+            console.info(º + 'NW.js currently has no "Find" feature built in. Sorry :(', consoleNormal);
             return false;
         //Check `CTRL+F5`, `CTRL+R`, or `CMD+R` keys and hard refresh the page
         } else if (
@@ -2617,7 +2618,7 @@ function keyBindings () {
             pressed.ctrlKey && pressed.keyCode === 82 ||
             pressed.metaKey && pressed.keyCode === 82) {
                 pressed.preventDefault();
-                scout.helpers.killAllWatchers();
+                window.scout.helpers.killAllWatchers();
                 win.reloadDev();
                 return false;
         //Check `Shift+F5` and `CMD+Shift+R` keys and refresh ignoring cache
@@ -2625,13 +2626,13 @@ function keyBindings () {
             pressed.shiftKey && pressed.keyCode === 116 ||
             pressed.metaKey && pressed.shiftKey && pressed.keyCode === 82) {
                 pressed.preventDefault();
-                scout.helpers.killAllWatchers();
+                window.scout.helpers.killAllWatchers();
                 win.reloadIgnoringCache();
                 return false;
         //Check `F5` key and soft refresh
         } else if (pressed.keyCode === 116) {
             pressed.preventDefault();
-            scout.helpers.killAllWatchers();
+            window.scout.helpers.killAllWatchers();
             win.reload();
             return false;
         //Check `F12`, `Ctrl+Shift+I`, or `Option+Shift+I` and display Webkit Dev Tools
@@ -2706,7 +2707,7 @@ $('.ezdz').on('dragleave', function () {
 function ezdz (fileInfo) {
     //Validate that the required argument is passed and the correct type
     if (!fileInfo || typeof(fileInfo) !== 'object') {
-        console.info(º+'You must pass in your file information as an object.', consoleNormal);
+        console.info(º + 'You must pass in your file information as an object.', consoleNormal);
         return;
     }
     var file = fileInfo;
@@ -2775,8 +2776,8 @@ function sliderHandleSolid (themeColor) {
     if (bootstrap3_enabled && slider_enabled) {
         //Validate that the required argument is passed and the correct type
         if (!themeColor || typeof(themeColor) !== 'string') {
-            console.info(º+'You must pass in your theme color as a string in RGB format. Example:', consoleNormal);
-            console.info(º+'rgb(141, 12, 70)', consoleCode);
+            console.info(º + 'You must pass in your theme color as a string in RGB format. Example:', consoleNormal);
+            console.info(º + 'rgb(141, 12, 70)', consoleCode);
             return;
         }
 
@@ -2795,8 +2796,8 @@ function sliderHandleGradient (themeGradient) {
     if (bootstrap3_enabled && slider_enabled) {
         //Validate that the required argument is passed and the correct type
         if (!themeGradient || typeof(themeGradient) !== 'string') {
-            console.info(º+'You must pass in your theme gradient as a string in RGB format. Example:', consoleNormal);
-            console.info(º+'linear-gradient(rgb(84, 180, 235), rgb(47, 164, 231) 60%, rgb(29, 156, 229))', consoleCode);
+            console.info(º + 'You must pass in your theme gradient as a string in RGB format. Example:', consoleNormal);
+            console.info(º + 'linear-gradient(rgb(84, 180, 235), rgb(47, 164, 231) 60%, rgb(29, 156, 229))', consoleCode);
             return;
         }
 
@@ -2903,12 +2904,12 @@ cutCopyPasteMenu();
 function openNewWindow (url, parameters) {
     //Validate that required argument is passed
     if (!url) {
-        console.info(º+'Supply a path to the file you want to load as ' +
+        console.info(º + 'Supply a path to the file you want to load as ' +
             'the url for the new Window.', consoleNormal);
         return;
     //Validate types
     } else if (typeof(url) !== 'string') {
-        console.info(º+'URL must be passed as a string.', consoleNormal);
+        console.info(º + 'URL must be passed as a string.', consoleNormal);
         return;
     }
 
@@ -2916,79 +2917,79 @@ function openNewWindow (url, parameters) {
     if (parameters) {
         //Validate types
         if (Object.prototype.toString.call(parameters) !== '[object Object]') {
-            console.info(º+'Your parameters must be passed as an object.', consoleNormal);
+            console.info(º + 'Your parameters must be passed as an object.', consoleNormal);
             return;
         } else if (parameters.title && typeof(parameters.title) !== 'string') {
-            console.info(º+'Title for your window must be passed as a string. Example:', consoleNormal);
-            console.info(º+'"My App"', consoleCode);
+            console.info(º + 'Title for your window must be passed as a string. Example:', consoleNormal);
+            console.info(º + '"My App"', consoleCode);
             return;
         } else if (parameters.icon && typeof(parameters.icon) !== 'string') {
-            console.info(º+'Icon for your window must be passed as a string. Example:', consoleNormal);
-            console.info(º+'"_img/icon32.png"', consoleCode);
+            console.info(º + 'Icon for your window must be passed as a string. Example:', consoleNormal);
+            console.info(º + '"_img/icon32.png"', consoleCode);
             return;
         } else if (parameters.toolbar && typeof(parameters.toolbar) !== 'boolean') {
-            console.info(º+'Toolbar visibility for your window must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'true', consoleCode);
+            console.info(º + 'Toolbar visibility for your window must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'true', consoleCode);
             return;
         } else if (parameters.resizable && typeof(parameters.resizable) !== 'boolean') {
-            console.info(º+'Window resizability must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'true', consoleCode);
+            console.info(º + 'Window resizability must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'true', consoleCode);
             return;
         } else if (parameters.visible && typeof(parameters.visible) !== 'boolean') {
-            console.info(º+'Window visibility must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'true', consoleCode);
+            console.info(º + 'Window visibility must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'true', consoleCode);
             return;
         } else if (parameters.transparent && typeof(parameters.transparent) !== 'boolean') {
-            console.info(º+'Window transparency must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'false', consoleCode);
+            console.info(º + 'Window transparency must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'false', consoleCode);
             return;
         } else if (parameters.width && typeof(parameters.width) !== 'number') {
-            console.info(º+'Width for your window must be passed as a number. Example:', consoleNormal);
-            console.info(º+'900', consoleCode);
+            console.info(º + 'Width for your window must be passed as a number. Example:', consoleNormal);
+            console.info(º + '900', consoleCode);
             return;
         } else if (parameters.height && typeof(parameters.height) !== 'number') {
-            console.info(º+'Height for your window must be passed as a number. Example:', consoleNormal);
-            console.info(º+'500', consoleCode);
+            console.info(º + 'Height for your window must be passed as a number. Example:', consoleNormal);
+            console.info(º + '500', consoleCode);
             return;
         } else if (parameters.min_width && typeof(parameters.min_width) !== 'number') {
-            console.info(º+'Minimum width for your window must be passed as a number. Example:', consoleNormal);
-            console.info(º+'400', consoleCode);
+            console.info(º + 'Minimum width for your window must be passed as a number. Example:', consoleNormal);
+            console.info(º + '400', consoleCode);
             return;
         } else if (parameters.min_height && typeof(parameters.min_height) !== 'number') {
-            console.info(º+'Minimum height for your window must be passed as a number. Example:', consoleNormal);
-            console.info(º+'200', consoleCode);
+            console.info(º + 'Minimum height for your window must be passed as a number. Example:', consoleNormal);
+            console.info(º + '200', consoleCode);
             return;
         } else if (parameters.max_width && typeof(parameters.max_width) !== 'number') {
-            console.info(º+'Maximum width for your window must be passed as a number. Example:', consoleNormal);
-            console.info(º+'8000', consoleCode);
+            console.info(º + 'Maximum width for your window must be passed as a number. Example:', consoleNormal);
+            console.info(º + '8000', consoleCode);
             return;
         } else if (parameters.max_height && typeof(parameters.max_height) !== 'number') {
-            console.info(º+'Maximum height for your window must be passed as a number. Example:', consoleNormal);
-            console.info(º+'8000', consoleCode);
+            console.info(º + 'Maximum height for your window must be passed as a number. Example:', consoleNormal);
+            console.info(º + '8000', consoleCode);
             return;
         } else if (parameters.position && typeof(parameters.position) !== 'string') {
-            console.info(º+'Position of your window must be passed as a string. Example:', consoleNormal);
-            console.info(º+'"center"', consoleCode);
+            console.info(º + 'Position of your window must be passed as a string. Example:', consoleNormal);
+            console.info(º + '"center"', consoleCode);
             return;
         } else if (parameters['always-on-top'] && typeof(parameters['always-on-top']) !== 'boolean') {
-            console.info(º+'Setting your window to Always On Top must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'false', consoleCode);
+            console.info(º + 'Setting your window to Always On Top must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'false', consoleCode);
             return;
         } else if (parameters.show_in_taskbar && typeof(parameters.show_in_taskbar) !== 'boolean') {
-            console.info(º+'Show window in taskbar must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'true', consoleCode);
+            console.info(º + 'Show window in taskbar must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'true', consoleCode);
             return;
         } else if (parameters.fullscreen && typeof(parameters.fullscreen) !== 'boolean') {
-            console.info(º+'Fullscreen for your window must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'false', consoleCode);
+            console.info(º + 'Fullscreen for your window must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'false', consoleCode);
             return;
         } else if (parameters.frame && typeof(parameters.frame) !== 'boolean') {
-            console.info(º+'Window frame must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'true', consoleCode);
+            console.info(º + 'Window frame must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'true', consoleCode);
             return;
         } else if (parameters.as_desktop && typeof(parameters.as_desktop) !== 'boolean') {
-            console.info(º+'Show window as desktop must be passed as a boolean. Example:', consoleNormal);
-            console.info(º+'false', consoleCode);
+            console.info(º + 'Show window as desktop must be passed as a boolean. Example:', consoleNormal);
+            console.info(º + 'false', consoleCode);
             return;
         }
     //If parameters were not passed in
@@ -3102,20 +3103,20 @@ function saveSettings (customLocation, callback) {
         (arguments.length === 2 && typeof(customLocation) !== 'string') ||
         (arguments.length === 2 && typeof(callback) !== 'function')
        ) {
-        console.info(º+'The following arguments are allowed:', consoleBold);
-        console.info(º+'1. Just a string to a custom file path.', consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings("C:\\folder\\app-settings.json" );', consoleCode);
-        console.info(º+'2. Just a function as a callback to be ran when save completes.', consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings(function () {console.log("Saved.")} );', consoleCode);
-        console.info(º+'3. A string followed by a function, as a custom path and ' +
+        console.info(º + 'The following arguments are allowed:', consoleBold);
+        console.info(º + '1. Just a string to a custom file path.', consoleNormal);
+        console.info(º + 'ugui.helpers.saveSettings("C:\\folder\\app-settings.json" );', consoleCode);
+        console.info(º + '2. Just a function as a callback to be ran when save completes.', consoleNormal);
+        console.info(º + 'ugui.helpers.saveSettings(function () {console.log("Saved.")} );', consoleCode);
+        console.info(º + '3. A string followed by a function, as a custom path and ' +
             'callback upon completion.', consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings("C:\\folder\\app-settings.json", ' +
+        console.info(º + 'ugui.helpers.saveSettings("C:\\folder\\app-settings.json", ' +
             'function () {console.log("Saved.")} );', consoleCode);
-        console.info(º+'4. Nothing at all.', consoleNormal);
-        console.info(º+'ugui.helpers.saveSettings();', consoleCode);
-        console.info(º+'By passing in nothing, UGUI will use the default save location of:', consoleNormal);
-        console.info(º+'"' + defaultLocation + '"', consoleCode);
-        console.info(º+'And upon completion of saving the settings, nothing will be triggered.', consoleNormal);
+        console.info(º + '4. Nothing at all.', consoleNormal);
+        console.info(º + 'ugui.helpers.saveSettings();', consoleCode);
+        console.info(º + 'By passing in nothing, UGUI will use the default save location of:', consoleNormal);
+        console.info(º + '"' + defaultLocation + '"', consoleCode);
+        console.info(º + 'And upon completion of saving the settings, nothing will be triggered.', consoleNormal);
         return;
     //Check if `customLocation` is exists and is a string
     } else if (customLocation && typeof(customLocation) === 'string') {
@@ -3132,10 +3133,10 @@ function saveSettings (customLocation, callback) {
     //Save the `ugui.args` object to the `uguisettings.json` file
     fs.writeFile(settingsFile, settingsJSON, function (err) {
         if (err) {
-            console.warn(º+'There was an error in attempting to save to the location:', consoleNormal);
-            console.warn(º+settingsFile, consoleCode);
-            console.warn(º+'Error: ', consoleBold);
-            console.warn(º+err.message, consoleError);
+            console.warn(º + 'There was an error in attempting to save to the location:', consoleNormal);
+            console.warn(º + settingsFile, consoleCode);
+            console.warn(º + 'Error: ', consoleBold);
+            console.warn(º + err.message, consoleError);
         } else {
             //If a callback function was passed into `saveSettings`, run it
             if (typeof(callback) === 'function') {
@@ -3197,20 +3198,20 @@ function loadSettings (customLocation, callback) {
         (arguments.length === 2 && typeof(customLocation) !== 'string') ||
         (arguments.length === 2 && typeof(callback) !== 'function')
        ) {
-        console.info(º+'The following arguments are allowed:', consoleBold);
-        console.info(º+'1. Just a string to a custom file path.', consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings("C:\\folder\\app-settings.json");', consoleCode);
-        console.info(º+'2. Just a function as a callback to be ran when loading completes.', consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings(function () {console.log("Loaded.")});', consoleCode);
-        console.info(º+'3. A string followed by a function, as a custom path and ' +
+        console.info(º + 'The following arguments are allowed:', consoleBold);
+        console.info(º + '1. Just a string to a custom file path.', consoleNormal);
+        console.info(º + 'ugui.helpers.loadSettings("C:\\folder\\app-settings.json");', consoleCode);
+        console.info(º + '2. Just a function as a callback to be ran when loading completes.', consoleNormal);
+        console.info(º + 'ugui.helpers.loadSettings(function () {console.log("Loaded.")});', consoleCode);
+        console.info(º + '3. A string followed by a function, as a custom path and ' +
             'callback upon completion.', consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings("C:\\folder\\app-settings.json", ' +
+        console.info(º + 'ugui.helpers.loadSettings("C:\\folder\\app-settings.json", ' +
             'function () {console.log("loadd.")});', consoleCode);
-        console.info(º+'4. Nothing at all.', consoleNormal);
-        console.info(º+'ugui.helpers.loadSettings();', consoleCode);
-        console.info(º+'By passing in nothing, UGUI will use the default load location of:', consoleNormal);
-        console.info(º+'"' + defaultLocation + '"', consoleCode);
-        console.info(º+'And upon completion of loading the settings, UI elements on the ' +
+        console.info(º + '4. Nothing at all.', consoleNormal);
+        console.info(º + 'ugui.helpers.loadSettings();', consoleCode);
+        console.info(º + 'By passing in nothing, UGUI will use the default load location of:', consoleNormal);
+        console.info(º + '"' + defaultLocation + '"', consoleCode);
+        console.info(º + 'And upon completion of loading the settings, UI elements on the ' +
             'page will be updated, as will the UGUI Args Object.', consoleNormal);
         return;
     //Check if `customLocation` is exists and is a string
@@ -3223,10 +3224,10 @@ function loadSettings (customLocation, callback) {
     fs.readFile(settingsFile, {encoding: 'utf-8'}, function (err, data) {
         //Display console warning if unable to read the file
         if (err) {
-            console.warn(º+'Could not read settings file from location:', consoleNormal);
-            console.warn(º+'"' + settingsFile + '"', consoleCode);
-            console.warn(º+'Error:', consoleBold);
-            console.warn(º+err.message, consoleError);
+            console.warn(º + 'Could not read settings file from location:', consoleNormal);
+            console.warn(º + '"' + settingsFile + '"', consoleCode);
+            console.warn(º + 'Error:', consoleBold);
+            console.warn(º + err.message, consoleError);
             return;
         //Load the file if it's found
         } else {
@@ -3371,7 +3372,7 @@ window.ugui = {
         'pathToProject': pathToProject,
         'startPage': indexFile,
         'title': appTitle,
-        'version': appVersion,
+        'version': appVersion
     },
     'args': window.ugui.args,
     'executable': executable,
@@ -3416,7 +3417,7 @@ window.ugui = {
 
 
 // End of `ugui();`
-})();
+})(window, window.$);
 
 
 

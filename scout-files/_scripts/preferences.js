@@ -1,13 +1,10 @@
+/* eslint-disable no-multi-spaces */
 
 /*
   App-wide preference controls. Language settings, Theme ,etc.
 */
 
-(function () {
-
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
+(function ($, scout, ugui) {
 
     $('#preferences').click(function () {
         $('#preferences-modal').fadeIn();
@@ -56,8 +53,8 @@
 
     $('#preferences-modal input[type="checkbox"]').change(checkboxChanged);
 
-    //Show the correct cultural image and translator
+    // Show the correct cultural image and translator
     $('#culture-pics .' + scout.globalSettings.cultureCode).removeClass('hide');
     $('#translators .' + scout.globalSettings.cultureCode).removeClass('hide');
 
-})();
+})(window.$, window.scout, window.ugui);
