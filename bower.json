@@ -21,6 +21,7 @@
     "bootstrap": "3.2.0",
     "seiyria-bootstrap-slider": "^5.x.x",
     "ivan-chkv.bootstrap-dropdowns-enhancement-dist": "3.1.1",
+    "countup": "latest",
 
     "html5-boilerplate": "latest",
     "foundation": "latest",
