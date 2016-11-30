@@ -1,0 +1,24 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = crlf
+insert_final_newline = true
+
+# Matches multiple files with brace expansion notation
+# Set default charset
+[*.{js,css,html}]
+charset = utf-8
+
+# 4 space indentation
+[*.{js,css}]
+indent_style = space
+indent_size = 4
+
+# Indentation override for all JS under lib directory
+[*.{html}]
+indent_style = space
+indent_size = 2

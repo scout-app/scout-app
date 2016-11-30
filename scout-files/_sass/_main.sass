@@ -23,9 +23,7 @@ input[type="color"]
     background: transparent
 
 .truncate
-    white-space: nowrap
-    overflow: hidden
-    text-overflow: ellipsis
+    +truncate
 
 .gray
     cursor: not-allowed
@@ -52,16 +50,16 @@ input[type="color"]
     vertical-align: bottom
 
 .inputDirectoryContainer
-    display: inline
     position: relative
+    display: inline
 
 input[nwdirectory]
     position: absolute
     display: inline
-    opacity: 0
     border: 0px
     margin: 0px
     padding: 0px
+    opacity: 0
     overflow: hidden
 
 .inputDirectoryBttn
@@ -69,7 +67,7 @@ input[nwdirectory]
 
 .custom-icon
     &:before,
-    &:after,
+    &:after
         position: relative
         top: 1px
         display: inline-block

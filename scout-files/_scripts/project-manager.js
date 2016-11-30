@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 /* eslint-disable space-in-parens */
+/* eslint-disable no-multi-spaces */
 
 /*
   Manipulates the state of all projects in the app. Handles adding and
@@ -7,23 +8,18 @@
   settings view.
 */
 
-(function () {
+(function ($, scout, ugui, nw) {
 
-    var $ = window.$;
-    var scout = window.scout;
-    var ugui = window.ugui;
-    var nw = window.nw;
-
-    //This will change all UI elements for Project Settings back to an empty/default state
+    // This will change all UI elements for Project Settings back to an empty/default state
     function resetProjectSettingsUI () {
         $('#projectIcon').attr('src', '_img/logo_128.png');
         $('#projectName').html('');
         $('#projectFolder').val('');
         $('#inputFolder').val('');
-        $('#inputFolderBrowse').attr('nwworkingdir','...');
+        $('#inputFolderBrowse').attr('nwworkingdir', '...');
         $('#inputFolderBrowse').val('');
         $('#outputFolder').val('');
-        $('#outputFolderBrowse').attr('nwworkingdir','...');
+        $('#outputFolderBrowse').attr('nwworkingdir', '...');
         $('#outputFolderBrowse').val('');
         $('#outputWarning').addClass('hide');
         $('#environment input[data-argname="production"]').click();
@@ -76,7 +72,7 @@
      * scout.helpers.removeProject('sa0000000000000');
      */
     function removeProject (projectID) {
-        //Error checking
+        // Error checking
         if (!projectID || typeof(projectID) !== 'string') {
             console.log('Can\'t remove project, pass in a valid project ID to remove');
             return;
@@ -86,7 +82,7 @@
             return;
         }
 
-        //Remove the item from the scout.projects array
+        // Remove the item from the scout.projects array
         for (var i = 0; i < scout.projects.length; i++) {
             var currentItem = scout.projects[i].projectID;
             if (projectID == currentItem) {
@@ -96,7 +92,7 @@
 
         scout.helpers.stopWatching(projectID);
 
-        //Save settings, update sidebar, click the top item in sidebar, run ftux if no items
+        // Save settings, update sidebar, click the top item in sidebar, run ftux if no items
         scout.helpers.saveSettings();
         scout.helpers.updateSidebar();
         if (scout.projects.length > 0) {
@@ -135,7 +131,7 @@
             return;
         }
 
-        //Add to the end of the projects list
+        // Add to the end of the projects list
         scout.projects.push(project);
 
         scout.helpers.updateSidebar();
@@ -144,6 +140,9 @@
 
     function saveCurrentProject () {
         var id = $('#projectID').val();
+        if (!id) {
+            return;
+        }
         for (var i = 0; i < scout.projects.length; i++) {
             var project = scout.projects[i];
             if (id == project.projectID) {
@@ -216,7 +215,7 @@
         $('#inputFolderBrowse' ).attr('nwworkingdir', workingDir);
         $('#outputFolderBrowse').attr('nwworkingdir', workingDir);
 
-        //Output Style dropdown must be updated before Environment
+        // Output Style dropdown must be updated before Environment
         var outputStyleOption = $('#outputStyle option');
         for (var i = 1; i < outputStyleOption.length; i++) {
             var current = $(outputStyleOption[i]).val();
@@ -225,7 +224,7 @@
             }
         }
 
-        //Environment
+        // Environment
         if (base.environment == 'production') {
             $('#environment input[data-argName="production"]').click();
         } else if (base.environment == 'development') {
@@ -241,24 +240,34 @@
         scout.helpers.projectRenameHeight();
     }
 
-    window.scout.helpers.resetProjectUI = resetProjectSettingsUI;
+    scout.helpers.resetProjectUI = resetProjectSettingsUI;
 
-    //scout.helpers.deleteLocalSettingsFile(true)
-    window.scout.helpers.deleteLocalSettingsFile = deleteLocalSettingsFile;
+    // scout.helpers.deleteLocalSettingsFile(true)
+    scout.helpers.deleteLocalSettingsFile = deleteLocalSettingsFile;
 
-    //scout.helpers.updateProjectSettingsView(scout.projects[0]);
-    window.scout.helpers.updateProjectSettingsView = updateProjectSettingsView;
+    // scout.helpers.updateProjectSettingsView(scout.projects[0]);
+    scout.helpers.updateProjectSettingsView = updateProjectSettingsView;
 
-    //scout.helpers.removeProject('sa1459092789554');
-    window.scout.helpers.removeProject = removeProject;
+    // scout.helpers.removeProject('sa1459092789554');
+    scout.helpers.removeProject = removeProject;
 
-    //scout.helpers.addProject( {projectID:'',projectName:'',projectFolder:'',inputFolder:'',outputFolder:'',projectIcon:'',environment:'',outputStyle:''} );
-    window.scout.helpers.addProject = addProject;
+    // var project = {
+    //   projectID: '',
+    //   projectName: '',
+    //   projectFolder: '',
+    //   inputFolder: '',
+    //   outputFolder: '',
+    //   projectIcon: '',
+    //   environment: '',
+    //   outputStyle: ''
+    // };
+    // scout.helpers.addProject(project);
+    scout.helpers.addProject = addProject;
 
-    //Update the values on the scout.projects object for the currently visible project then save to file
-    window.scout.helpers.saveCurrentProject = saveCurrentProject;
+    // Update the values on the scout.projects object for the currently visible project then save to file
+    scout.helpers.saveCurrentProject = saveCurrentProject;
 
-    //Save scout object to file in app data folder
-    window.scout.helpers.saveSettings = saveSettings;
+    // Save scout object to file in app data folder
+    scout.helpers.saveSettings = saveSettings;
 
-})();
+})(window.$, window.scout, window.ugui, window.nw);
