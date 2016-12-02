@@ -15,7 +15,7 @@ For more information:
 
 ##Memes
 
-Scout-App wants to show a personal touch for each culture. So we attach some culturally relavent image with some Sass or CSS reference in it.
+Scout-App wants to show a personal touch for each culture. So we attach some **culturally relavent image** with some Sass or CSS reference in it.
 
 Examples:
 
