@@ -29,10 +29,9 @@
     }
 
     function updateProjectsFoundCount () {
-        var text = '';
         var projectsFound = scout.ftux.projectsFound;
         if (projectsFound && projectsFound > 0) {
-            text = 'found {{0}} projects'; // LOCALIZE
+            var text = scout.localize('FOUND_SOME_PROJECTS', true);
             text = text.replace('{{0}}', '<strong id="countUp">0</strong>');
             $('#ftux-multi-text').html(text);
 
@@ -51,8 +50,8 @@
             var count = new CountUp('countUp', start, end, decimal, duration, options);
             count.start();
         } else {
-            text = 'select the group folder'; // LOCALIZE
-            $('#ftux-multi-text').html(text);
+            var helperText = scout.localize('SELECT_GROUP_FOLDER', true);
+            $('#ftux-multi-text').html(helperText);
         }
     }
 
@@ -69,5 +68,6 @@
     // run once
     ftux();
     scout.helpers.ftux = ftux;
+    scout.helpers.updateProjectsFoundCount = updateProjectsFoundCount;
 
 })(window.$, window.scout, window.ugui, window.CountUp);
