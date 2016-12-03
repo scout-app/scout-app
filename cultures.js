@@ -12,7 +12,11 @@ var folder = 'scout-files/cultures/';
 var csv = path.join(folder, 'translation.csv');
 var file = fs.createWriteStream(csv);
 
+
+// An array of culture codes that are not finished and should not be in the app yet
 var languagesToSkip = ['de', 'fa'];
+
+
 
 function createJSON () {
     var sheet = fs.readFileSync(csv, 'UTF-8');
@@ -52,6 +56,7 @@ function createJSON () {
 https.get(url, function (response) {
     response.pipe(file);
     response.on('end', function () {
-        createJSON();
+        // Give the OS 3 seconds to finish saving the file to disk
+        setTimeout(createJSON, 3000);
     });
 });

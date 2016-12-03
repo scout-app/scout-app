@@ -40,7 +40,7 @@
   },
   "ABOUT_DESCRIPTION": {
     "en": "<strong>Scout-App</strong> allows you to process your <code>.sass</code> and <code>.scss</code> files into CSS without needing any knowledge of the command line.",
-    "vi": "<strong>Scout-App</strong> cho phép bạn xử lý các tệp <code>.sass</code> và <code>.scss</code> thành CSS mà không cần kiến thức về các dòng lệnh.",
+    "vi": "<strong>Scout-App</strong> cho phép bạn xử lý các tệp <code>.sass</code> và <code>.scss</code> thành CSS mà không cần kiến thức về dòng lệnh.",
     "hu": "A <strong>Scout-App</strong> segít feldolgozni a <code>.sass</code> és <code>.scss</code> fájlokat, hogy parancssor ismerete nélkül is CSS stílusfájlt generálhassunk.",
     "fr": "<strong>Scout-App</strong> vous permet de traiter vos fichiers <code>.sass</code> et <code>.scss</code> en CSS sans avoir besoin de connaissances sur la ligne de commande.",
     "ru": "<strong>Cкаут-Aппa</strong> позволяет обрабатывать <code>.sass</code> и <code>.scss</code> файлы в CSS без использования командной строки",
@@ -92,7 +92,7 @@
   },
   "ADD_GROUP_OF_PROJECTS": {
     "en": "Add Group of Projects",
-    "vi": "Thêm Nhóm các dự án",
+    "vi": "Thêm nhóm các dự án",
     "hu": "Csoport hozzáadása projektek",
     "fr": "Ajouter un Groupe de Projets",
     "ru": "Добавить группы проектов",
@@ -313,7 +313,7 @@
   },
   "FTUX_DRAG_DROP": {
     "en": "<h3>Drag and Drop</h3> <h4>anywhere to import projects</h4>",
-    "vi": "<h3>Kéo và thả</h3> <h4>bất cứ nơi nào để nhập khẩu các dự án</h4>",
+    "vi": "<h3>Kéo và Thả</h3> <h4>từ bất cứ nơi nào để nhập khẩu các dự án</h4>",
     "hu": "<h3>áthúzása</h3> <h4>bárhol importálni projektek</h4>",
     "fr": "<h3>Glisser-déplacer</h3> <h4>n'importe où pour importer des projets</h4>",
     "ru": "<h3>Перетаскивание</h3> <h4>в любом месте импортировать проекты</ h4>",
@@ -326,7 +326,7 @@
   },
   "IMPORT_ADD_GROUP": {
     "en": "Add Group of projects",
-    "vi": "Thêm Nhóm các dự án",
+    "vi": "Thêm nhóm các dự án",
     "hu": "Csoport hozzáadása projektek",
     "fr": "Ajouter un Groupe de projets",
     "ru": "Добавить группу проектов",
@@ -339,7 +339,7 @@
   },
   "IMPORT_ADD_PROJECT": {
     "en": "Add another project",
-    "vi": "Thêm một dự án khác",
+    "vi": "Thêm dự án khác",
     "hu": "Újabb projekt",
     "fr": "Ajouter un autre projet",
     "ru": "Добавить еще один проект",
@@ -352,7 +352,7 @@
   },
   "IMPORT_DRAG_DROP": {
     "en": "Drag & Drop",
-    "vi": "Kéo thả",
+    "vi": "Kéo & Thả",
     "hu": "Fogd és vidd",
     "fr": "Glisser déposer",
     "ru": "Перетаскивание",
@@ -365,7 +365,7 @@
   },
   "IMPORT_HEADER": {
     "en": "{{0}} Selected Projects",
-    "vi": "{{0}} dự án được lựa chọn",
+    "vi": "{{0}} dự án được chọn",
     "hu": "{{0}} Kiválasztott projektek",
     "fr": "{{0}} Projets Sélectionnés",
     "ru": "{{0}} Отдельные проекты",
@@ -469,7 +469,7 @@
   },
   "LANG_EN": {
     "en": "English",
-    "vi": "Tiếng Anh",
+    "vi": "Tiếng Anh (English)",
     "hu": "Angol (English)",
     "fr": "Anglais (English)",
     "ru": "Aнглийский (English)",
@@ -560,7 +560,7 @@
   },
   "LANG_RK": {
     "en": "Redneck (Real America)",
-    "vi": "Tiếng Redneck (Real America)",
+    "vi": "Tiếng Mỹ đời thường (Redneck)",
     "hu": "Paraszt Amcsi (Redneck)",
     "fr": "Rustre Américain (Redneck)",
     "ru": "деревенский Американский (Redneck)",
@@ -599,7 +599,7 @@
   },
   "LANG_ZH-CHT": {
     "en": "Chinese Traditional (中文)",
-    "vi": "Trung Quốc truyền thống (中文)",
+    "vi": "Tiếng Trung Quốc truyền thống (中文)",
     "hu": "Hagyományos kínai (中文)",
     "fr": "Chinois Traditionnel (中文)",
     "ru": "Китайский традиционный (中文)",
@@ -651,7 +651,7 @@
   },
   "MESSAGES_DESKTOP": {
     "en": "Desktop Notification",
-    "vi": "Thông báo trên màn hinh",
+    "vi": "Thông báo trên màn hình",
     "hu": "Asztali értesítések",
     "fr": "Notification de Bureau",
     "ru": "Обои для рабочего уведомления",
@@ -755,7 +755,7 @@
   },
   "MULTIPROJECT_IMPORT": {
     "en": "Multi-Project Import",
-    "vi": "Nhập Multi-Dự án",
+    "vi": "Nhập dự án hàng loạt",
     "hu": "Importálja több projekt",
     "fr": "Importation de Projets Multiples",
     "ru": "Импорт нескольких проектов",
@@ -924,7 +924,7 @@
   },
   "PRODUCTION": {
     "en": "Production",
-    "vi": "Sản xuất",
+    "vi": "Thực tế",
     "hu": "Produkciós",
     "fr": "Production",
     "ru": "производство",
@@ -1002,7 +1002,7 @@
   },
   "SELECT_GROUP_FOLDER": {
     "en": "select the group folder",
-    "vi": "chọn thư mục nhóm",
+    "vi": "chọn nhiều thư mục",
     "hu": "válassza ki a csoportot mappa",
     "fr": "sélectionnez le dossier de groupe\n",
     "ru": "выберите папку группы",
@@ -1015,7 +1015,7 @@
   },
   "SELECT_PROJECT_FOLDER": {
     "en": "select a project folder",
-    "vi": "chọn một thư mục dự án",
+    "vi": "chọn một thư mục",
     "hu": "válassza ki a projekt mappát",
     "fr": "sélectionnez un dossier de projet",
     "ru": "выберите папку проекта",
