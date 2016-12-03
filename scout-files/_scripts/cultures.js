@@ -97,7 +97,27 @@
             scout.helpers.saveSettings();
         }
         updateDataLangs();
+        updateTranslatorLink();
         $('#culture-pics').attr('src', 'cultures/' + userLanguage + '.jpg');
+    }
+
+    function updateTranslatorLink () {
+        var authors = localize('TRANSLATOR').split(', ');
+        var urls = localize('TRANSLATOR_URL').split(', ');
+        var links = '';
+
+        for (var i = 0; i < authors.length; i++) {
+            if (links) {
+                links = links + ', ';
+            }
+            var url = urls[i];
+            var author = authors[i];
+            var link = '<a href="' + url + '" class="external-link">' + author + '</a>';
+            links = links + link;
+        }
+
+        $('#translatorLink').html(links);
+        ugui.helpers.openDefaultBrowser();
     }
 
     function addLanguagesToPreferences () {
