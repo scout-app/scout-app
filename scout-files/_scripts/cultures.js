@@ -122,8 +122,8 @@
 
     // This will be overridden by the user's saved settings later,
     // but if they don't have saved settings, we default to English.
-    setLanguage('en');
     addLanguagesToPreferences();
+    setLanguage('en');
     scout.helpers.setLanguage = setLanguage;
     scout.helpers.updateDataLangs = updateDataLangs;
     scout.localize = localize;
