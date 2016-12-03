@@ -1,5 +1,21 @@
 /* eslint-disable no-console */
 
+/*
+  This file downloads the latest copy of the translations as a CSV.
+  It then saves that CSV to the cultures folder, reads it, and converts
+  it to JSON. The JSON is processed removing "Notes" columns and languages
+  that are not fully translated yet (See: line 15). Then we reshape the
+  data so that we have an object with sub-objects named after the KEYWORDS.
+  Each KEY objects contains KEY/VALUE pairs of culture codes and phrases
+  (See: scout-files/cultures/dictionary.json).
+*/
+
+
+// An array of culture codes that are not finished and should not be in the app yet
+var languagesToSkip = ['de', 'fa'];
+
+
+
 var fs = require('fs-extra');
 var path = require('path');
 var https = require('https');
@@ -12,11 +28,13 @@ var folder = 'scout-files/cultures/';
 var csv = path.join(folder, 'translation.csv');
 var file = fs.createWriteStream(csv);
 
-
-// An array of culture codes that are not finished and should not be in the app yet
-var languagesToSkip = ['de', 'fa'];
-
-
+function sortCultureCodes (unordered) {
+    var ordered = {};
+    Object.keys(unordered).sort().forEach(function (key) {
+        ordered[key] = unordered[key];
+    });
+    return ordered;
+}
 
 function createJSON () {
     var sheet = fs.readFileSync(csv, 'UTF-8');
@@ -30,6 +48,7 @@ function createJSON () {
             return;
         }
 
+        // Remove "Notes" columns
         var row = {};
         for (i = 0; i < result.length; i++) {
             row = result[i];
@@ -41,6 +60,8 @@ function createJSON () {
             result[i] = row;
             newDictionary[result[i].KEYWORD] = result[i];
         }
+
+        // Remove CONTEXT, KEYWORD, and unfinished translation columns
         for (key in newDictionary) {
             delete newDictionary[key].CONTEXT;
             delete newDictionary[key].KEYWORD;
@@ -48,8 +69,19 @@ function createJSON () {
                 delete newDictionary[key][languagesToSkip[i]];
             }
         }
+
+        // Alphabetize list of cultures in each KEYWORD
+        for (key in newDictionary) {
+            newDictionary[key] = sortCultureCodes(newDictionary[key]);
+        }
+
+        // Convert to a string with an empty line at the end
         var output = JSON.stringify(newDictionary, null, 2);
-        fs.writeFileSync(path.join(folder, 'dictionary.json'), output);
+        output = output + '\n';
+
+        // Save the file
+        var dictionaryPath = path.join(folder, 'dictionary.json');
+        fs.writeFileSync(dictionaryPath, output);
     });
 }
 
