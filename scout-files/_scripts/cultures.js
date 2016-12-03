@@ -19,7 +19,9 @@
         if (!phrase) {
             return 'No translation found.';
         }
-        var translation = window.dictionary[phrase];
+
+        var userLanguage = scout.globalSettings.cultureCode;
+        var translation = window.dictionary[phrase][userLanguage];
 
         if (wrapInDataLang) {
             return '<span data-lang="' + phrase + '">' + translation + '</span>';
@@ -88,7 +90,7 @@
     function setLanguage (userLanguage) {
         userLanguage = userLanguage || 'en';
         scout.globalSettings.cultureCode = userLanguage;
-        var dictionary = ugui.helpers.readAFile('scout-files/cultures/' + userLanguage + '.json');
+        var dictionary = ugui.helpers.readAFile('scout-files/cultures/dictionary.json');
         dictionary = JSON.parse(dictionary);
         window.dictionary = dictionary;
         if (scout.helpers.saveSettings) {
@@ -98,10 +100,30 @@
         $('#culture-pics').attr('src', 'cultures/' + userLanguage + '.jpg');
     }
 
+    function addLanguagesToPreferences () {
+        var culturesFolder = ugui.helpers.readAFolder('scout-files/cultures');
+        var i = 0;
+        var availableCultures = [];
+        var currentFile = '';
+        var culture = '';
+        var option = '';
+        for (i = 0; i < culturesFolder.length; i++) {
+            currentFile = culturesFolder[i].name;
+            if (currentFile.endsWith('.jpg')) {
+                availableCultures.push(currentFile.split('.jpg')[0]);
+            }
+        }
+        for (i = 0; i < availableCultures.length; i++) {
+            culture = availableCultures[i];
+            option = '<option value="' + culture + '" data-lang="LANG_' + culture.toUpperCase() + '" ></option>';
+            $('#cultureChoices').append(option);
+        }
+    }
+
     // This will be overridden by the user's saved settings later,
     // but if they don't have saved settings, we default to English.
     setLanguage('en');
-    updateDataLangs();
+    addLanguagesToPreferences();
     scout.helpers.setLanguage = setLanguage;
     scout.helpers.updateDataLangs = updateDataLangs;
     scout.localize = localize;
