@@ -80,7 +80,7 @@
   "ADD_A_PROJECT": {
     "da": "Tilføj et Projekt",
     "en": "Add a Project",
-    "es": "Agregar un Proyecto",
+    "es": "Añadir un Proyecto",
     "fr": "Ajouter un Projet",
     "hu": "egy Projekt Hozzáadása",
     "it": "Aggiungere un Progetto",
@@ -756,7 +756,7 @@
   "MULTIPROJECT_IMPORT": {
     "da": "Importer Flere Projekter",
     "en": "Multi-Project Import",
-    "es": "Importación de Proyectos Múltiples",
+    "es": "Importación de Múltiples Proyectos",
     "fr": "Importation de Projets Multiples",
     "hu": "Importálja több projekt",
     "it": "Importa Progetto Multipla",
@@ -782,7 +782,7 @@
   "NO_SASS_FILES": {
     "da": "Dette projekt input mappe indeholder ingen Sass filer, der kan behandles.",
     "en": "This project's input folder contains no Sass files that can be processed.",
-    "es": "Carpeta de entrada de este proyecto no contiene archivos Sass que se pueden procesar.",
+    "es": "La carpeta de entrada de este proyecto no contiene archivos Sass que se pueden procesar.",
     "fr": "Le dossier d'entrée Ce projet ne contient aucun fichier Sass qui peuvent être traités.",
     "hu": "A projekt bemeneti mappájában nem találhatók sass fájlok.",
     "it": "Cartella di input di questo progetto non contiene file Sass che possono essere elaborati.",
