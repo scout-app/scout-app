@@ -82,6 +82,7 @@ function createJSON () {
         // Save the file
         var dictionaryPath = path.join(folder, 'dictionary.json');
         fs.writeFileSync(dictionaryPath, output);
+        console.log('Updated: ', dictionaryPath);
     });
 }
 
