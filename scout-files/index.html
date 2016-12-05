@@ -43,7 +43,7 @@
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#new"      id="file-newproject"  data-lang="NEW_PROJECT"></a></li>
            <!-- <li><a href="#template" id="file-boilerplate"                        >New from Boilerplate</a></li> --> <!-- LOCALIZE -->
-                <li><a href="#multi"    id="file-multi"                              >Multi-Project Import</a></li> <!-- LOCALIZE -->
+                <li><a href="#multi"    id="file-multi"       data-lang="MULTIPROJECT_IMPORT"></a></li>
                 <li><a href="#prefs"    id="preferences"      data-lang="PREFERENCES"></a></li>
                 <li class="divider"></li>
                 <li><a href="#exit" data-lang="EXIT"></a></li>
@@ -224,26 +224,24 @@
           </div>
           <div class="panel-body text-center">
             <div id="ftux-bordered" class="bordered text-center">
-              <span class="icon icon-dragndrop"></span>
+              <span class="icon icon-drag-n-drop"></span>
             </div>
-            <div class="ftux-title">
-              <h3>Drag and Drop</h3> <h4>anywhere to import projects</h4>
-            </div> <!-- LOCALIZE -->
+            <div class="ftux-title" data-lang="FTUX_DRAG_DROP"></div>
             <hr class="dashed-hr" />
             <div class="row">
               <div class="text-center inline-block">
                 <button id="ftux-add-project" class="btn btn-lg btn-default">
                   <span class="glyphicon glyphicon-plus"></span>
-                  Add a Project <!-- LOCALIZE -->
+                  <span data-lang="ADD_A_PROJECT"></span>
                 </button>
-                <p class="faded75">select a project folder</p> <!-- LOCALIZE -->
+                <p class="faded75" data-lang="SELECT_PROJECT_FOLDER"></p>
               </div>
               <div class="text-center inline-block">
                 <button id="ftux-multi" class="btn btn-lg btn-primary">
-                  <span class="glyphicon glyphicon-plus-sign"></span>
-                  Add Group of Projects <!-- LOCALIZE -->
+                  <span class="icon icon-folder-tree"></span>
+                  <span data-lang="ADD_GROUP_OF_PROJECTS"></span>
                 </button>
-                <p id="ftux-multi-text" class="faded75">select the group folder</p> <!-- LOCALIZE -->
+                <p id="ftux-multi-text" class="faded75"></p>
               </div>
             </div>
           </div>
@@ -257,22 +255,22 @@
         <div class="modal-content">
           <div class="modal-header">
             <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
-            <h4>Multi-Project Import</h4> <!-- LOCALIZE -->
+            <h4 data-lang="MULTIPROJECT_IMPORT"></h4>
           </div>
           <div class="modal-body">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                  <strong><span class="numToImport">0</span> Selected Projects</strong> <!-- LOCALIZE -->
+                  <strong id="multiImportHeader"></strong>
               </div>
               <div class="panel-body">
 
                 <table class="table table-striped table-hover table-condensed">
                   <thead>
                     <tr>
-                      <th><input type="checkbox" title="Select/Deselect All"/></th> <!-- LOCALIZE -->
-                      <th>Project Name</th> <!-- LOCALIZE -->
-                      <th class="text-center">Input (Sass)</th> <!-- LOCALIZE -->
-                      <th class="text-center">Output (CSS)</th> <!-- LOCALIZE -->
+                      <th><input type="checkbox" data-langtitle="SELECT_DESELECT_ALL" /></th>
+                      <th data-lang="IMPORT_PROJECT_NAME"></th>
+                      <th data-lang="IMPORT_INPUT" class="text-center"></th>
+                      <th data-lang="IMPORT_OUTPUT" class="text-center"></th>
                       <th></th>
                       <th></th>
                     </tr>
@@ -285,22 +283,22 @@
                 <div class="row">
                   <div class="col-xs-4">
                     <a id="dragProjectToImporter" href="#" class="drag-n-drop">
-                      <span class="icon icon-dragndrop"></span>
-                      Drag &amp; Drop<!-- LOCALIZE -->
+                      <span class="icon icon-drag-n-drop-sm"></span>
+                      <span data-lang="IMPORT_DRAG_DROP"></span>
                     </a>
                   </div>
                   <div class="col-xs-4">
                     <input type="file" id="addProjectToImporterBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
                     <a id="addProjectToImporter" href="#" class="text-success">
                       <span class="glyphicon glyphicon-plus"></span>
-                      <u>Add another project</u> <!-- LOCALIZE -->
+                      <u data-lang="IMPORT_ADD_PROJECT"></u>
                     </a>
                   </div>
                   <div class="col-xs-4">
                     <input type="file" id="addProjectsToImporterBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
                     <a id="addProjectsToImporter" href="#" class="text-success">
-                      <span class="glyphicon glyphicon-th-list"></span>
-                      <u>Add Group of projects</u> <!-- LOCALIZE -->
+                      <span class="icon icon-folder-tree"></span>
+                      <u data-lang="IMPORT_ADD_GROUP"></u>
                     </a>
                   </div>
                 </div>
@@ -311,7 +309,7 @@
             <div class="text-center">
               <button id="ftuxStartImport" class="btn btn-success">
                 <span class="glyphicon glyphicon-ok"></span>
-                Import <span class="numToImport">0</span> Projects <!-- LOCALIZE -->
+                <span id="multiImportButton"></span>
               </button>
             </div>
 
@@ -441,17 +439,7 @@
             <div class="row">
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
                 <h4 data-lang="LANGUAGE_CHOICE" class="language custom-icon"></h4>
-
-                <select id="cultureChoices" data-argName="culturechoice" class="form-control" required="required">
-                  <option value="en" data-lang="LANG_ENGLISH" ></option>
-                  <option value="da" data-lang="LANG_DANISH"  ></option>
-                  <option value="nl" data-lang="LANG_DUTCH"   ></option>
-                  <option value="fr" data-lang="LANG_FRENCH"  ></option>
-                  <option value="it" data-lang="LANG_ITALIAN" ></option>
-                  <option value="rk" data-lang="LANG_REDNECK" ></option>
-                  <option value="ru" data-lang="LANG_RUSSIAN" ></option>
-                  <option value="es" data-lang="LANG_SPANISH" ></option>
-                </select>
+                <select id="cultureChoices" data-argName="culturechoice" class="form-control" required="required"></select>
               </div>
 
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
@@ -466,7 +454,7 @@
             <div class="row">
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6 text-left small">
                 <em data-lang="TRANSLATED_BY"></em>
-                <a href="#" class="external-link" data-langhref="TRANSLATOR_URL" data-lang="TRANSLATOR"></a>
+                <span id="translatorLink"></span>
               </div>
             </div>
 

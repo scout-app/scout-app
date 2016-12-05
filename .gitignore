@@ -42,3 +42,4 @@ bower_components
 bower_components/*
 RUN.lnk
 _build/
+scout-files/cultures/translation.csv
