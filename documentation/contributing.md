@@ -41,6 +41,7 @@ The  main files for Scout-App 2 are:
 
 * * *
 
+
 ### The Scout "[God Object](https://en.wikipedia.org/wiki/God_object)"
 
 In the Developer Tools Console, you can type `window.scout` (or just `scout`) to see the main Scout object. It contains the following:
@@ -100,6 +101,18 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
  * `nodeSass`: The Node module that allows Scout-App to interface with `libSass`.
  * `scout`: Scout-Apps own version.
 
+
+* * *
+
+
+### Updating Translations/Cultures
+
+1. `npm install`
+1. `npm run cultures` This downloads the latest translations and puts them in `/scout-files/cultures/dictionary.json`
+1. `npm start` Runs the app, so you can make sure the translation worked
+1. Only languages with a JPG image in the `/scout-files/cultures` folder that matches their culture code (`en.jpg`) will be displayed in the UI.
+
+If there are languages you don't want in your local dictionary, then you can add them to the `languagesToSkip` array in `/cultures.js`. Or if your language is missing from `/scout-files/cultures/dictionary.json` then it may be in that array.
 
 * * *
 
