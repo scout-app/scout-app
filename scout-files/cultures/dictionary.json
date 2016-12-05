@@ -1141,7 +1141,7 @@
     "rk": "Don't Tread On Me flag.",
     "ru": "Винни-Пух, с текстом 'А почему Сасс существует в этом мире? Для меня, чтобы использовать, по моему так'",
     "vi": "Sass, đâu đâu cũng Sass",
-    "zh-CHT": "The CSS chain of despise: SASS, LESS > SMACSS, OOCSS > External, Internal CSS >>> inline CSS"
+    "zh-CHT": "CSS 鄙視鏈: Sass, LESS > SMACSS, OOCSS > External, Internal CSS >>> inline CSS"
   },
   "TRANSLATOR_URL": {
     "da": "http://phpgeek.dk",
