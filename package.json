@@ -59,15 +59,18 @@
         "eslint": "^3.8.1",
         "sass-lint": "^1.10.2",
         "pre-commit": "^1.1.3",
-        "7zip-bin": "^2.0.1"
+        "7zip-bin": "^2.0.1",
+        "csvtojson": "^1.0.3"
     },
     "scripts": {
         "start": "nw .",
         "installer": "npm install --loglevel=error",
         "postinstall": "bower update",
-        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js",
-        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js",
+        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
+        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
         "sasslint": "sass-lint -c .sass-lint.yml 'scout-files/_sass/*.sass, scout-files/_scss/*.scss' -v -q,",
+        "cultures": "node cultures.js",
+        "translations": "node cultures.js",
         "build": "node build.js"
     },
     "license": "MIT",

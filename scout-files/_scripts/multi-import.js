@@ -311,9 +311,14 @@
                 $(currentCheckbox).parent().parent().removeClass('success');
             }
         }
-        $('.numToImport').text(total);
+        var importHeader = scout.localize('IMPORT_HEADER');
+        var importButton = scout.localize('MULTI_IMPORT_BUTTON');
+        importHeader = importHeader.replace('{{0}}', total);
+        importButton = importButton.replace('{{0}}', total);
+
+        $('#multiImportHeader').html(importHeader);
+        $('#multiImportButton').html(importButton);
         multiImportUnlock();
-        // removeExtraFilePaths();
     }
 
     function handleXs () {

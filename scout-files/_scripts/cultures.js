@@ -19,7 +19,9 @@
         if (!phrase) {
             return 'No translation found.';
         }
-        var translation = window.dictionary[phrase];
+
+        var userLanguage = scout.globalSettings.cultureCode;
+        var translation = window.dictionary[phrase][userLanguage];
 
         if (wrapInDataLang) {
             return '<span data-lang="' + phrase + '">' + translation + '</span>';
@@ -70,10 +72,15 @@
             langKey = $(hrefItem).data('langhref');
             $(hrefItem).attr('href', localize(langKey));
         }
-        // Allow links with a class of "external-link" to open in the user's default browser
-        ugui.helpers.openDefaultBrowser();
+
+        if (scout.helpers.updateProjectsFoundCount) {
+            scout.helpers.updateProjectsFoundCount();
+        }
         $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')');
         $('.chokidarVersion').html('v' + scout.versions.chokidar);
+
+        // Allow links with a class of "external-link" to open in the user's default browser
+        ugui.helpers.openDefaultBrowser();
     }
 
     /**
@@ -83,20 +90,60 @@
     function setLanguage (userLanguage) {
         userLanguage = userLanguage || 'en';
         scout.globalSettings.cultureCode = userLanguage;
-        var dictionary = ugui.helpers.readAFile('scout-files/cultures/' + userLanguage + '.json');
+        var dictionary = ugui.helpers.readAFile('scout-files/cultures/dictionary.json');
         dictionary = JSON.parse(dictionary);
         window.dictionary = dictionary;
         if (scout.helpers.saveSettings) {
             scout.helpers.saveSettings();
         }
         updateDataLangs();
+        updateTranslatorLink();
         $('#culture-pics').attr('src', 'cultures/' + userLanguage + '.jpg');
+    }
+
+    function updateTranslatorLink () {
+        var authors = localize('TRANSLATOR').split(', ');
+        var urls = localize('TRANSLATOR_URL').split(', ');
+        var links = '';
+
+        for (var i = 0; i < authors.length; i++) {
+            if (links) {
+                links = links + ', ';
+            }
+            var url = urls[i];
+            var author = authors[i];
+            var link = '<a href="' + url + '" class="external-link">' + author + '</a>';
+            links = links + link;
+        }
+
+        $('#translatorLink').html(links);
+        ugui.helpers.openDefaultBrowser();
+    }
+
+    function addLanguagesToPreferences () {
+        var culturesFolder = ugui.helpers.readAFolder('scout-files/cultures');
+        var i = 0;
+        var availableCultures = [];
+        var currentFile = '';
+        var culture = '';
+        var option = '';
+        for (i = 0; i < culturesFolder.length; i++) {
+            currentFile = culturesFolder[i].name;
+            if (currentFile.endsWith('.jpg')) {
+                availableCultures.push(currentFile.split('.jpg')[0]);
+            }
+        }
+        for (i = 0; i < availableCultures.length; i++) {
+            culture = availableCultures[i];
+            option = '<option value="' + culture + '" data-lang="LANG_' + culture.toUpperCase() + '" ></option>';
+            $('#cultureChoices').append(option);
+        }
     }
 
     // This will be overridden by the user's saved settings later,
     // but if they don't have saved settings, we default to English.
+    addLanguagesToPreferences();
     setLanguage('en');
-    updateDataLangs();
     scout.helpers.setLanguage = setLanguage;
     scout.helpers.updateDataLangs = updateDataLangs;
     scout.localize = localize;
