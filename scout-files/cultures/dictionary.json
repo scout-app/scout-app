@@ -320,7 +320,7 @@
     "it": "<h3>Trascinare e Rilasciare</ h3> <h4>ovunque per importare progetti</h4>",
     "nl": "<h3>Slepen en neerzetten</h3> <h4>overal aan projecten importeren</h4>",
     "rk": "<h3>Toss it here</h3> <h4>any ol' project</h4>",
-    "ru": "<h3>Перетаскивание</h3> <h4>в любом месте импортировать проекты</ h4>",
+    "ru": "<h3>Перетаскaeти</h3> <h4>в любом месте итмпортировать проекты</ h4>",
     "vi": "<h3>Kéo và Thả</h3> <h4>để thêm dự án từ bất kỳ đâu</h4>",
     "zh-CHT": "<h3>拖放</h3> <h4>到任何位置來匯入專案</h4>"
   },
@@ -385,7 +385,7 @@
     "it": "Ingresso (Sass)",
     "nl": "\nInvoer (Sass)",
     "rk": "Input (Sass)",
-    "ru": "Входной (Sass)",
+    "ru": "Вход (Sass)",
     "vi": "Đầu vào (Sass)",
     "zh-CHT": "輸入 (Sass)"
   },
