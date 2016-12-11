@@ -48,8 +48,8 @@
   * [ ] Abilitity to clear all alerts and messages at once ([#281](https://github.com/scout-app/scout-app/issues/281))
   * [ ] Make sidebar resizable ([#282](https://github.com/scout-app/scout-app/issues/282))
   * [ ] Tray icon indicators ([#283](https://github.com/scout-app/scout-app/issues/283))
-  * [ ] Import/Export projects (Would anyone even want this feature?)
-  * [ ] Multi-project delete
-  * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button
-  * [ ] Delete settings file button in preferences
+  * [ ] Import/Export projects ([#296](https://github.com/scout-app/scout-app/issues/296))
+  * [ ] Multi-project delete  ([#297](https://github.com/scout-app/scout-app/issues/297))
+  * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button ([#298](https://github.com/scout-app/scout-app/issues/298))
+  * [ ] Delete settings file button in preferences ([#299](https://github.com/scout-app/scout-app/issues/299))
 
