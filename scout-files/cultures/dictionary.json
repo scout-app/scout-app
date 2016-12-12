@@ -93,7 +93,7 @@
   "ADD_GROUP_OF_PROJECTS": {
     "da": "Tilføj Gruppe af projekter",
     "en": "Add Group of Projects",
-    "es": "Añadir Grupo de Proyectos",
+    "es": "Añadir un grupo de Proyectos",
     "fr": "Ajouter un groupe de projets",
     "hu": "Projektcsoport hozzáadása",
     "it": "Aggiungere Gruppo di Progetti",
@@ -327,7 +327,7 @@
   "IMPORT_ADD_GROUP": {
     "da": "Tilføj Gruppe af projekter",
     "en": "Add Group of projects",
-    "es": "\nAñadir Grupo de proyectos",
+    "es": "Añadir un grupo de proyectos",
     "fr": "Ajouter un Groupe de projets",
     "hu": "Projektcsoport hozzáadása",
     "it": "Aggiungere gruppo di progetti",
@@ -383,7 +383,7 @@
     "fr": "Entrée (Sass)",
     "hu": "Bemenet (Sass)",
     "it": "Ingresso (Sass)",
-    "nl": "\nInvoer (Sass)",
+    "nl": "Invoer (Sass)",
     "rk": "Input (Sass)",
     "ru": "Вход (Sass)",
     "vi": "Đầu vào (Sass)",
@@ -710,7 +710,7 @@
     "it": "Messaggi di conferma",
     "nl": "Succes Berichten",
     "rk": "Blue Ribbon",
-    "ru": "\r\nСообщения успеха",
+    "ru": "Сообщения успеха",
     "vi": "Báo thành công",
     "zh-CHT": "成功訊息"
   },
@@ -1003,8 +1003,8 @@
   "SELECT_GROUP_FOLDER": {
     "da": "vælge gruppen mappe",
     "en": "select the group folder",
-    "es": "seleccione la carpeta de grupo",
-    "fr": "sélectionnez le groupe de projets\n",
+    "es": "seleccione la carpeta del grupo",
+    "fr": "sélectionnez le groupe de projets",
     "hu": "csoportot mappa kiválasztása",
     "it": "selezionare la cartella di gruppo",
     "nl": "selecteert u de map groep",
@@ -1198,7 +1198,7 @@
   "VIEW_LATEST_RELEASE": {
     "da": "Vis seneste udgivelsesmeddelelse",
     "en": "View latest release",
-    "es": "Ver última versión",
+    "es": "Ver últimas modificaciones",
     "fr": "Voir la dernière version",
     "hu": "Előző kiadások",
     "it": "Visualizza l'ultimo rilascio",
