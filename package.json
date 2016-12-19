@@ -78,5 +78,5 @@
         "type": "MIT",
         "url": "https://github.com/scout-app/scout-app/blob/master/License"
     }],
-    "pre-commit": [ "lint" ]
+    "pre-commit": [ "lint", "sasslint" ]
 }
