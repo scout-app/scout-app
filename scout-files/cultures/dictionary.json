@@ -519,6 +519,19 @@
     "vi": "Tiếng Pháp (Français)",
     "zh-CHT": "法語 (Français)"
   },
+  "LANG_HE": {
+    "da": "(עִברִית) Hebrew",
+    "en": "(עִברִית) Hebrew",
+    "es": "(עִברִית) Hebreo",
+    "fr": "(עִברִית) Hébreu",
+    "hu": "(עִברִית) Héber",
+    "it": "(עִברִית) Ebraico",
+    "nl": "(עִברִית) Hebreeuws",
+    "rk": "Hebrew (עִברִית) - funny little hats",
+    "ru": "(עִברִית) Иврит",
+    "vi": "(עִברִית) Hebrew",
+    "zh-CHT": "(עִברִית) 希伯來語"
+  },
   "LANG_HU": {
     "da": "Ungarsk (Magyar)",
     "en": "Hungarian (Magyar)",

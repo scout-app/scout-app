@@ -68,7 +68,7 @@
         "postinstall": "bower update",
         "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
         "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
-        "sasslint": "sass-lint -c .sass-lint.yml 'scout-files/_sass/*.sass, scout-files/_scss/*.scss' -v -q,",
+        "sasslint": "node sasslinter.js",
         "cultures": "node cultures.js",
         "translations": "node cultures.js",
         "build": "node build.js"
