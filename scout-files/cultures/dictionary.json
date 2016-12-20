@@ -324,6 +324,19 @@
     "vi": "<h3>Kéo và Thả</h3> <h4>để thêm dự án từ bất kỳ đâu</h4>",
     "zh-CHT": "<h3>拖放</h3> <h4>到任何位置來匯入專案</h4>"
   },
+  "HIDE": {
+    "da": "Skjule",
+    "en": "Hide",
+    "es": "Esconder",
+    "fr": "Cacher",
+    "hu": "Elrejt",
+    "it": "Nascondere",
+    "nl": "Verbergen",
+    "rk": "Get down!",
+    "ru": "Спрятать",
+    "vi": "Ẩn giấu",
+    "zh-CHT": "隱藏"
+  },
   "IMPORT_ADD_GROUP": {
     "da": "Tilføj Gruppe af projekter",
     "en": "Add Group of projects",
@@ -1051,6 +1064,19 @@
     "ru": "Невозможно получить доступ к серверу обновлений. Повторите попытку позже.",
     "vi": "Không thể kết nối đến máy chủ. Hãy thử lại sau.",
     "zh-CHT": "無法連結更新伺服器. 稍候再試"
+  },
+  "SHOW": {
+    "da": "At vise",
+    "en": "Show",
+    "es": "Espectáculo",
+    "fr": "Montrer",
+    "hu": "Előadás",
+    "it": "Mostrare",
+    "nl": "Tonen",
+    "rk": "C'mon out now",
+    "ru": "Показать",
+    "vi": "Chỉ",
+    "zh-CHT": "显示"
   },
   "STATUS": {
     "da": "Status",
