@@ -175,7 +175,12 @@
                         // console.log(item);
                         // console.log(stats);
                         // debugger;
-                        processInputFolder(scout.projects[I]);
+                        if(sessionStorage[item] != stats.mtime){
+	        							
+							processInputFolder(scout.projects[I]);
+							
+							sessionStorage[item] = stats.mtime;
+						}
                     })
                     .on('error', function (error) {
                         if (error.toString().toUpperCase().indexOf('ENOSPC') > -1) {
