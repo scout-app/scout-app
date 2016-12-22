@@ -1,7 +1,7 @@
 {
     "name": "scout-app",
     "homepage": "http://scout-app.io",
-    "version": "2.6.8",
+    "version": "2.12.12",
     "author": "The Jared Wilcurt, Zach Dennis",
     "description": "A cross platform desktop application for processing Sass to CSS.",
     "keywords": [ "Sass", "SCSS", "CSS", "Preprocessor", "Cross-Platform", "Desktop App", "GUI", "SassC", "Node-Sass" ],
@@ -69,7 +69,7 @@
         "postinstall": "bower update",
         "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
         "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
-        "sasslint": "sass-lint -c .sass-lint.yml 'scout-files/_sass/*.sass, scout-files/_scss/*.scss' -v -q,",
+        "sasslint": "node sasslinter.js",
         "cultures": "node cultures.js",
         "translations": "node cultures.js",
         "build": "node build.js"
@@ -79,5 +79,5 @@
         "type": "MIT",
         "url": "https://github.com/scout-app/scout-app/blob/master/License"
     }],
-    "pre-commit": [ "lint" ]
+    "pre-commit": [ "lint", "sasslint" ]
 }

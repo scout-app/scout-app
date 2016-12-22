@@ -1,11 +1,11 @@
 // sass-lint:disable no-important
+// sass-lint:disable no-qualifying-elements
 
 @import "_var.sass"
 
 // Styles only used by UGUI Developer Toolbar
 
 body.dev
-    margin-bottom: 280px
     margin-bottom: 0px
 
 #uguiDevTools
@@ -49,7 +49,7 @@ body.dev
                 content: " | "
                 color: #666
                 font-weight: normal
-                text-shadow: 0px 0px 0px rgba(0,0,0,0.0)
+                text-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0)
             &:last-of-type:after
                 content: ""
     select
@@ -125,7 +125,7 @@ body.dev
     padding: 0px !important
     font-size: 0px !important
     line-height: 0px !important
-    opacity: 0 !important
+    opacity: 0.0 !important
 
 #commandLine
     max-height: 92px
@@ -172,7 +172,7 @@ span[data-nav="uguiExecutable"],
 .newSwatchSaved
     font-style: italic
     -webkit-transition: 0.5s ease-in-out
-    opacity: 0
+    opacity: 0.0
     transition: 0.5s ease-in-out
     &.showSaved
         opacity: 1

@@ -12,7 +12,7 @@
 
 
 // An array of culture codes that are not finished and should not be in the app yet
-var languagesToSkip = ['de', 'fa'];
+var languagesToSkip = ['de', 'fa', 'he'];
 
 
 
@@ -77,11 +77,16 @@ function createJSON () {
 
         // Convert to a string with an empty line at the end
         var output = JSON.stringify(newDictionary, null, 2);
-        output = output + '\n';
+        output = output.split('\r\n').join('\n');
+        output = output.split('\n\r').join('\n');
+        output = output.split('\r').join('\n');
+        output = output.split('\n').join('\r\n');
+        output = output + '\r\n';
 
         // Save the file
         var dictionaryPath = path.join(folder, 'dictionary.json');
         fs.writeFileSync(dictionaryPath, output);
+        console.log('Updated: ', dictionaryPath);
     });
 }
 
