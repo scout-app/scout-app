@@ -1,6 +1,8 @@
 
 # Scout-App 0.7.1 - *Classic*
 
+<p align="center"><img src="http://scout-app.io/classic/images/thumb.jpg" alt="screenshot of the app"></p>
+
 This is the source code to the 2012 version of Scout-App.
 
 The website for the classic version can be seen here:
