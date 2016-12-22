@@ -64,7 +64,7 @@ if (darwin) {
 }
 var build32 = '../scout-app-build/lin32/Scout-App/';
 var sf = 'scout-files/';
-var bindings = '_assets/node-sass_v3.4.2/';
+var bindings = '_assets/node-sass_v3.8.0/';
 var ns = 'node_modules/node-sass/vendor/';
 
 // Functions
