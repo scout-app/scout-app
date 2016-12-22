@@ -23,6 +23,7 @@
 
     // The Node Sass Vendor folder is our Destination
     var nsPath = 'node_modules/node-sass';
+    var nsVer = '3.10.0';
 
     // Check to see if there is an existing Vendor folder
     var nsContents = ugui.helpers.readAFolder(nsPath);
@@ -57,7 +58,7 @@
                 // If the OS and Architecture are supported
                 } else if (os == 'darwin' || os == 'freebsd' || os == 'linux' || os == 'win32') {
                     // Set the source path
-                    var nsVenSourcePath = 'scout-files/_assets/node-sass_v3.4.2';
+                    var nsVenSourcePath = 'scout-files/_assets/node-sass_v' + nsVer;
                     var folderName = '/' + os + '-' + arch + '-47';
                     var file = '/binding.node';
                     var nsVenSource = nsVenSourcePath + folderName + file;

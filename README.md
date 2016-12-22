@@ -24,6 +24,7 @@ OSX 10.6+                         | :x:                | :white_check_mark:
 * [Project Roadmap](documentation/project-management.md)
 * [Contributors to Scout-App](http://scout-app.io/index.html#contributors)
 * **[To be a contributor, click here](documentation/contributing.md)**
+* [Scout-App's Design Principles](https://github.com/scout-app/scout-app/blob/master/documentation/ux.md)
 
 * * *
 
