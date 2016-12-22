@@ -80,7 +80,7 @@
             .replace(file, '');
 
         var extraReturn = '';
-        if (ugui.process == 'linux') {
+        if (ugui.platform == 'linux') {
             extraReturn = '\n';
         }
 
