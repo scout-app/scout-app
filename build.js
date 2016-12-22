@@ -200,14 +200,14 @@ if (darwin) {
 }
 process.chdir(build);
 exec('npm --loglevel=error install');
-if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.scss')) {
-    fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.sass');
+if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.sass')) {
+    fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.scss');
 }
 if (lin) {
     process.chdir('../../lin32/Scout-App');
     exec('npm --loglevel=error install');
-    if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.scss')) {
-        fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.sass');
+    if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.sass')) {
+        fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.scss');
     }
 }
 if (darwin) {
@@ -247,7 +247,7 @@ if (win) {
     buildInput = '..\\scout-app-build\\win32\\Scout-App';
     outputZip = '..\\scout-app-build\\WIN_Scout-App_' + manifest.version + '.zip';
 } else if (darwin) {
-    zipExe = 'node_modules/7zip-bin-osx/7za';
+    zipExe = 'node_modules/7zip-bin-mac/7za';
     buildInput = '../scout-app-build/Scout-App.app';
     outputZip = '../scout-app-build/OSX_Scout-App_' + manifest.version + '.zip';
 } else if (lin) {
