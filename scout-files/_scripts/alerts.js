@@ -79,12 +79,17 @@
             .replace(/[\n\r]/g, '<br />')
             .replace(file, '');
 
+        var extraReturn = '';
+        if (ugui.platform == 'linux') {
+            extraReturn = '\n';
+        }
+
         // Make sure there are at least 3 lines in the file and the error isn't on the first or last line
         if (count > 3 && (bugLine - 1) !== 0 && (bugLine) !== count) {
             errorPreview =
               // line before the error
               '<span class="num">' + (bugLine - 1) + ':</span> ' + fileContents[(bugLine - 2)] + '\n' +
-              theError +
+              theError + extraReturn +
               // line after the error
               '<span class="num">' + (bugLine + 1) + ':</span> ' + fileContents[bugLine];
         }

@@ -19,8 +19,25 @@
 #### **Phase 4:** New Website
 
 * [ ] **Status:** Done, but could be improved
-* [ ] **To do:**
-  * [ ] [Moved this section to the `scout-app.github.io` repo](https://github.com/scout-app/scout-app.github.io)
+* [x] **To do:**
+  * [x] ~~[Wireframe/page layout](http://imgur.com/201EJNd) (Micah)~~
+  * [x] ~~Set up Gulp to auto minify/concat/uglify JS, Process Sass, and live reload (Micah)~~
+  * [x] ~~Create screenshots for Win/OSX/Ubuntu. (TJW)~~
+  * [x] ~~Take NEW screenshots now that we have a different logo. (TJW)~~
+  * [x] ~~Wipe out the old site, reorganize and set up the new site (TJW)~~
+  * [x] ~~Use [GitHub's API](https://developer.github.com/v3/repos/releases) to dynamically set the values of the download buttons (Luis)~~
+  * [x] ~~Use Crossbrowser.js and 64or32.js to display the correct download button. (Luis)~~
+  * [x] ~~Display a "minimum system requirements", maybe tailor it to each OS, as free space requirement will vary (TJW)~~
+  * [x] ~~Show a [comparison table](http://scout-app.io/#whatsnew) of the old Scout-App and the new Scout-App (TJW)~~
+  * [x] ~~[Listing of Mixins](http://scout-app.io/#mixins) that come built in to Scout-App 2 (TJW)~~
+  * [x] ~~List of themes (TJW)~~
+  * [x] ~~List languages supported by Scout-App (TJW)~~
+  * [x] ~~Link to how to translate Scout-App (TJW)~~
+  * [x] ~~New logo and branding based on Scout the Puppy (Kim)~~
+  * [x] ~~"[Create your own Theme](https://www.youtube.com/watch?v=DtEVIDvBrSI)" video (TJW)~~ Will likely remake this later, could be improved.
+  * [x] ~~"Getting Started with Scout-App 2" video (TJW)~~
+  * [x] ~~Buy scout-app.io (TJW)~~
+  * [x] ~~Update DNS/CNAME and README/Documentation links to new address.~~
 
 
 #### **Phase 5:** Bug fixes/Additional features/Maintenance
@@ -48,8 +65,8 @@
   * [ ] Abilitity to clear all alerts and messages at once ([#281](https://github.com/scout-app/scout-app/issues/281))
   * [ ] Make sidebar resizable ([#282](https://github.com/scout-app/scout-app/issues/282))
   * [ ] Tray icon indicators ([#283](https://github.com/scout-app/scout-app/issues/283))
-  * [ ] Import/Export projects (Would anyone even want this feature?)
-  * [ ] Multi-project delete
-  * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button
-  * [ ] Delete settings file button in preferences
+  * [ ] Import/Export projects ([#296](https://github.com/scout-app/scout-app/issues/296))
+  * [ ] Multi-project delete  ([#297](https://github.com/scout-app/scout-app/issues/297))
+  * [ ] Add in badges to show number of alerts/messages for the Status of All Projects button ([#298](https://github.com/scout-app/scout-app/issues/298))
+  * [ ] Delete settings file button in preferences ([#299](https://github.com/scout-app/scout-app/issues/299))
 

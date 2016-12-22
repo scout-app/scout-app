@@ -5,11 +5,11 @@ Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the 
 
 ### What you can help with
 
-* **Translate the app** - Go to the [Translate Scout-App](http://scout-app.io/index.html#cultures) page.
+* **Translate the app** - Go to the [Translate Scout-App](http://scout-app.io/index.html#cultures) section of the website.
 * **Report Bugs** - [Make a GitHub Issue](https://github.com/scout-app/scout-app/issues/new?title=SA2%20-%20&body=OS%3A%20%0DVersion%3A%20%0DInformation%20from%20Dev%20Tools%3A%20%0D%0D%28Attach%20screenshot%20below%29) for any bug you find. Include steps to repoduce the issue and a screenshot if possible.
-* **Website** - Scout-App 2's website can always be improved (See: [Project Management](https://github.com/scout-app/scout-app.github.io/#project-management))
-* **App Features** - There is a list of desired features to be added to Scout-App 2. (See Phase 5 of [Project Management](project-management.md#phase-5-bug-fixesadditional-featuresmaintenance))
-* **Feature Requests** - If there is a feature you would like added, but it isn't on the [Project Management](project-management.md#phase-5-bug-fixesadditional-featuresmaintenance) page, then [request it on the issues page](https://github.com/scout-app/scout-app/issues/new?title=SA2%20Feature%20Request%20-%20) so we can discuss it **before** beginning work on it.
+* **Website Improvements** - Help with the website (See: [Project Management](https://github.com/scout-app/scout-app.github.io/#project-management))
+* **App Features** - All Scout-App feature requests are on our [Issues board](https://github.com/scout-app/scout-app/issues). If your request does not exist, then [request it on the issues page](https://github.com/scout-app/scout-app/issues/new?title=SA2%20Feature%20Request%20-%20) so we can discuss it **before** beginning work on it.
+* **Feature Requests** - If there is a feature you would like added to Scout-App check the [Issues board](https://github.com/scout-app/scout-app/issues) to see if it is already requested, if so, comment on the existing issue. If your request does not exist, then [request it on the issues page](https://github.com/scout-app/scout-app/issues/new?title=SA2%20Feature%20Request%20-%20) so we can discuss it **before** beginning work on it.
 * **Bug fixes** - If you find a bug and now how to fix it, or want to fix a reported bug, fork the repo and make a pull request.
 
 
@@ -40,6 +40,7 @@ The  main files for Scout-App 2 are:
 
 
 * * *
+
 
 ### The Scout "[God Object](https://en.wikipedia.org/wiki/God_object)"
 
@@ -100,6 +101,18 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
  * `nodeSass`: The Node module that allows Scout-App to interface with `libSass`.
  * `scout`: Scout-Apps own version.
 
+
+* * *
+
+
+### Updating Translations/Cultures
+
+1. `npm install`
+1. `npm run cultures` This downloads the latest translations and puts them in `/scout-files/cultures/dictionary.json`
+1. `npm start` Runs the app, so you can make sure the translation worked
+1. Only languages with a JPG image in the `/scout-files/cultures` folder that matches their culture code (`en.jpg`) will be displayed in the UI.
+
+If there are languages you don't want in your local dictionary, then you can add them to the `languagesToSkip` array in `/cultures.js`. Or if your language is missing from `/scout-files/cultures/dictionary.json` then it may be in that array.
 
 * * *
 
