@@ -12,3 +12,5 @@ The 2012 version of Scout-App relies on Java 6 or 7 to run, and Adobe Air.
 The knowledge of how to set up a dev environment to build new versions using this technology has been lost. As such, it is very unlikely that a new version will be made based directly off of the code in this branch.
 
 However, a new version was created using different technology and can be seen at [Scout-App.io](http://scout-app.io)
+
+The source code for the *latest* version is available in the [master branch](https://github.com/scout-app/scout-app/tree/master).
