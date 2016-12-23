@@ -79,9 +79,9 @@
             .replace(/[\n\r]/g, '<br />')
             .replace(file, '');
 
-        var extraReturn = '';
-        if (ugui.platform == 'linux') {
-            extraReturn = '\n';
+        var extraReturn = '\n';
+        if (ugui.platform == 'win32') {
+            extraReturn = '';
         }
 
         // Make sure there are at least 3 lines in the file and the error isn't on the first or last line
