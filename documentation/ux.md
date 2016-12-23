@@ -1,7 +1,7 @@
 
 ## User Experience Documentation
 
-Scout-App wants to be the easiest to use application for processing Sass. As such, we routinely discuss the UX of it and how to improve user interactions to be easier to use.
+Scout-App wants to be the easiest to use application for processing Sass. As such, we routinely discuss the UX of it and how to improve our user interactions to make the app easier to use.
 
 ### **The cardinal rules of Scout-App's development:**
 
