@@ -81,3 +81,34 @@ Array.prototype.move = function (from, to) {
 Array.prototype.remove = function (itemToRemove) {
     this.splice(itemToRemove, 1);
 };
+
+var gui = require('nw.gui');
+var win = gui.Window.get();
+
+var tray = new gui.Tray({icon: 'scout-files/_img/logo_16.png' });
+
+// Give it a menu
+var menu = new gui.Menu();
+show = new gui.MenuItem({label: 'Show' });
+show.click = function(){
+	win.setShowInTaskbar(true);
+	win.show();
+};
+menu.append(show);
+hide = new gui.MenuItem({label: 'Hide' });
+hide.click = function(){
+	win.setShowInTaskbar(false);
+	win.hide();
+};
+menu.append(hide);
+close = new gui.MenuItem({label: 'Close' });
+close.click = function(){
+	win.close();
+};
+menu.append(close);
+tray.menu = menu;
+
+$("body").on("click",".navbar-nav a[href='#hide']", function(){
+	win.setShowInTaskbar(false);
+	win.hide();
+})

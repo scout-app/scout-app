@@ -35,7 +35,7 @@
         "max_height": 8000,
         "position": "center",
         "always-on-top": false,
-        "show_in_taskbar": true,
+        "show_in_taskbar": false,
         "fullscreen": false,
         "frame": true,
         "as_desktop": false
@@ -78,5 +78,5 @@
         "type": "MIT",
         "url": "https://github.com/scout-app/scout-app/blob/master/License"
     }],
-    "pre-commit": [ "lint", "sasslint" ]
+    "pre-commit": [ "lint", "sasslint" ] 
 }

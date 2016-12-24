@@ -170,12 +170,17 @@
                 });
                 // Detect file changes and reprocess Sass files
                 scout.projects[I].watcher
-                    .on('change', function (/* item, stats*/) {
+                    .on('change', function (item, stats) {
                         // TODO: See if it's possible to only report changed files
                         // console.log(item);
                         // console.log(stats);
                         // debugger;
-                        processInputFolder(scout.projects[I]);
+                        if(sessionStorage[item] != stats.mtime){
+	        							
+							processInputFolder(scout.projects[I]);
+							
+							sessionStorage[item] = stats.mtime;
+						}
                     })
                     .on('error', function (error) {
                         if (error.toString().toUpperCase().indexOf('ENOSPC') > -1) {

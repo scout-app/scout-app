@@ -4,7 +4,7 @@
     <title data-lang="APPLICATION_TITLE">Scout-App: The Sass GUI</title>
     <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
     <link rel="stylesheet" href="_style/ven.bootstrap.css">
-    <link rel="stylesheet" href="_themes/simplex.min.css" data-swatch="swapper">
+	<link rel="stylesheet" href="_themes/simplex.min.css" data-swatch="swapper">
     <link rel="stylesheet" href="_style/ugui-devtools.css">
     <link rel="stylesheet" href="_style/style.css">
 
@@ -25,6 +25,15 @@
 
     <nav class="navbar navbar-inverse navbar-fixed-top drag-enable" role="navigation">
       <div class="drag-enable">
+	    <div class="title-drag"></div>
+        <span class="button-container window-controls">
+            <ul class="inline">
+                <li><a class="button minimize-button" href="#min" id="min"></a></li>
+                <li><a class="button maximize-button" href="#max" id="max"></a></li>
+                <li><a class="button close-button" href="#close" id="closehide"></a></li>
+            </ul>
+        </span>
+          
         <div class="navbar-header drag-enable">
           <button type="button" class="navbar-toggle collapsed drag-disable" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only" data-lang="TOGGLE_NAVIGATION"></span>
@@ -32,8 +41,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">
-            <img src="_img/wordmark-dark.png" data-langalt="SCOUTAPP_LOGO" />
+          <a class="navbar-brand" style="line-height:0">
+            <img src="_img/wordmark-dark.png" data-langalt="SCOUTAPP_LOGO" style="line-height:0;position:relative;top:-3px"/>
           </a>
         </div>
         <div class="navbar-collapse collapse drag-enable">
@@ -42,10 +51,11 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span data-lang="FILE"></span> <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
                 <li><a href="#new"      id="file-newproject"  data-lang="NEW_PROJECT"></a></li>
-           <!-- <li><a href="#template" id="file-boilerplate"                        >New from Boilerplate</a></li> --> <!-- LOCALIZE -->
+				<!-- <li><a href="#template" id="file-boilerplate"                        >New from Boilerplate</a></li> --> <!-- LOCALIZE -->
                 <li><a href="#multi"    id="file-multi"       data-lang="MULTIPROJECT_IMPORT"></a></li>
                 <li><a href="#prefs"    id="preferences"      data-lang="PREFERENCES"></a></li>
                 <li class="divider"></li>
+                <li><a href="#hide" data-lang="HIDE"></a></li>
                 <li><a href="#exit" data-lang="EXIT"></a></li>
               </ul>
             </li>
@@ -194,6 +204,7 @@
       <div class="container">
         <h1 data-lang="WELCOME_MESSAGE"></h1>
 
+        <p data-lang="WELCOME_INSTRUCTIONS"></p>
         <input type="file" id="ftuxProjectBrowse" nwdirectory="nwdirectory" nwworkingdir="..." class="hide" />
 
         <div class="panel panel-primary text-left">
@@ -224,7 +235,7 @@
             </div>
           </div>
         </div>
-      </div>
+        </div>
     </div>
 
     <!-- Multi-Project Import modal -->
@@ -290,7 +301,6 @@
                 <span id="multiImportButton"></span>
               </button>
             </div>
-
           </div>
         </div>
       </div>
@@ -423,6 +433,7 @@
             <div class="row">
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6">
                 <h4 data-lang="LANGUAGE_CHOICE" class="language custom-icon"></h4>
+
                 <select id="cultureChoices" data-argName="culturechoice" class="form-control" required="required"></select>
               </div>
 
@@ -438,7 +449,7 @@
             <div class="row">
               <div class="col-xs-6 col-s-6 col-md-6 col-l-6 text-left small">
                 <em data-lang="TRANSLATED_BY"></em>
-                <span id="translatorLink"></span>
+                 <span id="translatorLink"></span>
               </div>
             </div>
 
@@ -452,19 +463,20 @@
         </div>
       </div>
     </div>
-
-    <!-- Drag and drop folders into the app -->
+	
+	<!-- Drag and drop folders into the app -->
     <div id="drag-in-folders">
       <div class="bordered-box">
         Drag and drop folders here <!-- LOCALIZE-->
       </div>
     </div>
-
+    
     <script type="text/javascript" src="_scripts/ugui.js"></script>
     <!-- App specific code -->
     <script type="text/javascript" src="_scripts/globals.js"         ></script>
     <script type="text/javascript" src="_scripts/cultures.js"        ></script>
     <script type="text/javascript" src="_scripts/load-settings.js"   ></script>
+    <script type="text/javascript" src="_scripts/window_manager.js"  ></script>
     <script type="text/javascript" src="_scripts/ugui-override.js"   ></script>
     <script type="text/javascript" src="_scripts/alerts.js"          ></script>
     <script type="text/javascript" src="_scripts/libsass-fix.js"     ></script>

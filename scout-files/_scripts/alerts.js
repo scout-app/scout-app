@@ -26,7 +26,7 @@
         scout.helpers[alertOrMessage].notification[randNum].onclick = function () {
             $('#viewStatus').click();
             var win = require('nw.gui').Window.get();
-            win.show();
+            showW();
             win.focus();
         };
 
