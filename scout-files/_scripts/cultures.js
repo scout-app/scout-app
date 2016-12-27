@@ -129,7 +129,7 @@
         var option = '';
         for (i = 0; i < culturesFolder.length; i++) {
             currentFile = culturesFolder[i].name;
-            if (currentFile.endsWith('.jpg')) {
+            if (currentFile.endsWith('.jpg') && !currentFile.startsWith('blank')) {
                 availableCultures.push(currentFile.split('.jpg')[0]);
             }
         }
