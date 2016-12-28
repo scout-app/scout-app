@@ -20,6 +20,8 @@
             return 'No translation found.';
         }
 
+        // console.log(phrase);
+
         var userLanguage = scout.globalSettings.cultureCode;
         var translation = window.dictionary[phrase][userLanguage];
 
