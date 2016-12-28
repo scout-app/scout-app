@@ -84,6 +84,12 @@
             extraReturn = '';
         }
 
+        var rtl = '';
+        var culture = scout.globalSettings.cultureCode;
+        if (culture == 'he' || culture == 'fa') {
+            rtl = ' rtl';
+        }
+
         // Make sure there are at least 3 lines in the file and the error isn't on the first or last line
         if (count > 3 && (bugLine - 1) !== 0 && (bugLine) !== count) {
             errorPreview =
@@ -98,7 +104,7 @@
             '<div class="panel panel-primary ' + projectID + '" title="' + projectName + '">' +
               '<div class="panel-heading">' +
                 '<span class="pull-right glyphicon glyphicon-remove"></span>' +
-                '<h3 class="panel-title">' + title + '</h3>' +
+                '<h3 class="panel-title' + rtl + '">' + title + '</h3>' +
               '</div>' +
               '<div class="panel-body">' +
                 errorMessage + '<br />' +
