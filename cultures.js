@@ -12,7 +12,7 @@
 
 
 // An array of culture codes that are not finished and should not be in the app yet
-var languagesToSkip = ['de', 'fa', 'he'];
+var languagesToSkip = ['de', 'fa'];
 
 
 
