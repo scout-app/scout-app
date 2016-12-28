@@ -10,7 +10,7 @@ Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the 
 * **Website Improvements** - Help with the website (See: [Issues](https://github.com/scout-app/scout-app.github.io/issues))
 * **App Features** - All Scout-App feature requests are on our [Issues board](https://github.com/scout-app/scout-app/issues). If your request does not exist, then [request it on the issues page](https://github.com/scout-app/scout-app/issues/new?title=SA2%20Feature%20Request%20-%20) so we can discuss it **before** beginning work on it.
 * **Feature Requests** - If there is a feature you would like added to Scout-App check the [Issues board](https://github.com/scout-app/scout-app/issues) to see if it is already requested, if so, comment on the existing issue. If your request does not exist, then [request it on the issues page](https://github.com/scout-app/scout-app/issues/new?title=SA2%20Feature%20Request%20-%20) so we can discuss it **before** beginning work on it.
-* **Bug fixes** - If you find a bug and now how to fix it, or want to fix a reported bug, fork the repo and make a pull request.
+* **Bug fixes** - If you find a bug and know how to fix it, or want to fix a reported bug, fork the repo and make a pull request.
 
 
 * * *
@@ -74,7 +74,7 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
    * **Windows:** `%LOCALAPPDATA%/scout-app/scout-settings.json`
     * **Linux:** `~/.config/scout-app/scout-settings.json`
     * **OSX:** `~/Library/Application Support/scout-app/scout-settings.json`
- * `setLanguage`: Accepts an optional language code (`en`, `ru`, `fr`, etc). Defaults to `en`. Updates the `scout.cultureCode`, loads in the correct dictionary file to `scout.dictionary`, changes what image is shown in the preferences, saves the settings, and updates the UI to be displayed in the correct language.
+ * `setLanguage`: Accepts an optional language code (`en`, `ru`, `fr`, etc). Defaults to `en`. Updates the `scout.cultureCode`, changes what image is shown in the preferences, saves the settings, and updates the UI to be displayed in the correct language.
  * `startWatching`: Accepts a project ID, adds a chokidar `watcher` function to that project's object and starts watching that project's input folder. Updates the project status indicator icon in the sidebar.
  * `stopWatching`: Accepts a project ID, kills the chokidar `watcher` function on that project, stopping it from watching that project's input folder any longer. Updates the project status indicator icon in the sidebar.
  * `unlockSubmit`: Accepts a project ID as an argument. Checks to see if all required fields in a project are filled in then updates the status icon to allow or prevent users from running the project.
