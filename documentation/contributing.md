@@ -7,7 +7,7 @@ Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the 
 
 * **Translate the app** - Go to the [Translate Scout-App](http://scout-app.io/index.html#cultures) section of the website.
 * **Report Bugs** - [Make a GitHub Issue](https://github.com/scout-app/scout-app/issues/new?title=SA2%20-%20&body=OS%3A%20%0DVersion%3A%20%0DInformation%20from%20Dev%20Tools%3A%20%0D%0D%28Attach%20screenshot%20below%29) for any bug you find. Include steps to repoduce the issue and a screenshot if possible.
-* **Website Improvements** - Help with the website (See: [Project Management](https://github.com/scout-app/scout-app.github.io/#project-management))
+* **Website Improvements** - Help with the website (See: [Issues](https://github.com/scout-app/scout-app.github.io/issues))
 * **App Features** - All Scout-App feature requests are on our [Issues board](https://github.com/scout-app/scout-app/issues). If your request does not exist, then [request it on the issues page](https://github.com/scout-app/scout-app/issues/new?title=SA2%20Feature%20Request%20-%20) so we can discuss it **before** beginning work on it.
 * **Feature Requests** - If there is a feature you would like added to Scout-App check the [Issues board](https://github.com/scout-app/scout-app/issues) to see if it is already requested, if so, comment on the existing issue. If your request does not exist, then [request it on the issues page](https://github.com/scout-app/scout-app/issues/new?title=SA2%20Feature%20Request%20-%20) so we can discuss it **before** beginning work on it.
 * **Bug fixes** - If you find a bug and now how to fix it, or want to fix a reported bug, fork the repo and make a pull request.
