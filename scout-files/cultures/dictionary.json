@@ -187,7 +187,7 @@
     "zh-CHT": "Scout-App: The Sass GUI"
   },
   "BROWSE": {
-    "bg": "паса",
+    "bg": "Прелисти",
     "da": "Gennemse",
     "en": "Browse",
     "es": "Visualizar",
@@ -408,7 +408,7 @@
     "zh-CHT": "找到 {{0}} 個專案"
   },
   "FTUX_DRAG_DROP": {
-    "bg": "<h3>влачите и пускате</h3> <h4>навсякъде да внасят проекти</h4>",
+    "bg": "<h3>Влачи и Пусни</h3> <h4>навсякъде за импортване на проекти</h4>",
     "da": "<h3>Træk og slip</ h3> <h4>overalt at importere projekter</h4>",
     "en": "<h3>Drag and Drop</h3> <h4>anywhere to import projects</h4>",
     "es": "<h3>Arrastrar y soltar</h3> <h4>en cualquier lugar para importar proyectos</h4>",
@@ -595,7 +595,7 @@
     "zh-CHT": "輸入資料夾:"
   },
   "LANG_BG": {
-    "bg": "български",
+    "bg": "Български",
     "da": "Bulgarsk (български)",
     "en": "Bulgarian (български)",
     "es": "Búlgaro (български)",
@@ -816,7 +816,7 @@
     "zh-CHT": "拋光 (Polski)"
   },
   "LANG_RK": {
-    "bg": "американски селяндур (Redneck)",
+    "bg": "Американски селяндур (Redneck)",
     "da": "Amerikansk Bondeknold (Redneck)",
     "en": "Redneck (Real America)",
     "es": "Campesino Sureño (Real America)",
@@ -918,7 +918,7 @@
     "zh-CHT": "你的 Scout-App 已經是最新版本"
   },
   "LISTING_OF_PROJECTS": {
-    "bg": "Обява на проекти",
+    "bg": "Списък на проекти",
     "da": "Lister alle projekter",
     "en": "Listing of projects",
     "es": "Listado de proyectos",
