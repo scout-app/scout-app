@@ -2,6 +2,7 @@
   "ABOUT": {
     "bg": "За програмата",
     "da": "Om",
+    "de": "Über",
     "en": "About",
     "es": "Acerca de",
     "fi": "Tietoa",
@@ -19,6 +20,7 @@
   "ABOUT_CONTRIBUTORS": {
     "bg": "Участвали в <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "da": "Bidragsydere til <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
+    "de": "Unterstützer",
     "en": "Contributors to  <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "es": "Los colaboradores para  <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "fi": "Avustajat  <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
@@ -36,6 +38,7 @@
   "ABOUT_DEPENDENCIES": {
     "bg": "<strong>Scout-App</strong> използва <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> и <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "da": "<strong>Scout-App</strong> benytter <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> og <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
+    "de": "<strong>Scout-App</strong> verwendet <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> und <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "en": "<strong>Scout-App</strong> uses <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> and <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "es": "<strong>Scout-App</strong> usa <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> y <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "fi": "<strong>Scout-App</strong> hyödyntää <a class='external-link' href='https://github.com/sass/node-sass'>node-sassia</a> <span class='nodeSassVersion'></span> ja <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidaria</a> <span class='chokidarVersion'></span>.",
@@ -53,6 +56,7 @@
   "ABOUT_DESCRIPTION": {
     "bg": "<strong>Scout-App</strong> ви позволява да обработите <code>.sass</code> и <code>.scss</code> файлове в CSS без нужда от знания за команден ред.",
     "da": "<strong>Scout-App</strong> giver dig mulighed for at konvertere <code>.sass</code> og <code>.scss</code> filer til CSS uden kendskab til kommandolinjen.",
+    "de": "Mit <strong>Scout-App</strong> generierst Du deine eigenen <code>.sass</code> und <code>.scss</code>-Dateien in CSS ohne Kenntnisse von Terminal/Eingabeaufforderung.",
     "en": "<strong>Scout-App</strong> allows you to process your <code>.sass</code> and <code>.scss</code> files into CSS without needing any knowledge of the command line.",
     "es": "<strong>Scout-App</strong> le permite procesar sus ficheros <code>.sass</code> y <code>.scss</code>  en CSS sin necesitar ningún conocimiento de la linea de comandos.",
     "fi": "<strong>Scout-App</strong> sallii sinun prosessoida <code>.sass</code> and <code>.scss</code> -tiedostaja CSS-tiedostoiksi ilman komentorivitietoutta.",
@@ -70,6 +74,7 @@
   "ABOUT_SCOUTAPP": {
     "bg": "За Scout-App",
     "da": "Om Scout-App",
+    "de": "Über Scout-App",
     "en": "About Scout-App",
     "es": "Acerca de Scout-App",
     "fi": "Tietoa Scout-Appista",
@@ -87,6 +92,7 @@
   "ABOUT_VISIT_UPDATE": {
     "bg": "Посети сайта на Scout-App за проверка на актуализации:",
     "da": "Besøg Scout-App websitet for at tjekke for opdateringer:",
+    "de": "Besuchen Sie die Scout-App-Webseite, um nach Updates zu suchen:",
     "en": "Visit the Scout-App website to check for updates:",
     "es": "Visitar el sitio web de Scout-App para comprobar las actualizaciones:",
     "fi": "Käy Scout-Appin verkkosivuilla tarkistaaksesi päivityksistä:",
@@ -104,6 +110,7 @@
   "ADD_A_PROJECT": {
     "bg": "Добави проект",
     "da": "Tilføj et Projekt",
+    "de": "Neues Projekt",
     "en": "Add a Project",
     "es": "Añadir un Proyecto",
     "fi": "Lisää projekti",
@@ -121,6 +128,7 @@
   "ADD_GROUP_OF_PROJECTS": {
     "bg": "Добави група проекти",
     "da": "Tilføj Gruppe af projekter",
+    "de": "Neue Gruppe von Projekten hinzufügen",
     "en": "Add Group of Projects",
     "es": "Añadir un grupo de Proyectos",
     "fi": "Lisää ryhmä projekteja",
@@ -138,6 +146,7 @@
   "ADD_PROJECT": {
     "bg": "Добави проект",
     "da": "Tilføj projekt",
+    "de": "Projekt hinzufügen",
     "en": "Add Project",
     "es": "Añadir Proyecto",
     "fi": "Lisää projekti",
@@ -155,6 +164,7 @@
   "ALERT_TITLE": {
     "bg": "<strong>{{time}}</strong> Грешка (0x0{{code}}) - Ред: <strong>{{bugLine}}</strong> Кол: <strong>{{col}}</strong>",
     "da": "<strong>{{time}}</strong> Fejl (0x0{{code}}) - Linje: <strong>{{bugLine}}</strong> Kolonne: <strong>{{col}}</strong>",
+    "de": "<strong>{{time}}</strong> Fehler (0x0{{code}}) - Zeile: <strong>{{bugLine}}</strong> Spalte: <strong>{{col}}</strong>",
     "en": "<strong>{{time}}</strong> Error (0x0{{code}}) - Line: <strong>{{bugLine}}</strong> Col: <strong>{{col}}</strong>",
     "es": "<strong>{{time}}</strong> Error (0x0{{code}}) - Line: <strong>{{bugLine}}</strong> Col: <strong>{{col}}</strong>",
     "fi": "<strong>{{time}}</strong> Virheilmoitus (0x0{{code}}) - Rivi: <strong>{{bugLine}}</strong> Sarake: <strong>{{col}}</strong>",
@@ -172,6 +182,7 @@
   "APPLICATION_TITLE": {
     "bg": "Scout-App: The Sass GUI",
     "da": "Scout-App: Sass GUI'et",
+    "de": "Scout-App: Die Sass-GUI",
     "en": "Scout-App: The Sass GUI",
     "es": "Scout-App: La interfaz gráfica de usuario Sass",
     "fi": "Scout-App: Sass käyttöliittymä",
@@ -189,6 +200,7 @@
   "BROWSE": {
     "bg": "Прелисти",
     "da": "Gennemse",
+    "de": "Durchsuchen",
     "en": "Browse",
     "es": "Visualizar",
     "fi": "Selaa",
@@ -206,6 +218,7 @@
   "CANCEL": {
     "bg": "Отказ",
     "da": "Annuller",
+    "de": "Abbrechen",
     "en": "Cancel",
     "es": "Cancelar",
     "fi": "Peruuta",
@@ -223,6 +236,7 @@
   "CAT_SCREAMING_NO": {
     "bg": "Котка крещяща \"Не\"!",
     "da": "Katten skriger 'NEEEJ!'",
+    "de": "Katze schreit 'NEIN!'",
     "en": "Cat screaming 'NO!'",
     "es": "Grito al gato ¡NO!",
     "fi": "Kissa huutaa 'EI!'",
@@ -240,6 +254,7 @@
   "CHECK_FOR_UPDATES": {
     "bg": "Провери за актуализация",
     "da": "Tjek for opdateringer",
+    "de": "Auf Updates prüfen",
     "en": "Check for updates",
     "es": "Comprobar si hay actualizaciones",
     "fi": "Tarkista päivitykset",
@@ -257,6 +272,7 @@
   "CONFIRM_DELETE": {
     "bg": "Сигурни ли сте?",
     "da": "Er du sikker?",
+    "de": "Bist du sicher?",
     "en": "Are you sure?",
     "es": "¿Está seguro?",
     "fi": "Oletko varma?",
@@ -274,6 +290,7 @@
   "DELETE": {
     "bg": "Премахни",
     "da": "Fjern",
+    "de": "Entfernen",
     "en": "Remove",
     "es": "Borrar",
     "fi": "Poista",
@@ -291,6 +308,7 @@
   "DELETE_PROJECT": {
     "bg": "Премахни проект",
     "da": "Fjern projekt",
+    "de": "Projekt entfernen",
     "en": "Remove Project",
     "es": "Borrar Proyecto",
     "fi": "Poista projekti",
@@ -308,6 +326,7 @@
   "DEV_TOOLS": {
     "bg": "Инструменти",
     "da": "Udvikler værktøjer",
+    "de": "Entwickler-Werkzeuge",
     "en": "Dev Tools",
     "es": "Herramientas de Desarrollo",
     "fi": "Kehittäjätyökalut",
@@ -325,6 +344,7 @@
   "DEVELOPMENT": {
     "bg": "Разработка",
     "da": "Udvikling",
+    "de": "Entwicklung",
     "en": "Development",
     "es": "Desarrollo",
     "fi": "Kehitys",
@@ -342,6 +362,7 @@
   "ENVIRONMENT": {
     "bg": "Среда",
     "da": "Miljø",
+    "de": "Umgebung",
     "en": "Environment",
     "es": "Entorno",
     "fi": "Ympäristö",
@@ -359,6 +380,7 @@
   "EXIT": {
     "bg": "Изход",
     "da": "Luk",
+    "de": "Beenden",
     "en": "Exit",
     "es": "Salir",
     "fi": "Poistu",
@@ -376,6 +398,7 @@
   "FILE": {
     "bg": "Файл",
     "da": "Filer",
+    "de": "Datei",
     "en": "File",
     "es": "Fichero",
     "fi": "Tiedosto",
@@ -393,6 +416,7 @@
   "FOUND_SOME_PROJECTS": {
     "bg": "намерени {{0}} проекти",
     "da": "placeret {{0}} projekter",
+    "de": "{{0}} Projekte gefunden",
     "en": "found {{0}} projects",
     "es": "encontrados {{0}} proyectos",
     "fi": "{{0}} projektia löytyi",
@@ -410,6 +434,7 @@
   "FTUX_DRAG_DROP": {
     "bg": "<h3>Влачи и Пусни</h3> <h4>навсякъде за импортване на проекти</h4>",
     "da": "<h3>Træk og slip</ h3> <h4>overalt at importere projekter</h4>",
+    "de": "<h3>Ziehen und Ablegen</h3> <h4>um Projekte zu importieren</h4>",
     "en": "<h3>Drag and Drop</h3> <h4>anywhere to import projects</h4>",
     "es": "<h3>Arrastrar y soltar</h3> <h4>en cualquier lugar para importar proyectos</h4>",
     "fi": "<h3>Vedä ja pudota</h3> <h4>mihin tahansa tuodaaksesi projekti</h4>",
@@ -427,6 +452,7 @@
   "HIDE": {
     "bg": "Скрий",
     "da": "Skjule",
+    "de": "Verstecken",
     "en": "Hide",
     "es": "Esconder",
     "fi": "Piilota",
@@ -444,6 +470,7 @@
   "IMPORT_ADD_GROUP": {
     "bg": "Добави група от проекти",
     "da": "Tilføj Gruppe af projekter",
+    "de": "Eine Gruppe von Projekte hinzufügen",
     "en": "Add Group of projects",
     "es": "Añadir un grupo de proyectos",
     "fi": "Lisää ryhmä projekteja",
@@ -461,6 +488,7 @@
   "IMPORT_ADD_PROJECT": {
     "bg": "Добави проект",
     "da": "Tilføj et andet projekt",
+    "de": "Fügen Sie ein weiteres Projekt hinzu",
     "en": "Add another project",
     "es": "Añadir otro proyecto",
     "fi": "Lisää toinen projekti",
@@ -478,6 +506,7 @@
   "IMPORT_DRAG_DROP": {
     "bg": "Влачене & Пускане",
     "da": "Træk og slip",
+    "de": "Drag & Drop",
     "en": "Drag & Drop",
     "es": "Arrastrar y Soltar",
     "fi": "Vedä ja pudota",
@@ -495,6 +524,7 @@
   "IMPORT_HEADER": {
     "bg": "{{0}} Избрани Проекти",
     "da": "{{0}} Udvalgte Projekter",
+    "de": "{{0}} ausgewählte Projekte",
     "en": "{{0}} Selected Projects",
     "es": "{{0}} Proyectos seleccionados",
     "fi": "{{0}} Valittua projektia",
@@ -512,6 +542,7 @@
   "IMPORT_INPUT": {
     "bg": "Входящ (Sass)",
     "da": "Input (Sass)",
+    "de": "Eingang (Sass)",
     "en": "Input (Sass)",
     "es": "Entrada (Sass)",
     "fi": "Sisääntulo",
@@ -529,6 +560,7 @@
   "IMPORT_OUTPUT": {
     "bg": "Изходящ (CSS)",
     "da": "Output (CSS)",
+    "de": "Ausgabe (CSS)",
     "en": "Output (CSS)",
     "es": "Salida (CSS)",
     "fi": "Ulostulo",
@@ -546,6 +578,7 @@
   "IMPORT_PROJECT_NAME": {
     "bg": "Име на проекта",
     "da": "Projekt Navn",
+    "de": "Projektname",
     "en": "Project Name",
     "es": "Nombre del proyecto",
     "fi": "Projektin nimi",
@@ -563,6 +596,7 @@
   "IMPORT_PROJECTS": {
     "bg": "Импортни проекти",
     "da": "Indlæs projekter",
+    "de": "Projekte importieren",
     "en": "Import Projects",
     "es": "Importar Proyectos",
     "fi": "Tuo projekteja",
@@ -580,6 +614,7 @@
   "INPUT_FOLDER": {
     "bg": "Входяща папка",
     "da": "Input mappe:",
+    "de": "Eingabeordner:",
     "en": "Input Folder:",
     "es": "Carpeta de Entrada:",
     "fi": "Sisääntulokansio",
@@ -597,6 +632,7 @@
   "LANG_BG": {
     "bg": "Български",
     "da": "Bulgarsk (български)",
+    "de": "Bulgarisch (български)",
     "en": "Bulgarian (български)",
     "es": "Búlgaro (български)",
     "fi": "Bulgarialainen (български)",
@@ -614,6 +650,7 @@
   "LANG_DA": {
     "bg": "Датски (Dansk)",
     "da": "Dansk",
+    "de": "Dänisch (Dansk)",
     "en": "Danish (Dansk)",
     "es": "Danés (Dansk)",
     "fi": "Tanska (Dansk)",
@@ -631,6 +668,7 @@
   "LANG_DE": {
     "bg": "Немски (Deutsch)",
     "da": "Tysk (Deutsch)",
+    "de": "Deutsch",
     "en": "German (Deutsch)",
     "es": "Alemán (Deutsch)",
     "fi": "Saksa (Deutsch)",
@@ -648,6 +686,7 @@
   "LANG_EN": {
     "bg": "Английски (English)",
     "da": "Engelsk (English)",
+    "de": "Englisch (English)",
     "en": "English",
     "es": "Inglés (English)",
     "fi": "Englanti (English)",
@@ -665,6 +704,7 @@
   "LANG_ES": {
     "bg": "Испански (Español)",
     "da": "Spansk (Español)",
+    "de": "Spanisch (Español)",
     "en": "Spanish (Español)",
     "es": "Español",
     "fi": "Espanja (Español)",
@@ -682,6 +722,7 @@
   "LANG_FA": {
     "bg": "(فارسی) Персийски",
     "da": "(فارسی) Persisk",
+    "de": "(فارسی) Persisch",
     "en": "(فارسی) Persian",
     "es": "(فارسی) Persa",
     "fi": "(فارسی) Persia",
@@ -699,6 +740,7 @@
   "LANG_FI": {
     "bg": "Финладски (Suomen)",
     "da": "Finsk (Suomen)",
+    "de": "Finnisch (Suomen)",
     "en": "Finnish (Suomen)",
     "es": "Finlandés (Suomen)",
     "fi": "Suomen",
@@ -716,6 +758,7 @@
   "LANG_FR": {
     "bg": "Френски (Français)",
     "da": "Fransk (Français)",
+    "de": "Französisch (Français)",
     "en": "French (Français)",
     "es": "Francés (Français)",
     "fi": "Ranska (Français)",
@@ -733,6 +776,7 @@
   "LANG_HE": {
     "bg": "(עִברִית) Иврит",
     "da": "(עִברִית) Hebrew",
+    "de": "(עִברִית) Hebräisch",
     "en": "(עִברִית) Hebrew",
     "es": "(עִברִית) Hebreo",
     "fi": "(עִברִית) Heprea",
@@ -750,6 +794,7 @@
   "LANG_HU": {
     "bg": "Унгарски (Magyar)",
     "da": "Ungarsk (Magyar)",
+    "de": "Ungarisch (Magyar)",
     "en": "Hungarian (Magyar)",
     "es": "Húngaro (Magyar)",
     "fi": "Unkari (Magyar)",
@@ -767,6 +812,7 @@
   "LANG_IT": {
     "bg": "Италиански (Italiano)",
     "da": "Italiensk (Italiano)",
+    "de": "Italienisch (Italiano)",
     "en": "Italian (Italiano)",
     "es": "Italiano (Italiano)",
     "fi": "Italia (Italiano)",
@@ -784,6 +830,7 @@
   "LANG_NL": {
     "bg": "Нидерландски (Nederlands)",
     "da": "Hollandsk (Nederlands)",
+    "de": "Niederländisch (Nederlands)",
     "en": "Dutch (Nederlands)",
     "es": "Holandés (Nederlands)",
     "fi": "Alankomaat (Nederlands)",
@@ -801,6 +848,7 @@
   "LANG_PL": {
     "bg": "Полски (Polski)",
     "da": "Polere (Polski)",
+    "de": "Polnisch (Polski)",
     "en": "Polish (Polski)",
     "es": "Polaco (Polski)",
     "fi": "Kiillottaa (Polski)",
@@ -818,6 +866,7 @@
   "LANG_RK": {
     "bg": "Американски селяндур (Redneck)",
     "da": "Amerikansk Bondeknold (Redneck)",
+    "de": "Redneck (Real America)",
     "en": "Redneck (Real America)",
     "es": "Campesino Sureño (Real America)",
     "fi": "Punaniska (Real America)",
@@ -835,6 +884,7 @@
   "LANG_RU": {
     "bg": "Руски (русский)",
     "da": "Russisk (русский)",
+    "de": "Russisch (русский)",
     "en": "Russian (русский)",
     "es": "Ruso (русский)",
     "fi": "Venäjä (русский)",
@@ -852,6 +902,7 @@
   "LANG_VI": {
     "bg": "Виетнамски (Tiếng Việt)",
     "da": "Vietnamesisk (Tiếng Việt)",
+    "de": "Vietnamesisch (Tiếng Việt)",
     "en": "Vietnamese (Tiếng Việt)",
     "es": "Vietnamita (Tiếng Việt)",
     "fi": "Vietnami (Tiếng Việt)",
@@ -869,6 +920,7 @@
   "LANG_ZH-CHT": {
     "bg": "Традиционен китайски (中文)",
     "da": "Traditionelt Kinesisk (中文)",
+    "de": "Chinesisch Traditional (中文)",
     "en": "Chinese Traditional (中文)",
     "es": "Chino Tradicional (中文)",
     "fi": "Perinteinen Kiina (中文)",
@@ -886,6 +938,7 @@
   "LANGUAGE_CHOICE": {
     "bg": "Език:",
     "da": "Sprog:",
+    "de": "Sprache:",
     "en": "Language:",
     "es": "Idioma:",
     "fi": "Kieli:",
@@ -903,6 +956,7 @@
   "LATEST_VERSION": {
     "bg": "Вие използвате последната версия на Scout-App.",
     "da": "Du har den seneste version af Scout-App",
+    "de": "Sie haben die neueste Version von Scout-App.",
     "en": "You have the latest version of Scout-App.",
     "es": "Tiene la última versión de Scout-App.",
     "fi": "Sinulla on uusin versio Scout-Appista",
@@ -920,6 +974,7 @@
   "LISTING_OF_PROJECTS": {
     "bg": "Списък на проекти",
     "da": "Lister alle projekter",
+    "de": "Liste der Projekte",
     "en": "Listing of projects",
     "es": "Listado de proyectos",
     "fi": "Listataan projekteja",
@@ -937,6 +992,7 @@
   "MESSAGES_DESKTOP": {
     "bg": "Известия в Работен плот",
     "da": "Skrivebordsunderretninger",
+    "de": "Desktop-Benachrichtigung",
     "en": "Desktop Notification",
     "es": "Notificación de Escritorio",
     "fi": "Työpöytäilmoitukset",
@@ -954,6 +1010,7 @@
   "MESSAGES_IN_APP": {
     "bg": "В приложението",
     "da": "I App",
+    "de": "In der Anwendung",
     "en": "In App",
     "es": "En App",
     "fi": "Sovelluksen sisällä",
@@ -971,6 +1028,7 @@
   "MESSAGES_SOUND": {
     "bg": "Възпроизвеждане на звук",
     "da": "Afspil lyd",
+    "de": "Ton abspielen",
     "en": "Play Sound",
     "es": "Reproducir Sonido",
     "fi": "Toista äänimerkki",
@@ -988,6 +1046,7 @@
   "MESSAGES_TITLE_ERROR": {
     "bg": "Съобщения за грешка",
     "da": "Fejlmeddelelser",
+    "de": "Fehlermeldungen",
     "en": "Error Messages",
     "es": "Mensajes de Error",
     "fi": "Virheilmoitukset",
@@ -1005,6 +1064,7 @@
   "MESSAGES_TITLE_SUCCESS": {
     "bg": "Съобщения за успех",
     "da": "Succes Beskeder",
+    "de": "Erfolgsmeldungen",
     "en": "Success Messages",
     "es": "Mensajes de Éxito",
     "fi": "Onnistumisviestit",
@@ -1022,6 +1082,7 @@
   "MILLISECONDS_SHORT": {
     "bg": "мс",
     "da": "ms",
+    "de": "ms",
     "en": "ms",
     "es": "ms",
     "fi": "ms",
@@ -1039,6 +1100,7 @@
   "MISSING_DATA": {
     "bg": "Липсваща входяща или изходяща папка.",
     "da": "Mangler input eller output mappe.",
+    "de": "Fehlender Eingabe- oder Ausgabeordner.",
     "en": "Missing input or output folder.",
     "es": "Ausencia de carpeta de entrada o salida",
     "fi": "Puuttuva sisään- tai ulostulokansio.",
@@ -1056,6 +1118,7 @@
   "MULTI_IMPORT_BUTTON": {
     "bg": "Импортни {{0}} проекта",
     "da": "Importer {{0}} Projekter",
+    "de": "Importieren Sie {{0}} Projekte",
     "en": "Import {{0}} Projects",
     "es": "Importar {{0}} Proyectos",
     "fi": "Tuo {{0}} projektia",
@@ -1073,6 +1136,7 @@
   "MULTIPROJECT_IMPORT": {
     "bg": "Импортни няколко проекта",
     "da": "Importer Flere Projekter",
+    "de": "Mehrprojektimport",
     "en": "Multi-Project Import",
     "es": "Importación de Múltiples Proyectos",
     "fi": "Monen projektin tuonti",
@@ -1090,6 +1154,7 @@
   "NEW_PROJECT": {
     "bg": "Нов проект",
     "da": "Nyt projekt",
+    "de": "Neues Projekt",
     "en": "New Project",
     "es": "Nuevo Proyecto",
     "fi": "Uusi projekti",
@@ -1107,6 +1172,7 @@
   "NO_SASS_FILES": {
     "bg": "Тази папка на проекта не съдържа Sass файлове, които могат да се обработят.",
     "da": "Dette projekt input mappe indeholder ingen Sass filer, der kan behandles.",
+    "de": "Der Eingabeordner dieses Projekts enthält keine Sass-Dateien, die verarbeitet werden können.",
     "en": "This project's input folder contains no Sass files that can be processed.",
     "es": "La carpeta de entrada de este proyecto no contiene archivos Sass que se pueden procesar.",
     "fi": "Tämän projektin sisääntulokansiossa ei ole Sass-tiedostoja prosessoitavaksi.",
@@ -1124,6 +1190,7 @@
   "NOTIFICATIONS_CHOICE": {
     "bg": "Известия",
     "da": "Underretninger",
+    "de": "Benachrichtigungen",
     "en": "Notifications",
     "es": "Notificaciones",
     "fi": "Ilmoitukset",
@@ -1141,6 +1208,7 @@
   "OUTPUT_COMPACT": {
     "bg": "Компактен",
     "da": "Kompakt",
+    "de": "Kompakt",
     "en": "Compact",
     "es": "Compacto",
     "fi": "Kompakti",
@@ -1158,6 +1226,7 @@
   "OUTPUT_COMPRESSED": {
     "bg": "Компресиран",
     "da": "Komprimeret",
+    "de": "Komprimiert",
     "en": "Compressed",
     "es": "Comprimido",
     "fi": "Kompressoitu",
@@ -1175,6 +1244,7 @@
   "OUTPUT_EXPANDED": {
     "bg": "Разширен",
     "da": "Expanded",
+    "de": "Erweitert",
     "en": "Expanded",
     "es": "Expandido",
     "fi": "Laajennettu",
@@ -1192,6 +1262,7 @@
   "OUTPUT_FOLDER": {
     "bg": "Изходяща папка:",
     "da": "Output mappe:",
+    "de": "Ausgabeordner:",
     "en": "Output Folder:",
     "es": "Carpeta de Salida:",
     "fi": "Ulostulokansio",
@@ -1209,6 +1280,7 @@
   "OUTPUT_NESTED": {
     "bg": "Вместени",
     "da": "Nested",
+    "de": "Verschachtelt",
     "en": "Nested",
     "es": "Anidado",
     "fi": "Sisäkkäinen",
@@ -1226,6 +1298,7 @@
   "OUTPUT_STYLE": {
     "bg": "Изходящ стил",
     "da": "Output stil",
+    "de": "Ausgabetyp",
     "en": "Output Style",
     "es": "Estilo de Salida",
     "fi": "Ulostuonnin tyyli",
@@ -1243,6 +1316,7 @@
   "OUTPUT_WARNING": {
     "bg": "Изходящата папка не може да съвпада или да бъде подпапка на входящата.",
     "da": "Output kan ikke være samme eller undermappe til input.",
+    "de": "Ausgabeordner darf nicht mit dem Eingabeordner übereinstimmen oder ein Unterordner von diesem sein.",
     "en": "Output can't match or be a subfolder of input.",
     "es": "La salida no puede coincidir o ser una subcarpeta de entrada.",
     "fi": "Ulostulo ei voi vastata tai olla sisääntulokansion alikansio",
@@ -1260,6 +1334,7 @@
   "PREFERENCES": {
     "bg": "Настройки",
     "da": "Indstillinger",
+    "de": "Einstellungen",
     "en": "Preferences",
     "es": "Preferencias",
     "fi": "Asetukset",
@@ -1277,6 +1352,7 @@
   "PROCESSED_IN_DURATION": {
     "bg": "Обработени в {{duration}}",
     "da": "Behandlet på {{duration}}",
+    "de": "Verarbeitung in {{duration}}",
     "en": "Processed in {{duration}}",
     "es": "Procesado en {{duration}}",
     "fi": "Prosessoitiin {{duration}}",
@@ -1294,6 +1370,7 @@
   "PRODUCTION": {
     "bg": "Производство",
     "da": "Produktion",
+    "de": "Produktion",
     "en": "Production",
     "es": "Producción",
     "fi": "Tuotanto",
@@ -1311,6 +1388,7 @@
   "PROJECT_CONTROLS": {
     "bg": "Контроли на проекта",
     "da": "Projekt knapper",
+    "de": "Projektsteuerung",
     "en": "Project Controls",
     "es": "Controles del Proyecto",
     "fi": "Projektin hallintanapit",
@@ -1328,6 +1406,7 @@
   "PROJECT_ICON": {
     "bg": "Иконка на проекта",
     "da": "Projekt ikon",
+    "de": "Projekt-Icon",
     "en": "Project Icon",
     "es": "Icono del Proyecto",
     "fi": "Projektin ikoni",
@@ -1345,6 +1424,7 @@
   "SCOUTAPP_LOGO": {
     "bg": "Scout-App Logo",
     "da": "Scout-App logo",
+    "de": "Scout-App-Logo",
     "en": "Scout-App Logo",
     "es": "Logo de Scout-App",
     "fi": "Scout-Appin logo",
@@ -1362,6 +1442,7 @@
   "SECONDS": {
     "bg": "секунди",
     "da": "sekunder",
+    "de": "Sekunden",
     "en": "seconds",
     "es": "segundos",
     "fi": "sekuntia",
@@ -1379,6 +1460,7 @@
   "SELECT_DESELECT_ALL": {
     "bg": "Избор на всичко",
     "da": "Vælg/Fravælg alle",
+    "de": "Alles auswählen/abwählen",
     "en": "Select/Deselect All",
     "es": "Seleccionar/Deseleccionar todo",
     "fi": "Valitse kaikki / Poista valinta kaikesta",
@@ -1396,6 +1478,7 @@
   "SELECT_GROUP_FOLDER": {
     "bg": "избери група папки",
     "da": "vælge gruppen mappe",
+    "de": "wählen Sie den Gruppenordner",
     "en": "select the group folder",
     "es": "seleccione la carpeta del grupo",
     "fi": "valitse ryhmäkansio",
@@ -1413,6 +1496,7 @@
   "SELECT_PROJECT_FOLDER": {
     "bg": "избери папка на проекта",
     "da": "vælg et projekt mappe",
+    "de": "wählen Sie einen Projektordner",
     "en": "select a project folder",
     "es": "seleccione una carpeta de proyecto",
     "fi": "Valitse projektikansio",
@@ -1430,6 +1514,7 @@
   "SERVER_DOWN": {
     "bg": "Не може да се свърже със сървъра за акуализации. Опитайте отново по-късно.",
     "da": "Opdateringsserver ikke tilgængelig. Prøv igen senere.",
+    "de": "Aktualisierungsserver nicht erreichbar. Versuchen Sie es später noch einmal.",
     "en": "Unable to reach update server. Try again later.",
     "es": "No se ha podido conectar con el servidor de actualización. Inténtelo de nuevo más tarde.",
     "fi": "Päivityspalvelin ei tavoitettavissa. Yritä myöhemmin uudestaan.",
@@ -1447,6 +1532,7 @@
   "SHOW": {
     "bg": "Покажи",
     "da": "At vise",
+    "de": "Anzeigen",
     "en": "Show",
     "es": "Espectáculo",
     "fi": "Näytä",
@@ -1464,6 +1550,7 @@
   "STATUS": {
     "bg": "Статус",
     "da": "Status",
+    "de": "Status",
     "en": "Status",
     "es": "Estado",
     "fi": "Status",
@@ -1481,6 +1568,7 @@
   "STATUS_OF_ALL_PROJECTS": {
     "bg": "Статус на всички проекти",
     "da": "Status på alle projekter",
+    "de": "Status aller Projekte",
     "en": "Status of all Projects",
     "es": "Estado de todos los Proyectos",
     "fi": "Kaikkien projektien status",
@@ -1498,6 +1586,7 @@
   "STYLESHEET_CHOICE": {
     "bg": "Тема",
     "da": "Tema:",
+    "de": "Thema:",
     "en": "Theme:",
     "es": "Tema:",
     "fi": "Teema:",
@@ -1515,6 +1604,7 @@
   "STYLESHEET_DIRECTORIES": {
     "bg": "Директории със стилове",
     "da": "Stylesheet mapper",
+    "de": "Stylesheet Verzeichnisse",
     "en": "Stylesheet Directories",
     "es": "Directorios de Hojas de Estilo",
     "fi": "Tyylitiedostojen kansiot",
@@ -1532,6 +1622,7 @@
   "TOGGLE_NAVIGATION": {
     "bg": "Покажи менюто",
     "da": "Omskift navigation",
+    "de": "Navigation umschalten",
     "en": "Toggle navigation",
     "es": "Cambiar modo de navegación",
     "fi": "Avaa / Piilota navigaatio",
@@ -1549,6 +1640,7 @@
   "TRANSLATED_BY": {
     "bg": "Преведен от:",
     "da": "Oversat af:",
+    "de": "Übersetzt von:",
     "en": "Translated by:",
     "es": "Traducido por:",
     "fi": "Kääntäjä:",
@@ -1566,6 +1658,7 @@
   "TRANSLATOR": {
     "bg": "Belkin Fahri",
     "da": "Johan Holst Nielsen",
+    "de": "Tobias Dickgreber",
     "en": "The Jared Wilcurt",
     "es": "Ireneml.fr",
     "fi": "Sami Singh",
@@ -1583,6 +1676,7 @@
   "TRANSLATOR_MEME": {
     "bg": ".",
     "da": "Hank Hill, fra King of the Hill siger 'I process Sass, and Sass Mixins'.",
+    "de": "Fischers Fritze fischt frische Fische",
     "en": "Hank Hill, from King of the Hill saying \"I process Sass, and Sass Mixins\".",
     "es": "DEMASIADO CSS PUEDE SER LA PEOR DE LAS LOCURAS. VER CSS COMO ES Y NO COMO DEBERÍA SER.",
     "fi": "Hank Hill Kukkulan Kuninkaasta sanomassa \"Prosessoin Sassia ja Sass-mixineitä\".",
@@ -1600,6 +1694,7 @@
   "TRANSLATOR_URL": {
     "bg": "http://belkinfahri.com",
     "da": "http://phpgeek.dk",
+    "de": "https://github.com/SirTobey1337",
     "en": "https://github.com/TheJaredWilcurt",
     "es": "http://ireneml.fr",
     "fi": "https://httpster.io",
@@ -1617,6 +1712,7 @@
   "UPDATE_FOUND": {
     "bg": "Налична е актуализация!",
     "da": "Opdatering fundet.",
+    "de": "Update gefunden!",
     "en": "Update found!",
     "es": "Actualización encontrada!",
     "fi": "Päivitys löytynyt!",
@@ -1634,6 +1730,7 @@
   "VERSION": {
     "bg": "Версия",
     "da": "Version",
+    "de": "Version",
     "en": "Version",
     "es": "Versión",
     "fi": "Versio",
@@ -1651,6 +1748,7 @@
   "VIEW": {
     "bg": "Изглед",
     "da": "Vis",
+    "de": "Ansicht",
     "en": "View",
     "es": "Ver",
     "fi": "Näytä",
@@ -1668,6 +1766,7 @@
   "VIEW_LATEST_RELEASE": {
     "bg": "Виж последните версии",
     "da": "Vis seneste udgivelsesmeddelelse",
+    "de": "Neueste Version ansehen",
     "en": "View latest release",
     "es": "Ver últimas modificaciones",
     "fi": "Näytä viimeisin päivitys",
@@ -1685,6 +1784,7 @@
   "WELCOME_MESSAGE": {
     "bg": "Добре дошъл в Scout-App!",
     "da": "Velkommen til Scout-App!",
+    "de": "Willkommen bei Scout-App!",
     "en": "Welcome to Scout-App!",
     "es": "Bienvenido a Scout-App!",
     "fi": "Tervetuloa Scout-Appiin!",
