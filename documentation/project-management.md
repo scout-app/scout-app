@@ -1,3 +1,11 @@
+**Edit:** This file is deprecated.
+
+This was useful when starting the project. But now that it's all up and running, all planned features and ideas that weren't finished have been moved to the "issues" page.
+
+* http://github.com/scout-app/scout-app/issues
+
+* * *
+
 ## Project management:
 
 
