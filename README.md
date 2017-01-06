@@ -14,17 +14,19 @@ OS                                | 32-Bit             | 64-Bit
 :--                               | :--:               | :--:
 Windows XP, Vista, 7, 8, 8.1, 10+ | :white_check_mark: | :white_check_mark:
 Ubuntu 12, 14, 16                 | :white_check_mark: | :white_check_mark:
-Zorin 9 & 11                      | :white_check_mark: | :white_check_mark:
+Zorin 9, 11, 12                   | :white_check_mark: | :white_check_mark:
+Debian 8                          | :white_check_mark: | :white_check_mark:
 OSX 10.6+                         | :x:                | :white_check_mark:
+
+(Other Linux versions may work, but are not officially supported.)
 
 * * *
 
 * [Supported/built-in mixin libraries](http://scout-app.io/index.html#mixins)
 * [Translate Scout-App](http://scout-app.io/index.html#cultures)
-* [Project Roadmap](documentation/project-management.md)
-* [Contributors to Scout-App](http://scout-app.io/index.html#contributors)
-* **[To be a contributor, click here](documentation/contributing.md)**
 * [Scout-App's Design Principles](https://github.com/scout-app/scout-app/blob/master/documentation/ux.md)
+* **[To be a contributor, click here](documentation/contributing.md)**
+* [Contributors to Scout-App](http://scout-app.io/index.html#contributors)
 
 * * *
 
