@@ -39,9 +39,9 @@ for (var i = 0; i < results.length; i++) {
             }
 
             if (col.length == 1) {
-                col =  col + '  ';
+                col = col + '  ';
             } else if (col.length == 2) {
-                col =  col + ' ';
+                col = col + ' ';
             }
 
             len = 48 - msg.length;
@@ -71,5 +71,5 @@ for (var i = 0; i < results.length; i++) {
 if (msgCount > 0) {
     console.log('Total: ' + msgCount);
 } else {
-    console.log('Sass Lint Passed')
+    console.log('Sass Lint Passed');
 }
