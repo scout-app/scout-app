@@ -470,7 +470,7 @@
   "IMPORT_ADD_GROUP": {
     "bg": "Добави група от проекти",
     "da": "Tilføj Gruppe af projekter",
-    "de": "Eine Gruppe von Projekte hinzufügen",
+    "de": "Eine Gruppe von Projekten hinzufügen",
     "en": "Add Group of projects",
     "es": "Añadir un grupo de proyectos",
     "fi": "Lisää ryhmä projekteja",
@@ -956,7 +956,7 @@
   "LATEST_VERSION": {
     "bg": "Вие използвате последната версия на Scout-App.",
     "da": "Du har den seneste version af Scout-App",
-    "de": "Sie haben die neueste Version von Scout-App.",
+    "de": "Sie haben die neueste Version der Scout-App.",
     "en": "You have the latest version of Scout-App.",
     "es": "Tiene la última versión de Scout-App.",
     "fi": "Sinulla on uusin versio Scout-Appista",
