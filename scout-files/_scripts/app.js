@@ -10,11 +10,13 @@
     var sass = require('node-sass');
     var chokidar = require('chokidar');
     var path = require('path');
-    var gui = require('nw.gui');
-    var mb = new gui.Menu({type:"menubar"});
 
-    mb.createMacBuiltin("Scout-App");
-    gui.Window.get().menu = mb;
+    if (process.platform === 'darwin') {
+        var gui = require('nw.gui');
+        var menubar = new gui.Menu({type: 'menubar'});
+        menubar.createMacBuiltin('Scout-App');
+        gui.Window.get().menu = menubar;
+    }
 
     // Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass', '').replace('(Wrapper)', '').replace('[JavaScript]', '').trim();
