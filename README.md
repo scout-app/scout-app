@@ -1,4 +1,4 @@
-#![Scout-App 2 Logo](scout-files/_img/wordmark.png "Scout-App 2 Logo")
+![Scout-App 2 Logo](scout-files/_img/wordmark.png "Scout-App 2 Logo")
 
 [![Join the chat at https://gitter.im/scout-app/scout-app](https://badges.gitter.im/scout-app/scout-app.svg)](https://gitter.im/scout-app/scout-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
