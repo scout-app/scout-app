@@ -1,5 +1,5 @@
 
-##Scout-App Cultures & Translations
+## Scout-App Cultures & Translations
 
 The source of truth for Scout-App translations is this [Google Sheet](https://docs.google.com/spreadsheets/d/16FtHGThz0-CBz_rf_9QO4zOV7oNmNk2BlwmtvKuzAhs/edit?usp=sharing).
 
@@ -13,11 +13,11 @@ For more information:
 
 * * *
 
-##Memes
+## Memes
 
 Scout-App wants to show a personal touch for each culture. So we attach some **culturally relavent image** with some Sass or CSS reference in it.
 
-Examples:
+**Examples:**
 
 
 
