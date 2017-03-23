@@ -6,24 +6,24 @@ Scout-App wants to be the easiest to use application for processing Sass. As suc
 ### **The cardinal rules of Scout-App's development:**
 
 1. Always look out for the little guy.
- * Support as many platforms as possible.
- * Support as many languages as possible.
+   * Support as many platforms as possible.
+   * Support as many languages as possible.
 1. Always be free.
 1. Always be open source.
 1. If there is something we can do automatically for the user, we should.
- * However we should balance usage of system resources with task automation. (do not lock up the machine or UI for 30 seconds while scanning every folder)
+   * However we should balance usage of system resources with task automation. (do not lock up the machine or UI for 30 seconds while scanning every folder)
 1. We should aim for giving as much control as possible, so long as it does not impede simplicity.
- * The preferences menu should not have hundreds of options. Each and every new option or setting should be done with care and thought.
+   * The preferences menu should not have hundreds of options. Each and every new option or setting should be done with care and thought.
 1. We will say "No" to feature requests that would make the application bloated, or harder to use.
 1. We will not process LESS, Stylus, HAML, CoffeeScript, Pug, ES6-to-ES5, etc.
- * The focus of Scout-App is on doing one thing, very well.
+   * The focus of Scout-App is on doing one thing, very well.
 1. If, when talking to users you hear the same feature requested repeatedly. Greater consideration for it should be given, or if it is already on the roadmap, it should be given higher priority. So long as it does not break the above rules.
- * If it does break the above rules, try to see if there is a clever solution that could give the end result the user desires without breaking one of the rules. If not, then don't be afraid to say "No" and offer alternative non-Scout-App solutions.
+   * If it does break the above rules, try to see if there is a clever solution that could give the end result the user desires without breaking one of the rules. If not, then don't be afraid to say "No" and offer alternative non-Scout-App solutions.
 1. Good customer service.
- * Even if the users aren't paying for it, they should be treated like they are.
- * Answer all questions politely.
- * If someone is upset or angry about something, it's probably because it's hard to use, so thank them for bringing it to your attention and address ways to solve the problem.
- * Always update issues to inform users when Scout-App has a new release with their fix in it.
+   * Even if the users aren't paying for it, they should be treated like they are.
+   * Answer all questions politely.
+   * If someone is upset or angry about something, it's probably because it's hard to use, so thank them for bringing it to your attention and address ways to solve the problem.
+   * Always update issues to inform users when Scout-App has a new release with their fix in it.
 1. Never use Scout-the-Puppy to push a political agenda or an ideology. Scout is an adorable and innocent puppy, and has no concept of politics.
 1. There shall be no brown M&M's in the backstage area.
 
