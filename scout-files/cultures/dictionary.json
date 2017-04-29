@@ -1,5 +1,6 @@
 {
   "ABOUT": {
+    "ar": "من نحن",
     "bg": "За програмата",
     "da": "Om",
     "de": "Über",
@@ -19,6 +20,7 @@
     "zh-CHT": "關於"
   },
   "ABOUT_CONTRIBUTORS": {
+    "ar": "المساهمون في <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "bg": "Участвали в <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "da": "Bidragsydere til <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "de": "Unterstützer",
@@ -38,6 +40,7 @@
     "zh-CHT": "<a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a> 開發協助者:"
   },
   "ABOUT_DEPENDENCIES": {
+    "ar": "<strong>Scout-App</strong> يستخدم <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> و <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "bg": "<strong>Scout-App</strong> използва <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> и <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "da": "<strong>Scout-App</strong> benytter <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> og <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "de": "<strong>Scout-App</strong> verwendet <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> und <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
@@ -57,6 +60,7 @@
     "zh-CHT": "<strong>Scout-App</strong> 採用 <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> 及 <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>."
   },
   "ABOUT_DESCRIPTION": {
+    "ar": "<strong>Scout-App</strong> يسمح لك بمعالجة ملفات <code>.sass</code> و <code>.scss</code> إلى ملفات CSS دون أية حاجة للتعامل مع سطر الأوامر",
     "bg": "<strong>Scout-App</strong> ви позволява да обработите <code>.sass</code> и <code>.scss</code> файлове в CSS без нужда от знания за команден ред.",
     "da": "<strong>Scout-App</strong> giver dig mulighed for at konvertere <code>.sass</code> og <code>.scss</code> filer til CSS uden kendskab til kommandolinjen.",
     "de": "Mit <strong>Scout-App</strong> generierst Du deine eigenen <code>.sass</code> und <code>.scss</code>-Dateien in CSS ohne Kenntnisse von Terminal/Eingabeaufforderung.",
@@ -76,6 +80,7 @@
     "zh-CHT": "無須任何命令列指令, <strong>Scout-App</strong> 幫你自動轉換 <code>.sass</code> 和 <code>.scss</code> 代碼至 CSS"
   },
   "ABOUT_SCOUTAPP": {
+    "ar": "عن Scout-App",
     "bg": "За Scout-App",
     "da": "Om Scout-App",
     "de": "Über Scout-App",
@@ -95,6 +100,7 @@
     "zh-CHT": "關於 Scout-App"
   },
   "ABOUT_VISIT_UPDATE": {
+    "ar": "زر موقع Scout-App للبحث عن تحديثات:",
     "bg": "Посети сайта на Scout-App за проверка на актуализации:",
     "da": "Besøg Scout-App websitet for at tjekke for opdateringer:",
     "de": "Besuchen Sie die Scout-App-Webseite, um nach Updates zu suchen:",
@@ -114,6 +120,7 @@
     "zh-CHT": "到 Scout-App 網站看看有沒有更新:"
   },
   "ADD_A_PROJECT": {
+    "ar": "أضف مشروعًا",
     "bg": "Добави проект",
     "da": "Tilføj et Projekt",
     "de": "Neues Projekt",
@@ -133,6 +140,7 @@
     "zh-CHT": "新增專案"
   },
   "ADD_GROUP_OF_PROJECTS": {
+    "ar": "أضف مجموعة مشاريع",
     "bg": "Добави група проекти",
     "da": "Tilføj Gruppe af projekter",
     "de": "Neue Gruppe von Projekten hinzufügen",
@@ -152,6 +160,7 @@
     "zh-CHT": "新增多個專案"
   },
   "ADD_PROJECT": {
+    "ar": "إضافة مشروع",
     "bg": "Добави проект",
     "da": "Tilføj projekt",
     "de": "Projekt hinzufügen",
@@ -171,6 +180,7 @@
     "zh-CHT": "新增專案"
   },
   "ALERT_TITLE": {
+    "ar": "<strong>{{time}}</strong> خطأ(0x0{{code}}) - السطر: <strong>{{bugLine}}</strong> الحقل: <strong>{{col}}</strong>",
     "bg": "<strong>{{time}}</strong> Грешка (0x0{{code}}) - Ред: <strong>{{bugLine}}</strong> Кол: <strong>{{col}}</strong>",
     "da": "<strong>{{time}}</strong> Fejl (0x0{{code}}) - Linje: <strong>{{bugLine}}</strong> Kolonne: <strong>{{col}}</strong>",
     "de": "<strong>{{time}}</strong> Fehler (0x0{{code}}) - Zeile: <strong>{{bugLine}}</strong> Spalte: <strong>{{col}}</strong>",
@@ -190,6 +200,7 @@
     "zh-CHT": "<strong>{{time}}</strong> 錯誤 (0x0{{code}}) - 第 <strong>{{bugLine}}</strong> 行, 字元數: <strong>{{col}}</strong>"
   },
   "APPLICATION_TITLE": {
+    "ar": "Scout-App: واجهة Sass",
     "bg": "Scout-App: The Sass GUI",
     "da": "Scout-App: Sass GUI'et",
     "de": "Scout-App: Die Sass-GUI",
@@ -209,6 +220,7 @@
     "zh-CHT": "Scout-App: The Sass GUI"
   },
   "BROWSE": {
+    "ar": "استعراض",
     "bg": "Прелисти",
     "da": "Gennemse",
     "de": "Durchsuchen",
@@ -228,6 +240,7 @@
     "zh-CHT": "查看檔案/資料夾"
   },
   "CANCEL": {
+    "ar": "إلغاء",
     "bg": "Отказ",
     "da": "Annuller",
     "de": "Abbrechen",
@@ -247,6 +260,7 @@
     "zh-CHT": "取消"
   },
   "CAT_SCREAMING_NO": {
+    "ar": "قطة تصرخ: \"لا!\"",
     "bg": "Котка крещяща \"Не\"!",
     "da": "Katten skriger 'NEEEJ!'",
     "de": "Katze schreit 'NEIN!'",
@@ -266,6 +280,7 @@
     "zh-CHT": "貓大叫 `不!'"
   },
   "CHECK_FOR_UPDATES": {
+    "ar": "البحث عن تحديثات",
     "bg": "Провери за актуализация",
     "da": "Tjek for opdateringer",
     "de": "Auf Updates prüfen",
@@ -285,6 +300,7 @@
     "zh-CHT": "檢查更新"
   },
   "CONFIRM_DELETE": {
+    "ar": "هل أنت متأكد؟",
     "bg": "Сигурни ли сте?",
     "da": "Er du sikker?",
     "de": "Bist du sicher?",
@@ -304,6 +320,7 @@
     "zh-CHT": "你確定嗎?"
   },
   "DELETE": {
+    "ar": "إزالة",
     "bg": "Премахни",
     "da": "Fjern",
     "de": "Entfernen",
@@ -323,6 +340,7 @@
     "zh-CHT": "移除"
   },
   "DELETE_PROJECT": {
+    "ar": "إزالة المشروع",
     "bg": "Премахни проект",
     "da": "Fjern projekt",
     "de": "Projekt entfernen",
@@ -342,6 +360,7 @@
     "zh-CHT": "移除專案"
   },
   "DEV_TOOLS": {
+    "ar": "أدوات المطورين",
     "bg": "Инструменти",
     "da": "Udvikler værktøjer",
     "de": "Entwickler-Werkzeuge",
@@ -361,6 +380,7 @@
     "zh-CHT": "開發工具"
   },
   "DEVELOPMENT": {
+    "ar": "تطوير",
     "bg": "Разработка",
     "da": "Udvikling",
     "de": "Entwicklung",
@@ -380,6 +400,7 @@
     "zh-CHT": "開發中"
   },
   "ENVIRONMENT": {
+    "ar": "البيئة المستهدفة",
     "bg": "Среда",
     "da": "Miljø",
     "de": "Umgebung",
@@ -399,6 +420,7 @@
     "zh-CHT": "專案環境"
   },
   "EXIT": {
+    "ar": "خروج",
     "bg": "Изход",
     "da": "Luk",
     "de": "Beenden",
@@ -418,6 +440,7 @@
     "zh-CHT": "關閉"
   },
   "FILE": {
+    "ar": "ملف",
     "bg": "Файл",
     "da": "Filer",
     "de": "Datei",
@@ -437,6 +460,7 @@
     "zh-CHT": "檔案"
   },
   "FOUND_SOME_PROJECTS": {
+    "ar": "عثر على {{0}} مشاريع",
     "bg": "намерени {{0}} проекти",
     "da": "placeret {{0}} projekter",
     "de": "{{0}} Projekte gefunden",
@@ -456,6 +480,7 @@
     "zh-CHT": "找到 {{0}} 個專案"
   },
   "FTUX_DRAG_DROP": {
+    "ar": "<h3>اسحب وأفلت</h3> <h4>في أي مكان لاستيراد المشاريع</h4>",
     "bg": "<h3>Влачи и Пусни</h3> <h4>навсякъде за импортване на проекти</h4>",
     "da": "<h3>Træk og slip</ h3> <h4>overalt at importere projekter</h4>",
     "de": "<h3>Ziehen und Ablegen</h3> <h4>um Projekte zu importieren</h4>",
@@ -475,6 +500,7 @@
     "zh-CHT": "<h3>拖放</h3> <h4>到任何位置來匯入專案</h4>"
   },
   "HIDE": {
+    "ar": "إخفاء",
     "bg": "Скрий",
     "da": "Skjule",
     "de": "Verstecken",
@@ -494,6 +520,7 @@
     "zh-CHT": "隱藏"
   },
   "IMPORT_ADD_GROUP": {
+    "ar": "أضف عدة مشاريع",
     "bg": "Добави група от проекти",
     "da": "Tilføj Gruppe af projekter",
     "de": "Eine Gruppe von Projekten hinzufügen",
@@ -513,6 +540,7 @@
     "zh-CHT": "加入多個專案"
   },
   "IMPORT_ADD_PROJECT": {
+    "ar": "أضف مشروعًًا آخر",
     "bg": "Добави проект",
     "da": "Tilføj et andet projekt",
     "de": "Fügen Sie ein weiteres Projekt hinzu",
@@ -532,6 +560,7 @@
     "zh-CHT": "加入其他專案"
   },
   "IMPORT_DRAG_DROP": {
+    "ar": "سحب وإفلات",
     "bg": "Влачене & Пускане",
     "da": "Træk og slip",
     "de": "Drag & Drop",
@@ -551,6 +580,7 @@
     "zh-CHT": "拖放"
   },
   "IMPORT_HEADER": {
+    "ar": "{{0}} مشروعًا محددًا",
     "bg": "{{0}} Избрани Проекти",
     "da": "{{0}} Udvalgte Projekter",
     "de": "{{0}} ausgewählte Projekte",
@@ -570,6 +600,7 @@
     "zh-CHT": "{{0}} 個選取專案"
   },
   "IMPORT_INPUT": {
+    "ar": "المدخل (Sass)",
     "bg": "Входящ (Sass)",
     "da": "Input (Sass)",
     "de": "Eingang (Sass)",
@@ -589,6 +620,7 @@
     "zh-CHT": "輸入 (Sass)"
   },
   "IMPORT_OUTPUT": {
+    "ar": "المُخرج (CSS)",
     "bg": "Изходящ (CSS)",
     "da": "Output (CSS)",
     "de": "Ausgabe (CSS)",
@@ -608,6 +640,7 @@
     "zh-CHT": "輸出 (CSS)"
   },
   "IMPORT_PROJECT_NAME": {
+    "ar": "اسم المشروع",
     "bg": "Име на проекта",
     "da": "Projekt Navn",
     "de": "Projektname",
@@ -627,6 +660,7 @@
     "zh-CHT": "專案名稱"
   },
   "IMPORT_PROJECTS": {
+    "ar": "استيراد مشاريع",
     "bg": "Импортни проекти",
     "da": "Indlæs projekter",
     "de": "Projekte importieren",
@@ -646,6 +680,7 @@
     "zh-CHT": "匯入專案"
   },
   "INPUT_FOLDER": {
+    "ar": "مجلد المدخلات",
     "bg": "Входяща папка",
     "da": "Input mappe:",
     "de": "Eingabeordner:",
@@ -665,6 +700,7 @@
     "zh-CHT": "輸入資料夾:"
   },
   "LANG_BG": {
+    "ar": "البلغارية (български)",
     "bg": "Български",
     "da": "Bulgarsk (български)",
     "de": "Bulgarisch (български)",
@@ -684,6 +720,7 @@
     "zh-CHT": "保加利亞語 (български)"
   },
   "LANG_DA": {
+    "ar": "الدنماركية (Dansk)",
     "bg": "Датски (Dansk)",
     "da": "Dansk",
     "de": "Dänisch (Dansk)",
@@ -703,6 +740,7 @@
     "zh-CHT": "丹麥語 (Dansk)"
   },
   "LANG_DE": {
+    "ar": "الألمانية (Deutsch)",
     "bg": "Немски (Deutsch)",
     "da": "Tysk (Deutsch)",
     "de": "Deutsch",
@@ -722,6 +760,7 @@
     "zh-CHT": "德語 (Deutsch)"
   },
   "LANG_EN": {
+    "ar": "الإنجليزية (English)",
     "bg": "Английски (English)",
     "da": "Engelsk (English)",
     "de": "Englisch (English)",
@@ -741,6 +780,7 @@
     "zh-CHT": "英文 (English)"
   },
   "LANG_ES": {
+    "ar": "الإسبانية (Español)",
     "bg": "Испански (Español)",
     "da": "Spansk (Español)",
     "de": "Spanisch (Español)",
@@ -760,6 +800,7 @@
     "zh-CHT": "西班牙語 (Español)"
   },
   "LANG_FA": {
+    "ar": "الفارسية (فارسى)",
     "bg": "(فارسی) Персийски",
     "da": "(فارسی) Persisk",
     "de": "(فارسی) Persisch",
@@ -779,6 +820,7 @@
     "zh-CHT": "(فارسی) 波斯語"
   },
   "LANG_FI": {
+    "ar": "الفنلندية (Suomen)",
     "bg": "Финладски (Suomen)",
     "da": "Finsk (Suomen)",
     "de": "Finnisch (Suomen)",
@@ -798,6 +840,7 @@
     "zh-CHT": "芬蘭 (Suomen)"
   },
   "LANG_FR": {
+    "ar": "الفرنسية (Français)",
     "bg": "Френски (Français)",
     "da": "Fransk (Français)",
     "de": "Französisch (Français)",
@@ -817,6 +860,7 @@
     "zh-CHT": "法語 (Français)"
   },
   "LANG_HE": {
+    "ar": "العبرية (עִברִית)",
     "bg": "(עִברִית) Иврит",
     "da": "(עִברִית) Hebrew",
     "de": "(עִברִית) Hebräisch",
@@ -836,6 +880,7 @@
     "zh-CHT": "(עִברִית) 希伯來語"
   },
   "LANG_HU": {
+    "ar": "الهنغارية (Magyar)",
     "bg": "Унгарски (Magyar)",
     "da": "Ungarsk (Magyar)",
     "de": "Ungarisch (Magyar)",
@@ -855,6 +900,7 @@
     "zh-CHT": "匈牙利語 (Magyar)"
   },
   "LANG_IT": {
+    "ar": "الإيطالية (Italiano)",
     "bg": "Италиански (Italiano)",
     "da": "Italiensk (Italiano)",
     "de": "Italienisch (Italiano)",
@@ -874,6 +920,7 @@
     "zh-CHT": "義大利語 (Italiano)"
   },
   "LANG_NL": {
+    "ar": "الهولندية (Nederlands)",
     "bg": "Нидерландски (Nederlands)",
     "da": "Hollandsk (Nederlands)",
     "de": "Niederländisch (Nederlands)",
@@ -893,6 +940,7 @@
     "zh-CHT": "荷蘭語 (Nederlands)"
   },
   "LANG_PL": {
+    "ar": "البولندية (Polski)",
     "bg": "Полски (Polski)",
     "da": "Polere (Polski)",
     "de": "Polnisch (Polski)",
@@ -912,6 +960,7 @@
     "zh-CHT": "拋光 (Polski)"
   },
   "LANG_RK": {
+    "ar": "لغة الهنود الحمر (Real America)",
     "bg": "Американски селяндур (Redneck)",
     "da": "Amerikansk Bondeknold (Redneck)",
     "de": "Redneck (Real America)",
@@ -931,6 +980,7 @@
     "zh-CHT": "美國粗話 (Redneck)"
   },
   "LANG_RU": {
+    "ar": "الروسية (русский)",
     "bg": "Руски (русский)",
     "da": "Russisk (русский)",
     "de": "Russisch (русский)",
@@ -950,6 +1000,7 @@
     "zh-CHT": "俄語 (русский)"
   },
   "LANG_VI": {
+    "ar": "الفيتنامية (Tiếng Việt)",
     "bg": "Виетнамски (Tiếng Việt)",
     "da": "Vietnamesisk (Tiếng Việt)",
     "de": "Vietnamesisch (Tiếng Việt)",
@@ -969,6 +1020,7 @@
     "zh-CHT": "越南語 (Tiếng Việt)"
   },
   "LANG_ZH-CHT": {
+    "ar": "الصينية التقليدية (中文)",
     "bg": "Традиционен китайски (中文)",
     "da": "Traditionelt Kinesisk (中文)",
     "de": "Chinesisch Traditional (中文)",
@@ -988,6 +1040,7 @@
     "zh-CHT": "繁體中文 (Traditional Chinese)"
   },
   "LANGUAGE_CHOICE": {
+    "ar": "اللغة:",
     "bg": "Език:",
     "da": "Sprog:",
     "de": "Sprache:",
@@ -1007,6 +1060,7 @@
     "zh-CHT": "選擇語言:"
   },
   "LATEST_VERSION": {
+    "ar": "لديك أحدث نسخة من Scout-App.",
     "bg": "Вие използвате последната версия на Scout-App.",
     "da": "Du har den seneste version af Scout-App",
     "de": "Sie haben die neueste Version der Scout-App.",
@@ -1026,6 +1080,7 @@
     "zh-CHT": "你的 Scout-App 已經是最新版本"
   },
   "LISTING_OF_PROJECTS": {
+    "ar": "قائمة بالمشاريع",
     "bg": "Списък на проекти",
     "da": "Lister alle projekter",
     "de": "Liste der Projekte",
@@ -1045,6 +1100,7 @@
     "zh-CHT": "專案列表"
   },
   "MESSAGES_DESKTOP": {
+    "ar": "تنبيهات سطح المكتب",
     "bg": "Известия в Работен плот",
     "da": "Skrivebordsunderretninger",
     "de": "Desktop-Benachrichtigung",
@@ -1064,6 +1120,7 @@
     "zh-CHT": "桌面通知"
   },
   "MESSAGES_IN_APP": {
+    "ar": "بداخل التطبيق",
     "bg": "В приложението",
     "da": "I App",
     "de": "In der Anwendung",
@@ -1083,6 +1140,7 @@
     "zh-CHT": "程式內通知"
   },
   "MESSAGES_SOUND": {
+    "ar": "تشغيل صوت",
     "bg": "Възпроизвеждане на звук",
     "da": "Afspil lyd",
     "de": "Ton abspielen",
@@ -1102,6 +1160,7 @@
     "zh-CHT": "撥放音效"
   },
   "MESSAGES_TITLE_ERROR": {
+    "ar": "رسائل خطأ",
     "bg": "Съобщения за грешка",
     "da": "Fejlmeddelelser",
     "de": "Fehlermeldungen",
@@ -1121,6 +1180,7 @@
     "zh-CHT": "錯誤訊息"
   },
   "MESSAGES_TITLE_SUCCESS": {
+    "ar": "رسائل نجاح",
     "bg": "Съобщения за успех",
     "da": "Succes Beskeder",
     "de": "Erfolgsmeldungen",
@@ -1140,6 +1200,7 @@
     "zh-CHT": "成功訊息"
   },
   "MILLISECONDS_SHORT": {
+    "ar": "جزء من ثانية",
     "bg": "мс",
     "da": "ms",
     "de": "ms",
@@ -1159,6 +1220,7 @@
     "zh-CHT": "毫秒"
   },
   "MISSING_DATA": {
+    "ar": "مجلد المدخلات أو المخرجات مفقود.",
     "bg": "Липсваща входяща или изходяща папка.",
     "da": "Mangler input eller output mappe.",
     "de": "Fehlender Eingabe- oder Ausgabeordner.",
@@ -1178,6 +1240,7 @@
     "zh-CHT": "找不到輸入或輸出資料夾"
   },
   "MULTI_IMPORT_BUTTON": {
+    "ar": "استيراد {{0}} مشاريع",
     "bg": "Импортни {{0}} проекта",
     "da": "Importer {{0}} Projekter",
     "de": "Importieren Sie {{0}} Projekte",
@@ -1197,6 +1260,7 @@
     "zh-CHT": "匯入 {{0}} 個專案"
   },
   "MULTIPROJECT_IMPORT": {
+    "ar": "استيراد عدة مشاريع",
     "bg": "Импортни няколко проекта",
     "da": "Importer Flere Projekter",
     "de": "Mehrprojektimport",
@@ -1216,6 +1280,7 @@
     "zh-CHT": "匯入多個專案"
   },
   "NEW_PROJECT": {
+    "ar": "مشروع جديد",
     "bg": "Нов проект",
     "da": "Nyt projekt",
     "de": "Neues Projekt",
@@ -1235,6 +1300,7 @@
     "zh-CHT": "新增專案"
   },
   "NO_SASS_FILES": {
+    "ar": "مجلد هذا المشروع لا يحتوي على أي ملفات Sass لمعالجتها.",
     "bg": "Тази папка на проекта не съдържа Sass файлове, които могат да се обработят.",
     "da": "Dette projekt input mappe indeholder ingen Sass filer, der kan behandles.",
     "de": "Der Eingabeordner dieses Projekts enthält keine Sass-Dateien, die verarbeitet werden können.",
@@ -1254,6 +1320,7 @@
     "zh-CHT": "專案中的輸入資料夾找不到任何 Sass 檔案"
   },
   "NOTIFICATIONS_CHOICE": {
+    "ar": "التنبيهات",
     "bg": "Известия",
     "da": "Underretninger",
     "de": "Benachrichtigungen",
@@ -1273,6 +1340,7 @@
     "zh-CHT": "通知"
   },
   "OUTPUT_COMPACT": {
+    "ar": "بسيط",
     "bg": "Компактен",
     "da": "Kompakt",
     "de": "Kompakt",
@@ -1292,6 +1360,7 @@
     "zh-CHT": "簡潔"
   },
   "OUTPUT_COMPRESSED": {
+    "ar": "مضغوط",
     "bg": "Компресиран",
     "da": "Komprimeret",
     "de": "Komprimiert",
@@ -1311,6 +1380,7 @@
     "zh-CHT": "壓縮"
   },
   "OUTPUT_EXPANDED": {
+    "ar": "بدون ضغط",
     "bg": "Разширен",
     "da": "Expanded",
     "de": "Erweitert",
@@ -1330,6 +1400,7 @@
     "zh-CHT": "擴展"
   },
   "OUTPUT_FOLDER": {
+    "ar": "مجلد الملفات الناتجة:",
     "bg": "Изходяща папка:",
     "da": "Output mappe:",
     "de": "Ausgabeordner:",
@@ -1349,6 +1420,7 @@
     "zh-CHT": "輸出資料夾:"
   },
   "OUTPUT_NESTED": {
+    "ar": "متداخل",
     "bg": "Вместени",
     "da": "Nested",
     "de": "Verschachtelt",
@@ -1368,6 +1440,7 @@
     "zh-CHT": "嵌套"
   },
   "OUTPUT_STYLE": {
+    "ar": "نمط الملف الناتج",
     "bg": "Изходящ стил",
     "da": "Output stil",
     "de": "Ausgabetyp",
@@ -1387,6 +1460,7 @@
     "zh-CHT": "輸出類型"
   },
   "OUTPUT_WARNING": {
+    "ar": "مجلد المخرجات لا يمكن أن يطابق أو يكون مجلدًا فرعيًا لمجلد المدخلات.",
     "bg": "Изходящата папка не може да съвпада или да бъде подпапка на входящата.",
     "da": "Output kan ikke være samme eller undermappe til input.",
     "de": "Ausgabeordner darf nicht mit dem Eingabeordner übereinstimmen oder ein Unterordner von diesem sein.",
@@ -1406,6 +1480,7 @@
     "zh-CHT": "輸出不能和輸入使用同一資料夾或是其子資料夾"
   },
   "PREFERENCES": {
+    "ar": "التفضيلات",
     "bg": "Настройки",
     "da": "Indstillinger",
     "de": "Einstellungen",
@@ -1425,6 +1500,7 @@
     "zh-CHT": "偏好設定"
   },
   "PROCESSED_IN_DURATION": {
+    "ar": "عولج خلال  {{duration}}",
     "bg": "Обработени в {{duration}}",
     "da": "Behandlet på {{duration}}",
     "de": "Verarbeitung in {{duration}}",
@@ -1444,6 +1520,7 @@
     "zh-CHT": "處理時間: {{duration}}"
   },
   "PRODUCTION": {
+    "ar": "الإنتاج",
     "bg": "Производство",
     "da": "Produktion",
     "de": "Produktion",
@@ -1463,6 +1540,7 @@
     "zh-CHT": "上線"
   },
   "PROJECT_CONTROLS": {
+    "ar": "التحكم بالمشروع",
     "bg": "Контроли на проекта",
     "da": "Projekt knapper",
     "de": "Projektsteuerung",
@@ -1482,6 +1560,7 @@
     "zh-CHT": "專案控制"
   },
   "PROJECT_ICON": {
+    "ar": "أيقونة المشروع",
     "bg": "Иконка на проекта",
     "da": "Projekt ikon",
     "de": "Projekt-Icon",
@@ -1501,6 +1580,7 @@
     "zh-CHT": "專案圖示"
   },
   "SCOUTAPP_LOGO": {
+    "ar": "شعار Scout-App",
     "bg": "Scout-App Logo",
     "da": "Scout-App logo",
     "de": "Scout-App-Logo",
@@ -1520,6 +1600,7 @@
     "zh-CHT": "Scout-App Logo"
   },
   "SECONDS": {
+    "ar": "ثوانٍ",
     "bg": "секунди",
     "da": "sekunder",
     "de": "Sekunden",
@@ -1539,6 +1620,7 @@
     "zh-CHT": "秒"
   },
   "SELECT_DESELECT_ALL": {
+    "ar": "تحديد/إلغاء تحديد الكل",
     "bg": "Избор на всичко",
     "da": "Vælg/Fravælg alle",
     "de": "Alles auswählen/abwählen",
@@ -1558,6 +1640,7 @@
     "zh-CHT": "全選/全不選"
   },
   "SELECT_GROUP_FOLDER": {
+    "ar": "اختر مجلد المشاريع",
     "bg": "избери група папки",
     "da": "vælge gruppen mappe",
     "de": "wählen Sie den Gruppenordner",
@@ -1577,6 +1660,7 @@
     "zh-CHT": "選擇專案群組資料夾"
   },
   "SELECT_PROJECT_FOLDER": {
+    "ar": "اختر مجلد مشروع",
     "bg": "избери папка на проекта",
     "da": "vælg et projekt mappe",
     "de": "wählen Sie einen Projektordner",
@@ -1596,6 +1680,7 @@
     "zh-CHT": "選擇專案資料夾"
   },
   "SERVER_DOWN": {
+    "ar": "تعذّر الاتصال بخادم التحديثات. حاول مرة أخرى لاحقًا.",
     "bg": "Не може да се свърже със сървъра за акуализации. Опитайте отново по-късно.",
     "da": "Opdateringsserver ikke tilgængelig. Prøv igen senere.",
     "de": "Aktualisierungsserver nicht erreichbar. Versuchen Sie es später noch einmal.",
@@ -1615,6 +1700,7 @@
     "zh-CHT": "無法連結更新伺服器. 稍候再試"
   },
   "SHOW": {
+    "ar": "إظهار",
     "bg": "Покажи",
     "da": "At vise",
     "de": "Anzeigen",
@@ -1634,6 +1720,7 @@
     "zh-CHT": "显示"
   },
   "STATUS": {
+    "ar": "الحالة",
     "bg": "Статус",
     "da": "Status",
     "de": "Status",
@@ -1653,6 +1740,7 @@
     "zh-CHT": "狀態"
   },
   "STATUS_OF_ALL_PROJECTS": {
+    "ar": "حالات كل المشاريع",
     "bg": "Статус на всички проекти",
     "da": "Status på alle projekter",
     "de": "Status aller Projekte",
@@ -1672,6 +1760,7 @@
     "zh-CHT": "專案狀態"
   },
   "STYLESHEET_CHOICE": {
+    "ar": "السمة:",
     "bg": "Тема",
     "da": "Tema:",
     "de": "Thema:",
@@ -1691,6 +1780,7 @@
     "zh-CHT": "佈景主題:"
   },
   "STYLESHEET_DIRECTORIES": {
+    "ar": "مجلدات ملفات الأنماط (stylesheets)",
     "bg": "Директории със стилове",
     "da": "Stylesheet mapper",
     "de": "Stylesheet Verzeichnisse",
@@ -1710,6 +1800,7 @@
     "zh-CHT": "樣式表位置"
   },
   "TOGGLE_NAVIGATION": {
+    "ar": "إظهار المتنقل",
     "bg": "Покажи менюто",
     "da": "Omskift navigation",
     "de": "Navigation umschalten",
@@ -1729,6 +1820,7 @@
     "zh-CHT": "顯示/隱藏導覽列"
   },
   "TRANSLATED_BY": {
+    "ar": "ترجمه:",
     "bg": "Преведен от:",
     "da": "Oversat af:",
     "de": "Übersetzt von:",
@@ -1748,6 +1840,7 @@
     "zh-CHT": "翻譯:"
   },
   "TRANSLATOR": {
+    "ar": "MrG0lden",
     "bg": "Belkin Fahri",
     "da": "Johan Holst Nielsen",
     "de": "Tobias Dickgreber",
@@ -1767,6 +1860,7 @@
     "zh-CHT": "Hsin Cheng Lin (Luke)"
   },
   "TRANSLATOR_MEME": {
+    "ar": "هانك هيل (شخصية كرتونية) من مسلسل ملك الجحيم يقول: \"أنا أعالج ملفات Sass، ودوال Sass.",
     "bg": ".",
     "da": "Hank Hill, fra King of the Hill siger 'I process Sass, and Sass Mixins'.",
     "de": "Fischers Fritze fischt frische Fische, zubereitet mit Sass.",
@@ -1786,6 +1880,7 @@
     "zh-CHT": "CSS 鄙視鏈: Sass, LESS > SMACSS, OOCSS > External, Internal CSS >>> inline CSS"
   },
   "TRANSLATOR_URL": {
+    "ar": "http://github.com/mrg0lden",
     "bg": "http://belkinfahri.com",
     "da": "http://phpgeek.dk",
     "de": "https://github.com/SirTobey1337",
@@ -1805,6 +1900,7 @@
     "zh-CHT": "https://hsinchenglin.com"
   },
   "UPDATE_FOUND": {
+    "ar": "وجدنا تحديثًا!",
     "bg": "Налична е актуализация!",
     "da": "Opdatering fundet.",
     "de": "Update gefunden!",
@@ -1824,6 +1920,7 @@
     "zh-CHT": "有新版本!"
   },
   "VERSION": {
+    "ar": "الإصدار",
     "bg": "Версия",
     "da": "Version",
     "de": "Version",
@@ -1843,6 +1940,7 @@
     "zh-CHT": "版本"
   },
   "VIEW": {
+    "ar": "عرض",
     "bg": "Изглед",
     "da": "Vis",
     "de": "Ansicht",
@@ -1862,6 +1960,7 @@
     "zh-CHT": "檢視"
   },
   "VIEW_LATEST_RELEASE": {
+    "ar": "عرض آخر إصدار",
     "bg": "Виж последните версии",
     "da": "Vis seneste udgivelsesmeddelelse",
     "de": "Neueste Version ansehen",
@@ -1881,6 +1980,7 @@
     "zh-CHT": "檢視最新版本"
   },
   "WELCOME_MESSAGE": {
+    "ar": "مرحبًا بك في Scout-App!",
     "bg": "Добре дошъл в Scout-App!",
     "da": "Velkommen til Scout-App!",
     "de": "Willkommen bei Scout-App!",
