@@ -154,8 +154,14 @@
               <h3 data-lang="ENVIRONMENT"></h3>
             </div>
             <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> <span data-lang="DEVELOPMENT"></span></label>
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> <span data-lang="PRODUCTION" ></span></label>
+              <div class="col-xs-12">
+                <input id="development"  type="radio" name="environment" data-argName="development" value="development"         />
+                <label for="development" class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="DEVELOPMENT"></label>
+              </div>
+              <div class="col-xs-12">
+                <input id="production"   type="radio" name="environment" data-argName="production"  value="production"  checked />
+                <label for="production"  class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="PRODUCTION"></label>
+              </div>
             </div>
 
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
