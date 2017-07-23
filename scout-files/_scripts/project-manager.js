@@ -174,7 +174,7 @@
         appData.split('\\').join('/');
         var settingsJSON = appData + '/scout-settings.json';
         if (location && fs.existsSync(location)) {
-            settingsJSON = location + '/scount-settings.json';
+            settingsJSON = location + '/scout-settings.json';
         }
         var data = {};
         data.projects = scout.projects;
