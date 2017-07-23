@@ -18,15 +18,13 @@ var languagesToSkip = [];
 
 var fs = require('fs-extra');
 var path = require('path');
-var https = require('https');
-var Converter = require('csvtojson').Converter;
-var converter = new Converter({});
+var request = require('request');
+var csv = require('csvtojson');
+var data = [];
 var url = 'https://docs.google.com/spreadsheets/d/e/' +
           '2PACX-1vTkjAZ74inh5aFKTS2kh_-FP2hBG1MTUUYBZ_3J8MFhDR8bz6KoX8FDJg2s-_TUeoue5pCUBF2tgNSO/' +
           'pub?gid=1510538720&single=true&output=csv';
-var folder = 'scout-files/cultures/';
-var csv = path.join(folder, 'translation.csv');
-var file = fs.createWriteStream(csv);
+var folder = path.join(process.cwd(), 'scout-files/cultures/');
 
 function sortCultureCodes (unordered) {
     var ordered = {};
@@ -36,64 +34,61 @@ function sortCultureCodes (unordered) {
     return ordered;
 }
 
-function createJSON () {
-    var sheet = fs.readFileSync(csv, 'UTF-8');
-    var newDictionary = {};
+function createJSON (result) {
+    // Remove "Notes" columns
+    var row = {};
     var i = 0;
     var key = '';
+    var newDictionary = {};
 
-    converter.fromString(sheet, function (err, result) {
-        if (err) {
-            console.log(err);
-            return;
-        }
-
-        // Remove "Notes" columns
-        var row = {};
-        for (i = 0; i < result.length; i++) {
-            row = result[i];
-            for (key in row) {
-                if (key.indexOf('note') > -1) {
-                    delete row[key];
-                }
-            }
-            result[i] = row;
-            newDictionary[result[i].KEYWORD] = result[i];
-        }
-
-        // Remove CONTEXT, KEYWORD, and unfinished translation columns
-        for (key in newDictionary) {
-            delete newDictionary[key].CONTEXT;
-            delete newDictionary[key].KEYWORD;
-            for (i = 0; i < languagesToSkip.length; i++) {
-                delete newDictionary[key][languagesToSkip[i]];
+    for (i = 0; i < result.length; i++) {
+        row = result[i];
+        for (key in row) {
+            if (key.indexOf('note') > -1) {
+                delete row[key];
             }
         }
+        result[i] = row;
+        newDictionary[result[i].KEYWORD] = result[i];
+    }
 
-        // Alphabetize list of cultures in each KEYWORD
-        for (key in newDictionary) {
-            newDictionary[key] = sortCultureCodes(newDictionary[key]);
+    // Remove CONTEXT, KEYWORD, and unfinished translation columns
+    for (key in newDictionary) {
+        delete newDictionary[key].CONTEXT;
+        delete newDictionary[key].KEYWORD;
+        for (i = 0; i < languagesToSkip.length; i++) {
+            delete newDictionary[key][languagesToSkip[i]];
         }
+    }
 
-        // Convert to a string with an empty line at the end
-        var output = JSON.stringify(newDictionary, null, 2);
-        output = output.split('\r\n').join('\n');
-        output = output.split('\n\r').join('\n');
-        output = output.split('\r').join('\n');
-        output = output.split('\n').join('\r\n');
-        output = output + '\r\n';
+    // Alphabetize list of cultures in each KEYWORD
+    for (key in newDictionary) {
+        newDictionary[key] = sortCultureCodes(newDictionary[key]);
+    }
 
-        // Save the file
-        var dictionaryPath = path.join(folder, 'dictionary.json');
-        fs.writeFileSync(dictionaryPath, output);
-        console.log('Updated: ', dictionaryPath);
-    });
+    // Convert to a string with an empty line at the end
+    var output = JSON.stringify(newDictionary, null, 2);
+    output = output.split('\r\n').join('\n');
+    output = output.split('\n\r').join('\n');
+    output = output.split('\r').join('\n');
+    output = output.split('\n').join('\r\n');
+    output = output + '\r\n';
+
+    // Save the file
+    var dictionaryPath = path.join(folder, 'dictionary.json');
+    fs.writeFileSync(dictionaryPath, output);
+    console.log('Updated: ', dictionaryPath);
 }
 
-https.get(url, function (response) {
-    response.pipe(file);
-    response.on('end', function () {
-        // Give the OS 3 seconds to finish saving the file to disk
-        setTimeout(createJSON, 3000);
+csv()
+    .fromStream(request.get(url))
+    .on('json', function (jsonObj) {
+        data.push(jsonObj);
+    })
+    .on('done', function (error) {
+        if (error) {
+            console.log(error);
+        } else {
+            createJSON(data);
+        }
     });
-});

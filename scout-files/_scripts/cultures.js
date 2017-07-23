@@ -38,7 +38,7 @@
      */
     function textDirection () {
         // All RTL langs, like Hebrew (he) or Persian (fa).
-        var rtlLangs = ['he', 'fa'];
+        var rtlLangs = ['ar', 'fa', 'he'];
         for (var i = 0; i < rtlLangs.length; i++) {
             if (scout.globalSettings.cultureCode == rtlLangs[i]) {
                 return 'rtl';
