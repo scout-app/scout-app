@@ -11,6 +11,8 @@ options:
 # File Options
 files:
   include: 'scout-files/_sass/*.s+(a|c)ss'
+# ignore:
+#   - 'sass/vendor/**/*.*'
 # Rule Configuration
 rules:
   attribute-quotes: 2
@@ -63,15 +65,17 @@ rules:
   property-sort-order:
     - 1
     - ignore-custom-properties: true
+    -
       order:
+        # Effects if the element exists
         - content
-
+        # Highest effect of where pixel painting begins
         - position
         - top
         - right
         - bottom
         - left
-
+        # How the element is displayed
         - display
         - align-content
         - align-items
@@ -85,21 +89,21 @@ rules:
         - flex-wrap
         - justify-content
         - order
-
+        # Overall size, max amount of pixels that can be painted
         - width
         - height
         - min-width
         - min-height
         - max-width
         - max-height
-
+        # Effects the most amount of pixel paint in the element
         - background
         - background-color
         - background-image
         - background-position
         - background-repeat
         - background-size
-
+        # Box model
         - border
         - border-width
         - border-style
@@ -135,8 +139,9 @@ rules:
         - padding-right
         - padding-bottom
         - padding-left
-
+        # Text treatment
         - color
+        - direction
         - font-family
         - font-size
         - -webkit-font-smoothing
@@ -159,10 +164,13 @@ rules:
         - text-transform
         - white-space
         - word-break
-
+        - unicode-bidi
+        # Less common properties go to the bottom
         - box-shadow
         - clear
         - cursor
+        - -webkit-filter
+        - filter
         - float
         - opacity
         - outline
