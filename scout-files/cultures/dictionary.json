@@ -6,7 +6,7 @@
     "de": "Über",
     "en": "About",
     "es": "Acerca de",
-    "es-AR": "Sobre",
+    "es-ar": "Sobre",
     "fa": "درباره ما",
     "fi": "Tietoa",
     "fr": "À propos",
@@ -20,8 +20,8 @@
     "ru": "O программе",
     "tr": "Hakkında",
     "vi": "Giới thiệu",
-    "zh-CHT": "關於",
-    "zh-CN": "关于"
+    "zh-cht": "關於",
+    "zh-cn": "关于"
   },
   "ABOUT_CONTRIBUTORS": {
     "ar": "المساهمون في <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
@@ -30,7 +30,7 @@
     "de": "Unterstützer",
     "en": "Contributors to  <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "es": "Los colaboradores para  <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
-    "es-AR": "Colaboradores de <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
+    "es-ar": "Colaboradores de <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "fa": "کسانی که در ساخت این نرم افزار مشارکت داشته اند",
     "fi": "Avustajat  <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "fr": "Contributeurs de <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
@@ -44,8 +44,8 @@
     "ru": "о вкладчиков k <a href='http://github.com/scout-app/scout-app' class='external-link'>Cкаут-Aппa</a>:",
     "tr": "Katkıda bulunanlar <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
     "vi": "Người đóng góp cho <a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a>:",
-    "zh-CHT": "<a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a> 開發協助者:",
-    "zh-CN": "<a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a> 开发者"
+    "zh-cht": "<a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a> 開發協助者:",
+    "zh-cn": "<a href='http://github.com/scout-app/scout-app' class='external-link'>Scout-App</a> 开发者"
   },
   "ABOUT_DEPENDENCIES": {
     "ar": "<strong>Scout-App</strong> يستخدم <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> و <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
@@ -54,7 +54,7 @@
     "de": "<strong>Scout-App</strong> verwendet <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> und <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "en": "<strong>Scout-App</strong> uses <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> and <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "es": "<strong>Scout-App</strong> usa <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> y <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
-    "es-AR": "<strong>Scout-App</strong> usa <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> y <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
+    "es-ar": "<strong>Scout-App</strong> usa <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> y <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "fa": "<strong>پیشآهنگی برنامه</strong> با استفاده از <span class=\" nodeSassVersion\"></span> <a class=\"external-link\" href=\"https://github.com/sass/node-sass\">node-sass</a> را توسط در و <span class=\"chokidarVersion\"></span> <a class=\"external-link\" href=\"https://github.com/paulmillr/chokidar\">chokidar</a> را توسط  در.",
     "fi": "<strong>Scout-App</strong> hyödyntää <a class='external-link' href='https://github.com/sass/node-sass'>node-sassia</a> <span class='nodeSassVersion'></span> ja <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidaria</a> <span class='chokidarVersion'></span>.",
     "fr": "<strong>Scout-App</strong> utilise <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> et <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
@@ -68,8 +68,8 @@
     "ru": "<strong>Cкаут-Aпп</strong> использует <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> и <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
     "tr": "<strong>Scout-App</strong> <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> ve <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span> kullanır.",
     "vi": "<strong>Scout-App</strong> sử dụng <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> và <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
-    "zh-CHT": "<strong>Scout-App</strong> 採用 <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> 及 <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
-    "zh-CN": "<strong>Scout-App</strong> 使用 <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> 及 <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>."
+    "zh-cht": "<strong>Scout-App</strong> 採用 <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> 及 <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>.",
+    "zh-cn": "<strong>Scout-App</strong> 使用 <a class='external-link' href='https://github.com/sass/node-sass'>node-sass</a> <span class='nodeSassVersion'></span> 及 <a class='external-link' href='https://github.com/paulmillr/chokidar'>chokidar</a> <span class='chokidarVersion'></span>."
   },
   "ABOUT_DESCRIPTION": {
     "ar": "<strong>Scout-App</strong> يسمح لك بمعالجة ملفات <code>.sass</code> و <code>.scss</code> إلى ملفات CSS دون أية حاجة للتعامل مع سطر الأوامر",
@@ -78,7 +78,7 @@
     "de": "Mit <strong>Scout-App</strong> generierst Du deine eigenen <code>.sass</code> und <code>.scss</code>-Dateien in CSS ohne Kenntnisse von Terminal/Eingabeaufforderung.",
     "en": "<strong>Scout-App</strong> allows you to process your <code>.sass</code> and <code>.scss</code> files into CSS without needing any knowledge of the command line.",
     "es": "<strong>Scout-App</strong> le permite procesar sus ficheros <code>.sass</code> y <code>.scss</code>  en CSS sin necesitar ningún conocimiento de la linea de comandos.",
-    "es-AR": "<strong>Scout-App</strong> permite procesar tus archivos <code>.sass</code> y <code>.scss</code> en CSS sin tener conocimiento de la línea de comandos.",
+    "es-ar": "<strong>Scout-App</strong> permite procesar tus archivos <code>.sass</code> y <code>.scss</code> en CSS sin tener conocimiento de la línea de comandos.",
     "fa": "کاربردهای این برنامه",
     "fi": "<strong>Scout-App</strong> sallii sinun prosessoida <code>.sass</code> and <code>.scss</code> -tiedostaja CSS-tiedostoiksi ilman komentorivitietoutta.",
     "fr": "<strong>Scout-App</strong> vous permet de traiter vos fichiers <code>.sass</code> et <code>.scss</code> en CSS sans avoir besoin de connaissances sur la ligne de commande.",
@@ -92,8 +92,8 @@
     "ru": "<strong>Cкаут-Aппa</strong> позволяет обрабатывать <code>.sass</code> и <code>.scss</code> файлы в CSS без использования командной строки",
     "tr": "<strong>Scout-App</strong> <code>.sass</code> ve <code>.scss</code> dosyalarınızı hiç komut satırı bilmeden CSS'e çevirmenizi sağlar.",
     "vi": "<strong>Scout-App</strong> cho phép bạn xử lý các tệp <code>.sass</code> và <code>.scss</code> thành CSS mà không cần kiến thức về dòng lệnh.",
-    "zh-CHT": "無須任何命令列指令, <strong>Scout-App</strong> 幫你自動轉換 <code>.sass</code> 和 <code>.scss</code> 代碼至 CSS",
-    "zh-CN": "无须记忆任何命令行<strong>Scout-App</strong> 帮您编译<code>.sass</code> and <code>.scss</code>至 CSS 格式."
+    "zh-cht": "無須任何命令列指令, <strong>Scout-App</strong> 幫你自動轉換 <code>.sass</code> 和 <code>.scss</code> 代碼至 CSS",
+    "zh-cn": "无须记忆任何命令行<strong>Scout-App</strong> 帮您编译<code>.sass</code> and <code>.scss</code>至 CSS 格式."
   },
   "ABOUT_SCOUTAPP": {
     "ar": "عن Scout-App",
@@ -102,7 +102,7 @@
     "de": "Über Scout-App",
     "en": "About Scout-App",
     "es": "Acerca de Scout-App",
-    "es-AR": "Sobre Scout-App",
+    "es-ar": "Sobre Scout-App",
     "fa": "SCOUTAPP چیست",
     "fi": "Tietoa Scout-Appista",
     "fr": "A propos de Scout-App",
@@ -116,8 +116,8 @@
     "ru": "O Cкаут-Aппa",
     "tr": "Scout-App hakkında",
     "vi": "Về Scout-App",
-    "zh-CHT": "關於 Scout-App",
-    "zh-CN": "About Scout-App"
+    "zh-cht": "關於 Scout-App",
+    "zh-cn": "About Scout-App"
   },
   "ABOUT_VISIT_UPDATE": {
     "ar": "زر موقع Scout-App للبحث عن تحديثات:",
@@ -126,7 +126,7 @@
     "de": "Besuchen Sie die Scout-App-Webseite, um nach Updates zu suchen:",
     "en": "Visit the Scout-App website to check for updates:",
     "es": "Visitar el sitio web de Scout-App para comprobar las actualizaciones:",
-    "es-AR": "Visitá la página web de Scout-App para buscar actualizaciones:",
+    "es-ar": "Visitá la página web de Scout-App para buscar actualizaciones:",
     "fa": "بازدید از وب سایت پیشآهنگی برنامه برای به روز رسانی:",
     "fi": "Käy Scout-Appin verkkosivuilla tarkistaaksesi päivityksistä:",
     "fr": "Visitez le site Web de Scout-App pour vérifier les mises à jour:",
@@ -140,8 +140,8 @@
     "ru": "Посетите сайт Cкаут-Aппa, чтобы проверить для обновления:",
     "tr": "Scout-App websitesini ziyaret ederek güncellemeleri kontrol edin:",
     "vi": "Truy cập vào trang web của Scout-App để kiểm tra các bản cập nhật:",
-    "zh-CHT": "到 Scout-App 網站看看有沒有更新:",
-    "zh-CN": "网站更新"
+    "zh-cht": "到 Scout-App 網站看看有沒有更新:",
+    "zh-cn": "网站更新"
   },
   "ADD_A_PROJECT": {
     "ar": "أضف مشروعًا",
@@ -150,7 +150,7 @@
     "de": "Neues Projekt",
     "en": "Add a Project",
     "es": "Añadir un Proyecto",
-    "es-AR": "Agregar proyecto",
+    "es-ar": "Agregar proyecto",
     "fa": "اضافه کردن یک پروژه",
     "fi": "Lisää projekti",
     "fr": "Ajouter un projet",
@@ -164,8 +164,8 @@
     "ru": "Добавить проект",
     "tr": "Proje Ekle",
     "vi": "Thêm một dự án",
-    "zh-CHT": "新增專案",
-    "zh-CN": "添加项目"
+    "zh-cht": "新增專案",
+    "zh-cn": "添加项目"
   },
   "ADD_GROUP_OF_PROJECTS": {
     "ar": "أضف مجموعة مشاريع",
@@ -174,7 +174,7 @@
     "de": "Neue Gruppe von Projekten hinzufügen",
     "en": "Add Group of Projects",
     "es": "Añadir un grupo de Proyectos",
-    "es-AR": "Agregar grupo de proyectos",
+    "es-ar": "Agregar grupo de proyectos",
     "fa": "اضافه کردن گروهی از پروژه ها",
     "fi": "Lisää ryhmä projekteja",
     "fr": "Ajouter un groupe de projets",
@@ -188,8 +188,8 @@
     "ru": "Добавить группы проектов",
     "tr": "Proje Grubu Ekle",
     "vi": "Thêm nhóm các dự án",
-    "zh-CHT": "新增多個專案",
-    "zh-CN": "添加多个项目"
+    "zh-cht": "新增多個專案",
+    "zh-cn": "添加多个项目"
   },
   "ADD_PROJECT": {
     "ar": "إضافة مشروع",
@@ -198,7 +198,7 @@
     "de": "Projekt hinzufügen",
     "en": "Add Project",
     "es": "Añadir Proyecto",
-    "es-AR": "Agregar proyecto",
+    "es-ar": "Agregar proyecto",
     "fa": "افزودن پروژه",
     "fi": "Lisää projekti",
     "fr": "Ajouter un projet",
@@ -212,8 +212,8 @@
     "ru": "добав проект",
     "tr": "Proje Ekle",
     "vi": "Thêm dự án",
-    "zh-CHT": "新增專案",
-    "zh-CN": "添加项目"
+    "zh-cht": "新增專案",
+    "zh-cn": "添加项目"
   },
   "ALERT_TITLE": {
     "ar": "<strong>{{time}}</strong> خطأ(0x0{{code}}) - السطر: <strong>{{bugLine}}</strong> الحقل: <strong>{{col}}</strong>",
@@ -222,7 +222,7 @@
     "de": "<strong>{{time}}</strong> Fehler (0x0{{code}}) - Zeile: <strong>{{bugLine}}</strong> Spalte: <strong>{{col}}</strong>",
     "en": "<strong>{{time}}</strong> Error (0x0{{code}}) - Line: <strong>{{bugLine}}</strong> Col: <strong>{{col}}</strong>",
     "es": "<strong>{{time}}</strong> Error (0x0{{code}}) - Line: <strong>{{bugLine}}</strong> Col: <strong>{{col}}</strong>",
-    "es-AR": "<strong>{{time}}</strong> Error (0x0{{code}}) - Línea: <strong>{{bugLine}}</strong> Col: <strong>{{col}}</strong>",
+    "es-ar": "<strong>{{time}}</strong> Error (0x0{{code}}) - Línea: <strong>{{bugLine}}</strong> Col: <strong>{{col}}</strong>",
     "fa": "عنوان خطا",
     "fi": "<strong>{{time}}</strong> Virheilmoitus (0x0{{code}}) - Rivi: <strong>{{bugLine}}</strong> Sarake: <strong>{{col}}</strong>",
     "fr": "<strong>{{time}}</strong> Erreur (0x0{{code}}) - Ligne: <strong>{{bugLine}}</ strong> Colonne: <strong>{{col}}</ strong >",
@@ -236,8 +236,8 @@
     "ru": "<Strong>{{time}}</strong> Ошибка (0x0 {{code}}) - линии: <strong>{{bugLine}}</strong> Кол: <strong>{{col}}</strong>",
     "tr": "<strong>{{time}}</strong> Hata (0x0{{code}}) - Satır: <strong>{{bugLine}}</strong> Sütun: <strong>{{col}}</strong>",
     "vi": "<strong>{{time}}</strong> Lỗi (0x0{{code}}) - Dòng: <strong>{{bugLine}}</strong> Cột: <strong>{{col}}</strong>",
-    "zh-CHT": "<strong>{{time}}</strong> 錯誤 (0x0{{code}}) - 第 <strong>{{bugLine}}</strong> 行, 字元數: <strong>{{col}}</strong>",
-    "zh-CN": "<strong>{{time}}</strong> 错误 (0x0{{code}}) - 行: <strong>{{bugLine}}</strong> 列: <strong>{{col}}</strong>"
+    "zh-cht": "<strong>{{time}}</strong> 錯誤 (0x0{{code}}) - 第 <strong>{{bugLine}}</strong> 行, 字元數: <strong>{{col}}</strong>",
+    "zh-cn": "<strong>{{time}}</strong> 错误 (0x0{{code}}) - 行: <strong>{{bugLine}}</strong> 列: <strong>{{col}}</strong>"
   },
   "APPLICATION_TITLE": {
     "ar": "Scout-App: واجهة Sass",
@@ -246,7 +246,7 @@
     "de": "Scout-App: Die Sass-GUI",
     "en": "Scout-App: The Sass GUI",
     "es": "Scout-App: La interfaz gráfica de usuario Sass",
-    "es-AR": "Scout-App: La UI de Sass",
+    "es-ar": "Scout-App: La UI de Sass",
     "fa": "عنوان برنامه کاربردی",
     "fi": "Scout-App: Sass käyttöliittymä",
     "fr": "Scout-App: L'interface graphique Sass",
@@ -260,8 +260,8 @@
     "ru": "Cкаут-Aпп: GUI для Sass",
     "tr": "Scout-App: The Sass GUI",
     "vi": "Scout-App: Ứng dụng biên dịch Sass",
-    "zh-CHT": "Scout-App: The Sass GUI",
-    "zh-CN": "Scout-App: The Sass GUI"
+    "zh-cht": "Scout-App: The Sass GUI",
+    "zh-cn": "Scout-App: The Sass GUI"
   },
   "BROWSE": {
     "ar": "استعراض",
@@ -270,7 +270,7 @@
     "de": "Durchsuchen",
     "en": "Browse",
     "es": "Visualizar",
-    "es-AR": "Buscar",
+    "es-ar": "Buscar",
     "fa": "کاوش و انتخاب",
     "fi": "Selaa",
     "fr": "Naviguer",
@@ -284,8 +284,8 @@
     "ru": "просматривать",
     "tr": "Göz at",
     "vi": "Duyệt",
-    "zh-CHT": "查看檔案/資料夾",
-    "zh-CN": "浏览"
+    "zh-cht": "查看檔案/資料夾",
+    "zh-cn": "浏览"
   },
   "CANCEL": {
     "ar": "إلغاء",
@@ -294,7 +294,7 @@
     "de": "Abbrechen",
     "en": "Cancel",
     "es": "Cancelar",
-    "es-AR": "Cancelar",
+    "es-ar": "Cancelar",
     "fa": "لغو",
     "fi": "Peruuta",
     "fr": "Annuler",
@@ -308,8 +308,8 @@
     "ru": "Отмен",
     "tr": "İptal",
     "vi": "Bỏ qua",
-    "zh-CHT": "取消",
-    "zh-CN": "取消"
+    "zh-cht": "取消",
+    "zh-cn": "取消"
   },
   "CAT_SCREAMING_NO": {
     "ar": "قطة تصرخ: \"لا!\"",
@@ -318,7 +318,7 @@
     "de": "Katze schreit 'NEIN!'",
     "en": "Cat screaming 'NO!'",
     "es": "El gato grita ¡NO!",
-    "es-AR": "Un gato grita: ¡No!",
+    "es-ar": "Un gato grita: ¡No!",
     "fa": "حذف پروژه",
     "fi": "Kissa huutaa 'EI!'",
     "fr": "Chat hurlant 'NON!'",
@@ -332,8 +332,8 @@
     "ru": "Кот, который кричит 'НЕТ'",
     "tr": "Kedi çığlık atıyor 'HAYIR!'",
     "vi": "Mèo hét lên 'KHÔNG!'",
-    "zh-CHT": "貓大叫 `不!'",
-    "zh-CN": "不要啊~~~"
+    "zh-cht": "貓大叫 `不!'",
+    "zh-cn": "不要啊~~~"
   },
   "CHECK_FOR_UPDATES": {
     "ar": "البحث عن تحديثات",
@@ -342,7 +342,7 @@
     "de": "Auf Updates prüfen",
     "en": "Check for updates",
     "es": "Comprobar si hay actualizaciones",
-    "es-AR": "Buscar actualizaciones",
+    "es-ar": "Buscar actualizaciones",
     "fa": "بررسی آپدیت جدید",
     "fi": "Tarkista päivitykset",
     "fr": "Vérifier les mises à jour",
@@ -356,8 +356,8 @@
     "ru": "провер для обновления",
     "tr": "Güncellemeleri kontrol et",
     "vi": "Kiểm tra cập nhật",
-    "zh-CHT": "檢查更新",
-    "zh-CN": "检查新版本"
+    "zh-cht": "檢查更新",
+    "zh-cn": "检查新版本"
   },
   "CONFIRM_DELETE": {
     "ar": "هل أنت متأكد؟",
@@ -366,7 +366,7 @@
     "de": "Bist du sicher?",
     "en": "Are you sure?",
     "es": "¿Está seguro?",
-    "es-AR": "¿Seguro?",
+    "es-ar": "¿Seguro?",
     "fa": "ایا مطمئن هستی میخوای پروژه رو حذف کنی ؟!",
     "fi": "Oletko varma?",
     "fr": "Êtes-vous sûr?",
@@ -380,8 +380,8 @@
     "ru": "Вы уверены, что хотите удалить этот проект",
     "tr": "Emin misiniz?",
     "vi": "Bạn chắc chứ?",
-    "zh-CHT": "你確定嗎?",
-    "zh-CN": "确定吗？"
+    "zh-cht": "你確定嗎?",
+    "zh-cn": "确定吗？"
   },
   "DELETE": {
     "ar": "إزالة",
@@ -390,7 +390,7 @@
     "de": "Entfernen",
     "en": "Remove",
     "es": "Borrar",
-    "es-AR": "Quitar",
+    "es-ar": "Quitar",
     "fa": "حذف",
     "fi": "Poista",
     "fr": "Retirer",
@@ -404,8 +404,8 @@
     "ru": "Удалить",
     "tr": "Sil",
     "vi": "Xóa",
-    "zh-CHT": "移除",
-    "zh-CN": "删除"
+    "zh-cht": "移除",
+    "zh-cn": "删除"
   },
   "DELETE_PROJECT": {
     "ar": "إزالة المشروع",
@@ -414,7 +414,7 @@
     "de": "Projekt entfernen",
     "en": "Remove Project",
     "es": "Borrar Proyecto",
-    "es-AR": "Quitar proyecto",
+    "es-ar": "Quitar proyecto",
     "fa": "حذف پروژه",
     "fi": "Poista projekti",
     "fr": "Retirer le Project",
@@ -428,8 +428,8 @@
     "ru": "Удалить проект",
     "tr": "Projeyi Sil",
     "vi": "Xóa dự án",
-    "zh-CHT": "移除專案",
-    "zh-CN": "删除项目"
+    "zh-cht": "移除專案",
+    "zh-cn": "删除项目"
   },
   "DEV_TOOLS": {
     "ar": "أدوات المطورين",
@@ -438,7 +438,7 @@
     "de": "Entwickler-Werkzeuge",
     "en": "Dev Tools",
     "es": "Herramientas de Desarrollo",
-    "es-AR": "Herramientas del desarrollador",
+    "es-ar": "Herramientas del desarrollador",
     "fa": "ابزار توسعه",
     "fi": "Kehittäjätyökalut",
     "fr": "Outils de Développement",
@@ -452,8 +452,8 @@
     "ru": "Инструменты разработки",
     "tr": "Yazılımcı Araçları",
     "vi": "Công cụ phát triển",
-    "zh-CHT": "開發工具",
-    "zh-CN": "调试"
+    "zh-cht": "開發工具",
+    "zh-cn": "调试"
   },
   "DEVELOPMENT": {
     "ar": "تطوير",
@@ -462,7 +462,7 @@
     "de": "Entwicklung",
     "en": "Development",
     "es": "Desarrollo",
-    "es-AR": "Desarrollo",
+    "es-ar": "Desarrollo",
     "fa": "کد نویسی",
     "fi": "Kehitys",
     "fr": "Développement",
@@ -476,8 +476,8 @@
     "ru": "разработка",
     "tr": "Geliştirme",
     "vi": "Phát triển",
-    "zh-CHT": "開發中",
-    "zh-CN": "开发中"
+    "zh-cht": "開發中",
+    "zh-cn": "开发中"
   },
   "ENVIRONMENT": {
     "ar": "البيئة المستهدفة",
@@ -486,7 +486,7 @@
     "de": "Umgebung",
     "en": "Environment",
     "es": "Entorno",
-    "es-AR": "Entorno",
+    "es-ar": "Entorno",
     "fa": "محیط",
     "fi": "Ympäristö",
     "fr": "Environnement",
@@ -500,8 +500,8 @@
     "ru": "окружение",
     "tr": "Ortam",
     "vi": "Môi trường",
-    "zh-CHT": "專案環境",
-    "zh-CN": "环境"
+    "zh-cht": "專案環境",
+    "zh-cn": "环境"
   },
   "EXIT": {
     "ar": "خروج",
@@ -510,7 +510,7 @@
     "de": "Beenden",
     "en": "Exit",
     "es": "Salir",
-    "es-AR": "Salir",
+    "es-ar": "Salir",
     "fa": "خروج",
     "fi": "Poistu",
     "fr": "Quitter",
@@ -524,8 +524,8 @@
     "ru": "Выход",
     "tr": "Kapat",
     "vi": "Thoát",
-    "zh-CHT": "關閉",
-    "zh-CN": "退出"
+    "zh-cht": "關閉",
+    "zh-cn": "退出"
   },
   "FILE": {
     "ar": "ملف",
@@ -534,7 +534,7 @@
     "de": "Datei",
     "en": "File",
     "es": "Fichero",
-    "es-AR": "Archivo",
+    "es-ar": "Archivo",
     "fa": "فایل",
     "fi": "Tiedosto",
     "fr": "Fichier",
@@ -548,8 +548,8 @@
     "ru": "файл",
     "tr": "Dosya",
     "vi": "Tệp",
-    "zh-CHT": "檔案",
-    "zh-CN": "文件"
+    "zh-cht": "檔案",
+    "zh-cn": "文件"
   },
   "FOUND_SOME_PROJECTS": {
     "ar": "عثر على {{0}} مشاريع",
@@ -558,7 +558,7 @@
     "de": "{{0}} Projekte gefunden",
     "en": "found {{0}} projects",
     "es": "encontrados {{0}} proyectos",
-    "es-AR": "se encontraron {{0}} proyectos",
+    "es-ar": "se encontraron {{0}} proyectos",
     "fa": "پیدا شده است {{0}} پروژه",
     "fi": "{{0}} projektia löytyi",
     "fr": "a trouvé {{0}} projets",
@@ -572,8 +572,8 @@
     "ru": "найдено {{0}} проектов",
     "tr": "{{0}} adet proje bulundu",
     "vi": "phát hiện {{0}} dự án",
-    "zh-CHT": "找到 {{0}} 個專案",
-    "zh-CN": "找到 {{0}} 个项目"
+    "zh-cht": "找到 {{0}} 個專案",
+    "zh-cn": "找到 {{0}} 个项目"
   },
   "FTUX_DRAG_DROP": {
     "ar": "<h3>اسحب وأفلت</h3> <h4>في أي مكان لاستيراد المشاريع</h4>",
@@ -582,7 +582,7 @@
     "de": "<h3>Ziehen und Ablegen</h3> <h4>um Projekte zu importieren</h4>",
     "en": "<h3>Drag and Drop</h3> <h4>anywhere to import projects</h4>",
     "es": "<h3>Arrastrar y soltar</h3> <h4>en cualquier lugar para importar proyectos</h4>",
-    "es-AR": "<h3>Arrastrá y soltá</h3> <h4>en cualquier lgado para importar proyectos</h4>",
+    "es-ar": "<h3>Arrastrá y soltá</h3> <h4>en cualquier lgado para importar proyectos</h4>",
     "fa": "<h3>کشیدن و رها کردن</h3><h4>در هر نقطه به واردات پروژه</h4>",
     "fi": "<h3>Vedä ja pudota</h3> <h4>mihin tahansa tuodaaksesi projekti</h4>",
     "fr": "<h3>Glisser-déposer</h3> <h4>n'importe où pour importer des projets</h4>",
@@ -596,8 +596,8 @@
     "ru": "<h3>Перетаскaeти</h3> <h4>в любом месте итмпортировать проекты</ h4>",
     "tr": "<h3>Sürükle ve Bırak</h3> <h4>projelerini her yerden içeri aktar</h4>",
     "vi": "<h3>Kéo và Thả</h3> <h4>để thêm dự án từ bất kỳ đâu</h4>",
-    "zh-CHT": "<h3>拖放</h3> <h4>到任何位置來匯入專案</h4>",
-    "zh-CN": "<h3>拖放方式</h3> <h4>导入项目</h4>"
+    "zh-cht": "<h3>拖放</h3> <h4>到任何位置來匯入專案</h4>",
+    "zh-cn": "<h3>拖放方式</h3> <h4>导入项目</h4>"
   },
   "HIDE": {
     "ar": "إخفاء",
@@ -606,7 +606,7 @@
     "de": "Verstecken",
     "en": "Hide",
     "es": "Ocultar",
-    "es-AR": "Ocultar",
+    "es-ar": "Ocultar",
     "fa": "پنهان کردن",
     "fi": "Piilota",
     "fr": "Cacher",
@@ -620,8 +620,8 @@
     "ru": "Спрятать",
     "tr": "Gizle",
     "vi": "Ẩn",
-    "zh-CHT": "隱藏",
-    "zh-CN": "隐藏"
+    "zh-cht": "隱藏",
+    "zh-cn": "隐藏"
   },
   "IMPORT_ADD_GROUP": {
     "ar": "أضف عدة مشاريع",
@@ -630,7 +630,7 @@
     "de": "Eine Gruppe von Projekten hinzufügen",
     "en": "Add Group of projects",
     "es": "Añadir un grupo de proyectos",
-    "es-AR": "Agregar grupo de proyectos",
+    "es-ar": "Agregar grupo de proyectos",
     "fa": "اضافه کردن گروه پروژه",
     "fi": "Lisää ryhmä projekteja",
     "fr": "Ajouter un Groupe de projets",
@@ -644,8 +644,8 @@
     "ru": "Добавить группу проектов",
     "tr": "Yeni proje grubu ekle",
     "vi": "Thêm nhóm các dự án",
-    "zh-CHT": "加入多個專案",
-    "zh-CN": "导入多个项目"
+    "zh-cht": "加入多個專案",
+    "zh-cn": "导入多个项目"
   },
   "IMPORT_ADD_PROJECT": {
     "ar": "أضف مشروعًًا آخر",
@@ -654,7 +654,7 @@
     "de": "Fügen Sie ein weiteres Projekt hinzu",
     "en": "Add another project",
     "es": "Añadir otro proyecto",
-    "es-AR": "Agregar otro proyecto",
+    "es-ar": "Agregar otro proyecto",
     "fa": "اضافه کردن یکی دیگر از پروژه",
     "fi": "Lisää toinen projekti",
     "fr": "Ajouter un autre projet",
@@ -668,8 +668,8 @@
     "ru": "Добавить еще один проект",
     "tr": "Yeni proje ekle",
     "vi": "Thêm dự án khác",
-    "zh-CHT": "加入其他專案",
-    "zh-CN": "导入项目"
+    "zh-cht": "加入其他專案",
+    "zh-cn": "导入项目"
   },
   "IMPORT_DRAG_DROP": {
     "ar": "سحب وإفلات",
@@ -678,7 +678,7 @@
     "de": "Drag & Drop",
     "en": "Drag & Drop",
     "es": "Arrastrar y Soltar",
-    "es-AR": "Arrastrar y soltar",
+    "es-ar": "Arrastrar y soltar",
     "fa": "کشیدن و رها کردن",
     "fi": "Vedä ja pudota",
     "fr": "Glisser déposer",
@@ -692,8 +692,8 @@
     "ru": "Перетаскивание",
     "tr": "Sürükle & Bırak",
     "vi": "Kéo & Thả",
-    "zh-CHT": "拖放",
-    "zh-CN": "拖放"
+    "zh-cht": "拖放",
+    "zh-cn": "拖放"
   },
   "IMPORT_HEADER": {
     "ar": "{{0}} مشروعًا محددًا",
@@ -702,7 +702,7 @@
     "de": "{{0}} ausgewählte Projekte",
     "en": "{{0}} Selected Projects",
     "es": "{{0}} Proyectos seleccionados",
-    "es-AR": "{{0}} proyectos seleccionados",
+    "es-ar": "{{0}} proyectos seleccionados",
     "fa": "{{0}} پروژه انتخاب شده",
     "fi": "{{0}} Valittua projektia",
     "fr": "{{0}} Projets Sélectionnés",
@@ -716,8 +716,8 @@
     "ru": "{{0}} Отдельные проекты",
     "tr": "{{0}} Proje Seçildi",
     "vi": "{{0}} dự án được chọn",
-    "zh-CHT": "{{0}} 個選取專案",
-    "zh-CN": "{{0}} 个已选择项目"
+    "zh-cht": "{{0}} 個選取專案",
+    "zh-cn": "{{0}} 个已选择项目"
   },
   "IMPORT_INPUT": {
     "ar": "المدخل (Sass)",
@@ -726,7 +726,7 @@
     "de": "Eingang (Sass)",
     "en": "Input (Sass)",
     "es": "Entrada (Sass)",
-    "es-AR": "Entrada (Sass)",
+    "es-ar": "Entrada (Sass)",
     "fa": "ورودی (Sass)",
     "fi": "Sisääntulo",
     "fr": "Entrée (Sass)",
@@ -740,8 +740,8 @@
     "ru": "Вход (Sass)",
     "tr": "Giriş (Sass)",
     "vi": "Đầu vào (Sass)",
-    "zh-CHT": "輸入 (Sass)",
-    "zh-CN": "导入（Sass）"
+    "zh-cht": "輸入 (Sass)",
+    "zh-cn": "导入（Sass）"
   },
   "IMPORT_OUTPUT": {
     "ar": "المُخرج (CSS)",
@@ -750,7 +750,7 @@
     "de": "Ausgabe (CSS)",
     "en": "Output (CSS)",
     "es": "Salida (CSS)",
-    "es-AR": "Salida (CSS)",
+    "es-ar": "Salida (CSS)",
     "fa": "خروجی (CSS)",
     "fi": "Ulostulo",
     "fr": "Sortie (CSS)",
@@ -764,8 +764,8 @@
     "ru": "Вывод (CSS)",
     "tr": "Çıkış (Sass)",
     "vi": "Đầu ra (CSS)",
-    "zh-CHT": "輸出 (CSS)",
-    "zh-CN": "输出 (CSS)"
+    "zh-cht": "輸出 (CSS)",
+    "zh-cn": "输出 (CSS)"
   },
   "IMPORT_PROJECT_NAME": {
     "ar": "اسم المشروع",
@@ -774,7 +774,7 @@
     "de": "Projektname",
     "en": "Project Name",
     "es": "Nombre del proyecto",
-    "es-AR": "Nombre del proyecto",
+    "es-ar": "Nombre del proyecto",
     "fa": "نام پروژه",
     "fi": "Projektin nimi",
     "fr": "Nom du Projet",
@@ -788,8 +788,8 @@
     "ru": "название проекта",
     "tr": "Proje Adı",
     "vi": "Tên dự án",
-    "zh-CHT": "專案名稱",
-    "zh-CN": "项目名称"
+    "zh-cht": "專案名稱",
+    "zh-cn": "项目名称"
   },
   "IMPORT_PROJECTS": {
     "ar": "استيراد مشاريع",
@@ -798,7 +798,7 @@
     "de": "Projekte importieren",
     "en": "Import Projects",
     "es": "Importar Proyectos",
-    "es-AR": "Importar proyectos",
+    "es-ar": "Importar proyectos",
     "fa": "پروژه های واردات",
     "fi": "Tuo projekteja",
     "fr": "Importer des Projets",
@@ -812,8 +812,8 @@
     "ru": "импортировать проекты",
     "tr": "Projelerini içeri aktar",
     "vi": "Nhập khẩu dự án",
-    "zh-CHT": "匯入專案",
-    "zh-CN": "导入项目"
+    "zh-cht": "匯入專案",
+    "zh-cn": "导入项目"
   },
   "INPUT_FOLDER": {
     "ar": "مجلد المدخلات",
@@ -822,7 +822,7 @@
     "de": "Eingabeordner:",
     "en": "Input Folder:",
     "es": "Carpeta de Entrada:",
-    "es-AR": "Carpeta de entrada",
+    "es-ar": "Carpeta de entrada",
     "fa": "پوشه ورودی:",
     "fi": "Sisääntulokansio",
     "fr": "Dossier d'entrée:",
@@ -836,32 +836,32 @@
     "ru": "папка ввода",
     "tr": "Giriş Dizini:",
     "vi": "Đầu vào (Sass):",
-    "zh-CHT": "輸入資料夾:",
-    "zh-CN": "源文件夹"
+    "zh-cht": "輸入資料夾:",
+    "zh-cn": "源文件夹"
   },
   "LANG_AR": {
     "ar": "عربى",
     "bg": "Арабски (عربى)",
     "da": "Arabisk (عربى)",
     "de": "Arabisch (عربى)",
-    "en": "(عربى) Arabic",
+    "en": "Arabic (عربى)",
     "es": "Árabe (العربية)",
-    "es-AR": "Árabe (العربية)",
+    "es-ar": "Árabe (العربية)",
     "fa": "عربی (عربى)",
-    "fi": "(العربية) Arabialainen",
-    "fr": "(العربية) Arabe",
+    "fi": "Arabialainen (العربية)",
+    "fr": "Arabe (العربية)",
     "he": "ערבית (عربى)",
-    "hu": "(العربية) Arab",
-    "it": "(العربية) Arabo",
-    "nl": "(العربية) Arabisch",
-    "pl": "(العربية) Arabski",
+    "hu": "Arab (العربية)",
+    "it": "Arabo (العربية)",
+    "nl": "Arabisch (العربية)",
+    "pl": "Arabski (العربية)",
     "pt-br": "Árabe (العربية)",
-    "rk": "(عربى) Arabic",
-    "ru": "(عربى) Арабский",
-    "tr": "(عربى) Arapça",
+    "rk": "Arabic (عربى)",
+    "ru": "Арабский (عربى)",
+    "tr": "Arapça (عربى)",
     "vi": "Tiếng Ả Rập (عربى)",
-    "zh-CHT": "阿拉伯語 (عربى)",
-    "zh-CN": "(العربية) 阿拉伯语"
+    "zh-cht": "阿拉伯語 (عربى)",
+    "zh-cn": "阿拉伯语 (العربية)"
   },
   "LANG_BG": {
     "ar": "البلغارية (български)",
@@ -870,7 +870,7 @@
     "de": "Bulgarisch (български)",
     "en": "Bulgarian (български)",
     "es": "Búlgaro (български)",
-    "es-AR": "Búlgaro (български)",
+    "es-ar": "Búlgaro (български)",
     "fa": "بلغاری (български)",
     "fi": "Bulgarialainen (български)",
     "fr": "Bulgare (български)",
@@ -884,8 +884,8 @@
     "ru": "болгарский (български)",
     "tr": "Bulgarca (български)",
     "vi": "Tiếng Bulgaria (български)",
-    "zh-CHT": "保加利亞語 (български)",
-    "zh-CN": "保加利亚语 (български)"
+    "zh-cht": "保加利亞語 (български)",
+    "zh-cn": "保加利亚语 (български)"
   },
   "LANG_DA": {
     "ar": "الدنماركية (Dansk)",
@@ -894,7 +894,7 @@
     "de": "Dänisch (Dansk)",
     "en": "Danish (Dansk)",
     "es": "Danés (Dansk)",
-    "es-AR": "Danés (Dansk)",
+    "es-ar": "Danés (Dansk)",
     "fa": "دانمارکی (Dansk)",
     "fi": "Tanska (Dansk)",
     "fr": "Danois (Dansk)",
@@ -908,8 +908,8 @@
     "ru": "Датский (Dansk)",
     "tr": "Danca (Dansk)",
     "vi": "Tiếng Đan Mạch (Dansk)",
-    "zh-CHT": "丹麥語 (Dansk)",
-    "zh-CN": "丹麦语 (Dansk)"
+    "zh-cht": "丹麥語 (Dansk)",
+    "zh-cn": "丹麦语 (Dansk)"
   },
   "LANG_DE": {
     "ar": "الألمانية (Deutsch)",
@@ -918,7 +918,7 @@
     "de": "Deutsch",
     "en": "German (Deutsch)",
     "es": "Alemán (Deutsch)",
-    "es-AR": "Alemán (Deutsch)",
+    "es-ar": "Alemán (Deutsch)",
     "fa": "آلمانی (Deutsch)",
     "fi": "Saksa (Deutsch)",
     "fr": "Allemand (Deutsch)",
@@ -932,8 +932,8 @@
     "ru": "Немецкий (Deutsch)",
     "tr": "Almanca (Deutsch)",
     "vi": "Tiếng Đức (Deutsch)",
-    "zh-CHT": "德語 (Deutsch)",
-    "zh-CN": "德语 (Deutsch)"
+    "zh-cht": "德語 (Deutsch)",
+    "zh-cn": "德语 (Deutsch)"
   },
   "LANG_EN": {
     "ar": "الإنجليزية (English)",
@@ -942,7 +942,7 @@
     "de": "Englisch (English)",
     "en": "English",
     "es": "Inglés (English)",
-    "es-AR": "Inglés (English)",
+    "es-ar": "Inglés (English)",
     "fa": "انگلیسی (English)",
     "fi": "Englanti (English)",
     "fr": "Anglais (English)",
@@ -956,8 +956,8 @@
     "ru": "Aнглийский (English)",
     "tr": "İngilizce (English)",
     "vi": "Tiếng Anh (English)",
-    "zh-CHT": "英文 (English)",
-    "zh-CN": "英文 (English)"
+    "zh-cht": "英文 (English)",
+    "zh-cn": "英文 (English)"
   },
   "LANG_ES-AR": {
     "ar": "الأسبانية الأرجنتين (Español Argentina)",
@@ -966,7 +966,7 @@
     "de": "Spanisch Argentinien (Español Argentina)",
     "en": "Spanish Argentina (Español Argentina)",
     "es": "Español Argentina",
-    "es-AR": "Español Argentina",
+    "es-ar": "Español Argentina",
     "fa": "اسپانیا آرژانتین (Español Argentina)",
     "fi": "Espanjan Argentiina (Español Argentina)",
     "fr": "Argentine Espagnole (Español Argentina)",
@@ -980,8 +980,8 @@
     "ru": "Испанская Аргентина (Español Argentina)",
     "tr": "İspanyolca Arjantin (Español Argentina)",
     "vi": "Tiếng Argentina Tây Ban Nha (Español Argentina)",
-    "zh-CHT": "西班牙阿根廷 (Español Argentina)",
-    "zh-CN": "西班牙阿根廷 (Español Argentina)"
+    "zh-cht": "西班牙阿根廷 (Español Argentina)",
+    "zh-cn": "西班牙阿根廷 (Español Argentina)"
   },
   "LANG_ES": {
     "ar": "الإسبانية (Español)",
@@ -990,7 +990,7 @@
     "de": "Spanisch (Español)",
     "en": "Spanish (Español)",
     "es": "Español",
-    "es-AR": "Español",
+    "es-ar": "Español",
     "fa": "اسپانیایی (Español)",
     "fi": "Espanja (Español)",
     "fr": "Espagnol (Español)",
@@ -1004,32 +1004,32 @@
     "ru": "Испанский (Español)",
     "tr": "İspanyolca (Español)",
     "vi": "Tiếng Tây Ban Nha (Español)",
-    "zh-CHT": "西班牙語 (Español)",
-    "zh-CN": "西班牙语 (Español)"
+    "zh-cht": "西班牙語 (Español)",
+    "zh-cn": "西班牙语 (Español)"
   },
   "LANG_FA": {
     "ar": "الفارسية (فارسى)",
     "bg": "Персийски (فارسی)",
     "da": "Persisk (فارسی)",
     "de": "Persisch (فارسی)",
-    "en": "(فارسی) Persian",
-    "es": "(فارسی) Persa",
-    "es-AR": "(فارسی) Persa",
+    "en": "Persian (فارسی)",
+    "es": "Persa (فارسی)",
+    "es-ar": "Persa (فارسی)",
     "fa": "فارسی",
-    "fi": "(فارسی) Persia",
-    "fr": "(فارسی) Persan",
+    "fi": "Persia (فارسی)",
+    "fr": "Persan (فارسی)",
     "he": "פרסית (فارسی)",
-    "hu": "(فارسی) Fárszi",
-    "it": "(فارسی) Persiano",
-    "nl": "(فارسی) Perzisch",
-    "pl": "(فارسی) Perski",
-    "pt-br": "(فارسی) Persa",
+    "hu": "Fárszi (فارسی)",
+    "it": "Persiano (فارسی)",
+    "nl": "Perzisch (فارسی)",
+    "pl": "Perski (فارسی)",
+    "pt-br": "Persa (فارسی)",
     "rk": "Persian (فارسی) - My ex's cat was Persian",
-    "ru": "(فارسی) Персидский",
-    "tr": "(فارسی) Farsça",
+    "ru": "Персидский (فارسی)",
+    "tr": "Farsça (فارسی)",
     "vi": "Tiếng Ba Tư (فارسی)",
-    "zh-CHT": "波斯語 (فارسی)",
-    "zh-CN": "(فارسی) 波斯语"
+    "zh-cht": "波斯語 (فارسی)",
+    "zh-cn": "波斯语 (فارسی)"
   },
   "LANG_FI": {
     "ar": "الفنلندية (Suomen)",
@@ -1038,7 +1038,7 @@
     "de": "Finnisch (Suomen)",
     "en": "Finnish (Suomen)",
     "es": "Finlandés (Suomen)",
-    "es-AR": "Finlandés (Suomen)",
+    "es-ar": "Finlandés (Suomen)",
     "fa": "فنلاندی (Suomen)",
     "fi": "Suomen",
     "fr": "Finlandais (Suomen)",
@@ -1052,8 +1052,8 @@
     "ru": "Финский (Suomen)",
     "tr": "Fince (Suomen)",
     "vi": "Tiếng Phần lan (Suomen)",
-    "zh-CHT": "芬蘭 (Suomen)",
-    "zh-CN": "芬兰语 (Suomen)"
+    "zh-cht": "芬蘭 (Suomen)",
+    "zh-cn": "芬兰语 (Suomen)"
   },
   "LANG_FR": {
     "ar": "الفرنسية (Français)",
@@ -1062,7 +1062,7 @@
     "de": "Französisch (Français)",
     "en": "French (Français)",
     "es": "Francés (Français)",
-    "es-AR": "Francés (Français)",
+    "es-ar": "Francés (Français)",
     "fa": "فرانسوی (Français)",
     "fi": "Ranska (Français)",
     "fr": "Français",
@@ -1076,32 +1076,32 @@
     "ru": "Французский (Français)",
     "tr": "Fransızca (Français)",
     "vi": "Tiếng Pháp (Français)",
-    "zh-CHT": "法語 (Français)",
-    "zh-CN": "法语 (Français)"
+    "zh-cht": "法語 (Français)",
+    "zh-cn": "法语 (Français)"
   },
   "LANG_HE": {
     "ar": "العبرية (עִברִית)",
     "bg": "Иврит (עִברִית)",
     "da": "Hebrew (עִברִית)",
     "de": "Hebräisch (עִברִית)",
-    "en": "(עִברִית) Hebrew",
-    "es": "(עִברִית) Hebreo",
-    "es-AR": "(עִברִית) Hebreo",
+    "en": "Hebrew (עִברִית)",
+    "es": "Hebreo (עִברִית)",
+    "es-ar": "Hebreo (עִברִית)",
     "fa": "عبری (עִברִית)",
-    "fi": "(עִברִית) Heprea",
-    "fr": "(עִברִית) Hébreu",
+    "fi": "Heprea (עִברִית)",
+    "fr": "Hébreu (עִברִית)",
     "he": "עִברִית",
-    "hu": "(עִברִית) Héber",
-    "it": "(עִברִית) Ebraico",
-    "nl": "(עִברִית) Hebreeuws",
-    "pl": "(עִברִית) Hebrajski",
-    "pt-br": "(עִברִית) Hebraico",
+    "hu": "Héber (עִברִית)",
+    "it": "Ebraico (עִברִית)",
+    "nl": "Hebreeuws (עִברִית)",
+    "pl": "Hebrajski (עִברִית)",
+    "pt-br": "Hebraico (עִברִית)",
     "rk": "Hebrew (עִברִית) - funny little hats",
-    "ru": "(עִברִית) Иврит",
-    "tr": "(עִברִית) İbranice",
-    "vi": "(עִברִית) Tiếng Do Thái",
-    "zh-CHT": "(עִברִית) 希伯來語",
-    "zh-CN": "(עִברִית) 希伯来语"
+    "ru": "Иврит (עִברִית)",
+    "tr": "İbranice (עִברִית)",
+    "vi": "Tiếng Do Thái (עִברִית)",
+    "zh-cht": "希伯來語 (עִברִית)",
+    "zh-cn": "希伯来语 (עִברִית)"
   },
   "LANG_HU": {
     "ar": "الهنغارية (Magyar)",
@@ -1110,7 +1110,7 @@
     "de": "Ungarisch (Magyar)",
     "en": "Hungarian (Magyar)",
     "es": "Húngaro (Magyar)",
-    "es-AR": "Húngaro (Magyar)",
+    "es-ar": "Húngaro (Magyar)",
     "fa": "مجارستانی (Magyar)",
     "fi": "Unkari (Magyar)",
     "fr": "Hongrois (Magyar)",
@@ -1124,8 +1124,8 @@
     "ru": "Венгерский (Magyar)",
     "tr": "Macarca (Magyar)",
     "vi": "Tiếng Hungary (Magyar)",
-    "zh-CHT": "匈牙利語 (Magyar)",
-    "zh-CN": "匈牙利语 (Magyar)"
+    "zh-cht": "匈牙利語 (Magyar)",
+    "zh-cn": "匈牙利语 (Magyar)"
   },
   "LANG_IT": {
     "ar": "الإيطالية (Italiano)",
@@ -1134,7 +1134,7 @@
     "de": "Italienisch (Italiano)",
     "en": "Italian (Italiano)",
     "es": "Italiano (Italiano)",
-    "es-AR": "Italiano (Italiano)",
+    "es-ar": "Italiano (Italiano)",
     "fa": "ایتالیایی (Italiano)",
     "fi": "Italia (Italiano)",
     "fr": "Italien (Italiano)",
@@ -1148,8 +1148,8 @@
     "ru": "Итальянский (Italiano)",
     "tr": "İtalyanca (Italiano)",
     "vi": "Tiếng Ý (Italiano)",
-    "zh-CHT": "義大利語 (Italiano)",
-    "zh-CN": "意大利语 (Italiano)"
+    "zh-cht": "義大利語 (Italiano)",
+    "zh-cn": "意大利语 (Italiano)"
   },
   "LANG_NL": {
     "ar": "الهولندية (Nederlands)",
@@ -1158,7 +1158,7 @@
     "de": "Niederländisch (Nederlands)",
     "en": "Dutch (Nederlands)",
     "es": "Holandés (Nederlands)",
-    "es-AR": "Holandés (Nederlands)",
+    "es-ar": "Holandés (Nederlands)",
     "fa": "هلندی (Nederlands)",
     "fi": "Alankomaat (Nederlands)",
     "fr": "Néerlandaise (Nederlands)",
@@ -1172,8 +1172,8 @@
     "ru": "Голландский (Nederlands)",
     "tr": "Hollandaca (Nederlands)",
     "vi": "Tiếng Hà Lan (Nederlands)",
-    "zh-CHT": "荷蘭語 (Nederlands)",
-    "zh-CN": "荷兰语 (Nederlands)"
+    "zh-cht": "荷蘭語 (Nederlands)",
+    "zh-cn": "荷兰语 (Nederlands)"
   },
   "LANG_PL": {
     "ar": "البولندية (Polski)",
@@ -1182,7 +1182,7 @@
     "de": "Polnisch (Polski)",
     "en": "Polish (Polski)",
     "es": "Polaco (Polski)",
-    "es-AR": "Polaco (Polski)",
+    "es-ar": "Polaco (Polski)",
     "fa": "لهستانی (Polski)",
     "fi": "Kiillottaa (Polski)",
     "fr": "Polonais (Polski)",
@@ -1196,8 +1196,8 @@
     "ru": "Польский (Polski)",
     "tr": "Lehçe (Polski)",
     "vi": "Tiếng Ba lan (Polski)",
-    "zh-CHT": "拋光 (Polski)",
-    "zh-CN": "波兰语 (Polski)"
+    "zh-cht": "拋光 (Polski)",
+    "zh-cn": "波兰语 (Polski)"
   },
   "LANG_PT-BR": {
     "ar": "البرتغالية البرازيلية (Português do Brasil)",
@@ -1206,7 +1206,7 @@
     "de": "Brasilianisches Portugiesisch (Português do Brasil)",
     "en": "Brazilian Portuguese (Português do Brasil)",
     "es": "Portugués Brasileño (Brazilian Portuguese)",
-    "es-AR": "Portugués Brasileño (Brazilian Portuguese)",
+    "es-ar": "Portugués Brasileño (Brazilian Portuguese)",
     "fa": "پرتغالی برزیل (Português do Brasil)",
     "fi": "Brasilian Portugali (Português do Brasil)",
     "fr": "Portugais Brésilien (Português do Brasil)",
@@ -1220,8 +1220,8 @@
     "ru": "бразильский португальский (Português do Brasil)",
     "tr": "Brazilya Protokizcesi (Português do Brasil)",
     "vi": "Tiếng Bồ Đào Nha của người brazi (Português do Brasil)",
-    "zh-CHT": "巴西葡萄牙語 (Português do Brasil)",
-    "zh-CN": "巴西语 (Português do Brasil)"
+    "zh-cht": "巴西葡萄牙語 (Português do Brasil)",
+    "zh-cn": "巴西语 (Português do Brasil)"
   },
   "LANG_RK": {
     "ar": "لغة الهنود الحمر (Real America)",
@@ -1230,7 +1230,7 @@
     "de": "Redneck (Real America)",
     "en": "Redneck (Real America)",
     "es": "Campesino Sureño (Real America)",
-    "es-AR": "Campesino (Real America)",
+    "es-ar": "Campesino (Real America)",
     "fa": "دهاتی آمریکا (Real America)",
     "fi": "Punaniska (Real America)",
     "fr": "Rustre Américain (Redneck)",
@@ -1244,8 +1244,8 @@
     "ru": "деревенский Американский (Redneck)",
     "tr": "Cahil (Real America)",
     "vi": "Tiếng Mỹ đời thường (Redneck)",
-    "zh-CHT": "美國粗話 (Redneck)",
-    "zh-CN": "美国土话 (Real America)"
+    "zh-cht": "美國粗話 (Redneck)",
+    "zh-cn": "美国土话 (Real America)"
   },
   "LANG_RU": {
     "ar": "الروسية (русский)",
@@ -1254,7 +1254,7 @@
     "de": "Russisch (русский)",
     "en": "Russian (русский)",
     "es": "Ruso (русский)",
-    "es-AR": "Ruso (русский)",
+    "es-ar": "Ruso (русский)",
     "fa": "روسی (русский)",
     "fi": "Venäjä (русский)",
     "fr": "Russe (русский)",
@@ -1268,8 +1268,8 @@
     "ru": "Русский",
     "tr": "Rusça (русский)",
     "vi": "Tiếng Nga (русский)",
-    "zh-CHT": "俄語 (русский)",
-    "zh-CN": "俄语 (русский)"
+    "zh-cht": "俄語 (русский)",
+    "zh-cn": "俄语 (русский)"
   },
   "LANG_TR": {
     "ar": "اللغة التركية (Türkçe)",
@@ -1278,7 +1278,7 @@
     "de": "Türkisch (Türkçe)",
     "en": "Turkish (Türkçe)",
     "es": "Turco (Türkçe)",
-    "es-AR": "Turco (Türkçe)",
+    "es-ar": "Turco (Türkçe)",
     "fa": "ترکی (Türkçe)",
     "fi": "Turkki (Türkçe)",
     "fr": "Turc (Türkçe)",
@@ -1292,8 +1292,8 @@
     "ru": "Турецкий (Türkçe)",
     "tr": "Türkçe",
     "vi": "Tiếng Thổ Nhĩ Kỳ (Türkçe)",
-    "zh-CHT": "土耳其 (Türkçe)",
-    "zh-CN": "土耳其语 (Türkçe)"
+    "zh-cht": "土耳其 (Türkçe)",
+    "zh-cn": "土耳其语 (Türkçe)"
   },
   "LANG_VI": {
     "ar": "الفيتنامية (Tiếng Việt)",
@@ -1302,7 +1302,7 @@
     "de": "Vietnamesisch (Tiếng Việt)",
     "en": "Vietnamese (Tiếng Việt)",
     "es": "Vietnamita (Tiếng Việt)",
-    "es-AR": "Vietnamita (Tiếng Việt)",
+    "es-ar": "Vietnamita (Tiếng Việt)",
     "fa": "ویتنامی (Tiếng Việt)",
     "fi": "Vietnami (Tiếng Việt)",
     "fr": "Vietnamien (Tiếng Việt)",
@@ -1316,8 +1316,8 @@
     "ru": "Вьетнамский (Tiếng Việt)",
     "tr": "Viatnamca (Tiếng Việt)",
     "vi": "Tiếng Việt",
-    "zh-CHT": "越南語 (Tiếng Việt)",
-    "zh-CN": "越南语 (Tiếng Việt)"
+    "zh-cht": "越南語 (Tiếng Việt)",
+    "zh-cn": "越南语 (Tiếng Việt)"
   },
   "LANG_ZH-CHT": {
     "ar": "الصينية التقليدية (中文)",
@@ -1326,12 +1326,12 @@
     "de": "Chinesisch Traditional (中文)",
     "en": "Chinese Traditional (中文)",
     "es": "Chino Tradicional (中文)",
-    "es-AR": "Chino Tradicional (中文)",
+    "es-ar": "Chino Tradicional (中文)",
     "fa": "چینی سنتی (中文)",
     "fi": "Perinteinen Kiina (中文)",
     "fr": "Chinois Traditionnel (中文)",
     "he": "סינית מסורתית (中文)",
-    "hu": "Hagyományos kínai (中文)",
+    "hu": "Hagyományos Kínai (中文)",
     "it": "Tradizionale Cinese (中文)",
     "nl": "Chinees - Traditioneel (中文)",
     "pl": "Chiński tradycjny (中文)",
@@ -1340,8 +1340,8 @@
     "ru": "Китайский традиционный (中文)",
     "tr": "Geleneksel Çince (中文)",
     "vi": "Tiếng Trung Quốc truyền thống (中文)",
-    "zh-CHT": "繁體中文",
-    "zh-CN": "中国传统的 (繁体中文)"
+    "zh-cht": "繁體中文",
+    "zh-cn": "中国传统的 (繁体中文)"
   },
   "LANG_ZH-CN": {
     "ar": "الصينية المبسطة (简体中文)",
@@ -1350,7 +1350,7 @@
     "de": "Vereinfachtes Chinesisch (简体中文)",
     "en": "Chinese Simplified (简体中文)",
     "es": "Chino Simplificado (简体中文)",
-    "es-AR": "Chino Simplificado (简体中文)",
+    "es-ar": "Chino Simplificado (简体中文)",
     "fa": "زبان چینی ساده شده (简体中文)",
     "fi": "Yksinkertaistettu Kiina (简体中文)",
     "fr": "Chinois Simplifié (简体中文)",
@@ -1364,8 +1364,8 @@
     "ru": "Китайский упрощенный (简体中文)",
     "tr": "Basitleştirilmiş Çince (简体中文)",
     "vi": "Tiếng Trung Giản thể (简体中文)",
-    "zh-CHT": "簡體中文 (简体中文)",
-    "zh-CN": "简体中文"
+    "zh-cht": "簡體中文 (简体中文)",
+    "zh-cn": "简体中文"
   },
   "LANGUAGE_CHOICE": {
     "ar": "اللغة:",
@@ -1374,7 +1374,7 @@
     "de": "Sprache:",
     "en": "Language:",
     "es": "Idioma:",
-    "es-AR": "Idioma:",
+    "es-ar": "Idioma:",
     "fa": "زبان:",
     "fi": "Kieli:",
     "fr": "Langue:",
@@ -1388,8 +1388,8 @@
     "ru": "Выбор языков",
     "tr": "Dil:",
     "vi": "Ngôn ngữ:",
-    "zh-CHT": "選擇語言:",
-    "zh-CN": "选择语言："
+    "zh-cht": "選擇語言:",
+    "zh-cn": "选择语言："
   },
   "LATEST_VERSION": {
     "ar": "لديك أحدث نسخة من Scout-App.",
@@ -1398,7 +1398,7 @@
     "de": "Sie haben die neueste Version der Scout-App.",
     "en": "You have the latest version of Scout-App.",
     "es": "Tiene la última versión de Scout-App.",
-    "es-AR": "Tenés la versión más reciente de Scout-App.",
+    "es-ar": "Tenés la versión más reciente de Scout-App.",
     "fa": "شما باید آخرین نسخه از پیشآهنگی برنامه.",
     "fi": "Sinulla on uusin versio Scout-Appista",
     "fr": "Vous avez la dernière version de Scout-App.",
@@ -1412,8 +1412,8 @@
     "ru": "У вас есть последняя версия Cкаут-Aппa",
     "tr": "Scout-App son versiyonunu kullanıyorsunuz.",
     "vi": "Bạn đang sử dụng phiên bản mới nhất.",
-    "zh-CHT": "你的 Scout-App 已經是最新版本",
-    "zh-CN": "您的 Scout-App 已经是最新版本"
+    "zh-cht": "你的 Scout-App 已經是最新版本",
+    "zh-cn": "您的 Scout-App 已经是最新版本"
   },
   "LISTING_OF_PROJECTS": {
     "ar": "قائمة بالمشاريع",
@@ -1422,7 +1422,7 @@
     "de": "Liste der Projekte",
     "en": "Listing of projects",
     "es": "Listado de proyectos",
-    "es-AR": "Listado de proyectos",
+    "es-ar": "Listado de proyectos",
     "fa": "لیست پروژه های",
     "fi": "Listataan projekteja",
     "fr": "Liste des projets",
@@ -1436,8 +1436,8 @@
     "ru": "Перечисление проектов",
     "tr": "Projelerin listesi",
     "vi": "Liệt kê các dự án",
-    "zh-CHT": "專案列表",
-    "zh-CN": "项目列表"
+    "zh-cht": "專案列表",
+    "zh-cn": "项目列表"
   },
   "MESSAGES_DESKTOP": {
     "ar": "تنبيهات سطح المكتب",
@@ -1446,7 +1446,7 @@
     "de": "Desktop-Benachrichtigung",
     "en": "Desktop Notification",
     "es": "Notificación de Escritorio",
-    "es-AR": "Notificaciones de escritorio",
+    "es-ar": "Notificaciones de escritorio",
     "fa": "هشدار از طریق دسکتاپ",
     "fi": "Työpöytäilmoitukset",
     "fr": "Notification de Bureau",
@@ -1460,8 +1460,8 @@
     "ru": "Обои для рабочего уведомления",
     "tr": "Masaüstü Bildirimi",
     "vi": "Thông báo trên màn hình",
-    "zh-CHT": "桌面通知",
-    "zh-CN": "桌面通知"
+    "zh-cht": "桌面通知",
+    "zh-cn": "桌面通知"
   },
   "MESSAGES_IN_APP": {
     "ar": "بداخل التطبيق",
@@ -1470,7 +1470,7 @@
     "de": "In der Anwendung",
     "en": "In App",
     "es": "En App",
-    "es-AR": "En la aplicación",
+    "es-ar": "En la aplicación",
     "fa": "در نرم افزار",
     "fi": "Sovelluksen sisällä",
     "fr": "Dans l'application",
@@ -1484,8 +1484,8 @@
     "ru": "В приложении",
     "tr": "Uygulamada",
     "vi": "Trong ứng dụng",
-    "zh-CHT": "程式內通知",
-    "zh-CN": "程序消息"
+    "zh-cht": "程式內通知",
+    "zh-cn": "程序消息"
   },
   "MESSAGES_SOUND": {
     "ar": "تشغيل صوت",
@@ -1494,7 +1494,7 @@
     "de": "Ton abspielen",
     "en": "Play Sound",
     "es": "Reproducir Sonido",
-    "es-AR": "Reproducir sonido",
+    "es-ar": "Reproducir sonido",
     "fa": "پخش صدا",
     "fi": "Toista äänimerkki",
     "fr": "Jouer un son",
@@ -1508,8 +1508,8 @@
     "ru": "воспроизведение аудио",
     "tr": "Ses çal",
     "vi": "Phát âm thanh",
-    "zh-CHT": "撥放音效",
-    "zh-CN": "播放音效"
+    "zh-cht": "撥放音效",
+    "zh-cn": "播放音效"
   },
   "MESSAGES_TITLE_ERROR": {
     "ar": "رسائل خطأ",
@@ -1518,7 +1518,7 @@
     "de": "Fehlermeldungen",
     "en": "Error Messages",
     "es": "Mensajes de Error",
-    "es-AR": "Mensajes de error",
+    "es-ar": "Mensajes de error",
     "fa": "پیغام خطا",
     "fi": "Virheilmoitukset",
     "fr": "Messages d'erreur",
@@ -1532,8 +1532,8 @@
     "ru": "Сообщения об ошибках",
     "tr": "Hata Mesajları",
     "vi": "Báo lỗi",
-    "zh-CHT": "錯誤訊息",
-    "zh-CN": "出错信息"
+    "zh-cht": "錯誤訊息",
+    "zh-cn": "出错信息"
   },
   "MESSAGES_TITLE_SUCCESS": {
     "ar": "رسائل نجاح",
@@ -1542,7 +1542,7 @@
     "de": "Erfolgsmeldungen",
     "en": "Success Messages",
     "es": "Mensajes de Éxito",
-    "es-AR": "Mensajes de éxito",
+    "es-ar": "Mensajes de éxito",
     "fa": "پیام های موفقیت",
     "fi": "Onnistumisviestit",
     "fr": "Messages de succès",
@@ -1556,8 +1556,8 @@
     "ru": "Сообщения успеха",
     "tr": "Başarı Mesajları",
     "vi": "Báo thành công",
-    "zh-CHT": "成功訊息",
-    "zh-CN": "成功信息"
+    "zh-cht": "成功訊息",
+    "zh-cn": "成功信息"
   },
   "MILLISECONDS_SHORT": {
     "ar": "جزء من ثانية",
@@ -1566,7 +1566,7 @@
     "de": "ms",
     "en": "ms",
     "es": "ms",
-    "es-AR": "ms",
+    "es-ar": "ms",
     "fa": "میلی ثانیه",
     "fi": "ms",
     "fr": "ms",
@@ -1580,8 +1580,8 @@
     "ru": "ms",
     "tr": "ms",
     "vi": "mili giây",
-    "zh-CHT": "毫秒",
-    "zh-CN": "毫秒"
+    "zh-cht": "毫秒",
+    "zh-cn": "毫秒"
   },
   "MISSING_DATA": {
     "ar": "مجلد المدخلات أو المخرجات مفقود.",
@@ -1590,7 +1590,7 @@
     "de": "Fehlender Eingabe- oder Ausgabeordner.",
     "en": "Missing input or output folder.",
     "es": "Ausencia de carpeta de entrada o salida",
-    "es-AR": "Falta carpeta de entrada o salida.",
+    "es-ar": "Falta carpeta de entrada o salida.",
     "fa": "فقدان ورودی و یا پوشه خروجی.",
     "fi": "Puuttuva sisään- tai ulostulokansio.",
     "fr": "Entrée ou le dossier de sortie manquant.",
@@ -1604,8 +1604,8 @@
     "ru": "папка вход или выход отсутствует",
     "tr": "Giriş veya çıkış klasörü eksik.",
     "vi": "Thiếu thư mục đầu vào hoặc đầu ra.",
-    "zh-CHT": "找不到輸入或輸出資料夾",
-    "zh-CN": "找不到输入输出文件夹"
+    "zh-cht": "找不到輸入或輸出資料夾",
+    "zh-cn": "找不到输入输出文件夹"
   },
   "MULTI_IMPORT_BUTTON": {
     "ar": "استيراد {{0}} مشاريع",
@@ -1614,7 +1614,7 @@
     "de": "Importieren Sie {{0}} Projekte",
     "en": "Import {{0}} Projects",
     "es": "Importar {{0}} Proyectos",
-    "es-AR": "Importar {{0}} proyectos",
+    "es-ar": "Importar {{0}} proyectos",
     "fa": "واردات {{0}} پروژه",
     "fi": "Tuo {{0}} projektia",
     "fr": "Importer {{0}} Projets",
@@ -1628,8 +1628,8 @@
     "ru": "Импорт {{0}} проектов",
     "tr": "{{0}} Proje içe aktar",
     "vi": "Nhập {{0}} dự án",
-    "zh-CHT": "匯入 {{0}} 個專案",
-    "zh-CN": "导入{{0}} 项目"
+    "zh-cht": "匯入 {{0}} 個專案",
+    "zh-cn": "导入{{0}} 项目"
   },
   "MULTIPROJECT_IMPORT": {
     "ar": "استيراد عدة مشاريع",
@@ -1638,7 +1638,7 @@
     "de": "Mehrprojektimport",
     "en": "Multi-Project Import",
     "es": "Importación de Múltiples Proyectos",
-    "es-AR": "Importar múltiples proyectos",
+    "es-ar": "Importar múltiples proyectos",
     "fa": "واردات چند پروژه",
     "fi": "Monen projektin tuonti",
     "fr": "Importation de Multi-Projet",
@@ -1652,8 +1652,8 @@
     "ru": "Импорт нескольких проектов",
     "tr": "Çoklu Proje içe aktar",
     "vi": "Nhập dự án hàng loạt",
-    "zh-CHT": "匯入多個專案",
-    "zh-CN": "导入多个项目"
+    "zh-cht": "匯入多個專案",
+    "zh-cn": "导入多个项目"
   },
   "NEW_PROJECT": {
     "ar": "مشروع جديد",
@@ -1662,7 +1662,7 @@
     "de": "Neues Projekt",
     "en": "New Project",
     "es": "Nuevo Proyecto",
-    "es-AR": "Nuevo proyecto",
+    "es-ar": "Nuevo proyecto",
     "fa": "پروژه جدید",
     "fi": "Uusi projekti",
     "fr": "Nouveau Projet",
@@ -1676,8 +1676,8 @@
     "ru": "новый проект",
     "tr": "Yeni Proje",
     "vi": "Dự án mới",
-    "zh-CHT": "新增專案",
-    "zh-CN": "新项目"
+    "zh-cht": "新增專案",
+    "zh-cn": "新项目"
   },
   "NO_SASS_FILES": {
     "ar": "مجلد هذا المشروع لا يحتوي على أي ملفات Sass لمعالجتها.",
@@ -1686,7 +1686,7 @@
     "de": "Der Eingabeordner dieses Projekts enthält keine Sass-Dateien, die verarbeitet werden können.",
     "en": "This project's input folder contains no Sass files that can be processed.",
     "es": "La carpeta de entrada de este proyecto no contiene archivos Sass que se pueden procesar.",
-    "es-AR": "La carpeta de entrada de este proyecto no tiene ningún archivo Sass que se pueda procesar",
+    "es-ar": "La carpeta de entrada de este proyecto no tiene ningún archivo Sass que se pueda procesar",
     "fa": "پوشه ورودی این پروژه شامل هیچ فایل بی احترامی صحبت کردن است که می تواند پردازش شده است.",
     "fi": "Tämän projektin sisääntulokansiossa ei ole Sass-tiedostoja prosessoitavaksi.",
     "fr": "Le dossier d'entrée de ce projet ne contient aucun fichier Sass pouvant être traité.",
@@ -1700,8 +1700,8 @@
     "ru": "Папка ввода данного проекта не содержит файлов Sass, которые могут быть обработаны.",
     "tr": "Bu projenin klasöründe işlem yapılacak Sass dosyası yok.",
     "vi": "Thư mục đầu vào của dự án này không chứa tệp Sass mà có thể xử lý được.",
-    "zh-CHT": "專案中的輸入資料夾找不到任何 Sass 檔案",
-    "zh-CN": "输入文件夹不含有任何Sass文件"
+    "zh-cht": "專案中的輸入資料夾找不到任何 Sass 檔案",
+    "zh-cn": "输入文件夹不含有任何Sass文件"
   },
   "NOTIFICATIONS_CHOICE": {
     "ar": "التنبيهات",
@@ -1710,7 +1710,7 @@
     "de": "Benachrichtigungen",
     "en": "Notifications",
     "es": "Notificaciones",
-    "es-AR": "Notificaciones",
+    "es-ar": "Notificaciones",
     "fa": "اطلاعیه",
     "fi": "Ilmoitukset",
     "fr": "Notifications",
@@ -1724,8 +1724,8 @@
     "ru": "Уведомления",
     "tr": "Bildirimler",
     "vi": "Thông báo",
-    "zh-CHT": "通知",
-    "zh-CN": "通知"
+    "zh-cht": "通知",
+    "zh-cn": "通知"
   },
   "OUTPUT_COMPACT": {
     "ar": "بسيط",
@@ -1734,7 +1734,7 @@
     "de": "Kompakt",
     "en": "Compact",
     "es": "Compacto",
-    "es-AR": "Compacto",
+    "es-ar": "Compacto",
     "fa": "جمع و جور",
     "fi": "Kompakti",
     "fr": "Compact",
@@ -1748,8 +1748,8 @@
     "ru": "компактный",
     "tr": "Kompakt",
     "vi": "Gọn gàng",
-    "zh-CHT": "簡潔",
-    "zh-CN": "简洁"
+    "zh-cht": "簡潔",
+    "zh-cn": "简洁"
   },
   "OUTPUT_COMPRESSED": {
     "ar": "مضغوط",
@@ -1758,7 +1758,7 @@
     "de": "Komprimiert",
     "en": "Compressed",
     "es": "Comprimido",
-    "es-AR": "Comprimido",
+    "es-ar": "Comprimido",
     "fa": "فشرده",
     "fi": "Kompressoitu",
     "fr": "Compressé",
@@ -1772,8 +1772,8 @@
     "ru": "Сжатый",
     "tr": "Sıkıştırılmış",
     "vi": "Nén",
-    "zh-CHT": "壓縮",
-    "zh-CN": "压缩"
+    "zh-cht": "壓縮",
+    "zh-cn": "压缩"
   },
   "OUTPUT_EXPANDED": {
     "ar": "بدون ضغط",
@@ -1782,7 +1782,7 @@
     "de": "Erweitert",
     "en": "Expanded",
     "es": "Expandido",
-    "es-AR": "Expandido",
+    "es-ar": "Expandido",
     "fa": "منبسط",
     "fi": "Laajennettu",
     "fr": "Étendu",
@@ -1796,8 +1796,8 @@
     "ru": "расширенный",
     "tr": "Genişletilmiş",
     "vi": "Mở rộng",
-    "zh-CHT": "擴展",
-    "zh-CN": "扩展"
+    "zh-cht": "擴展",
+    "zh-cn": "扩展"
   },
   "OUTPUT_FOLDER": {
     "ar": "مجلد الملفات الناتجة:",
@@ -1806,7 +1806,7 @@
     "de": "Ausgabeordner:",
     "en": "Output Folder:",
     "es": "Carpeta de Salida:",
-    "es-AR": "Carpeta de salida:",
+    "es-ar": "Carpeta de salida:",
     "fa": "پوشه خروجی:",
     "fi": "Ulostulokansio",
     "fr": "Dossier de Sortie:",
@@ -1820,8 +1820,8 @@
     "ru": "папка вывода",
     "tr": "Çıktı Klasörü",
     "vi": "Đầu ra (CSS):",
-    "zh-CHT": "輸出資料夾:",
-    "zh-CN": "输出文件夹:"
+    "zh-cht": "輸出資料夾:",
+    "zh-cn": "输出文件夹:"
   },
   "OUTPUT_NESTED": {
     "ar": "متداخل",
@@ -1830,7 +1830,7 @@
     "de": "Verschachtelt",
     "en": "Nested",
     "es": "Anidado",
-    "es-AR": "Anidado",
+    "es-ar": "Anidado",
     "fa": "تو در تو",
     "fi": "Sisäkkäinen",
     "fr": "Imbriqué",
@@ -1844,8 +1844,8 @@
     "ru": "вложенные",
     "tr": "İç içe",
     "vi": "Lồng nhau",
-    "zh-CHT": "嵌套",
-    "zh-CN": "嵌套"
+    "zh-cht": "嵌套",
+    "zh-cn": "嵌套"
   },
   "OUTPUT_STYLE": {
     "ar": "نمط الملف الناتج",
@@ -1854,7 +1854,7 @@
     "de": "Ausgabetyp",
     "en": "Output Style",
     "es": "Estilo de Salida",
-    "es-AR": "Estilo de salida",
+    "es-ar": "Estilo de salida",
     "fa": "گزینه خروجی",
     "fi": "Ulostuonnin tyyli",
     "fr": "Style de Sortie",
@@ -1868,8 +1868,8 @@
     "ru": "стиль вывода",
     "tr": "Çıktı Stili",
     "vi": "Kiểu đầu ra",
-    "zh-CHT": "輸出類型",
-    "zh-CN": "输出类型"
+    "zh-cht": "輸出類型",
+    "zh-cn": "输出类型"
   },
   "OUTPUT_WARNING": {
     "ar": "مجلد المخرجات لا يمكن أن يطابق أو يكون مجلدًا فرعيًا لمجلد المدخلات.",
@@ -1878,7 +1878,7 @@
     "de": "Ausgabeordner darf nicht mit dem Eingabeordner übereinstimmen oder ein Unterordner von diesem sein.",
     "en": "Output can't match or be a subfolder of input.",
     "es": "La salida no puede coincidir o ser una subcarpeta de entrada.",
-    "es-AR": "La carpeta de salida no puede ser una sub-carpeta de o la misma carpeta de entrada",
+    "es-ar": "La carpeta de salida no puede ser una sub-carpeta de o la misma carpeta de entrada",
     "fa": "خروجی نمی تواند مسابقه و یا یک زیر پوشه از ورودی.",
     "fi": "Ulostulo ei voi vastata tai olla sisääntulokansion alikansio",
     "fr": "La sortie peut ne pas correspondre ou être un sous-dossier de l'entrée.",
@@ -1892,8 +1892,8 @@
     "ru": "Выход не может совпадать или быть вложенной B ввода.",
     "tr": "Çıktı, girişle eşleşemez yada girişin bir alt klasörü olamaz.",
     "vi": "Đầu vào không hợp lệ hoặc là thư mục con của đầu ra.",
-    "zh-CHT": "輸出不能和輸入使用同一資料夾或是其子資料夾",
-    "zh-CN": "输入输出不可为同一文件夹 或 输出文件夹不可以为输入文件夹的子文件夹"
+    "zh-cht": "輸出不能和輸入使用同一資料夾或是其子資料夾",
+    "zh-cn": "输入输出不可为同一文件夹 或 输出文件夹不可以为输入文件夹的子文件夹"
   },
   "PREFERENCES": {
     "ar": "التفضيلات",
@@ -1902,7 +1902,7 @@
     "de": "Einstellungen",
     "en": "Preferences",
     "es": "Preferencias",
-    "es-AR": "Preferencias",
+    "es-ar": "Preferencias",
     "fa": "تنظیمات",
     "fi": "Asetukset",
     "fr": "Préférences",
@@ -1916,8 +1916,8 @@
     "ru": "предпочтения",
     "tr": "Tercihler",
     "vi": "Tùy chọn",
-    "zh-CHT": "偏好設定",
-    "zh-CN": "偏好设置"
+    "zh-cht": "偏好設定",
+    "zh-cn": "偏好设置"
   },
   "PROCESSED_IN_DURATION": {
     "ar": "عولج خلال  {{duration}}",
@@ -1926,7 +1926,7 @@
     "de": "Verarbeitung in {{duration}}",
     "en": "Processed in {{duration}}",
     "es": "Procesado en {{duration}}",
-    "es-AR": "Procesado en {{duration}}",
+    "es-ar": "Procesado en {{duration}}",
     "fa": "پردازش در {{duration}}",
     "fi": "Prosessoitiin {{duration}}",
     "fr": "Transformé en {{duration}}",
@@ -1940,8 +1940,8 @@
     "ru": "Переработанные в {{duration}}",
     "tr": "Tamamlandı {{duration}}",
     "vi": "Xử lý trong {{duration}}",
-    "zh-CHT": "處理時間: {{duration}}",
-    "zh-CN": "处理时间："
+    "zh-cht": "處理時間: {{duration}}",
+    "zh-cn": "处理时间："
   },
   "PRODUCTION": {
     "ar": "الإنتاج",
@@ -1950,7 +1950,7 @@
     "de": "Produktion",
     "en": "Production",
     "es": "Producción",
-    "es-AR": "Producción",
+    "es-ar": "Producción",
     "fa": "تولید",
     "fi": "Tuotanto",
     "fr": "Production",
@@ -1964,8 +1964,8 @@
     "ru": "производство",
     "tr": "Üretim",
     "vi": "Thực tế",
-    "zh-CHT": "上線",
-    "zh-CN": "上线"
+    "zh-cht": "上線",
+    "zh-cn": "上线"
   },
   "PROJECT_CONTROLS": {
     "ar": "التحكم بالمشروع",
@@ -1974,7 +1974,7 @@
     "de": "Projektsteuerung",
     "en": "Project Controls",
     "es": "Controles del Proyecto",
-    "es-AR": "Controles del proyecto",
+    "es-ar": "Controles del proyecto",
     "fa": "کنترل پروژه",
     "fi": "Projektin hallintanapit",
     "fr": "Contrôle de Projets",
@@ -1988,8 +1988,8 @@
     "ru": "Регуляторы проекта",
     "tr": "Proje Kontrolleri",
     "vi": "Project Controls",
-    "zh-CHT": "專案控制",
-    "zh-CN": "项目控制"
+    "zh-cht": "專案控制",
+    "zh-cn": "项目控制"
   },
   "PROJECT_ICON": {
     "ar": "أيقونة المشروع",
@@ -1998,7 +1998,7 @@
     "de": "Projekt-Icon",
     "en": "Project Icon",
     "es": "Icono del Proyecto",
-    "es-AR": "Icono del proyecto",
+    "es-ar": "Icono del proyecto",
     "fa": "نماد پروژه",
     "fi": "Projektin ikoni",
     "fr": "Icône du Projet",
@@ -2012,8 +2012,8 @@
     "ru": "Иконка для проекта",
     "tr": "Proje İkonu",
     "vi": "Project Icon",
-    "zh-CHT": "專案圖示",
-    "zh-CN": "项目图标"
+    "zh-cht": "專案圖示",
+    "zh-cn": "项目图标"
   },
   "SCOUTAPP_LOGO": {
     "ar": "شعار Scout-App",
@@ -2022,7 +2022,7 @@
     "de": "Scout-App-Logo",
     "en": "Scout-App Logo",
     "es": "Logo de Scout-App",
-    "es-AR": "Logo de Scout-App",
+    "es-ar": "Logo de Scout-App",
     "fa": "لوگو پیشآهنگی برنامه",
     "fi": "Scout-Appin logo",
     "fr": "Scout-App Logo",
@@ -2036,8 +2036,8 @@
     "ru": "Cкаут-Aпп логотип",
     "tr": "Scout-App Logosu",
     "vi": "Scout-App Logo",
-    "zh-CHT": "Scout-App Logo",
-    "zh-CN": "Scout-App 商标"
+    "zh-cht": "Scout-App Logo",
+    "zh-cn": "Scout-App 商标"
   },
   "SECONDS": {
     "ar": "ثوانٍ",
@@ -2046,7 +2046,7 @@
     "de": "Sekunden",
     "en": "seconds",
     "es": "segundos",
-    "es-AR": "segundos",
+    "es-ar": "segundos",
     "fa": "دومین",
     "fi": "sekuntia",
     "fr": "secondes",
@@ -2060,8 +2060,8 @@
     "ru": "секунд",
     "tr": "saniye",
     "vi": "giây",
-    "zh-CHT": "秒",
-    "zh-CN": "秒"
+    "zh-cht": "秒",
+    "zh-cn": "秒"
   },
   "SELECT_DESELECT_ALL": {
     "ar": "تحديد/إلغاء تحديد الكل",
@@ -2070,7 +2070,7 @@
     "de": "Alles auswählen/abwählen",
     "en": "Select/Deselect All",
     "es": "Seleccionar/Deseleccionar todo",
-    "es-AR": "Seleccionar/deseleccionar todo",
+    "es-ar": "Seleccionar/deseleccionar todo",
     "fa": "انتخاب/عدم انتخاب همه",
     "fi": "Valitse kaikki / Poista valinta kaikesta",
     "fr": "Sélectionner/Désélectionner tout",
@@ -2084,8 +2084,8 @@
     "ru": "Выбрать/Отменить все",
     "tr": "Tümünü seç/Seçimi İptal Et",
     "vi": "Chọn/Bỏ chọn tất cả",
-    "zh-CHT": "全選/全不選",
-    "zh-CN": "全选/全不选"
+    "zh-cht": "全選/全不選",
+    "zh-cn": "全选/全不选"
   },
   "SELECT_GROUP_FOLDER": {
     "ar": "اختر مجلد المشاريع",
@@ -2094,7 +2094,7 @@
     "de": "wählen Sie den Gruppenordner",
     "en": "select the group folder",
     "es": "seleccione la carpeta del grupo",
-    "es-AR": "seleccionar el grupo de carpetas",
+    "es-ar": "seleccionar el grupo de carpetas",
     "fa": "پوشه گروه را انتخاب کنید",
     "fi": "valitse ryhmäkansio",
     "fr": "sélectionnez le groupe de projets",
@@ -2108,8 +2108,8 @@
     "ru": "выберите папку группы",
     "tr": "Grup klasörünü seç",
     "vi": "chọn nhiều thư mục",
-    "zh-CHT": "選擇專案群組資料夾",
-    "zh-CN": "选择一组项目文件夹"
+    "zh-cht": "選擇專案群組資料夾",
+    "zh-cn": "选择一组项目文件夹"
   },
   "SELECT_PROJECT_FOLDER": {
     "ar": "اختر مجلد مشروع",
@@ -2118,7 +2118,7 @@
     "de": "wählen Sie einen Projektordner",
     "en": "select a project folder",
     "es": "seleccione una carpeta de proyecto",
-    "es-AR": "seleccionar la carpeta del proyecto",
+    "es-ar": "seleccionar la carpeta del proyecto",
     "fa": "یک پوشه پروژه را انتخاب کنید",
     "fi": "Valitse projektikansio",
     "fr": "sélectionnez un dossier comme projet",
@@ -2132,8 +2132,8 @@
     "ru": "выберите папку проекта",
     "tr": "Bir proje klasörü seç",
     "vi": "chọn một thư mục",
-    "zh-CHT": "選擇專案資料夾",
-    "zh-CN": "选择一个项目文件夹"
+    "zh-cht": "選擇專案資料夾",
+    "zh-cn": "选择一个项目文件夹"
   },
   "SERVER_DOWN": {
     "ar": "تعذّر الاتصال بخادم التحديثات. حاول مرة أخرى لاحقًا.",
@@ -2142,7 +2142,7 @@
     "de": "Aktualisierungsserver nicht erreichbar. Versuchen Sie es später noch einmal.",
     "en": "Unable to reach update server. Try again later.",
     "es": "No se ha podido conectar con el servidor de actualización. Inténtelo de nuevo más tarde.",
-    "es-AR": "No se puede conectar con el servidor de actualizaciones. Intentá de nuevo más tarde.",
+    "es-ar": "No se puede conectar con el servidor de actualizaciones. Intentá de nuevo más tarde.",
     "fa": "قادر به رسیدن به سرور به روز رسانی. بعدا دوباره تلاش کنید.",
     "fi": "Päivityspalvelin ei tavoitettavissa. Yritä myöhemmin uudestaan.",
     "fr": "Impossible d'accéder au serveur de mise à jour. Réessayez plus tard.",
@@ -2156,8 +2156,8 @@
     "ru": "Невозможно получить доступ к серверу обновлений. Повторите попытку позже.",
     "tr": "Güncelleme sunucusuna erişilemiyor. Daha sonra tekrar deneyin.",
     "vi": "Không thể kết nối đến máy chủ. Hãy thử lại sau.",
-    "zh-CHT": "無法連結更新伺服器. 稍候再試",
-    "zh-CN": "服务器故障，请稍候再试"
+    "zh-cht": "無法連結更新伺服器. 稍候再試",
+    "zh-cn": "服务器故障，请稍候再试"
   },
   "SHOW": {
     "ar": "إظهار",
@@ -2166,7 +2166,7 @@
     "de": "Anzeigen",
     "en": "Show",
     "es": "Mostrar",
-    "es-AR": "Mostrar",
+    "es-ar": "Mostrar",
     "fa": "نمایش",
     "fi": "Näytä",
     "fr": "Montrer",
@@ -2180,8 +2180,8 @@
     "ru": "Показать",
     "tr": "Göster",
     "vi": "Hiện",
-    "zh-CHT": "显示",
-    "zh-CN": "显示"
+    "zh-cht": "显示",
+    "zh-cn": "显示"
   },
   "STATUS": {
     "ar": "الحالة",
@@ -2190,7 +2190,7 @@
     "de": "Status",
     "en": "Status",
     "es": "Estado",
-    "es-AR": "Estado",
+    "es-ar": "Estado",
     "fa": "وضعیت",
     "fi": "Status",
     "fr": "Statut",
@@ -2204,8 +2204,8 @@
     "ru": "статус",
     "tr": "Durum",
     "vi": "Trạng thái",
-    "zh-CHT": "狀態",
-    "zh-CN": "状态"
+    "zh-cht": "狀態",
+    "zh-cn": "状态"
   },
   "STATUS_OF_ALL_PROJECTS": {
     "ar": "حالات كل المشاريع",
@@ -2214,7 +2214,7 @@
     "de": "Status aller Projekte",
     "en": "Status of all Projects",
     "es": "Estado de todos los Proyectos",
-    "es-AR": "Estado de  todos los proyectos",
+    "es-ar": "Estado de  todos los proyectos",
     "fa": "وضعیت تمام پروژه",
     "fi": "Kaikkien projektien status",
     "fr": "Statut de tous les projets",
@@ -2228,8 +2228,8 @@
     "ru": "статус всех проектов",
     "tr": "Tüm Projelerin Durumu",
     "vi": "Trạng thái của tất cả dự án",
-    "zh-CHT": "專案狀態",
-    "zh-CN": "查看所有项目状态"
+    "zh-cht": "專案狀態",
+    "zh-cn": "查看所有项目状态"
   },
   "STYLESHEET_CHOICE": {
     "ar": "السمة:",
@@ -2238,7 +2238,7 @@
     "de": "Thema:",
     "en": "Theme:",
     "es": "Tema:",
-    "es-AR": "Tema:",
+    "es-ar": "Tema:",
     "fa": "سبک:",
     "fi": "Teema:",
     "fr": "Style Visuel:",
@@ -2252,8 +2252,8 @@
     "ru": "визуальная тема",
     "tr": "Tema:",
     "vi": "Giao diện:",
-    "zh-CHT": "佈景主題:",
-    "zh-CN": "主题"
+    "zh-cht": "佈景主題:",
+    "zh-cn": "主题"
   },
   "STYLESHEET_DIRECTORIES": {
     "ar": "مجلدات ملفات الأنماط (stylesheets)",
@@ -2262,7 +2262,7 @@
     "de": "Stylesheet Verzeichnisse",
     "en": "Stylesheet Directories",
     "es": "Directorios de Hojas de Estilo",
-    "es-AR": "Directorios de hojash de estilo",
+    "es-ar": "Directorios de hojash de estilo",
     "fa": "شیوه راهنماها",
     "fi": "Tyylitiedostojen kansiot",
     "fr": "Répertoires des Feuilles de Style",
@@ -2276,8 +2276,8 @@
     "ru": "Каталог стилей",
     "tr": "Stylesheet Dizinleri",
     "vi": "Thư mục Stylesheet",
-    "zh-CHT": "樣式表位置",
-    "zh-CN": "CSS 输出设置"
+    "zh-cht": "樣式表位置",
+    "zh-cn": "CSS 输出设置"
   },
   "TOGGLE_NAVIGATION": {
     "ar": "إظهار المتنقل",
@@ -2286,7 +2286,7 @@
     "de": "Navigation umschalten",
     "en": "Toggle navigation",
     "es": "Cambiar modo de navegación",
-    "es-AR": "Activar barra de navegación",
+    "es-ar": "Activar barra de navegación",
     "fa": "سوئیچ ناوبری",
     "fi": "Avaa / Piilota navigaatio",
     "fr": "Basculer la Navigation",
@@ -2300,8 +2300,8 @@
     "ru": "переключить навигацию",
     "tr": "Navigasyonu aç/kapat",
     "vi": "Toggle navigation",
-    "zh-CHT": "顯示/隱藏導覽列",
-    "zh-CN": "显示/隐藏 导航"
+    "zh-cht": "顯示/隱藏導覽列",
+    "zh-cn": "显示/隐藏 导航"
   },
   "TRANSLATED_BY": {
     "ar": "ترجمه:",
@@ -2310,7 +2310,7 @@
     "de": "Übersetzt von:",
     "en": "Translated by:",
     "es": "Traducido por:",
-    "es-AR": "Traducido por:",
+    "es-ar": "Traducido por:",
     "fa": "ترجمه شده توسط:",
     "fi": "Kääntäjä:",
     "fr": "Traduit par:",
@@ -2324,8 +2324,8 @@
     "ru": "Переведено:",
     "tr": "Çeviren:",
     "vi": "Được dịch bởi:",
-    "zh-CHT": "翻譯:",
-    "zh-CN": "翻译者："
+    "zh-cht": "翻譯:",
+    "zh-cn": "翻译者："
   },
   "TRANSLATOR": {
     "ar": "MrG0lden",
@@ -2334,7 +2334,7 @@
     "de": "Tobias Dickgreber",
     "en": "The Jared Wilcurt",
     "es": "Ireneml.fr",
-    "es-AR": "Mariano Wadi Jacobo",
+    "es-ar": "Mariano Wadi Jacobo",
     "fa": "گوگل",
     "fi": "Sami Singh",
     "fr": "Stephan Raab, Arthur",
@@ -2348,8 +2348,8 @@
     "ru": "Daniel Golant",
     "tr": "Cemal Taşkıran",
     "vi": "Zzbaivong",
-    "zh-CHT": "Hsin Cheng Lin (Luke)",
-    "zh-CN": "YIXIANG ZHANG (Alafly)"
+    "zh-cht": "Hsin Cheng Lin (Luke)",
+    "zh-cn": "YIXIANG ZHANG (Alafly)"
   },
   "TRANSLATOR_MEME": {
     "ar": "هانك هيل (شخصية كرتونية) من مسلسل ملك الجحيم يقول: \"أنا أعالج ملفات Sass، ودوال Sass.",
@@ -2358,7 +2358,7 @@
     "de": "Fischers Fritze fischt frische Fische, zubereitet mit Sass.",
     "en": "Hank Hill, from King of the Hill saying \"I process Sass, and Sass Mixins\".",
     "es": "Hank Hill, de Reyes de la Colina dice \"Yo proceso Sass, y Sass se añade\".",
-    "es-AR": "El Chavo del 8 y su muletilla:\"¡Sas! ¡Sas!\"",
+    "es-ar": "El Chavo del 8 y su muletilla:\"¡Sas! ¡Sas!\"",
     "fa": ".",
     "fi": "Hank Hill Kukkulan Kuninkaasta sanomassa \"Prosessoin Sassia ja Sass-mixineitä\".",
     "fr": "Daft Punk, avec leur chanson 'Harder, Better, Faster, SASSer'.",
@@ -2372,8 +2372,8 @@
     "ru": "Винни-Пух, с текстом 'А почему Сасс существует в этом мире? Для меня, чтобы использовать, по моему так'",
     "tr": "Scss'i büzüşesiceler.",
     "vi": "Sass, đâu đâu cũng Sass",
-    "zh-CHT": "CSS 鄙視鏈: Sass, LESS > SMACSS, OOCSS > External, Internal CSS >>> inline CSS",
-    "zh-CN": "程序猿"
+    "zh-cht": "CSS 鄙視鏈: Sass, LESS > SMACSS, OOCSS > External, Internal CSS >>> inline CSS",
+    "zh-cn": "程序猿"
   },
   "TRANSLATOR_URL": {
     "ar": "http://github.com/mrg0lden",
@@ -2382,7 +2382,7 @@
     "de": "https://github.com/SirTobey1337",
     "en": "http://TheJaredWilcurt.com",
     "es": "http://ireneml.fr",
-    "es-AR": "http://www.marianojacobo.com",
+    "es-ar": "http://www.marianojacobo.com",
     "fa": ".",
     "fi": "https://httpster.io",
     "fr": "https://github.com/StephanRaab, http://github.com/AnotherJavaCoder",
@@ -2396,8 +2396,8 @@
     "ru": "https://github.com/BlackBetty",
     "tr": "http://github.com/cemaltaskiran/",
     "vi": "https://baivong.github.io",
-    "zh-CHT": "https://hsinchenglin.com",
-    "zh-CN": "mailto:alaflycanada@gmail.com"
+    "zh-cht": "https://hsinchenglin.com",
+    "zh-cn": "mailto:alaflycanada@gmail.com"
   },
   "UPDATE_FOUND": {
     "ar": "وجدنا تحديثًا!",
@@ -2406,7 +2406,7 @@
     "de": "Update gefunden!",
     "en": "Update found!",
     "es": "¡Actualización encontrada!",
-    "es-AR": "¡Se encontró una actualización!",
+    "es-ar": "¡Se encontró una actualización!",
     "fa": "به روز رسانی پیدا نشد!",
     "fi": "Päivitys löytynyt!",
     "fr": "Mise à jour trouvée!",
@@ -2420,8 +2420,8 @@
     "ru": "Обновление найдено!",
     "tr": "Güncelleme bulundu!",
     "vi": "Đã tìm thấy bản cập nhật!",
-    "zh-CHT": "有新版本!",
-    "zh-CN": "有新版本啦！"
+    "zh-cht": "有新版本!",
+    "zh-cn": "有新版本啦！"
   },
   "VERSION": {
     "ar": "الإصدار",
@@ -2430,7 +2430,7 @@
     "de": "Version",
     "en": "Version",
     "es": "Versión",
-    "es-AR": "Versión",
+    "es-ar": "Versión",
     "fa": "نسخهی",
     "fi": "Versio",
     "fr": "Version",
@@ -2444,8 +2444,8 @@
     "ru": "Версия",
     "tr": "Versiyon",
     "vi": "Phiên bản",
-    "zh-CHT": "版本",
-    "zh-CN": "版本"
+    "zh-cht": "版本",
+    "zh-cn": "版本"
   },
   "VIEW": {
     "ar": "عرض",
@@ -2454,7 +2454,7 @@
     "de": "Ansicht",
     "en": "View",
     "es": "Ver",
-    "es-AR": "Versión",
+    "es-ar": "Versión",
     "fa": "چشم انداز",
     "fi": "Näytä",
     "fr": "Vue",
@@ -2468,8 +2468,8 @@
     "ru": "Посмотреть",
     "tr": "Görünüm",
     "vi": "Hiển thị",
-    "zh-CHT": "檢視",
-    "zh-CN": "视图"
+    "zh-cht": "檢視",
+    "zh-cn": "视图"
   },
   "VIEW_LATEST_RELEASE": {
     "ar": "عرض آخر إصدار",
@@ -2478,7 +2478,7 @@
     "de": "Neueste Version ansehen",
     "en": "View latest release",
     "es": "Ver últimas modificaciones",
-    "es-AR": "Ver versión más reciente",
+    "es-ar": "Ver versión más reciente",
     "fa": "نمایش آخرین نسخه",
     "fi": "Näytä viimeisin päivitys",
     "fr": "Voir la dernière version",
@@ -2492,8 +2492,8 @@
     "ru": "Посмотреть последний выпуск",
     "tr": "En yeni sürümü görüntüle",
     "vi": "Xem phiên bản mới nhất",
-    "zh-CHT": "檢視最新版本",
-    "zh-CN": "查看最新版本"
+    "zh-cht": "檢視最新版本",
+    "zh-cn": "查看最新版本"
   },
   "WELCOME_MESSAGE": {
     "ar": "مرحبًا بك في Scout-App!",
@@ -2502,7 +2502,7 @@
     "de": "Willkommen bei Scout-App!",
     "en": "Welcome to Scout-App!",
     "es": "¡Bienvenido a Scout-App!",
-    "es-AR": "¡Bienvenidos a Scout-App!",
+    "es-ar": "¡Bienvenidos a Scout-App!",
     "fa": "به دیده بانی برنامه خوش آمدید!",
     "fi": "Tervetuloa Scout-Appiin!",
     "fr": "Bienvenue dans Scout-App!",
@@ -2516,7 +2516,7 @@
     "ru": "Добро пожаловать в Cкаут-Aпп!",
     "tr": "Scout-App'a goş geldiniz!",
     "vi": "Chào mừng bạn đến Scout-App!",
-    "zh-CHT": "歡迎使用 Scout-App!",
-    "zh-CN": "欢迎使用 Scout-App!"
+    "zh-cht": "歡迎使用 Scout-App!",
+    "zh-cn": "欢迎使用 Scout-App!"
   }
 }
