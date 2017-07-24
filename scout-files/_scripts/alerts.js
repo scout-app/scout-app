@@ -106,7 +106,7 @@
                 '<span class="pull-right glyphicon glyphicon-remove"></span>' +
                 '<h3 class="panel-title' + rtl + '">' + title + '</h3>' +
               '</div>' +
-              '<div class="panel-body">' +
+              '<div class="panel-body ltr">' +
                 errorMessage + '<br />' +
                 '<strong>' + bugFile + '</strong><br />' +
                 '<pre>' +

@@ -38,14 +38,14 @@
      */
     function textDirection () {
         // All RTL langs, like Hebrew (he) or Persian (fa).
-        var rtlLangs = ['he', 'fa'];
+        var rtlLangs = ['ar', 'fa', 'he'];
         for (var i = 0; i < rtlLangs.length; i++) {
             if (scout.globalSettings.cultureCode == rtlLangs[i]) {
                 return 'rtl';
             }
         }
 
-        return 'lrt';
+        return 'ltr';
     }
 
     /**
@@ -93,14 +93,19 @@
         if (scout.helpers.updateProjectsFoundCount) {
             scout.helpers.updateProjectsFoundCount();
         }
-        // Change this if RTL
+
         var direction = textDirection();
+        var nodeLibSassVersions = '';
+
         if (direction == 'ltr') {
-            $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')');
+            $('body').removeClass('rtl').addClass('ltr');
+            nodeLibSassVersions = '(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')';
         } else if (direction == 'rtl') {
-            $('.nodeSassVersion').html('(v' + scout.versions.libSass + ' LibSass / v' + scout.versions.nodeSass + ' Node-Sass)');
+            $('body').removeClass('ltr').addClass('rtl');
+            nodeLibSassVersions = '(v' + scout.versions.libSass + ' LibSass / v' + scout.versions.nodeSass + ' Node-Sass)';
         }
 
+        $('.nodeSassVersion').html(nodeLibSassVersions);
         $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
         // Allow links with a class of "external-link" to open in the user's default browser
