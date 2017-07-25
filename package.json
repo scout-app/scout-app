@@ -50,6 +50,8 @@
     },
     "dependencies": {
         "node-sass": "^3.x.x",
+        "autoprefixer": "^6.x.x",
+        "postcss": "^5.x.x",
         "chokidar": "^1.x.x",
         "fs-extra": "^0.30.x"
     },

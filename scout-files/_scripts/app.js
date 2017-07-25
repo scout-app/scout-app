@@ -8,6 +8,8 @@
 
     var fs = require('fs-extra');
     var sass = require('node-sass');
+    var autoprefixer = require('autoprefixer');
+    var postcss = require('postcss');
     var chokidar = require('chokidar');
     var path = require('path');
 
@@ -155,6 +157,25 @@
                         }
                     });
                 }
+
+                postcss([ autoprefixer ]).process(result.css.toString(), {from: outputFullFilePath, to: outputFullFilePath}).then(function (pcss_result) {
+                    pcss_result.warnings().forEach(function (warn) {
+                        console.warn(warn.toString());
+                    });
+                    fs.outputFile(outputFullFilePath, pcss_result.css.toString(), function (err) {
+                        if (err) {
+                            console.warn(err);
+                        }
+                    });
+                    if (devMode) {
+                        fs.outputFile(sourceMap, pcss_result.map.toString(), function (err) {
+                            if (err) {
+                                console.warn(err);
+                            }
+                        });
+                    }
+                });
+
                 scout.helpers.message(result, projectID);
             }
         });
