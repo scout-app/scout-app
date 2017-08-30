@@ -49,7 +49,7 @@
         "plugin": true
     },
     "dependencies": {
-        "node-sass": "^3.x.x",
+        "node-sass": "^4.x.x",
         "chokidar": "^1.x.x",
         "fs-extra": "^0.30.x"
     },
