@@ -23,7 +23,7 @@
 
     // The Node Sass Vendor folder is our Destination
     var nsPath = 'node_modules/node-sass';
-    var nsVer = '3.8.0';
+    var nsVer = '4.5.3';
 
     // Check to see if there is an existing Vendor folder
     var nsContents = ugui.helpers.readAFolder(nsPath);

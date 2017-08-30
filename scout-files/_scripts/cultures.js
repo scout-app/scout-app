@@ -22,7 +22,7 @@
 
         // console.log(phrase);
 
-        var userLanguage = scout.globalSettings.cultureCode;
+        var userLanguage = scout.globalSettings.cultureCode.toLowerCase();
         var translation = window.dictionary[phrase][userLanguage];
 
         if (wrapInDataLang) {
