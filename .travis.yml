@@ -1,0 +1,7 @@
+sudo: required
+dist: trusty
+language: node_js
+install:
+    - npm install
+script:
+    - npm run lint
