@@ -1,6 +1,8 @@
+/* eslint-disable no-console */
+
 var lint = require('sass-lint');
 
-var results = lint.lintFiles('', {}, '.sass-lint.yml');
+var results = lint.lintFiles(null, {}, '.sass-lint.yml');
 var hr = '--------------------------------------------------------------------';
 var result = '';
 var file = '';
