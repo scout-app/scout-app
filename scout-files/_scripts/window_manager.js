@@ -49,11 +49,12 @@ function minimizeWindow (){
     */
     win.setShowInTaskbar(false);
     win.hide();
+
     /*
-    Show notification
+        Show notification
     */
     var notificationMinimizedWindow = new Notification('Scout-app', {
-    body: window.scout.localize('IS_NOW_MINIMIZED')
+        body: window.scout.localize('IS_NOW_MINIMIZED')
     });
 
     notificationMinimizedWindow.onclick = function (event) {
@@ -65,7 +66,7 @@ function minimizeWindow (){
 /*
     Show window again
 */
-function showWindow(){
+function showWindow (){
     tray.remove();
     tray = null;
     win.setShowInTaskbar(true);
