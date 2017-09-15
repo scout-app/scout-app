@@ -6,44 +6,44 @@ var win = gui.Window.get();
 */
 var PLATFORM = process.platform;
 
-if (PLATFORM == "darwin") { 
-    var menu = new gui.Menu({type: "menubar"});
-    menu.createMacBuiltin && menu.createMacBuiltin("Scout app");
-    win.menu = menu;
+if (PLATFORM == 'darwin') { 
+	var menu = new gui.Menu({type: 'menubar'});
+	menu.createMacBuiltin && menu.createMacBuiltin('Scout app');
+	win.menu = menu;
 }
 
 
 var allowCloseWindow = false; // Allow close from traymenu
+var tray = null;
 
-win.on('close', function() {
-
+win.on('close', function () {
 	if(allowCloseWindow)
-		this.close(true); //Close
+		this.close(true); // Close
 
 	minimizeWindow(); // Minimize      	   
 });
 
-function minimizeWindow(){
+function minimizeWindow (){
 	/*
 		Create tray menu
 	*/
 	tray = new gui.Tray({icon: 'scout-files/_img/logo_16.png'});
 
 	var menu = new gui.Menu();
-	show = new gui.MenuItem({label:  window.scout.localize('SHOW')});
-	show.click = function(){
+	var show = new gui.MenuItem({label:  window.scout.localize('SHOW')});
+	show.click = function (){
 		showWindow();
 	};
 	menu.append(show);
 
-	close = new gui.MenuItem({label: window.scout.localize('EXIT')});
+	var close = new gui.MenuItem({label: window.scout.localize('EXIT')});
 	close.click = function(){
 		allowCloseWindow = true;
 		win.close();
 	};
 	menu.append(close);
 	tray.menu = menu;
-	
+		
 	/*
 		Hide app
 	*/
@@ -53,13 +53,13 @@ function minimizeWindow(){
 	/*
 		Show notification
 	*/
-	var notificationMinimizedWindow=new Notification("Scout-app", {
-	    body: window.scout.localize('IS_NOW_MINIMIZED')
+	var notificationMinimizedWindow = new Notification('Scout-app', {
+		body: window.scout.localize('IS_NOW_MINIMIZED')
 	});
 
-	notificationMinimizedWindow.onclick = function(event) {
-	  event.preventDefault();
-	  showWindow();
+	notificationMinimizedWindow.onclick = function (event) {
+		event.preventDefault();
+		showWindow();
 	}
 }
 
@@ -74,5 +74,5 @@ function showWindow(){
 	win.show();
 }
 
-minimizeWindow(); //minimize at startup
+minimizeWindow(); // Minimize at startup
 
