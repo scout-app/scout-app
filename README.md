@@ -1,6 +1,6 @@
 ![Scout-App 2 Logo](scout-files/_img/wordmark.png "Scout-App 2 Logo")
 
-[![Join the chat at https://gitter.im/scout-app/scout-app](https://badges.gitter.im/scout-app/scout-app.svg)](https://gitter.im/scout-app/scout-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/scout-app/scout-app](https://badges.gitter.im/scout-app/scout-app.svg)](https://gitter.im/scout-app/scout-app?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![Build Status](https://travis-ci.org/scout-app/scout-app.svg?branch=master)](https://travis-ci.org/scout-app/scout-app)
 
 Scout-App allows you to process your `.sass` and `.scss` files into CSS without needing any knowledge of the command line.
 

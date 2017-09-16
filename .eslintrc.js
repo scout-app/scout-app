@@ -10,7 +10,6 @@ module.exports = {
         "comma-style":                 ["error", "last"],
         "curly":                       ["error"],
         "indent":                      ["error", 4, { "SwitchCase": 1 }],
-        "linebreak-style":             ["error", "windows"],
         "no-multi-spaces":             ["error"],
         "no-ternary":                  ["error"],
         "one-var":                     ["error", "never"],
