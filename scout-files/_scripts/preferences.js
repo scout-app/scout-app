@@ -37,7 +37,7 @@
         ticks: [0, 100, 200, 300, 400, 500, 600, 700],
         value: scout.globalSettings.atomicSlider || 100,
         formatter: function (value) {
-            return value + ' ms';
+            return value + ' ' + scout.localize('MILLISECONDS_SHORT');
         }
     });
 
