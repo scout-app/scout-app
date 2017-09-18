@@ -44,11 +44,9 @@
     }
 
     function deleteLocalSettingsFile (bool) {
+        var path = require('path');
         var appData = require('nw.gui').App.dataPath;
-        var file = appData + '/scout-settings.json';
-        if (process.platform == 'win32') {
-            file = appData + '\\scout-settings.json';
-        }
+        var file = path.join(appData, 'scout-settings.json');
 
         if (!bool) {
             console.info('To delete this file:');

@@ -2805,15 +2805,26 @@ function sliderHandleGradient (themeGradient) {
     }
 }
 
+function sliderTrackAndTickColor () {
+    //Verify the developer is using Bootstrap slider
+    if (bootstrap3_enabled && slider_enabled) {
+        var bgColor = '#D5D5D5';
+        $('.slider-tick.in-selection').css('background-color', bgColor);
+        $('.slider-tick.in-selection').css('background-image',  'linear-gradient(' + bgColor + ', ' + bgColor + ')');
+        $('.slider-selection.tick-slider-selection').css('background-color', bgColor);
+        $('.slider-selection.tick-slider-selection').css('background-image', 'linear-gradient(' + bgColor + ', ' + bgColor + ')');
+    }
+}
+
 function sliderHandleColor () {
     //Verify the developer is using Bootstrap slider and that the navbar exists
     if (bootstrap3_enabled && slider_enabled && ($('.navbar').length > 0)) {
         //Remove the color of the slider handle
         $('.slider .slider-handle').css('background-image', 'none');
 
-        //Get the color of the navigation bar
+        // Get the color of the navigation bar
         var themeColor = $('.navbar').css('background-color');
-        //Get the background image or gradient
+        // Get the background image or gradient
         var themeGradient = $('.navbar').css('background-image');
 
         if (themeGradient == 'none') {
@@ -2821,6 +2832,8 @@ function sliderHandleColor () {
         } else {
             sliderHandleGradient(themeGradient);
         }
+
+        sliderTrackAndTickColor();
     }
 }
 

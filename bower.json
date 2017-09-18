@@ -19,7 +19,7 @@
     "jquery": "^2.x.x",
     "jquery-ui": "1.12.1",
     "bootstrap": "3.2.0",
-    "seiyria-bootstrap-slider": "^5.x.x",
+    "seiyria-bootstrap-slider": "^8.x.x",
     "ivan-chkv.bootstrap-dropdowns-enhancement-dist": "3.1.1",
     "countup": "latest",
 

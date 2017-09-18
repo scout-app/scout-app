@@ -171,10 +171,12 @@
             // If the ID's match
             if (scout.projects[I].projectID == id) {
                 // Create a chokidar watcher in that project
-                scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, {
+                var chokidarOptions = {
                     ignored: /[\/\\]\./,
-                    persistent: true
-                });
+                    persistent: true,
+                    atomic: scout.globalSettings.atomicSlider || 100
+                };
+                scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, chokidarOptions);
                 // Detect file changes and reprocess Sass files
                 scout.projects[I].watcher
                     .on('change', function (/* item, stats*/) {

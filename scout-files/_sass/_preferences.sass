@@ -16,6 +16,8 @@
         content: "\e014"
     .language:before
         content: "\e135"
+    .file:before
+        content: "\e022"
     .custom-pbrush:before
         +icon
         content: "\e903"
@@ -33,3 +35,16 @@
         text-align: right
     label
         padding-right: 20px
+
+.atomic-options
+    label
+        padding-right: 20px
+        padding-left: 20px
+
+.slider-tick.round
+    display: none
+    &:nth-child(5)
+        display: block
+
+.slider-selection.tick-slider-selection
+    background: rbga(0, 0, 0, 0.5)
