@@ -11,6 +11,13 @@
     var chokidar = require('chokidar');
     var path = require('path');
 
+    if (process.platform === 'darwin') {
+        var gui = require('nw.gui');
+        var menubar = new gui.Menu({type: 'menubar'});
+        menubar.createMacBuiltin('Scout-App');
+        gui.Window.get().menu = menubar;
+    }
+
     // Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass', '').replace('(Wrapper)', '').replace('[JavaScript]', '').trim();
     scout.versions.libSass = sass.info.split('\n')[1].replace('libsass', '').replace('(Sass Compiler)', '').replace('[C/C++]', '').trim();
@@ -164,10 +171,12 @@
             // If the ID's match
             if (scout.projects[I].projectID == id) {
                 // Create a chokidar watcher in that project
-                scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, {
+                var chokidarOptions = {
                     ignored: /[\/\\]\./,
-                    persistent: true
-                });
+                    persistent: true,
+                    atomic: scout.globalSettings.atomicSlider || 100
+                };
+                scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, chokidarOptions);
                 // Detect file changes and reprocess Sass files
                 scout.projects[I].watcher
                     .on('change', function (/* item, stats*/) {

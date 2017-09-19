@@ -10,7 +10,10 @@ options:
   formatter: json
 # File Options
 files:
-  include: 'scout-files/_sass/*.s+(a|c)ss'
+  include: 'scout-files/_sass/**/*.s+(a|c)ss'
+  ignore:
+    - 'scout-files/_sass/ven.bootstrap/**/*'
+    - 'scout-files/_sass/ven.bootswatch/**/*'
 # Rule Configuration
 rules:
   attribute-quotes: 2
@@ -62,44 +65,44 @@ rules:
   placeholder-in-extend: 2
   property-sort-order:
     - 1
-    - ignore-custom-properties: true
-      order:
+    - order:
+        # Effects if the element exists
         - content
-
+        # Highest effect of where pixel painting begins
         - position
         - top
         - right
         - bottom
         - left
-
+        # How the element is displayed
         - display
         - align-content
         - align-items
         - align-self
-        - flex
         - flex-basis
         - flex-direction
         - flex-flow
         - flex-grow
         - flex-shrink
         - flex-wrap
+        - flex
         - justify-content
         - order
-
+        # Overall size, max amount of pixels that can be painted
         - width
         - height
         - min-width
         - min-height
         - max-width
         - max-height
-
+        # Effects the most amount of pixel paint in the element
         - background
         - background-color
         - background-image
         - background-position
         - background-repeat
         - background-size
-
+        # Box model
         - border
         - border-width
         - border-style
@@ -135,8 +138,9 @@ rules:
         - padding-right
         - padding-bottom
         - padding-left
-
+        # Text treatment
         - color
+        - direction
         - font-family
         - font-size
         - -webkit-font-smoothing
@@ -159,10 +163,13 @@ rules:
         - text-transform
         - white-space
         - word-break
-
+        - unicode-bidi
+        # Less common properties go to the bottom
         - box-shadow
         - clear
         - cursor
+        - -webkit-filter
+        - filter
         - float
         - opacity
         - outline
@@ -177,6 +184,7 @@ rules:
         - vertical-align
         - visibility
         - z-index
+      ignore-custom-properties: true
   single-line-per-selector: 1
   space-after-bang:
     - 2

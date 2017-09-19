@@ -154,8 +154,14 @@
               <h3 data-lang="ENVIRONMENT"></h3>
             </div>
             <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> <span data-lang="DEVELOPMENT"></span></label>
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> <span data-lang="PRODUCTION" ></span></label>
+              <div class="col-xs-12">
+                <input id="development"  type="radio" name="environment" data-argName="development" value="development"         />
+                <label for="development" class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="DEVELOPMENT"></label>
+              </div>
+              <div class="col-xs-12">
+                <input id="production"   type="radio" name="environment" data-argName="production"  value="production"  checked />
+                <label for="production"  class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="PRODUCTION"></label>
+              </div>
             </div>
 
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
@@ -401,22 +407,56 @@
           </div>
           <div class="modal-body text-center">
 
-
             <div class="row">
               <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
                 <h4 data-lang="NOTIFICATIONS_CHOICE" class="notifications custom-icon"></h4>
               </div>
-              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left alert-options">
                 <div class="text-center" data-lang="MESSAGES_TITLE_SUCCESS"></div>
-                <label><input type="checkbox" checked data-argName="messageInApp"   value="messageinapp"   /> <span data-lang="MESSAGES_IN_APP"></span></label><br />
-                <label><input type="checkbox"         data-argName="messageDesktop" value="messagedesktop" /> <span data-lang="MESSAGES_DESKTOP"></span></label><br />
-                <label><input type="checkbox" checked data-argName="messageSound"   value="messagesound"   /> <span data-lang="MESSAGES_SOUND"></span></label>
+                <div class="col-xs-12">
+                  <input id="messageInApp"    class="pull-right" type="checkbox" checked data-argName="messageInApp"   value="messageinapp"   />
+                  <label for="messageInApp"   data-lang="MESSAGES_IN_APP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="messageDesktop"  class="pull-right" type="checkbox"         data-argName="messageDesktop" value="messagedesktop" />
+                  <label for="messageDesktop" data-lang="MESSAGES_DESKTOP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="messageSound"    class="pull-right" type="checkbox" checked data-argName="messageSound"   value="messagesound"   />
+                  <label for="messageSound"   data-lang="MESSAGES_SOUND"></label>
+                </div>
               </div>
-              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left alert-options">
                 <div class="text-center" data-lang="MESSAGES_TITLE_ERROR"></div>
-                <label><input type="checkbox" checked data-argName="alertInApp"     value="alertinapp"     /> <span data-lang="MESSAGES_IN_APP"></span></label><br />
-                <label><input type="checkbox" checked data-argName="alertDesktop"   value="alertdesktop"   /> <span data-lang="MESSAGES_DESKTOP"></span></label><br />
-                <label><input type="checkbox" checked data-argName="alertSound"     value="alertsound"     /> <span data-lang="MESSAGES_SOUND"></span></label>
+                <div class="col-xs-12">
+                  <input id="alertInApp"      class="pull-right" type="checkbox" checked data-argName="alertInApp"     value="alertinapp"     />
+                  <label for="alertInApp"     data-lang="MESSAGES_IN_APP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="alertDesktop"    class="pull-right" type="checkbox" checked data-argName="alertDesktop"   value="alertdesktop"   />
+                  <label for="alertDesktop"   data-lang="MESSAGES_DESKTOP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="alertSound"      class="pull-right" type="checkbox" checked data-argName="alertSound"     value="alertsound"     />
+                  <label for="alertSound"     data-lang="MESSAGES_SOUND"></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-s-12 col-md-12 col-l-12 atomic-options">
+                <h4 class="file custom-icon">Files</h4>
+                <p class="text-left" data-lang="ATOMIC_NOTE"></p>
+                <div class="col-xs-12 text-left">
+                  <label for="atomicSlider" data-lang="ATOMIC_LABEL"></label>
+                  <input
+                    id="atomicSlider"
+                    type="text"
+                    class="slider"
+                    data-argName="atomicSlider"
+                    data-slider-id="atomicSlider"
+                  />
+                </div>
               </div>
             </div>
 

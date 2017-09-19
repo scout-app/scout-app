@@ -4,7 +4,7 @@
   App-wide preference controls. Language settings, Theme ,etc.
 */
 
-(function ($, scout, ugui) {
+(function ($, scout, ugui, Slider) {
 
     $('#preferences').click(function () {
         $('#preferences-modal').fadeIn();
@@ -29,6 +29,21 @@
             $($('#cultureChoices option')[i]).prop('selected', true);
         }
     }
+
+    var atomicSlider = new Slider('#atomicSlider', {
+        min: 0,
+        max: 700,
+        step: 100,
+        ticks: [0, 100, 200, 300, 400, 500, 600, 700],
+        value: scout.globalSettings.atomicSlider || 100,
+        formatter: function (value) {
+            return value + ' ' + scout.localize('MILLISECONDS_SHORT');
+        }
+    });
+
+    atomicSlider.on('change', function (data) {
+        scout.globalSettings.atomicSlider = data.newValue;
+    });
 
     $('#cultureChoices').change(function () {
         var lang = $('#cultureChoices').val();
@@ -57,4 +72,4 @@
     $('#culture-pics .' + scout.globalSettings.cultureCode).removeClass('hide');
     $('#translators .' + scout.globalSettings.cultureCode).removeClass('hide');
 
-})(window.$, window.scout, window.ugui);
+})(window.$, window.scout, window.ugui, window.Slider);

@@ -30,6 +30,8 @@ $sidebar-width: 300px
         top: 0px
         right: 0px
         background: transparent
+        // For RTL no effect on LTR
+        float: left
     .glyphicon-play,
     .glyphicon-stop
         margin: 0px
@@ -65,3 +67,8 @@ $sidebar-width: 300px
 .container
     padding-left: $sidebar-width + 8px
 
+#addProject,
+#viewStatus
+    .glyphicon
+        // RTL
+        float: left
