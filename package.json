@@ -49,7 +49,7 @@
         "plugin": true
     },
     "dependencies": {
-        "node-sass": "^3.x.x",
+        "node-sass": "^4.x.x",
         "chokidar": "^1.x.x",
         "fs-extra": "^0.30.x",
         "livereload": "^0.6.x"
@@ -61,7 +61,7 @@
         "sass-lint": "^1.10.2",
         "pre-commit": "^1.1.3",
         "7zip-bin": "^2.0.1",
-        "csvtojson": "^1.0.3"
+        "csvtojson": "^1.1.7"
     },
     "scripts": {
         "start": "nw .",

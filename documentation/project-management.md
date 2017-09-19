@@ -1,3 +1,11 @@
+**Edit:** This file is deprecated.
+
+This was useful when starting the project. But now that it's all up and running, all planned features and ideas that weren't finished have been moved to the "issues" page.
+
+* http://github.com/scout-app/scout-app/issues
+
+* * *
+
 ## Project management:
 
 
@@ -53,9 +61,9 @@
   * [x] ~~Play sounds with alerts/messages ([#161](https://github.com/scout-app/scout-app/issues/161)) (TJW)~~
   * [x] ~~Desktop notifications for alerts and errors ([#240](https://github.com/scout-app/scout-app/issues/240), [#79](https://github.com/scout-app/scout-app/issues/79), [#12](https://github.com/scout-app/scout-app/issues/12)) (TJW)~~
   * [x] ~~Scan Desktop for projects folders (TJW)~~
-  * [ ] Import projects by dragging a folder into Scout-App ([#259](https://github.com/scout-app/scout-app/issues/259))
-  * [ ] Redesign FTUX ([#273](https://github.com/scout-app/scout-app/issues/273))
-  * [ ] Multi-project import outside of FTUX view ([#273](https://github.com/scout-app/scout-app/issues/273))
+  * [x] ~~Import projects by dragging a folder into Scout-App ([#259](https://github.com/scout-app/scout-app/issues/259))~~
+  * [x] ~~Redesign FTUX ([#273](https://github.com/scout-app/scout-app/issues/273))~~
+  * [x] ~~Multi-project import outside of FTUX view ([#273](https://github.com/scout-app/scout-app/issues/273))~~
   * [ ] Implement Live Reload or something similar ([#39](https://github.com/scout-app/scout-app/issues/39))
   * [ ] Accept CLI arguments to run projects on startup ([#172](https://github.com/scout-app/scout-app/issues/172), [#258](https://github.com/scout-app/scout-app/issues/258)).
   * [ ] Allow for specific projects to run on app launch ([#69](https://github.com/scout-app/scout-app/issues/69))

@@ -25,6 +25,16 @@ input[type="color"]
 .truncate
     +truncate
 
+// sass-lint:disable no-important
+
+.rtl
+    direction: rtl !important
+
+.ltr
+    direction: ltr !important
+
+// sass-lint:enable no-important
+
 .gray
     cursor: not-allowed
     -webkit-filter: #{"grayscale()"}
@@ -79,12 +89,13 @@ input[nwdirectory]
         position: relative
         top: 1px
         display: inline-block
+        padding: 0px 3px 0px 3px
         font-family: 'Glyphicons Halflings'
         font-style: normal
         font-weight: normal
         line-height: 1
         -webkit-font-smoothing: antialiased
-    &:before
-        padding: 0px 3px 0px 0px
-    &:after
-        padding: 0px 0px 0px 3px
+
+.modal-header h4
+    // RTL
+    padding-right: 25px

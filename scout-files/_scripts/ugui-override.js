@@ -72,14 +72,18 @@
                 var localVersion = ugui.app.version.split('-')[0];
                 // [ '0', '2', '5' ]
                 var remoteVersionSplit = remoteVersion.split('.');
-                var rvs = remoteVersionSplit;
                 var localVersionSplit = localVersion.split('.');
-                var lvs = localVersionSplit;
+                var rvsMajor = parseInt(remoteVersionSplit[0]);
+                var rvsMinor = parseInt(remoteVersionSplit[1]);
+                var rvsPatch = parseInt(remoteVersionSplit[2]);
+                var lvsMajor = parseInt(localVersionSplit[0]);
+                var lvsMinor = parseInt(localVersionSplit[1]);
+                var lvsPatch = parseInt(localVersionSplit[2]);
                 // Check if the Major, Minor, or Patch have been updated on the remote
                 if (
-                     (rvs[0] > lvs[0]) ||
-                     (rvs[0] == lvs[0] && rvs[1] > lvs[1]) ||
-                     (rvs[0] == lvs[0] && rvs[1] == lvs[1] && rvs[2] > lvs[2])
+                     (rvsMajor > lvsMajor) ||
+                     (rvsMajor == lvsMajor && rvsMinor > lvsMinor) ||
+                     (rvsMajor == lvsMajor && rvsMinor == lvsMinor && rvsPatch > lvsPatch)
                    ) {
                     // Display in the About Modal a link to the release notes for the newest version
                     $('#updateResults').html(

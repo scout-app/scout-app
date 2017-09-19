@@ -20,7 +20,9 @@
             return 'No translation found.';
         }
 
-        var userLanguage = scout.globalSettings.cultureCode;
+        // console.log(phrase);
+
+        var userLanguage = scout.globalSettings.cultureCode.toLowerCase();
         var translation = window.dictionary[phrase][userLanguage];
 
         if (wrapInDataLang) {
@@ -31,56 +33,94 @@
     }
 
     /**
+     * Detect if the text should to Left-to-Right or Right-to-Left based on culture code
+     * @return {string} Returns either 'ltr' or 'rtl'
+     */
+    function textDirection () {
+        // All RTL langs, like Hebrew (he) or Persian (fa).
+        var rtlLangs = ['ar', 'fa', 'he'];
+        for (var i = 0; i < rtlLangs.length; i++) {
+            if (scout.globalSettings.cultureCode == rtlLangs[i]) {
+                return 'rtl';
+            }
+        }
+
+        return 'ltr';
+    }
+
+    /**
      * There are HTML elements that include a data-lang="KEYWORD" attribute.
      * This function updates them with the matching translation to their KEYWORD.
      */
     function updateDataLangs () {
-        // data-lang
-        var i = 0;
-        var langKey = '';
-        var items = $('*[data-lang]');
-        for (i = 0; i < items.length; i++) {
-            var item = items[i];
-            langKey = $(item).data('lang');
-            $(item).html(localize(langKey));
-        }
-        // data-langalt
-        var altItems = $('*[data-langalt]');
-        for (i = 0; i < altItems.length; i++) {
-            var altItem = altItems[i];
-            langKey = $(altItem).data('langalt');
-            $(altItem).attr('alt', localize(langKey));
-        }
-        // data-langtitle
-        var titleItems = $('*[data-langtitle]');
-        for (i = 0; i < titleItems.length; i++) {
-            var titleItem = titleItems[i];
-            langKey = $(titleItem).data('langtitle');
-            $(titleItem).attr('title', localize(langKey));
-        }
-        // data-langarialabel
-        var ariaLabelItems = $('*[data-langarialabel]');
-        for (i = 0; i < ariaLabelItems.length; i++) {
-            var ariaLabelItem = ariaLabelItems[i];
-            langKey = $(ariaLabelItem).data('langarialabel');
-            $(ariaLabelItem).attr('aria-label', localize(langKey));
-        }
-        // data-langhref
-        var hrefItems = $('*[data-langhref');
-        for (i = 0; i < hrefItems.length; i++) {
-            var hrefItem = hrefItems[i];
-            langKey = $(hrefItem).data('langhref');
-            $(hrefItem).attr('href', localize(langKey));
+        var dataLangs = [
+            {
+                'lang': 'lang',
+                'attr': ''
+            },
+            {
+                'lang': 'langalt',
+                'attr': 'alt'
+            },
+            {
+                'lang': 'langtitle',
+                'attr': 'title'
+            },
+            {
+                'lang': 'langarialabel',
+                'attr': 'aria-label'
+            },
+            {
+                'lang': 'langhref',
+                'attr': 'href'
+            }
+        ];
+        for (var i = 0; i < dataLangs.length; i++) {
+            var dataLang = dataLangs[i].lang;
+            var dataAttr = dataLangs[i].attr;
+            var items = $('*[data-' + dataLang + ']');
+            for (var j = 0; j < items.length; j++) {
+                var item = items[j];
+                var langKey = $(item).data(dataLang);
+                if (!dataAttr) {
+                    $(item).html(localize(langKey));
+                } else {
+                    $(item).attr(dataAttr, localize(langKey));
+                }
+            }
         }
 
         if (scout.helpers.updateProjectsFoundCount) {
             scout.helpers.updateProjectsFoundCount();
         }
-        $('.nodeSassVersion').html('(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')');
+
+        var direction = textDirection();
+        var nodeLibSassVersions = '';
+
+        if (direction == 'ltr') {
+            $('body').removeClass('rtl').addClass('ltr');
+            nodeLibSassVersions = '(Node-Sass v' + scout.versions.nodeSass + ' / LibSass v' + scout.versions.libSass + ')';
+        } else if (direction == 'rtl') {
+            $('body').removeClass('ltr').addClass('rtl');
+            nodeLibSassVersions = '(v' + scout.versions.libSass + ' LibSass / v' + scout.versions.nodeSass + ' Node-Sass)';
+        }
+
+        $('.nodeSassVersion').html(nodeLibSassVersions);
         $('.chokidarVersion').html('v' + scout.versions.chokidar);
 
         // Allow links with a class of "external-link" to open in the user's default browser
         ugui.helpers.openDefaultBrowser();
+    }
+
+    /**
+     * Loads the dictionary file from disk, converts it to JSON and stores on the
+     * window object. Only ran once, on app load. The dictionary contains all
+     * keys/phrases for all languages.
+     */
+    function loadDictionary () {
+        var dictionary = ugui.helpers.readAFile('scout-files/cultures/dictionary.json');
+        dictionary = JSON.parse(dictionary);
+        window.dictionary = dictionary;
     }
 
     /**
@@ -90,9 +130,6 @@
     function setLanguage (userLanguage) {
         userLanguage = userLanguage || 'en';
         scout.globalSettings.cultureCode = userLanguage;
-        var dictionary = ugui.helpers.readAFile('scout-files/cultures/dictionary.json');
-        dictionary = JSON.parse(dictionary);
-        window.dictionary = dictionary;
         if (scout.helpers.saveSettings) {
             scout.helpers.saveSettings();
         }
@@ -129,7 +166,7 @@
         var option = '';
         for (i = 0; i < culturesFolder.length; i++) {
             currentFile = culturesFolder[i].name;
-            if (currentFile.endsWith('.jpg')) {
+            if (currentFile.endsWith('.jpg') && !currentFile.startsWith('blank')) {
                 availableCultures.push(currentFile.split('.jpg')[0]);
             }
         }
@@ -140,10 +177,13 @@
         }
     }
 
+    addLanguagesToPreferences();
+    loadDictionary();
     // This will be overridden by the user's saved settings later,
     // but if they don't have saved settings, we default to English.
-    addLanguagesToPreferences();
     setLanguage('en');
+
+    scout.helpers.textDirection = textDirection;
     scout.helpers.setLanguage = setLanguage;
     scout.helpers.updateDataLangs = updateDataLangs;
     scout.localize = localize;

@@ -9,6 +9,8 @@
 */
 
 (function ($, scout, ugui) {
+    var fs = require('fs-extra');
+    var path = require('path');
 
     // This will change all UI elements for Project Settings back to an empty/default state
     function resetProjectSettingsUI () {
@@ -42,11 +44,9 @@
     }
 
     function deleteLocalSettingsFile (bool) {
+        var path = require('path');
         var appData = require('nw.gui').App.dataPath;
-        var file = appData + '/scout-settings.json';
-        if (process.platform == 'win32') {
-            file = appData + '\\scout-settings.json';
-        }
+        var file = path.join(appData, 'scout-settings.json');
 
         if (!bool) {
             console.info('To delete this file:');
@@ -167,10 +167,13 @@
         saveSettings();
     }
 
-    function saveSettings () {
+    function saveSettings (location) {
         var appData = require('nw.gui').App.dataPath;
         appData.split('\\').join('/');
         var settingsJSON = appData + '/scout-settings.json';
+        if (location && fs.existsSync(location)) {
+            settingsJSON = location + '/scout-settings.json';
+        }
         var data = {};
         data.projects = scout.projects;
         data.versions = scout.versions;
@@ -178,6 +181,29 @@
         data = JSON.stringify(data, null, 4);
         data = data + '\n';
         ugui.helpers.writeToFile(settingsJSON, data);
+    }
+
+    function exportSettings (location) {
+        if (location && typeof(location) === 'string' && fs.existsSync(location)) {
+            saveSettings(location);
+        } else {
+            // Set default paths to check based on OS standards
+            var homePath = '';
+            var os = process.platform;
+            if (os == 'linux') {
+                homePath = process.env.HOME;
+            } else if (os == 'win32') {
+                homePath = process.env.USERPROFILE;
+            } else if (os == 'darwin') {
+                homePath = '/Users/' + process.env.USER;
+                if (process.env.HOME) {
+                    homePath = process.env.HOME;
+                }
+            }
+
+            var myDesktopPath = path.join(homePath, 'Desktop');
+            saveSettings(myDesktopPath);
+        }
     }
 
     /**
@@ -269,5 +295,6 @@
 
     // Save scout object to file in app data folder
     scout.helpers.saveSettings = saveSettings;
+    scout.helpers.exportSettings = exportSettings;
 
 })(window.$, window.scout, window.ugui);
