@@ -2698,5 +2698,29 @@
     "vi": "Chào mừng bạn đến Scout-App!",
     "zh-cht": "歡迎使用 Scout-App!",
     "zh-cn": "欢迎使用 Scout-App!"
+  },
+  "IS_NOW_MINIMIZED": {
+    "ar": "",
+    "bg": "",
+    "da": "kører nu i baggrunden!",
+    "de": "",
+    "en": "is now running minimized!",
+    "es": "está ahora ejecutandose en segundo plano!",
+    "es-ar": "está ahora ejecutandose en segundo plano!",
+    "fa": "",
+    "fi": "",
+    "fr": "est maintenant en cours d'exécution en arrière-plan!",
+    "he": "",
+    "hu": "most fut a háttérben!",
+    "it": "è ora in esecuzione in background!",
+    "nl": "draait nu op de achtergrond!",
+    "pl": "",
+    "pt-br": "",
+    "rk": "rulează acum în fundal!",
+    "ru": "теперь работает в фоновом режиме!",
+    "tr": "",
+    "vi": "hiện đang chạy ẩn bên dưới!",
+    "zh-CHT": "現在在後台運行!",
+    "zh-cn": ""
   }
 }
