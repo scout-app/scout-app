@@ -26,6 +26,7 @@
         $('#outputWarning').addClass('hide');
         $('#environment input[data-argname="production"]').click();
         $($('#outputStyle option')[5]).prop('selected', true);
+        $($('#linefeed option')[0]).prop('selected', true);
         $('#printConsole .alert, #printConsole .panel').addClass('hide');
 
         var newProject = {
@@ -38,6 +39,7 @@
             'outputFolder':  '',
             'environment':   'production',
             'outputStyle':   'compressed',
+            'linefeed':      '',
             'indicator':     'play'
         };
         scout.newProject = newProject;
@@ -112,7 +114,8 @@
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
      *        "environment":   "production",
-     *        "outputStyle":   "compressed"
+     *        "outputStyle":   "compressed",
+     *        "linefeed":      "lf"
      *    }
      *
      * @param {object}   project
@@ -162,6 +165,8 @@
                 project.environment = environment;
 
                 project.outputStyle = $('#outputStyle').val();
+
+                project.linefeed = $('#linefeed').val();
             }
         }
         saveSettings();
@@ -219,7 +224,8 @@
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
      *        "environment":   "production",
-     *        "outputStyle":   "compressed"
+     *        "outputStyle":   "compressed",
+     *        "linefeed":      "lf"
      *    }
      *
      */
@@ -247,6 +253,13 @@
             var current = $(outputStyleOption[i]).val();
             if (base.outputStyle == current) {
                 $(outputStyleOption[i]).prop('selected', true);
+            }
+        }
+        var linefeedOption = $('#linefeed option');
+        for (var j = 1; j < linefeedOption.length; j++) {
+            var currentLf = $(linefeedOption[j]).val();
+            if (base.linefeed == currentLf) {
+                $(linefeedOption[j]).prop('selected', true);
             }
         }
 
@@ -285,7 +298,8 @@
     //   outputFolder: '',
     //   projectIcon: '',
     //   environment: '',
-    //   outputStyle: ''
+    //   outputStyle: '',
+    //   linefeed: ''
     // };
     // scout.helpers.addProject(project);
     scout.helpers.addProject = addProject;
