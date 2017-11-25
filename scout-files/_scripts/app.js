@@ -91,6 +91,15 @@
     function convertToCSS (project, inputFileName, inputFileExt, inputSubFolder) {
         var outputSubFolder = inputSubFolder || '';
         var outputStyle = project.outputStyle;
+
+        var linefeed = project.linefeed;
+        if (linefeed == 'auto') {
+            linefeed = 'lf';
+            if (process.platform == 'win32') {
+                linefeed = 'crlf';
+            }
+        }
+
         var pathToProject = ugui.app.pathToProject;
         // Get the mixins config file
         var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
@@ -132,6 +141,7 @@
             'file': fullFilePath,
             'outfile': sourceMap,
             'outputStyle': outputStyle,
+            'linefeed': linefeed,
             'indentedSyntax': true,
             'includePaths': mixins,
             'sourceComments': devMode,

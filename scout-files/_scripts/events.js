@@ -111,6 +111,16 @@
             }
         }
     });
+    $('#linefeed').change(function () {
+        var id = $('#projectID').val();
+        var linefeed = $('#linefeed').val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].linefeed = linefeed;
+            }
+        }
+        scout.helpers.saveSettings();
+    });
     $('#inputFolder').on('blur', function () {
         var newDir = $('#inputFolder').val();
         newDir = newDir.split('\\').join('\/');
