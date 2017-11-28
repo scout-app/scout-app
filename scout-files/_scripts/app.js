@@ -137,7 +137,7 @@
         var outputFullFilePath = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css');
 
         // Use node-sass to convert sass or scss to css
-        sass.render({
+        var opts = {
             'file': fullFilePath,
             'outfile': sourceMap,
             'outputStyle': outputStyle,
@@ -147,7 +147,11 @@
             'sourceComments': devMode,
             'sourceMap': sourceMap,
             'sourceMapContents': devMode
-        }, function (error, result) {
+        };
+        if (linefeed == 'unset') {
+            delete opts.linefeed;
+        }
+        sass.render(opts, function (error, result) {
             var projectID = project.projectID;
             if (error) {
                 console.warn(error);
