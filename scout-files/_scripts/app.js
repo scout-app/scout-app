@@ -93,12 +93,6 @@
         var outputStyle = project.outputStyle;
 
         var linefeed = project.linefeed;
-        if (linefeed == 'auto') {
-            linefeed = 'lf';
-            if (process.platform == 'win32') {
-                linefeed = 'crlf';
-            }
-        }
 
         var pathToProject = ugui.app.pathToProject;
         // Get the mixins config file
