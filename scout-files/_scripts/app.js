@@ -93,12 +93,6 @@
         var outputStyle = project.outputStyle;
 
         var linefeed = project.linefeed;
-        if (linefeed == 'auto') {
-            linefeed = 'lf';
-            if (process.platform == 'win32') {
-                linefeed = 'crlf';
-            }
-        }
 
         var pathToProject = ugui.app.pathToProject;
         // Get the mixins config file
@@ -137,7 +131,7 @@
         var outputFullFilePath = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css');
 
         // Use node-sass to convert sass or scss to css
-        var opts = {
+        sass.render({
             'file': fullFilePath,
             'outfile': sourceMap,
             'outputStyle': outputStyle,
@@ -147,11 +141,7 @@
             'sourceComments': devMode,
             'sourceMap': sourceMap,
             'sourceMapContents': devMode
-        };
-        if (linefeed == 'unset') {
-            delete opts.linefeed;
-        }
-        sass.render(opts, function (error, result) {
+        }, function (error, result) {
             var projectID = project.projectID;
             if (error) {
                 console.warn(error);

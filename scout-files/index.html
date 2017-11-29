@@ -164,7 +164,7 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-s-3 col-md-3 col-l-3" data-langtitle="OUTPUT_STYLE">
+            <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
 
               <select id="outputStyle" data-argName="outputStyle" class="form-control" required="required">
                 <option value="expanded"   data-lang="OUTPUT_STYLE"      ></option>
@@ -176,19 +176,19 @@
 
             </div>
 
-            <div class="col-xs-12 col-s-3 col-md-3 col-l-3" data-langtitle="LINEFEED">
-
-              <select id="linefeed" data-argName="linefeed" class="form-control" required="required">
-                <option value="unset" data-lang="LINEFEED"></option>
-                <option value="auto">auto</option>
-                <option value="lf">LF</option>
-                <option value="crlf">CRLF</option>
-              </select>
-
+            <div id="linefeed" class="col-xs-12 col-s-12 col-md-12 col-l-12 radio" data-langtitle="LINEFEED">
+              <label data-lang="LINEFEED"></label>
+              <div class="col-xs-12">
+                <input id="linefeedlf" type="radio" name="linefeed" data-argname="linefeedlf" value="lf" checked="">
+                <label for="linefeedlf" class="col-xs-12 col-s-6 col-md-6 col-l-6">LF (Default)</label>
+              </div>
+              <div class="col-xs-12">
+                <input id="linefeedcrlf" type="radio" name="linefeed" data-argname="linefeedcrlf" value="crlf">
+                <label for="linefeedcrlf" class="col-xs-12 col-s-6 col-md-6 col-l-6">CRLF</label>
+              </div>
             </div>
-          </div>
 
-          <hr>
+          </div>
 
           <div class="row">
             <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-right">

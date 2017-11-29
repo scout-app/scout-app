@@ -26,7 +26,7 @@
         $('#outputWarning').addClass('hide');
         $('#environment input[data-argname="production"]').click();
         $($('#outputStyle option')[5]).prop('selected', true);
-        $($('#linefeed option')[0]).prop('selected', true);
+        $('#linefeed input[data-argname="linefeedlf"]').prop('checked', true);
         $('#printConsole .alert, #printConsole .panel').addClass('hide');
 
         var newProject = {
@@ -39,7 +39,7 @@
             'outputFolder':  '',
             'environment':   'production',
             'outputStyle':   'compressed',
-            'linefeed':      '',
+            'linefeed':      'lf',
             'indicator':     'play'
         };
         scout.newProject = newProject;
@@ -166,7 +166,15 @@
 
                 project.outputStyle = $('#outputStyle').val();
 
-                project.linefeed = $('#linefeed').val();
+                var lfChecked = $('#linefeed input[data-argname="linefeedlf"]').prop('checked');
+                var crlfChecked = $('#linefeed input[data-argname="linefeedcrlf"]').prop('checked');
+                var linefeed = 'lf';
+                if (lfChecked) {
+                    linefeed = 'lf';
+                } else if (crlfChecked) {
+                    linefeed = 'crlf';
+                }
+                project.linefeed = linefeed;
             }
         }
         saveSettings();
@@ -255,19 +263,19 @@
                 $(outputStyleOption[i]).prop('selected', true);
             }
         }
-        var linefeedOption = $('#linefeed option');
-        for (var j = 1; j < linefeedOption.length; j++) {
-            var currentLf = $(linefeedOption[j]).val();
-            if (base.linefeed == currentLf) {
-                $(linefeedOption[j]).prop('selected', true);
-            }
-        }
 
         // Environment
         if (base.environment == 'production') {
             $('#environment input[data-argName="production"]').click();
         } else if (base.environment == 'development') {
             $('#environment input[data-argName="development"]').click();
+        }
+
+        // Linefeed
+        if (base.linefeed == 'lf') {
+            $('#linefeed input[data-argName="linefeedlf"]').prop('checked', true);
+        } else if (base.linefeed == 'crlf') {
+            $('#linefeed input[data-argName="linefeedcrlf"]').prop('checked', true);
         }
 
         $('#printConsole .alert, #printConsole .panel').addClass('hide');

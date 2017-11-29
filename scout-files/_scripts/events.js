@@ -111,9 +111,9 @@
             }
         }
     });
-    $('#linefeed').change(function () {
+    $('#linefeed input').change(function (evt) {
         var id = $('#projectID').val();
-        var linefeed = $('#linefeed').val();
+        var linefeed = $(evt.currentTarget).val();
         for (var i = 0; i < scout.projects.length; i++) {
             if (id == scout.projects[i].projectID) {
                 scout.projects[i].linefeed = linefeed;
