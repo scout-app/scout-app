@@ -263,13 +263,6 @@
                 $(outputStyleOption[i]).prop('selected', true);
             }
         }
-        var linefeedOption = $('#linefeed option');
-        for (var j = 1; j < linefeedOption.length; j++) {
-            var currentLf = $(linefeedOption[j]).val();
-            if (base.linefeed == currentLf) {
-                $(linefeedOption[j]).prop('selected', true);
-            }
-        }
 
         // Environment
         if (base.environment == 'production') {
