@@ -26,6 +26,7 @@
         $('#outputWarning').addClass('hide');
         $('#environment input[data-argname="production"]').click();
         $($('#outputStyle option')[5]).prop('selected', true);
+        $('#linefeed input[data-argname="linefeedlf"]').prop('checked', true);
         $('#printConsole .alert, #printConsole .panel').addClass('hide');
 
         var newProject = {
@@ -38,6 +39,7 @@
             'outputFolder':  '',
             'environment':   'production',
             'outputStyle':   'compressed',
+            'linefeed':      'lf',
             'indicator':     'play'
         };
         scout.newProject = newProject;
@@ -112,7 +114,8 @@
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
      *        "environment":   "production",
-     *        "outputStyle":   "compressed"
+     *        "outputStyle":   "compressed",
+     *        "linefeed":      "lf"
      *    }
      *
      * @param {object}   project
@@ -162,6 +165,16 @@
                 project.environment = environment;
 
                 project.outputStyle = $('#outputStyle').val();
+
+                var lfChecked = $('#linefeed input[data-argname="linefeedlf"]').prop('checked');
+                var crlfChecked = $('#linefeed input[data-argname="linefeedcrlf"]').prop('checked');
+                var linefeed = 'lf';
+                if (lfChecked) {
+                    linefeed = 'lf';
+                } else if (crlfChecked) {
+                    linefeed = 'crlf';
+                }
+                project.linefeed = linefeed;
             }
         }
         saveSettings();
@@ -219,7 +232,8 @@
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
      *        "environment":   "production",
-     *        "outputStyle":   "compressed"
+     *        "outputStyle":   "compressed",
+     *        "linefeed":      "lf"
      *    }
      *
      */
@@ -257,6 +271,13 @@
             $('#environment input[data-argName="development"]').click();
         }
 
+        // Linefeed
+        if (base.linefeed == 'lf') {
+            $('#linefeed input[data-argName="linefeedlf"]').prop('checked', true);
+        } else if (base.linefeed == 'crlf') {
+            $('#linefeed input[data-argName="linefeedcrlf"]').prop('checked', true);
+        }
+
         $('#printConsole .alert, #printConsole .panel').addClass('hide');
         $('#project-settings').removeClass('hide');
         $('#printConsole .' + base.projectID).removeClass('hide');
@@ -285,7 +306,8 @@
     //   outputFolder: '',
     //   projectIcon: '',
     //   environment: '',
-    //   outputStyle: ''
+    //   outputStyle: '',
+    //   linefeed: ''
     // };
     // scout.helpers.addProject(project);
     scout.helpers.addProject = addProject;
