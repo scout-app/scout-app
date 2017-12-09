@@ -73,18 +73,17 @@
                 // [ '0', '2', '5' ]
                 var remoteVersionSplit = remoteVersion.split('.');
                 var localVersionSplit = localVersion.split('.');
-                var rvsMajor = parseInt(remoteVersionSplit[0]);
-                var rvsMinor = parseInt(remoteVersionSplit[1]);
-                var rvsPatch = parseInt(remoteVersionSplit[2]);
-                var lvsMajor = parseInt(localVersionSplit[0]);
-                var lvsMinor = parseInt(localVersionSplit[1]);
-                var lvsPatch = parseInt(localVersionSplit[2]);
+                var remoteMajor = parseInt(remoteVersionSplit[0]);
+                var remoteMinor = parseInt(remoteVersionSplit[1]);
+                var remotePatch = parseInt(remoteVersionSplit[2]);
+                var localMajor = parseInt(localVersionSplit[0]);
+                var localMinor = parseInt(localVersionSplit[1]);
+                var localPatch = parseInt(localVersionSplit[2]);
+                var remoteMajorNewer = remoteMajor > localMajor;
+                var remoteMinorNewer = remoteMajor == localMajor && remoteMinor > localMinor;
+                var remotePatchNewer = remoteMajor == localMajor && remoteMinor == localMinor && remotePatch > localPatch;
                 // Check if the Major, Minor, or Patch have been updated on the remote
-                if (
-                     (rvsMajor > lvsMajor) ||
-                     (rvsMajor == lvsMajor && rvsMinor > lvsMinor) ||
-                     (rvsMajor == lvsMajor && rvsMinor == lvsMinor && rvsPatch > lvsPatch)
-                   ) {
+                if (remoteMajorNewer || remoteMinorNewer || remotePatchNewer) {
                     // Display in the About Modal a link to the release notes for the newest version
                     $('#updateResults').html(
                         '<p>' +
@@ -196,9 +195,12 @@
             if (!err) {
                 // Check each file and put it in the dropdown box
                 for (var index = 0; index < files.length; index++) {
-                    var cssFileName = files[index];                     // simplex.min.css
-                    var swatchName = files[index].split('.min.css')[0]; // simplex
-                    swatchName = swatchName.split('.css')[0];           // For files without '.min' but with '.css'
+                    // simplex.min.css
+                    var cssFileName = files[index];
+                    // simplex
+                    var swatchName = files[index].split('.min.css')[0];
+                    // For files without '.min' but with '.css'
+                    swatchName = swatchName.split('.css')[0];
                     $('#themeChoices').append(
                         '<option value="_themes/' + cssFileName + '">' +
                           swatchName +

@@ -78,7 +78,7 @@
     });
     $('#inputFolderBrowse').change(function () {
         var newDir = $('#inputFolderBrowse').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         $('#inputFolder').val(newDir);
         forbidSameFolder();
         var id = $('#projectID').val();
@@ -91,7 +91,7 @@
     });
     $('#outputFolderBrowse').change(function () {
         var newDir = $('#outputFolderBrowse').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         $('#outputFolder').val(newDir);
         forbidSameFolder();
         var id = $('#projectID').val();
@@ -123,7 +123,7 @@
     });
     $('#inputFolder').on('blur', function () {
         var newDir = $('#inputFolder').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         forbidSameFolder();
         var id = $('#projectID').val();
         for (var i = 0; i < scout.projects.length; i++) {
@@ -135,7 +135,7 @@
     });
     $('#outputFolder').on('blur', function () {
         var newDir = $('#outputFolder').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         forbidSameFolder();
         var id = $('#projectID').val();
         for (var i = 0; i < scout.projects.length; i++) {

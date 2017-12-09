@@ -176,7 +176,7 @@
             if (scout.projects[I].projectID == id) {
                 // Create a chokidar watcher in that project
                 var chokidarOptions = {
-                    ignored: /[\/\\]\./,
+                    ignored: /[/\\]\./,
                     persistent: true,
                     atomic: scout.globalSettings.atomicSlider || 100
                 };
