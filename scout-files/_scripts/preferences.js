@@ -15,14 +15,19 @@
       '[data-argName=alertDesktop], ' +
       '[data-argName=messageInApp], ' +
       '[data-argName=messageSound], ' +
-      '[data-argName=messageDesktop]').prop('checked', false);
+      '[data-argName=messageDesktop],' +
+      '[data-argName=sendToTrayOnClose],' +
+      '[data-argName=startMinimized]'
+    ).prop('checked', false);
 
-    if (scout.globalSettings.alertInApp)     { $('[data-argName=alertInApp]').prop('checked', true);     }
-    if (scout.globalSettings.alertSound)     { $('[data-argName=alertSound]').prop('checked', true);     }
-    if (scout.globalSettings.alertDesktop)   { $('[data-argName=alertDesktop]').prop('checked', true);   }
-    if (scout.globalSettings.messageInApp)   { $('[data-argName=messageInApp]').prop('checked', true);   }
-    if (scout.globalSettings.messageSound)   { $('[data-argName=messageSound]').prop('checked', true);   }
-    if (scout.globalSettings.messageDesktop) { $('[data-argName=messageDesktop]').prop('checked', true); }
+    if (scout.globalSettings.alertInApp)        { $('[data-argName=alertInApp]').prop('checked', true);        }
+    if (scout.globalSettings.alertSound)        { $('[data-argName=alertSound]').prop('checked', true);        }
+    if (scout.globalSettings.alertDesktop)      { $('[data-argName=alertDesktop]').prop('checked', true);      }
+    if (scout.globalSettings.messageInApp)      { $('[data-argName=messageInApp]').prop('checked', true);      }
+    if (scout.globalSettings.messageSound)      { $('[data-argName=messageSound]').prop('checked', true);      }
+    if (scout.globalSettings.messageDesktop)    { $('[data-argName=messageDesktop]').prop('checked', true);    }
+    if (scout.globalSettings.sendToTrayOnClose) { $('[data-argName=sendToTrayOnClose]').prop('checked', true); }
+    if (scout.globalSettings.startMinimized)    { $('[data-argName=startMinimized]').prop('checked', true);    }
 
     for (var i = 0; i < $('#cultureChoices option').length; i++) {
         if ($($('#cultureChoices option')[i]).val() == scout.globalSettings.cultureCode) {
@@ -58,12 +63,14 @@
 
     function checkboxChanged () {
         ugui.helpers.buildUGUIArgObject();
-        scout.globalSettings.alertDesktop   = ugui.args.alertDesktop.htmlticked;
-        scout.globalSettings.alertInApp     = ugui.args.alertInApp.htmlticked;
-        scout.globalSettings.alertSound     = ugui.args.alertSound.htmlticked;
-        scout.globalSettings.messageDesktop = ugui.args.messageDesktop.htmlticked;
-        scout.globalSettings.messageInApp   = ugui.args.messageInApp.htmlticked;
-        scout.globalSettings.messageSound   = ugui.args.messageSound.htmlticked;
+        scout.globalSettings.alertDesktop      = ugui.args.alertDesktop.htmlticked;
+        scout.globalSettings.alertInApp        = ugui.args.alertInApp.htmlticked;
+        scout.globalSettings.alertSound        = ugui.args.alertSound.htmlticked;
+        scout.globalSettings.messageDesktop    = ugui.args.messageDesktop.htmlticked;
+        scout.globalSettings.messageInApp      = ugui.args.messageInApp.htmlticked;
+        scout.globalSettings.messageSound      = ugui.args.messageSound.htmlticked;
+        scout.globalSettings.sendToTrayOnClose = ugui.args.sendToTrayOnClose.htmlticked;
+        scout.globalSettings.startMinimized    = ugui.args.startMinimized.htmlticked;
     }
 
     $('#preferences-modal input[type="checkbox"]').change(checkboxChanged);

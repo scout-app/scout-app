@@ -13,7 +13,9 @@ window.scout = {
         'alertSound': true,
         'messageDesktop': false,
         'messageInApp': true,
-        'messageSound': true
+        'messageSound': true,
+        'sendToTrayOnClose': true,
+        'startMinimized': false
     },
     'helpers': {},
     'projects': [],

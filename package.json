@@ -58,6 +58,7 @@
         "bower": "~1.x.x",
         "eslint": "^4.13.0",
         "sass-lint": "^1.12.1",
+        "google-translate-api": "^2.3.0",
         "pre-commit": "^1.2.2",
         "7zip-bin": "^2.3.4",
         "csvtojson": "^1.1.9"
@@ -66,8 +67,8 @@
         "start": "nw .",
         "installer": "npm install --loglevel=error",
         "postinstall": "bower update",
-        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
-        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js",
+        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js",
+        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js",
         "sasslint": "node sasslinter.js",
         "cultures": "node cultures.js",
         "translations": "node cultures.js",
