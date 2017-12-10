@@ -74,6 +74,12 @@
     }
 
     $('#preferences-modal input[type="checkbox"]').change(checkboxChanged);
+    $('[data-argName=sendToTrayOnClose], [data-argName=startMinimized]').change(function () {
+        // Because people will be toying around with the sendToTrayOnClose/startMinimized,
+        // we should save this on each change instead of on modal close only
+        checkboxChanged();
+        scout.helpers.saveSettings();
+    });
 
     // Show the correct cultural image and translator
     $('#culture-pics .' + scout.globalSettings.cultureCode).removeClass('hide');
