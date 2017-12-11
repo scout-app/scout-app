@@ -30,16 +30,18 @@
         var menu = new gui.Menu();
 
         var show = new gui.MenuItem({label:  scout.localize('SHOW')});
+        var close = new gui.MenuItem({label: scout.localize('EXIT')});
+
         show.click = function () {
             showWindow();
         };
-        menu.append(show);
 
-        var close = new gui.MenuItem({label: scout.localize('EXIT')});
         close.click = function () {
             allowCloseWindow = true;
             win.close();
         };
+
+        menu.append(show);
         menu.append(close);
 
         tray.menu = menu;
@@ -48,8 +50,14 @@
         win.setShowInTaskbar(false);
         win.hide();
 
+        tray.on('click', function () {
+            showWindow();
+        })
+
         // Show notification
+        /*
         var notificationMinimizedWindow = new Notification('Scout-App', {
+            // IS_NOW_MINIMIZED was never translated
             body: scout.localize('IS_NOW_MINIMIZED')
         });
 
@@ -57,6 +65,7 @@
             event.preventDefault();
             showWindow();
         };
+        */
     }
 
     // Show window again
