@@ -52,7 +52,7 @@
 
         tray.on('click', function () {
             showWindow();
-        })
+        });
 
         // Show notification
         /*
