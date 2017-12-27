@@ -86,7 +86,7 @@
 
         var rtl = '';
         var culture = scout.globalSettings.cultureCode;
-        if (culture == 'he' || culture == 'fa') {
+        if (culture == 'ar' || culture == 'fa' || culture == 'he') {
             rtl = ' rtl';
         }
 
