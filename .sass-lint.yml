@@ -1,5 +1,5 @@
 #########################
-## Sample Sass Lint File
+## TJW Sass Lint File
 #########################
 # Linter Options
 options:
@@ -155,15 +155,17 @@ rules:
         - list-style-position
         - list-style-type
         - speak
+        - src
         - text-align
         - text-decoration
         - text-overflow
         - text-rendering
         - text-shadow
         - text-transform
+        - unicode-bidi
+        - unicode-range
         - white-space
         - word-break
-        - unicode-bidi
         # Less common properties go to the bottom
         - box-shadow
         - clear
@@ -175,6 +177,8 @@ rules:
         - outline
         - outline-offset
         - overflow
+        - overflow-x
+        - overflow-y
         - perspective
         - pointer-events
         - -webkit-transform
