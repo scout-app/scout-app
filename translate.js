@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
 
-var fs = require('fs-extra');
-var path = require('path');
-var translate = require('google-translate-api');
+// Translate one phrase into a bunch of languages
 
-var input = 'Files';
+// SETTINGS
 
+var input = 'Phrase to be translated.';
 var supportedLangs = [
     'ar',
     'bg',
@@ -16,6 +15,7 @@ var supportedLangs = [
     'fa',
     'fi',
     'fr',
+    'id',
     'iw',
     'hu',
     'it',
@@ -33,11 +33,25 @@ var supportedLangs = [
     'zh-TW',
     'zh-CN'
 ];
-
 var translations = {
     'en': input,
     'rk': input
 };
+
+
+
+
+
+
+
+
+
+
+// CODE
+
+var fs = require('fs-extra');
+var path = require('path');
+var translate = require('google-translate-api');
 
 function saveFile () {
     var file = path.join('.', 'translated.txt');
