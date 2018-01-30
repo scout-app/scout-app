@@ -28,6 +28,7 @@ var supportedLangs = [
     'ro',
     'ru',
     'sq',
+    'sv',
     'tr',
     'vi',
     'zh-TW',
