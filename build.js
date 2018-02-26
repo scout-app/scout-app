@@ -3,7 +3,7 @@
 
 // BUILDING FOR WINDOWS/LINUX:
 
-// Prerequisites: Must have Node, NPM, and Bower installed globally.
+// Prerequisites: Must have Node and NPM installed globally.
 //
 // This assumes you have a folder next to `scout-app` called
 // * `scout-app-build/win32/Scout-App`
@@ -47,7 +47,6 @@ var path = require('path');
 var exec = require('child_process').execSync;
 // var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
 // var del = require('del'); // used to delete entire folders with the exception of specific files
-var bowerJSON = fs.readJsonSync('bower.json');
 var manifest = fs.readJsonSync('package.json');
 if (darwin) {
     delete manifest.scripts.postinstall;
@@ -148,13 +147,11 @@ function copy (src, dest) {
 
 // Clean build folder
 rmrf(build + 'License');
-rmrf(build + 'bower_components');
 rmrf(build + 'node_modules');
 rmrf(build + sf);
 fs.mkdirsSync(build + sf);
 if (lin) {
     rmrf(build32 + 'License');
-    rmrf(build32 + 'bower_components');
     rmrf(build32 + 'node_modules');
     rmrf(build32 + sf);
     fs.mkdirsSync(build32 + sf);
@@ -165,10 +162,8 @@ console.log('Cleaning build folder - ' + timer(timeClean, start));
 
 // Copy files over
 fs.writeJsonSync(build + 'package.json', manifest);
-fs.writeJsonSync(build + 'bower.json', bowerJSON);
 if (lin) {
     fs.writeJsonSync(build32 + 'package.json', manifest);
-    fs.writeJsonSync(build32 + 'bower.json', bowerJSON);
 }
 copy(sf + 'index.html', sf + 'index.html');
 var timeFiles = Date.now() + '';
@@ -195,20 +190,11 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
-if (darwin) {
-    copy('bower_components', 'bower_components');
-}
 process.chdir(build);
 exec('npm --loglevel=error install');
-if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.sass')) {
-    fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.scss');
-}
 if (lin) {
     process.chdir('../../lin32/Scout-App');
     exec('npm --loglevel=error install');
-    if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.sass')) {
-        fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.scss');
-    }
 }
 if (darwin) {
     process.chdir('../../../../../scout-app');
@@ -217,7 +203,7 @@ if (darwin) {
 }
 
 var timeExec = Date.now() + '';
-console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
+console.log('NPM Installs  - ' + timer(timeExec, timeFolder));
 
 
 // Node-Sass Vendor Bindings

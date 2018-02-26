@@ -90,7 +90,7 @@
     });
 
     // Make sure there is only one `css3-mixins.s*ss`
-    var css3 = 'bower_components/sass-css3-mixins/css3-mixins.scss';
+    var css3 = 'node_modules/sass-css3-mixins/css3-mixins.scss';
     fs.stat(css3, function (err, stats) {
         if (!err && stats.size > 0) {
             ugui.helpers.deleteAFile(css3);
