@@ -279,7 +279,7 @@ function runCMD (package) {
 
     var exec = require('child_process').execSync;
 
-    var executable = 'git clone';
+    var executable = 'git clone --quiet';
     var url = 'https://github.com/' + package.username + '/' + package.repo + '.git';
     var branch = '-b ' + (package.branch || 'master');
     var destination = 'node_modules/' + package.repo.toLowerCase();

@@ -63,7 +63,7 @@ if (darwin) {
 }
 var build32 = '../scout-app-build/lin32/Scout-App/';
 var sf = 'scout-files/';
-var bindings = '_assets/node-sass_v3.8.0/';
+var bindings = '_assets/node-sass_v4.5.3/';
 var ns = 'node_modules/node-sass/vendor/';
 
 // Functions
@@ -165,6 +165,7 @@ fs.writeJsonSync(build + 'package.json', manifest);
 if (lin) {
     fs.writeJsonSync(build32 + 'package.json', manifest);
 }
+copy('npm-is-stupid.js', 'npm-is-stupid.js');
 copy(sf + 'index.html', sf + 'index.html');
 var timeFiles = Date.now() + '';
 console.log('Copying files         - ' + timer(timeFiles, timeClean));
@@ -192,9 +193,13 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 // Run executables
 process.chdir(build);
 exec('npm --loglevel=error install');
+fs.removeSync('npm-is-stupid.js');
+fs.removeSync('package-lock.json');
 if (lin) {
     process.chdir('../../lin32/Scout-App');
     exec('npm --loglevel=error install');
+    fs.removeSync('npm-is-stupid.js');
+    fs.removeSync('package-lock.json');
 }
 if (darwin) {
     process.chdir('../../../../../scout-app');
