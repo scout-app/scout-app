@@ -208,8 +208,7 @@ if (darwin) {
 }
 
 var timeExec = Date.now() + '';
-console.log('NPM Installs  - ' + timer(timeExec, timeFolder));
-
+console.log('NPM Installs          - ' + timer(timeExec, timeFolder));
 
 // Node-Sass Vendor Bindings
 rmrf(build + 'node_modules/node-sass/vendor');
