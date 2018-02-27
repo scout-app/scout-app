@@ -46,7 +46,7 @@ The  main files for Scout-App 2 are:
 
 In the Developer Tools Console, you can type `window.scout` (or just `scout`) to see the main Scout object. It contains the following:
 
-* `dictionary`: This is used for temporary storage while switching languages in the UI. It will occassionally hold the same contents as one of the JSON files in the `cultures` folder.
+* `dictionary`: Contains the same contents as the JSON files in the `cultures` folder. Used while switching languages in the UI.
 * `ftux`: "[**F**irst **T**ime **U**ser E**x**perience](https://en.wikipedia.org/wiki/First-time_user_experience)". This is used as temporary storage for information generated on the FTUX screen. FTUX is shown whenever the user has 0 projects added to Scout-App.
 * `globalSettings`: This is where we store app-wide settings, rather than project specific settings.
    * `cultureCode`: This will be set to `en` by default but can be changed by the user in the UI under `File > Preferences`.
