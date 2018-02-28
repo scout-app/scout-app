@@ -42,3 +42,4 @@ RUN.lnk
 _build/
 scout-files/cultures/translation.csv
 translated.txt
+package-lock.json

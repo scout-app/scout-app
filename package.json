@@ -89,7 +89,6 @@
         "sierra-library": "latest",
         "spice-sass": "latest",
         "susy": "latest",
-        "Synergy": "latest",
         "typesettings": "latest"
     },
     "devDependencies": {
@@ -104,9 +103,9 @@
     "scripts": {
         "start": "nw .",
         "installer": "npm install --loglevel=error",
-        "postinstall": "node npm-is-stupid.js",
-        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js",
-        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js",
+        "postinstall": "node postinstall.js",
+        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js",
+        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js",
         "sasslint": "node sasslinter.js",
         "cultures": "node cultures.js",
         "translations": "node cultures.js",
