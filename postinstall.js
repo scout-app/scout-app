@@ -163,6 +163,14 @@ var packages = [
         ]
     },
     {
+        username: 'esr360',
+        repo: 'Sass-Boost',
+        mainfile: 'node_modules/Sass-Boost/src/_sass-boost.scss',
+        junk: [
+            'node_modules/Sass-Boost/dist'
+        ]
+    },
+    {
         username: 'matthieua',
         repo: 'sass-css3-mixins',
         mainfile: 'node_modules/sass-css3-mixins/css3-mixins.sass',
@@ -210,9 +218,7 @@ var packages = [
             'node_modules/Synergy/src/index.js',
             'node_modules/Synergy/build',
             'node_modules/Synergy/dist',
-            'node_modules/Synergy/unit-testing',
             'node_modules/Synergy/package.json',
-            'node_modules/Synergy/todo.md',
             'node_modules/Synergy/webpack.config.babel.js'
         ]
     },
@@ -280,6 +286,8 @@ var commonJunk = [
     'stylelint.config.js',
     'test',
     'tests',
+    'todo.md',
+    'unit-testing',
     'yarn.lock'
 ];
 
