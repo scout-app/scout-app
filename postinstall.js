@@ -6,9 +6,9 @@
 // and also removing any junk files that are not needed from the node_modules
 // folder, so that the distribution size of the app is reduced.
 
-const fs = require('fs-extra');
+var fs = require('fs-extra');
 
-const postInstall = {
+var postInstall = {
     packages: [
         {
             username: 'gillesbertaux',
@@ -297,34 +297,34 @@ const postInstall = {
             return;
         }
 
-        const exec = require('child_process').execSync;
+        var exec = require('child_process').execSync;
 
-        const executable = 'git clone --quiet';
-        const url = 'https://github.com/' + package.username + '/' + package.repo + '.git';
-        const branch = '-b ' + (package.branch || 'master');
-        const destination = 'node_modules/' + package.repo.toLowerCase();
+        var executable = 'git clone --quiet';
+        var url = 'https://github.com/' + package.username + '/' + package.repo + '.git';
+        var branch = '-b ' + (package.branch || 'master');
+        var destination = 'node_modules/' + package.repo.toLowerCase();
 
-        let args = [executable, url, branch, destination];
+        var args = [executable, url, branch, destination];
         args = args.join(' ').trim();
 
-        const runner = exec(args);
+        var runner = exec(args);
 
-        const output = runner.toString().trim();
+        var output = runner.toString().trim();
         if (output) {
             // eslint-disable-next-line no-console
             console.log(output);
         }
     },
     removeCommonJunkFromNodeModules: function () {
-        const allModules = fs.readdirSync('node_modules');
-        allModules.forEach((folder) => {
-            const isFolder = fs.statSync('node_modules/' + folder).isDirectory();
+        var allModules = fs.readdirSync('node_modules');
+        allModules.forEach(function (folder) {
+            var isFolder = fs.statSync('node_modules/' + folder).isDirectory();
             if (isFolder) {
                 this.commonJunk.forEach(function (junk) {
                     fs.removeSync('node_modules/' + folder + '/' + junk);
                 });
             }
-        });
+        }.bind(this));
     },
     removePackageSpecificJunk: function (junkPile) {
         junkPile.forEach(function (pieceOfJunk) {
@@ -332,10 +332,10 @@ const postInstall = {
         });
     },
     downloadAllPackagesThenRemoveTheirSpecificJunk: function () {
-        this.packages.forEach((package) => {
+        this.packages.forEach(function (package) {
             this.gitClone(package);
             this.removePackageSpecificJunk(package.junk);
-        });
+        }.bind(this));
     }
 };
 
