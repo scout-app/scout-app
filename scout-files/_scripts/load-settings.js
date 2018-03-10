@@ -12,8 +12,8 @@
 
     var fs = require('fs-extra');
     var path = require('path');
-    var gui = require('nw.gui');
-    var appData = gui.App.dataPath;
+    var nw = require('nw.gui');
+    var appData = nw.App.dataPath;
     var settingsFile = path.join(appData, 'scout-settings.json');
 
     var settingsJSON = '';

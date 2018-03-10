@@ -46,7 +46,6 @@
     }
 
     function deleteLocalSettingsFile (bool) {
-        var path = require('path');
         var appData = require('nw.gui').App.dataPath;
         var file = path.join(appData, 'scout-settings.json');
 
@@ -182,10 +181,9 @@
 
     function saveSettings (location) {
         var appData = require('nw.gui').App.dataPath;
-        appData.split('\\').join('/');
-        var settingsJSON = appData + '/scout-settings.json';
+        var settingsJSON = path.join(appData, 'scout-settings.json');
         if (location && fs.existsSync(location)) {
-            settingsJSON = location + '/scout-settings.json';
+            settingsJSON = path.join(location, 'scout-settings.json');
         }
         var data = {};
         data.projects = scout.projects;
@@ -193,7 +191,7 @@
         data.globalSettings = scout.globalSettings;
         data = JSON.stringify(data, null, 4);
         data = data + '\n';
-        ugui.helpers.writeToFile(settingsJSON, data);
+        fs.writeFileSync(settingsJSON, data);
     }
 
     function exportSettings (location) {

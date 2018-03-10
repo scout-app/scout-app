@@ -110,6 +110,7 @@
                 scout.projects[i].outputStyle = outputStyle;
             }
         }
+        scout.helpers.saveSettings();
     });
     $('#linefeed input').change(function (evt) {
         var id = $('#projectID').val();
