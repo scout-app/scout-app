@@ -191,7 +191,12 @@
         data.globalSettings = scout.globalSettings;
         data = JSON.stringify(data, null, 4);
         data = data + '\n';
-        fs.writeFileSync(settingsJSON, data);
+        fs.writeFile(settingsJSON, data, function (err) {
+            if (err) {
+                console.warn('Error saving settings.');
+                console.warn(err);
+            }
+        });
     }
 
     function exportSettings (location) {
