@@ -7,6 +7,7 @@
 // folder, so that the distribution size of the app is reduced.
 
 var fs = require('fs-extra');
+var path = require('path');
 
 var postInstall = {
     packages: [
@@ -336,8 +337,33 @@ var postInstall = {
             this.gitClone(package);
             this.removePackageSpecificJunk(package.junk);
         }.bind(this));
+    },
+    fixSynergy: function () {
+        var file = path.join('.', 'node_modules', 'synergy', 'src', 'scss', '_synergy.scss');
+
+        var data = '';
+        try {
+            data = fs.readFileSync(file);
+        } catch (err) {
+            // eslint-disable-next-line no-console
+            console.log('Error reading synergy');
+            // eslint-disable-next-line no-console
+            console.log(err);
+        }
+        data = String(data);
+        data = data.replace('../../node_modules/Sass-Boost/src/', '');
+
+        try {
+            fs.writeFileSync(file, data);
+        } catch (err) {
+            // eslint-disable-next-line no-console
+            console.log('Error updating Synergy');
+            // eslint-disable-next-line no-console
+            console.log(err);
+        }
     }
 };
 
 postInstall.downloadAllPackagesThenRemoveTheirSpecificJunk();
 postInstall.removeCommonJunkFromNodeModules();
+postInstall.fixSynergy();
