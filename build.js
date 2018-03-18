@@ -63,8 +63,6 @@ if (darwin) {
 }
 var build32 = '../scout-app-build/lin32/Scout-App/';
 var sf = 'scout-files/';
-var bindings = '_assets/node-sass_v4.5.3/';
-var ns = 'node_modules/node-sass/vendor/';
 
 // Functions
 function timer (finish, begin) {
@@ -166,6 +164,7 @@ if (lin) {
     fs.writeJsonSync(build32 + 'package.json', manifest);
 }
 copy('postinstall.js', 'postinstall.js');
+copy('update-bindings.js', 'update-bindings.js');
 copy(sf + 'index.html', sf + 'index.html');
 var timeFiles = Date.now() + '';
 console.log('Copying files         - ' + timer(timeFiles, timeClean));
@@ -194,6 +193,7 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 process.chdir(build);
 exec('npm --loglevel=error install');
 fs.removeSync('postinstall.js');
+fs.removeSync('update-bindings.js');
 fs.removeSync('package-lock.json');
 if (lin) {
     process.chdir('../../lin32/Scout-App');
@@ -209,20 +209,6 @@ if (darwin) {
 
 var timeExec = Date.now() + '';
 console.log('NPM Installs          - ' + timer(timeExec, timeFolder));
-
-// Node-Sass Vendor Bindings
-rmrf(build + 'node_modules/node-sass/vendor');
-if (lin) {
-    rmrf(build32 + 'node_modules/node-sass/vendor');
-}
-copy(sf + bindings + os + '-x64-43', ns + os + '-x64-43');
-if (!darwin && !lin) {
-    fs.copySync(sf + bindings + os + '-ia32-43', build + ns + os + '-ia32-43');
-} else if (lin) {
-    fs.copySync(sf + bindings + os + '-ia32-43', build32 + ns + os + '-ia32-43');
-}
-var timeNS = Date.now() + '';
-console.log('Node-Sass bindings    - ' + timer(timeNS, timeExec));
 
 
 // Zip package
@@ -262,7 +248,7 @@ if (lin) {
     exec(zipExe + ' a -bd -tzip -mx=9 -y ' + outputZip + ' ' + buildInput);
 }
 var timeZip = Date.now() + '';
-console.log('Zipped Package        - ' + timer(timeZip, timeNS));
+console.log('Zipped Package        - ' + timer(timeZip, timeExec));
 
 
 // Total Time
