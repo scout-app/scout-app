@@ -103,9 +103,9 @@
     "scripts": {
         "start": "nw .",
         "installer": "npm install --loglevel=error",
-        "postinstall": "node postinstall.js",
-        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js",
-        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js",
+        "postinstall": "node postinstall.js && node update-bindings.js",
+        "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js update-bindings.js",
+        "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js update-bindings.js",
         "sasslint": "node sasslinter.js",
         "cultures": "node cultures.js",
         "translations": "node cultures.js",
