@@ -8,11 +8,34 @@
    * window.scout.globalSettings.cultureCode
 */
 
-(function (scout) {
+(function (scout, $, marked) {
     var url = require('url');
     var https = require('https');
 
     function newVersionFound (data) {
+        $('#printConsole').prepend(
+            '<h4 class="text-center">' +
+              '<button class="btn btn-success text-center">' +
+                '<big>' +
+                  'Download latest Scout-App version.' + // TODO: Translate
+                '</big>' +
+              '</button>' +
+            '</h4>' +
+            '<div class="panel panel-info">' +
+              '<div class="panel-heading">' +
+                'New Scout-App Version' + // TODO: Translate
+                '<span class="pull-right version">' + data.tag_name + '</span>' +
+              '</div>' +
+              '<div class="panel-body">' +
+                marked(data.body) +
+              '</div>' +
+              '<div class="panel-footer">' +
+                '<a href="http://scout-app.io" class="external-link">' +
+                  'Download latest Scout-App version.' + // TODO: Translate
+                '</a>' +
+              '</div>' +
+            '</div>'
+        );
         console.log(data);
     }
 
@@ -63,4 +86,4 @@
 
     scout.helpers.checkForUpdates = checkForUpdates;
 
-})(window.scout);
+})(window.scout, window.$, window.marked);
