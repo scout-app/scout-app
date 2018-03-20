@@ -1,46 +1,49 @@
 /* eslint-disable no-console */
 
 /*
-  This will read the user's scout-settings.json file from
-  their OS's application data folder. Each OS stores this in
-  a different place. Then we update:
-   * window.scout.projects
-   * window.scout.globalSettings.cultureCode
+  If the user has left the ""
 */
 
-(function (scout, $, marked) {
+(function (scout, $, ugui, marked) {
     var url = require('url');
     var https = require('https');
 
     function newVersionFound (data) {
+        var UPDATE_FOUND_TITLE = 'New Scout-App Version'; // TODO: Translate
+        var UPDATE_FOUND_DOWNLOAD = 'Download the latest version of Scout-App.'; // TODO: Translate
+        // scout.localize('');
+
         $('#printConsole').prepend(
-            '<h4 class="text-center">' +
-              '<button class="btn btn-success text-center">' +
-                '<big>' +
-                  'Download latest Scout-App version.' + // TODO: Translate
-                '</big>' +
-              '</button>' +
-            '</h4>' +
-            '<div class="panel panel-info">' +
-              '<div class="panel-heading">' +
-                'New Scout-App Version' + // TODO: Translate
-                '<span class="pull-right version">' + data.tag_name + '</span>' +
-              '</div>' +
-              '<div class="panel-body">' +
-                marked(data.body) +
-              '</div>' +
-              '<div class="panel-footer">' +
-                '<a href="http://scout-app.io" class="external-link">' +
-                  'Download latest Scout-App version.' + // TODO: Translate
-                '</a>' +
+            '<div id="updateFound">' +
+              '<div class="panel panel-info">' +
+                '<div class="panel-heading">' +
+                  UPDATE_FOUND_TITLE +
+                  '<span class="pull-right version">' + data.tag_name + '</span>' +
+                '</div>' +
+                '<div class="panel-body">' +
+                  '<h4 class="text-center">' +
+                    '<a href="http://scout-app.io" class="btn btn-success text-center">' +
+                      '<big>' +
+                        UPDATE_FOUND_DOWNLOAD +
+                      '</big>' +
+                    '</a>' +
+                  '</h4>' +
+                  marked(data.body) +
+                '</div>' +
+                '<div class="panel-footer">' +
+                  '<a href="http://scout-app.io">' +
+                    UPDATE_FOUND_DOWNLOAD +
+                  '</a>' +
+                '</div>' +
               '</div>' +
             '</div>'
         );
+        $('#updateFound a').addClass('external-link');
+        ugui.helpers.openDefaultBrowser();
         console.log(data);
     }
 
     function checkForUpdates () {
-        // Alternate URL: 'https://api.github.com/repos/scout-app/scout-app/tags/latest'
         var file = url.parse('https://api.github.com/repos/scout-app/scout-app/releases/latest');
 
         var options = {
@@ -86,4 +89,4 @@
 
     scout.helpers.checkForUpdates = checkForUpdates;
 
-})(window.scout, window.$, window.marked);
+})(window.scout, window.$, window.ugui, window.marked);
