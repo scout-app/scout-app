@@ -52,6 +52,7 @@ if (darwin) {
     delete manifest.scripts.postinstall;
 }
 delete manifest.devDependencies;
+delete manifest.scripts.postinstall;
 if (lin) {
     manifest.window.icon = 'scout-files/_img/logo_128.png';
 }
@@ -191,7 +192,20 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 // Run executables
 process.chdir(build);
+
 exec('npm --loglevel=error install');
+var timeInstall = Date.now() + '';
+console.log('NPM Installs          - ' + timer(timeInstall, timeFolder));
+
+exec('node postinstall.js');
+var timePostInstall = Date.now() + '';
+console.log('NPM Installs          - ' + timer(timePostInstall, timeInstall));
+
+exec('node update-bindings.js');
+var timeBindings = Date.now() + '';
+console.log('NPM Installs          - ' + timer(timeBindings, timePostInstall));
+
+
 fs.removeSync('postinstall.js');
 fs.removeSync('update-bindings.js');
 fs.removeSync('package-lock.json');
@@ -207,8 +221,6 @@ if (darwin) {
     process.chdir('../../../scout-app');
 }
 
-var timeExec = Date.now() + '';
-console.log('NPM Installs          - ' + timer(timeExec, timeFolder));
 
 
 // Zip package
@@ -248,7 +260,7 @@ if (lin) {
     exec(zipExe + ' a -bd -tzip -mx=9 -y ' + outputZip + ' ' + buildInput);
 }
 var timeZip = Date.now() + '';
-console.log('Zipped Package        - ' + timer(timeZip, timeExec));
+console.log('Zipped Package        - ' + timer(timeZip, timeBindings));
 
 
 // Total Time
