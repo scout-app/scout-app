@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: L'interfaccia grafica per Sass",
   "ATOMIC_LABEL": "Atomic risparmia tempo",
   "ATOMIC_NOTE": "Se l'Scout-App non elaborano i file salvati, regola questa impostazione e riavvia il progetto.",
+  "AUTOMATIC_UPDATES": "Controlla gli aggiornamenti all'avvio",
   "BROWSE": "Naviga",
   "CANCEL": "Annulla",
   "CAT_SCREAMING_NO": "Il gatto dice di NO!",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Rimuovi progetto",
   "DEVELOPMENT": "Sviluppo",
   "DEV_TOOLS": "Strumenti di sviluppo",
+  "DOWNLOAD_UPDATE": "Scarica l'ultima versione di Scout-App.",
   "ENVIRONMENT": "Tipo di ambiente",
   "EXIT": "Esci",
   "FILE": "File",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Nuovo aggiornamento!",
   "VERSION": "Versione",
   "VIEW": "Visalizzazione",
-  "VIEW_LATEST_RELEASE": "Visualizza l'ultimo rilascio",
   "WELCOME_MESSAGE": "Benvenuto su Scout-App",
   "WINDOW_SETTING": "Finestra"
 }

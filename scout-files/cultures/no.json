@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Grafisk grensesnitt for Sass",
   "ATOMIC_LABEL": "Atomisk sparer forsinkelse",
   "ATOMIC_NOTE": "Hvis Scout-App ikke behandler filer under lagre, juster du denne innstillingen og starter prosjektet på nytt.",
+  "AUTOMATIC_UPDATES": "Se etter oppdateringer om lansering",
   "BROWSE": "Bla gjennom",
   "CANCEL": "Avbryt",
   "CAT_SCREAMING_NO": "Katt som skriker 'NEI'!",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Fjern prosjekt",
   "DEVELOPMENT": "Utvikling",
   "DEV_TOOLS": "Utviklerverktøy",
+  "DOWNLOAD_UPDATE": "Last ned den nyeste versjonen av Scout-App.",
   "ENVIRONMENT": "Miljø",
   "EXIT": "Gå ut",
   "FILE": "Fil",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Oppdatering funnet!",
   "VERSION": "Versjon",
   "VIEW": "Vis",
-  "VIEW_LATEST_RELEASE": "Se siste utgivelse",
   "WELCOME_MESSAGE": "Velkommen til Scout-App!",
   "WINDOW_SETTING": "Vindu"
 }

@@ -19,7 +19,7 @@
     var settingsJSON = '';
     // Attempt to read the settings file
     try {
-        settingsJSON = fs.readFileSync(settingsFile, {encoding: 'utf-8'});
+        settingsJSON = fs.readFileSync(settingsFile, { encoding: 'utf-8' });
     } catch (err) {
         // If the file does exist grab its error code
         if (err.code === 'ENOENT') {

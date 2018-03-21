@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: a interface visual para Sass.",
   "ATOMIC_LABEL": "Atraso de Atomic Saves",
   "ATOMIC_NOTE": "Se o Scout-App não processar arquivos ao salvar, ajuste o atraso de identificação de <i>atomic save</i> e reinicie seu projeto.",
+  "AUTOMATIC_UPDATES": "Verificar atualizações no lançamento",
   "BROWSE": "Procurar",
   "CANCEL": "Cancelar",
   "CAT_SCREAMING_NO": "Um gato com as patas dianteiras estendidas, como se estivesse gritando: \"NÃO FAÇA ISSO!\"",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Remover Projeto",
   "DEVELOPMENT": "Desenvolvimento",
   "DEV_TOOLS": "Ferramentas de Desenvolvimento",
+  "DOWNLOAD_UPDATE": "Baixe a última versão do Scout-App.",
   "ENVIRONMENT": "Ambiente",
   "EXIT": "Sair",
   "FILE": "Arquivo",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Atualização encontrada!",
   "VERSION": "Versão",
   "VIEW": "Exibir",
-  "VIEW_LATEST_RELEASE": "Ver a versão mais recente",
   "WELCOME_MESSAGE": "Bem-vindo(a) ao Scout-App!",
   "WINDOW_SETTING": "Janela"
 }

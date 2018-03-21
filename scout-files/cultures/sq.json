@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Sass GUI",
   "ATOMIC_LABEL": "Procesimi pas ruajtjes vazhdon në",
   "ATOMIC_NOTE": "Nëse Scout-App nuk po i proceson skedaret pas ruajtjes atëherë modifikoni opsionet e mëposhtme dhe ristartoni programin.",
+  "AUTOMATIC_UPDATES": "Kontrolloni për përditësime në nisje",
   "BROWSE": "Zgjidh",
   "CANCEL": "Anullo",
   "CAT_SCREAMING_NO": "Mace duke bërtitur 'JO!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Fshije Projektin",
   "DEVELOPMENT": "Në punim e sipër",
   "DEV_TOOLS": "Mjete për programuesin",
+  "DOWNLOAD_UPDATE": "Shkarkoni versionin më të fundit të Scout-App.",
   "ENVIRONMENT": "Statusi i punimeve",
   "EXIT": "Mbylle",
   "FILE": "File",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Një përditesim i ri u gjet!",
   "VERSION": "Versioni",
   "VIEW": "Paraqit",
-  "VIEW_LATEST_RELEASE": "Shfaqe versionin e fundit",
   "WELCOME_MESSAGE": "Mirësevini në Scout-App!",
   "WINDOW_SETTING": "Dritare"
 }

@@ -334,6 +334,11 @@
         evt.stopPropagation();
     });
 
+    // Check for updates button in About
+    $('#scoutUpdateChecker').click(function () {
+        scout.helpers.checkForUpdates();
+    });
+
     /**
      * OSX Keybindings.
      * On Windows and Ubuntu Scout-App inherits the OS's global clipboard shortcuts.

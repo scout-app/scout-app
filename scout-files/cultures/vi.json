@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Ứng dụng biên dịch Sass",
   "ATOMIC_LABEL": "Nguyên tử lưu chậm trễ",
   "ATOMIC_NOTE": "Nếu Scout-App không xử lý các tệp trên lưu, hãy điều chỉnh cài đặt này và khởi động lại dự án của bạn.",
+  "AUTOMATIC_UPDATES": "Kiểm tra bản cập nhật về khởi chạy",
   "BROWSE": "Duyệt",
   "CANCEL": "Bỏ qua",
   "CAT_SCREAMING_NO": "Mèo hét lên 'KHÔNG!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Xóa dự án",
   "DEVELOPMENT": "Phát triển",
   "DEV_TOOLS": "Công cụ phát triển",
+  "DOWNLOAD_UPDATE": "Tải xuống phiên bản Scout-App mới nhất.",
   "ENVIRONMENT": "Môi trường",
   "EXIT": "Thoát",
   "FILE": "Tệp",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Đã tìm thấy bản cập nhật!",
   "VERSION": "Phiên bản",
   "VIEW": "Hiển thị",
-  "VIEW_LATEST_RELEASE": "Xem phiên bản mới nhất",
   "WELCOME_MESSAGE": "Chào mừng bạn đến Scout-App!",
   "WINDOW_SETTING": "Cửa sổ"
 }

@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: The Sass GUI",
   "ATOMIC_LABEL": "Atomic saves delay",
   "ATOMIC_NOTE": "Jika Scout-App tidak memproses file yang tersimpan, sesuaikan pengaturan ini dan restart proyek Anda.",
+  "AUTOMATIC_UPDATES": "Periksa pembaruan saat peluncuran",
   "BROWSE": "Telusuri",
   "CANCEL": "Batal",
   "CAT_SCREAMING_NO": "Kucing Berteriak 'TIDAK!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Hapus Proyek",
   "DEVELOPMENT": "Pengembangan",
   "DEV_TOOLS": "Alat Pengembangan",
+  "DOWNLOAD_UPDATE": "Unduh versi terbaru Scout-App.",
   "ENVIRONMENT": "Lingkungan",
   "EXIT": "Keluar",
   "FILE": "File",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Pembaruan ditemukan!",
   "VERSION": "Versi",
   "VIEW": "Lihat",
-  "VIEW_LATEST_RELEASE": "Lihat rilis terbaru",
   "WELCOME_MESSAGE": "Selamat Datang di Scout-App!",
   "WINDOW_SETTING": "Jendela"
 }

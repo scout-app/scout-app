@@ -15,7 +15,8 @@ window.scout = {
         'messageInApp': true,
         'messageSound': true,
         'sendToTrayOnClose': true,
-        'startMinimized': false
+        'startMinimized': false,
+        'automaticUpdates': true
     },
     'helpers': {},
     'projects': [],

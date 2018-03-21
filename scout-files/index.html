@@ -208,7 +208,9 @@
 
       <!-- Alerts and messages once Node-Sass is running. -->
       <h2 id="printConsoleTitle" class="text-center" data-lang="STATUS_OF_ALL_PROJECTS"></h2>
-      <section id="printConsole" class="row"></section>
+      <section id="printConsole" class="row">
+        <div id="updateFound"></div>
+      </section>
     </div> <!-- end container -->
 
     <div id="ftux" class="text-center">
@@ -382,9 +384,10 @@
                 <p id="updateResults"></p>
                 <p class="text-center">
                   <button id="scoutUpdateChecker" class="btn btn-primary" data-lang="CHECK_FOR_UPDATES"></button>
-                  <input type="checkbox" data-argName="automaticUpdates" checked>
-                  <label>Check for updates on launch</label>
-                  <!-- TODO: Tranlaste -->
+                </p>
+                <p class="text-center">
+                  <input id="automaticUpdates" type="checkbox" data-argName="automaticUpdates" checked>
+                  <label for="automaticUpdates" data-lang="AUTOMATIC_UPDATES"></label>
                 </p>
               </div>
             </div>

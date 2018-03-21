@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: The Sass GUI that'll butter your biscuits!",
   "ATOMIC_LABEL": "Wait fer the files to save",
   "ATOMIC_NOTE": "If'n yer files saves ain't gettin' picked up, fiddle with this here thinger and give'r another go.",
+  "AUTOMATIC_UPDATES": "Check for updates on launch",
   "BROWSE": "Look Around",
   "CANCEL": "Nevermind",
   "CAT_SCREAMING_NO": "Hold your horses!",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Shoot It Dead",
   "DEVELOPMENT": "We're Live!",
   "DEV_TOOLS": "TOOLS!",
+  "DOWNLOAD_UPDATE": "Download the latest version of Scout-App.",
   "ENVIRONMENT": "Trailer Park",
   "EXIT": "Goodbye",
   "FILE": "File",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "I found an update!",
   "VERSION": "Model",
   "VIEW": "Look At It",
-  "VIEW_LATEST_RELEASE": "See lates model",
   "WELCOME_MESSAGE": "Well howdy buddy! Welcome to Scout-App!",
   "WINDOW_SETTING": "Window"
 }

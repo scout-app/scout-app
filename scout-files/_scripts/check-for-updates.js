@@ -4,43 +4,29 @@
   If the user has left the ""
 */
 
-(function (scout, $, ugui, marked) {
+(function (scout, $) {
     var url = require('url');
     var https = require('https');
+    var nw = require('nw.gui');
 
     function newVersionFound (data) {
-        var UPDATE_FOUND_TITLE = 'New Scout-App Version'; // TODO: Translate
-        var UPDATE_FOUND_DOWNLOAD = 'Download the latest version of Scout-App.'; // TODO: Translate
-        // scout.localize('');
-
-        $('#printConsole').prepend(
-            '<div id="updateFound">' +
-              '<div class="panel panel-info">' +
-                '<div class="panel-heading">' +
-                  UPDATE_FOUND_TITLE +
-                  '<span class="pull-right version">' + data.tag_name + '</span>' +
-                '</div>' +
-                '<div class="panel-body">' +
-                  '<h4 class="text-center">' +
-                    '<a href="http://scout-app.io" class="btn btn-success text-center">' +
-                      '<big>' +
-                        UPDATE_FOUND_DOWNLOAD +
-                      '</big>' +
-                    '</a>' +
-                  '</h4>' +
-                  marked(data.body) +
-                '</div>' +
-                '<div class="panel-footer">' +
-                  '<a href="http://scout-app.io">' +
-                    UPDATE_FOUND_DOWNLOAD +
-                  '</a>' +
-                '</div>' +
-              '</div>' +
-            '</div>'
+        $('#updateResults').html(
+            '<p class="text-center">' +
+              '<strong data-lang="UPDATE_FOUND">' + scout.localize('UPDATE_FOUND') + '</strong> ' +
+              '<a href="http://scout-app.io" class="external-link" data-lang="DOWNLOAD_UPDATE">' +
+                scout.localize('DOWNLOAD_UPDATE') +
+              '</a>' +
+            '</p>'
         );
-        $('#updateFound a').addClass('external-link');
-        ugui.helpers.openDefaultBrowser();
-        console.log(data);
+        scout.helpers.updateAlert(data);
+    }
+
+    function youHaveTheLatestVersion () {
+        $('#updateResults').html(
+            '<p class="text-center">' +
+              '<strong data-lang="LATEST_VERSION">' + scout.localize('LATEST_VERSION') + '</strong>' +
+            '</p>'
+        );
     }
 
     function checkForUpdates () {
@@ -65,28 +51,32 @@
                 body = String(body);
                 body = JSON.parse(body);
 
-                // var semver = require('semver');
-                // var localVersion = nw.App.manifest.version;
-                // var latestVersion = body.tag_name.replace('v', '');
+                var semver = require('semver');
+                var localVersion = nw.App.manifest.version;
+                var latestVersion = body.tag_name.replace('v', '');
 
                 // if latest is greater than local
-                // if (semver.gt(latestVersion, localVersion)) {
-                newVersionFound(body);
-                // }
+                if (semver.gt(latestVersion, localVersion)) {
+                    newVersionFound(body);
+                } else {
+                    youHaveTheLatestVersion();
+                }
             });
         }).on('error', function (err) {
+            $('#updateResults').html(
+                '<p class="text-center">' +
+                  '<strong data-lang="SERVER_DOWN">' + scout.localize('SERVER_DOWN') + '</strong>' +
+                '</p>'
+            );
             console.error('Error during update check:', err.message);
         });
     }
 
-    // TODO: add to globals
-    // TODO: add checkbox in about
-    // TODO: Create new alert box function
-    var automaticUpdates = true;
+    var automaticUpdates = scout.globalSettings.automaticUpdates;
     if (automaticUpdates) {
         checkForUpdates();
     }
 
     scout.helpers.checkForUpdates = checkForUpdates;
 
-})(window.scout, window.$, window.ugui, window.marked);
+})(window.scout, window.$);

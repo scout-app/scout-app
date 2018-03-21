@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Het gebruikersinterface voor Sass",
   "ATOMIC_LABEL": "Atoom bespaart vertraging",
   "ATOMIC_NOTE": "Als de Scout-App bestanden niet opslaan opslaan, past u deze instelling aan en start u het project opnieuw op.",
+  "AUTOMATIC_UPDATES": "Controleer op updates bij het opstarten",
   "BROWSE": "Bladeren",
   "CANCEL": "Annuleren",
   "CAT_SCREAMING_NO": "Kat die 'NEEEEE!'  schreeuwt",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Verwijder Project",
   "DEVELOPMENT": "Ontwikkeling",
   "DEV_TOOLS": "Ontwikkelaarstools",
+  "DOWNLOAD_UPDATE": "Download de nieuwste versie van Scout-App.",
   "ENVIRONMENT": "Omgeving",
   "EXIT": "Afsluiten",
   "FILE": "Bestand",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Update Gevonden!",
   "VERSION": "Versie",
   "VIEW": "Weergave",
-  "VIEW_LATEST_RELEASE": "Bekijk Nieuwste Release",
   "WELCOME_MESSAGE": "Welkom bij de Scout-App!",
   "WINDOW_SETTING": "Venster"
 }

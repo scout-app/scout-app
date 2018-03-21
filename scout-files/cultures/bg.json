@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: The Sass GUI",
   "ATOMIC_LABEL": "Атомът спестява забавяне",
   "ATOMIC_NOTE": "Ако Scout-App не обработва файлове при запазване, коригирайте тази настройка и рестартирайте проекта си.",
+  "AUTOMATIC_UPDATES": "Проверете за актуализации при стартиране",
   "BROWSE": "Прелисти",
   "CANCEL": "Отказ",
   "CAT_SCREAMING_NO": "Котка крещяща \"Не\"!",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Премахни проект",
   "DEVELOPMENT": "Разработка",
   "DEV_TOOLS": "Инструменти",
+  "DOWNLOAD_UPDATE": "Изтеглете последната версия на Scout-App.",
   "ENVIRONMENT": "Среда",
   "EXIT": "Изход",
   "FILE": "Файл",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Налична е актуализация!",
   "VERSION": "Версия",
   "VIEW": "Изглед",
-  "VIEW_LATEST_RELEASE": "Виж последните версии",
   "WELCOME_MESSAGE": "Добре дошъл в Scout-App!",
   "WINDOW_SETTING": "прозорец"
 }

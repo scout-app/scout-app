@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Sass Grafikus interfész",
   "ATOMIC_LABEL": "Automatikus mentési idő",
   "ATOMIC_NOTE": "Ha a Scout-App nem dolgozza fel a fájlokat a mentéskor, módosítsa ezt a beállítást, és indítsa újra a projektet.",
+  "AUTOMATIC_UPDATES": "Ellenőrizze a frissítéseket indításkor",
   "BROWSE": "Tallózás",
   "CANCEL": "Mégse",
   "CAT_SCREAMING_NO": "Miaúúú 'NEEE!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Projekt eltávolítása",
   "DEVELOPMENT": "Fejlesztői",
   "DEV_TOOLS": "Fejlesztői eszközök",
+  "DOWNLOAD_UPDATE": "Töltse le a Scout-App legújabb verzióját.",
   "ENVIRONMENT": "Környezet",
   "EXIT": "Kilépés",
   "FILE": "Fájl",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Frissítés elérhető!",
   "VERSION": "Verzió",
   "VIEW": "Nézet",
-  "VIEW_LATEST_RELEASE": "Előző kiadások",
   "WELCOME_MESSAGE": "Üdvözlet ez a Scout-App!",
   "WINDOW_SETTING": "Ablak"
 }

@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: interfejs dla Sass",
   "ATOMIC_LABEL": "Opóźnienie zapisywania pliku (Atomic Saves)",
   "ATOMIC_NOTE": "Jeżeli Scout-App nie aktualizuje arkuszy CSS po zapisaniu plików SASS, spróbuj zmienić opóźnienie zapisywania pliku za pomocą suwaka znajdującego się powyżej. Następnie zrestartuj program.",
+  "AUTOMATIC_UPDATES": "Sprawdź dostępność aktualizacji",
   "BROWSE": "Przeglądaj",
   "CANCEL": "Anuluj",
   "CAT_SCREAMING_NO": "Kotek krzyczy: STÓJ!",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Usuń projekt",
   "DEVELOPMENT": "Testowe (deweloperskie)",
   "DEV_TOOLS": "Narzędzia deweloperskie",
+  "DOWNLOAD_UPDATE": "Pobierz najnowszą wersję aplikacji Scout.",
   "ENVIRONMENT": "Środowisko:",
   "EXIT": "Zamknij Scout-App",
   "FILE": "Plik",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Znaleziono aktualizację!",
   "VERSION": "Wersja:",
   "VIEW": "Widok",
-  "VIEW_LATEST_RELEASE": "Zobacz ostatnią aktualizację",
   "WELCOME_MESSAGE": "Witaj w Scout-App!",
   "WINDOW_SETTING": "Ustawienia okna"
 }
