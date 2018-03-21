@@ -281,30 +281,34 @@
         // Display the "status of all projects" screen
         $('#viewStatus').click();
 
-        $('#updateFound').html(
-            '<div class="panel panel-info">' +
-              '<div class="panel-heading">' +
-                '<span data-lang="UPDATE_FOUND">' + scout.localize('UPDATE_FOUND') + '</span>' +
-                '<span class="pull-right version">' + release.tag_name + '</span>' +
-              '</div>' +
-              '<div class="panel-body">' +
-                '<h4 class="text-center">' +
-                  '<a href="http://scout-app.io" class="btn btn-success text-center">' +
-                    '<big data-lang="DOWNLOAD_UPDATE">' +
+        // Don't show on FTUX screen
+        if (scout.projects.length > 0) {
+            $('#updateFound').html(
+                '<div class="panel panel-info">' +
+                  '<div class="panel-heading">' +
+                    '<span data-lang="UPDATE_FOUND">' + scout.localize('UPDATE_FOUND') + '</span>' +
+                    '<span class="pull-right version">' + release.tag_name + '</span>' +
+                  '</div>' +
+                  '<div class="panel-body">' +
+                    '<h4 class="text-center">' +
+                      '<a href="http://scout-app.io" class="btn btn-success text-center">' +
+                        '<big data-lang="DOWNLOAD_UPDATE">' +
+                          scout.localize('DOWNLOAD_UPDATE') +
+                        '</big>' +
+                      '</a>' +
+                    '</h4>' +
+                    marked(release.body) +
+                  '</div>' +
+                  '<div class="panel-footer">' +
+                    '<a href="http://scout-app.io" data-lang="DOWNLOAD_UPDATE">' +
                       scout.localize('DOWNLOAD_UPDATE') +
-                    '</big>' +
-                  '</a>' +
-                '</h4>' +
-                marked(release.body) +
-              '</div>' +
-              '<div class="panel-footer">' +
-                '<a href="http://scout-app.io" data-lang="DOWNLOAD_UPDATE">' +
-                  scout.localize('DOWNLOAD_UPDATE') +
-                '</a>' +
-              '</div>' +
-            '</div>'
-        );
-        $('#updateFound a').addClass('external-link');
+                    '</a>' +
+                  '</div>' +
+                '</div>'
+            );
+            $('#updateFound a').addClass('external-link');
+        }
+
         ugui.helpers.openDefaultBrowser();
     }
 
