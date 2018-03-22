@@ -199,11 +199,11 @@ console.log('NPM Installs          - ' + timer(timeInstall, timeFolder));
 
 exec('node postinstall.js');
 var timePostInstall = Date.now() + '';
-console.log('NPM Installs          - ' + timer(timePostInstall, timeInstall));
+console.log('Post-Install          - ' + timer(timePostInstall, timeInstall));
 
 exec('node update-bindings.js');
 var timeBindings = Date.now() + '';
-console.log('NPM Installs          - ' + timer(timeBindings, timePostInstall));
+console.log('Update Bindings       - ' + timer(timeBindings, timePostInstall));
 
 
 fs.removeSync('postinstall.js');
