@@ -59,22 +59,41 @@ function verifyDownloads () {
     var failure = intro + 'Binding Update Failed' + outro;
 
     if (os === 'win32') {
-        if (fileAlreadyDownloaded('win32-ia32-43') && fileAlreadyDownloaded('win32-x64-43')) {
+        if (fileAlreadyDownloaded('win32-ia32-43')) {
             console.log(success);
         } else {
             console.error(failure);
+            getRedirect('win32-ia32-43', myCallBack);
+        }
+
+        if (fileAlreadyDownloaded('win32-x64-43')) {
+            console.log(success);
+        } else {
+            console.log(failure);
+            getRedirect('win32-x64-43', myCallBack);
         }
     } else if (os === 'darwin') {
         if (fileAlreadyDownloaded('darwin-x64-43')) {
             console.log(success);
         } else {
             console.error(failure);
+            getRedirect('darwin-x64-43', myCallBack);
         }
     } else if (os === 'linux') {
-        if (arch === 'x64' && fileAlreadyDownloaded('linux-x64-43') || arch === 'ia32' && fileAlreadyDownloaded('linux-ia32-43')) {
-            console.log(success);
-        } else {
-            console.error(failure);
+        if (arch === 'x64') {
+            if (fileAlreadyDownloaded('linux-x64-43')) {
+                console.log(success);
+            } else {
+                console.error(failure);
+                getRedirect('linux-x64-43', myCallBack);
+            }
+        } else if (arch === 'ia32') {
+            if (fileAlreadyDownloaded('linux-ia32-43')) {
+                console.log(success);
+            } else {
+                console.error(failure);
+                getRedirect('linux-ia32-43', myCallBack);
+            }
         }
     }
 }
@@ -267,8 +286,10 @@ function getListOfLatestBindings (cb) {
 }
 
 // eslint-disable-next-line no-unused-vars
-getListOfLatestBindings(function (location) {
+function myCallBack (location) {
     // console.log(location);
     deleteOldBindings();
     verifyDownloads();
-});
+}
+
+getListOfLatestBindings(myCallBack);
