@@ -16,280 +16,296 @@ var https = require('https');
 var fs = require('fs-extra');
 var path = require('path');
 var url = require('url');
+var exec = require('child_process').execSync;
 
-var validAssets = {
-    'darwin-x64-43_binding.node': { url: '', size: 0 },
-    'linux-ia32-43_binding.node': { url: '', size: 0 },
-    'linux-x64-43_binding.node':  { url: '', size: 0 },
-    'win32-ia32-43_binding.node': { url: '', size: 0 },
-    'win32-x64-43_binding.node':  { url: '', size: 0 }
-};
-var bindingsTotal = Object.keys(validAssets).length;
-
-// check if the file is already downloaded
-// create directory to store file if it does not exist
-// if file exists, verify it is the correct size, delete it if it is not
-// return bool so other functions can bail if file already downloaded
-function fileAlreadyDownloaded (binding) {
-    var directory = path.join('.', 'node_modules', 'node-sass', 'vendor', binding);
-    fs.ensureDirSync(directory);
-    var destination = path.join(directory, 'binding.node');
-    var intendedSize = validAssets[binding + '_binding.node'].size;
-    if (fs.existsSync(destination)) {
-        var localSize = fs.statSync(destination).size;
-        if (localSize === intendedSize) {
-            return true;
+var updateBindings = {
+    validAssets: {
+        'darwin-x64-43_binding.node': { url: '', size: 0 },
+        'linux-ia32-43_binding.node': { url: '', size: 0 },
+        'linux-x64-43_binding.node':  { url: '', size: 0 },
+        'win32-ia32-43_binding.node': { url: '', size: 0 },
+        'win32-x64-43_binding.node':  { url: '', size: 0 }
+    },
+    bindingsTotal: function () {
+        var total = Object.keys(this.validAssets).length;
+        return total;
+    },
+    // check if the file is already downloaded
+    // create directory to store file if it does not exist
+    // if file exists, verify it is the correct size, delete it if it is not
+    // return bool so other functions can bail if file already downloaded
+    fileAlreadyDownloaded: function (binding) {
+        var directory = path.join('.', 'node_modules', 'node-sass', 'vendor', binding);
+        fs.ensureDirSync(directory);
+        var destination = path.join(directory, 'binding.node');
+        var intendedSize = this.validAssets[binding + '_binding.node'].size;
+        if (fs.existsSync(destination)) {
+            var localSize = fs.statSync(destination).size;
+            if (localSize === intendedSize) {
+                return true;
+            }
+            // Using execSync to run remove Async in a Sync style because rimrafSync is buggy and stupid
+            exec('node -e "var fs = require(\'fs-extra\');fs.remove(\'' + destination + '\');"');
+            // fs.removeSync(destination);
+            return false;
         }
-        fs.removeSync(destination);
         return false;
-    }
-    return false;
-}
+    },
+    // success === boolean
+    // binding === string
+    bindingAlert: function (success, binding) {
+        var equal = '===============================';
+        var intro = '\n\n\n' + equal + '\n';
+        var outro = '\n' + equal + '\n\n\n';
 
-// Check that the files all downloaded and are the correct size
-function verifyDownloads () {
-    // console.log(validAssets);
-
-    var os = process.platform;
-    var arch = process.arch;
-    var equal = '===============================';
-    var intro = '\n\n\n' + equal + '\n';
-    var outro = '\n' + equal + '\n\n\n';
-    var success = intro + 'Binding Update Verified' + outro;
-    var failure = intro + 'Binding Update Failed' + outro;
-
-    if (os === 'win32') {
-        if (fileAlreadyDownloaded('win32-ia32-43')) {
-            console.log(success);
+        var output = intro;
+        if (success) {
+            output += 'Binding Update Verified';
         } else {
-            console.error(failure);
-            getRedirect('win32-ia32-43', myCallBack);
+            output += 'Binding Update Failed';
         }
+        output += ': ' + binding + outro;
 
-        if (fileAlreadyDownloaded('win32-x64-43')) {
-            console.log(success);
-        } else {
-            console.log(failure);
-            getRedirect('win32-x64-43', myCallBack);
-        }
-    } else if (os === 'darwin') {
-        if (fileAlreadyDownloaded('darwin-x64-43')) {
-            console.log(success);
-        } else {
-            console.error(failure);
-            getRedirect('darwin-x64-43', myCallBack);
-        }
-    } else if (os === 'linux') {
-        if (arch === 'x64') {
-            if (fileAlreadyDownloaded('linux-x64-43')) {
-                console.log(success);
+        console.log(output);
+    },
+    // Check that the files all downloaded and are the correct size
+    verifyDownloads: function () {
+        // console.log(this.validAssets);
+
+        var os = process.platform;
+        var arch = process.arch;
+
+
+        if (os === 'win32') {
+            if (this.fileAlreadyDownloaded('win32-ia32-43')) {
+                this.bindingAlert(true, 'win32-ia32-43');
             } else {
-                console.error(failure);
-                getRedirect('linux-x64-43', myCallBack);
+                this.bindingAlert(false, 'win32-ia32-43');
+                this.getRedirect('win32-ia32-43', this.myCallBack);
             }
-        } else if (arch === 'ia32') {
-            if (fileAlreadyDownloaded('linux-ia32-43')) {
-                console.log(success);
+
+            if (this.fileAlreadyDownloaded('win32-x64-43')) {
+                this.bindingAlert(true, 'win32-x64-43');
             } else {
-                console.error(failure);
-                getRedirect('linux-ia32-43', myCallBack);
+                this.bindingAlert(false, 'win32-x64-43');
+                this.getRedirect('win32-x64-43', this.myCallBack);
             }
-        }
-    }
-}
-
-// Loop over all items in the node-sass/vendor folder
-// loop over the keys of validAssets
-// If the item in the folder is not a valid asset, delete it
-function deleteOldBindings () {
-    var directory = path.join('.', 'node_modules', 'node-sass', 'vendor');
-    var vendors = fs.readdirSync(directory);
-    vendors.forEach(function (vendor) {
-        var isValid = false;
-
-        for (var binding in validAssets) {
-            if (vendor + '_binding.node' === binding) {
-                isValid = true;
+        } else if (os === 'darwin') {
+            if (this.fileAlreadyDownloaded('darwin-x64-43')) {
+                this.bindingAlert(true, 'darwin-x64-43');
+            } else {
+                this.bindingAlert(false, 'darwin-x64-43');
+                this.getRedirect('darwin-x64-43', this.myCallBack);
             }
-        }
-
-        if (!isValid) {
-            fs.removeSync(path.join(directory, vendor));
-        }
-    });
-}
-
-// Actually downloadsthe binding to the correct folder
-// binding = 'win32-x64-43'
-// file = really long aws redirect link to the file to download
-function downloadBinding (binding, file, cb) {
-    if (fileAlreadyDownloaded(binding)) {
-        cb('downloadBinding fileAlreadyDownloaded');
-        return;
-    }
-
-    var destination = path.join('.', 'node_modules', 'node-sass', 'vendor', binding, 'binding.node');
-
-    file = url.parse(file);
-
-    var options = {
-        host: file.host,
-        path: file.path,
-        encoding: null,
-        headers: {
-            'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
-        }
-    };
-
-    var output = fs.createWriteStream(destination);
-
-    https.get(options, function (response) {
-        response.pipe(output);
-        output.on('finish', function () {
-            cb('downloadBinding finish');
-            console.log('Downloaded ' + binding);
-        });
-    }).on('error', function (err) {
-        fs.unlinkSync(destination);
-        cb('downloadBinding error');
-        console.error('Download binding Error:', err.message);
-    });
-}
-
-// Hit the API supplied URL which contains a redirect page.
-// Parse the redirect page to get the link to a live file to download
-// Run downloadBinding to get the live file
-// binding = 'win32-x64-43'
-function getRedirect (binding, cb) {
-    if (fileAlreadyDownloaded(binding)) {
-        cb('getRedirect fileAlreadyDownloaded');
-        return;
-    }
-
-    // 'https://github.com/sass/node-sass/releases/download/v4.8.2/win32-x64-43_binding.node'
-    var fileURL = validAssets[binding + '_binding.node'].url;
-    var file = url.parse(fileURL);
-
-    var options = {
-        host: file.host,
-        path: file.path,
-        encoding: null,
-        headers: {
-            'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
-        }
-    };
-
-    https.get(options, function (response) {
-        var body = '';
-        response.on('data', function (chunk) {
-            body = body + chunk;
-        });
-
-        response.on('end', function () {
-            body = String(body);
-            body = body.replace('<html><body>You are being <a href="', '');
-            body = body.replace('">redirected</a>.</body></html>', '');
-            body = body.split('&amp;').join('&');
-            downloadBinding(binding, body, cb);
-        });
-    }).on('error', function (err) {
-        cb('getRedirect error');
-        console.error('Error during redirect:', err.message);
-    });
-}
-
-// Detect OS and then run getRedirect for the correct files to download
-function detectOSForBindingDownload (cb) {
-    var os = process.platform;
-    var arch = process.arch;
-
-    if (os === 'win32') {
-        getRedirect('win32-ia32-43', cb);
-        getRedirect('win32-x64-43', cb);
-    } else if (os === 'darwin') {
-        if (arch === 'x64') {
-            getRedirect('darwin-x64-43', cb);
-        } else {
-            console.error('Your OS arch (' + arch + ') is not supported by Scout-App.');
-        }
-    } else if (os === 'linux') {
-        if (arch === 'x64') {
-            getRedirect('linux-x64-43', cb);
-        } else {
-            getRedirect('linux-ia32-43', cb);
-        }
-    } else {
-        console.error('Your OS (' + os + ') is not supported by Scout-App');
-    }
-}
-
-// Download list of latest releases for node-sass bindings
-// Updated the validAssets object to have pairs of bindgingName: urlToRedirect
-// Run the detectOSForBindingdownload when done
-function getListOfLatestBindings (cb) {
-    var options = {
-        host: 'api.github.com',
-        path: '/repos/sass/node-sass/releases',
-        method: 'GET',
-        headers: {
-            'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
-        }
-    };
-
-    var request = https.request(options, function (response) {
-        var body = '';
-        response.on('data', function (chunk) {
-            body = body + chunk;
-        });
-
-        response.on('end', function () {
-            var validReleases = [];
-            var releases = JSON.parse(body);
-            releases.forEach(function (release) {
-                var assetsWithBindings = 0;
-                if (release.assets && release.assets.length > 0) {
-                    release.assets.forEach(function (asset) {
-                        for (var binding in validAssets) {
-                            if (binding === asset.name) {
-                                assetsWithBindings++;
-                            }
-                        }
-                    });
-                    if (assetsWithBindings === bindingsTotal) {
-                        validReleases.push(release);
-                        return;
-                    }
+        } else if (os === 'linux') {
+            if (arch === 'x64') {
+                if (this.fileAlreadyDownloaded('linux-x64-43')) {
+                    this.bindingAlert(true, 'linux-x64-43');
+                } else {
+                    this.bindingAlert(false, 'linux-x64-43');
+                    this.getRedirect('linux-x64-43', this.myCallBack);
                 }
-            });
+            } else if (arch === 'ia32') {
+                if (this.fileAlreadyDownloaded('linux-ia32-43')) {
+                    this.bindingAlert(true, 'linux-ia32-43');
+                } else {
+                    this.bindingAlert(false, 'linux-ia32-43');
+                    this.getRedirect('linux-ia32-43', this.myCallBack);
+                }
+            }
+        }
+    },
+    // Loop over all items in the node-sass/vendor folder
+    // loop over the keys of validAssets
+    // If the item in the folder is not a valid asset, delete it
+    deleteOldBindings: function () {
+        var directory = path.join('.', 'node_modules', 'node-sass', 'vendor');
+        var vendors = fs.readdirSync(directory);
+        vendors.forEach(function (vendor) {
+            var isValid = false;
 
-            var latest = validReleases[0];
-
-            for (var binding in validAssets) {
-                latest.assets.forEach(function (asset) {
-                    if (asset.name === binding) {
-                        validAssets[binding].url = asset.browser_download_url;
-                        validAssets[binding].size = asset.size;
-                    }
-                });
+            for (var binding in this.validAssets) {
+                if (vendor + '_binding.node' === binding) {
+                    isValid = true;
+                }
             }
 
-            detectOSForBindingDownload(cb);
+            var pathToDelete = path.join(directory, vendor);
+            if (!isValid && fs.existsSync(pathToDelete)) {
+                // Using execSync to run remove Async in a Sync style because rimrafSync is buggy and stupid
+                exec('node -e "var fs = require(\'fs-extra\');fs.remove(\'' + pathToDelete + '\');"');
+                // fs.removeSync(pathToDelete);
+            }
         });
-    });
+    },
+    // Actually downloadsthe binding to the correct folder
+    // binding = 'win32-x64-43'
+    // file = really long aws redirect link to the file to download
+    downloadBinding: function (binding, file, cb) {
+        if (this.fileAlreadyDownloaded(binding)) {
+            cb('downloadBinding fileAlreadyDownloaded');
+            return;
+        }
 
-    request.on('error', function (err) {
-        cb('getListOfLatestBindings error');
-        console.error('node-sass bindings api error: ' + err);
-    });
+        var destination = path.join('.', 'node_modules', 'node-sass', 'vendor', binding, 'binding.node');
 
-    request.end();
-}
+        file = url.parse(file);
+
+        var options = {
+            host: file.host,
+            path: file.path,
+            encoding: null,
+            headers: {
+                'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
+            }
+        };
+
+        var output = fs.createWriteStream(destination);
+
+        https.get(options, function (response) {
+            response.pipe(output);
+            output.on('finish', function () {
+                cb('downloadBinding finish');
+                console.log('Downloaded ' + binding);
+            }.bind(this));
+        }.bind(this)).on('error', function (err) {
+            fs.unlinkSync(destination);
+            cb('downloadBinding error');
+            console.error('Download binding Error:', err.message);
+        }.bind(this));
+    },
+    // Hit the API supplied URL which contains a redirect page.
+    // Parse the redirect page to get the link to a live file to download
+    // Run downloadBinding to get the live file
+    // binding = 'win32-x64-43'
+    getRedirect: function (binding, cb) {
+        if (this.fileAlreadyDownloaded(binding)) {
+            cb('getRedirect fileAlreadyDownloaded');
+            return;
+        }
+
+        // 'https://github.com/sass/node-sass/releases/download/v4.8.2/win32-x64-43_binding.node'
+        var fileURL = this.validAssets[binding + '_binding.node'].url;
+        var file = url.parse(fileURL);
+
+        var options = {
+            host: file.host,
+            path: file.path,
+            encoding: null,
+            headers: {
+                'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
+            }
+        };
+
+        https.get(options, function (response) {
+            var body = '';
+            response.on('data', function (chunk) {
+                body = body + chunk;
+            }.bind(this));
+
+            response.on('end', function () {
+                body = String(body);
+                body = body.replace('<html><body>You are being <a href="', '');
+                body = body.replace('">redirected</a>.</body></html>', '');
+                body = body.split('&amp;').join('&');
+                this.downloadBinding(binding, body, cb);
+            }.bind(this));
+        }.bind(this)).on('error', function (err) {
+            cb('getRedirect error');
+            console.error('Error during redirect:', err.message);
+        }.bind(this));
+    },
+    // Detect OS and then run getRedirect for the correct files to download
+    detectOSForBindingDownload: function (cb) {
+        var os = process.platform;
+        var arch = process.arch;
+
+        if (os === 'win32') {
+            this.getRedirect('win32-ia32-43', cb);
+            this.getRedirect('win32-x64-43', cb);
+        } else if (os === 'darwin') {
+            if (arch === 'x64') {
+                this.getRedirect('darwin-x64-43', cb);
+            } else {
+                console.error('Your OS arch (' + arch + ') is not supported by Scout-App.');
+            }
+        } else if (os === 'linux') {
+            if (arch === 'x64') {
+                this.getRedirect('linux-x64-43', cb);
+            } else {
+                this.getRedirect('linux-ia32-43', cb);
+            }
+        } else {
+            console.error('Your OS (' + os + ') is not supported by Scout-App');
+        }
+    },
+    // Download list of latest releases for node-sass bindings
+    // Updated the validAssets object to have pairs of bindgingName: urlToRedirect
+    // Run the detectOSForBindingdownload when done
+    getListOfLatestBindings: function (cb) {
+        var options = {
+            host: 'api.github.com',
+            path: '/repos/sass/node-sass/releases',
+            method: 'GET',
+            headers: {
+                'user-agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0)'
+            }
+        };
+
+        var request = https.request(options, function (response) {
+            var body = '';
+            response.on('data', function (chunk) {
+                body = body + chunk;
+            }.bind(this));
+
+            response.on('end', function () {
+                var validReleases = [];
+                var releases = JSON.parse(body);
+                releases.forEach(function (release) {
+                    var assetsWithBindings = 0;
+                    if (release.assets && release.assets.length > 0) {
+                        release.assets.forEach(function (asset) {
+                            for (var binding in this.validAssets) {
+                                if (binding === asset.name) {
+                                    assetsWithBindings++;
+                                }
+                            }
+                        }.bind(this));
+                        if (assetsWithBindings === this.bindingsTotal()) {
+                            validReleases.push(release);
+                            return;
+                        }
+                    }
+                }.bind(this));
+
+                var latest = validReleases[0];
+
+                for (var binding in this.validAssets) {
+                    latest.assets.forEach(function (asset) {
+                        if (asset.name === binding) {
+                            this.validAssets[binding].url = asset.browser_download_url;
+                            this.validAssets[binding].size = asset.size;
+                        }
+                    }.bind(this));
+                }
+                this.detectOSForBindingDownload(cb);
+            }.bind(this));
+        }.bind(this));
+
+        request.on('error', function (err) {
+            cb('getListOfLatestBindings error');
+            console.error('node-sass bindings api error: ' + err);
+        }.bind(this));
+
+        request.end();
+    }
+};
 
 // eslint-disable-next-line no-unused-vars
 function myCallBack (location) {
-    // console.log(location);
-    deleteOldBindings();
-    verifyDownloads();
+    console.log(location);
+    updateBindings.deleteOldBindings();
+    updateBindings.verifyDownloads();
 }
 
-getListOfLatestBindings(myCallBack);
+updateBindings.getListOfLatestBindings(myCallBack);
