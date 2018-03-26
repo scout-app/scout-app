@@ -16,7 +16,6 @@ var https = require('https');
 var fs = require('fs-extra');
 var path = require('path');
 var url = require('url');
-var exec = require('child_process').execSync;
 
 var updateBindings = {
     validAssets: {
@@ -41,12 +40,19 @@ var updateBindings = {
         var intendedSize = this.validAssets[binding + '_binding.node'].size;
         if (fs.existsSync(destination)) {
             var localSize = fs.statSync(destination).size;
+            console.log('Binding: ' + binding);
+            console.log('localSize: ' + localSize);
+            console.log('intendedSize: ' + intendedSize);
             if (localSize === intendedSize) {
                 return true;
             }
-            // Using execSync to run remove Async in a Sync style because rimrafSync is buggy and stupid
-            exec('node -e "var fs = require(\'fs-extra\');fs.remove(\'' + destination + '\');"');
-            // fs.removeSync(destination);
+
+            try {
+                fs.removeSync(destination);
+            } catch (err) {
+                console.log('Failed deleting: ' + destination);
+            }
+
             return false;
         }
         return false;
@@ -75,27 +81,26 @@ var updateBindings = {
         var os = process.platform;
         var arch = process.arch;
 
-
         if (os === 'win32') {
             if (this.fileAlreadyDownloaded('win32-ia32-43')) {
                 this.bindingAlert(true, 'win32-ia32-43');
             } else {
                 this.bindingAlert(false, 'win32-ia32-43');
-                this.getRedirect('win32-ia32-43', this.myCallBack);
+                this.getRedirect('win32-ia32-43', myCallBack);
             }
 
             if (this.fileAlreadyDownloaded('win32-x64-43')) {
                 this.bindingAlert(true, 'win32-x64-43');
             } else {
                 this.bindingAlert(false, 'win32-x64-43');
-                this.getRedirect('win32-x64-43', this.myCallBack);
+                this.getRedirect('win32-x64-43', myCallBack);
             }
         } else if (os === 'darwin') {
             if (this.fileAlreadyDownloaded('darwin-x64-43')) {
                 this.bindingAlert(true, 'darwin-x64-43');
             } else {
                 this.bindingAlert(false, 'darwin-x64-43');
-                this.getRedirect('darwin-x64-43', this.myCallBack);
+                this.getRedirect('darwin-x64-43', myCallBack);
             }
         } else if (os === 'linux') {
             if (arch === 'x64') {
@@ -103,14 +108,14 @@ var updateBindings = {
                     this.bindingAlert(true, 'linux-x64-43');
                 } else {
                     this.bindingAlert(false, 'linux-x64-43');
-                    this.getRedirect('linux-x64-43', this.myCallBack);
+                    this.getRedirect('linux-x64-43', myCallBack);
                 }
             } else if (arch === 'ia32') {
                 if (this.fileAlreadyDownloaded('linux-ia32-43')) {
                     this.bindingAlert(true, 'linux-ia32-43');
                 } else {
                     this.bindingAlert(false, 'linux-ia32-43');
-                    this.getRedirect('linux-ia32-43', this.myCallBack);
+                    this.getRedirect('linux-ia32-43', myCallBack);
                 }
             }
         }
@@ -132,9 +137,11 @@ var updateBindings = {
 
             var pathToDelete = path.join(directory, vendor);
             if (!isValid && fs.existsSync(pathToDelete)) {
-                // Using execSync to run remove Async in a Sync style because rimrafSync is buggy and stupid
-                exec('node -e "var fs = require(\'fs-extra\');fs.remove(\'' + pathToDelete + '\');"');
-                // fs.removeSync(pathToDelete);
+                try {
+                    fs.removeSync(pathToDelete);
+                } catch (err) {
+                    console.log('Failed deleting: ' + pathToDelete);
+                }
             }
         });
     },
@@ -143,7 +150,12 @@ var updateBindings = {
     // file = really long aws redirect link to the file to download
     downloadBinding: function (binding, file, cb) {
         if (this.fileAlreadyDownloaded(binding)) {
-            cb('downloadBinding fileAlreadyDownloaded');
+            if (typeof(cb) === 'function') {
+                cb('downloadBinding fileAlreadyDownloaded');
+            } else {
+                this.deleteOldBindings();
+                this.verifyDownloads();
+            }
             return;
         }
 
@@ -165,12 +177,22 @@ var updateBindings = {
         https.get(options, function (response) {
             response.pipe(output);
             output.on('finish', function () {
-                cb('downloadBinding finish');
+                if (typeof(cb) === 'function') {
+                    cb('downloadBinding finish');
+                } else {
+                    this.deleteOldBindings();
+                    this.verifyDownloads();
+                }
                 console.log('Downloaded ' + binding);
             }.bind(this));
         }.bind(this)).on('error', function (err) {
             fs.unlinkSync(destination);
-            cb('downloadBinding error');
+            if (typeof(cb) === 'function') {
+                cb('downloadBinding error');
+            } else {
+                this.deleteOldBindings();
+                this.verifyDownloads();
+            }
             console.error('Download binding Error:', err.message);
         }.bind(this));
     },
@@ -180,7 +202,12 @@ var updateBindings = {
     // binding = 'win32-x64-43'
     getRedirect: function (binding, cb) {
         if (this.fileAlreadyDownloaded(binding)) {
-            cb('getRedirect fileAlreadyDownloaded');
+            if (typeof(cb) === 'function') {
+                cb('getRedirect fileAlreadyDownloaded');
+            } else {
+                this.deleteOldBindings();
+                this.verifyDownloads();
+            }
             return;
         }
 
@@ -211,7 +238,12 @@ var updateBindings = {
                 this.downloadBinding(binding, body, cb);
             }.bind(this));
         }.bind(this)).on('error', function (err) {
-            cb('getRedirect error');
+            if (typeof(cb) === 'function') {
+                cb('getRedirect error');
+            } else {
+                this.deleteOldBindings();
+                this.verifyDownloads();
+            }
             console.error('Error during redirect:', err.message);
         }.bind(this));
     },
@@ -293,7 +325,12 @@ var updateBindings = {
         }.bind(this));
 
         request.on('error', function (err) {
-            cb('getListOfLatestBindings error');
+            if (typeof(cb) === 'function') {
+                cb('getListOfLatestBindings error');
+            } else {
+                this.deleteOldBindings();
+                this.verifyDownloads();
+            }
             console.error('node-sass bindings api error: ' + err);
         }.bind(this));
 

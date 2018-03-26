@@ -8,6 +8,7 @@
 
 var fs = require('fs-extra');
 var path = require('path');
+var execSync = require('child_process').execSync;
 
 var postInstall = {
     packages: [
@@ -78,19 +79,29 @@ var postInstall = {
             ]
         },
         {
+            username: 'Igosuki',
+            repo: 'compass-mixins',
+            mainfile: 'node_modules/compass-mixins/lib/_compass.scss',
             junk: [
-                'node_modules/compass-mixins/package.json'
+                'node_modules/compass-mixins/package.json',
+                'node_modules/compass-mixins/LICENSE_backup.md'
             ]
         },
         {
+            username: 'components',
+            repo: 'jqueryui',
+            mainfile: 'node_modules/jqueryui/jquery-ui.min.js',
             junk: [
-                'node_modules/components-jqueryui/themes',
-                'node_modules/components-jqueryui/ui',
-                'node_modules/components-jqueryui/jquery-ui.js',
-                'node_modules/components-jqueryui/package.json'
+                'node_modules/jqueryui/themes',
+                'node_modules/jqueryui/ui',
+                'node_modules/jqueryui/jquery-ui.js',
+                'node_modules/jqueryui/package.json'
             ]
         },
         {
+            username: 'owl-stars',
+            repo: 'cssowl',
+            mainfile: 'node_modules/cssowl/lib/sass/cssowl.sass',
             junk: [
                 'node_modules/cssowl/lib/less',
                 'node_modules/cssowl/lib/scss',
@@ -100,6 +111,8 @@ var postInstall = {
             ]
         },
         {
+            username: 'LukyVj',
+            repo: 'family.scss',
             mainfile: 'node_modules/family.scss/source/src/_family.scss',
             junk: [
                 'node_modules/family.scss/build',
@@ -109,10 +122,12 @@ var postInstall = {
                 'node_modules/family.scss/source/layouts',
                 'node_modules/family.scss/source/stylesheets',
                 'node_modules/family.scss/source/index.html.haml',
-                'node_modules/family.scss/package.json'
+                'node_modules/family.scss/package.json',
+                'node_modules/family.scss/eyeglass-exports.js'
             ]
         },
         {
+            mainfile: 'node_modules/jquery/dist/jquery.min.js',
             junk: [
                 'node_modules/jquery/dist/core.js',
                 'node_modules/jquery/dist/jquery.js',
@@ -141,12 +156,16 @@ var postInstall = {
             ]
         },
         {
+            username: 'necolas',
+            repo: 'normalize.css',
             mainfile: 'node_modules/normalize.css/normalize.css',
             junk: [
                 'node_modules/normalize.css/package.json'
             ]
         },
         {
+            username: 'ArunMichaelDsouza',
+            repo: 'pineapple-sass',
             mainfile: 'node_modules/pineapple-sass/build/_pineapple-sass.scss',
             junk: [
                 'node_modules/pineapple-sass/package.json',
@@ -183,6 +202,8 @@ var postInstall = {
             ]
         },
         {
+            username: 'davidtheclark',
+            repo: 'scut',
             mainfile: 'node_modules/scut/dist/_scut.scss',
             junk: [
                 'node_modules/scut/lib',
@@ -192,21 +213,27 @@ var postInstall = {
             ]
         },
         {
-            mainfile: 'node_modules/sierra-library/src/sierra.scss',
+            username: 'sierra-library',
+            repo: 'sierra',
+            mainfile: 'node_modules/sierra/src/sierra.scss',
             junk: [
-                'node_modules/sierra-library/dev',
-                'node_modules/sierra-library/dist',
-                'node_modules/sierra-library/package.json'
+                'node_modules/sierra/dev',
+                'node_modules/sierra/dist',
+                'node_modules/sierra/package.json'
             ]
         },
         {
-            mainfile: 'node_modules/spice-sass/src/_spice.scss',
+            username: 'spice-sass',
+            repo: 'spice',
+            mainfile: 'node_modules/spice/src/_spice.scss',
             junk: [
-                'node_modules/spice-sass/index.js',
-                'node_modules/spice-sass/package.json'
+                'node_modules/spice/index.js',
+                'node_modules/spice/package.json'
             ]
         },
         {
+            username: 'oddbird',
+            repo: 'susy',
             mainfile: 'node_modules/susy/sass/_susy.scss',
             junk: [
                 'node_modules/susy/package.json',
@@ -227,6 +254,8 @@ var postInstall = {
             ]
         },
         {
+            username: 'ianrose',
+            repo: 'typesettings',
             mainfile: 'node_modules/typesettings/_typesettings.scss',
             junk: [
                 'node_modules/typesettings/typesettings/_functions.styl',
@@ -252,6 +281,73 @@ var postInstall = {
                 'node_modules/marked/USING_PRO.md',
                 'node_modules/marked/package.json'
             ]
+        },
+        {
+            username: 'inorganik',
+            repo: 'countUp.js',
+            mainfile: 'node_modules/countup.js/dist/countUp.min.js',
+            junk: [
+                'node_modules/countup.js/countUp.js',
+                'node_modules/countup.js/countUp-jquery.js',
+                'node_modules/countup.js/index.html'
+            ]
+        },
+        {
+            username: 'kingscooty',
+            repo: 'sass-easing',
+            mainfile: 'node_modules/sass-easing/_sass-easing.scss',
+            junk: []
+        },
+        {
+            username: 'anasnakawa',
+            repo: 'bi-app-sass',
+            mainfile: 'node_modules/bi-app-sass/bi-app/_bi-app-ltr.scss',
+            junk: []
+        },
+        {
+            username: 'thoughtbot',
+            repo: 'bourbon',
+            mainfile: 'node_modules/bourbon/core/_bourbon.scss',
+            junk: [
+                'node_modules/bourbon/eyeglass-export.js',
+                'node_modules/bourbon/index.js',
+                'node_modules/bourbon/package.json'
+            ]
+        },
+        {
+            username: 'thoughtbot',
+            repo: 'neat',
+            mainfile: 'node_modules/neat/core/_neat.scss',
+            junk: [
+                'node_modules/neat/bin',
+                'node_modules/neat/contrib',
+                'node_modules/neat/lib',
+                'node_modules/neat/spec',
+                'node_modules/neat/.hound.yml',
+                'node_modules/neat/.ruby-version',
+                'node_modules/neat/circle.yml',
+                'node_modules/neat/eyeglass-exports.js',
+                'node_modules/neat/index.js',
+                'node_modules/neat/neat.gemspec',
+                'node_modules/neat/package.json',
+                'node_modules/neat/RELEASING.md'
+            ]
+        },
+        {
+            username: 'pierreburel',
+            repo: 'sass-rem',
+            mainfile: 'node_modules/sass-rem/_rem.scss',
+            junk: [
+                'node_modules/sass-rem/package.json'
+            ]
+        },
+        {
+            username: 'noderat',
+            repo: 'sassier-buttons',
+            mainfile: 'node_modules/sassier-buttons/scss/sassy-buttons.scss',
+            junk: [
+                'node_modules/sassier-buttons/package.json'
+            ]
         }
     ],
     commonJunk: [
@@ -266,6 +362,7 @@ var postInstall = {
         '.github',
         '.gitignore',
         '.gitmodules',
+        '.idea',
         '.npmignore',
         '.nvmrc',
         '.scss-lint.yml',
@@ -284,6 +381,7 @@ var postInstall = {
         'config.rb',
         'CONTRIBUTING.md',
         'demo',
+        'demo.js',
         'doc',
         'docs',
         'example',
@@ -318,8 +416,6 @@ var postInstall = {
             return;
         }
 
-        var exec = require('child_process').execSync;
-
         var executable = 'git clone --quiet';
         var url = 'https://github.com/' + package.username + '/' + package.repo + '.git';
         var branch = '-b ' + (package.branch || 'master');
@@ -328,12 +424,20 @@ var postInstall = {
         var args = [executable, url, branch, destination];
         args = args.join(' ').trim();
 
-        var runner = exec(args);
+        var runner = execSync(args);
 
         var output = runner.toString().trim();
         if (output) {
             // eslint-disable-next-line no-console
             console.log(output);
+        }
+    },
+    deleteIt: function (file) {
+        try {
+            fs.removeSync(file);
+        } catch (err) {
+            // eslint-disable-next-line no-console
+            console.log('Failed to delete: ' + file);
         }
     },
     removeCommonJunkFromNodeModules: function () {
@@ -342,15 +446,21 @@ var postInstall = {
             var isFolder = fs.statSync('node_modules/' + folder).isDirectory();
             if (isFolder) {
                 this.commonJunk.forEach(function (junk) {
-                    fs.removeSync('node_modules/' + folder + '/' + junk);
-                });
+                    this.deleteIt('node_modules/' + folder + '/' + junk);
+                }.bind(this));
             }
         }.bind(this));
     },
     removePackageSpecificJunk: function (junkPile) {
-        junkPile.forEach(function (pieceOfJunk) {
-            fs.removeSync(pieceOfJunk);
-        });
+        for (var i = 0; i < junkPile.length; i++) {
+            var pieceOfJunk = junkPile[i];
+            fs.remove(pieceOfJunk, function (err) {
+                if (err) {
+                    // eslint-disable-next-line no-console
+                    console.log('Failed to delete: ' + pieceOfJunk);
+                }
+            });
+        }
     },
     downloadAllPackagesThenRemoveTheirSpecificJunk: function () {
         this.packages.forEach(function (package) {
@@ -387,4 +497,4 @@ var postInstall = {
 postInstall.downloadAllPackagesThenRemoveTheirSpecificJunk();
 postInstall.removeCommonJunkFromNodeModules();
 postInstall.fixSynergy();
- 
+
