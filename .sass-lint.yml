@@ -185,6 +185,7 @@ rules:
         - pointer-events
         - -webkit-transform
         - transform
+        - transform-origin
         - -webkit-transition
         - transition
         - vertical-align
