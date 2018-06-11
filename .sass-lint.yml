@@ -109,6 +109,7 @@ rules:
         - border-width
         - border-style
         - border-color
+        - border-collapse
         - border-top
         - border-top-width
         - border-top-style
