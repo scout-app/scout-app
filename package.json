@@ -95,6 +95,7 @@
         "nw": "^0.12.3",
         "eslint": "^4.x.x",
         "sass-lint": "^1.x.x",
+        "tjw-sasslint-rules": "^1.x.x",
         "google-translate-api": "^2.x.x",
         "pre-commit": "^1.x.x",
         "7zip-bin": "^2.x.x",
@@ -106,7 +107,7 @@
         "postinstall": "node postinstall.js && node update-bindings.js",
         "lint": "eslint --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js update-bindings.js",
         "fix": "eslint --fix --config=.eslintrc.js scout-files/_scripts build.js cultures.js translate.js translate2.js postinstall.js update-bindings.js",
-        "sasslint": "node sasslinter.js",
+        "sasslint": "sass-lint -c .sass-lint.yml -v -f table",
         "cultures": "node cultures.js",
         "translations": "node cultures.js",
         "build": "node build.js"
