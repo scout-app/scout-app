@@ -71,7 +71,7 @@
         "components-jqueryui": "1.12.1",
         "bootstrap": "3.2.0",
         "bootstrap-slider": "^8.x.x",
-        "countup.js": "latest",
+        "countup.js": "^1.x.x",
         "awesome-sass-easing": "latest",
         "bi-app-sass": "latest",
         "bluejay": "latest",

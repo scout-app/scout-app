@@ -7,7 +7,6 @@
 // folder, so that the distribution size of the app is reduced.
 
 var fs = require('fs-extra');
-var path = require('path');
 
 var postInstall = {
     packages: [
@@ -214,19 +213,6 @@ var postInstall = {
             ]
         },
         {
-            username: 'esr360',
-            repo: 'Synergy',
-            mainfile: 'node_modules/Synergy/src/scss/_synergy.scss',
-            junk: [
-                'node_modules/Synergy/src/js',
-                'node_modules/Synergy/src/index.js',
-                'node_modules/Synergy/build',
-                'node_modules/Synergy/dist',
-                'node_modules/Synergy/package.json',
-                'node_modules/Synergy/webpack.config.babel.js'
-            ]
-        },
-        {
             mainfile: 'node_modules/typesettings/_typesettings.scss',
             junk: [
                 'node_modules/typesettings/typesettings/_functions.styl',
@@ -357,34 +343,8 @@ var postInstall = {
             this.gitClone(package);
             this.removePackageSpecificJunk(package.junk);
         }.bind(this));
-    },
-    fixSynergy: function () {
-        var file = path.join('.', 'node_modules', 'synergy', 'src', 'scss', '_synergy.scss');
-
-        var data = '';
-        try {
-            data = fs.readFileSync(file);
-        } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log('Error reading synergy');
-            // eslint-disable-next-line no-console
-            console.log(err);
-        }
-        data = String(data);
-        data = data.replace('../../node_modules/Sass-Boost/src/', '');
-
-        try {
-            fs.writeFileSync(file, data);
-        } catch (err) {
-            // eslint-disable-next-line no-console
-            console.log('Error updating Synergy');
-            // eslint-disable-next-line no-console
-            console.log(err);
-        }
     }
 };
 
 postInstall.downloadAllPackagesThenRemoveTheirSpecificJunk();
 postInstall.removeCommonJunkFromNodeModules();
-postInstall.fixSynergy();
- 

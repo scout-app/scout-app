@@ -37,6 +37,7 @@ function fileAlreadyDownloaded (binding) {
     var intendedSize = validAssets[binding + '_binding.node'].size;
     if (fs.existsSync(destination)) {
         var localSize = fs.statSync(destination).size;
+        // console.log(localSize, intendedSize);
         if (localSize === intendedSize) {
             return true;
         }
@@ -205,7 +206,9 @@ function detectOSForBindingDownload (cb) {
 
     if (os === 'win32') {
         getRedirect('win32-ia32-43', cb);
-        getRedirect('win32-x64-43', cb);
+        setTimeout(function () {
+            getRedirect('win32-x64-43', cb);
+        }, 4000);
     } else if (os === 'darwin') {
         if (arch === 'x64') {
             getRedirect('darwin-x64-43', cb);
