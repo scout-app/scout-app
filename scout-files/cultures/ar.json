@@ -12,7 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: واجهة Sass",
   "ATOMIC_LABEL": "يوفر الذري التأخير",
   "ATOMIC_NOTE": "إذا كان الكشافة التطبيق لا معالجة الملفات على حفظ، وضبط هذا الإعداد وإعادة تشغيل المشروع الخاص بك.",
-  "AUTOMATIC_UPDATES": "تحقق من وجود تحديثات عند التشغيل",
+  "AUTOMATIC_UPDATES": "التحديثات التلقائية",
   "BROWSE": "استعراض",
   "CANCEL": "إلغاء",
   "CAT_SCREAMING_NO": "قطة تصرخ: \"لا!\"",
@@ -66,6 +66,7 @@
   "LANG_SQ": "الألبانية (Shqip)",
   "LANG_SV": "اللغة السويدية (Svenska)",
   "LANG_TR": "اللغة التركية (Türkçe)",
+  "LANG_UK": "الأوكرانية (Українська)",
   "LANG_VI": "الفيتنامية (Tiếng Việt)",
   "LANG_ZH-CHT": "الصينية التقليدية (中文)",
   "LANG_ZH-CN": "الصينية المبسطة (简体中文)",
@@ -120,5 +121,5 @@
   "VERSION": "الإصدار",
   "VIEW": "عرض",
   "WELCOME_MESSAGE": "مرحبًا بك في Scout-App!",
-  "WINDOW_SETTING": "نافذة او شباك"
+  "WINDOW_SETTING": "نافذة الضبط"
 }

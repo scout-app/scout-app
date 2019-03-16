@@ -30,6 +30,7 @@ var supportedLangs = [
     'sq',
     'sv',
     'tr',
+    'uk',
     'vi',
     'zh-TW',
     'zh-CN'

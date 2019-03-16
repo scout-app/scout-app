@@ -97,6 +97,7 @@
         "sass-lint": "^1.x.x",
         "tjw-sasslint-rules": "^1.x.x",
         "google-translate-api": "^2.x.x",
+        "request": "^2.x.x",
         "7zip-bin": "^2.x.x",
         "csvtojson": "^1.x.x"
     },
