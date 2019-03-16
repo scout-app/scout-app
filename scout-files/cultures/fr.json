@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: L'interface graphique Sass",
   "ATOMIC_LABEL": "Atomic enregistre un retard",
   "ATOMIC_NOTE": "Si l'application Scout ne traite pas les fichiers en sauvegarde, ajustez ce paramètre et redémarrez votre projet.",
+  "AUTOMATIC_UPDATES": "Vérifier les mises à jour au lancement",
   "BROWSE": "Naviguer",
   "CANCEL": "Annuler",
   "CAT_SCREAMING_NO": "Chat hurlant 'NON!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Retirer le Project",
   "DEVELOPMENT": "Développement",
   "DEV_TOOLS": "Outils de Développement",
+  "DOWNLOAD_UPDATE": "Téléchargez la dernière version de Scout-App.",
   "ENVIRONMENT": "Environnement",
   "EXIT": "Quitter",
   "FILE": "Fichier",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Mise à jour trouvée!",
   "VERSION": "Version",
   "VIEW": "Vue",
-  "VIEW_LATEST_RELEASE": "Voir la dernière version",
   "WELCOME_MESSAGE": "Bienvenue dans Scout-App!",
   "WINDOW_SETTING": "Fenêtre"
 }

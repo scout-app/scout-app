@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "عنوان برنامه کاربردی",
   "ATOMIC_LABEL": "اتمی موجب صرفه جویی در تاخیر",
   "ATOMIC_NOTE": "اگر Scout-App فایل های ذخیره شده را پردازش نمی کند، این تنظیم را تنظیم و پروژه خود را مجددا راه اندازی کنید.",
+  "AUTOMATIC_UPDATES": "برای به روز رسانی در راه اندازی چک کنید",
   "BROWSE": "کاوش و انتخاب",
   "CANCEL": "لغو",
   "CAT_SCREAMING_NO": "حذف پروژه",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "حذف پروژه",
   "DEVELOPMENT": "کد نویسی",
   "DEV_TOOLS": "ابزار توسعه",
+  "DOWNLOAD_UPDATE": "آخرین نسخه Scout-App را دانلود کنید.",
   "ENVIRONMENT": "محیط",
   "EXIT": "خروج",
   "FILE": "فایل",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "به روز رسانی پیدا نشد!",
   "VERSION": "نسخهی",
   "VIEW": "چشم انداز",
-  "VIEW_LATEST_RELEASE": "نمایش آخرین نسخه",
   "WELCOME_MESSAGE": "به دیده بانی برنامه خوش آمدید!",
   "WINDOW_SETTING": "پنجره"
 }

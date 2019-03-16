@@ -1,23 +1,35 @@
 /* eslint-disable no-console */
 
 /*
-  This will read the user's scout-settings.json file from
-  their OS's application data folder. Each OS stores this in
-  a different place. Then we update:
-   * window.scout.projects
-   * window.scout.globalSettings.cultureCode
+  If the user has left the ""
 */
 
-(function (scout) {
+(function (scout, $) {
     var url = require('url');
     var https = require('https');
+    var nw = require('nw.gui');
 
     function newVersionFound (data) {
-        console.log(data);
+        $('#updateResults').html(
+            '<p class="text-center">' +
+              '<strong data-lang="UPDATE_FOUND">' + scout.localize('UPDATE_FOUND') + '</strong> ' +
+              '<a href="http://scout-app.io" class="external-link" data-lang="DOWNLOAD_UPDATE">' +
+                scout.localize('DOWNLOAD_UPDATE') +
+              '</a>' +
+            '</p>'
+        );
+        scout.helpers.updateAlert(data);
+    }
+
+    function youHaveTheLatestVersion () {
+        $('#updateResults').html(
+            '<p class="text-center">' +
+              '<strong data-lang="LATEST_VERSION">' + scout.localize('LATEST_VERSION') + '</strong>' +
+            '</p>'
+        );
     }
 
     function checkForUpdates () {
-        // Alternate URL: 'https://api.github.com/repos/scout-app/scout-app/tags/latest'
         var file = url.parse('https://api.github.com/repos/scout-app/scout-app/releases/latest');
 
         var options = {
@@ -39,28 +51,32 @@
                 body = String(body);
                 body = JSON.parse(body);
 
-                // var semver = require('semver');
-                // var localVersion = nw.App.manifest.version;
-                // var latestVersion = body.tag_name.replace('v', '');
+                var semver = require('semver');
+                var localVersion = nw.App.manifest.version;
+                var latestVersion = body.tag_name.replace('v', '');
 
                 // if latest is greater than local
-                // if (semver.gt(latestVersion, localVersion)) {
-                newVersionFound(body);
-                // }
+                if (semver.gt(latestVersion, localVersion)) {
+                    newVersionFound(body);
+                } else {
+                    youHaveTheLatestVersion();
+                }
             });
         }).on('error', function (err) {
+            $('#updateResults').html(
+                '<p class="text-center">' +
+                  '<strong data-lang="SERVER_DOWN">' + scout.localize('SERVER_DOWN') + '</strong>' +
+                '</p>'
+            );
             console.error('Error during update check:', err.message);
         });
     }
 
-    // TODO: add to globals
-    // TODO: add checkbox in about
-    // TODO: Create new alert box function
-    var automaticUpdates = true;
+    var automaticUpdates = scout.globalSettings.automaticUpdates;
     if (automaticUpdates) {
         checkForUpdates();
     }
 
     scout.helpers.checkForUpdates = checkForUpdates;
 
-})(window.scout);
+})(window.scout, window.$);

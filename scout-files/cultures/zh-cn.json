@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: The Sass GUI",
   "ATOMIC_LABEL": "原子节省延迟",
   "ATOMIC_NOTE": "如果Scout-App在保存时未处理文件，请调整此设置并重新启动项目。",
+  "AUTOMATIC_UPDATES": "检查启动更新",
   "BROWSE": "浏览",
   "CANCEL": "取消",
   "CAT_SCREAMING_NO": "不要啊~~~",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "删除项目",
   "DEVELOPMENT": "开发中",
   "DEV_TOOLS": "调试",
+  "DOWNLOAD_UPDATE": "下载Scout-App的最新版本。",
   "ENVIRONMENT": "环境",
   "EXIT": "退出",
   "FILE": "文件",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "有新版本啦！",
   "VERSION": "版本",
   "VIEW": "视图",
-  "VIEW_LATEST_RELEASE": "查看最新版本",
   "WELCOME_MESSAGE": "欢迎使用 Scout-App!",
   "WINDOW_SETTING": "窗口"
 }

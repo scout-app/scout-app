@@ -97,7 +97,6 @@
         "sass-lint": "^1.x.x",
         "tjw-sasslint-rules": "^1.x.x",
         "google-translate-api": "^2.x.x",
-        "pre-commit": "^1.x.x",
         "7zip-bin": "^2.x.x",
         "csvtojson": "^1.x.x"
     },
@@ -118,9 +117,5 @@
             "type": "MIT",
             "url": "https://github.com/scout-app/scout-app/blob/master/License"
         }
-    ],
-    "pre-commit": [
-        "lint",
-        "sasslint"
     ]
 }

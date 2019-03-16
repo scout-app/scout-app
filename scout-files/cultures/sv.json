@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Sass GUI",
   "ATOMIC_LABEL": "Atomic sparar fördröjning",
   "ATOMIC_NOTE": "Om Scout-App inte bearbetar dina filer när du sparat, justera denna inställning och starta om ditt projekt",
+  "AUTOMATIC_UPDATES": "Kontrollera efter uppdateringar om lanseringen",
   "BROWSE": "Bläddra",
   "CANCEL": "Avbryt",
   "CAT_SCREAMING_NO": "Katten skriker 'NEJ!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Radera projekt",
   "DEVELOPMENT": "Utveckling",
   "DEV_TOOLS": "Dev Tools",
+  "DOWNLOAD_UPDATE": "Hämta den senaste versionen av Scout-App.",
   "ENVIRONMENT": "Utvecklingsmiljö",
   "EXIT": "Avsluta",
   "FILE": "Arkiv",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Hittade en uppdatering!",
   "VERSION": "Version",
   "VIEW": "Visa",
-  "VIEW_LATEST_RELEASE": "Visa senaste utgåvan",
   "WELCOME_MESSAGE": "Välkommen till Scout-App",
   "WINDOW_SETTING": "Fönsterinställningar"
 }

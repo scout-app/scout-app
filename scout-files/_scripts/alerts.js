@@ -4,7 +4,7 @@
   and error alerts as green and red panels using these functions.
 */
 
-(function ($, scout, ugui) {
+(function ($, scout, ugui, marked) {
 
     function playAlert () {
         var alert = new Audio('_sound/scout-alert.wav');
@@ -38,6 +38,7 @@
         };
     }
 
+    // error message
     function alert (error, projectID) {
         if (scout.globalSettings.alertSound) {
             playAlert();
@@ -49,7 +50,7 @@
         }
 
         projectID = projectID || 'sa0';
-        for (var i = 0; i < scout.projects.length;i++) {
+        for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID === projectID) {
                 var projectName = scout.projects[i].projectName;
                 break;
@@ -100,7 +101,7 @@
               '<span class="num">' + (bugLine + 1) + ':</span> ' + fileContents[bugLine];
         }
 
-        var formmatedError =
+        var formattedError =
             '<div class="panel panel-primary ' + projectID + '" title="' + projectName + '">' +
               '<div class="panel-heading">' +
                 '<span class="pull-right glyphicon glyphicon-remove"></span>' +
@@ -121,7 +122,7 @@
             '</div>';
 
         if (scout.globalSettings.alertInApp) {
-            $('#printConsole').prepend(formmatedError);
+            $('#printConsole').prepend(formattedError);
         }
 
         $('#printConsole .panel .glyphicon-remove').click(function () {
@@ -148,7 +149,7 @@
         }
 
         projectID = projectID || 'sa0';
-        for (var i = 0; i < scout.projects.length;i++) {
+        for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID === projectID) {
                 var projectName = scout.projects[i].projectName;
                 break;
@@ -174,7 +175,7 @@
             .replace(/[\n\r]/g, '<br />')
             .replace(file, '');
 
-        var formmatedError =
+        var formattedError =
             '<div class="panel panel-warning ' + projectID + '" title="' + projectName + '">' +
               '<div class="panel-heading">' +
                 '<span class="pull-right glyphicon glyphicon-remove"></span>' +
@@ -190,7 +191,7 @@
             '</div>';
 
         if (scout.globalSettings.alertInApp) {
-            $('#printConsole').prepend(formmatedError);
+            $('#printConsole').prepend(formattedError);
         }
 
         $('#printConsole .panel .glyphicon-remove').click(function () {
@@ -216,7 +217,7 @@
         }
 
         projectID = projectID || 'sa0';
-        for (var i = 0; i < scout.projects.length;i++) {
+        for (var i = 0; i < scout.projects.length; i++) {
             if (scout.projects[i].projectID === projectID) {
                 var projectName = scout.projects[i].projectName;
                 break;
@@ -257,14 +258,69 @@
         }
     }
 
+    function updateAlert (release) {
+        // Knock 3 times when there is an update available
+        if (scout.globalSettings.alertSound || scout.globalSettings.messageSound) {
+            var alert = new Audio('_sound/scout-message.wav');
+            var i = 0;
+            alert.addEventListener('ended', function () {
+                alert.currentTime = 0;
+                i++;
+                if (i < 3) {
+                    alert.play();
+                }
+            });
+            alert.play();
+        }
+
+        // Show Desktop alert
+        if (scout.globalSettings.alertDesktop || scout.globalSettings.messageDesktop) {
+            desktopNotification('', scout.localize('UPDATE_FOUND'), 'message');
+        }
+
+        // Display the "status of all projects" screen
+        $('#viewStatus').click();
+
+        // Don't show on FTUX screen
+        if (scout.projects.length > 0) {
+            $('#updateFound').html(
+                '<div class="panel panel-info">' +
+                  '<div class="panel-heading">' +
+                    '<span data-lang="UPDATE_FOUND">' + scout.localize('UPDATE_FOUND') + '</span>' +
+                    '<span class="pull-right version">' + release.tag_name + '</span>' +
+                  '</div>' +
+                  '<div class="panel-body">' +
+                    '<h4 class="text-center">' +
+                      '<a href="http://scout-app.io" class="btn btn-success text-center">' +
+                        '<big data-lang="DOWNLOAD_UPDATE">' +
+                          scout.localize('DOWNLOAD_UPDATE') +
+                        '</big>' +
+                      '</a>' +
+                    '</h4>' +
+                    marked(release.body) +
+                  '</div>' +
+                  '<div class="panel-footer">' +
+                    '<a href="http://scout-app.io" data-lang="DOWNLOAD_UPDATE">' +
+                      scout.localize('DOWNLOAD_UPDATE') +
+                    '</a>' +
+                  '</div>' +
+                '</div>'
+            );
+            $('#updateFound a').addClass('external-link');
+        }
+
+        ugui.helpers.openDefaultBrowser();
+    }
+
     $('[data-argName="messageSound"]').click(playMessage);
     $('[data-argName="alertSound"]').click(playAlert);
 
     scout.helpers.alert = alert;
     scout.helpers.warn = warn;
     scout.helpers.message = message;
+    scout.helpers.updateAlert = updateAlert;
     scout.helpers.alert.notification = {};
     scout.helpers.warn.notification = {};
     scout.helpers.message.notification = {};
 
-})(window.$, window.scout, window.ugui);
+})(window.$, window.scout, window.ugui, window.marked);

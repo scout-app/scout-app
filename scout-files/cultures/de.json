@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Die Sass-GUI",
   "ATOMIC_LABEL": "Atomic verzögert, um Änderungen zu berücksichtigen",
   "ATOMIC_NOTE": "Wenn die Scout-App keine Dateien beim Speichern verarbeitet, passen Sie diese Einstellung an und starten Sie Ihr Projekt neu.",
+  "AUTOMATIC_UPDATES": "Suchen Sie beim Start nach Updates",
   "BROWSE": "Durchsuchen",
   "CANCEL": "Abbrechen",
   "CAT_SCREAMING_NO": "Katze schreit: \"NEIN!\"",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Projekt entfernen",
   "DEVELOPMENT": "Entwicklung",
   "DEV_TOOLS": "Entwickler-Werkzeuge",
+  "DOWNLOAD_UPDATE": "Laden Sie die neueste Version der Scout-App herunter.",
   "ENVIRONMENT": "Umgebung",
   "EXIT": "Beenden",
   "FILE": "Datei",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Update gefunden!",
   "VERSION": "Version",
   "VIEW": "Ansicht",
-  "VIEW_LATEST_RELEASE": "Neueste Version ansehen",
   "WELCOME_MESSAGE": "Willkommen bei Scout-App!",
   "WINDOW_SETTING": "Fenster"
 }

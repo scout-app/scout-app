@@ -112,6 +112,15 @@ function sortKeywords (volumeOfDictionaries) {
     return volumeOfDictionaries;
 }
 
+// { "": "", "ABOUT": "About" } => { "ABOUT": "About" }
+function removeEmptyKeys (volumeOfDictionaries) {
+    for (var culture in volumeOfDictionaries) {
+        var dictionary = volumeOfDictionaries[culture];
+        delete dictionary[''];
+    }
+    return volumeOfDictionaries;
+}
+
 // Convert to a string with an empty line at the end
 function convertDictionarytoString (dictionary) {
     var output = JSON.stringify(dictionary, null, 2);
@@ -162,6 +171,7 @@ csv()
             data = removeUnfinishedLangs(data);
             var volumeOfDictionaries = createLanguageDictionaries(data);
             volumeOfDictionaries = sortKeywords(volumeOfDictionaries);
+            volumeOfDictionaries = removeEmptyKeys(volumeOfDictionaries);
             saveIndividualDictionaries(volumeOfDictionaries);
         }
     });

@@ -238,6 +238,20 @@ var postInstall = {
                 'node_modules/typesettings/_typesettings.styl',
                 'node_modules/typesettings/package.json'
             ]
+        },
+        {
+            username: 'markedjs',
+            repo: 'marked',
+            mainfile: 'node_modules/marked/marked.min.js',
+            junk: [
+                'node_modules/marked/bin',
+                'node_modules/marked/lib',
+                'node_modules/marked/man',
+                'node_modules/marked/index.js',
+                'node_modules/marked/USING_ADVANCED.md',
+                'node_modules/marked/USING_PRO.md',
+                'node_modules/marked/package.json'
+            ]
         }
     ],
     commonJunk: [
@@ -246,6 +260,7 @@ var postInstall = {
         '.csslintrc',
         '.editorconfig',
         '.eslintrc.js',
+        '.eslintrc.json',
         '.git',
         '.gitattributes',
         '.github',
@@ -257,11 +272,13 @@ var postInstall = {
         '.travis.yml',
         '_config.yml',
         'AUTHORS',
+        'AUTHORS.md',
         'AUTHORS.txt',
         'bower.json',
         'bower',
         'CHANGELOG.md',
         'CNAME',
+        'CODE_OF_CONDUCT.md',
         'component.json',
         'composer.json',
         'config.rb',
@@ -279,9 +296,12 @@ var postInstall = {
         'Gruntfile.js',
         'gulpfile.js',
         'humans.txt',
+        'jasmine.json',
         'less',
+        'Makefile',
         'package-lock.json',
         'PHILOSOPHY.md',
+        'PUBLISHING.md',
         'Rakefile',
         'README.markdown',
         'README.md',
@@ -367,3 +387,4 @@ var postInstall = {
 postInstall.downloadAllPackagesThenRemoveTheirSpecificJunk();
 postInstall.removeCommonJunkFromNodeModules();
 postInstall.fixSynergy();
+ 

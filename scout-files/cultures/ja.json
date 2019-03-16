@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: The Sass GUI",
   "ATOMIC_LABEL": "少し待ってまとめて変換",
   "ATOMIC_NOTE": "ファイルを保存しても Scout-App が変換しない場合、この設定を調整して、プロジェクトをスタートしなおしてください。",
+  "AUTOMATIC_UPDATES": "起動時のアップデートを確認する",
   "BROWSE": "ブラウズ",
   "CANCEL": "キャンセル",
   "CAT_SCREAMING_NO": "ニョー(No)！と叫ぶ猫",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "プロジェクトを削除する",
   "DEVELOPMENT": "開発環境用",
   "DEV_TOOLS": "開発ツール",
+  "DOWNLOAD_UPDATE": "Scout-Appの最新バージョンをダウンロードしてください。",
   "ENVIRONMENT": "出力設定",
   "EXIT": "終了",
   "FILE": "ファイル",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "アップデートが見つかりました！",
   "VERSION": "バージョン",
   "VIEW": "表示",
-  "VIEW_LATEST_RELEASE": "最新リリースをみる",
   "WELCOME_MESSAGE": "Scout-App へようこそ！",
   "WINDOW_SETTING": "ウィンドウ"
 }

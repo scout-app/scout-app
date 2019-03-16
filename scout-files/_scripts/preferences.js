@@ -17,7 +17,8 @@
       '[data-argName=messageSound], ' +
       '[data-argName=messageDesktop],' +
       '[data-argName=sendToTrayOnClose],' +
-      '[data-argName=startMinimized]'
+      '[data-argName=startMinimized],' +
+      '[data-argName=automaticUpdates]'
     ).prop('checked', false);
 
     if (scout.globalSettings.alertInApp)        { $('[data-argName=alertInApp]').prop('checked', true);        }
@@ -28,6 +29,7 @@
     if (scout.globalSettings.messageDesktop)    { $('[data-argName=messageDesktop]').prop('checked', true);    }
     if (scout.globalSettings.sendToTrayOnClose) { $('[data-argName=sendToTrayOnClose]').prop('checked', true); }
     if (scout.globalSettings.startMinimized)    { $('[data-argName=startMinimized]').prop('checked', true);    }
+    if (scout.globalSettings.automaticUpdates)  { $('[data-argName=automaticUpdates]').prop('checked', true);  }
 
     for (var i = 0; i < $('#cultureChoices option').length; i++) {
         if ($($('#cultureChoices option')[i]).val() == scout.globalSettings.cultureCode) {
@@ -71,10 +73,11 @@
         scout.globalSettings.messageSound      = ugui.args.messageSound.htmlticked;
         scout.globalSettings.sendToTrayOnClose = ugui.args.sendToTrayOnClose.htmlticked;
         scout.globalSettings.startMinimized    = ugui.args.startMinimized.htmlticked;
+        scout.globalSettings.automaticUpdates  = ugui.args.automaticUpdates.htmlticked;
     }
 
     $('#preferences-modal input[type="checkbox"]').change(checkboxChanged);
-    $('[data-argName=sendToTrayOnClose], [data-argName=startMinimized]').change(function () {
+    $('[data-argName=sendToTrayOnClose], [data-argName=startMinimized], [data-argName=automaticUpdates]').change(function () {
         // Because people will be toying around with the sendToTrayOnClose/startMinimized,
         // we should save this on each change instead of on modal close only
         checkboxChanged();

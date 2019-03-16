@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Sass GUI'et",
   "ATOMIC_LABEL": "Atomisk sparer forsinkelse",
   "ATOMIC_NOTE": "Hvis Scout-App ikke behandler filer under Gem, skal du justere denne indstilling og genstarte dit projekt.",
+  "AUTOMATIC_UPDATES": "Check for opdateringer om lancering",
   "BROWSE": "Gennemse",
   "CANCEL": "Annuller",
   "CAT_SCREAMING_NO": "Katten skriger 'NEEEJ!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Fjern projekt",
   "DEVELOPMENT": "Udvikling",
   "DEV_TOOLS": "Udvikler værktøjer",
+  "DOWNLOAD_UPDATE": "Download den nyeste version af Scout-App.",
   "ENVIRONMENT": "Miljø",
   "EXIT": "Luk",
   "FILE": "Filer",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Opdatering fundet.",
   "VERSION": "Version",
   "VIEW": "Vis",
-  "VIEW_LATEST_RELEASE": "Vis seneste udgivelsesmeddelelse",
   "WELCOME_MESSAGE": "Velkommen til Scout-App!",
   "WINDOW_SETTING": "Vindue"
 }

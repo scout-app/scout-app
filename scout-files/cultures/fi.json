@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Sass käyttöliittymä",
   "ATOMIC_LABEL": "Atomic säästää viivettä",
   "ATOMIC_NOTE": "Jos Scout-App ei käsittele tallennettavia tiedostoja, muuta tätä asetusta ja käynnistä projektisi uudelleen.",
+  "AUTOMATIC_UPDATES": "Tarkista päivitykset käynnistyksen yhteydessä",
   "BROWSE": "Selaa",
   "CANCEL": "Peruuta",
   "CAT_SCREAMING_NO": "Kissa huutaa 'EI!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Poista projekti",
   "DEVELOPMENT": "Kehitys",
   "DEV_TOOLS": "Kehittäjätyökalut",
+  "DOWNLOAD_UPDATE": "Lataa Scout-Appin uusin versio.",
   "ENVIRONMENT": "Ympäristö",
   "EXIT": "Poistu",
   "FILE": "Tiedosto",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Päivitys löytynyt!",
   "VERSION": "Versio",
   "VIEW": "Näytä",
-  "VIEW_LATEST_RELEASE": "Näytä viimeisin päivitys",
   "WELCOME_MESSAGE": "Tervetuloa Scout-Appiin!",
   "WINDOW_SETTING": "Ikkuna"
 }

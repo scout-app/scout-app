@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: Interfața grafică Sass",
   "ATOMIC_LABEL": "Atomic salvează ...",
   "ATOMIC_NOTE": "Dacă Scout-App nu transformă fișierele la salvare, modificați acest parametru și restartați proiectul.",
+  "AUTOMATIC_UPDATES": "Căutați actualizări la lansare",
   "BROWSE": "Adaugă fișiere",
   "CANCEL": "Anulează",
   "CAT_SCREAMING_NO": "Pisica țipând \"NU!\"",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Elimină Proiect",
   "DEVELOPMENT": "Dezvoltare",
   "DEV_TOOLS": "Unelte Dezvoltare",
+  "DOWNLOAD_UPDATE": "Descărcați cea mai recentă versiune a aplicației Scout.",
   "ENVIRONMENT": "Mediu",
   "EXIT": "Ieșire",
   "FILE": "Fișier",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Actualizare găsită!",
   "VERSION": "Versiune",
   "VIEW": "Vizualizare",
-  "VIEW_LATEST_RELEASE": "Vezi ultima versiune",
   "WELCOME_MESSAGE": "Bun venit la Scout-App!",
   "WINDOW_SETTING": "Fereastră"
 }

@@ -12,6 +12,7 @@
   "APPLICATION_TITLE": "Scout-App: The Sass GUI",
   "ATOMIC_LABEL": "Atomik gecikmeden tasarruf sağlıyor",
   "ATOMIC_NOTE": "Scout-App kaydettikten sonra dosyaları işlemezse, bu ayarı değiştirin ve projenizi yeniden başlatın.",
+  "AUTOMATIC_UPDATES": "Lansmandaki güncellemeleri kontrol et",
   "BROWSE": "Göz at",
   "CANCEL": "İptal",
   "CAT_SCREAMING_NO": "Kedi çığlık atıyor 'HAYIR!'",
@@ -21,6 +22,7 @@
   "DELETE_PROJECT": "Projeyi Sil",
   "DEVELOPMENT": "Geliştirme",
   "DEV_TOOLS": "Yazılımcı Araçları",
+  "DOWNLOAD_UPDATE": "Scout-App'in son sürümünü indirin.",
   "ENVIRONMENT": "Ortam",
   "EXIT": "Kapat",
   "FILE": "Dosya",
@@ -117,7 +119,6 @@
   "UPDATE_FOUND": "Güncelleme bulundu!",
   "VERSION": "Versiyon",
   "VIEW": "Görünüm",
-  "VIEW_LATEST_RELEASE": "En yeni sürümü görüntüle",
   "WELCOME_MESSAGE": "Scout-App'a goş geldiniz!",
   "WINDOW_SETTING": "Pencere"
 }
