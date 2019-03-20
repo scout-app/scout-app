@@ -131,18 +131,20 @@
 
         var fullFilePath = path.join(project.inputFolder, outputSubFolder, inputFileName + inputFileExt);
         var outputFullFilePath = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css');
-        var sourceMapOutput = path.join(project.outputFolder, outputSubFolder, inputFileName + '.map');
+        var sourceMapOutput = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css.map');
 
         var sassOptions = {
             file: fullFilePath,
             outFile: outputFullFilePath,
             outputStyle: outputStyle,
             linefeed: linefeed,
-            indentedSyntax: true,
             includePaths: mixins,
-            sourceComments: devMode,
-            sourceMap: devMode,
-            sourceMapContents: devMode
+            indentedSyntax: true, // true = Works on .sass and .scss files
+            sourceComments: false, // true = adding in a comment above every rule, but the path in the comment is relative to Scout-App and not the end-user's project (can contain their user profile name)
+            sourceMapContents: true, // Puts all the source files into the map file so browser can swap out concatenated file with the originals
+            sourceMap: true, // true = result.map will be produced and can be saved to disk if devMode = true
+            omitSourceMapUrl: false, // true = remove the comment at the bottom of the .css that references the location of the .css.map file
+            sourceMapEmbed: false // true = encode the entire .css.map file as a data-uri and place it in the bottom of .css file instead of linking to it, bloating the .css file (BAD)
         };
 
         // Use node-sass to convert sass or scss to css
