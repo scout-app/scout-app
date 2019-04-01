@@ -2,18 +2,19 @@
 
 /*
   This file downloads the latest copy of the translations as a CSV.
-  It then saves that CSV to the cultures folder, reads it, and converts
-  it to JSON. The JSON is processed removing "Notes" columns and languages
-  that are not fully translated yet (See: line 15). Then we reshape the
-  data so that we have an object with sub-objects named after the KEYWORDS.
-  Each KEY objects contains KEY/VALUE pairs of culture codes and phrases
-  (See: scout-files/cultures/dictionary.json).
+  It then converts it to JSON. The JSON is processed removing "Notes"
+  columns and languages that are not fully translated yet (See: line 14).
+  We then reshape the data so that we have an object with sub-objects
+  named after each culture-code. Each culture sub-object contains
+  KEY/VALUE pairs of KEYWORD and phrase. Finally each culture code is
+  saved to it's own JSON file. See: scout-files/cultures/*.json
 */
 
 
 // An array of culture codes that are not finished and should not be in the app yet (such as 'fa', 'de')
 var languagesToSkip = [
-    'pt-br-temp'
+    'pt-br2',
+    'tr2'
 ];
 
 
@@ -28,7 +29,8 @@ var url = 'https://docs.google.com/spreadsheets/d/e/' +
           'pub?gid=1510538720&single=true&output=csv';
 var folder = path.join(process.cwd(), 'scout-files/cultures/');
 
-function sortCultureCodes (unordered) {
+// generic helper function
+function sortObjectKeys (unordered) {
     var ordered = {};
     Object.keys(unordered).sort().forEach(function (key) {
         ordered[key] = unordered[key];
@@ -36,61 +38,140 @@ function sortCultureCodes (unordered) {
     return ordered;
 }
 
-function createJSON (result) {
-    // Remove "Notes" columns
-    var row = {};
-    var i = 0;
-    var key = '';
-    var newDictionary = {};
-
-    for (i = 0; i < result.length; i++) {
-        row = result[i];
-        for (key in row) {
-            if (key.indexOf('note') > -1) {
+/*
+    result = [
+        { KEYWORD: 'ABOUT', CONTEXT: '', en: 'About', fr: 'Avec', fr-notes: 'a note' },
+        { KEYWORD: 'THE',   CONTEXT: '', en: 'The',   fr: 'Le',   fr-notes: 'words'  }
+    ]
+    =>
+    result = [
+        { KEYWORD: 'ABOUT', en: 'About', fr: 'Avec' },
+        { KEYWORD: 'THE',   en: 'The',   fr: 'Le'   }
+    ]
+*/
+function removeNotesAndContextColumns (result) {
+    for (var i = 0; i < result.length; i++) {
+        var row = result[i];
+        for (var key in row) {
+            if (key.includes('note') || key === 'CONTEXT') {
                 delete row[key];
             }
         }
         result[i] = row;
-        newDictionary[result[i].KEYWORD] = result[i];
     }
+    return result;
+}
 
-    // Remove CONTEXT, KEYWORD, and unfinished translation columns
-    for (key in newDictionary) {
-        delete newDictionary[key].CONTEXT;
-        delete newDictionary[key].KEYWORD;
-        for (i = 0; i < languagesToSkip.length; i++) {
-            delete newDictionary[key][languagesToSkip[i]];
+// Remove unfinished translation columns (based on languagesToSkip)
+function removeUnfinishedLangs (result) {
+    for (var j = 0; j < result.length; j++) {
+        var row = result[j];
+        for (var i = 0; i < languagesToSkip.length; i++) {
+            var langToSkip = languagesToSkip[i];
+            delete row[langToSkip];
         }
     }
+    return result;
+}
 
-    // Alphabetize list of cultures in each KEYWORD
-    for (key in newDictionary) {
-        newDictionary[key] = sortCultureCodes(newDictionary[key]);
+/*
+    result = [
+        { KEYWORD: 'ABOUT', en: 'About', fr: 'Avec' },
+        { KEYWORD: 'THE',   en: 'The',   fr: 'Le'   }
+    ]
+    =>
+    volumeOfDictionaries = {
+        en: { ABOUT: 'About', THE: 'The' },
+        fr: { ABOUT: 'Avec',  THE: 'Le'  }
     }
+*/
+function createLanguageDictionaries (result) {
+    var volumeOfDictionaries = {};
+    for (var i = 0; i < result.length; i++) {
+        var row = result[i];
+        for (var key in row) {
+            var keyword = row.KEYWORD;
+            var translation = row[key];
+            if (!volumeOfDictionaries[key]) {
+                volumeOfDictionaries[key] = {};
+            }
+            volumeOfDictionaries[key][keyword] = translation;
+        }
+    }
+    delete volumeOfDictionaries.KEYWORD;
+    return volumeOfDictionaries;
+}
 
-    // Convert to a string with an empty line at the end
-    var output = JSON.stringify(newDictionary, null, 2);
+// Alphabetize list of keywords in each culture
+function sortKeywords (volumeOfDictionaries) {
+    for (var culture in volumeOfDictionaries) {
+        var dictionary = volumeOfDictionaries[culture];
+        var sortedDictionary = sortObjectKeys(dictionary);
+        volumeOfDictionaries[culture] = sortedDictionary;
+    }
+    return volumeOfDictionaries;
+}
+
+// { "": "", "ABOUT": "About" } => { "ABOUT": "About" }
+function removeEmptyKeys (volumeOfDictionaries) {
+    for (var culture in volumeOfDictionaries) {
+        var dictionary = volumeOfDictionaries[culture];
+        delete dictionary[''];
+    }
+    return volumeOfDictionaries;
+}
+
+// Convert to a string with an empty line at the end
+function convertDictionarytoString (dictionary) {
+    var output = JSON.stringify(dictionary, null, 2);
     output = output.split('\r\n').join('\n');
     output = output.split('\n\r').join('\n');
     output = output.split('\r').join('\n');
     output = output.split('\n').join('\r\n');
     output = output + '\r\n';
+    return output;
+}
 
-    // Save the file
-    var dictionaryPath = path.join(folder, 'dictionary.json');
-    fs.writeFileSync(dictionaryPath, output);
-    console.log('Updated: ', dictionaryPath);
+/*
+    volumeOfDictionaries: {
+        en: { ABOUT: 'About', THE: 'the' },
+        fr: { ABOUT: 'Avec',  THE: 'le'  }
+    }
+    =>
+    en.json = { ABOUT: 'About', THE: 'the' }
+    fr.json = { ABOUT: 'Avec',  THE: 'le'  }
+*/
+function saveIndividualDictionaries (volumeOfDictionaries) {
+    for (var lang in volumeOfDictionaries) {
+        var dictionary = volumeOfDictionaries[lang];
+        var dictionaryPath = path.join(folder, lang + '.json');
+        var output = convertDictionarytoString(dictionary);
+        try {
+            fs.writeFileSync(dictionaryPath, output);
+        } catch (err) {
+            console.log(err);
+            console.log('Error saving file ' + lang + '.json');
+        }
+        console.log('Updated: ' + lang + '.json');
+    }
 }
 
 csv()
     .fromStream(request.get(url))
     .on('json', function (jsonObj) {
+        // Each row of the CSV is an object pushed to an array
+        // [ { keyword: ABOUT, en: About, fr: Avec }, { keyword: THE, en: The, fr: Le } ]
         data.push(jsonObj);
     })
     .on('done', function (error) {
         if (error) {
             console.log(error);
         } else {
-            createJSON(data);
+            data = removeNotesAndContextColumns(data);
+            data = removeUnfinishedLangs(data);
+            var volumeOfDictionaries = createLanguageDictionaries(data);
+            volumeOfDictionaries = sortKeywords(volumeOfDictionaries);
+            volumeOfDictionaries = removeEmptyKeys(volumeOfDictionaries);
+            saveIndividualDictionaries(volumeOfDictionaries);
         }
     });

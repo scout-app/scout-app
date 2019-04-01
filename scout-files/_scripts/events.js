@@ -90,7 +90,7 @@
     });
     $('#inputFolderBrowse').change(function () {
         var newDir = $('#inputFolderBrowse').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         $('#inputFolder').val(newDir);
         forbidSameFolder();
         var id = $('#projectID').val();
@@ -103,7 +103,7 @@
     });
     $('#outputFolderBrowse').change(function () {
         var newDir = $('#outputFolderBrowse').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         $('#outputFolder').val(newDir);
         forbidSameFolder();
         var id = $('#projectID').val();
@@ -122,10 +122,21 @@
                 scout.projects[i].outputStyle = outputStyle;
             }
         }
+        scout.helpers.saveSettings();
+    });
+    $('#linefeed input').change(function (evt) {
+        var id = $('#projectID').val();
+        var linefeed = $(evt.currentTarget).val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].linefeed = linefeed;
+            }
+        }
+        scout.helpers.saveSettings();
     });
     $('#inputFolder').on('blur', function () {
         var newDir = $('#inputFolder').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         forbidSameFolder();
         var id = $('#projectID').val();
         for (var i = 0; i < scout.projects.length; i++) {
@@ -137,7 +148,7 @@
     });
     $('#outputFolder').on('blur', function () {
         var newDir = $('#outputFolder').val();
-        newDir = newDir.split('\\').join('\/');
+        newDir = newDir.split('\\').join('/');
         forbidSameFolder();
         var id = $('#projectID').val();
         for (var i = 0; i < scout.projects.length; i++) {
@@ -333,6 +344,11 @@
     // Allow you to click in the modal without triggering the `removeModal` function called when you click its parent element
     $('.modal .modal-content').click(function (evt) {
         evt.stopPropagation();
+    });
+
+    // Check for updates button in About
+    $('#scoutUpdateChecker').click(function () {
+        scout.helpers.checkForUpdates();
     });
 
     /**

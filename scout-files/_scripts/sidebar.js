@@ -74,11 +74,11 @@
         $('#projects-list').sortable({
             axis: 'y',
             placeholder: 'btn btn-info',
-            start: function (evt, ui) {
+            start: function (evt, ui) { // eslint-disable-line no-unused-vars
                 scout.sort = {};
                 scout.sort.start = ui.item.index();
             },
-            stop: function (evt, ui) {
+            stop: function (evt, ui) { // eslint-disable-line no-unused-vars
                 scout.sort.end = ui.item.index();
                 scout.projects.move(scout.sort.start, scout.sort.end);
                 scout.helpers.saveSettings();

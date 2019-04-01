@@ -5,28 +5,28 @@
   Update scout.dictionary. Update the UI.
 */
 
-(function (window, $, scout, ugui) {
+(function ($, scout, ugui) {
 
     /**
      * This is the basic KEY to Definition function for languages.
      *
-     * @param  {string}  phrase         The KEYWORD for the dictionary to match
+     * @param  {string}  keyword        The KEYWORD for the dictionary to match
      * @param  {boolean} wrapInDataLang If false, we don't wrap the string in a data-lang span
      * @return {string}                 The translated text.
      */
-    function localize (phrase, wrapInDataLang) {
+    function localize (keyword, wrapInDataLang) {
         wrapInDataLang = wrapInDataLang || false;
-        if (!phrase) {
+        if (!keyword) {
             return 'No translation found.';
         }
 
-        // console.log(phrase);
+        // console.log(keyword);
 
         var userLanguage = scout.globalSettings.cultureCode.toLowerCase();
-        var translation = window.dictionary[phrase][userLanguage];
+        var translation = scout.dictionary[userLanguage][keyword];
 
         if (wrapInDataLang) {
-            return '<span data-lang="' + phrase + '">' + translation + '</span>';
+            return '<span data-lang="' + keyword + '">' + translation + '</span>';
         } else {
             return translation;
         }
@@ -113,14 +113,25 @@
     }
 
     /**
-     * Loads the dictionary file from disk, converts it to JSON and stores on the
-     * window object. Only ran once, on app load. The dictionary contains all
+     * Loads the all dictionary files from disk, converts to JSON and stores on the
+     * scout.dictionary object. Only ran once, on app load. The dictionary contains all
      * keys/phrases for all languages.
      */
     function loadDictionary () {
-        var dictionary = ugui.helpers.readAFile('scout-files/cultures/dictionary.json');
-        dictionary = JSON.parse(dictionary);
-        window.dictionary = dictionary;
+        var fs = require('fs');
+        var allDictionaries = fs.readdirSync('./scout-files/cultures').filter(function (file) {
+            return file.endsWith('.json');
+        });
+
+        scout.dictionary = {};
+
+        allDictionaries.forEach(function (dictionary) {
+            // 'es-ar.json' => 'es-ar'
+            var cultureCode = dictionary.split('.json')[0];
+            var data = fs.readFileSync('./scout-files/cultures/' + dictionary);
+            data = JSON.parse(data);
+            scout.dictionary[cultureCode] = data;
+        });
     }
 
     /**
@@ -158,27 +169,15 @@
     }
 
     function addLanguagesToPreferences () {
-        var culturesFolder = ugui.helpers.readAFolder('scout-files/cultures');
-        var i = 0;
-        var availableCultures = [];
-        var currentFile = '';
-        var culture = '';
-        var option = '';
-        for (i = 0; i < culturesFolder.length; i++) {
-            currentFile = culturesFolder[i].name;
-            if (currentFile.endsWith('.jpg') && !currentFile.startsWith('blank')) {
-                availableCultures.push(currentFile.split('.jpg')[0]);
-            }
-        }
-        for (i = 0; i < availableCultures.length; i++) {
-            culture = availableCultures[i];
-            option = '<option value="' + culture + '" data-lang="LANG_' + culture.toUpperCase() + '" ></option>';
+        for (var cultureCode in scout.dictionary) {
+            var dataLang = 'LANG_' + cultureCode.toUpperCase();
+            var option = '<option value="' + cultureCode + '" data-lang="' + dataLang + '" ></option>';
             $('#cultureChoices').append(option);
         }
     }
 
-    addLanguagesToPreferences();
     loadDictionary();
+    addLanguagesToPreferences();
     // This will be overridden by the user's saved settings later,
     // but if they don't have saved settings, we default to English.
     setLanguage('en');
@@ -188,4 +187,4 @@
     scout.helpers.updateDataLangs = updateDataLangs;
     scout.localize = localize;
 
-})(window, window.$, window.scout, window.ugui);
+})(window.$, window.scout, window.ugui);
