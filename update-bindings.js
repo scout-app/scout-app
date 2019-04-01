@@ -18,11 +18,11 @@ var path = require('path');
 var url = require('url');
 
 var validAssets = {
-    'darwin-x64-43_binding.node': { url: '', size: 0 },
-    'linux-ia32-43_binding.node': { url: '', size: 0 },
-    'linux-x64-43_binding.node':  { url: '', size: 0 },
-    'win32-ia32-43_binding.node': { url: '', size: 0 },
-    'win32-x64-43_binding.node':  { url: '', size: 0 }
+    'darwin-x64-47_binding.node': { url: '', size: 0 },
+    'linux-ia32-47_binding.node': { url: '', size: 0 },
+    'linux-x64-47_binding.node':  { url: '', size: 0 },
+    'win32-ia32-47_binding.node': { url: '', size: 0 },
+    'win32-x64-47_binding.node':  { url: '', size: 0 }
 };
 var bindingsTotal = Object.keys(validAssets).length;
 
@@ -60,40 +60,40 @@ function verifyDownloads () {
     var failure = intro + 'Binding Update Failed' + outro;
 
     if (os === 'win32') {
-        if (fileAlreadyDownloaded('win32-ia32-43')) {
+        if (fileAlreadyDownloaded('win32-ia32-47')) {
             console.log(success);
         } else {
             console.error(failure);
-            getRedirect('win32-ia32-43', myCallBack);
+            getRedirect('win32-ia32-47', myCallBack);
         }
 
-        if (fileAlreadyDownloaded('win32-x64-43')) {
+        if (fileAlreadyDownloaded('win32-x64-47')) {
             console.log(success);
         } else {
             console.log(failure);
-            getRedirect('win32-x64-43', myCallBack);
+            getRedirect('win32-x64-47', myCallBack);
         }
     } else if (os === 'darwin') {
-        if (fileAlreadyDownloaded('darwin-x64-43')) {
+        if (fileAlreadyDownloaded('darwin-x64-47')) {
             console.log(success);
         } else {
             console.error(failure);
-            getRedirect('darwin-x64-43', myCallBack);
+            getRedirect('darwin-x64-47', myCallBack);
         }
     } else if (os === 'linux') {
         if (arch === 'x64') {
-            if (fileAlreadyDownloaded('linux-x64-43')) {
+            if (fileAlreadyDownloaded('linux-x64-47')) {
                 console.log(success);
             } else {
                 console.error(failure);
-                getRedirect('linux-x64-43', myCallBack);
+                getRedirect('linux-x64-47', myCallBack);
             }
         } else if (arch === 'ia32') {
-            if (fileAlreadyDownloaded('linux-ia32-43')) {
+            if (fileAlreadyDownloaded('linux-ia32-47')) {
                 console.log(success);
             } else {
                 console.error(failure);
-                getRedirect('linux-ia32-43', myCallBack);
+                getRedirect('linux-ia32-47', myCallBack);
             }
         }
     }
@@ -121,7 +121,7 @@ function deleteOldBindings () {
 }
 
 // Actually downloadsthe binding to the correct folder
-// binding = 'win32-x64-43'
+// binding = 'win32-x64-47'
 // file = really long aws redirect link to the file to download
 function downloadBinding (binding, file, cb) {
     if (fileAlreadyDownloaded(binding)) {
@@ -160,14 +160,14 @@ function downloadBinding (binding, file, cb) {
 // Hit the API supplied URL which contains a redirect page.
 // Parse the redirect page to get the link to a live file to download
 // Run downloadBinding to get the live file
-// binding = 'win32-x64-43'
+// binding = 'win32-x64-47'
 function getRedirect (binding, cb) {
     if (fileAlreadyDownloaded(binding)) {
         cb('getRedirect fileAlreadyDownloaded');
         return;
     }
 
-    // 'https://github.com/sass/node-sass/releases/download/v4.8.2/win32-x64-43_binding.node'
+    // 'https://github.com/sass/node-sass/releases/download/v4.8.2/win32-x64-47_binding.node'
     var fileURL = validAssets[binding + '_binding.node'].url;
     var file = url.parse(fileURL);
 
@@ -205,21 +205,21 @@ function detectOSForBindingDownload (cb) {
     var arch = process.arch;
 
     if (os === 'win32') {
-        getRedirect('win32-ia32-43', cb);
+        getRedirect('win32-ia32-47', cb);
         setTimeout(function () {
-            getRedirect('win32-x64-43', cb);
+            getRedirect('win32-x64-47', cb);
         }, 4000);
     } else if (os === 'darwin') {
         if (arch === 'x64') {
-            getRedirect('darwin-x64-43', cb);
+            getRedirect('darwin-x64-47', cb);
         } else {
             console.error('Your OS arch (' + arch + ') is not supported by Scout-App.');
         }
     } else if (os === 'linux') {
         if (arch === 'x64') {
-            getRedirect('linux-x64-43', cb);
+            getRedirect('linux-x64-47', cb);
         } else {
-            getRedirect('linux-ia32-43', cb);
+            getRedirect('linux-ia32-47', cb);
         }
     } else {
         console.error('Your OS (' + os + ') is not supported by Scout-App');
