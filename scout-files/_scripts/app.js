@@ -7,9 +7,16 @@
 (function ($, scout, ugui, nw) {
 
     var fs = require('fs-extra');
+    var path = require('path');
     var sass = require('node-sass');
     var chokidar = require('chokidar');
-    var path = require('path');
+
+    if (process.platform === 'darwin') {
+        var gui = require('nw.gui');
+        var menubar = new gui.Menu({type: 'menubar'});
+        menubar.createMacBuiltin('Scout-App');
+        gui.Window.get().menu = menubar;
+    }
 
     // Get versions
     scout.versions.nodeSass = sass.info.split('\n')[0].replace('node-sass', '').replace('(Wrapper)', '').replace('[JavaScript]', '').trim();
@@ -81,28 +88,40 @@
         });
     }
 
-    function convertToCSS (project, inputFileName, inputFileExt, inputSubFolder) {
-        var outputSubFolder = inputSubFolder || '';
-        var outputStyle = project.outputStyle;
-        var pathToProject = ugui.app.pathToProject;
-        // Get the mixins config file
-        var mixins = ugui.helpers.readAFile('scout-files/mixins/mixins.config');
-        // put split based on returns
-        if (process.platform == 'win32') {
-            mixins = mixins.split('\r\n');
-            pathToProject = pathToProject.replace('/', '');
-        } else {
-            mixins = mixins.split('\n');
+    // Get the mixins config file
+    function getMixins () {
+        var mixins = '';
+        try {
+            mixins = fs.readFileSync('scout-files/mixins/mixins.config');
+        } catch (err) {
+            if (err) {
+                console.warn('Problem reading mixins.config');
+            }
         }
+
+        mixins = String(mixins);
+        // Convert all CRLF to LF, then split on LF
+        mixins = mixins.split('\r\n').join('\n');
+        mixins = mixins.split('\n');
 
         // Remove empty strings from the array
         mixins = mixins.filter(Boolean);
 
         // Prepend all mixin paths with the path to the Scout-App folder
         for (var i = 0; i < mixins.length; i++) {
-            mixins[i] = pathToProject + mixins[i];
-            mixins[i] = mixins[i].replace(/%20/g, ' ');
+            var mixin = mixins[i];
+            mixin = path.join(path.resolve('.'), mixin);
+            mixin = decodeURI(mixin);
         }
+
+        return mixins;
+    }
+
+    function convertToCSS (project, inputFileName, inputFileExt, inputSubFolder) {
+        var outputSubFolder = inputSubFolder || '';
+        var outputStyle = project.outputStyle;
+        var linefeed = project.linefeed;
+        var mixins = getMixins();
 
         var devMode = false;
         // project.environment will return "production" or "development"
@@ -110,40 +129,42 @@
             devMode = true;
         }
 
-        var sourceMap = false;
-        // If user selected Development (not production)
-        if (devMode) {
-            // set the location for the sourceMap
-            sourceMap = path.join(project.outputFolder, outputSubFolder, inputFileName + '.map');
-        }
-
         var fullFilePath = path.join(project.inputFolder, outputSubFolder, inputFileName + inputFileExt);
         var outputFullFilePath = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css');
+        var sourceMapOutput = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css.map');
+
+        var sassOptions = {
+            file: fullFilePath,
+            outFile: outputFullFilePath,
+            outputStyle: outputStyle,
+            linefeed: linefeed,
+            includePaths: mixins,
+            indentedSyntax: true, // true = Works on .sass and .scss files
+            sourceComments: false, // true = adding in a comment above every rule, but the path in the comment is relative to Scout-App and not the end-user's project (can contain their user profile name)
+            sourceMapContents: true, // Puts all the source files into the map file so browser can swap out concatenated file with the originals
+            sourceMap: true, // true = result.map will be produced and can be saved to disk if devMode = true
+            omitSourceMapUrl: false, // true = remove the comment at the bottom of the .css that references the location of the .css.map file
+            sourceMapEmbed: false // true = encode the entire .css.map file as a data-uri and place it in the bottom of .css file instead of linking to it, bloating the .css file (BAD)
+        };
 
         // Use node-sass to convert sass or scss to css
-        sass.render({
-            'file': fullFilePath,
-            'outfile': sourceMap,
-            'outputStyle': outputStyle,
-            'indentedSyntax': true,
-            'includePaths': mixins,
-            'sourceComments': devMode,
-            'sourceMap': sourceMap,
-            'sourceMapContents': devMode
-        }, function (error, result) {
+        sass.render(sassOptions, function (err, result) {
             var projectID = project.projectID;
-            if (error) {
-                console.warn(error);
-                scout.helpers.alert(error, projectID);
+            if (err) {
+                console.warn('Error processing Sass to CSS in sass.render');
+                console.warn(err);
+                scout.helpers.alert(err, projectID);
             } else {
-                fs.outputFile(outputFullFilePath, result.css.toString(), function (err) {
+                fs.outputFile(outputFullFilePath, String(result.css), function (err) {
                     if (err) {
+                        console.warn('Error saving output CSS to file');
                         console.warn(err);
                     }
                 });
                 if (devMode) {
-                    fs.outputFile(sourceMap, result.map.toString(), function (err) {
+                    fs.outputFile(sourceMapOutput, String(result.map), function (err) {
                         if (err) {
+                            console.warn('Error saving Sass Source Map file');
                             console.warn(err);
                         }
                     });
@@ -164,10 +185,12 @@
             // If the ID's match
             if (scout.projects[I].projectID == id) {
                 // Create a chokidar watcher in that project
-                scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, {
-                    ignored: /[\/\\]\./,
-                    persistent: true
-                });
+                var chokidarOptions = {
+                    ignored: /[/\\]\./,
+                    persistent: true,
+                    atomic: scout.globalSettings.atomicSlider || 100
+                };
+                scout.projects[I].watcher = chokidar.watch(scout.projects[I].inputFolder, chokidarOptions);
                 // Detect file changes and reprocess Sass files
                 scout.projects[I].watcher
                     .on('change', function (/* item, stats*/) {

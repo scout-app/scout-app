@@ -38,8 +38,8 @@ node_modules
 .lock-wscript
 
 .idea/
-bower_components
-bower_components/*
 RUN.lnk
 _build/
 scout-files/cultures/translation.csv
+translated.txt
+package-lock.json

@@ -1,7 +1,8 @@
+// sass-lint:disable no-color-literals
 
-//Sidebar that contains all projects
+// Sidebar that contains all projects
 
-$sidebar-width: 300px
+$sidebarWidth: 300px
 
 #sidebar
     position: fixed
@@ -9,7 +10,7 @@ $sidebar-width: 300px
     bottom: 0px
     left: 0px
     display: inline-block
-    width: $sidebar-width
+    width: $sidebarWidth
     background: #626262
     margin: 41px 0px 0px 0px
     padding: 1px 0px 0px 0px
@@ -30,6 +31,8 @@ $sidebar-width: 300px
         top: 0px
         right: 0px
         background: transparent
+        // For RTL no effect on LTR
+        float: left
     .glyphicon-play,
     .glyphicon-stop
         margin: 0px
@@ -63,5 +66,10 @@ $sidebar-width: 300px
             border-radius: 0px
 
 .container
-    padding-left: $sidebar-width + 8px
+    padding-left: $sidebarWidth + 8px
 
+#addProject,
+#viewStatus
+    .glyphicon
+        // RTL
+        float: left

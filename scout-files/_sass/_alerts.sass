@@ -1,3 +1,4 @@
+// sass-lint:disable no-color-literals
 
 // Alerts, warnings, error messages
 
@@ -6,12 +7,18 @@
     margin-bottom: 23px
     padding: 17px 0px
 
+#updateFound .panel-heading .version
+    +pillbox
+
 #printConsole
+    img
+        max-width: 100%
     pre
         margin-top: 10px
     .num
         color: #AAA
     .glyphicon-remove
+        margin-left: 6px
         cursor: pointer
     .panel-footer
         font-size: 11px
@@ -22,3 +29,6 @@
         font-size: 22px
         line-height: 0px
         vertical-align: -5px
+
+.rtl #printConsole .alert-success strong
+    float: left

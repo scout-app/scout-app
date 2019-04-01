@@ -144,8 +144,7 @@
                                 return;
                             }
                         }
-                    }
-                    catch (err) {
+                    } catch (err) {
                         continue;
                     }
                 }

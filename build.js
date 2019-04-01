@@ -3,7 +3,7 @@
 
 // BUILDING FOR WINDOWS/LINUX:
 
-// Prerequisites: Must have Node, NPM, and Bower installed globally.
+// Prerequisites: Must have Node and NPM installed globally.
 //
 // This assumes you have a folder next to `scout-app` called
 // * `scout-app-build/win32/Scout-App`
@@ -47,12 +47,12 @@ var path = require('path');
 var exec = require('child_process').execSync;
 // var rimraf = require('rimraf'); // used to set number of retries for async deleting of in use files
 // var del = require('del'); // used to delete entire folders with the exception of specific files
-var bowerJSON = fs.readJsonSync('bower.json');
 var manifest = fs.readJsonSync('package.json');
 if (darwin) {
     delete manifest.scripts.postinstall;
 }
 delete manifest.devDependencies;
+delete manifest.scripts.postinstall;
 if (lin) {
     manifest.window.icon = 'scout-files/_img/logo_128.png';
 }
@@ -64,8 +64,6 @@ if (darwin) {
 }
 var build32 = '../scout-app-build/lin32/Scout-App/';
 var sf = 'scout-files/';
-var bindings = '_assets/node-sass_v3.10.0/';
-var ns = 'node_modules/node-sass/vendor/';
 
 // Functions
 function timer (finish, begin) {
@@ -148,13 +146,11 @@ function copy (src, dest) {
 
 // Clean build folder
 rmrf(build + 'License');
-rmrf(build + 'bower_components');
 rmrf(build + 'node_modules');
 rmrf(build + sf);
 fs.mkdirsSync(build + sf);
 if (lin) {
     rmrf(build32 + 'License');
-    rmrf(build32 + 'bower_components');
     rmrf(build32 + 'node_modules');
     rmrf(build32 + sf);
     fs.mkdirsSync(build32 + sf);
@@ -165,11 +161,11 @@ console.log('Cleaning build folder - ' + timer(timeClean, start));
 
 // Copy files over
 fs.writeJsonSync(build + 'package.json', manifest);
-fs.writeJsonSync(build + 'bower.json', bowerJSON);
 if (lin) {
     fs.writeJsonSync(build32 + 'package.json', manifest);
-    fs.writeJsonSync(build32 + 'bower.json', bowerJSON);
 }
+copy('postinstall.js', 'postinstall.js');
+copy('update-bindings.js', 'update-bindings.js');
 copy(sf + 'index.html', sf + 'index.html');
 var timeFiles = Date.now() + '';
 console.log('Copying files         - ' + timer(timeFiles, timeClean));
@@ -195,20 +191,29 @@ console.log('Copying folders       - ' + timer(timeFolder, timeFiles));
 
 
 // Run executables
-if (darwin) {
-    copy('bower_components', 'bower_components');
-}
 process.chdir(build);
+
 exec('npm --loglevel=error install');
-if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.sass')) {
-    fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.scss');
-}
+var timeInstall = Date.now() + '';
+console.log('NPM Installs          - ' + timer(timeInstall, timeFolder));
+
+exec('node postinstall.js');
+var timePostInstall = Date.now() + '';
+console.log('Post-Install          - ' + timer(timePostInstall, timeInstall));
+
+exec('node update-bindings.js');
+var timeBindings = Date.now() + '';
+console.log('Update Bindings       - ' + timer(timeBindings, timePostInstall));
+
+
+fs.removeSync('postinstall.js');
+fs.removeSync('update-bindings.js');
+fs.removeSync('package-lock.json');
 if (lin) {
     process.chdir('../../lin32/Scout-App');
     exec('npm --loglevel=error install');
-    if (fs.existsSync('bower_components/sass-css3-mixins/css3-mixins.sass')) {
-        fs.removeSync('bower_components/sass-css3-mixins/css3-mixins.scss');
-    }
+    fs.removeSync('postinstall.js');
+    fs.removeSync('package-lock.json');
 }
 if (darwin) {
     process.chdir('../../../../../scout-app');
@@ -216,23 +221,6 @@ if (darwin) {
     process.chdir('../../../scout-app');
 }
 
-var timeExec = Date.now() + '';
-console.log('NPM & Bower Installs  - ' + timer(timeExec, timeFolder));
-
-
-// Node-Sass Vendor Bindings
-rmrf(build + 'node_modules/node-sass/vendor');
-if (lin) {
-    rmrf(build32 + 'node_modules/node-sass/vendor');
-}
-copy(sf + bindings + os + '-x64-43', ns + os + '-x64-43');
-if (!darwin && !lin) {
-    fs.copySync(sf + bindings + os + '-ia32-43', build + ns + os + '-ia32-43');
-} else if (lin) {
-    fs.copySync(sf + bindings + os + '-ia32-43', build32 + ns + os + '-ia32-43');
-}
-var timeNS = Date.now() + '';
-console.log('Node-Sass bindings    - ' + timer(timeNS, timeExec));
 
 
 // Zip package
@@ -272,7 +260,7 @@ if (lin) {
     exec(zipExe + ' a -bd -tzip -mx=9 -y ' + outputZip + ' ' + buildInput);
 }
 var timeZip = Date.now() + '';
-console.log('Zipped Package        - ' + timer(timeZip, timeNS));
+console.log('Zipped Package        - ' + timer(timeZip, timeBindings));
 
 
 // Total Time

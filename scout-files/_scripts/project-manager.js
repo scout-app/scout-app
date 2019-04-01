@@ -9,6 +9,8 @@
 */
 
 (function ($, scout, ugui, nw) {
+    var fs = require('fs-extra');
+    var path = require('path');
 
     // This will change all UI elements for Project Settings back to an empty/default state
     function resetProjectSettingsUI () {
@@ -24,6 +26,7 @@
         $('#outputWarning').addClass('hide');
         $('#environment input[data-argname="production"]').click();
         $($('#outputStyle option')[5]).prop('selected', true);
+        $('#linefeed input[data-argname="linefeedlf"]').prop('checked', true);
         $('#printConsole .alert, #printConsole .panel').addClass('hide');
 
         var newProject = {
@@ -36,6 +39,7 @@
             'outputFolder':  '',
             'environment':   'production',
             'outputStyle':   'compressed',
+            'linefeed':      'lf',
             'indicator':     'play'
         };
         scout.newProject = newProject;
@@ -43,10 +47,7 @@
 
     function deleteLocalSettingsFile (bool) {
         var appData = nw.App.dataPath;
-        var file = appData + '/scout-settings.json';
-        if (process.platform == 'win32') {
-            file = appData + '\\scout-settings.json';
-        }
+        var file = path.join(appData, 'scout-settings.json');
 
         if (!bool) {
             console.info('To delete this file:');
@@ -112,7 +113,8 @@
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
      *        "environment":   "production",
-     *        "outputStyle":   "compressed"
+     *        "outputStyle":   "compressed",
+     *        "linefeed":      "lf"
      *    }
      *
      * @param {object}   project
@@ -162,22 +164,62 @@
                 project.environment = environment;
 
                 project.outputStyle = $('#outputStyle').val();
+
+                var lfChecked = $('#linefeed input[data-argname="linefeedlf"]').prop('checked');
+                var crlfChecked = $('#linefeed input[data-argname="linefeedcrlf"]').prop('checked');
+                var linefeed = 'lf';
+                if (lfChecked) {
+                    linefeed = 'lf';
+                } else if (crlfChecked) {
+                    linefeed = 'crlf';
+                }
+                project.linefeed = linefeed;
             }
         }
         saveSettings();
     }
 
-    function saveSettings () {
+    function saveSettings (location) {
         var appData = nw.App.dataPath;
-        appData.split('\\').join('/');
-        var settingsJSON = appData + '/scout-settings.json';
+        var settingsJSON = path.join(appData, 'scout-settings.json');
+        if (location && fs.existsSync(location)) {
+            settingsJSON = path.join(location, 'scout-settings.json');
+        }
         var data = {};
         data.projects = scout.projects;
         data.versions = scout.versions;
         data.globalSettings = scout.globalSettings;
         data = JSON.stringify(data, null, 4);
         data = data + '\n';
-        ugui.helpers.writeToFile(settingsJSON, data);
+        fs.writeFile(settingsJSON, data, function (err) {
+            if (err) {
+                console.warn('Error saving settings.');
+                console.warn(err);
+            }
+        });
+    }
+
+    function exportSettings (location) {
+        if (location && typeof(location) === 'string' && fs.existsSync(location)) {
+            saveSettings(location);
+        } else {
+            // Set default paths to check based on OS standards
+            var homePath = '';
+            var os = process.platform;
+            if (os == 'linux') {
+                homePath = process.env.HOME;
+            } else if (os == 'win32') {
+                homePath = process.env.USERPROFILE;
+            } else if (os == 'darwin') {
+                homePath = '/Users/' + process.env.USER;
+                if (process.env.HOME) {
+                    homePath = process.env.HOME;
+                }
+            }
+
+            var myDesktopPath = path.join(homePath, 'Desktop');
+            saveSettings(myDesktopPath);
+        }
     }
 
     /**
@@ -193,7 +235,8 @@
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
      *        "environment":   "production",
-     *        "outputStyle":   "compressed"
+     *        "outputStyle":   "compressed",
+     *        "linefeed":      "lf"
      *    }
      *
      */
@@ -231,6 +274,13 @@
             $('#environment input[data-argName="development"]').click();
         }
 
+        // Linefeed
+        if (base.linefeed == 'lf') {
+            $('#linefeed input[data-argName="linefeedlf"]').prop('checked', true);
+        } else if (base.linefeed == 'crlf') {
+            $('#linefeed input[data-argName="linefeedcrlf"]').prop('checked', true);
+        }
+
         $('#printConsole .alert, #printConsole .panel').addClass('hide');
         $('#project-settings').removeClass('hide');
         $('#printConsole .' + base.projectID).removeClass('hide');
@@ -259,7 +309,8 @@
     //   outputFolder: '',
     //   projectIcon: '',
     //   environment: '',
-    //   outputStyle: ''
+    //   outputStyle: '',
+    //   linefeed: ''
     // };
     // scout.helpers.addProject(project);
     scout.helpers.addProject = addProject;
@@ -269,5 +320,6 @@
 
     // Save scout object to file in app data folder
     scout.helpers.saveSettings = saveSettings;
+    scout.helpers.exportSettings = exportSettings;
 
 })(window.$, window.scout, window.ugui, window.nw);

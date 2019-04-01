@@ -3,6 +3,7 @@
 //Stuff that goes at the start
 @import "_var.sass";                  // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
 @import "_scout-icons.sass";          // Importing custom made SVG icons as a font
+@import "../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.min"; // Styles the range slider
 @import "_main.sass";                 // Main CSS for the app
 
 //Stuff that effects specific sections
@@ -18,6 +19,5 @@
 //Stuff that goes at the end
 @import "_ugui.sass";                 // UGUI specific styles for UGUI dev tools and such
 @import "_ven.dropdown-enhance.sass"; // Makes dropdown form elements prettier, goes with .js file
-@import "_ven.bootstrap-slider.scss"; // Styles the range slider
 @import "_ven.ezdz.sass";             // CSS for the drag and drop file browse box js plugin, EZDZ.
 @import "_mediaqueries.sass";         // Adjusts the CSS of elements depending on window resolution/size.

@@ -12,14 +12,14 @@
 
     var fs = require('fs-extra');
     var path = require('path');
-    var gui = require('nw.gui');
-    var appData = gui.App.dataPath;
+    var nw = require('nw.gui');
+    var appData = nw.App.dataPath;
     var settingsFile = path.join(appData, 'scout-settings.json');
 
     var settingsJSON = '';
     // Attempt to read the settings file
     try {
-        settingsJSON = fs.readFileSync(settingsFile, {encoding: 'utf-8'});
+        settingsJSON = fs.readFileSync(settingsFile, { encoding: 'utf-8' });
     } catch (err) {
         // If the file does exist grab its error code
         if (err.code === 'ENOENT') {

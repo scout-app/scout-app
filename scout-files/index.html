@@ -12,12 +12,13 @@
     <script type="text/javascript"> nw.Window.get().showDevTools(); </script>
 
     <!-- UGUI requires jQuery 1.9.1 or above. -->
-    <script type="text/javascript" src="../bower_components/jquery/dist/jquery.min.js"></script>
-    <script type="text/javascript" src="../bower_components/jquery-ui/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../bower_components/ivan-chkv.bootstrap-dropdowns-enhancement-dist/js/dropdowns-enhancement.js"></script>
-    <script type="text/javascript" src="../bower_components/seiyria-bootstrap-slider/dist/bootstrap-slider.min.js"></script>
-    <script type="text/javascript" src="../bower_components/countup/dist/countUp.min.js"></script>
+    <script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="../node_modules/components-jqueryui/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap_dropdowns_enhancement/js/dropdowns-enhancement.js"></script>
+    <script type="text/javascript" src="../node_modules/bootstrap-slider/dist/bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="../node_modules/countup.js/dist/countUp.min.js"></script>
+    <script type="text/javascript" src="../node_modules/marked/marked.min.js"></script>
     <!-- APP JS is at the bottom -->
   </head>
   <!-- Change the class form dev to prod when you're ready to distribute your application. -->
@@ -154,8 +155,14 @@
               <h3 data-lang="ENVIRONMENT"></h3>
             </div>
             <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="development" value="development"         /> <span data-lang="DEVELOPMENT"></span></label>
-              <label class="col-xs-12 col-s-6 col-md-6 col-l-6"><input type="radio" name="environment" data-argName="production"  value="production"  checked /> <span data-lang="PRODUCTION" ></span></label>
+              <div class="col-xs-12">
+                <input id="development"  type="radio" name="environment" data-argName="development" value="development"         />
+                <label for="development" class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="DEVELOPMENT"></label>
+              </div>
+              <div class="col-xs-12">
+                <input id="production"   type="radio" name="environment" data-argName="production"  value="production"  checked />
+                <label for="production"  class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="PRODUCTION"></label>
+              </div>
             </div>
 
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
@@ -169,6 +176,19 @@
               </select>
 
             </div>
+
+            <div id="linefeed" class="col-xs-12 col-s-12 col-md-12 col-l-12 radio" data-langtitle="LINEFEED">
+              <label data-lang="LINEFEED"></label>
+              <div class="col-xs-12">
+                <input id="linefeedlf" type="radio" name="linefeed" data-argname="linefeedlf" value="lf" checked="">
+                <label for="linefeedlf" class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="LINEFEED_LF"></label>
+              </div>
+              <div class="col-xs-12">
+                <input id="linefeedcrlf" type="radio" name="linefeed" data-argname="linefeedcrlf" value="crlf">
+                <label for="linefeedcrlf" class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="LINEFEED_CRLF"></label>
+              </div>
+            </div>
+
           </div>
 
           <div class="row">
@@ -187,7 +207,9 @@
 
       <!-- Alerts and messages once Node-Sass is running. -->
       <h2 id="printConsoleTitle" class="text-center" data-lang="STATUS_OF_ALL_PROJECTS"></h2>
-      <section id="printConsole" class="row"></section>
+      <section id="printConsole" class="row">
+        <div id="updateFound"></div>
+      </section>
     </div> <!-- end container -->
 
     <div id="ftux" class="text-center">
@@ -307,7 +329,7 @@
 
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <span class="pull-right versionApp" data-langtitle="VERSION">V2.12.12</span>
+                <span class="pull-right versionApp" data-langtitle="VERSION">V2.18.16</span>
                 <h3 class="panel-title" data-lang="ABOUT_SCOUTAPP"></h3>
               </div>
               <div class="panel-body">
@@ -362,6 +384,10 @@
                 <p class="text-center">
                   <button id="scoutUpdateChecker" class="btn btn-primary" data-lang="CHECK_FOR_UPDATES"></button>
                 </p>
+                <p class="text-center">
+                  <input id="automaticUpdates" type="checkbox" data-argName="automaticUpdates" checked>
+                  <label for="automaticUpdates" data-lang="AUTOMATIC_UPDATES"></label>
+                </p>
               </div>
             </div>
           </div>
@@ -401,22 +427,74 @@
           </div>
           <div class="modal-body text-center">
 
-
             <div class="row">
               <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
                 <h4 data-lang="NOTIFICATIONS_CHOICE" class="notifications custom-icon"></h4>
               </div>
-              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left alert-options">
                 <div class="text-center" data-lang="MESSAGES_TITLE_SUCCESS"></div>
-                <label><input type="checkbox" checked data-argName="messageInApp"   value="messageinapp"   /> <span data-lang="MESSAGES_IN_APP"></span></label><br />
-                <label><input type="checkbox"         data-argName="messageDesktop" value="messagedesktop" /> <span data-lang="MESSAGES_DESKTOP"></span></label><br />
-                <label><input type="checkbox" checked data-argName="messageSound"   value="messagesound"   /> <span data-lang="MESSAGES_SOUND"></span></label>
+                <div class="col-xs-12">
+                  <input id="messageInApp"    class="pull-right" type="checkbox" checked data-argName="messageInApp"   value="messageinapp"   />
+                  <label for="messageInApp"   data-lang="MESSAGES_IN_APP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="messageDesktop"  class="pull-right" type="checkbox"         data-argName="messageDesktop" value="messagedesktop" />
+                  <label for="messageDesktop" data-lang="MESSAGES_DESKTOP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="messageSound"    class="pull-right" type="checkbox" checked data-argName="messageSound"   value="messagesound"   />
+                  <label for="messageSound"   data-lang="MESSAGES_SOUND"></label>
+                </div>
               </div>
-              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left">
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left alert-options">
                 <div class="text-center" data-lang="MESSAGES_TITLE_ERROR"></div>
-                <label><input type="checkbox" checked data-argName="alertInApp"     value="alertinapp"     /> <span data-lang="MESSAGES_IN_APP"></span></label><br />
-                <label><input type="checkbox" checked data-argName="alertDesktop"   value="alertdesktop"   /> <span data-lang="MESSAGES_DESKTOP"></span></label><br />
-                <label><input type="checkbox" checked data-argName="alertSound"     value="alertsound"     /> <span data-lang="MESSAGES_SOUND"></span></label>
+                <div class="col-xs-12">
+                  <input id="alertInApp"      class="pull-right" type="checkbox" checked data-argName="alertInApp"     value="alertinapp"     />
+                  <label for="alertInApp"     data-lang="MESSAGES_IN_APP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="alertDesktop"    class="pull-right" type="checkbox" checked data-argName="alertDesktop"   value="alertdesktop"   />
+                  <label for="alertDesktop"   data-lang="MESSAGES_DESKTOP"></label>
+                </div>
+                <div class="col-xs-12">
+                  <input id="alertSound"      class="pull-right" type="checkbox" checked data-argName="alertSound"     value="alertsound"     />
+                  <label for="alertSound"     data-lang="MESSAGES_SOUND"></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-s-12 col-md-12 col-l-12">
+                <h4 data-lang="WINDOW_SETTING" class="window custom-icon"></h4>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left alert-options">
+                <div class="col-xs-12">
+                  <input id="sendToTrayOnClose"  class="pull-right" type="checkbox" checked data-argName="sendToTrayOnClose" value="sendToTrayOnClose" />
+                  <label for="sendToTrayOnClose" data-lang="SEND_TO_TRAY_ON_CLOSE"></label>
+                </div>
+              </div>
+              <div class="col-xs-6 col-s-6 col-md-6 col-l-6 checkbox text-left alert-options">
+                <div class="col-xs-12">
+                  <input id="startMinimized"     class="pull-right" type="checkbox"         data-argName="startMinimized"    value="startMinimized"    />
+                  <label for="startMinimized"    data-lang="START_MINIMIZED"></label>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-s-12 col-md-12 col-l-12 atomic-options">
+                <h4 data-lang="FILES" class="file custom-icon"></h4>
+                <p class="text-left" data-lang="ATOMIC_NOTE"></p>
+                <div class="col-xs-12 text-left">
+                  <label for="atomicSlider" data-lang="ATOMIC_LABEL"></label>
+                  <input
+                    id="atomicSlider"
+                    type="text"
+                    class="slider"
+                    data-argName="atomicSlider"
+                    data-slider-id="atomicSlider"
+                  />
+                </div>
               </div>
             </div>
 
@@ -462,21 +540,22 @@
 
     <script type="text/javascript" src="_scripts/ugui.js"></script>
     <!-- App specific code -->
-    <script type="text/javascript" src="_scripts/globals.js"         ></script>
-    <script type="text/javascript" src="_scripts/cultures.js"        ></script>
-    <script type="text/javascript" src="_scripts/load-settings.js"   ></script>
-    <script type="text/javascript" src="_scripts/ugui-override.js"   ></script>
-    <script type="text/javascript" src="_scripts/alerts.js"          ></script>
-    <script type="text/javascript" src="_scripts/libsass-fix.js"     ></script>
-    <script type="text/javascript" src="_scripts/app.js"             ></script>
-    <script type="text/javascript" src="_scripts/project-manager.js" ></script>
-    <script type="text/javascript" src="_scripts/sidebar.js"         ></script>
-    <script type="text/javascript" src="_scripts/events.js"          ></script>
-    <script type="text/javascript" src="_scripts/auto-guesser.js"    ></script>
-    <script type="text/javascript" src="_scripts/multi-import.js"    ></script>
-    <script type="text/javascript" src="_scripts/ftux.js"            ></script>
-    <script type="text/javascript" src="_scripts/drag-in-folders.js" ></script>
-    <script type="text/javascript" src="_scripts/preferences.js"     ></script>
+    <script type="text/javascript" src="_scripts/globals.js"           ></script>
+    <script type="text/javascript" src="_scripts/cultures.js"          ></script>
+    <script type="text/javascript" src="_scripts/load-settings.js"     ></script>
+    <script type="text/javascript" src="_scripts/window-manager.js"    ></script>
+    <script type="text/javascript" src="_scripts/ugui-override.js"     ></script>
+    <script type="text/javascript" src="_scripts/alerts.js"            ></script>
+    <script type="text/javascript" src="_scripts/app.js"               ></script>
+    <script type="text/javascript" src="_scripts/project-manager.js"   ></script>
+    <script type="text/javascript" src="_scripts/sidebar.js"           ></script>
+    <script type="text/javascript" src="_scripts/events.js"            ></script>
+    <script type="text/javascript" src="_scripts/auto-guesser.js"      ></script>
+    <script type="text/javascript" src="_scripts/multi-import.js"      ></script>
+    <script type="text/javascript" src="_scripts/ftux.js"              ></script>
+    <script type="text/javascript" src="_scripts/drag-in-folders.js"   ></script>
+    <script type="text/javascript" src="_scripts/preferences.js"       ></script>
+    <script type="text/javascript" src="_scripts/check-for-updates.js" ></script>
 
   </body>
 </html>

@@ -1068,7 +1068,6 @@ $('.sendCmdArgs').click(function (event) {
         //Run the command!
         runcmd(builtCommandString);
     }
-
 });
 
 
@@ -1254,13 +1253,13 @@ buildUGUIArgObject();
 
 //
 function findKeyValue (obj, arr) {
-    //Validate that both required arguments are passed
-    if(!obj || !arr) {
+    // Validate that both required arguments are passed
+    if (!obj || !arr) {
         console.info(º + 'You need to supply an object and an array of ' +
             'strings to drill down within the object.', consoleNormal);
         return;
     }
-    //Validate types
+    // Validate types
     if (Object.prototype.toString.call(obj) !== '[object Object]') {
         console.info(º + 'First argument must be passed as an object.', consoleNormal);
         return;
@@ -1268,7 +1267,7 @@ function findKeyValue (obj, arr) {
         console.info(º + 'Second argument must be passed as strings in an array.', consoleNormal);
         return;
     }
-    //Validate that all items of the array are strings
+    // Validate that all items of the array are strings
     for (i = 0; i < arr.length; i++) {
         if (typeof(arr[i]) !== 'string') {
             console.info(º + 'Second argument must be passed as strings in an array.', consoleNormal);
@@ -1389,7 +1388,7 @@ function patternMatchingDefinitionEngine () {
     //A regular expression that matches `((x))` and captures `x`
     var re = /\(\((.*?)\)\)/gi;
 
-    $('def').each(function (index, value) {
+    $('def').each(function (index, value) { // eslint-disable-line no-unused-vars
         //Assign 'value' to `def`
         //`def = <def name="quality">((min)),((max))</def>`
         var def = value;
@@ -1703,7 +1702,7 @@ function removeTypedQuotes () {
         //User entered text of current text field
         var textFieldValue = $(textFields[index]).val();
         //If the current text field has a double or single quote in it
-        if (textFieldValue.indexOf('\"') != -1 || textFieldValue.indexOf('\'') != -1) {
+        if (textFieldValue.indexOf('"') != -1 || textFieldValue.indexOf('\'') != -1) {
             //Remove quotes in current text field
             $(textFields[index]).val($(textFields[index]).val().replace(/['"]/g, ''));
         }
@@ -2342,7 +2341,6 @@ if ($('body').hasClass('prod')) {
 
     //Check for duplicate `data-argName`s
     warnIfDuplicateArgNames();
-
 }
 
 
@@ -2379,17 +2377,17 @@ function fillExecutableDropdowns () {
 // "CMD Output" section whenever the user interacts with any
 // form elements.
 
-//Make sure we're in dev mode first
-if($('body').hasClass('dev')) {
+// Make sure we're in dev mode first
+if ($('body').hasClass('dev')) {
 
-    //Cycle through all executables used by the app
+    // Cycle through all executables used by the app
     for (index = 0; index < executable.length; index++) {
-        //If any of the form elements with a `data-argName` change
+        // If any of the form elements with a `data-argName` change
         $(argsForm[index]).change(function () {
-            //Check if it was the drag/drop input box
+            // Check if it was the drag/drop input box
             if ($(this).parent().hasClass('ezdz')) {
                 var file = this.files[0];
-                //pass in the data-argName to EZDZ
+                // pass in the data-argName to EZDZ
                 file.argName = $(this).attr('data-argName');
                 //Run a custom function before updating dev tools
                 ezdz(file);
@@ -2805,15 +2803,26 @@ function sliderHandleGradient (themeGradient) {
     }
 }
 
+function sliderTrackAndTickColor () {
+    //Verify the developer is using Bootstrap slider
+    if (bootstrap3_enabled && slider_enabled) {
+        var bgColor = '#D5D5D5';
+        $('.slider-tick.in-selection').css('background-color', bgColor);
+        $('.slider-tick.in-selection').css('background-image',  'linear-gradient(' + bgColor + ', ' + bgColor + ')');
+        $('.slider-selection.tick-slider-selection').css('background-color', bgColor);
+        $('.slider-selection.tick-slider-selection').css('background-image', 'linear-gradient(' + bgColor + ', ' + bgColor + ')');
+    }
+}
+
 function sliderHandleColor () {
     //Verify the developer is using Bootstrap slider and that the navbar exists
     if (bootstrap3_enabled && slider_enabled && ($('.navbar').length > 0)) {
         //Remove the color of the slider handle
         $('.slider .slider-handle').css('background-image', 'none');
 
-        //Get the color of the navigation bar
+        // Get the color of the navigation bar
         var themeColor = $('.navbar').css('background-color');
-        //Get the background image or gradient
+        // Get the background image or gradient
         var themeGradient = $('.navbar').css('background-image');
 
         if (themeGradient == 'none') {
@@ -2821,6 +2830,8 @@ function sliderHandleColor () {
         } else {
             sliderHandleGradient(themeGradient);
         }
+
+        sliderTrackAndTickColor();
     }
 }
 
