@@ -3,7 +3,7 @@
 //Stuff that goes at the start
 @import "_var.sass";                  // Sass Variables and Mixins - Does not effect page, but other Sass files reference this file.
 @import "_scout-icons.sass";          // Importing custom made SVG icons as a font
-@import "../../bower_components/seiyria-bootstrap-slider/dist/css/bootstrap-slider.min"; // Styles the range slider
+@import "../../node_modules/bootstrap-slider/dist/css/bootstrap-slider.min"; // Styles the range slider
 @import "_main.sass";                 // Main CSS for the app
 
 //Stuff that effects specific sections

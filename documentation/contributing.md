@@ -18,12 +18,11 @@ Scout-App 2 is **written in JavaScript, Sass, and HTML**. It is built using the 
 
 ### Running Scout-App Locally for Development
 
-1. Clone down this `scout-app` repo with [Git](https://git-scm.com)
+1. Clone down this `scout-app` repo with [Git](https://git-scm.com), or [download a copy of the source](https://github.com/scout-app/scout-app/archive/master.zip)
 1. Install [Node.JS](http://nodejs.org) if you don't have it
-1. Run `npm install --loglevel=error`
+1. Open a command prompt or terminal in the scout-app folder and run `npm install --loglevel=error`
    * If you get a message about `Skipping failed optional dependency` or `Not compatible with your operating system or architecture:` it is normal and expected. Scout-App is cross-platform, so some dependencies are OS specific. These warnings are just there to say that something relating to a different OS wasn't installed.
 1. Run `npm start`
-1. [Read below if you get libsass bindings errors](#if-you-get-the-libsass-error).
 
 
 * * *
@@ -46,7 +45,7 @@ The  main files for Scout-App 2 are:
 
 In the Developer Tools Console, you can type `window.scout` (or just `scout`) to see the main Scout object. It contains the following:
 
-* `dictionary`: This is used for temporary storage while switching languages in the UI. It will occassionally hold the same contents as one of the JSON files in the `cultures` folder.
+* `dictionary`: Contains the same contents as the JSON files in the `cultures` folder. Used while switching languages in the UI.
 * `ftux`: "[**F**irst **T**ime **U**ser E**x**perience](https://en.wikipedia.org/wiki/First-time_user_experience)". This is used as temporary storage for information generated on the FTUX screen. FTUX is shown whenever the user has 0 projects added to Scout-App.
 * `globalSettings`: This is where we store app-wide settings, rather than project specific settings.
    * `cultureCode`: This will be set to `en` by default but can be changed by the user in the UI under `File > Preferences`.
@@ -113,18 +112,3 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
 1. Only languages with a JPG image in the `/scout-files/cultures` folder that matches their culture code (`en.jpg`) will be displayed in the UI.
 
 If there are languages you don't want in your local dictionary, then you can add them to the `languagesToSkip` array in `/cultures.js`. Or if your language is missing from `/scout-files/cultures/dictionary.json` then it may be in that array.
-
-* * *
-
-
-### If you get the LibSass error
-
-Once you have Scout-App running click the Dev Tools link in the View menu. In the console you might see this error:
-
-    `libsass` bindings not found
-
-Follow these instructions to fix it.
-
-This error means the version of Node.JS you have globally installed on your systme is has a different version of the V8 JavaScript engine than what is built in to NW.js. This is actually expected for NW.js development as the node-sass module we're using wasn't designed with it in mind. You'll need to go into the folder `/node_modules/node-sass/vendor` to see what binding folder you have. It will start with one of the following `darwin`, `freebsd`, `linux`, or `win` followed by either `ia32` or `x64`. You'll need to copy over all matching folders from the `/_assets` folder into the `/node_modules/node-sass/vendor` folder.
-
-So if you're on `win32-x64-11`, you'll need to copy over `win32-x64-43`, and `win32-ia32-43` to the vendor folder.

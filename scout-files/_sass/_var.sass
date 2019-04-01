@@ -1,19 +1,31 @@
+// sass-lint:disable no-color-literals
 
 // Supplies mixins and variables that other Sass files can call
 
-@mixin bmp0
+$quick: 0.5s ease all
+$uguiTextColor: #333
+
+=bmp0
     border: 0px
     margin: 0px
     padding: 0px
 
-@mixin user-select-none
+=user-select-none
     -webkit-user-select: none
     user-select: none
 
-@mixin truncate
+=truncate
     text-overflow: ellipsis
     white-space: nowrap
     overflow: hidden
 
-$quick: 0.5s ease all
-$uguiTextColor: #333
+=pillbox
+    position: relative
+    top: -0.2em
+    background-color: rgba(0, 0, 0, 0.2)
+    border-radius: 100px
+    margin: 0px 0px 0px 8px
+    padding: 3px 8px
+    color: #FFF
+    line-height: normal
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25)
