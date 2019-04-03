@@ -6,38 +6,39 @@
 
 var input = 'Phrase to be translated.';
 var supportedLangs = [
-    'ar',
-    'bg',
-    'da',
-    'de',
-    'en',
-    'es',
-    'fa',
-    'fi',
-    'fr',
-    'id',
-    'iw',
-    'hu',
-    'it',
-    'ja',
-    'mr',
-    'nl',
-    'no',
-    'pl',
-    'pt',
-    'ro',
-    'ru',
-    'sq',
-    'sv',
-    'tr',
-    'uk',
-    'vi',
-    'zh-TW',
-    'zh-CN'
+    'ar', // arabic
+    'bg', // bulgarian
+    'da', // danish
+    'de', // german
+    'en', // english
+    'es', // spanish/argentina
+    'fa', // farsi/persian
+    'fi', // finnish
+    'fr', // french
+    'iw', // hebrew
+    'hu', // hungarian
+    'id', // indonesian
+    'it', // italian
+    'ja', // japanese
+    'mr', // marathi
+    'nl', // dutch
+    'no', // norwegian
+    'pl', // polish
+    'pt', // brazilian portuguese
+    'ro', // romanian
+    'ru', // russian
+    'sq', // albanian
+    'sv', // swedish
+    'ta', // tamil
+    'tr', // turkish
+    'uk', // ukranian
+    'vi', // vietnamese
+    'zh-TW', // chinese traditional
+    'zh-CN' // chinese simplified
 ];
 var translations = {
-    'en': input,
-    'rk': input
+    'en': input, // english
+    'rk': input // redneck
 };
 
 
