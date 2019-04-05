@@ -136,7 +136,7 @@
         }
         scout.helpers.saveSettings();
     });
-    $('#sourceMap input').change(function (evt) {
+    $('#sourceMap input').change(function () {
         ugui.helpers.buildUGUIArgObject();
         var id = $('#projectID').val();
         for (var i = 0; i < scout.projects.length; i++) {
