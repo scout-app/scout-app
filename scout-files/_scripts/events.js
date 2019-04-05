@@ -102,26 +102,6 @@
             }
         }
     });
-    $('#outputStyle').change(function () {
-        var id = $('#projectID').val();
-        var outputStyle = $('#outputStyle').val();
-        for (var i = 0; i < scout.projects.length; i++) {
-            if (id == scout.projects[i].projectID) {
-                scout.projects[i].outputStyle = outputStyle;
-            }
-        }
-        scout.helpers.saveSettings();
-    });
-    $('#linefeed input').change(function (evt) {
-        var id = $('#projectID').val();
-        var linefeed = $(evt.currentTarget).val();
-        for (var i = 0; i < scout.projects.length; i++) {
-            if (id == scout.projects[i].projectID) {
-                scout.projects[i].linefeed = linefeed;
-            }
-        }
-        scout.helpers.saveSettings();
-    });
     $('#inputFolder').on('blur', function () {
         var newDir = $('#inputFolder').val();
         newDir = newDir.split('\\').join('/');
@@ -146,6 +126,37 @@
             }
         }
     });
+    $('#outputStyle').change(function () {
+        var id = $('#projectID').val();
+        var outputStyle = $('#outputStyle').val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].outputStyle = outputStyle;
+            }
+        }
+        scout.helpers.saveSettings();
+    });
+    $('#sourceMap input').change(function (evt) {
+        ugui.helpers.buildUGUIArgObject();
+        var id = $('#projectID').val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id === scout.projects[i].projectID) {
+                scout.projects[i].sourceMaps = ugui.args.sourceMaps.htmlticked;
+            }
+        }
+        scout.helpers.saveSettings();
+    });
+    $('#linefeed input').change(function (evt) {
+        var id = $('#projectID').val();
+        var linefeed = $(evt.currentTarget).val();
+        for (var i = 0; i < scout.projects.length; i++) {
+            if (id == scout.projects[i].projectID) {
+                scout.projects[i].linefeed = linefeed;
+            }
+        }
+        scout.helpers.saveSettings();
+    });
+
 
     // Clicking the "Status of all Projects" sidebar buttons
     $('#viewStatus').click(function (evt) {
@@ -229,40 +240,6 @@
             $('#sidebar .' + id).addClass('active');
         }
     }
-
-    $('#environment input').change(function (evt) {
-        ugui.helpers.buildUGUIArgObject();
-        var manuallyUpdateOutputStyle = false;
-        if (ugui.args.development.htmlticked) {
-            $($('#outputStyle option')[3]).hide();
-            $($('#outputStyle option')[4]).hide();
-
-            var isLabelSelected = $($('#outputStyle option')[0]).prop('selected');
-            var isNestedSelected = $($('#outputStyle option')[1]).prop('selected');
-            // If the first or second items in the dropdown are picked, that's cool, set everything else to the 3rd option
-            if (isLabelSelected == false && isNestedSelected == false) {
-                // Select "Expanded"
-                $($('#outputStyle option')[2]).prop('selected', true);
-                manuallyUpdateOutputStyle = true;
-            }
-        } else {
-            $($('#outputStyle option')[3]).show();
-            $($('#outputStyle option')[4]).show();
-        }
-
-        var environment = $(evt.currentTarget).val();
-        var id = $('#projectID').val();
-        for (var i = 0; i < scout.projects.length; i++) {
-            if (id === scout.projects[i].projectID) {
-                scout.projects[i].environment = environment;
-                if (manuallyUpdateOutputStyle) {
-                    scout.projects[i].outputStyle = $('#outputStyle').val();
-                }
-            }
-        }
-
-        scout.helpers.saveSettings();
-    });
 
     /**
      * DELETING A PROJECT

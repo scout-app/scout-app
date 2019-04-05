@@ -155,19 +155,8 @@
             <div>
               <h3 data-lang="ENVIRONMENT"></h3>
             </div>
-            <div id="environment" class="col-xs-12 col-s-6 col-md-6 col-l-6 radio">
-              <div class="col-xs-12">
-                <input id="development"  type="radio" name="environment" data-argName="development" value="development"         />
-                <label for="development" class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="DEVELOPMENT"></label>
-              </div>
-              <div class="col-xs-12">
-                <input id="production"   type="radio" name="environment" data-argName="production"  value="production"  checked />
-                <label for="production"  class="col-xs-12 col-s-6 col-md-6 col-l-6" data-lang="PRODUCTION"></label>
-              </div>
-            </div>
 
             <div class="col-xs-12 col-s-6 col-md-6 col-l-6" data-langtitle="OUTPUT_STYLE">
-
               <select id="outputStyle" data-argName="outputStyle" class="form-control" required="required">
                 <option value="expanded"   data-lang="OUTPUT_STYLE"      ></option>
                 <option value="nested"     data-lang="OUTPUT_NESTED"     ></option>
@@ -175,7 +164,13 @@
                 <option value="compact"    data-lang="OUTPUT_COMPACT"    ></option>
                 <option value="compressed" data-lang="OUTPUT_COMPRESSED" ></option>
               </select>
+            </div>
 
+            <div id="sourceMap" class="col-xs-12 col-s-6 col-md-6 col-l-6 checkbox">
+              <div class="col-xs-12">
+                <input id="sourceMaps"  type="checkbox" data-argName="sourceMaps" checked />
+                <label for="sourceMaps" data-lang="OUTPUT_SOURCE_MAPS"></label>
+              </div>
             </div>
 
             <div id="linefeed" class="col-xs-12 col-s-12 col-md-12 col-l-12 radio" data-langtitle="LINEFEED">

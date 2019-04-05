@@ -9,7 +9,7 @@
 //Stuff that effects specific sections
 @import "_header.sass";               // CSS for the header and navigation at the top of the app.
 @import "_sidebar.sass";              // Custom styles for sidebar
-@import "_projectsettings.sass";      // Project controls, like input/output folder, environment, and output styles
+@import "_projectsettings.sass";      // Project controls, like input/output folder, source maps, and output styles
 @import "_alerts.sass";               // Alerts, warnings and error messages
 @import "_ftux.sass";                 // First Time User Experience / Empty-State / Blank-State view
 @import "_multi-import.sass";         // Multi-Project Import Modal

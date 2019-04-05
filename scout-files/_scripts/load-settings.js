@@ -16,7 +16,8 @@
     var appData = nw.App.dataPath;
     var settingsFile = path.join(appData, 'scout-settings.json');
 
-    var settingsJSON = '';
+    var settingsJSON = null;
+    var settingsObj = null;
     // Attempt to read the settings file
     try {
         settingsJSON = fs.readFileSync(settingsFile, { encoding: 'utf-8' });
@@ -30,10 +31,16 @@
     }
 
     // Verify we got data back from reading the file
-    if (settingsJSON.length > 1) {
-        // Convert it from a string to JSON
-        var settingsObj = JSON.parse(settingsJSON);
+    if (settingsJSON) {
+        try {
+            // Convert it from a string to JSON
+            settingsObj = JSON.parse(settingsJSON);
+        } catch (err) {
+            console.warn('There was a problem parsing the settings file.');
+        }
+    }
 
+    if (settingsObj) {
         // update the scout object
         scout.projects = settingsObj.projects;
         scout.globalSettings = settingsObj.globalSettings || {};
@@ -49,6 +56,10 @@
             project.watcher = '';
             if (project.indicator == 'stop') {
                 project.indicator = 'play';
+            }
+            // For settings files that predate sourceMaps, default the value to true
+            if (Object.keys(project).indexOf('sourceMaps') === -1) {
+                project.sourceMaps = true;
             }
         }
 

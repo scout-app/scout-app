@@ -119,15 +119,11 @@
 
     function convertToCSS (project, inputFileName, inputFileExt, inputSubFolder) {
         var outputSubFolder = inputSubFolder || '';
+        var projectID = project.projectID;
         var outputStyle = project.outputStyle;
         var linefeed = project.linefeed;
+        var sourceMaps = project.sourceMaps;
         var mixins = getMixins();
-
-        var devMode = false;
-        // project.environment will return "production" or "development"
-        if (project.environment == 'development') {
-            devMode = true;
-        }
 
         var fullFilePath = path.join(project.inputFolder, outputSubFolder, inputFileName + inputFileExt);
         var outputFullFilePath = path.join(project.outputFolder, outputSubFolder, inputFileName + '.css');
@@ -142,14 +138,13 @@
             indentedSyntax: true, // true = Works on .sass and .scss files
             sourceComments: false, // true = adding in a comment above every rule, but the path in the comment is relative to Scout-App and not the end-user's project (can contain their user profile name)
             sourceMapContents: true, // Puts all the source files into the map file so browser can swap out concatenated file with the originals
-            sourceMap: true, // true = result.map will be produced and can be saved to disk if devMode = true
+            sourceMap: sourceMaps, // true = result.map will be produced and can be saved to disk
             omitSourceMapUrl: false, // true = remove the comment at the bottom of the .css that references the location of the .css.map file
             sourceMapEmbed: false // true = encode the entire .css.map file as a data-uri and place it in the bottom of .css file instead of linking to it, bloating the .css file (BAD)
         };
 
         // Use node-sass to convert sass or scss to css
         sass.render(sassOptions, function (err, result) {
-            var projectID = project.projectID;
             if (err) {
                 console.warn('Error processing Sass to CSS in sass.render');
                 console.warn(err);
@@ -161,7 +156,7 @@
                         console.warn(err);
                     }
                 });
-                if (devMode) {
+                if (sourceMaps) {
                     fs.outputFile(sourceMapOutput, String(result.map), function (err) {
                         if (err) {
                             console.warn('Error saving Sass Source Map file');

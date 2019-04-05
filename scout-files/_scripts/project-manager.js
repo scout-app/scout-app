@@ -24,8 +24,8 @@
         $('#outputFolderBrowse').attr('nwworkingdir', '...');
         $('#outputFolderBrowse').val('');
         $('#outputWarning').addClass('hide');
-        $('#environment input[data-argname="production"]').click();
         $($('#outputStyle option')[5]).prop('selected', true);
+        $('#sourceMap input[data-argname="sourceMaps"]').prop('checked', true);
         $('#linefeed input[data-argname="linefeedlf"]').prop('checked', true);
         $('#printConsole .alert, #printConsole .panel').addClass('hide');
 
@@ -37,8 +37,8 @@
             'projectIcon':   '',
             'inputFolder':   '',
             'outputFolder':  '',
-            'environment':   'production',
             'outputStyle':   'compressed',
+            'sourceMaps':    true,
             'linefeed':      'lf',
             'indicator':     'play'
         };
@@ -112,8 +112,8 @@
      *        "inputFolder":   "~/GitHub/my-project/_sass",
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
-     *        "environment":   "production",
      *        "outputStyle":   "compressed",
+     *        "sourceMaps":    true,
      *        "linefeed":      "lf"
      *    }
      *
@@ -153,17 +153,8 @@
                 project.inputFolder = $('#inputFolder').val();
                 project.outputFolder = $('#outputFolder').val();
 
-                var devChecked = $('#environment input[data-argname="development"]').prop('checked');
-                var prodChecked = $('#environment input[data-argname="production"]').prop('checked');
-                var environment = 'production';
-                if (devChecked) {
-                    environment = 'development';
-                } else if (prodChecked) {
-                    environment = 'production';
-                }
-                project.environment = environment;
-
                 project.outputStyle = $('#outputStyle').val();
+                project.sourceMaps = $('#environment input[data-argname="sourceMaps"]').prop('checked');
 
                 var lfChecked = $('#linefeed input[data-argname="linefeedlf"]').prop('checked');
                 var crlfChecked = $('#linefeed input[data-argname="linefeedcrlf"]').prop('checked');
@@ -189,6 +180,7 @@
         data.projects = scout.projects;
         data.versions = scout.versions;
         data.globalSettings = scout.globalSettings;
+
         data = JSON.stringify(data, null, 4);
         data = data + '\n';
         fs.writeFile(settingsJSON, data, function (err) {
@@ -234,8 +226,8 @@
      *        "inputFolder":   "~/GitHub/my-project/_sass",
      *        "outputFolder":  "~/GitHub/my-project/_style",
      *        "projectIcon":   "~/GitHub/my-project/_img/meta/logo.png",
-     *        "environment":   "production",
      *        "outputStyle":   "compressed",
+     *        "sourceMaps":    true,
      *        "linefeed":      "lf"
      *    }
      *
@@ -258,7 +250,6 @@
         $('#inputFolderBrowse' ).attr('nwworkingdir', workingDir);
         $('#outputFolderBrowse').attr('nwworkingdir', workingDir);
 
-        // Output Style dropdown must be updated before Environment
         var outputStyleOption = $('#outputStyle option');
         for (var i = 1; i < outputStyleOption.length; i++) {
             var current = $(outputStyleOption[i]).val();
@@ -267,12 +258,8 @@
             }
         }
 
-        // Environment
-        if (base.environment == 'production') {
-            $('#environment input[data-argName="production"]').click();
-        } else if (base.environment == 'development') {
-            $('#environment input[data-argName="development"]').click();
-        }
+        // Sass Source Maps
+        $('#sourceMap input[data-argName="sourceMaps"]').prop('checked', !!base.sourceMaps);
 
         // Linefeed
         if (base.linefeed == 'lf') {
@@ -308,8 +295,8 @@
     //   inputFolder: '',
     //   outputFolder: '',
     //   projectIcon: '',
-    //   environment: '',
     //   outputStyle: '',
+    //   sourceMaps: true,
     //   linefeed: ''
     // };
     // scout.helpers.addProject(project);

@@ -82,7 +82,7 @@ In the Developer Tools Console, you can type `window.scout` (or just `scout`) to
    * `updateSidebar`: Clears out the sidebar and regenerates it based on the `scout.projects` list.
 * `newProject`: The is temporary storage used for building a project object before it is passed into the `addProject` helper function.
 * `projects`: A listing of all the projects added to Scout-App and their settings. The details of a project are below:
-   * `environment`: Can be `production` or `development`, set in the UI.
+   * `sourceMaps`: Can be `true` or `false`, set in the UI.
    * `imageFolder`: Can be set by the auto guesser code, by the user in the UI. Default is empty string.
    * `indicator`: Controls what icon is shown in the sidebar. `play`, `gray-play`, and `stop`. These also affects whether you can run or stop a project.
    * `inputFolder`: The input Sass folder. Can be set by the auto guesser code or by the user. Default is empty string.
