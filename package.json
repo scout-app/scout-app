@@ -69,7 +69,7 @@
         "fs-extra": "^1.x.x",
         "jquery": "^3.x.x",
         "components-jqueryui": "1.12.1",
-        "bootstrap": "3.2.0",
+        "bootstrap": "3.4.1",
         "bootstrap-slider": "^8.x.x",
         "countup.js": "^1.x.x",
         "awesome-sass-easing": "latest",
