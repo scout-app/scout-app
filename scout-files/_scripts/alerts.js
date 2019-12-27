@@ -64,6 +64,22 @@
         var code = error.status;
         var time = new Date().timeNow();
         var title = scout.localize('ALERT_TITLE');
+
+        if (!file) {
+            var msg = scout.localize('INTERNAL_NODE_SASS_ERROR');
+            var err = {
+                'file': 'File not found',
+                'line': bugLine || 0,
+                'column': col || 0,
+                'status': code || 0,
+                'formatted': msg,
+                'message': msg,
+                'name': 'Error'
+            };
+            scout.helpers.warn(err, projectID);
+            return;
+        }
+
         title = title.replace('{{time}}', time).replace('{{code}}', code).replace('{{bugLine}}', bugLine).replace('{{col}}', col);
         var footer = '<em>' + file + '</em>';
         var bugFile = path.basename(file);
