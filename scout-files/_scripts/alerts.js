@@ -85,6 +85,9 @@
         var bugFile = path.basename(file);
 
         var fileContents = ugui.helpers.readAFile(file);
+        if (!fileContents) {
+            fileContents = '';
+        }
         fileContents = fileContents.split('\n');
         var count = fileContents.length;
 
