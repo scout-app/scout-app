@@ -59,33 +59,36 @@
     }
 
     function processInputFolder (project, inputSubFolder) {
-        var inputFolder = project.inputFolder;
-        if (inputSubFolder) {
-            inputFolder = path.join(project.inputFolder, inputSubFolder);
-        }
-        // Grab all the files in the input folder and put them in an array
-        ugui.helpers.readAFolder(inputFolder, function (contents) {
-            // check each file and process it if it is sass or scss and doesn't start with an underscore
-            for (var i = 0; i < contents.length; i++) {
-                var folder = contents[i].isFolder;
-                var currentName = contents[i].name;
-                if (folder) {
-                    var subfolder = currentName;
-                    if (inputSubFolder) {
-                        subfolder = path.join(inputSubFolder, currentName);
-                    }
-                    processInputFolder(project, subfolder);
-                // Skip all files that begin with an _ and Process all sass/scss files
-                } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
-                    // Change from 'some-file.scss' to 'some-file'
-                    var fileName = currentName.slice(0, -5);
-                    // Change from 'some-file.scss' to '.scss'
-                    var extension = currentName.substring(currentName.length - 5, currentName.length);
-                    // send to be converted to css and spit out into the output folder
-                    convertToCSS(project, fileName, extension, inputSubFolder);
-                }
+        // #406 - Setting a timeout to match the atomic slider to prevent an error where Node-Sass attempts to read a files contents, but no data is returned
+        setTimeout(function () {
+            var inputFolder = project.inputFolder;
+            if (inputSubFolder) {
+                inputFolder = path.join(project.inputFolder, inputSubFolder);
             }
-        });
+            // Grab all the files in the input folder and put them in an array
+            ugui.helpers.readAFolder(inputFolder, function (contents) {
+                // check each file and process it if it is sass or scss and doesn't start with an underscore
+                for (var i = 0; i < contents.length; i++) {
+                    var folder = contents[i].isFolder;
+                    var currentName = contents[i].name;
+                    if (folder) {
+                        var subfolder = currentName;
+                        if (inputSubFolder) {
+                            subfolder = path.join(inputSubFolder, currentName);
+                        }
+                        processInputFolder(project, subfolder);
+                    // Skip all files that begin with an _ and Process all sass/scss files
+                    } else if (!currentName.startsWith('_') && (currentName.toLowerCase().endsWith('.sass') || currentName.toLowerCase().endsWith('.scss'))) {
+                        // Change from 'some-file.scss' to 'some-file'
+                        var fileName = currentName.slice(0, -5);
+                        // Change from 'some-file.scss' to '.scss'
+                        var extension = currentName.substring(currentName.length - 5, currentName.length);
+                        // send to be converted to css and spit out into the output folder
+                        convertToCSS(project, fileName, extension, inputSubFolder);
+                    }
+                }
+            });
+        }, scout.globalSettings.atomicSlider);
     }
 
     // Get the mixins config file
