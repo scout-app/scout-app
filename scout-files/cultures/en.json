@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Import Projects",
   "IMPORT_PROJECT_NAME": "Project Name",
   "INPUT_FOLDER": "Input Folder:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass had an internal error. This is usually caused by atomic saves in your editor. You can adjust atomic save delays under preferences.",
   "LANGUAGE_CHOICE": "Language:",
   "LANG_AR": "Arabic (عربى)",
   "LANG_BG": "Bulgarian (български)",

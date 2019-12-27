@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Importa progetti",
   "IMPORT_PROJECT_NAME": "Nome del Progetto",
   "INPUT_FOLDER": "Cartella di origine:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass ha avuto un errore interno. Questo di solito è causato da atomica salva nel vostro editor. È possibile regolare atomica Salva ritardi sotto preferenze.",
   "LANGUAGE_CHOICE": "Lingua:",
   "LANG_AR": "Arabo (العربية)",
   "LANG_BG": "Bulgaro (български)",

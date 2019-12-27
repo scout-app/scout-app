@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Indlæs projekter",
   "IMPORT_PROJECT_NAME": "Projekt Navn",
   "INPUT_FOLDER": "Input mappe:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass havde en intern fejl. Dette er normalt forårsaget af atomare gemmer i din editor. Du kan justere atomare spare forsinkelser under præferencer.",
   "LANGUAGE_CHOICE": "Sprog:",
   "LANG_AR": "Arabisk (عربى)",
   "LANG_BG": "Bulgarsk (български)",

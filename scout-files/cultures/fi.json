@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Tuo projekteja",
   "IMPORT_PROJECT_NAME": "Projektin nimi",
   "INPUT_FOLDER": "Sisääntulokansio",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass oli sisäinen virhe. Tämä johtuu yleensä atomi tallentaa editori. Voit säätää atomi säästöä viivästyksiä alle mieltymykset.",
   "LANGUAGE_CHOICE": "Kieli:",
   "LANG_AR": "Arabialainen (العربية)",
   "LANG_BG": "Bulgarialainen (български)",

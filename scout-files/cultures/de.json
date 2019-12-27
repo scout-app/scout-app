@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Projekte importieren",
   "IMPORT_PROJECT_NAME": "Projektname",
   "INPUT_FOLDER": "Eingabeordner:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass hatte einen internen Fehler. Dies wird in der Regel verursacht durch Atom in Ihrem Editor speichert. Sie können speichern Verzögerungen unter Präferenzen Atom einzustellen.",
   "LANGUAGE_CHOICE": "Sprache:",
   "LANG_AR": "Arabisch (عربى)",
   "LANG_BG": "Bulgarisch (български)",

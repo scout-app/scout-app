@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Importă Proiecte",
   "IMPORT_PROJECT_NAME": "Nume Proiect",
   "INPUT_FOLDER": "Director de intrare:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass a avut o eroare internă. Aceasta este cauzată de obicei atomică salvează în editorul. Puteți ajusta atomic salva întârzieri în cadrul preferințelor.",
   "LANGUAGE_CHOICE": "Limbă:",
   "LANG_AR": "Arabă (عربى)",
   "LANG_BG": "Bulgară (български)",

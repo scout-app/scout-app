@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Bring Your Own Projects",
   "IMPORT_PROJECT_NAME": "Project Name",
   "INPUT_FOLDER": "Input Folder:",
+  "INTERNAL_NODE_SASS_ERROR": "Man, that dang'ol Node-Sass broke down again. I keep tellin' you, ya gotta change your atomic delays. This just gonna keep happenin' if ya don't.",
   "LANGUAGE_CHOICE": "Language:",
   "LANG_AR": "Arabic (عربى)",
   "LANG_BG": "Bulgarian (български) - Like from Star Trek?",

@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Çalışma'yı içeri aktar",
   "IMPORT_PROJECT_NAME": "Proje Adı",
   "INPUT_FOLDER": "Giriş Dizini:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass dahili bir hata vardı. atomik Düzenleyicinizde kaydeder tarafından Bu genellikle kaynaklanır. Sen tercihleri ​​altında gecikmeler tasarrufu atomik ayarlayabilirsiniz.",
   "LANGUAGE_CHOICE": "Dil:",
   "LANG_AR": "Arapça (عربى)",
   "LANG_BG": "Bulgarca (български)",

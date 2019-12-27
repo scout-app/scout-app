@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Importo Projekte",
   "IMPORT_PROJECT_NAME": "Emri i projektit",
   "INPUT_FOLDER": "Dosja që mban SASS",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass ka pasur një gabim të brendshëm. Kjo zakonisht shkaktohet nga atomike kursen në editor tuaj. Ju mund të rregullojë atomike ruaj vonesa sipas preferencave.",
   "LANGUAGE_CHOICE": "Gjuha:",
   "LANG_AR": "Arabisht (عربى)",
   "LANG_BG": "Bullgarisht (български)",

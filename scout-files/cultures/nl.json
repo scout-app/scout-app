@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Importeer Projecten",
   "IMPORT_PROJECT_NAME": "Project Naam",
   "INPUT_FOLDER": "Invoermap",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass had een interne fout. Dit wordt meestal veroorzaakt door atomaire opslaat in je editor. U kunt atomaire aanpassen save vertragingen onder voorkeuren.",
   "LANGUAGE_CHOICE": "Taal:",
   "LANG_AR": "Arabisch (العربية)",
   "LANG_BG": "Bulgaars (български)",

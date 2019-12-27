@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Nhập khẩu dự án",
   "IMPORT_PROJECT_NAME": "Tên dự án",
   "INPUT_FOLDER": "Đầu vào (Sass):",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass đã có một lỗi nội bộ. Điều này thường được gây ra bởi nguyên tử tiết kiệm trong trình soạn thảo của bạn. Bạn có thể điều chỉnh nguyên tử tiết kiệm chậm trễ dưới sở thích.",
   "LANGUAGE_CHOICE": "Ngôn ngữ:",
   "LANG_AR": "Tiếng Ả Rập (عربى)",
   "LANG_BG": "Tiếng Bulgaria (български)",

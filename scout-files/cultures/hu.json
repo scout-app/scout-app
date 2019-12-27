@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Projekt importálása",
   "IMPORT_PROJECT_NAME": "Projekt neve",
   "INPUT_FOLDER": "Bemeneti mappa:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass belső hiba. Ezt általában az okozza, atomi ment a szerkesztő. Beállítható atomi megtakarítás késések kedvezményesen.",
   "LANGUAGE_CHOICE": "Nyelv:",
   "LANG_AR": "Arab (العربية)",
   "LANG_BG": "Bolgár (български)",

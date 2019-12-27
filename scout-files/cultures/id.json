@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Mengimpor Proyek",
   "IMPORT_PROJECT_NAME": "Nama Proyek",
   "INPUT_FOLDER": "Input Folder:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass memiliki kesalahan internal. Hal ini biasanya disebabkan oleh atom menyimpan dalam editor Anda. Anda dapat menyesuaikan atom menyimpan penundaan bawah preferensi.",
   "LANGUAGE_CHOICE": "Bahasa:",
   "LANG_AR": "Arab (عربى)",
   "LANG_BG": "Bulgaria (български)",

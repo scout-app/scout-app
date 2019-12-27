@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "匯入專案",
   "IMPORT_PROJECT_NAME": "專案名稱",
   "INPUT_FOLDER": "輸入資料夾:",
+  "INTERNAL_NODE_SASS_ERROR": "節點薩斯有一個內部錯誤。這通常是由原子在編輯器中保存。你可以節省下的喜好調整延遲原子。",
   "LANGUAGE_CHOICE": "選擇語言:",
   "LANG_AR": "阿拉伯語 (عربى)",
   "LANG_BG": "保加利亞語 (български)",

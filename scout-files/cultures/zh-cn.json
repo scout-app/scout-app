@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "导入项目",
   "IMPORT_PROJECT_NAME": "项目名称",
   "INPUT_FOLDER": "源文件夹",
+  "INTERNAL_NODE_SASS_ERROR": "节点萨斯有一个内部错误。这通常是由原子在编辑器中保存。你可以节省下的喜好调整延迟原子。",
   "LANGUAGE_CHOICE": "选择语言：",
   "LANG_AR": "阿拉伯语 (العربية)",
   "LANG_BG": "保加利亚语 (български)",

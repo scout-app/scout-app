@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Importera projekt",
   "IMPORT_PROJECT_NAME": "Projektnamn",
   "INPUT_FOLDER": "Inmatningsmapp:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass hade ett internt fel. Detta orsakas oftast av atom sparar i din redaktör. Du kan ställa in atom spara förseningar enligt önskemål.",
   "LANGUAGE_CHOICE": "Språk:",
   "LANG_AR": "Arabiska (عربى)",
   "LANG_BG": "Bulgariska (български)",

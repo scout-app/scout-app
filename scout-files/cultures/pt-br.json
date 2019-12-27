@@ -38,6 +38,7 @@
   "IMPORT_PROJECTS": "Importar Projetos",
   "IMPORT_PROJECT_NAME": "Nome do Projeto",
   "INPUT_FOLDER": "Pasta de entrada:",
+  "INTERNAL_NODE_SASS_ERROR": "Node-Sass teve um erro interno. Isso geralmente é causado por atômica salva em seu editor. Você pode ajustar atômica salvar atrasos em preferências.",
   "LANGUAGE_CHOICE": "Idioma:",
   "LANG_AR": "Árabe (العربية)",
   "LANG_BG": "Búlgaro (Български)",
