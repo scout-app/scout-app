@@ -9,6 +9,7 @@
 
    ![cmd example](https://user-images.githubusercontent.com/4629794/78788502-e8aee080-7979-11ea-8b0b-6d3d3ec46e61.png)
 
+1. Run `node -v`, if the number is 12 or above, you need to either use [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) (linux/osx) or [nvm-windows](https://github.com/coreybutler/nvm-windows/releases) to change the version number to 11, or you need to uninstall Node and reinstall Node at version 11. 
 1. In the `scout-app` folder, run `npm install --loglevel=error`
    * If you get `ReferenceError: primordials is not defined`, you are on a newer Node version, switch to Node 11.
    * If you get a message about `Skipping failed optional dependency` or `Not compatible with your operating system or architecture:` it is normal and expected. Scout-App is cross-platform, so some dependencies are OS specific. These warnings are just there to say that something relating to a different OS wasn't installed.
