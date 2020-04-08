@@ -1,6 +1,6 @@
 ### Running Scout-App's latest (unreleased) code locally
 
-1. Install Node.JS (any version between 6 and 11)
+1. Install Node.JS (any version between 6 and 11, Node 12+ does not work currently)
    * https://nodejs.org/dist/latest-v11.x
 1. Download a copy of the source code
    * https://github.com/scout-app/scout-app/archive/master.zip
