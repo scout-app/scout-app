@@ -20,6 +20,7 @@
 //
 // All of those are from NW.js 0.12.3, the .exe is a renamed version of
 // `nw.exe` with a custom icon and modified version number using Resource Hacker.
+// Alternative: Resource Cracker https://www.pelock.com/download/resource-cracker.exe
 
 // BUILDING FOR OSX:
 // Prerequisites: Must have Node and NPM installed globally.
